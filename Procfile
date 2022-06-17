@@ -1,0 +1,4 @@
+scraper: python valotteryscrape.py
+
+
+

@@ -1,0 +1,13 @@
+pandas
+psycopg2
+requests
+apscheduler
+bs4
+datetime
+sqlalchemy
+lxml
+datetime
+numpy
+html5lib
+Scipy
+
