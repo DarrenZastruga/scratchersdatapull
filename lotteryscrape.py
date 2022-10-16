@@ -19,6 +19,8 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+from psycopg2.extensions import register_adapter, AsIs
+psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
 
 
 
@@ -409,6 +411,7 @@ def exportAZScratcherRecs():
     scratchersall = tixtables[['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
     scratchersall = scratchersall.drop_duplicates(subset=['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported'])
     scratchersall = scratchersall.loc[scratchersall['gameNumber']!= "Coming Soon!", :]
+    print(scratchersall.dtypes)
     #scratchersall = scratchersall.drop_duplicates()
     # save scratchers list
     scratchersall.to_sql('AZscratcherlist', engine, if_exists='replace')
