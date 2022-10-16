@@ -1,4 +1,4 @@
-scraper: python valotteryscrape.py
+scraper: python lotteryscrape.py
 
 
 
