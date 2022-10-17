@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "scratcherstats",
+  "private_key_id": "e000daa6aff500ea29074f437439a160f9ccec76",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCdZTz0765k+TCw\nIVHAFThqvpea/osDy1c6bJxuZl1wzQLLSyI0/zPfwU+jhcCr2uyQv44kenh5hMyR\nDJnOf8khruuuYJaGfZPyWeMjH5mpSk9vSj6AJBSt8oiELUpccFJJBM5B7qtIr1ge\nFNjB6hhV7MFwMSr4215luPjJ2r6/6CMWqFqUM72GTS/Z6+bKqipDcFA85K7f7v9J\nplk+V7V7cPuNIzRntneXPXDEFm/oNtLlszoEb5cY0WkgiIvYPdlb4qCNnjolu/JI\nGHqfR2xmZUFK8+3GKXt0SmZf9ktC2M9l5JHZ+s9Ywu0G+5X4ho/8Ktz1hCHLAXtz\nRR4aXd7lAgMBAAECggEAQp3IsPqI21/Exac0jJHusO8+B3HYsKBtqOKzSt60ibub\nhSOltLyW3gtZg6Jmq9Ya7iDFLpdPSk90raehqY7YOBNq2QE0dHPOHHMC+ai0RryW\n5kmMLnwW7JCMSzVIFdvMV+9axPkZMchVCVZVb61+408ziCKnR3DBgVhKpFSbC2mw\nyoh/yS7Uwtb188v6OdzjwbjFCV/Ljju5k/leDdA2W6UYYJ+C+IkTcnd14lb3AeYl\nsjoJ/buoYz5cnqFTVhR44xsMARLfDhCIjISqSbtDeubXeSZyWr1am2TuQ8n1HE0I\nBSE8p133J3p9LN+15gI6Xw2Zl+WGqFsR4g5JShHR+QKBgQDU04r9ncheYhHqZeBy\nzFQ7dgtwD43Oe4hn5C0BOw2sbIHBS3phCgF8dbhnjxwf+c5Q82tvYUMkPFXMjgk4\nhe1AA5EAypo+0qtF6B6RES5UG3YRN+Y3vtkWlQ/uqkkuj5vrSlw1pWEFbLRdpiD9\nR/ZBzKftFWCmlmg48FYP7wG2lwKBgQC9UxG/9UTxE7IB0IpkO0G0tT7c3ykEZ4Im\nzX87VgR2xs3RTe9zjEI5nfCI3gfd4xncJjmTmLFGQeL2LcUsKIIdMo2yLqN62Ft2\nFDYr8katEO9Zt3tlR8rC0YlX+RWY1KouMr3kQcr1C88FJiXc4LO9+ft28MccM3Tu\ncP2bTJyh4wKBgQCDEA8tJgipjw1nYvu41noc8BIVHY7/lHWpPQw2EM7X2y6BAeFI\ndyf5JGm+ZJQ2YNkcYvtLaQM3Amz3/pRRGbDEVi3q5dndTFErSMniHkmAhDTOX7VH\nqSD5ViyslnNg2BF18aIda033UD022sLAF5vgY48aYqrVjBR81Ay73T0Z2wKBgDpt\n4rJ9fbNxQqSwuaVJbHPa4/XCoaQMVeynyzaCy4nkvSx1gwsEJIQnrE5xR7hBGIAL\nBAX7P+rQ9rzHT2zba5ybN4PgRO/qyf9dKYLSmOFcsqHbsKeHSppplJuj8fhi2cq8\nOkKx03NhG5kZNuI+LvrYpbUFhk27y8Cy+nHtaQHFAoGADpH7gzE2/cUhMDanycgJ\nvllsHTW++XiM6Ssn1zH0gVsZQawbNCQ15WlKABYdbzq5MuCS5aRYoY44ir2+xDBe\nVNK4l8geNRaI9qgfenMvuKrxLrPVmrn/OsWMOSjKi07dkzvmbyZDBplmyYLtHPpT\nXCdhkccPx4/SCMAtUzt7G/k=\n-----END PRIVATE KEY-----\n",
+  "client_email": "scratcherstats@scratcherstats.iam.gserviceaccount.com",
+  "client_id": "110270332633804518659",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/scratcherstats%40scratcherstats.iam.gserviceaccount.com"
+}
