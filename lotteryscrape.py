@@ -44,7 +44,7 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
- scopes = ['https://www.googleapis.com/auth/spreadsheets',
+scopes = ['https://www.googleapis.com/auth/spreadsheets',
           'https://www.googleapis.com/auth/drive']
 
 credentials = Credentials.from_service_account_file('./scratcherstats-e000daa6aff5.json', scopes=scopes)
