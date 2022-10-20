@@ -10,4 +10,5 @@ datetime
 numpy
 html5lib
 Scipy
+gspread
 
