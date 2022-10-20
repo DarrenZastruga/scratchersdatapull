@@ -47,7 +47,7 @@ logger.addHandler(logger_file_handler)
 scopes = ['https://www.googleapis.com/auth/spreadsheets',
           'https://www.googleapis.com/auth/drive']
 try:
-    service_account_info = json.load(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
+    service_account_info = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
 except KeyError:
     service_account_info = "Google application service account info not available"
     #logger.info("Google application service account info not available!")
