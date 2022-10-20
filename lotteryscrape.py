@@ -58,7 +58,7 @@ credentials = Credentials.from_service_account_info(
     service_account_info)
 
 #credentials = Credentials.from_service_account_file('./scratcherstats_googleacct_credentials.json', scopes=scopes)
-
+ 
 gc = gspread.authorize(credentials)
 
 gauth = GoogleAuth()
