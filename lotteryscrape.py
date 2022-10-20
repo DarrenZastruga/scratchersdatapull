@@ -48,15 +48,13 @@ scopes = ['https://www.googleapis.com/auth/spreadsheets',
           'https://www.googleapis.com/auth/drive']
 
 try:
-    GOOG_PRIVATE_KEY_ID = os.environ["GOOG_PRIVATE_KEY_ID"]
-    GOOG_PRIVATE_KEY = os.environ["GOOG_PRIVATE_KEY"]
+    service_account_info = json.load(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
 except KeyError:
-    GOOG_PRIVATE_KEY_ID = "Key ID not available!"
-    GOOG_PRIVATE_KEY = "Key not available!"
-    #logger.info("Tokens not available!")
+    service_account_info = "Google application service account info not available"
+    #logger.info("Google application service account info not available!")
     #raise
 
-service_account_info = json.load(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
+#service_account_info = json.load(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
 credentials = service_account.Credentials.from_service_account_info(
     service_account_info)
 
