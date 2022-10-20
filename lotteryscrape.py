@@ -55,7 +55,7 @@ except KeyError:
 
 #service_account_info = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
 credentials = Credentials.from_service_account_info(
-    service_account_info)
+    service_account_info, scopes)
 
 #credentials = Credentials.from_service_account_file('./scratcherstats_googleacct_credentials.json', scopes=scopes)
  
