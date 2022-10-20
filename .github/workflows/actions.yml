@@ -2,7 +2,7 @@ name: run lotteryscrape.py
 
 on:
   schedule:
-    - cron: '0 2 * * *' # at 1am daily
+    - cron: '5 2 * * *' # at 1am daily
 
 jobs:
   build:
