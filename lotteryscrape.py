@@ -22,7 +22,12 @@ from itertools import repeat
 from scipy import stats
 from psycopg2.extensions import register_adapter, AsIs
 psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
-
+import gspread
+from gspread_dataframe import set_with_dataframe
+from google.oauth2.service_account import Credentials
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
+import df2gspread as d2g
 
 
 #logging.basicConfig()
@@ -39,7 +44,22 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
- 
+ scopes = ['https://www.googleapis.com/auth/spreadsheets',
+          'https://www.googleapis.com/auth/drive']
+
+credentials = Credentials.from_service_account_file('./scratcherstats-e000daa6aff5.json', scopes=scopes)
+
+gc = gspread.authorize(credentials)
+
+gauth = GoogleAuth()
+drive = GoogleDrive(gauth)
+
+# open a google sheet
+gs = gc.open_by_key('1vAgFDVBit4C6H2HUnOd90imbtkCjOl1ekKychN2uc4o')
+# select a work sheet from its name
+testratingssheet = gs.worksheet('TestRatingsTable')
+
+    
 DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
 print(DATABASE_URL)
 
@@ -152,6 +172,11 @@ def exportVAScratcherRecs():
     #save scratchers list
     scratchersall.to_sql('VAscratcherlist', engine, if_exists='replace')
     scratchersall.to_csv("./VAscratcherslist.csv", encoding='utf-8')
+    
+    # write to Google Sheets
+    testratingssheet.clear()
+    set_with_dataframe(worksheet=testratingssheet, dataframe=scratchersall, include_index=False,
+    include_column_header=True, resize=True)
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
