@@ -9,6 +9,7 @@ import requests
 from apscheduler.schedulers.blocking import BlockingScheduler
 from bs4 import BeautifulSoup, re
 import logging
+import logging.handlers
 from datetime import datetime
 from dateutil.tz import tzlocal
 from sqlalchemy import create_engine
