@@ -49,6 +49,7 @@ conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
+logger.info(f'Running lotteryscrape.py at: {now}')
 
 powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
 # add some more to powers as necessary
@@ -900,9 +901,12 @@ for t in prizetypes:
 exportVAScratcherRecs()
 exportAZScratcherRecs()
 
+now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
+logger.info(f'Finishing lotteryscrape.py at: {now}')
+'''
 scheduler = BlockingScheduler()
 scheduler.add_job(exportVAScratcherRecs, 'cron', hour=0, minute=30)
 scheduler.add_job(exportAZScratcherRecs, 'cron', hour=0, minute=30)
 scheduler.start()
-
+'''
 
