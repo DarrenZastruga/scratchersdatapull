@@ -47,7 +47,7 @@ logger.addHandler(logger_file_handler)
 scopes = ['https://www.googleapis.com/auth/spreadsheets',
           'https://www.googleapis.com/auth/drive']
 
-credentials = Credentials.from_service_account_file('./scratcherstats-e000daa6aff5.json', scopes=scopes)
+credentials = Credentials.from_service_account_file('./scratcherstats_googleacct_credentials.json', scopes=scopes)
 
 gc = gspread.authorize(credentials)
 
