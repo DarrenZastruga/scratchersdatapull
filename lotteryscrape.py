@@ -364,7 +364,7 @@ def exportVAScratcherRecs():
     # select a work sheet from its name
     VAratingssheet = gs.worksheet('VARatingsTable')
     VAratingssheet.clear()
-    ratingstable[['price', 'gameName_y','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable[['price', 'gameName_y','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -723,7 +723,7 @@ def exportAZScratcherRecs():
     #select sheet by name
     AZratingssheet = gs.worksheet('AZRatingsTable')
     AZratingssheet.clear()
-    ratingstable[['price', 'gameName_y','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable[['price', 'gameName_y','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
