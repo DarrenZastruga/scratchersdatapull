@@ -67,7 +67,9 @@ drive = GoogleDrive(gauth)
 # open a google sheet
 gs = gc.open_by_key('1vAgFDVBit4C6H2HUnOd90imbtkCjOl1ekKychN2uc4o')
 # select a work sheet from its name
-testratingssheet = gs.worksheet('TestRatingsTable')
+VAratingssheet = gs.worksheet('VARatingsTable')
+AZratingssheet = gs.worksheet('AZRatingsTable')
+
 
     
 DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
@@ -184,7 +186,8 @@ def exportVAScratcherRecs():
     scratchersall.to_csv("./VAscratcherslist.csv", encoding='utf-8')
     
     # write to Google Sheets
-    testratingssheet.clear()
+    
+    sheet.clear()
     set_with_dataframe(worksheet=testratingssheet, dataframe=scratchersall, include_index=False,
     include_column_header=True, resize=True)
     
@@ -365,6 +368,10 @@ def exportVAScratcherRecs():
     print(ratingstable.columns)
     ratingstable.to_sql('VAratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./VAratingstable.csv", encoding='utf-8')
+    # write to Google Sheets
+    VAratingssheet.clear()
+    set_with_dataframe(worksheet=VAratingssheet, dataframe=ratingstable, include_index=False,
+    include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
 def exportAZScratcherRecs():
@@ -695,6 +702,10 @@ def exportAZScratcherRecs():
     print(ratingstable.columns)
     ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
+    # write to Google Sheets
+    ratingssheet.clear()
+    set_with_dataframe(worksheet==ratingssheet, dataframe=ratingstable, include_index=False,
+    include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
 #function to create an array of prizes by their probability for all scratchers still unclaimed
