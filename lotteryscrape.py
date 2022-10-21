@@ -66,9 +66,6 @@ drive = GoogleDrive(gauth)
 
 # open a google sheet
 gs = gc.open_by_key('1vAgFDVBit4C6H2HUnOd90imbtkCjOl1ekKychN2uc4o')
-# select a work sheet from its name
-VAratingssheet = gs.worksheet('VARatingsTable')
-AZratingssheet = gs.worksheet('AZRatingsTable')
 
 
     
@@ -364,6 +361,8 @@ def exportVAScratcherRecs():
     ratingstable.to_sql('VAratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./VAratingstable.csv", encoding='utf-8')
     # write to Google Sheets
+    # select a work sheet from its name
+    VAratingssheet = gs.worksheet('VARatingsTable')
     VAratingssheet.clear()
     set_with_dataframe(worksheet=VAratingssheet, dataframe=ratingstable, include_index=False,
     include_column_header=True, resize=True)
@@ -698,6 +697,8 @@ def exportAZScratcherRecs():
     ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
     # write to Google Sheets
+    #select sheet by name
+    AZratingssheet = gs.worksheet('AZRatingsTable')
     AZratingssheet.clear()
     set_with_dataframe(worksheet==AZratingssheet, dataframe=ratingstable, include_index=False,
     include_column_header=True, resize=True)
