@@ -364,7 +364,8 @@ def exportVAScratcherRecs():
     # select a work sheet from its name
     VAratingssheet = gs.worksheet('VARatingsTable')
     VAratingssheet.clear()
-    ratingstable = ratingstable.fillna('',inplace=True) 
+    ratingstable = ratingstable.fillna('',inplace=True)
+    print(ratingstable)
     set_with_dataframe(worksheet=VAratingssheet, dataframe=ratingstable, include_index=False,
     include_column_header=True, resize=True)
     return ratingstable, scratchertables
