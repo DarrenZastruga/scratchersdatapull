@@ -364,6 +364,7 @@ def exportVAScratcherRecs():
     # select a work sheet from its name
     VAratingssheet = gs.worksheet('VARatingsTable')
     VAratingssheet.clear()
+    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
     set_with_dataframe(worksheet=VAratingssheet, dataframe=ratingstable, include_index=False,
