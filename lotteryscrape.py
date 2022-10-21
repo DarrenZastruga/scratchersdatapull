@@ -698,8 +698,8 @@ def exportAZScratcherRecs():
     ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
     # write to Google Sheets
-    ratingssheet.clear()
-    set_with_dataframe(worksheet==ratingssheet, dataframe=ratingstable, include_index=False,
+    AZratingssheet.clear()
+    set_with_dataframe(worksheet==AZratingssheet, dataframe=ratingstable, include_index=False,
     include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
