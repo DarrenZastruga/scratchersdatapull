@@ -185,11 +185,6 @@ def exportVAScratcherRecs():
     scratchersall.to_sql('VAscratcherlist', engine, if_exists='replace')
     scratchersall.to_csv("./VAscratcherslist.csv", encoding='utf-8')
     
-    # write to Google Sheets
-    
-    sheet.clear()
-    set_with_dataframe(worksheet=testratingssheet, dataframe=scratchersall, include_index=False,
-    include_column_header=True, resize=True)
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
