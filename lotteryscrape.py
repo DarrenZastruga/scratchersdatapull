@@ -364,7 +364,7 @@ def exportVAScratcherRecs():
     # select a work sheet from its name
     VAratingssheet = gs.worksheet('VARatingsTable')
     VAratingssheet.clear()
-    ratingstable = ratingstable[~ratingstable.isin([np.nan, np.inf, -np.inf]).any(1)]
+    ratingstable = ratingstable.fillna('',inplace=True) 
     set_with_dataframe(worksheet=VAratingssheet, dataframe=ratingstable, include_index=False,
     include_column_header=True, resize=True)
     return ratingstable, scratchertables
@@ -701,7 +701,8 @@ def exportAZScratcherRecs():
     #select sheet by name
     AZratingssheet = gs.worksheet('AZRatingsTable')
     AZratingssheet.clear()
-    set_with_dataframe(worksheet==AZratingssheet, dataframe=ratingstable, include_index=False,
+    ratingstable = ratingstable.fillna('',inplace=True)
+    set_with_dataframe(worksheet=AZratingssheet, dataframe=ratingstable, include_index=False,
     include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
