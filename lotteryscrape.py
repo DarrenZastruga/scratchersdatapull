@@ -358,6 +358,7 @@ def exportVAScratcherRecs():
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
+    ratingstable['Stats Page'] = "/virginia-statistics-for-each-scratcher-game"
     ratingstable.to_sql('VAratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./VAratingstable.csv", encoding='utf-8')
     # write to Google Sheets
@@ -383,7 +384,7 @@ def exportVAScratcherRecs():
        'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
-       'Data Date']]
+       'Data Date','Stats Page']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
@@ -717,6 +718,7 @@ def exportAZScratcherRecs():
     # save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
+    ratingstable['Stats Page'] = "/arizona-statistics-for-each-scratcher-game"
     ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
     # write to Google Sheets
@@ -742,7 +744,7 @@ def exportAZScratcherRecs():
        'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
-       'Data Date']]
+       'Data Date','Stats Page']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
