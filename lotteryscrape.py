@@ -68,13 +68,13 @@ drive = GoogleDrive(gauth)
 gs = gc.open_by_key('1vAgFDVBit4C6H2HUnOd90imbtkCjOl1ekKychN2uc4o')
 
 #connect to postgres database on Heroku
-DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
-print(DATABASE_URL)
+#DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
+#print(DATABASE_URL)
 
 #replace 'postgres' with 'postgresql' in the database URL since SQLAlchemy stopped supporting 'postgres' 
-SQLALCHEMY_DATABASE_URI = DATABASE_URL.replace('postgres://', 'postgresql://')
-conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
-engine = create_engine(SQLALCHEMY_DATABASE_URI)
+#SQLALCHEMY_DATABASE_URI = DATABASE_URL.replace('postgres://', 'postgresql://')
+#conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
+#engine = create_engine(SQLALCHEMY_DATABASE_URI)
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 logger.info(f'Running lotteryscrape.py at: {now}')
