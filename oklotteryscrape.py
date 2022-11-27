@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Mon Nov 21 22:36:34 2022
+
+@author: michaeljames
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Fri Oct 28 23:20:03 2022
 
 @author: michaeljames
@@ -110,106 +118,77 @@ def download_image(url, file_path, file_name):
 
 
 
-def exportMOScratcherRecs():
-    url = "https://www.molottery.com/scratchers/?type=all"
-
-    payload = ""
+def exportOKScratcherRecs():
+    url = "https://www.lottery.ok.gov/scratchers/get"
+    
+    payload={}
     headers = {
-      'Cookie': 'incap_ses_1458_2143742=iIdGEMj+ECj51ZUHpts7FGw4XWMAAAAAfGo/0vdFFuY6L5QELZdtTg==; lottery-track=42ca0a2.5ec2cd1330bff; nlbi_2143742=ECYdLKjyZG8ItsXPsZUu4QAAAACousb+YvwyeM3QBYQGjqaT; visid_incap_2143742=2sOJh/4QR9Kzu8WOBe7lTlMyXWMAAAAAQUIPAAAAAABEyHQLItGNVhorQjN8YfiH'
+      'Cookie': 'BIGipServer~ONE-ARMED-PUBLIC~olc_www.lottery.ok.gov.app~olc_www.lottery.ok.gov_pool=rd5o00000000000000000000ffffac100f46o80'
     }
+
     
     r = requests.request("GET", url, headers=headers, data=payload)
-    response = r.text
-    soup = BeautifulSoup(response, 'html.parser')
-
-
-    tixlist = pd.DataFrame(columns=['gameName', 'gameNumber', 'price', 'gameURL'])
-    table = soup.find_all(class_=['scratchers-list__item'])
-    print(table)
+    #print(r)
+    response = r.json()
+    print(response)
+    
+    tixlist = pd.DataFrame()
     tixrow = pd.DataFrame()
     tixtables = pd.DataFrame(columns=['gameNumber','gameName','price','prizeamount','startDate','endDate','lastdatetoclaim','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported'])
     
     #loop through the HTML sections to get the top level game data
-    for s in table:
-        itemback = s.find(class_=['scratchers-list__back'])
-        gameName = itemback.find(class_='scratchers-list__title').find('span').string
-        gameNumber = itemback.find(class_='scratchers-list__num').string.replace('#','')
-        gamePrice = itemback.find_all(class_='scratchers-list__value')[2].string.replace('$','')
-        topprize = itemback.find_all(class_='scratchers-list__value')[3].string.replace('$','')
-        startDate = itemback.find_all(class_='scratchers-list__value')[0].string
-        endDate = itemback.find_all(class_='scratchers-list__value')[1].string
-        totalMoneyWon = itemback.find_all(class_='scratchers-list__value')[4].string.replace('$','').replace(',','')
-        totalMoneyUnclaimed = itemback.find_all(class_='scratchers-list__value')[5].string.replace('$','').replace(',','')
-        totalMoneyStart = int(totalMoneyWon)+int(totalMoneyUnclaimed)
-        percentMoneyClaimed = int(totalMoneyWon)/int(totalMoneyStart)
+    for game in response['Games']:
+        print(game)
+        gameName = game['Name']
+        gameNumber = game['GameId']
+        gameURL = 'https://www.lottery.ok.gov/scratchers/'+str(game['Id'])
+        gamePrice = game['Price']
+        topprize = game['TopPrize']
+        topprizeremain = game['TopPrizesRemaining']
+        startDate = datetime.fromtimestamp(int(game['StartDate'][6:-2])/1000).strftime("%m/%d/%Y")
+        endDate = datetime.fromtimestamp(int(game['EndDate'][6:-2])/1000).strftime("%m/%d/%Y")
+        lastdatetoclaim = datetime.fromtimestamp(int(game['RedemptionEnd'][6:-2])/1000).strftime("%m/%d/%Y")
+        overallodds = game['OverallOdds']
         
-        gameURL = 'https://www.molottery.com/scratchers/'+gameNumber
-        gamePhoto = 'https://www.molottery.com/sites/default/files/scratchers/tile/'+gameNumber+'.gif'
-        
-        #download the MO scratcher tile images to folder
-        #file_name = "moscratchers_"+gameNumber
-       # download_image(gameURL, '/wp-content/uploads/gameimages/', file_name)
-        
-        
+        gamePhoto =  'https://content.lottery.ok.gov/games/face/'+str(gameNumber)+'.jpg'
+         
         print(gameName)
         print(gameNumber)
         print(gamePrice)
         print(topprize)
+        print(topprizeremain)
         print(startDate)
         print(endDate)
-        print(totalMoneyWon)
-        print(totalMoneyUnclaimed)
-        print(totalMoneyStart)
-        print(percentMoneyClaimed)
+        print(lastdatetoclaim)
         print(gameURL)
         print(gamePhoto)
-            
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','startDate','endDate','Total Prize Money at start','Total Prize Money Won', 'Total Prize Money remaining', 'Percent of Prize Money Won', 'gameURL','gamePhoto']] = [
-            gamePrice, gameName, gameNumber, topprize, startDate, endDate, totalMoneyStart, totalMoneyWon, totalMoneyUnclaimed, percentMoneyClaimed , gameURL, gamePhoto]
+        
+        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','startDate','endDate', 'lastdatetoclaim', 'gameURL','gamePhoto']] = [
+            gamePrice, gameName, gameNumber, topprize, startDate, endDate, lastdatetoclaim, gameURL, gamePhoto]
 
-        #go to the individual page for this scratcher game and get the table data
-        url = "https://www.molottery.com/scratchers/"+gameNumber
-
-        payload = ''
-        headers = {
-            'Accept': '*/*',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
-        }
-
-        r = requests.get(url=url, headers=headers)
-        response = r.text
-        soup = BeautifulSoup(response, 'html.parser')
-        singletixinfo = soup.find(class_=['scratchers-single__info scratchers-single-info'])
-        lastdatetoclaim = singletixinfo.find_all(class_='scratchers-single-info__body')[2].string
-        overallodds = singletixinfo.find_all(class_='scratchers-single-info__body')[5].string.replace('1 in ','')
-        print(lastdatetoclaim)
-        print(overallodds)
-        tixdata = soup.find(class_=['table-mo table_highlight-first'])
-        tixdata = pd.read_html(str(tixdata))[0]
-        tixdata['gameNumber'] = gameNumber
-        tixdata['gameName'] = gameName
-        tixdata['price'] = gamePrice
-        tixdata['overallodds'] = overallodds
-        tixdata['topprize'] = tixdata.iloc[-1,0].replace('$','').replace(',','')
-        tixdata['topprizestarting'] = tixdata.iloc[-1,1]
-        tixdata['topprizeremain'] = tixdata.iloc[-1,2]
-        tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata.iloc[-1,2] == 0 else np.nan
-        tixdata['startDate'] = startDate
-        tixdata['endDate'] = endDate
-        tixdata['lastdatetoclaim'] = lastdatetoclaim
-        tixdata['extrachances'] = None
-        tixdata['secondChance'] = None
-        tixdata['dateexported'] = date.today() 
-        tixdata.rename(columns={'Prize Level':'prizeamount', 'Total Prizes': 'Winning Tickets At Start', 'Unclaimed Prizes': 'Winning Tickets Unclaimed'}, inplace=True)
-        tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','')
+        #go down to next level of json response for numbers of prizes
+        tixdata = pd.json_normalize(game['Prizes'])
         print(tixdata)
-
         if tixdata.empty:
             continue
         else:
+            tixdata.rename(columns={'GameId':'gameNumber','GameName':'gameName','PrizeAmount':'prizeamount','TotalPrizes': 'Winning Tickets At Start', 'RemainingPrizes': 'Winning Tickets Unclaimed'}, inplace=True)
+            tixdata['gamePhoto'] = gamePhoto
+            tixdata['price'] = gamePrice
+            tixdata['overallodds'] = overallodds
+            tixdata['topprize'] = topprize
+            tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[-1]
+            tixdata['topprizeremain'] = topprizeremain
+            tixdata['topprizeavail'] = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
+            tixdata['startDate'] = startDate
+            tixdata['endDate'] = endDate
+            tixdata['lastdatetoclaim'] = lastdatetoclaim
+            tixdata['extrachances'] = None
+            tixdata['secondChance'] = None
+            tixdata['dateexported'] = date.today() 
             tixtables = tixtables.append(tixdata)
             
-    tixlist.to_csv("./MOtixlist.csv", encoding='utf-8')
+    tixlist.to_csv("./OKtixlist.csv", encoding='utf-8')
   
     
     scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
@@ -217,12 +196,12 @@ def exportMOScratcherRecs():
     scratchersall = scratchersall.drop_duplicates()
     
     #save scratchers list
-    #scratchersall.to_sql('MOscratcherlist', engine, if_exists='replace')
-    scratchersall.to_csv("./MOscratcherslist.csv", encoding='utf-8')
+    #scratchersall.to_sql('OKscratcherlist', engine, if_exists='replace')
+    scratchersall.to_csv("./OKscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-    scratchertables.to_csv("./MOscratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./OKscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
    
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
@@ -291,8 +270,6 @@ def exportMOScratcherRecs():
         #calculate expected value
         print(totalremain)
         totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
-        #totalremain.loc[:,'Starting Expected Value'] = ''
-        #totalremain.loc[:,'Expected Value'] = ''
         print(totalremain.loc[totalremain['prizeamount'] != 'Total',:].dtypes)
         print(type(startingtotal))
         print(type(tixtotal))
@@ -352,16 +329,16 @@ def exportMOScratcherRecs():
     print(scratchertables.columns)   
     
     #save scratchers tables
-    #scratchertables.to_sql('MOscratcherstables', engine, if_exists='replace')
-    scratchertables.to_csv("./MOscratchertables.csv", encoding='utf-8')
+    #scratchertables.to_sql('OKscratcherstables', engine, if_exists='replace')
+    scratchertables.to_csv("./OKscratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
     print(currentodds.dtypes)
     print(scratchersall.dtypes)
     scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
-    ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
-    ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds', 'topprizeremain_y':'topprizeremain'}, inplace=True)
+    ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+    ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
     #add number of days since the game start date as of date exported
     ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'])).dt.days
     
@@ -385,13 +362,13 @@ def exportMOScratcherRecs():
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
-    ratingstable['Stats Page'] = "/missouri-statistics-for-each-scratcher-game"
-    #ratingstable.to_sql('MOratingstable', engine, if_exists='replace')
-    ratingstable.to_csv("./MOratingstable.csv", encoding='utf-8')
+    ratingstable['Stats Page'] = "/oklahoma-statistics-for-each-scratcher-game"
+    #ratingstable.to_sql('OKratingstable', engine, if_exists='replace')
+    ratingstable.to_csv("./OKratingstable.csv", encoding='utf-8')
     # write to Google Sheets
     # select a work sheet from its name
-    #MOratingssheet = gs.worksheet('MORatingsTable')
-    #MOratingssheet.clear()
+    #OKratingssheet = gs.worksheet('OKRatingsTable')
+    #OKratingssheet.clear()
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
@@ -415,8 +392,8 @@ def exportMOScratcherRecs():
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #set_with_dataframe(worksheet=MOratingssheet, dataframe=ratingstable, include_index=False,
+    #set_with_dataframe(worksheet=OKratingssheet, dataframe=ratingstable, include_index=False,
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportMOScratcherRecs()
+exportOKScratcherRecs()
