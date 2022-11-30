@@ -92,7 +92,12 @@ def formatstr(s):
     except TypeError:
         return s
 
-        
+
+#function to auto-download images from scratchers site if necessary
+def download_image(url, file_path, file_name):
+    full_path = file_path + file_name
+    urllib.request.urlretrieve(url, full_path)
+    
 def exportVAScratcherRecs():
     url = "https://www.valottery.com/api/v1/scratchers"
 
@@ -785,7 +790,17 @@ def exportMOScratcherRecs():
         percentMoneyClaimed = int(totalMoneyWon)/int(totalMoneyStart)
         
         gameURL = 'https://www.molottery.com/scratchers/'+gameNumber
-        gamePhoto = 'https://www.molottery.com/sites/default/files/scratchers/tile/'+gameNumber+'.gif'
+        
+        #download the MO scratcher tile images to folder
+        file_name = "moscratchers_"+gameNumber+'.gif'
+        download_image(gameURL, './gameimages/', file_name)
+        
+        #get photo from where it was saved
+        gamePhoto = 'https://www.scratcherstats.com/wp-content/uploads/gameimages/'+file_name
+        #gamePhoto = 'https://www.molottery.com/sites/default/files/scratchers/tile/'+gameNumber+'.gif'
+        
+        
+        
         
         print(gameName)
         print(gameNumber)

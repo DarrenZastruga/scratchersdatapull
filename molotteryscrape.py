@@ -105,9 +105,8 @@ def formatstr(s):
 
 #function to auto-download images from scratchers site if necessary
 def download_image(url, file_path, file_name):
-    full_path = file_path + file_name + '.gif'
-    urllib.urlretrieve(url, full_path)
-
+    full_path = file_path + file_name
+    urllib.request.urlretrieve(url, full_path)
 
 
 def exportMOScratcherRecs():
@@ -147,8 +146,8 @@ def exportMOScratcherRecs():
         gamePhoto = 'https://www.molottery.com/sites/default/files/scratchers/tile/'+gameNumber+'.gif'
         
         #download the MO scratcher tile images to folder
-        #file_name = "moscratchers_"+gameNumber
-       # download_image(gameURL, '/wp-content/uploads/gameimages/', file_name)
+        file_name = "moscratchers_"+gameNumber+'.gif'
+        download_image(gameURL, '/Users/michaeljames/Documents/GitHub/scratcherstatscom/wp-content/uploads/gameimages/', file_name)
         
         
         print(gameName)
