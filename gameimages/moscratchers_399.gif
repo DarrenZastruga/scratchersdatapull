@@ -362,42 +362,42 @@
                   <tr>
             <td>$2</td>
             <td>570,757</td>
-            <td>427,581</td>
+            <td>425,045</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>167,803</td>
-            <td>123,956</td>
+            <td>123,202</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>234,983</td>
-            <td>173,323</td>
+            <td>172,248</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>100,707</td>
-            <td>73,104</td>
+            <td>72,658</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>37,762</td>
-            <td>27,100</td>
+            <td>26,930</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>10,270</td>
-            <td>7,295</td>
+            <td>7,235</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>3,686</td>
-            <td>2,626</td>
+            <td>2,609</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>6,859</td>
-            <td>4,875</td>
+            <td>4,848</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -407,7 +407,7 @@
                   <tr>
             <td>$1,000</td>
             <td>62</td>
-            <td>50</td>
+            <td>48</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -426,8 +426,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,865,741</b></div>
-      <div class="h2">Total Prizes Won: <b>$1,824,520</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,835,618</b></div>
+      <div class="h2">Total Prizes Won: <b>$1,854,643</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -575,6 +575,6 @@
 <script src="/libraries/superfish/supersubs.js?rljquo"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=17&cb=753961695"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=1022281"></script>
 </body>
 </html>
