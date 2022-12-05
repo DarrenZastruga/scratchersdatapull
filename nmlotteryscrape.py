@@ -356,5 +356,4 @@ def exportNMScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-
 exportNMScratcherRecs()
