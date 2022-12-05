@@ -154,7 +154,7 @@ def exportScratcherRecs():
     scratchersall = scratchersall.loc[scratchersall['gameNumber']!= "Coming Soon!", :]
     #scratchersall = scratchersall.drop_duplicates()
     # save scratchers list
-    scratchersall.to_sql('azscratcherlist', engine, if_exists='replace')
+    #scratchersall.to_sql('azscratcherlist', engine, if_exists='replace')
     scratchersall.to_csv("./azscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
