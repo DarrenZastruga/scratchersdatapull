@@ -335,42 +335,42 @@
                   <tr>
             <td>$10</td>
             <td>616,678</td>
-            <td>152,430</td>
+            <td>151,956</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>231,290</td>
-            <td>56,700</td>
+            <td>56,501</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>308,352</td>
-            <td>72,742</td>
+            <td>72,507</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,081</td>
-            <td>11,661</td>
+            <td>11,627</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>46,277</td>
-            <td>10,789</td>
+            <td>10,760</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>77,088</td>
-            <td>17,941</td>
+            <td>17,896</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>77,088</td>
-            <td>17,670</td>
+            <td>17,617</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>5,312</td>
-            <td>1,186</td>
+            <td>1,184</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -399,8 +399,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$8,845,885</b></div>
-      <div class="h2">Total Prizes Won: <b>$26,266,820</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$8,823,190</b></div>
+      <div class="h2">Total Prizes Won: <b>$26,289,515</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -548,6 +548,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=77&cb=1519150744"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=75&cb=1085341416"></script>
 </body>
 </html>
