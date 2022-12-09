@@ -337,37 +337,37 @@
                   <tr>
             <td>$5</td>
             <td>675,709</td>
-            <td>195,049</td>
+            <td>195,001</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>289,652</td>
-            <td>76,522</td>
+            <td>76,510</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>289,625</td>
-            <td>73,928</td>
+            <td>73,915</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>72,428</td>
-            <td>18,787</td>
+            <td>18,785</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>35,246</td>
-            <td>9,193</td>
+            <td>9,190</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>48,264</td>
-            <td>12,327</td>
+            <td>12,326</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>14,498</td>
-            <td>3,739</td>
+            <td>3,738</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -377,7 +377,7 @@
                   <tr>
             <td>$100</td>
             <td>21,525</td>
-            <td>5,311</td>
+            <td>5,310</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -416,8 +416,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,103,805</b></div>
-      <div class="h2">Total Prizes Won: <b>$14,900,730</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,102,945</b></div>
+      <div class="h2">Total Prizes Won: <b>$14,901,590</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -464,22 +464,22 @@
 <span>© 2022 Missouri Lottery Commission</span>
         <ul>
             <li>
-        <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
+        <a href="/index.php/general-information" data-drupal-link-system-path="node/190">About us</a>
               </li>
           <li>
-        <a href="/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
+        <a href="/index.php/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
               </li>
           <li>
-        <a href="/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
+        <a href="/index.php/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
               </li>
           <li>
-        <a href="/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
+        <a href="/index.php/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
               </li>
           <li>
-        <a href="/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
+        <a href="/index.php/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
               </li>
           <li>
-        <a href="/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
+        <a href="/index.php/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
               </li>
       </ul>
     
@@ -494,10 +494,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -565,6 +565,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=51&cb=202829277"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=51&cb=748626496"></script>
 </body>
 </html>

@@ -342,12 +342,12 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
                   <tr>
             <td>$1</td>
             <td>1,325,661</td>
-            <td>284,378</td>
+            <td>284,377</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>530,263</td>
-            <td>102,169</td>
+            <td>102,167</td>
           </tr>
                   <tr>
             <td>$3</td>
@@ -362,7 +362,7 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
                   <tr>
             <td>$5</td>
             <td>151,541</td>
-            <td>26,494</td>
+            <td>26,493</td>
           </tr>
                   <tr>
             <td>$6</td>
@@ -431,8 +431,8 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,374,052</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,181,884</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,374,042</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,181,894</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -479,22 +479,22 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
 <span>© 2022 Missouri Lottery Commission</span>
         <ul>
             <li>
-        <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
+        <a href="/index.php/general-information" data-drupal-link-system-path="node/190">About us</a>
               </li>
           <li>
-        <a href="/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
+        <a href="/index.php/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
               </li>
           <li>
-        <a href="/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
+        <a href="/index.php/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
               </li>
           <li>
-        <a href="/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
+        <a href="/index.php/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
               </li>
           <li>
-        <a href="/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
+        <a href="/index.php/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
               </li>
           <li>
-        <a href="/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
+        <a href="/index.php/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
               </li>
       </ul>
     
@@ -509,10 +509,10 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -580,6 +580,6 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=157&cb=1415029209"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=157&cb=1037241371"></script>
 </body>
 </html>
