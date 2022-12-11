@@ -1647,7 +1647,7 @@ def exportNMScratcherRecs():
     for s in table:
         gameName = s.find('h3').string
         gameNumber = s.find(class_='game-number').text.replace('Game Number: ','')
-        gamePhoto = 'https://www.nmlottery.com/wp-content/uploads/2022/11/'+gameNumber+'.jpg'
+        gamePhoto = soup.select_one("img[src*='"+gameNumber+"']")["src"]
         gameURL = 'https://www.nmlottery.com/games/scratchers'
         gamePrice = s.find(class_='price').string.replace('$','')
         topprize = s.find(class_='top-prize').text.replace('Top Prize: $','').replace(',','')
