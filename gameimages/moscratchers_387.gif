@@ -335,37 +335,37 @@
                   <tr>
             <td>$5</td>
             <td>445,666</td>
-            <td>113,205</td>
+            <td>110,798</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>307,340</td>
-            <td>70,533</td>
+            <td>68,801</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>122,940</td>
-            <td>27,319</td>
+            <td>26,583</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>46,094</td>
-            <td>10,222</td>
+            <td>9,969</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>46,071</td>
-            <td>9,595</td>
+            <td>9,343</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>12,312</td>
-            <td>2,607</td>
+            <td>2,535</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>121</td>
-            <td>24</td>
+            <td>23</td>
           </tr>
                   <tr>
             <td>$2,500</td>
@@ -389,8 +389,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,999,418</b></div>
-      <div class="h2">Total Prizes Won: <b>$9,562,068</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,932,398</b></div>
+      <div class="h2">Total Prizes Won: <b>$9,629,088</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -437,22 +437,22 @@
 <span>© 2022 Missouri Lottery Commission</span>
         <ul>
             <li>
-        <a href="/index.php/general-information" data-drupal-link-system-path="node/190">About us</a>
+        <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
               </li>
           <li>
-        <a href="/index.php/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
+        <a href="/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
               </li>
           <li>
-        <a href="/index.php/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
+        <a href="/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
               </li>
           <li>
-        <a href="/index.php/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
+        <a href="/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
               </li>
           <li>
-        <a href="/index.php/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
+        <a href="/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
               </li>
           <li>
-        <a href="/index.php/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
+        <a href="/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
               </li>
       </ul>
     
@@ -467,10 +467,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -538,6 +538,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=29&cb=2143370986"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=29&cb=1585589774"></script>
 </body>
 </html>

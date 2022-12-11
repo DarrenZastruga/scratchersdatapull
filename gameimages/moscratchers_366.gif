@@ -337,57 +337,57 @@
                   <tr>
             <td>$3</td>
             <td>1,029,848</td>
-            <td>575,261</td>
+            <td>571,777</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>978,355</td>
-            <td>513,092</td>
+            <td>509,355</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>411,944</td>
-            <td>212,496</td>
+            <td>210,951</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>51,448</td>
-            <td>26,101</td>
+            <td>25,905</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>128,776</td>
-            <td>65,419</td>
+            <td>64,898</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>51,538</td>
-            <td>26,041</td>
+            <td>25,846</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>12,859</td>
-            <td>6,499</td>
+            <td>6,448</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>6,465</td>
-            <td>3,252</td>
+            <td>3,226</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>3,227</td>
-            <td>1,645</td>
+            <td>1,630</td>
           </tr>
                   <tr>
             <td>$110</td>
             <td>3,198</td>
-            <td>1,615</td>
+            <td>1,599</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>342</td>
-            <td>170</td>
+            <td>166</td>
           </tr>
                   <tr>
             <td>$510</td>
@@ -411,8 +411,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$10,671,891</b></div>
-      <div class="h2">Total Prizes Won: <b>$9,792,641</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,594,791</b></div>
+      <div class="h2">Total Prizes Won: <b>$9,869,741</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -459,22 +459,22 @@
 <span>© 2022 Missouri Lottery Commission</span>
         <ul>
             <li>
-        <a href="/index.php/general-information" data-drupal-link-system-path="node/190">About us</a>
+        <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
               </li>
           <li>
-        <a href="/index.php/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
+        <a href="/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
               </li>
           <li>
-        <a href="/index.php/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
+        <a href="/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
               </li>
           <li>
-        <a href="/index.php/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
+        <a href="/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
               </li>
           <li>
-        <a href="/index.php/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
+        <a href="/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
               </li>
           <li>
-        <a href="/index.php/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
+        <a href="/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
               </li>
       </ul>
     
@@ -489,10 +489,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -560,6 +560,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=55&cb=1187051338"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=55&cb=1395760798"></script>
 </body>
 </html>

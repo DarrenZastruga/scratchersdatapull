@@ -335,52 +335,52 @@
                   <tr>
             <td>$10</td>
             <td>620,018</td>
-            <td>179,663</td>
+            <td>176,391</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>232,563</td>
-            <td>66,994</td>
+            <td>65,782</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>310,159</td>
-            <td>86,932</td>
+            <td>85,206</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,272</td>
-            <td>13,859</td>
+            <td>13,589</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>46,682</td>
-            <td>12,851</td>
+            <td>12,609</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>77,521</td>
-            <td>21,218</td>
+            <td>20,813</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>77,521</td>
-            <td>21,148</td>
+            <td>20,674</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,651</td>
-            <td>1,281</td>
+            <td>1,262</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,634</td>
-            <td>445</td>
+            <td>437</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>785</td>
-            <td>248</td>
+            <td>242</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -404,8 +404,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$10,289,585</b></div>
-      <div class="h2">Total Prizes Won: <b>$24,919,830</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,108,705</b></div>
+      <div class="h2">Total Prizes Won: <b>$25,100,710</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -452,22 +452,22 @@
 <span>© 2022 Missouri Lottery Commission</span>
         <ul>
             <li>
-        <a href="/index.php/general-information" data-drupal-link-system-path="node/190">About us</a>
+        <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
               </li>
           <li>
-        <a href="/index.php/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
+        <a href="/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
               </li>
           <li>
-        <a href="/index.php/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
+        <a href="/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
               </li>
           <li>
-        <a href="/index.php/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
+        <a href="/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
               </li>
           <li>
-        <a href="/index.php/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
+        <a href="/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
               </li>
           <li>
-        <a href="/index.php/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
+        <a href="/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
               </li>
       </ul>
     
@@ -482,10 +482,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -553,6 +553,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=39&cb=711226236"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=39&cb=1172222177"></script>
 </body>
 </html>
