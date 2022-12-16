@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -341,12 +341,12 @@
                   <tr>
             <td>$2</td>
             <td>1,435,484</td>
-            <td>430,497</td>
+            <td>430,494</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>638,076</td>
-            <td>170,060</td>
+            <td>170,059</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -356,7 +356,7 @@
                   <tr>
             <td>$10</td>
             <td>119,642</td>
-            <td>30,578</td>
+            <td>30,577</td>
           </tr>
                   <tr>
             <td>$15</td>
@@ -405,8 +405,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,083,174</b></div>
-      <div class="h2">Total Prizes Won: <b>$11,724,998</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,083,154</b></div>
+      <div class="h2">Total Prizes Won: <b>$11,725,018</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -453,22 +453,22 @@
 <span>© 2022 Missouri Lottery Commission</span>
         <ul>
             <li>
-        <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
+        <a href="/index.php/general-information" data-drupal-link-system-path="node/190">About us</a>
               </li>
           <li>
-        <a href="/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
+        <a href="/index.php/employment-opportunities" data-drupal-link-system-path="node/191">Careers</a>
               </li>
           <li>
-        <a href="/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
+        <a href="/index.php/win-social" data-drupal-link-system-path="node/1490">Win on Social</a>
               </li>
           <li>
-        <a href="/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
+        <a href="/index.php/where-to-play" data-drupal-link-system-path="where-to-play">Where to Play</a>
               </li>
           <li>
-        <a href="/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
+        <a href="/index.php/draw-games-official-rules" data-drupal-link-system-path="node/195">Game Rules</a>
               </li>
           <li>
-        <a href="/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
+        <a href="/index.php/way-to-play" data-drupal-link-system-path="node/1621">Way To Play!</a>
               </li>
       </ul>
     
@@ -554,6 +554,5 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=141&cb=616286277"></script>
 </body>
 </html>
