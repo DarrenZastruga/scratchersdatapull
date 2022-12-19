@@ -334,47 +334,47 @@
                   <tr>
             <td>$5</td>
             <td>640,608</td>
-            <td>127,123</td>
+            <td>127,054</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>274,518</td>
-            <td>46,165</td>
+            <td>46,135</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>274,534</td>
-            <td>44,572</td>
+            <td>44,544</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>68,601</td>
-            <td>11,361</td>
+            <td>11,356</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>22,303</td>
-            <td>3,536</td>
+            <td>3,534</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>45,827</td>
-            <td>7,176</td>
+            <td>7,171</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>13,727</td>
-            <td>2,162</td>
+            <td>2,161</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,671</td>
-            <td>580</td>
+            <td>579</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>17,672</td>
-            <td>2,818</td>
+            <td>2,813</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -389,7 +389,7 @@
                   <tr>
             <td>$1,000</td>
             <td>777</td>
-            <td>125</td>
+            <td>124</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -413,8 +413,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,126,305</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,556,675</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,123,265</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,559,715</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -562,6 +562,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=152&cb=161230699"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=152&cb=49125089"></script>
 </body>
 </html>
