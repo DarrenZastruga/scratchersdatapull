@@ -364,42 +364,42 @@
                   <tr>
             <td>$5</td>
             <td>503,134</td>
-            <td>209,087</td>
+            <td>196,511</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>314,425</td>
-            <td>120,683</td>
+            <td>112,020</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>125,776</td>
-            <td>47,194</td>
+            <td>43,548</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>35,688</td>
-            <td>12,921</td>
+            <td>11,905</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>58,197</td>
-            <td>20,659</td>
+            <td>18,792</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>12,107</td>
-            <td>4,084</td>
+            <td>3,692</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>250</td>
-            <td>100</td>
+            <td>84</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>72</td>
-            <td>30</td>
+            <td>29</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -423,8 +423,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,069,550</b></div>
-      <div class="h2">Total Prizes Won: <b>$8,121,760</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,698,400</b></div>
+      <div class="h2">Total Prizes Won: <b>$8,492,910</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -572,6 +572,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=7&cb=551615136"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=25&cb=195872322"></script>
 </body>
 </html>

@@ -335,37 +335,37 @@
                   <tr>
             <td>$5</td>
             <td>587,557</td>
-            <td>153,087</td>
+            <td>151,848</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,785</td>
-            <td>59,595</td>
+            <td>59,079</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,873</td>
-            <td>58,371</td>
+            <td>57,802</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>83,943</td>
-            <td>19,283</td>
+            <td>19,095</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>44,105</td>
-            <td>9,932</td>
+            <td>9,814</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>18,300</td>
-            <td>4,043</td>
+            <td>4,002</td>
           </tr>
                   <tr>
             <td>$250</td>
             <td>8,371</td>
-            <td>1,875</td>
+            <td>1,853</td>
           </tr>
                   <tr>
             <td>$2,500</td>
@@ -380,7 +380,7 @@
                   <tr>
             <td>$100,000</td>
             <td>5</td>
-            <td>2</td>
+            <td>1</td>
           </tr>
                 </tbody>
       </table>
@@ -389,8 +389,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,100,440</b></div>
-      <div class="h2">Total Prizes Won: <b>$13,111,600</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,962,470</b></div>
+      <div class="h2">Total Prizes Won: <b>$13,249,570</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -538,6 +538,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=76&cb=1039910023"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=95&cb=948388534"></script>
 </body>
 </html>
