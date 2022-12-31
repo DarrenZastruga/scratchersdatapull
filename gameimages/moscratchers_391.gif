@@ -335,47 +335,47 @@
                   <tr>
             <td>$2</td>
             <td>635,038</td>
-            <td>316,221</td>
+            <td>314,335</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>465,771</td>
-            <td>224,104</td>
+            <td>222,660</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>127,020</td>
-            <td>61,144</td>
+            <td>60,754</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>127,020</td>
-            <td>62,176</td>
+            <td>61,794</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>42,340</td>
-            <td>20,298</td>
+            <td>20,147</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>17,210</td>
-            <td>8,186</td>
+            <td>8,135</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>8,469</td>
-            <td>3,889</td>
+            <td>3,861</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,062</td>
-            <td>473</td>
+            <td>471</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>108</td>
-            <td>49</td>
+            <td>48</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -394,8 +394,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,015,998</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,395,662</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,990,310</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,421,350</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -543,6 +543,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=47&cb=1589591743"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=46&cb=1535133991"></script>
 </body>
 </html>

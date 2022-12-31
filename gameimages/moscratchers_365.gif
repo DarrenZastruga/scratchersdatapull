@@ -261,6 +261,12 @@
       <div class="scratchers-single__id">Game #365</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
+              
+                                            
+
+            </div>
                     <div class="scratchers-single__text">
             <p>This $5 crossword game features the chance to double or triple prizes, with top prizes of up to $100,000!</p>
 
@@ -337,27 +343,27 @@
                   <tr>
             <td>$5</td>
             <td>586,764</td>
-            <td>58,272</td>
+            <td>58,219</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,508</td>
-            <td>21,076</td>
+            <td>21,049</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,487</td>
-            <td>18,747</td>
+            <td>18,729</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,871</td>
-            <td>3,010</td>
+            <td>3,008</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,301</td>
-            <td>2,311</td>
+            <td>2,309</td>
           </tr>
                   <tr>
             <td>$30</td>
@@ -377,7 +383,7 @@
                   <tr>
             <td>$100</td>
             <td>14,659</td>
-            <td>535</td>
+            <td>534</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -436,8 +442,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,173,490</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,918,360</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,172,495</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,919,355</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,6 +591,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=93&cb=1639693781"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=92&cb=1824608672"></script>
 </body>
 </html>
