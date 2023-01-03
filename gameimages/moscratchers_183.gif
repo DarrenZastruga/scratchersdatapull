@@ -340,7 +340,7 @@
                   <tr>
             <td>$10</td>
             <td>708,080</td>
-            <td>82,397</td>
+            <td>82,395</td>
           </tr>
                   <tr>
             <td>$15</td>
@@ -399,8 +399,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,987,405</b></div>
-      <div class="h2">Total Prizes Won: <b>$35,575,910</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,987,385</b></div>
+      <div class="h2">Total Prizes Won: <b>$35,575,930</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -444,7 +444,7 @@
   
 
         
-<span>© 2022 Missouri Lottery Commission</span>
+<span>© 2023 Missouri Lottery Commission</span>
         <ul>
             <li>
         <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
@@ -548,5 +548,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=179&cb=1663038909"></script>
 </body>
 </html>

@@ -335,37 +335,37 @@
                   <tr>
             <td>$5</td>
             <td>499,458</td>
-            <td>374,216</td>
+            <td>368,485</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>356,746</td>
-            <td>263,246</td>
+            <td>259,013</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>142,700</td>
-            <td>104,613</td>
+            <td>102,895</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>37,507</td>
-            <td>27,367</td>
+            <td>26,908</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>65,999</td>
-            <td>47,835</td>
+            <td>47,037</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>13,750</td>
-            <td>9,884</td>
+            <td>9,691</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>287</td>
-            <td>202</td>
+            <td>199</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -394,8 +394,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$10,731,060</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,880,315</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,562,130</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,049,245</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -439,7 +439,7 @@
   
 
         
-<span>© 2022 Missouri Lottery Commission</span>
+<span>© 2023 Missouri Lottery Commission</span>
         <ul>
             <li>
         <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
@@ -543,6 +543,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=21&cb=1993855220"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=17&cb=1004284431"></script>
 </body>
 </html>

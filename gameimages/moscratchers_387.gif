@@ -335,32 +335,32 @@
                   <tr>
             <td>$5</td>
             <td>445,666</td>
-            <td>84,042</td>
+            <td>81,239</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>307,340</td>
-            <td>49,762</td>
+            <td>47,767</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>122,940</td>
-            <td>18,794</td>
+            <td>18,028</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>46,094</td>
-            <td>7,012</td>
+            <td>6,715</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>46,071</td>
-            <td>6,300</td>
+            <td>5,987</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>12,312</td>
-            <td>1,684</td>
+            <td>1,627</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -389,8 +389,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,173,718</b></div>
-      <div class="h2">Total Prizes Won: <b>$10,387,768</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,099,488</b></div>
+      <div class="h2">Total Prizes Won: <b>$10,461,998</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -434,7 +434,7 @@
   
 
         
-<span>© 2022 Missouri Lottery Commission</span>
+<span>© 2023 Missouri Lottery Commission</span>
         <ul>
             <li>
         <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
@@ -538,6 +538,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=51&cb=1543187930"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=47&cb=1243152225"></script>
 </body>
 </html>

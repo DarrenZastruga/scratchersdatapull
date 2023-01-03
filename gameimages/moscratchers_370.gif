@@ -343,22 +343,22 @@
                   <tr>
             <td>$10</td>
             <td>621,272</td>
-            <td>111,465</td>
+            <td>111,446</td>
           </tr>
                   <tr>
             <td>$17</td>
             <td>543,613</td>
-            <td>92,554</td>
+            <td>92,540</td>
           </tr>
                   <tr>
             <td>$27</td>
             <td>111,629</td>
-            <td>18,458</td>
+            <td>18,453</td>
           </tr>
                   <tr>
             <td>$77</td>
             <td>155,318</td>
-            <td>25,936</td>
+            <td>25,932</td>
           </tr>
                   <tr>
             <td>$177</td>
@@ -402,8 +402,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,549,186</b></div>
-      <div class="h2">Total Prizes Won: <b>$29,132,623</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,548,315</b></div>
+      <div class="h2">Total Prizes Won: <b>$29,133,494</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -447,7 +447,7 @@
   
 
         
-<span>© 2022 Missouri Lottery Commission</span>
+<span>© 2023 Missouri Lottery Commission</span>
         <ul>
             <li>
         <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
@@ -551,6 +551,6 @@
 <script src="/libraries/superfish/supersubs.js?rmferj"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=79&cb=762695940"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=75&cb=2060100631"></script>
 </body>
 </html>
