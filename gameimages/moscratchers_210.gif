@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -342,12 +342,12 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
                   <tr>
             <td>$1</td>
             <td>1,325,661</td>
-            <td>284,298</td>
+            <td>284,291</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>530,263</td>
-            <td>102,137</td>
+            <td>102,135</td>
           </tr>
                   <tr>
             <td>$3</td>
@@ -372,7 +372,7 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
                   <tr>
             <td>$9</td>
             <td>75,754</td>
-            <td>13,200</td>
+            <td>13,198</td>
           </tr>
                   <tr>
             <td>$10</td>
@@ -431,8 +431,8 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,373,631</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,182,305</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,373,602</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,182,334</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -509,10 +509,10 @@ Reveal a &quot;$$$&quot; symbol, and win TRIPLE the prize shown.<br />
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>

@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -344,7 +344,7 @@ Reveal an "ALL" symbol and WIN ALL 15 PRIZES!</p>
                   <tr>
             <td>$5</td>
             <td>637,118</td>
-            <td>88,085</td>
+            <td>88,082</td>
           </tr>
                   <tr>
             <td>$10</td>
@@ -398,8 +398,8 @@ Reveal an "ALL" symbol and WIN ALL 15 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,066,650</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,514,520</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,066,635</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,514,535</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -476,10 +476,10 @@ Reveal an "ALL" symbol and WIN ALL 15 PRIZES!</p>
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>

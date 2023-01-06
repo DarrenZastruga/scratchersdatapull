@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -336,17 +336,17 @@
                   <tr>
             <td>$5</td>
             <td>251,367</td>
-            <td>43,145</td>
+            <td>43,140</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>179,560</td>
-            <td>26,892</td>
+            <td>26,888</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>71,822</td>
-            <td>10,372</td>
+            <td>10,370</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -356,7 +356,7 @@
                   <tr>
             <td>$50</td>
             <td>33,239</td>
-            <td>4,559</td>
+            <td>4,557</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -390,8 +390,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,144,050</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,292,265</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,143,855</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,292,460</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -468,10 +468,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
