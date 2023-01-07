@@ -2499,8 +2499,8 @@ def exportNYScratcherRecs():
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #set_with_dataframe(worksheet=MDratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
+    set_with_dataframe(worksheet=NYratingssheet, dataframe=ratingstable, include_index=False,
+    include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
 #function to create an array of prizes by their probability for all scratchers still unclaimed
