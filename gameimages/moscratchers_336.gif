@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -341,12 +341,12 @@
                   <tr>
             <td>$1</td>
             <td>1,412,180</td>
-            <td>736,298</td>
+            <td>736,284</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>605,220</td>
-            <td>303,224</td>
+            <td>303,221</td>
           </tr>
                   <tr>
             <td>$4</td>
@@ -366,7 +366,7 @@
                   <tr>
             <td>$20</td>
             <td>50,417</td>
-            <td>23,984</td>
+            <td>23,983</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -400,8 +400,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,969,160</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,110,464</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,969,120</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,110,504</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -478,10 +478,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -549,6 +549,6 @@
 <script src="/libraries/superfish/supersubs.js?rny9sk"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=133&cb=1052236408"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=133&cb=273844388"></script>
 </body>
 </html>

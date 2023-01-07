@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -335,42 +335,42 @@
                   <tr>
             <td>$10</td>
             <td>616,678</td>
-            <td>133,795</td>
+            <td>133,075</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>231,290</td>
-            <td>49,665</td>
+            <td>49,419</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>308,352</td>
-            <td>63,268</td>
+            <td>62,899</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,081</td>
-            <td>10,146</td>
+            <td>10,065</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>46,277</td>
-            <td>9,356</td>
+            <td>9,291</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>77,088</td>
-            <td>15,472</td>
+            <td>15,390</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>77,088</td>
-            <td>15,222</td>
+            <td>15,126</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>5,312</td>
-            <td>1,023</td>
+            <td>1,014</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -399,8 +399,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,823,915</b></div>
-      <div class="h2">Total Prizes Won: <b>$28,288,790</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,783,470</b></div>
+      <div class="h2">Total Prizes Won: <b>$28,329,235</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -477,10 +477,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -548,6 +548,6 @@
 <script src="/libraries/superfish/supersubs.js?rny9sk"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=95&cb=1572537815"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=95&cb=1165859771"></script>
 </body>
 </html>

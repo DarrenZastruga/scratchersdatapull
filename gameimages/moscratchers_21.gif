@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -339,32 +339,32 @@
                   <tr>
             <td>$20</td>
             <td>1,071,687</td>
-            <td>300,967</td>
+            <td>300,902</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>833,225</td>
-            <td>230,856</td>
+            <td>230,796</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>23,854</td>
-            <td>6,642</td>
+            <td>6,641</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>218,305</td>
-            <td>60,108</td>
+            <td>60,090</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>11,895</td>
-            <td>3,340</td>
+            <td>3,339</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>13,713</td>
-            <td>3,788</td>
+            <td>3,787</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -403,8 +403,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$34,973,480</b></div>
-      <div class="h2">Total Prizes Won: <b>$77,751,960</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$34,967,230</b></div>
+      <div class="h2">Total Prizes Won: <b>$77,758,210</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -481,10 +481,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>

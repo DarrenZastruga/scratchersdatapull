@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
+        <a href="/play-responsibly" class="play" data-drupal-link-system-path="node/193">Play Responsibly</a>
               </li>
         </ul>
   
@@ -341,52 +341,52 @@
                   <tr>
             <td>$10</td>
             <td>597,124</td>
-            <td>571,926</td>
+            <td>568,728</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>223,953</td>
-            <td>214,447</td>
+            <td>213,290</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,646</td>
-            <td>285,574</td>
+            <td>283,902</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,511</td>
-            <td>46,338</td>
+            <td>46,100</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>44,818</td>
-            <td>42,918</td>
+            <td>42,651</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>74,651</td>
-            <td>71,285</td>
+            <td>70,885</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>74,651</td>
-            <td>71,286</td>
+            <td>70,870</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,497</td>
-            <td>4,305</td>
+            <td>4,281</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,568</td>
-            <td>1,495</td>
+            <td>1,484</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>741</td>
-            <td>724</td>
+            <td>719</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -410,8 +410,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$32,553,785</b></div>
-      <div class="h2">Total Prizes Won: <b>$1,429,035</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$32,380,150</b></div>
+      <div class="h2">Total Prizes Won: <b>$1,602,670</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -488,10 +488,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -559,6 +559,6 @@
 <script src="/libraries/superfish/supersubs.js?rny9sk"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=9&cb=730934372"></script>
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=9&cb=433441914"></script>
 </body>
 </html>
