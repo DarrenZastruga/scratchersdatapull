@@ -90,6 +90,9 @@ def exportDCScratcherRecs():
                 gameNumber = s.find(class_='field field_game_number').find(class_='field__item').text
             
                 gameURL = 'https://dclottery.com'+s.find('a', class_='teaser__image').get('href')
+                print(gameName)
+                gamePhoto = 'https://dclottery.com'+s.find(class_='teaser__image-background')['style'].replace('background-image:url(','').replace(')','')
+                print(gamePhoto)
                 gamePrice = s.find('a', class_='teaser__image').find(class_='field--name-field-price').text.replace('$','').strip()
                 topprize = None
                 gamePhoto = None
@@ -124,7 +127,7 @@ def exportDCScratcherRecs():
                         tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','',regex=False).str.replace(',','',regex=False)
                         tixdata['gameNumber'] = gameNumber
                         tixdata['gameName'] = gameName
-                        tixdata['gamePhoto'] = 'https://dclottery.com'+soup.find(class_='ticket-image')['style'].replace('background-image:url(','').replace(')','')
+                        tixdata['gamePhoto'] = gamePhoto
                         tixdata['price'] = gamePrice
                         tixdata['overallodds'] = None if overallodds==None else overallodds
                         tixdata['topprize'] = tixdata['prizeamount'].iloc[0]
@@ -150,7 +153,7 @@ def exportDCScratcherRecs():
                         tixtables = tixtables.append(tixdata)
                     
                     #have to get the game photo link from the game page and add with tixinfo
-                    tixlist['gamePhoto'] = tixdata.loc[tixdata['gameNumber']==gameNumber,'gamePhoto'].iloc[0]
+                    #tixlist['gamePhoto'] = tixdata.loc[tixdata['gameNumber']==gameNumber,'gamePhoto'].iloc[0]
                     tixlist['topprize'] = tixdata.loc[tixdata['gameNumber']==gameNumber,'topprize'].iloc[0]
                     print(tixlist)
 
