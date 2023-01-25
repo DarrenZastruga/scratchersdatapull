@@ -344,42 +344,42 @@
                   <tr>
             <td>$10</td>
             <td>597,743</td>
-            <td>576,586</td>
+            <td>574,446</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>224,276</td>
-            <td>216,229</td>
+            <td>215,424</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,916</td>
-            <td>288,088</td>
+            <td>286,987</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,548</td>
-            <td>46,757</td>
+            <td>46,576</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>44,862</td>
-            <td>43,220</td>
+            <td>43,077</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>74,729</td>
-            <td>71,961</td>
+            <td>71,685</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>74,729</td>
-            <td>71,905</td>
+            <td>71,626</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>5,124</td>
-            <td>4,935</td>
+            <td>4,913</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -408,8 +408,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$32,941,630</b></div>
-      <div class="h2">Total Prizes Won: <b>$1,159,170</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$32,824,620</b></div>
+      <div class="h2">Total Prizes Won: <b>$1,276,180</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -557,5 +557,5 @@
 <script src="/libraries/superfish/supersubs.js?roqt6s"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=115405540" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=9&cb=1179966626" async></script></body>
 </html>
