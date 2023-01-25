@@ -95,7 +95,6 @@ def exportDCScratcherRecs():
                 print(gamePhoto)
                 gamePrice = s.find('a', class_='teaser__image').find(class_='field--name-field-price').text.replace('$','').strip()
                 topprize = None
-                gamePhoto = None
                 
                 print(gameName)
                 print(gameNumber)
