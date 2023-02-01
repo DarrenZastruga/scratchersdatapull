@@ -330,10 +330,10 @@
 </div>
 
 <div class="scratchers-single-promo-wrapper">
-    <div class="scratchers-single-promo scratchers-single-promo_green scratchers-single-promo_left">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_left">
     <div class="container">
       <div class="scratchers-single-promo__banner">
-                <img src="/sites/default/files/scratchers/promotions/ScratchBigWinBig364x259.png" alt="" typeof="foaf:Image" />
+                <img src="/sites/default/files/scratchers/promotions/scratchBigWinBig.png" alt="" typeof="foaf:Image" />
 
               </div>
       <div class="scratchers-single-promo__text">
@@ -369,42 +369,42 @@
                   <tr>
             <td>$50</td>
             <td>874,780</td>
-            <td>454,266</td>
+            <td>447,062</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>787,264</td>
-            <td>408,593</td>
+            <td>402,209</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>962,251</td>
-            <td>497,853</td>
+            <td>489,874</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>210,191</td>
-            <td>108,614</td>
+            <td>106,863</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>112,126</td>
-            <td>58,071</td>
+            <td>57,167</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>8,758</td>
-            <td>4,682</td>
+            <td>4,603</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>1,340</td>
-            <td>711</td>
+            <td>704</td>
           </tr>
                   <tr>
             <td>$10,000</td>
             <td>335</td>
-            <td>174</td>
+            <td>172</td>
           </tr>
                   <tr>
             <td>$50,000</td>
@@ -414,7 +414,7 @@
                   <tr>
             <td>$1,000,000</td>
             <td>21</td>
-            <td>11</td>
+            <td>10</td>
           </tr>
                   <tr>
             <td>$5,000,000</td>
@@ -428,8 +428,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$180,099,480</b></div>
-      <div class="h2">Total Prizes Won: <b>$167,509,660</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$176,622,140</b></div>
+      <div class="h2">Total Prizes Won: <b>$170,987,000</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -577,5 +577,5 @@
 <script src="/libraries/superfish/supersubs.js?roqt6s"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=89&cb=1512670923" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=93&cb=760870173" async></script></body>
 </html>

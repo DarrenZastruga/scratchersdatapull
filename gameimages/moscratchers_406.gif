@@ -264,12 +264,6 @@
       <div class="scratchers-single__id">Game #406</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
-                      <div class="scratchers-single__tags tags">
-                              <a class="tag tag_yellow" href="#">New</a>
-              
-                                            
-
-            </div>
                     <div class="scratchers-single__text">
             <p>This $5 game offers more than $16 million in total prizes, with top prizes of up to $100,000!</p>
 
@@ -344,67 +338,67 @@
                   <tr>
             <td>$5</td>
             <td>548,165</td>
-            <td>440,282</td>
+            <td>413,176</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>234,957</td>
-            <td>185,941</td>
+            <td>173,745</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>234,888</td>
-            <td>185,092</td>
+            <td>172,709</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>58,808</td>
-            <td>46,259</td>
+            <td>43,205</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>19,124</td>
-            <td>15,009</td>
+            <td>13,991</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>39,213</td>
-            <td>30,628</td>
+            <td>28,581</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>11,768</td>
-            <td>9,151</td>
+            <td>8,515</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,113</td>
-            <td>2,412</td>
+            <td>2,262</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>15,088</td>
-            <td>11,741</td>
+            <td>10,933</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>783</td>
-            <td>609</td>
+            <td>566</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>189</td>
-            <td>150</td>
+            <td>140</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>663</td>
-            <td>550</td>
+            <td>509</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>30</td>
-            <td>24</td>
+            <td>22</td>
           </tr>
                   <tr>
             <td>$20,000</td>
@@ -414,7 +408,7 @@
                   <tr>
             <td>$100,000</td>
             <td>6</td>
-            <td>5</td>
+            <td>4</td>
           </tr>
                 </tbody>
       </table>
@@ -423,8 +417,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$12,702,075</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,329,195</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$11,801,980</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,229,290</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -572,5 +566,5 @@
 <script src="/libraries/superfish/supersubs.js?roqt6s"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=15&cb=1732455660" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=19&cb=72772149" async></script></body>
 </html>

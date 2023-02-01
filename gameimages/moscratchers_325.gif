@@ -331,10 +331,10 @@
 </div>
 
 <div class="scratchers-single-promo-wrapper">
-    <div class="scratchers-single-promo scratchers-single-promo_green scratchers-single-promo_left">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_left">
     <div class="container">
       <div class="scratchers-single-promo__banner">
-                <img src="/sites/default/files/scratchers/promotions/ScratchBigWinBig364x259.png" alt="" typeof="foaf:Image" />
+                <img src="/sites/default/files/scratchers/promotions/scratchBigWinBig.png" alt="" typeof="foaf:Image" />
 
               </div>
       <div class="scratchers-single-promo__text">
@@ -370,27 +370,27 @@
                   <tr>
             <td>$30</td>
             <td>582,544</td>
-            <td>136,100</td>
+            <td>136,092</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>466,028</td>
-            <td>106,716</td>
+            <td>106,708</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>466,063</td>
-            <td>104,861</td>
+            <td>104,855</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>349,564</td>
-            <td>79,069</td>
+            <td>79,065</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>291,284</td>
-            <td>64,703</td>
+            <td>64,699</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -444,8 +444,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$29,163,430</b></div>
-      <div class="h2">Total Prizes Won: <b>$112,210,700</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$29,161,930</b></div>
+      <div class="h2">Total Prizes Won: <b>$112,212,200</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -593,5 +593,5 @@
 <script src="/libraries/superfish/supersubs.js?roqt6s"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=147&cb=1220913534" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=151&cb=28563791" async></script></body>
 </html>

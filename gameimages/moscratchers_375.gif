@@ -330,10 +330,10 @@
 </div>
 
 <div class="scratchers-single-promo-wrapper">
-    <div class="scratchers-single-promo scratchers-single-promo_green scratchers-single-promo_left">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_left">
     <div class="container">
       <div class="scratchers-single-promo__banner">
-                <img src="/sites/default/files/scratchers/promotions/ScratchBigWinBig364x259.png" alt="" typeof="foaf:Image" />
+                <img src="/sites/default/files/scratchers/promotions/scratchBigWinBig.png" alt="" typeof="foaf:Image" />
 
               </div>
       <div class="scratchers-single-promo__text">
@@ -369,32 +369,32 @@
                   <tr>
             <td>$30</td>
             <td>595,407</td>
-            <td>295,932</td>
+            <td>293,811</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>476,386</td>
-            <td>236,201</td>
+            <td>234,468</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>476,349</td>
-            <td>235,531</td>
+            <td>233,874</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>357,363</td>
-            <td>176,919</td>
+            <td>175,616</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>297,741</td>
-            <td>146,893</td>
+            <td>145,837</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>37,968</td>
-            <td>18,764</td>
+            <td>18,599</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -433,8 +433,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$71,583,990</b></div>
-      <div class="h2">Total Prizes Won: <b>$72,700,990</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$71,101,910</b></div>
+      <div class="h2">Total Prizes Won: <b>$73,183,070</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -582,5 +582,5 @@
 <script src="/libraries/superfish/supersubs.js?roqt6s"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=119&cb=466914496" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=123&cb=244433852" async></script></body>
 </html>
