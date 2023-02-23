@@ -338,42 +338,42 @@
                   <tr>
             <td>$1</td>
             <td>936,948</td>
-            <td>419,101</td>
+            <td>417,505</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>401,548</td>
-            <td>170,256</td>
+            <td>169,541</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>187,394</td>
-            <td>75,691</td>
+            <td>75,394</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>53,538</td>
-            <td>21,058</td>
+            <td>20,965</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>93,704</td>
-            <td>34,942</td>
+            <td>34,818</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>33,458</td>
-            <td>11,695</td>
+            <td>11,660</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>30,130</td>
-            <td>10,285</td>
+            <td>10,248</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,195</td>
-            <td>689</td>
+            <td>687</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -392,8 +392,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,090,512</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,277,748</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,082,768</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,285,492</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -541,5 +541,5 @@
 <script src="/libraries/superfish/supersubs.js?rq34ov"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=36&cb=1403976861" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=34&cb=1554811946" async></script></body>
 </html>
