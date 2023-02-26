@@ -4240,8 +4240,8 @@ def exportFLScratcherRecs():
     ratingstable.to_csv("./FLratingstable.csv", encoding='utf-8')
     # write to Google Sheets
     # select a work sheet from its name
-    #FLratingssheet = gs.worksheet('FLRatingsTable')
-    #FLratingssheet.clear()
+    FLratingssheet = gs.worksheet('FLRatingsTable')
+    FLratingssheet.clear()
     
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
