@@ -4266,8 +4266,8 @@ def exportFLScratcherRecs():
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #set_with_dataframe(worksheet=FLratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
+    set_with_dataframe(worksheet=FLratingssheet, dataframe=ratingstable, include_index=False,
+    include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
 
