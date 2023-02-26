@@ -62,7 +62,7 @@ def exportNCScratcherRecs():
     url = "https://nclottery.com/scratch-off-prizes-remaining"
     r = requests.get(url)
     response = r.text
-    #print(r.text)
+            #print(r.text)
     soup = BeautifulSoup(response, 'html.parser')
     tixlist = pd.DataFrame()
     table = soup.find_all('table')

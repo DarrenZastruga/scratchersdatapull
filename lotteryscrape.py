@@ -207,7 +207,7 @@ def exportVAScratcherRecs():
         formatstr).astype('int64')
 
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -494,7 +494,7 @@ def exportVAScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -602,7 +602,7 @@ def exportAZScratcherRecs():
 
     #tixtables.to_csv("./AZprizedata.csv", encoding='utf-8')
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.drop_duplicates(subset=['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds',
                                                   'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported'])
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
@@ -873,7 +873,7 @@ def exportAZScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -987,6 +987,7 @@ def exportMOScratcherRecs():
         tixdata['extrachances'] = None
         tixdata['secondChance'] = None
         tixdata['dateexported'] = date.today()
+        tixdata['gameURL'] = gameURL
         tixdata.rename(columns={'Prize Level': 'prizeamount', 'Total Prizes': 'Winning Tickets At Start',
                        'Unclaimed Prizes': 'Winning Tickets Unclaimed'}, inplace=True)
         tixdata['prizeamount'] = tixdata['prizeamount'].str.replace(
@@ -1001,7 +1002,7 @@ def exportMOScratcherRecs():
     tixlist.to_csv("./MOtixlist.csv", encoding='utf-8')
 
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -1276,7 +1277,7 @@ def exportMOScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -1358,12 +1359,13 @@ def exportOKScratcherRecs():
             tixdata['extrachances'] = None
             tixdata['secondChance'] = None
             tixdata['dateexported'] = date.today()
+            tixdata['gameURL'] = gameURL
             tixtables = tixtables.append(tixdata)
 
     tixlist.to_csv("./OKtixlist.csv", encoding='utf-8')
 
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -1638,7 +1640,7 @@ def exportOKScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -1718,12 +1720,13 @@ def exportCAScratcherRecs():
             tixdata['extrachances'] = None
             tixdata['secondChance'] = None
             tixdata['dateexported'] = date.today()
+            tixdata['gameURL'] = gameURL
             tixtables = tixtables.append(tixdata)
 
     tixlist.to_csv("./CAtixlist.csv", encoding='utf-8')
 
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -2001,7 +2004,7 @@ def exportCAScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -2094,6 +2097,7 @@ def exportNMScratcherRecs():
             tixdata['extrachances'] = None
             tixdata['secondChance'] = None
             tixdata['dateexported'] = date.today()
+            tixdata['gameURL'] = gameURL
             print(tixdata)
             print(tixdata.columns)
             tixtables = tixtables.append(tixdata)
@@ -2104,7 +2108,7 @@ def exportNMScratcherRecs():
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -2382,7 +2386,7 @@ def exportNMScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -2464,6 +2468,7 @@ def exportMDScratcherRecs():
             tixdata['extrachances'] = None
             tixdata['secondChance'] = None
             tixdata['dateexported'] = dateexported
+            tixdata['gameURL'] = gameURL
             print(tixdata)
             print(tixdata.columns)
             tixtables = tixtables.append(tixdata)
@@ -2475,7 +2480,7 @@ def exportMDScratcherRecs():
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -2753,7 +2758,7 @@ def exportMDScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -2868,13 +2873,14 @@ def exportNYScratcherRecs():
             tixdata['extrachances'] = None
             tixdata['secondChance'] = None
             tixdata['dateexported'] = dateexported
+            tixdata['gameURL'] = gameURL
             print(tixdata[['gameNumber', 'gameName', 'prizeamount', 'price']])
             print(tixdata.columns)
             tixtables = tixtables.append(tixdata)
 
     tixlist.to_csv("./NYtixlist.csv", encoding='utf-8')
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting',
-                               'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -3156,7 +3162,7 @@ def exportNYScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -3255,6 +3261,7 @@ def exportDCScratcherRecs():
                         tixdata['extrachances'] = None
                         tixdata['secondChance'] = None
                         tixdata['dateexported'] = date.today()
+                        tixdata['gameURL'] = gameURL
 
                         # for game 1533, Fat Wallet, the overall odds and top prize odds are switched on the dclottery site
                         if gameNumber == '1533':
@@ -3276,7 +3283,7 @@ def exportDCScratcherRecs():
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting',
-                               'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -3549,7 +3556,7 @@ def exportDCScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
@@ -3655,6 +3662,7 @@ def exportNCScratcherRecs():
             tixdata['extrachances'] = None
             tixdata['secondChance'] = None
             tixdata['dateexported'] = date.today()
+            tixdata['gameURL'] = gameURL
             print(tixdata)
             print(tixdata.columns)
             tixtables = tixtables.append(tixdata)
@@ -3666,7 +3674,7 @@ def exportNCScratcherRecs():
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
@@ -3945,7 +3953,7 @@ def exportNCScratcherRecs():
                                  'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
-                                 'Data Date', 'Stats Page']]
+                                 'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('', inplace=True)
     print(ratingstable)
