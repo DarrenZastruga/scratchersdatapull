@@ -544,7 +544,7 @@ def exportAZScratcherRecs():
     #tixlist.to_csv("./AZtixlist.csv", encoding='utf-8')
 
     tixtables = pd.DataFrame(columns=['gameNumber', 'gameName', 'price', 'prizeamount', 'startDate', 'endDate',
-                             'lastdatetoclaim', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported'])
+                             'lastdatetoclaim', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported','gameURL'])
 
     for i in tixlist.loc[:, 'gameNumber']:
 
@@ -600,6 +600,7 @@ def exportAZScratcherRecs():
         tixtables.loc[index, 'topprizeavail'] = topprizeavail
         tixtables.loc[index, 'extrachances'] = None
         tixtables.loc[index, 'secondChance'] = None
+        tixtables['gameURL'] = gameURL
 
     #tixtables.to_csv("./AZprizedata.csv", encoding='utf-8')
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds', 'topprizeremain',
