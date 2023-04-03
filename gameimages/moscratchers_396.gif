@@ -347,32 +347,32 @@
                   <tr>
             <td>$10</td>
             <td>377,050</td>
-            <td>92,062</td>
+            <td>91,955</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>226,230</td>
-            <td>52,310</td>
+            <td>52,245</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>30,163</td>
-            <td>6,933</td>
+            <td>6,925</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>31,062</td>
-            <td>6,969</td>
+            <td>6,960</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>25,057</td>
-            <td>5,531</td>
+            <td>5,521</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>5,285</td>
-            <td>1,169</td>
+            <td>1,168</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -382,7 +382,7 @@
                   <tr>
             <td>$1,000</td>
             <td>841</td>
-            <td>192</td>
+            <td>189</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -411,8 +411,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,978,995</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,771,480</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,971,775</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,778,700</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -560,5 +560,5 @@
 <script src="/libraries/superfish/supersubs.js?rsc4mc"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=34&cb=1919147940" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=34&cb=1685418189" async></script></body>
 </html>
