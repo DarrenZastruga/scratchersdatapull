@@ -146,7 +146,7 @@ def exportVAScratcherRecs():
                 print(e)  # ValueError: No tables found
                 continue
 
-        tableData['prizeamount'] = tableData['Prize Amount'].replace('*', '')
+        tableData['prizeamount'] = tableData['Prize Amount'].replace(re.escape('*'), '')
         tableData['gameNumber'] = soup.find(
             'h2', class_='title-display').find('small').get_text()
         tableData['gameName'] = soup.find(
@@ -156,7 +156,7 @@ def exportVAScratcherRecs():
         tableData['overallodds'] = soup.find(
             'p', class_='odds-display').find('span').get_text()
         tableData['topprize'] = soup.find(
-            'h2', class_='top-prize-display').get_text().replace('*', '')
+            'h2', class_='top-prize-display').get_text().replace(re.escape('*'), '')
         tableData['topprizeodds'] = soup.find(
             'p', class_='odds-display').find('br').find('span').get_text()
         tableData['topprizeremain'] = tableData.iloc[0, 2]
@@ -192,7 +192,7 @@ def exportVAScratcherRecs():
         {r'\$': ''}, regex=True)
     tixtables['price'] = tixtables['price'].replace({r'\$': ''}, regex=True)
     tixtables['topprize'] = tixtables['topprize'].str.replace(
-        '*', '', regex=True)
+        re.escape('*'), '', regex=True)
     tixtables['topprize'] = tixtables['topprize'].str.replace(
         ',', '', regex=True)
     tixtables['topprize'] = tixtables['topprize'].replace(
