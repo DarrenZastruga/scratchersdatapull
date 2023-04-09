@@ -185,7 +185,7 @@ def exportVAScratcherRecs():
     tixtables['gameNumber'] = tixtables['gameNumber'].replace(
         '#', '', regex=True)
     tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(
-        '*', '', regex=True)
+        re.escape('*'), '', regex=True)
     tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(
         ',', '', regex=True)
     tixtables['prizeamount'] = tixtables['prizeamount'].replace(
