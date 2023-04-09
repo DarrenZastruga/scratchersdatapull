@@ -400,10 +400,10 @@ def exportVAScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -414,7 +414,7 @@ def exportVAScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -759,7 +759,7 @@ def exportAZScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
 
         # add non-prize and totals rows with matching columns
         totalremain.loc[:, 'Total remaining'] = tixtotal
@@ -783,10 +783,10 @@ def exportAZScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -797,7 +797,7 @@ def exportAZScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -1159,7 +1159,7 @@ def exportMOScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -1184,10 +1184,10 @@ def exportMOScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -1198,7 +1198,7 @@ def exportMOScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -1522,7 +1522,7 @@ def exportOKScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -1547,10 +1547,10 @@ def exportOKScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -1561,7 +1561,7 @@ def exportOKScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -1885,7 +1885,7 @@ def exportCAScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -1910,10 +1910,10 @@ def exportCAScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -1924,7 +1924,7 @@ def exportCAScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -2267,7 +2267,7 @@ def exportNMScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -2292,10 +2292,10 @@ def exportNMScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -2306,7 +2306,7 @@ def exportNMScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -2639,7 +2639,7 @@ def exportMDScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -2664,10 +2664,10 @@ def exportMDScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -2678,7 +2678,7 @@ def exportMDScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -3043,7 +3043,7 @@ def exportNYScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -3068,10 +3068,10 @@ def exportNYScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -3082,7 +3082,7 @@ def exportNYScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -3437,7 +3437,7 @@ def exportDCScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -3462,10 +3462,10 @@ def exportDCScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -3476,7 +3476,7 @@ def exportDCScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -3834,7 +3834,7 @@ def exportNCScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
@@ -3859,10 +3859,10 @@ def exportNCScratcherRecs():
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
 
         # add expected values for final totals row
@@ -3873,7 +3873,7 @@ def exportNCScratcherRecs():
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
@@ -4170,7 +4170,7 @@ def exportFLScratcherRecs():
         gamerow.loc[:,'Directory'] = None
         gamerow.loc[:,'Data Date'] = gamerow.loc[:,'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
         print(currentodds)
 
         #add non-prize and totals rows with matching columns
@@ -4186,8 +4186,8 @@ def exportFLScratcherRecs():
         totals.loc[:,'Starting Expected Value'] = ''
         totals.loc[:,'Expected Value'] = ''
         totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
         
         #add expected values for final totals row
@@ -4196,7 +4196,7 @@ def exportFLScratcherRecs():
         totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
         totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
     print(scratchertables.columns)   
@@ -4490,7 +4490,7 @@ def exportILScratcherRecs():
             gamerow.loc[:,'Directory'] = None
             gamerow.loc[:,'Data Date'] = gamerow.loc[:,'dateexported']
     
-            currentodds = currentodds.append(gamerow, ignore_index=True)
+            currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
             print(currentodds)
     
             #add non-prize and totals rows with matching columns
@@ -4506,8 +4506,9 @@ def exportILScratcherRecs():
             totals.loc[:,'Starting Expected Value'] = ''
             totals.loc[:,'Expected Value'] = ''
             totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-            totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
-            totalremain = totalremain.append(totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
+            totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
+            totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
+            
             print(totalremain.columns)
             
             #add expected values for final totals row
@@ -4516,7 +4517,7 @@ def exportILScratcherRecs():
             totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
             totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
             print(totalremain)
-            alltables = alltables.append(totalremain)
+            alltables = pd.concat([alltables, totalremain], axis=0)
 
     
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
@@ -4791,7 +4792,7 @@ def exportKSScratcherRecs():
         gamerow.loc[:,'Directory'] = None
         gamerow.loc[:,'Data Date'] = gamerow.loc[:,'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
 
 
         #add non-prize and totals rows with matching columns
@@ -4807,8 +4808,8 @@ def exportKSScratcherRecs():
         totals.loc[:,'Starting Expected Value'] = ''
         totals.loc[:,'Expected Value'] = ''
         totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
         
         #add expected values for final totals row
@@ -4817,7 +4818,7 @@ def exportKSScratcherRecs():
         totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
         totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
     print(scratchertables.columns)   
