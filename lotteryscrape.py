@@ -375,7 +375,7 @@ def exportVAScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], axis=0)
         print(currentodds)
 
         # add non-prize and totals rows with matching columns
