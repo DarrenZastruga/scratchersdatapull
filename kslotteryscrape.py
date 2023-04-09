@@ -69,99 +69,102 @@ def exportKSScratcherRecs():
 
     tixlist = pd.DataFrame()
     tixlist = pd.read_html(str(soup.find('table', id = 'gametable')))[0]
-    tixlist.rename(columns={0:'prizeamount',1:'gameNumber',2:'gameName', 3:'gameType',4: 'startDate',5:'topprize',6:'topprizeremain',7:'prizeLevel1',8:'level1remain',9:'prizeLevel2',10:'level2remain'}, inplace=True)
+    tixlist.rename(columns={0:'gamePrice',1:'gameNumber',2:'gameName', 3:'gameType',4: 'startDate',5:'topprize',6:'topprizeremain',7:'prizeLevel1',8:'level1remain',9:'prizeLevel2',10:'level2remain'}, inplace=True)
     tixlist = tixlist[tixlist['gameType']=='S']
-    tixlist['gameURL'] = 'https://www.kslottery.com/games/instants/?gameid='+str(tixlist['gameNumber'][0])
-    print(tixlist)
-    print(tixlist.columns)
+    tixlist['gameNumber'] = tixlist['gameNumber'].astype(str)
+
     
     tixtables = pd.DataFrame()
     
     for s in tixlist.loc[:,'gameNumber']:
         print(s)
-        print(tixlist.loc[tixlist['gameNumber']==s])
+        print(tixlist.loc[tixlist['gameNumber']==s,'gameNumber'])
         #get table of data for each scratcher page
-        url = str(tixlist.loc[tixlist['gameNumber']==s,'gameURL'][0])
-        r = requests.get(url)
+        gameURL = 'https://www.kslottery.com/games/instants/?gameid='+str(s)
+        print(gameURL)
+        r = requests.get(gameURL)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
+        #get table of remaining tickets
         page = soup.find('div', class_='page-container')
-        table = pd.read_html(str(page.find('table')))[1]
-        table.rename(columns={'Prize':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
-        print(table)
+        tixdata = pd.read_html(str(page.find('table')))[1]
         
-        gameName = s.find('h3').string
-        gameNumber = s.find(class_='game-number').text.replace('Game Number: ','')
-        gamePhoto = soup.select_one("img[src*='"+gameNumber+"']")["src"]
-        gameURL = 'https://www.nmlottery.com/games/scratchers'
-        gamePrice = s.find(class_='price').string.replace('$','')
-        topprize = s.find(class_='top-prize').text.replace('Top Prize: $','').replace(',','')
-        startDate = datetime.strftime(datetime.strptime(s.find(class_='start-date').text.replace('Start Date: ',''),"%B %d, %Y"),"%m/%d/%Y")
-        overallodds = s.find(class_='prizes-and-odds').text
-        #if there's no odds text for the game, leave it empty for now and calculate later 
-        try: 
-            oddstextindex = overallodds.index(': 1 in ')+7
-            overallodds = overallodds[oddstextindex:oddstextindex+4]
-        except ValueError as e:
-            print(e) # ValueError: substring not found if there's no text on odds
-            overallodds = None
-            continue
+        tixdata.rename(columns={'Prize':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
+        gameHeader = soup.find('div', class_='col-xs-12 col-md-12 cat-item').find('h2').string
+        print(gameHeader)
+        gamePrice = gameHeader.split(' - ')[0].replace('$','')
+        gameName = gameHeader.split(' - ')[1].strip()
+        gameNumber = gameHeader.split(' - ')[2].strip().replace('Game# ','')
+
+        gamePhoto = soup.select_one("img[src*='"+"_"+gameNumber+"']")["src"]
+        overallodds = tixdata.iloc[-1,0].replace('Overall odds of winning are 1 in ','')
+        topprize = tixlist.loc[tixlist['gameNumber']==s,'topprize'].iloc[0]
+        topprizestarting = tixdata.iloc[-2,1]
+        topprizeavail = 'Top Prize Claimed' if tixlist.loc[tixlist['gameNumber']==s,'topprizeremain'].iloc[0] == 0 else np.nan
         
+        print(gamePrice)
         print(gameName)
         print(gameNumber)
-        print(gamePrice)
-        print(gameURL)
         print(gamePhoto)
-        print(topprize)
-        print(startDate)
         print(overallodds)
+        print(topprizestarting)
+        print(topprizeavail)
             
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','startDate','overallodds','gameURL','gamePhoto']] = [
-            gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
+        print(tixlist.columns)
+        tixlist.loc[tixlist['gameNumber']==s,'price'] = gamePrice
+        tixlist.loc[tixlist['gameNumber']==s,'gameURL'] = gameURL
+        tixlist.loc[tixlist['gameNumber']==s,'gamePhoto'] = gamePhoto
+        tixlist.loc[tixlist['gameNumber']==s,'topprizestarting'] = topprizestarting
+        tixlist.loc[tixlist['gameNumber']==s,'topprizeavail'] = topprizeavail
+        tixlist.loc[tixlist['gameNumber']==s,'overallodds'] = overallodds
+        tixlist.loc[tixlist['gameNumber']==s,'endDate'] = None
+        tixlist.loc[tixlist['gameNumber']==s,'lastdatetoclaim'] = None
+        tixlist.loc[tixlist['gameNumber']==s,'extrachances'] = None
+        tixlist.loc[tixlist['gameNumber']==s,'secondChance'] = None
+        tixlist.loc[tixlist['gameNumber']==s,'dateexported'] = date.today()
 
-        
-        tixdata = pd.read_html(str(s.find(class_='data')))[0]
-        print(tixdata)
         if len(tixdata) == 0:
             tixtables = tixtables.append([])
         else:
-            tixdata.rename(columns={'Prize:':'prizeamount','Approx. # of Prizes:': 'Winning Tickets At Start', 'Approx. Prizes Remaining:': 'Winning Tickets Unclaimed'}, inplace=True)
-            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','')
-            tixdata['gameNumber'] = gameNumber
+            tixdata = tixdata.iloc[:-1].replace('Free Ticket',gamePrice)
+            tixdata = tixdata.iloc[:-1].replace('Free 1 Ticket',gamePrice)
+            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','', regex=False).str.replace(',','', regex=False)
+            tixdata['gameNumber'] = str(gameNumber)
             tixdata['gameName'] = gameName
-            tixdata['gamePhoto'] = gamePhoto
+            #since Kansas doesn't post the Winning Tickets At Start, just set as Winning Tickets Unclaimed
+            tixdata['Winning Tickets At Start'] = tixdata['Winning Tickets Unclaimed']                                                                        
+            tixdata['gamePhoto'] = tixlist.loc[tixlist['gameNumber']==s,'gamePhoto'].iloc[0]
             tixdata['price'] = gamePrice
             #if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
-            tixdata['overallodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]*tixdata['Winning Tickets At Start'].iloc[0] if overallodds==None else overallodds
+            tixdata['overallodds'] = overallodds
             tixdata['topprize'] = topprize
-            tixdata['topprizeodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]
-            tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
-            tixdata['topprizeremain'] = tixdata['Winning Tickets Unclaimed'].iloc[0]
-            tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
-            tixdata['startDate'] = startDate
-            tixdata['endDate'] = endDateslist.loc[endDateslist['Game #']==gameNumber,'End Date']
-            tixdata['lastdatetoclaim'] = endDateslist.loc[endDateslist['Game #']==gameNumber,'Last Day to Redeem']
+            tixdata['topprizestarting'] = topprizestarting
+            tixdata['topprizeremain'] = tixlist.loc[tixlist['gameNumber']==s,'topprizeremain'].iloc[0]
+            tixdata['topprizeavail'] = topprizeavail
+            tixdata['startDate'] = tixlist.loc[tixlist['gameNumber']==s,'startDate'].iloc[0]
+            tixdata['endDate'] = None
+            tixdata['lastdatetoclaim'] = None
             tixdata['extrachances'] = None
             tixdata['secondChance'] = None
             tixdata['dateexported'] = date.today() 
             print(tixdata)
-            print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
             
-    tixlist.to_csv("./NMtixlist.csv", encoding='utf-8')
-    print(tixtables.loc[tixtables['prizeamount']=='Prize ticket'],'gameNumber','prizeamount')
+            tixtables = tixtables.append(tixdata)
+        
+    
+    tixlist.to_csv("./KStixlist.csv", encoding='utf-8')
     tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
+    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     
     #save scratchers list
-    #scratchersall.to_sql('NMscratcherlist', engine, if_exists='replace')
-    scratchersall.to_csv("./NMscratcherslist.csv", encoding='utf-8')
+    #scratchersall.to_sql('KSscratcherlist', engine, if_exists='replace')
+    scratchersall.to_csv("./KSscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-    scratchertables.to_csv("./NMscratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./KSscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
@@ -172,6 +175,7 @@ def exportKSScratcherRecs():
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
+    print(gamesgrouped.loc[:,'Non-prize at start'])
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total at start']/gamesgrouped['topprizestarting']
     print(gamesgrouped.loc[:,'topprizeodds'])
@@ -235,10 +239,7 @@ def exportKSScratcherRecs():
         print(type(startingtotal))
         print(type(tixtotal))
         print(type(price))
-        testdf = totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']]
-        print(testdf[~testdf.applymap(np.isreal).all(1)])
         totalremain.loc[:,'Starting Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
-        print(totalremain.loc[:,'Starting Expected Value'])
         totalremain.loc[:,'Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
         totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Starting Expected Value','Expected Value','dateexported']]
         
@@ -248,11 +249,15 @@ def exportKSScratcherRecs():
         gamerow.loc[:,'Change in Expected Value of Profit Prize'] = ((sum(totalremain.loc[totalremain['prizeamount']>price,'Expected Value'])-sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value']))/sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value']))/price if price > 0 else (sum(totalremain.loc[totalremain['prizeamount']>price,'Expected Value'])-sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value']))/sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value'])
         gamerow.loc[:,'Percent of Prizes Remaining'] = (totalremain.loc[:,'Winning Tickets Unclaimed']/totalremain.loc[:,'Winning Tickets At Start']).mean()
         gamerow.loc[:,'Percent of Profit Prizes Remaining'] = (totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed']/totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start']).mean()
+        print(gamerow.loc[:,'Non-prize remaining'])
+        print(gamerow.loc[:,'Non-prize at start'])
         chngLosingTix = (gamerow.loc[:,'Non-prize remaining']-gamerow.loc[:,'Non-prize at start'])/gamerow.loc[:,'Non-prize at start']
+        print(chngLosingTix)
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        print(chngAvailPrizes)
+        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
                 
-        gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto'].values[0]
+        gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto']
         gamerow.loc[:,'FAQ'] = None
         gamerow.loc[:,'About'] = None
         gamerow.loc[:,'Directory'] = None
@@ -290,8 +295,8 @@ def exportKSScratcherRecs():
     print(scratchertables.columns)   
     
     #save scratchers tables
-    #scratchertables.to_sql('NMscratcherstables', engine, if_exists='replace')
-    scratchertables.to_csv("./NMscratchertables.csv", encoding='utf-8')
+    #scratchertables.to_sql('KSscratcherstables', engine, if_exists='replace')
+    scratchertables.to_csv("./KSscratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
     print(currentodds.dtypes)
@@ -323,13 +328,13 @@ def exportKSScratcherRecs():
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
-    ratingstable['Stats Page'] = "/new-mexico-statistics-for-each-scratcher-game"
-    #ratingstable.to_sql('NMratingstable', engine, if_exists='replace')
-    ratingstable.to_csv("./NMratingstable.csv", encoding='utf-8')
+    ratingstable['Stats Page'] = "/kansas-statistics-for-each-scratcher-game"
+    #ratingstable.to_sql('KSratingstable', engine, if_exists='replace')
+    ratingstable.to_csv("./KSratingstable.csv", encoding='utf-8')
     # write to Google Sheets
     # select a work sheet from its name
-    #NMratingssheet = gs.worksheet('NMRatingsTable')
-    #NMratingssheet.clear()
+    #KSratingssheet = gs.worksheet('KSRatingsTable')
+    #KSratingssheet.clear()
     
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
@@ -354,7 +359,7 @@ def exportKSScratcherRecs():
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #set_with_dataframe(worksheet=CAratingssheet, dataframe=ratingstable, include_index=False,
+    #set_with_dataframe(worksheet=KSratingssheet, dataframe=ratingstable, include_index=False,
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
