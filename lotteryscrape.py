@@ -179,7 +179,7 @@ def exportVAScratcherRecs():
         if tableData.empty:
             continue
         else:
-            tixtables = tixtables.append(tableData)
+            tixtables = pd.concat([tixtables,tableData], axis=0)
 
     # remove characters from numeric values
     tixtables['gameNumber'] = tixtables['gameNumber'].replace(
@@ -999,7 +999,7 @@ def exportMOScratcherRecs():
         if tixdata.empty:
             continue
         else:
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixlist.to_csv("./MOtixlist.csv", encoding='utf-8')
 
@@ -1362,7 +1362,7 @@ def exportOKScratcherRecs():
             tixdata['secondChance'] = None
             tixdata['dateexported'] = date.today()
             tixdata['gameURL'] = gameURL
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixlist.to_csv("./OKtixlist.csv", encoding='utf-8')
 
@@ -1723,7 +1723,7 @@ def exportCAScratcherRecs():
             tixdata['secondChance'] = None
             tixdata['dateexported'] = date.today()
             tixdata['gameURL'] = gameURL
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixlist.to_csv("./CAtixlist.csv", encoding='utf-8')
 
@@ -2102,7 +2102,7 @@ def exportNMScratcherRecs():
             tixdata['gameURL'] = gameURL
             print(tixdata)
             print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixlist.to_csv("./NMtixlist.csv", encoding='utf-8')
     print(tixtables.loc[tixtables['prizeamount'] ==
@@ -2473,7 +2473,7 @@ def exportMDScratcherRecs():
             tixdata['gameURL'] = gameURL
             print(tixdata)
             print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixlist.to_csv("./MDtixlist.csv", encoding='utf-8')
 
@@ -2878,7 +2878,7 @@ def exportNYScratcherRecs():
             tixdata['gameURL'] = gameURL
             print(tixdata[['gameNumber', 'gameName', 'prizeamount', 'price']])
             print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixlist.to_csv("./NYtixlist.csv", encoding='utf-8')
     scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting',
@@ -3273,7 +3273,7 @@ def exportDCScratcherRecs():
                             # this game, Double Your Money, seems to be missing a decimal point
                             revisedodds = str('3.99')
                             tixdata['overallodds'] = revisedodds if overallodds == '399' else overallodds
-                        tixtables = tixtables.append(tixdata)
+                        tixtables = pd.concat([tixtables, tixdata], axis=0)
 
                     # have to get the game photo link from the game page and add with tixinfo
                     #tixlist['gamePhoto'] = tixdata.loc[tixdata['gameNumber']==gameNumber,'gamePhoto'].iloc[0]
@@ -3667,7 +3667,7 @@ def exportNCScratcherRecs():
             tixdata['gameURL'] = gameURL
             print(tixdata)
             print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
             print(tixtables)
             print(tixtables.columns)
 
@@ -4055,7 +4055,7 @@ def exportFLScratcherRecs():
             tixdata['gameURL'] = gameURL
             print(tixdata)
             print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
             print(tixtables)
             print(tixtables.columns)
             
@@ -4681,7 +4681,7 @@ def exportKSScratcherRecs():
             tixdata['dateexported'] = date.today() 
             print(tixdata)
             
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
         
     
     tixlist.to_csv("./KStixlist.csv", encoding='utf-8')
