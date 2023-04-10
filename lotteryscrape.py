@@ -622,8 +622,8 @@ def exportAZScratcherRecs():
                                           != "Coming Soon!", :]
 
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
-    gamesgrouped = scratchertables.groupby(by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[
-        'Winning Tickets At Start', 'Winning Tickets Unclaimed'].sum().reset_index(level=['gameNumber', 'gameName', 'dateexported']).copy()
+    gamesgrouped = scratchertables.groupby(by=['gameNumber', 'gameName', 'dateexported'], group_keys=False).agg({
+        'Winning Tickets At Start':'sum', 'Winning Tickets Unclaimed':'sum'}).reset_index(level=['gameNumber', 'gameName', 'dateexported']).copy()
     gamesgrouped = gamesgrouped.merge(scratchersall[[
                                       'gameNumber', 'price', 'topprizeodds', 'overallodds']], how='left', on=['gameNumber'])
     #gamesgrouped.loc[:, 'topprizeodds'] = gamesgrouped.loc[:,'topprizeodds'].str.replace(',', '', regex=True)
