@@ -1035,7 +1035,7 @@ def exportMOScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain']==0 else gamesgrouped['Total remaining'] / \
+    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain'].item()==0 else gamesgrouped['Total remaining'] / \
         gamesgrouped['topprizeremain']
     print(gamesgrouped.loc[:, 'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
