@@ -1039,7 +1039,6 @@ def exportMOScratcherRecs():
         gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain']
     except ZeroDivisionError:
         gamesgrouped['topprizeodds'] = 0
-    #gamesgrouped.loc[gamesgrouped['topprizeremain'] == 0 | pd.IsNull(gamesgrouped['topprizeremain'])==True, 'topprizeodds'] = 0
     print(gamesgrouped.loc[:, 'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
@@ -1401,8 +1400,10 @@ def exportOKScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain']==0 else gamesgrouped['Total remaining'] / \
-        gamesgrouped['topprizeremain']
+    try:
+        gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain']
+    except ZeroDivisionError:
+        gamesgrouped['topprizeodds'] = 0
     print(gamesgrouped.loc[:, 'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
@@ -1764,8 +1765,10 @@ def exportCAScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain']==0 else gamesgrouped['Total remaining'] / \
-        gamesgrouped['topprizeremain']
+    try:
+        gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain']
+    except ZeroDivisionError:
+        gamesgrouped['topprizeodds'] = 0
     print(gamesgrouped.loc[:, 'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
@@ -2146,8 +2149,10 @@ def exportNMScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain']==0 else gamesgrouped['Total remaining'] / \
-        gamesgrouped['topprizeremain']
+    try:
+        gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain']
+    except ZeroDivisionError:
+        gamesgrouped['topprizeodds'] = 0
     print(gamesgrouped.loc[:, 'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
@@ -2518,8 +2523,10 @@ def exportMDScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain']==0 else gamesgrouped['Total remaining'] / \
-        gamesgrouped['topprizeremain'].astype('float')
+    try:
+        gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain'].astype('float')
+    except ZeroDivisionError:
+        gamesgrouped['topprizeodds'] = 0
     print(gamesgrouped.loc[:, 'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
@@ -2919,8 +2926,10 @@ def exportNYScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain']==0 else gamesgrouped['Total remaining'] / \
-        gamesgrouped['topprizeremain'].astype('float')
+    try:
+        gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain'].astype('float')
+    except ZeroDivisionError:
+        gamesgrouped['topprizeodds'] = 0
     # print(gamesgrouped.loc[:,'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
@@ -3713,8 +3722,10 @@ def exportNCScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:, 'topprizeodds'] = 0 if gamesgrouped['topprizeremain']==0 else gamesgrouped['Total remaining'] / \
-        gamesgrouped['topprizeremain']
+    try:
+        gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain'].astype('float')
+    except ZeroDivisionError:
+        gamesgrouped['topprizeodds'] = 0
     print(gamesgrouped.loc[:, 'topprizeodds'])
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
