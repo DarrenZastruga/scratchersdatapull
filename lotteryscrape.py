@@ -2834,8 +2834,8 @@ def exportNYScratcherRecs():
                            'prizes_remaining': 'Winning Tickets Unclaimed'}, inplace=True)
             tixdata['Winning Tickets At Start'] = tixdata['prizes_paid_out'].astype(
                 'int')+tixdata['Winning Tickets Unclaimed'].astype('int')
-            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace(
-                '$', '', regex=True).str.replace(',', '', regex=True).str.lower()
+            tixdata['prizeamount'] = tixdata['prizeamount'].replace(
+                '$', '').replace(',', '').str.lower()
             if tixdata['prizeamount'].iloc[0].find('week') > 0:
                 print(tixdata['prizeamount'][0])
                 tixdata.at[0, 'prizeamount'] = str(
@@ -2847,7 +2847,7 @@ def exportNYScratcherRecs():
                 print(tixdata['prizeamount'].iloc[0])
             elif tixdata['prizeamount'].iloc[0].find('k annual installments') > 0:
                 tixdata.at[0, 'prizeamount'] = str(
-                    int(tixdata['prizeamount'].iloc[0].replace('k annual installments', '000'))*60)
+                    int(tixdata['prizeamount'].iloc[0].replace('k annual installments', '000'))*60).replace('$','')
                 print(tixdata['prizeamount'].iloc[0])
             else:
                 tixdata['prizeamount'].iloc[0] = tixdata['prizeamount'].iloc[0]
@@ -2859,6 +2859,7 @@ def exportNYScratcherRecs():
             tixdata['prizeamount'] = tixdata['prizeamount'].replace('.00', '')
             tixdata['prizeamount'] = tixdata['prizeamount'].replace(
                 '10.00', '10')
+
             print(tixdata['prizeamount'])
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
