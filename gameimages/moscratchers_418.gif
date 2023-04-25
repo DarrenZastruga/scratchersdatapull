@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="/sites/default/files/Favicons-01_1.png" type="image/png" />
 
-    <title>ACE OF SPADES | molottery.com</title>
+    <title>EMERALD 8S | molottery.com</title>
     <link rel="stylesheet" media="all" href="/libraries/superfish/css/superfish.css?rtn0rg" />
 <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?rtn0rg" />
 <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?rtn0rg" />
@@ -199,8 +199,8 @@
   <div class="welcome__header">Welcome!</div>
   <div class="welcome__body">
     <div class="welcome__columns">
-            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=scratchers/374" target="_blank">Sign Up</a></div>
-      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=scratchers/374" target="_blank">Log In</a></div>
+            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=scratchers/418" target="_blank">Sign Up</a></div>
+      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=scratchers/418" target="_blank">Log In</a></div>
       <meta content="">
     </div>
   </div>
@@ -236,7 +236,7 @@
                   <a href="/scratchers">Scratchers</a>
               </li>
           <li>
-                  ACE OF SPADES
+                  EMERALD 8S
               </li>
         </ol>
   </nav>
@@ -260,41 +260,38 @@
   
 
   <div class="scratchers-single">
-      <h1>ACE OF SPADES  </h1>
-      <div class="scratchers-single__id">Game #374</div>
+      <h1>EMERALD 8S  </h1>
+      <div class="scratchers-single__id">Game #418</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
-                              <a class="tag tag_orange" href="#">Expires soon</a>
-                              <a class="tag " href="#">No longer distributed</a>
+                              <a class="tag tag_yellow" href="#">New</a>
               
                                             
 
             </div>
                     <div class="scratchers-single__text">
-            <p>This $5 game&nbsp;has two sides to play and top prizes of up to $100,000!</p>
+            <p>Win up to $88,888 on this $5 game, with 15 chances to win and loaded with $88 prizes!</p>
 
             <h3>How to Play</h3>
-            <p><strong>Front:&nbsp;</strong>Match any of YOUR NUMBERS to any WINNING NUMBER and win the prize shown. Reveal a "spade" symbol, win prize automatically. Reveal a "5X" symbol, win 5 TIMES the prize! Reveal an "ace" symbol, WIN ALL 15 PRIZES ON THIS SIDE!</p>
-
-<p><strong>Back:</strong>&nbsp;Reveal a "chip" symbol,&nbsp;in any spot, win prize shown. Reveal a "5X" symbol, win 5 TIMES the prize! Reveal an "ALL" symbol, WIN ALL 5 PRIZES on this side!</p>
+            <p>Reveal a BLACK “8” symbol, win prize shown. Reveal a GREEN “8" symbol, win DOUBLE the prize. Reveal an "EMERALD" symbol,” WIN ALL 15 PRIZES!</p>
 
           </div>
           <div id="scratchers-single-info-standard">
             <div class="scratchers-single__info scratchers-single-info">
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Official Start Date:</div>
-                <div class="scratchers-single-info__body">Mar. 28, 2022</div>
+                <div class="scratchers-single-info__body">Apr. 24, 2023</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">Dec. 30, 2022</div>
+                <div class="scratchers-single-info__body">TBD</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">Jun. 28, 2023</div>
+                <div class="scratchers-single-info__body">TBD</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -304,19 +301,19 @@
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Top Prize:</div>
-                                <div class="scratchers-single-info__body">$100,000</div>
+                                <div class="scratchers-single-info__body">$88,888</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Average Chances*:</div>
-                <div class="scratchers-single-info__body">1 in 3.99</div>
+                <div class="scratchers-single-info__body">1 in 4.08</div>
                 <div class="scratchers-single-info__bottom"> including $5 prizes</div>
               </div>
             </div>
           </div>
         </div>
         <div class="scratchers-single__right">
-                                          <a class="colorbox-image" href="/sites/default/files/scratchers/374.gif"><img src="/sites/default/files/scratchers/ITVM/374.gif"></a>
+                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/418%20Emerald%208s%20418.jpg"><img src="/sites/default/files/scratchers/tile/418%20Emerald%208s%20418.png"></a>
                   </div>
       </div>
 
@@ -346,78 +343,68 @@
         <tbody>
                   <tr>
             <td>$5</td>
-            <td>675,709</td>
-            <td>192,482</td>
+            <td>500,576</td>
+            <td>500,568</td>
           </tr>
                   <tr>
             <td>$10</td>
-            <td>289,652</td>
-            <td>75,595</td>
+            <td>214,683</td>
+            <td>214,682</td>
           </tr>
                   <tr>
             <td>$15</td>
-            <td>289,625</td>
-            <td>73,092</td>
+            <td>143,068</td>
+            <td>143,066</td>
           </tr>
                   <tr>
-            <td>$20</td>
-            <td>72,428</td>
-            <td>18,607</td>
+            <td>$18</td>
+            <td>71,534</td>
+            <td>71,533</td>
           </tr>
                   <tr>
-            <td>$25</td>
-            <td>35,246</td>
-            <td>9,123</td>
+            <td>$28</td>
+            <td>84,083</td>
+            <td>84,082</td>
           </tr>
                   <tr>
-            <td>$40</td>
-            <td>48,264</td>
-            <td>12,220</td>
+            <td>$88</td>
+            <td>36,806</td>
+            <td>36,806</td>
           </tr>
                   <tr>
-            <td>$50</td>
-            <td>14,498</td>
-            <td>3,713</td>
-          </tr>
-                  <tr>
-            <td>$75</td>
-            <td>3,875</td>
-            <td>960</td>
-          </tr>
-                  <tr>
-            <td>$100</td>
-            <td>21,525</td>
-            <td>5,273</td>
-          </tr>
-                  <tr>
-            <td>$200</td>
-            <td>984</td>
-            <td>254</td>
+            <td>$288</td>
+            <td>288</td>
+            <td>288</td>
           </tr>
                   <tr>
             <td>$500</td>
-            <td>190</td>
-            <td>43</td>
+            <td>179</td>
+            <td>179</td>
+          </tr>
+                  <tr>
+            <td>$888</td>
+            <td>177</td>
+            <td>177</td>
           </tr>
                   <tr>
             <td>$1,000</td>
-            <td>795</td>
-            <td>199</td>
+            <td>18</td>
+            <td>18</td>
           </tr>
                   <tr>
-            <td>$5,000</td>
-            <td>30</td>
-            <td>6</td>
+            <td>$8,888</td>
+            <td>12</td>
+            <td>12</td>
           </tr>
                   <tr>
-            <td>$20,000</td>
-            <td>6</td>
-            <td>3</td>
+            <td>$10,000</td>
+            <td>4</td>
+            <td>4</td>
           </tr>
                   <tr>
-            <td>$100,000</td>
-            <td>6</td>
-            <td>0</td>
+            <td>$88,888</td>
+            <td>5</td>
+            <td>5</td>
           </tr>
                 </tbody>
       </table>
@@ -426,8 +413,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,050,005</b></div>
-      <div class="h2">Total Prizes Won: <b>$14,954,530</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$14,615,184</b></div>
+      <div class="h2">Total Prizes Won: <b>$126</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -543,7 +530,7 @@
   </div>
 
 
-<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"scratchers\/374","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"colorbox\/colorbox,colorbox\/default,molottery\/classy.base,molottery\/global-styling,molottery_dashboard\/axios,molottery_dashboard\/molottery_dashboard,scratchers\/scratchers_single,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base","theme":"molottery","theme_token":null},"ajaxTrustedUrl":[],"api":{"domain":"https:\/\/playersclub.molottery.com","tos":"https:\/\/playersclub.molottery.com\/enter"},"superfish":{"superfish-main":{"id":"superfish-main","sf":{"delay":"1700","animation":{"opacity":"show","height":"show"}},"plugins":{"smallscreen":{"mode":"window_width","breakpoint":900,"title":"Main navigation"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"eff30fef41f7e524bb66a459a8585887676a9a4919e2e6d6cc8225cbd43055c1"}}</script>
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"scratchers\/418","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"colorbox\/colorbox,colorbox\/default,molottery\/classy.base,molottery\/global-styling,molottery_dashboard\/axios,molottery_dashboard\/molottery_dashboard,scratchers\/scratchers_single,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base","theme":"molottery","theme_token":null},"ajaxTrustedUrl":[],"api":{"domain":"https:\/\/playersclub.molottery.com","tos":"https:\/\/playersclub.molottery.com\/enter"},"superfish":{"superfish-main":{"id":"superfish-main","sf":{"delay":"1700","animation":{"opacity":"show","height":"show"}},"plugins":{"smallscreen":{"mode":"window_width","breakpoint":900,"title":"Main navigation"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"eff30fef41f7e524bb66a459a8585887676a9a4919e2e6d6cc8225cbd43055c1"}}</script>
 <script src="/core/assets/vendor/jquery/jquery.min.js?v=3.6.0"></script>
 <script src="/core/misc/polyfills/element.matches.js?v=9.4.5"></script>
 <script src="/core/misc/polyfills/object.assign.js?v=9.4.5"></script>
@@ -575,5 +562,5 @@
 <script src="/libraries/superfish/supersubs.js?rtn0rg"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=87&cb=668589357" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1893478905" async></script></body>
 </html>
