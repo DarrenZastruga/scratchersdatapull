@@ -338,32 +338,32 @@
                   <tr>
             <td>$2</td>
             <td>730,563</td>
-            <td>177,811</td>
+            <td>177,710</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>535,798</td>
-            <td>125,491</td>
+            <td>125,418</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>146,121</td>
-            <td>33,067</td>
+            <td>33,046</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>146,121</td>
-            <td>31,773</td>
+            <td>31,751</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>48,707</td>
-            <td>10,345</td>
+            <td>10,333</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>19,769</td>
-            <td>4,109</td>
+            <td>4,106</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -378,7 +378,7 @@
                   <tr>
             <td>$1,000</td>
             <td>120</td>
-            <td>28</td>
+            <td>27</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,169,801</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,537,122</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,167,592</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,539,331</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -546,5 +546,5 @@
 <script src="/libraries/superfish/supersubs.js?rtn0rg"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=95&cb=263119023" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=98&cb=970543528" async></script></body>
 </html>
