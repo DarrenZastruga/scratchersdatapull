@@ -4646,7 +4646,7 @@ def exportKSScratcherRecs():
         gameName = gameHeader.split(' - ')[1].strip()
         gameNumber = gameHeader.split(' - ')[2].strip().replace('Game# ','')
 
-        gamePhoto = soup.select_one("img[src*='"+"_"+gameNumber+"']")["src"]
+        gamePhoto = soup.select_one("img[src*='"+"_"+str(gameNumber)+"']")["src"]
         overallodds = tixdata.iloc[-1,0].replace('Overall odds of winning are 1 in ','')
         topprize = tixlist.loc[tixlist['gameNumber']==s,'topprize'].iloc[0]
         topprizestarting = tixdata.iloc[-2,1]
