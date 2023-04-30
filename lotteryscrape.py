@@ -1517,6 +1517,7 @@ def exportOKScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
+        print(chngAvailPrizes,chngLosingTix)
         gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
 
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
