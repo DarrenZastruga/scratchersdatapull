@@ -352,8 +352,10 @@ def exportVAScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         # function to get url for photo based on game number, like a case-swtich statement
         def photolink(i):
             switcher = {
@@ -745,8 +747,10 @@ def exportAZScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         print(gameid)
         print(tixlist.dtypes)
         print(type(gameid))
@@ -1152,8 +1156,10 @@ def exportMOScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -1518,8 +1524,10 @@ def exportOKScratcherRecs():
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
         print(chngAvailPrizes,chngLosingTix)
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -1883,8 +1891,10 @@ def exportCAScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -2267,8 +2277,10 @@ def exportNMScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -2641,8 +2653,10 @@ def exportMDScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -3050,8 +3064,10 @@ def exportNYScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -3444,8 +3460,10 @@ def exportDCScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -3843,8 +3861,10 @@ def exportNCScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-
+        try:
+                gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+                gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
                                               == gameid, 'gamePhoto'].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -4180,8 +4200,10 @@ def exportFLScratcherRecs():
         gamerow.loc[:,'Percent of Profit Prizes Remaining'] = (totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed']/totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start']).mean()
         chngLosingTix = (gamerow.loc[:,'Non-prize remaining']-gamerow.loc[:,'Non-prize at start'])/gamerow.loc[:,'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-                
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0       
         gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto'].values[0]
         gamerow.loc[:,'FAQ'] = None
         gamerow.loc[:,'About'] = None
@@ -4500,8 +4522,10 @@ def exportILScratcherRecs():
             gamerow.loc[:,'Percent of Profit Prizes Remaining'] = (totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed']/totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start']).mean()
             chngLosingTix = (gamerow.loc[:,'Non-prize remaining']-gamerow.loc[:,'Non-prize at start'])/gamerow.loc[:,'Non-prize at start']
             chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-                    
+            try:
+                gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+            except ZeroDivisionError:
+                gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0        
             gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto'].values[0]
             gamerow.loc[:,'FAQ'] = None
             gamerow.loc[:,'About'] = None
@@ -4802,8 +4826,10 @@ def exportKSScratcherRecs():
 
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
 
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
-                
+        try:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+        except ZeroDivisionError:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0       
         gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto']
         gamerow.loc[:,'FAQ'] = None
         gamerow.loc[:,'About'] = None

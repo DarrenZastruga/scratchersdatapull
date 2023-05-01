@@ -289,8 +289,10 @@ def exportOKScratcherRecs():
         gamerow.loc[:,'Percent of Profit Prizes Remaining'] = (totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed']/totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start']).mean()
         chngLosingTix = (gamerow.loc[:,'Non-prize remaining']-gamerow.loc[:,'Non-prize at start'])/gamerow.loc[:,'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
-                
+        print(chngAvailPrizes)
+        print(chngLosingTix)
+        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
+        print(gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'])
         gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto'].values[0]
         gamerow.loc[:,'FAQ'] = None
         gamerow.loc[:,'About'] = None
