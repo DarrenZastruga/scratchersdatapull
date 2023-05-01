@@ -338,52 +338,52 @@
                   <tr>
             <td>$1</td>
             <td>1,147,860</td>
-            <td>567,760</td>
+            <td>549,398</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>491,940</td>
-            <td>234,710</td>
+            <td>226,834</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>229,572</td>
-            <td>107,234</td>
+            <td>103,400</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>65,592</td>
-            <td>30,447</td>
+            <td>29,405</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>114,782</td>
-            <td>52,131</td>
+            <td>50,219</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>40,997</td>
-            <td>18,330</td>
+            <td>17,665</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>35,861</td>
-            <td>15,909</td>
+            <td>15,322</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,665</td>
-            <td>1,165</td>
+            <td>1,130</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>22</td>
-            <td>8</td>
+            <td>7</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>15</td>
-            <td>6</td>
+            <td>5</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,045,486</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,524,287</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,938,731</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,631,042</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -546,5 +546,5 @@
 <script src="/libraries/superfish/supersubs.js?rtn0rg"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=34&cb=1219174146" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=32&cb=735801645" async></script></body>
 </html>

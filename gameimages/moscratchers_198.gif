@@ -370,32 +370,32 @@
                   <tr>
             <td>$30</td>
             <td>1,360,202</td>
-            <td>259,022</td>
+            <td>259,002</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>1,088,125</td>
-            <td>205,180</td>
+            <td>205,159</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>952,178</td>
-            <td>178,756</td>
+            <td>178,741</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>680,101</td>
-            <td>127,124</td>
+            <td>127,110</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>612,052</td>
-            <td>113,001</td>
+            <td>112,996</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>54,392</td>
-            <td>10,092</td>
+            <td>10,091</td>
           </tr>
                   <tr>
             <td>$300</td>
@@ -410,7 +410,7 @@
                   <tr>
             <td>$1,000</td>
             <td>12,287</td>
-            <td>2,306</td>
+            <td>2,305</td>
           </tr>
                   <tr>
             <td>$4,000</td>
@@ -444,8 +444,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$56,385,700</b></div>
-      <div class="h2">Total Prizes Won: <b>$276,370,920</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$56,380,970</b></div>
+      <div class="h2">Total Prizes Won: <b>$276,375,650</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -593,5 +593,5 @@
 <script src="/libraries/superfish/supersubs.js?rtn0rg"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=162&cb=2120821381" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=160&cb=558934768" async></script></body>
 </html>
