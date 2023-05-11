@@ -96,7 +96,7 @@ def exportKSScratcherRecs():
         gameName = gameHeader.split(' - ')[1].strip()
         gameNumber = gameHeader.split(' - ')[2].strip().replace('Game# ','')
 
-        gamePhoto = soup.select_one("img[src*='"+"_"+str(gameNumber)+"']")["src"]
+        gamePhoto = 'https://www.kslottery.com'+soup.select_one("img[src*='"+"_"+str(gameNumber)+"']")["src"]
         overallodds = tixdata.iloc[-1,0].replace('Overall odds of winning are 1 in ','')
         topprize = tixlist.loc[tixlist['gameNumber']==s,'topprize'].iloc[0]
         topprizestarting = tixdata.iloc[-2,1]
@@ -174,6 +174,8 @@ def exportKSScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto', 'price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
     print(gamesgrouped[['gameNumber','gamePhoto', 'overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
+    gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
+    print(gamesgrouped.columns)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
@@ -259,8 +261,7 @@ def exportKSScratcherRecs():
         print(chngAvailPrizes)
         gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
                 
-        gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto']
-        print(gamerow.loc[:,'Photo'])
+        #gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto']
         gamerow.loc[:,'FAQ'] = None
         gamerow.loc[:,'About'] = None
         gamerow.loc[:,'Directory'] = None
@@ -306,8 +307,8 @@ def exportKSScratcherRecs():
     print(scratchersall.dtypes)
     scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
-    ratingstable.drop(labels=['gameName_x','dateexported_y','gamePhoto_x','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
-    ratingstable.rename(columns={'gameName_y':'gameName','gamePhoto_y':'gamePhoto','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
+    ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+    ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
     #add number of days since the game start date as of date exported
     ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'], errors = 'coerce')).dt.days
     

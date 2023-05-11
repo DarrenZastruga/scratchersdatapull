@@ -4671,7 +4671,7 @@ def exportKSScratcherRecs():
         gameName = gameHeader.split(' - ')[1].strip()
         gameNumber = gameHeader.split(' - ')[2].strip().replace('Game# ','')
 
-        gamePhoto = soup.select_one("img[src*='"+"_"+str(gameNumber)+"']")["src"]
+        gamePhoto = 'https://www.kslottery.com'+soup.select_one("img[src*='"+"_"+str(gameNumber)+"']")["src"]
         overallodds = tixdata.iloc[-1,0].replace('Overall odds of winning are 1 in ','')
         topprize = tixlist.loc[tixlist['gameNumber']==s,'topprize'].iloc[0]
         topprizestarting = tixdata.iloc[-2,1]
@@ -4744,9 +4744,10 @@ def exportKSScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
     print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
+    gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
