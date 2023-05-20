@@ -230,7 +230,13 @@
                   <a href="/">MOLottery.com</a>
               </li>
           <li>
-                  Access denied
+                  <a href="/games">Games</a>
+              </li>
+          <li>
+                  <a href="/scratchers">Scratchers</a>
+              </li>
+          <li>
+                  $1,000,000 MONEY MULTIPLIER
               </li>
         </ol>
   </nav>
@@ -332,57 +338,57 @@
                   <tr>
             <td>$10</td>
             <td>597,124</td>
-            <td>330,228</td>
+            <td>325,878</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>223,953</td>
-            <td>123,548</td>
+            <td>121,881</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,646</td>
-            <td>163,082</td>
+            <td>160,868</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,511</td>
-            <td>26,347</td>
+            <td>25,987</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>44,818</td>
-            <td>24,311</td>
+            <td>23,976</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>74,651</td>
-            <td>40,366</td>
+            <td>39,824</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>74,651</td>
-            <td>40,293</td>
+            <td>39,739</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,497</td>
-            <td>2,437</td>
+            <td>2,401</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,568</td>
-            <td>829</td>
+            <td>816</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>741</td>
-            <td>419</td>
+            <td>416</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>50</td>
-            <td>24</td>
+            <td>23</td>
           </tr>
                   <tr>
             <td>$50,000</td>
@@ -401,8 +407,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$19,443,645</b></div>
-      <div class="h2">Total Prizes Won: <b>$14,539,175</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$19,207,610</b></div>
+      <div class="h2">Total Prizes Won: <b>$14,775,210</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -550,5 +556,5 @@
 <script src="/libraries/superfish/supersubs.js?rtn0rg"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=32&cb=383650648" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=29&cb=1125800199" async></script></body>
 </html>
