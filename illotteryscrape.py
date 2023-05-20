@@ -106,6 +106,8 @@ def exportILScratcherRecs():
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
+    print(soup)
+    print(soup.find('div', class_='unclaimed-prizes-table__wrapper'))
     tixtables = soup.find('div', class_='unclaimed-prizes-table__wrapper').find('table', class_='unclaimed-prizes-table unclaimed-prizes-table--itg')
     rows = tixtables.find_all('tr')
     

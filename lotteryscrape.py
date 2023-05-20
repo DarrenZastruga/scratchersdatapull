@@ -5216,7 +5216,7 @@ exportNYScratcherRecs()
 exportDCScratcherRecs()
 exportNCScratcherRecs()
 exportFLScratcherRecs()
-exportILScratcherRecs()
+#exportILScratcherRecs()
 exportKSScratcherRecs()
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
