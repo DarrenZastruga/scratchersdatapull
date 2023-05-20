@@ -66,10 +66,10 @@ def exportCOScratcherRecs():
     response = r.text
     #print(r.text)
     soup = BeautifulSoup(response, 'html.parser')
-
+    print(soup)
     tixlist = pd.DataFrame()
-    table = soup.find('div', id = 'scratchers-results').find_all(class_='scratcher-content')
-    #print(table)
+    table = pd.read_html(str(soup.find('table')))
+    print(table)
     
     
     tixtables = pd.DataFrame()

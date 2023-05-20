@@ -59,9 +59,9 @@ def formatstr(s):
 
 
 def exportILScratcherRecs():
-    urls = ["https://www.illinoislottery.com/games-hub/instant-tickets",
-            "https://www.illinoislottery.com/games-hub/instant-tickets?page=1",
-            "https://www.illinoislottery.com/games-hub/instant-tickets?page=2"]
+    urls = ["https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/games-hub/instant-tickets",
+            "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/games-hub/instant-tickets?page=1",
+            "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/games-hub/instant-tickets?page=2"]
     tixlist = pd.DataFrame()
     #loop through each page of scratcher games, from list above. 
     for u in urls:
@@ -72,7 +72,7 @@ def exportILScratcherRecs():
         pages = soup.find_all('div', class_='simple-game-card card-container__item')
         #loop through each row of the data table and get data from the game page
         for p in pages:
-            gameURL = 'https://www.illinoislottery.com'+str(p.find('a').get('href'))
+            gameURL = 'https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com'+str(p.find('a').get('href'))
             r = requests.get(gameURL)
             response = r.text
             soup = BeautifulSoup(response, 'html.parser')
@@ -83,7 +83,7 @@ def exportILScratcherRecs():
             overallodds = float(table.loc[table[0]=='Overall Odds',1].iloc[0].replace('1 in ','').replace(' to 1','').replace('1: ',''))
             gamePrice = table.loc[table[0]=='Price Point',1].iloc[0].replace('$','')
             startDate = table.loc[table[0]=='Launch Date',1].iloc[0]
-            gamePhoto = 'https://www.illinoislottery.com'+str(p.find(class_='simple-game-card__banner').get('style').replace('background-image:url(', '').replace(')', ''))
+            gamePhoto = 'https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com'+str(p.find(class_='simple-game-card__banner').get('style').replace('background-image:url(', '').replace(')', ''))
             endDate = None
             lastdatetoclaim = None
             extrachances = None
@@ -102,7 +102,8 @@ def exportILScratcherRecs():
                 gamePrice, gameNumber, gameURL, gamePhoto, overallodds, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
         
     #get the data from the big table of prizes for all games
-    url = "https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
+    print(tixlist)
+    url = "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
@@ -147,6 +148,7 @@ def exportILScratcherRecs():
     
     tixdata['dateexported'] = date.today()
 
+    print(tixlist['gameNumber'])
     #add topprize stats from tixdata foir each gameNumber in tixlist
     for t in tixlist['gameNumber']:
         print(t)
