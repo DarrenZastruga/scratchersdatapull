@@ -340,67 +340,67 @@
                   <tr>
             <td>$5</td>
             <td>585,584</td>
-            <td>200,613</td>
+            <td>191,862</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,062</td>
-            <td>83,233</td>
+            <td>79,513</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>250,974</td>
-            <td>81,162</td>
+            <td>77,303</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,705</td>
-            <td>18,994</td>
+            <td>18,022</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,231</td>
-            <td>15,161</td>
+            <td>14,324</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,178</td>
-            <td>1,266</td>
+            <td>1,212</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>40,201</td>
-            <td>11,981</td>
+            <td>11,387</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,346</td>
-            <td>997</td>
+            <td>943</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,639</td>
-            <td>4,309</td>
+            <td>4,060</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>411</td>
-            <td>120</td>
+            <td>114</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>252</td>
-            <td>70</td>
+            <td>66</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>125</td>
-            <td>38</td>
+            <td>37</td>
           </tr>
                   <tr>
             <td>$1,500</td>
             <td>41</td>
-            <td>14</td>
+            <td>13</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -430,7 +430,7 @@
                   <tr>
             <td>$100,000</td>
             <td>7</td>
-            <td>3</td>
+            <td>2</td>
           </tr>
                 </tbody>
       </table>
@@ -439,8 +439,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,462,435</b></div>
-      <div class="h2">Total Prizes Won: <b>$11,595,530</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,117,260</b></div>
+      <div class="h2">Total Prizes Won: <b>$11,940,705</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -588,5 +588,5 @@
 <script src="/libraries/superfish/supersubs.js?rtn0rg"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=42&cb=1397835177" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=43&cb=573714598" async></script></body>
 </html>
