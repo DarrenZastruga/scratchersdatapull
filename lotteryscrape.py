@@ -5210,8 +5210,8 @@ def exportOHScratcherRecs():
     ratingstable.to_csv("./OHratingstable.csv", encoding='utf-8')
     # write to Google Sheets
     # select a work sheet from its name
-    #OHratingssheet = gs.worksheet('OHRatingsTable')
-    #OHratingssheet.clear()
+    OHratingssheet = gs.worksheet('OHRatingsTable')
+    OHratingssheet.clear()
     
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
@@ -5236,8 +5236,8 @@ def exportOHScratcherRecs():
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #set_with_dataframe(worksheet=OHratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
+    set_with_dataframe(worksheet=OHratingssheet, dataframe=ratingstable, include_index=False,
+    include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
 
