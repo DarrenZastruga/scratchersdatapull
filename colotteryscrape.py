@@ -66,73 +66,49 @@ def exportCOScratcherRecs():
     response = r.text
     #print(r.text)
     soup = BeautifulSoup(response, 'html.parser')
-    print(soup)
-    tixlist = pd.DataFrame()
-    table = pd.read_html(str(soup.find('table')))
-    print(table)
-    
-    
-    tixtables = pd.DataFrame()
-    
-    for s in table:
-        print(s)
-        gameName = s.find('h3').string
-        gameNumber = s.find(class_='game-number').text.replace('Game Number: ','')
-        gamePhoto = soup.select_one("img[src*='"+gameNumber+"']")["src"]
-        gameURL = 'https://www.nmlottery.com/games/scratchers'
-        gamePrice = s.find(class_='price').string.replace('$','')
-        topprize = s.find(class_='top-prize').text.replace('Top Prize: $','').replace(',','')
-        startDate = datetime.strftime(datetime.strptime(s.find(class_='start-date').text.replace('Start Date: ',''),"%B %d, %Y"),"%m/%d/%Y")
-        overallodds = s.find(class_='prizes-and-odds').text
-        #if there's no odds text for the game, leave it empty for now and calculate later 
-        try: 
-            oddstextindex = overallodds.index(': 1 in ')+7
-            overallodds = overallodds[oddstextindex:oddstextindex+4]
-        except ValueError as e:
-            print(e) # ValueError: substring not found if there's no text on odds
-            overallodds = None
-            continue
-        
-        print(gameName)
-        print(gameNumber)
-        print(gamePrice)
-        print(gameURL)
-        print(gamePhoto)
-        print(topprize)
-        print(startDate)
-        print(overallodds)
-            
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','startDate','overallodds','gameURL','gamePhoto']] = [
-            gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
+    tixlist = pd.read_html(str(soup.find('table')))[0]
 
-        
-        tixdata = pd.read_html(str(s.find(class_='data')))[0]
+    tixlist.rename(columns={'Game name':'gameName', 'Game number':'gameNumber', 'Ticket price':'price', 'Game start':'startDate', 
+                            'Last day to claim':'lastdatetoclaim', 'Top prize': 'topprize', 'Total top prizes': 'topprizestarting',
+                            'Top prizes remaining':'topprizeremain','Overall odds':'overallodds',
+                            'Number of Eligible Drawings  Some Scratch games are eligible for more than one Bonus Draw.':'secondChance'}, inplace=True)
+    tixlist['gameName'] = tixlist['gameName'].str.replace('\u279E','').str.strip()
+    tixlist['secondChance'] = tixlist['secondChance'].str.replace('\u279E','').str.strip()
+    print(tixlist) 
+    print(tixlist.columns)    
+    gameURLs = soup.find('table').find_all('a')    
+    links = pd.DataFrame(columns={'gameURL'})
+    for g in gameURLs:
+        if "bonus-draws" not in g.get('href'):
+            links.loc[len(links.index), 'gameURL'] = g.get('href')
+        else: 
+            continue
+    tixlist = pd.concat([tixlist, links], axis=1, ignore_index=False)
+    
+    tixdata = pd.DataFrame()
+    
+    for s in tixlist['gameURL']:
+        print(s)
+        r = requests.get(s)
+        response = r.text
+        soup = BeautifulSoup(response, 'html.parser')
+        print(soup)
+        tixdata = pd.read_html(str(soup.find('table', class_='respond')))[0]
+        tixdata.rename(columns={'Prize Amount':'prizeamount', 
         print(tixdata)
-        if len(tixdata) == 0:
-            tixtables = tixtables.append([])
-        else:
-            tixdata.rename(columns={'Prize:':'prizeamount','Approx. # of Prizes:': 'Winning Tickets At Start', 'Approx. Prizes Remaining:': 'Winning Tickets Unclaimed'}, inplace=True)
-            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','')
-            tixdata['gameNumber'] = gameNumber
-            tixdata['gameName'] = gameName
-            tixdata['gamePhoto'] = gamePhoto
-            tixdata['price'] = gamePrice
-            #if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
-            tixdata['overallodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]*tixdata['Winning Tickets At Start'].iloc[0] if overallodds==None else overallodds
-            tixdata['topprize'] = topprize
-            tixdata['topprizeodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]
-            tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
-            tixdata['topprizeremain'] = tixdata['Winning Tickets Unclaimed'].iloc[0]
-            tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
-            tixdata['startDate'] = startDate
-            tixdata['endDate'] = endDateslist.loc[endDateslist['Game #']==gameNumber,'End Date']
-            tixdata['lastdatetoclaim'] = endDateslist.loc[endDateslist['Game #']==gameNumber,'Last Day to Redeem']
-            tixdata['extrachances'] = None
-            tixdata['secondChance'] = None
-            tixdata['dateexported'] = date.today() 
-            print(tixdata)
-            print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
+        tixdata['topprizeodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]
+        tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
+        tixdata['topprizeremain'] = tixdata['Winning Tickets Unclaimed'].iloc[0]
+        tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
+        tixdata['startDate'] = startDate
+        tixdata['endDate'] = endDateslist.loc[endDateslist['Game #']==gameNumber,'End Date']
+        tixdata['lastdatetoclaim'] = endDateslist.loc[endDateslist['Game #']==gameNumber,'Last Day to Redeem']
+        tixdata['extrachances'] = None
+        tixdata['secondChance'] = None
+        tixdata['dateexported'] = date.today() 
+        print(tixdata)
+        print(tixdata.columns)
+        tixtables = tixtables.append(tixdata)
             
     tixlist.to_csv("./COtixlist.csv", encoding='utf-8')
     print(tixtables.loc[tixtables['prizeamount']=='Prize ticket'],'gameNumber','prizeamount')
