@@ -68,6 +68,7 @@ def exportMDScratcherRecs():
 
     r = requests.request("GET", url, headers=headers, data=payload)
     response = r.text
+    print(response)
     soup = BeautifulSoup(response, 'html.parser')
     table = soup.find_all('li', class_= 'ticket')
     tixtables = pd.DataFrame()

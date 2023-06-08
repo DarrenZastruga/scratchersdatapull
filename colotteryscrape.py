@@ -115,7 +115,7 @@ def exportCOScratcherRecs():
     tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
     scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
-    scratchersall = scratchersall.drop_duplicates()
+    scratchersall = scratchersall.    _duplicates()
     
     #save scratchers list
     #scratchersall.to_sql('NMscratcherlist', engine, if_exists='replace')
