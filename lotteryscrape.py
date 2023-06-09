@@ -5843,24 +5843,26 @@ for t in prizetypes:
         clusterloop(ratingstable, scratchertables, t, std, 2)        
 '''
 
-#try: 
-exportVAScratcherRecs()
-exportAZScratcherRecs()
-exportMOScratcherRecs()
-exportOKScratcherRecs()
-exportCAScratcherRecs()
-exportNMScratcherRecs()
-exportMDScratcherRecs()
-exportNYScratcherRecs()
-exportDCScratcherRecs()
-exportNCScratcherRecs()
-exportFLScratcherRecs()
+try: 
+    exportVAScratcherRecs()
+    exportAZScratcherRecs()
+    exportMOScratcherRecs()
+    exportOKScratcherRecs()
+    exportCAScratcherRecs()
+    exportNMScratcherRecs()
+    exportMDScratcherRecs()
+    exportNYScratcherRecs()
+    exportDCScratcherRecs()
+    exportNCScratcherRecs()
+    exportFLScratcherRecs()
+
+except:
+    pass
+
 exportILScratcherRecs()
 exportKSScratcherRecs()
 exportOHScratcherRecs()
 exportTXScratcherRecs()
-#except:
-#    pass
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 logger.info(f'Finishing lotteryscrape.py at: {now}')
