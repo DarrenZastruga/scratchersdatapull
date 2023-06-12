@@ -82,6 +82,7 @@ def exportILScratcherRecs():
             r = requests.get(gameURL)
             response = r.text
             soup = BeautifulSoup(response, 'html.parser')
+            print(soup)
             table = soup.find('div', class_='itg-details-block')
             table = pd.read_html(str(table.find('table')))[0]
             print(table)

@@ -4579,7 +4579,7 @@ def exportILScratcherRecs():
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
     print(scratchertables.columns)   
     
-    #save scratchers tables  
+    #save scratchers tables
     #scratchertables.to_sql('FLscratcherstables', engine, if_exists='replace')
     scratchertables.to_csv("./ILscratchertables.csv", encoding='utf-8')
     
@@ -5855,11 +5855,11 @@ try:
     exportDCScratcherRecs()
     exportNCScratcherRecs()
     exportFLScratcherRecs()
+    exportILScratcherRecs()
 
 except:
     pass
 
-exportILScratcherRecs()
 exportKSScratcherRecs()
 exportOHScratcherRecs()
 exportTXScratcherRecs()
