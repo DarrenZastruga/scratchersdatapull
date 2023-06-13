@@ -91,7 +91,7 @@
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://web1.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -370,27 +370,27 @@
                   <tr>
             <td>$30</td>
             <td>1,360,202</td>
-            <td>258,935</td>
+            <td>258,930</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>1,088,125</td>
-            <td>205,101</td>
+            <td>205,099</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>952,178</td>
-            <td>178,696</td>
+            <td>178,695</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>680,101</td>
-            <td>127,084</td>
+            <td>127,082</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>612,052</td>
-            <td>112,981</td>
+            <td>112,980</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -405,7 +405,7 @@
                   <tr>
             <td>$500</td>
             <td>45,361</td>
-            <td>8,390</td>
+            <td>8,389</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -444,8 +444,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$56,361,230</b></div>
-      <div class="h2">Total Prizes Won: <b>$276,395,390</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$56,360,230</b></div>
+      <div class="h2">Total Prizes Won: <b>$276,396,390</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -593,5 +593,5 @@
 <script src="/libraries/superfish/supersubs.js?rw03r9"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=163&cb=1480062117" async></script></body>
 </html>

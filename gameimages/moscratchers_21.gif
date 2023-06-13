@@ -91,7 +91,7 @@
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://web1.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -342,32 +342,32 @@
                   <tr>
             <td>$20</td>
             <td>1,071,687</td>
-            <td>290,992</td>
+            <td>290,836</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>833,225</td>
-            <td>223,088</td>
+            <td>222,964</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>23,854</td>
-            <td>6,416</td>
+            <td>6,415</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>218,305</td>
-            <td>58,090</td>
+            <td>58,047</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>11,895</td>
-            <td>3,228</td>
+            <td>3,227</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>13,713</td>
-            <td>3,646</td>
+            <td>3,643</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -406,8 +406,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$34,087,760</b></div>
-      <div class="h2">Total Prizes Won: <b>$78,637,680</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$34,073,630</b></div>
+      <div class="h2">Total Prizes Won: <b>$78,651,810</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -555,5 +555,5 @@
 <script src="/libraries/superfish/supersubs.js?rw03r9"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=165&cb=38828852" async></script></body>
 </html>

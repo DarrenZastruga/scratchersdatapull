@@ -91,7 +91,7 @@
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://web1.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -338,37 +338,37 @@
                   <tr>
             <td>$2</td>
             <td>922,674</td>
-            <td>226,082</td>
+            <td>226,008</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>676,524</td>
-            <td>153,473</td>
+            <td>153,424</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>184,518</td>
-            <td>40,862</td>
+            <td>40,852</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>184,518</td>
-            <td>39,565</td>
+            <td>39,550</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>61,506</td>
-            <td>12,633</td>
+            <td>12,631</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>25,027</td>
-            <td>5,156</td>
+            <td>5,152</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>12,353</td>
-            <td>2,446</td>
+            <td>2,445</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,665,076</b></div>
-      <div class="h2">Total Prizes Won: <b>$9,532,908</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,664,192</b></div>
+      <div class="h2">Total Prizes Won: <b>$9,533,792</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -546,5 +546,5 @@
 <script src="/libraries/superfish/supersubs.js?rw03r9"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=149&cb=1498533853" async></script></body>
 </html>
