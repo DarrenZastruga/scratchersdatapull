@@ -369,37 +369,37 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50</td>
             <td>392,929</td>
-            <td>380,670</td>
+            <td>379,882</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>654,962</td>
-            <td>634,439</td>
+            <td>633,053</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>917,236</td>
-            <td>888,253</td>
+            <td>886,369</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>52,409</td>
-            <td>50,732</td>
+            <td>50,615</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>128,761</td>
-            <td>124,811</td>
+            <td>124,550</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>2,622</td>
-            <td>2,566</td>
+            <td>2,560</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>700</td>
-            <td>684</td>
+            <td>682</td>
           </tr>
                   <tr>
             <td>$10,000</td>
@@ -409,7 +409,7 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50,000</td>
             <td>50</td>
-            <td>48</td>
+            <td>47</td>
           </tr>
                   <tr>
             <td>$1,000,000</td>
@@ -428,8 +428,8 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$250,283,040</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,369,030</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$249,752,180</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,899,890</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -577,5 +577,5 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
 <script src="/libraries/superfish/supersubs.js?rwctr8"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=488036104" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1330644737" async></script></body>
 </html>
