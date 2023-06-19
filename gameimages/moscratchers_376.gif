@@ -338,27 +338,27 @@
                   <tr>
             <td>$1</td>
             <td>1,072,307</td>
-            <td>297,936</td>
+            <td>297,823</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>429,005</td>
-            <td>110,101</td>
+            <td>110,042</td>
           </tr>
                   <tr>
             <td>$3</td>
             <td>61,292</td>
-            <td>15,235</td>
+            <td>15,229</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>61,293</td>
-            <td>14,967</td>
+            <td>14,961</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>122,570</td>
-            <td>29,031</td>
+            <td>29,022</td>
           </tr>
                   <tr>
             <td>$6</td>
@@ -368,17 +368,17 @@
                   <tr>
             <td>$9</td>
             <td>61,278</td>
-            <td>14,295</td>
+            <td>14,287</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>76,583</td>
-            <td>17,354</td>
+            <td>17,350</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>30,639</td>
-            <td>6,595</td>
+            <td>6,594</td>
           </tr>
                   <tr>
             <td>$30</td>
@@ -427,8 +427,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,473,682</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,656,060</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,473,227</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,656,515</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -576,5 +576,5 @@
 <script src="/libraries/superfish/supersubs.js?rwctr8"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=100&cb=1714470152" async></script></body>
 </html>
