@@ -9,55 +9,55 @@
 <link rel="icon" href="/sites/default/files/Favicons-01_1.png" type="image/png" />
 
     <title>RIDE TO RICHE$ | molottery.com</title>
-    <link rel="stylesheet" media="all" href="/libraries/superfish/css/superfish.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/autocomplete-loading.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/fieldgroup.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/container-inline.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/clearfix.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/details.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/hidden.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/item-list.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/js.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/nowrap.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/position-container.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/progress.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/reset-appearance.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/resize.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/sticky-header.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-counter.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-counters.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-general-info.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tabledrag.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tablesort.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tree-child.module.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/modules/contrib/colorbox/styles/default/colorbox_style.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/main.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/custom.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/action-links.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/breadcrumb.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/button.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/collapse-processed.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/container-inline.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/details.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/exposed-filters.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/field.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/form.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/icons.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/inline-form.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/item-list.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/link.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/links.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/menu.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/more-link.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/pager.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabledrag.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tableselect.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tablesort.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabs.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/textarea.css?rvwh44" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/ui-dialog.css?rvwh44" />
+    <link rel="stylesheet" media="all" href="/libraries/superfish/css/superfish.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/autocomplete-loading.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/fieldgroup.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/container-inline.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/clearfix.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/details.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/hidden.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/item-list.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/js.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/nowrap.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/position-container.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/progress.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/reset-appearance.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/resize.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/sticky-header.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-counter.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-counters.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-general-info.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tabledrag.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tablesort.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tree-child.module.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/modules/contrib/colorbox/styles/default/colorbox_style.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/main.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/custom.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/action-links.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/breadcrumb.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/button.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/collapse-processed.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/container-inline.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/details.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/exposed-filters.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/field.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/form.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/icons.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/inline-form.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/item-list.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/link.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/links.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/menu.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/more-link.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/pager.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabledrag.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tableselect.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tablesort.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabs.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/textarea.css?rwctr8" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/ui-dialog.css?rwctr8" />
 
       
         <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DY9BDJRJJ"></script> <script> window.dataLayer = window.dataLayer || []; function gtag()
@@ -344,32 +344,32 @@
                   <tr>
             <td>$5</td>
             <td>362,561</td>
-            <td>79,644</td>
+            <td>79,527</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>258,841</td>
-            <td>51,138</td>
+            <td>51,071</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>103,558</td>
-            <td>19,801</td>
+            <td>19,770</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>27,250</td>
-            <td>5,007</td>
+            <td>4,999</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>47,902</td>
-            <td>8,624</td>
+            <td>8,613</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>9,986</td>
-            <td>1,875</td>
+            <td>1,870</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -403,8 +403,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,093,490</b></div>
-      <div class="h2">Total Prizes Won: <b>$8,533,045</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,090,520</b></div>
+      <div class="h2">Total Prizes Won: <b>$8,536,015</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -544,13 +544,13 @@
 <script src="/core/modules/responsive_image/js/responsive_image.ajax.js?v=9.4.5"></script>
 <script src="/core/misc/ajax.js?v=9.4.5"></script>
 <script src="/core/themes/stable/js/ajax.js?v=9.4.5"></script>
-<script src="/modules/custom/molottery_dashboard/js/molottery-dashboard.js?rvwh44"></script>
-<script src="/libraries/superfish/superfish.js?rvwh44"></script>
-<script src="/libraries/superfish/jquery.hoverIntent.minified.js?rvwh44"></script>
-<script src="/libraries/superfish/sfsmallscreen.js?rvwh44"></script>
-<script src="/libraries/superfish/supposition.js?rvwh44"></script>
-<script src="/libraries/superfish/supersubs.js?rvwh44"></script>
+<script src="/modules/custom/molottery_dashboard/js/molottery-dashboard.js?rwctr8"></script>
+<script src="/libraries/superfish/superfish.js?rwctr8"></script>
+<script src="/libraries/superfish/jquery.hoverIntent.minified.js?rwctr8"></script>
+<script src="/libraries/superfish/sfsmallscreen.js?rwctr8"></script>
+<script src="/libraries/superfish/supposition.js?rwctr8"></script>
+<script src="/libraries/superfish/supersubs.js?rwctr8"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=156&cb=251094158" async></script></body>
+</body>
 </html>
