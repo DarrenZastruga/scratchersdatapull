@@ -5313,9 +5313,17 @@ def exportTXScratcherRecs():
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
         details = soup.find_all('div', class_='large-4 cell')[1].find_all('p')
-        overallodds = details[3].string.split('1 in ')[1][0:4]
+        for x in details: 
+            if x.string==None:
+                continue
+            elif 'Overall odds of winning any prize' in x.string: 
+                overallodds  = x.string.split('1 in ')[1][0:4] 
+                print(overallodds )
+            elif 'Claimed as of ' in x.string:
+                dateexported = x.string.split('as of ')[1].split('.')[0]
+            else: 
+                continue
         print(overallodds)
-        dateexported = details[0].string.split('as of ')[1].split('.')[0]
         print(dateexported)
         gamePhoto = 'https://www.texaslottery.com' + soup.find('div', class_='large-4 cell').find('img').get('src')
         print(gamePhoto)
@@ -5333,7 +5341,7 @@ def exportTXScratcherRecs():
         table['gameNumber'] = gameNumber
         table['dateexported'] = dateexported
         table['prizeamount'] = table['prizeamount'].str.replace('$','', regex=False).str.replace(',','', regex=False)
-
+    
         topprizeremain = table['Winning Tickets Unclaimed'].iloc[0]
         topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
         

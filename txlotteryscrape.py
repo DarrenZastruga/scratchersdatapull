@@ -108,16 +108,24 @@ def exportTXScratcherRecs():
     for t in range(len(tixlist)):
         print(t)
         print(tixlist.loc[t,:])
-        print(tixlist.loc[t,'gameURL'])
         gameURL = 'https://www.texaslottery.com'+str(tixlist.loc[t,'gameURL'])
         print(gameURL)
         r = requests.get(gameURL)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
         details = soup.find_all('div', class_='large-4 cell')[1].find_all('p')
-        overallodds = details[3].string.split('1 in ')[1][0:4]
+        for x in details: 
+            if x.string==None:
+                continue
+            elif 'Overall odds of winning any prize' in x.string: 
+                overallodds  = x.string.split('1 in ')[1][0:4] 
+                print(overallodds )
+            elif 'Claimed as of ' in x.string:
+                dateexported = x.string.split('as of ')[1].split('.')[0]
+            else: 
+                continue
+            
         print(overallodds)
-        dateexported = details[0].string.split('as of ')[1].split('.')[0]
         print(dateexported)
         gamePhoto = 'https://www.texaslottery.com' + soup.find('div', class_='large-4 cell').find('img').get('src')
         print(gamePhoto)
@@ -149,7 +157,7 @@ def exportTXScratcherRecs():
         print(table)
         tixdata = pd.concat([tixdata, table], axis=0, ignore_index=True)
       
-        
+            
     tixlist.to_csv("./TXtixlist.csv", encoding='utf-8')
 
     print(tixlist.columns)
