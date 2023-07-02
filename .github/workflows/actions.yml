@@ -1,6 +1,6 @@
 name: run lotteryscrape.py
 
-on: [push]
+on: [push] 
   #schedule:
     #- cron: '0 6 * * *'
  
