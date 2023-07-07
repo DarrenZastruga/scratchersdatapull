@@ -338,37 +338,37 @@
                   <tr>
             <td>$2</td>
             <td>722,282</td>
-            <td>118,739</td>
+            <td>118,454</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>529,597</td>
-            <td>75,488</td>
+            <td>75,269</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>144,444</td>
-            <td>19,713</td>
+            <td>19,645</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>144,444</td>
-            <td>18,214</td>
+            <td>18,159</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>48,148</td>
-            <td>5,443</td>
+            <td>5,420</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>19,593</td>
-            <td>2,151</td>
+            <td>2,144</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>9,654</td>
-            <td>1,080</td>
+            <td>1,078</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -378,7 +378,7 @@
                   <tr>
             <td>$1,000</td>
             <td>120</td>
-            <td>17</td>
+            <td>16</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,258,045</b></div>
-      <div class="h2">Total Prizes Won: <b>$8,319,577</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,253,699</b></div>
+      <div class="h2">Total Prizes Won: <b>$8,323,923</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -546,5 +546,5 @@
 <script src="/libraries/superfish/supersubs.js?rwctr8"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=95&cb=1579777946" async></script></body>
 </html>
