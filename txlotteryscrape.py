@@ -66,8 +66,8 @@ def exportTXScratcherRecs():
     tixlist = tixlist.loc[~tixlist['Game Number'].isna()]
     tixlist.rename(columns={'Game Number':'gameNumber', 'Start Date':'startDate', 'Ticket Price':'price', 'Game Name':'gameName', 
                             'Prize Amount':'topprize', 'Prizes Printed':'topprizestarting', 'Prizes Claimed':'topprizeremaining'}, inplace=True)
-    tixlist['gameNumber'] =  tixlist['gameNumber'].astype('int').astype('str')
-    tixlist['price'] = tixlist['price'].str.replace('$','').astype('int')
+    tixlist.loc[:, 'gameNumber'] =  tixlist.loc[:,'gameNumber'].astype('int').astype('str')
+    tixlist.loc[:, 'price'] = tixlist.loc[:,'price'].str.replace('$','', regex=False).astype('int')
     
     
     #get all the game hyperlinks by looping through the table
@@ -162,7 +162,7 @@ def exportTXScratcherRecs():
 
     print(tixlist.columns)
 
-    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances',
+    scratchersall = tixlist.loc[:,['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances',
                              'secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
@@ -172,7 +172,7 @@ def exportTXScratcherRecs():
     scratchersall.to_csv("./TXscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixdata[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixdata.loc[:,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./TXscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
