@@ -733,7 +733,6 @@ def exportAZScratcherRecs():
         except ZeroDivisionError:
             gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
 
-              == gameid, ['gameName', 'gameNumber', 'gamePhoto']])
         gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber'].astype(
             'int') == gameid, ['gamePhoto']].values[0]
         gamerow.loc[:, 'FAQ'] = None
@@ -1778,10 +1777,10 @@ def exportCAScratcherRecs():
 
         testdf = totalremain[[
             'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']]
-
+        print(testdf[~testdf.applymap(np.isreal).all(1)])
         totalremain.loc[:, 'Starting Expected Value'] = totalremain.apply(lambda row: (
             row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal), axis=1)
-
+        print(totalremain.loc[:, 'Starting Expected Value'])
         totalremain.loc[:, 'Expected Value'] = totalremain.apply(lambda row: (
             row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
@@ -1814,7 +1813,7 @@ def exportCAScratcherRecs():
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
         currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
-
+        print(currentodds)
 
         # add non-prize and totals rows with matching columns
         totalremain.loc[:, 'Total remaining'] = tixtotal
@@ -4598,6 +4597,7 @@ def exportKSScratcherRecs():
 
         #gamePhoto = 'https://www.kslottery.com'+soup.select_one("img[src*='"+"_"+str(gameNumber)+"']")["src"]
         gamePhoto = 'https://www.kslottery.com'+str(soup.find_all('table')[0].find('img')['src'])
+        
         overallodds = tixdata.iloc[-1,0].replace('Overall odds of winning are 1 in ','')
         topprize = tixlist.loc[tixlist['gameNumber']==s,'topprize'].iloc[0]
         topprizestarting = tixdata.iloc[-2,1]
