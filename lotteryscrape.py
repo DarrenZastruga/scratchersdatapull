@@ -160,9 +160,9 @@ def exportVAScratcherRecs():
             'p', class_='odds-display').find('br').find('span').get_text()
         tableData['topprizeremain'] = tableData.iloc[0, 2]
         tableData['extrachances'] = 'eXTRA Chances' if soup.find(
-            'p', text=re.compile('eXTRA Chances')) else np.nan
+            'p', string=re.compile('eXTRA Chances')) else np.nan
         tableData['secondChance'] = '2nd Chance' if soup.find(
-            'p', text=re.compile('2nd Chance')) else np.nan
+            'p', string=re.compile('2nd Chance')) else np.nan
         tableData['startDate'] = soup.find_all(
             'h2', class_='start-date-display')[0].get_text()
         tableData['endDate'] = soup.find_all('h2', class_='start-date-display')[
@@ -205,7 +205,7 @@ def exportVAScratcherRecs():
     tixtables['topprize'] = tixtables['topprize'].apply(
         formatstr).astype('int64')
 
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds', 'topprizeremain',
+    scratchersall = tixtables.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -216,7 +216,7 @@ def exportVAScratcherRecs():
     scratchersall.to_csv("./VAscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:, ['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
                                           != "Coming Soon!", :]
@@ -246,7 +246,7 @@ def exportVAScratcherRecs():
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
