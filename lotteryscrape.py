@@ -6041,14 +6041,15 @@ try:
     exportNYScratcherRecs()
     exportDCScratcherRecs()
     exportNCScratcherRecs()
-    exportFLScratcherRecs()
+
     exportILScratcherRecs()
-    exportTXScratcherRecs()
+
     
 
 except:
     pass
-
+exportFLScratcherRecs()
+exportTXScratcherRecs()
 exportKSScratcherRecs()
 exportOHScratcherRecs()
 exportKYScratcherRecs()
