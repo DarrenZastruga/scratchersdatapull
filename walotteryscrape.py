@@ -37,22 +37,72 @@ powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
 
 def exportWAScratcherRecs():
 
-    url = 'https://www.sceducationlottery.com/Games/PrizesRemaining'
+    urls = ['https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$1',
+            'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$2',
+            'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$3',
+            'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$5',
+            'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$10',
+            'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$20',
+            'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$30']
     
-    tixtables = pd.DataFrame()
-    tixlist = pd.DataFrame()
+    for url in urls:
+        
+        tixtables = pd.DataFrame()
+        tixlist = pd.DataFrame()
+    
+        r = requests.get(url)
+        response = r.text
+        
+        
+        soup = BeautifulSoup(response, 'html.parser')
+        tixdata = soup.find_all('div', class_='prizes-remaining-item')
+        
 
-    r = requests.get(url)
-    response = r.text
-    soup = BeautifulSoup(response, 'html.parser')
-    tixdata = pd.read_html(str(soup.find_all('table')))[0]
-    tixdata['gameName'] = tixdata['Game Name'].str.split('#').str[0].str.replace(r"\(.*","", regex=True).str.strip()
-    tixdata['gameNumber'] = tixdata['Game Name'].str.split('#').str[1].str.split('\)').str[0]
-
-    tixdata.rename(columns={'Ticket Price':'gamePrice','Start of Game':'startDate', 'Value of  Top Prize':'topprize', 
-                            'Number of Estimated  Remaining  Or Unclaimed  Top Prizes':'topprizeremain','Last Day  to Sell Tickets':'endDate',
-                            'Last Day  to Claim a Prize':'lastdatetoclaim'}, inplace=True)
+        
+        for t in tixdata:
+            gameName = t.find('img')['alt']
+            gamePhoto = gameName = t.find('img')['src']
+            gameNumber = t.find_all('div')[-1].find_all('p')[0].string.split(' | ')[1]
+            gamePrice = t.find_all('div')[-1].find_all('p')[0].string.split(' | ')[0].replace('$','')
+            lastdatetoclaim = t.find_all('div')[-1].find_all('p')[1].string.split(': ')[1]
+            print(gameNumber)
+            print(gamePrice)
+            print(lastdatetoclaim)
             
+            gameURL = 'https://walottery.com/Scratch/'+str(t.find('a')['href'])
+            print(gameURL)
+            print(gameName)
+            print(gamePhoto)
+            table = pd.read_html(str(t.find('table')))[0]
+            print(table)
+            
+            #go to game page for other data
+            r = requests.get(gameURL)
+            response = r.text
+            soup = BeautifulSoup(response, 'html.parser')
+            
+            scripts = soup.find_all('script')
+            print(scripts)
+            for i in scripts:
+                print(i)
+                res = i.contains
+            print(res)
+            json_object = json.loads(res.contents[0])
+            print(json_object)
+            print(json_object)
+            
+            topprize = soup.find('div', class_='column-4 ticket-explorer-detail-info').find('div').get('h2')
+            overallodds = soup.find('strong', class_='ticket-explorer-detail-info-printed')
+            print(topprize)
+            print(overallodds)
+            print(overallodds)
+        tixdata['gameName'] = tixdata['Game Name'].str.split('#').str[0].str.replace(r"\(.*","", regex=True).str.strip()
+        tixdata['gameNumber'] = tixdata['Game Name'].str.split('#').str[1].str.split('\)').str[0]
+    
+        tixdata.rename(columns={'Ticket Price':'gamePrice','Start of Game':'startDate', 'Value of  Top Prize':'topprize', 
+                                'Number of Estimated  Remaining  Or Unclaimed  Top Prizes':'topprizeremain','Last Day  to Sell Tickets':'endDate',
+                                'Last Day  to Claim a Prize':'lastdatetoclaim'}, inplace=True)
+                
     tixdata['gameURL'] = 'https://webcache.googleusercontent.com/search?q=cache:https://www.sceducationlottery.com/Games/InstantGame?gameId='+str(tixdata['gameNumber'])
 
 
