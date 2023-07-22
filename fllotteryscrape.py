@@ -128,7 +128,8 @@ def exportFLScratcherRecs():
             #in addition to removing dollar signs and commans, changing the text for the Bigger Spin second game game to the minimum possible of $400,000
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','',regex=False).str.replace(',','',regex=False).str.replace('.00','',regex=False)
             #if prize is an amount per week for life, then strip text and multiply by 52 weeks for 50 years
-            tixdata['prizeamount'] = tixdata['prizeamount'].replace({'1000/Week for Life':1000*52*50,'500/Week for Life':500*52*50, '1MM/YR/LF (MIN 25)':1000000*25}).astype('int')
+            tixdata['prizeamount'] = tixdata['prizeamount'].replace({'1000/Week for Life':1000*52*50,'500/Week for Life':500*52*50, '1MM/YR/LF (MIN 25)':1000000*25, 
+                                                                     '250000YR/LIFE':250000*50, '150000YR/LIFE':150000*50, '50000YR/LIFE':50000*50, '25000YR/LIFE':25000*50}).astype('int')
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
             tixdata['gamePhoto'] = gamePhoto
