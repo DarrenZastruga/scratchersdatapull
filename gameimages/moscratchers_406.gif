@@ -338,57 +338,57 @@
                   <tr>
             <td>$5</td>
             <td>548,165</td>
-            <td>177,099</td>
+            <td>176,560</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>234,957</td>
-            <td>68,630</td>
+            <td>68,396</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>234,888</td>
-            <td>67,102</td>
+            <td>66,860</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>58,808</td>
-            <td>16,709</td>
+            <td>16,657</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>19,124</td>
-            <td>5,391</td>
+            <td>5,367</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>39,213</td>
-            <td>10,708</td>
+            <td>10,668</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>11,768</td>
-            <td>3,195</td>
+            <td>3,179</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,113</td>
-            <td>862</td>
+            <td>858</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>15,088</td>
-            <td>4,104</td>
+            <td>4,093</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>783</td>
-            <td>216</td>
+            <td>214</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>189</td>
-            <td>47</td>
+            <td>46</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -417,8 +417,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,636,100</b></div>
-      <div class="h2">Total Prizes Won: <b>$11,395,170</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,621,095</b></div>
+      <div class="h2">Total Prizes Won: <b>$11,410,175</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -566,5 +566,5 @@
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=51&cb=947366923" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=56&cb=767135637" async></script></body>
 </html>
