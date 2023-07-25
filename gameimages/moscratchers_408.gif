@@ -338,42 +338,42 @@
                   <tr>
             <td>$1</td>
             <td>1,147,860</td>
-            <td>399,577</td>
+            <td>398,690</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>491,940</td>
-            <td>161,510</td>
+            <td>161,150</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>229,572</td>
-            <td>73,034</td>
+            <td>72,866</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>65,592</td>
-            <td>20,683</td>
+            <td>20,626</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>114,782</td>
-            <td>34,972</td>
+            <td>34,891</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>40,997</td>
-            <td>12,237</td>
+            <td>12,196</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>35,861</td>
-            <td>10,656</td>
+            <td>10,626</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,665</td>
-            <td>793</td>
+            <td>792</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,074,808</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,494,965</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,069,764</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,500,009</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -546,5 +546,5 @@
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=60&cb=71907998" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=61&cb=8983138" async></script></body>
 </html>
