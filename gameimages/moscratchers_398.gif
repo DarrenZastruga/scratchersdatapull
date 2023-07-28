@@ -230,7 +230,13 @@
                   <a href="/">MOLottery.com</a>
               </li>
           <li>
-                  Access denied
+                  <a href="/games">Games</a>
+              </li>
+          <li>
+                  <a href="/scratchers">Scratchers</a>
+              </li>
+          <li>
+                  DECK THE HALLS
               </li>
         </ol>
   </nav>
@@ -339,12 +345,12 @@
                   <tr>
             <td>$3</td>
             <td>377,908</td>
-            <td>145,322</td>
+            <td>145,314</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>368,255</td>
-            <td>131,887</td>
+            <td>131,883</td>
           </tr>
                   <tr>
             <td>$10</td>
@@ -359,7 +365,7 @@
                   <tr>
             <td>$20</td>
             <td>37,779</td>
-            <td>12,748</td>
+            <td>12,746</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -393,8 +399,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,633,003</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,883,261</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,632,915</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,883,349</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -542,5 +548,5 @@
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=75&cb=87169272" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=74&cb=1343556617" async></script></body>
 </html>

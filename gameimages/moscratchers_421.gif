@@ -368,32 +368,32 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50</td>
             <td>392,929</td>
-            <td>356,706</td>
+            <td>356,200</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>654,962</td>
-            <td>594,395</td>
+            <td>593,490</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>917,236</td>
-            <td>831,636</td>
+            <td>830,332</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>52,409</td>
-            <td>47,560</td>
+            <td>47,488</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>128,761</td>
-            <td>116,796</td>
+            <td>116,618</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>2,622</td>
-            <td>2,412</td>
+            <td>2,407</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -408,7 +408,7 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50,000</td>
             <td>50</td>
-            <td>45</td>
+            <td>44</td>
           </tr>
                   <tr>
             <td>$1,000,000</td>
@@ -427,8 +427,8 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$228,744,600</b></div>
-      <div class="h2">Total Prizes Won: <b>$28,907,470</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$228,376,200</b></div>
+      <div class="h2">Total Prizes Won: <b>$29,275,870</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -576,5 +576,5 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=23&cb=348977227" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=624334029" async></script></body>
 </html>
