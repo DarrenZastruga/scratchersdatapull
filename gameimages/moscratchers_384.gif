@@ -280,12 +280,12 @@
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Aug. 02, 2023</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Jan. 29, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -338,27 +338,27 @@
                   <tr>
             <td>$5</td>
             <td>504,071</td>
-            <td>108,936</td>
+            <td>108,918</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>360,143</td>
-            <td>69,397</td>
+            <td>69,387</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>144,042</td>
-            <td>27,306</td>
+            <td>27,303</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>37,831</td>
-            <td>7,107</td>
+            <td>7,106</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>66,595</td>
-            <td>11,978</td>
+            <td>11,976</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,720,015</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,025,825</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,719,655</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,026,185</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -546,5 +546,5 @@
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=101&cb=667202951" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=101&cb=994180376" async></script></body>
 </html>
