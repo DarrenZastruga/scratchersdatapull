@@ -345,42 +345,42 @@
                   <tr>
             <td>$1</td>
             <td>1,109,190</td>
-            <td>252,371</td>
+            <td>252,259</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>443,726</td>
-            <td>97,960</td>
+            <td>97,920</td>
           </tr>
                   <tr>
             <td>$3</td>
             <td>63,317</td>
-            <td>13,197</td>
+            <td>13,192</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>63,423</td>
-            <td>13,198</td>
+            <td>13,193</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>126,697</td>
-            <td>24,871</td>
+            <td>24,859</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>15,855</td>
-            <td>3,117</td>
+            <td>3,115</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>63,380</td>
-            <td>12,025</td>
+            <td>12,017</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>79,235</td>
-            <td>14,775</td>
+            <td>14,773</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -390,7 +390,7 @@
                   <tr>
             <td>$30</td>
             <td>13,126</td>
-            <td>2,327</td>
+            <td>2,326</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -434,8 +434,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,254,566</b></div>
-      <div class="h2">Total Prizes Won: <b>$5,084,584</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,254,145</b></div>
+      <div class="h2">Total Prizes Won: <b>$5,085,005</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -512,10 +512,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>

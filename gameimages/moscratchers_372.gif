@@ -338,37 +338,37 @@
                   <tr>
             <td>$2</td>
             <td>730,563</td>
-            <td>169,736</td>
+            <td>169,079</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>535,798</td>
-            <td>119,721</td>
+            <td>119,238</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>146,121</td>
-            <td>31,520</td>
+            <td>31,397</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>146,121</td>
-            <td>30,238</td>
+            <td>30,112</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>48,707</td>
-            <td>9,866</td>
+            <td>9,833</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>19,769</td>
-            <td>3,892</td>
+            <td>3,874</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>9,777</td>
-            <td>1,941</td>
+            <td>1,934</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,069,856</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,637,067</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,062,475</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,644,448</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -475,10 +475,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
