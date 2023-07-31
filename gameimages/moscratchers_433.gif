@@ -343,52 +343,52 @@ If you have completely matched and scratched three (3) or more words in the CROS
                   <tr>
             <td>$3</td>
             <td>846,149</td>
-            <td>810,062</td>
+            <td>808,353</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>785,782</td>
-            <td>750,622</td>
+            <td>748,884</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>180,996</td>
-            <td>172,472</td>
+            <td>172,050</td>
           </tr>
                   <tr>
             <td>$12</td>
             <td>100,663</td>
-            <td>95,980</td>
+            <td>95,726</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>40,366</td>
-            <td>38,537</td>
+            <td>38,436</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>80,567</td>
-            <td>76,643</td>
+            <td>76,453</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>13,420</td>
-            <td>12,775</td>
+            <td>12,747</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>10,095</td>
-            <td>9,612</td>
+            <td>9,592</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>10,383</td>
-            <td>9,882</td>
+            <td>9,849</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>674</td>
-            <td>631</td>
+            <td>629</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -412,8 +412,8 @@ If you have completely matched and scratched three (3) or more words in the CROS
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$15,283,483</b></div>
-      <div class="h2">Total Prizes Won: <b>$703,402</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$15,248,445</b></div>
+      <div class="h2">Total Prizes Won: <b>$738,440</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -490,10 +490,10 @@ If you have completely matched and scratched three (3) or more words in the CROS
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -561,5 +561,5 @@ If you have completely matched and scratched three (3) or more words in the CROS
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=13&cb=1457599494" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=13&cb=1531883199" async></script></body>
 </html>

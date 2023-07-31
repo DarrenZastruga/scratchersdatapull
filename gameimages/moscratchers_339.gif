@@ -338,27 +338,27 @@
                   <tr>
             <td>$2</td>
             <td>969,512</td>
-            <td>222,285</td>
+            <td>222,270</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>430,983</td>
-            <td>81,672</td>
+            <td>81,669</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>161,721</td>
-            <td>31,990</td>
+            <td>31,988</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>80,817</td>
-            <td>14,375</td>
+            <td>14,372</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>53,867</td>
-            <td>8,680</td>
+            <td>8,679</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -373,7 +373,7 @@
                   <tr>
             <td>$100</td>
             <td>10,710</td>
-            <td>1,673</td>
+            <td>1,672</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -402,8 +402,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,936,738</b></div>
-      <div class="h2">Total Prizes Won: <b>$8,758,418</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,936,541</b></div>
+      <div class="h2">Total Prizes Won: <b>$8,758,615</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -480,10 +480,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>

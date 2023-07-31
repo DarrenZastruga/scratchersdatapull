@@ -345,7 +345,7 @@
                   <tr>
             <td>$10</td>
             <td>616,678</td>
-            <td>120,935</td>
+            <td>120,928</td>
           </tr>
                   <tr>
             <td>$15</td>
@@ -409,8 +409,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,166,670</b></div>
-      <div class="h2">Total Prizes Won: <b>$28,946,035</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,166,600</b></div>
+      <div class="h2">Total Prizes Won: <b>$28,946,105</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -487,10 +487,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>

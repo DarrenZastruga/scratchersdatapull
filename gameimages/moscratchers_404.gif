@@ -340,32 +340,32 @@
                   <tr>
             <td>$20</td>
             <td>463,340</td>
-            <td>214,850</td>
+            <td>214,333</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>327,054</td>
-            <td>149,971</td>
+            <td>149,589</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>140,324</td>
-            <td>63,951</td>
+            <td>63,787</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>136,260</td>
-            <td>61,961</td>
+            <td>61,809</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>5,486</td>
-            <td>2,521</td>
+            <td>2,510</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,804</td>
-            <td>821</td>
+            <td>820</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -404,8 +404,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$23,374,190</b></div>
-      <div class="h2">Total Prizes Won: <b>$27,438,170</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$23,322,470</b></div>
+      <div class="h2">Total Prizes Won: <b>$27,489,890</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -482,10 +482,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -553,5 +553,5 @@
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=53&cb=1873214712" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=53&cb=29474139" async></script></body>
 </html>

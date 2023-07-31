@@ -338,37 +338,37 @@
                   <tr>
             <td>$5</td>
             <td>500,576</td>
-            <td>241,712</td>
+            <td>240,327</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>214,683</td>
-            <td>102,172</td>
+            <td>101,567</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>143,068</td>
-            <td>67,300</td>
+            <td>66,883</td>
           </tr>
                   <tr>
             <td>$18</td>
             <td>71,534</td>
-            <td>33,625</td>
+            <td>33,426</td>
           </tr>
                   <tr>
             <td>$28</td>
             <td>84,083</td>
-            <td>39,153</td>
+            <td>38,916</td>
           </tr>
                   <tr>
             <td>$88</td>
             <td>36,806</td>
-            <td>16,994</td>
+            <td>16,907</td>
           </tr>
                   <tr>
             <td>$288</td>
             <td>288</td>
-            <td>136</td>
+            <td>134</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -407,8 +407,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,909,702</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,705,608</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,872,022</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,743,288</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -485,10 +485,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
@@ -556,5 +556,5 @@
 <script src="/libraries/superfish/supersubs.js?ry3t05"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=31&cb=1730492476" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=31&cb=1359657313" async></script></body>
 </html>

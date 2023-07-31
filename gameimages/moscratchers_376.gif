@@ -338,57 +338,57 @@
                   <tr>
             <td>$1</td>
             <td>1,072,307</td>
-            <td>293,663</td>
+            <td>293,585</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>429,005</td>
-            <td>108,342</td>
+            <td>108,296</td>
           </tr>
                   <tr>
             <td>$3</td>
             <td>61,292</td>
-            <td>14,986</td>
+            <td>14,976</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>61,293</td>
-            <td>14,740</td>
+            <td>14,733</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>122,570</td>
-            <td>28,530</td>
+            <td>28,524</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>15,305</td>
-            <td>3,601</td>
+            <td>3,600</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>61,278</td>
-            <td>14,070</td>
+            <td>14,066</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>76,583</td>
-            <td>17,067</td>
+            <td>17,062</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>30,639</td>
-            <td>6,496</td>
+            <td>6,495</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>12,673</td>
-            <td>2,762</td>
+            <td>2,761</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>5,350</td>
-            <td>1,141</td>
+            <td>1,140</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -427,8 +427,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,450,431</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,679,311</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,449,976</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,679,766</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -505,10 +505,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>

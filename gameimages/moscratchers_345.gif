@@ -345,12 +345,12 @@
                   <tr>
             <td>$1</td>
             <td>1,425,796</td>
-            <td>225,702</td>
+            <td>225,691</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>619,876</td>
-            <td>81,474</td>
+            <td>81,470</td>
           </tr>
                   <tr>
             <td>$4</td>
@@ -375,7 +375,7 @@
                   <tr>
             <td>$50</td>
             <td>45,440</td>
-            <td>4,319</td>
+            <td>4,318</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -404,8 +404,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$967,310</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,278,535</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$967,241</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,278,604</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -482,10 +482,10 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
+        <a href="/index.php/privacy-policy" data-drupal-link-system-path="node/196">Privacy Policy</a>
               </li>
                 <li class="menu-item">
-        <a href="/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
+        <a href="/index.php/terms-conditions" data-drupal-link-system-path="node/197">Terms and Conditions</a>
               </li>
                 <li class="menu-item">
         <a href="http://www.mo.gov/">State of Missouri</a>
