@@ -29,6 +29,7 @@ import random
 from itertools import repeat
 from scipy import stats
 from lxml import etree
+from pandas import json_normalize
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
@@ -49,7 +50,7 @@ def exportWAScratcherRecs():
         
         tixtables = pd.DataFrame()
         tixlist = pd.DataFrame()
-    
+        '''
         r = requests.get(url)
         response = r.text
         
@@ -57,7 +58,7 @@ def exportWAScratcherRecs():
         soup = BeautifulSoup(response, 'html.parser')
         tixdata = soup.find_all('div', class_='prizes-remaining-item')
         
-
+        
         
         for t in tixdata:
             gameName = t.find('img')['alt']
@@ -75,76 +76,66 @@ def exportWAScratcherRecs():
             print(gamePhoto)
             table = pd.read_html(str(t.find('table')))[0]
             print(table)
-            
-            #go to game page for other data
-            r = requests.get(gameURL)
-            response = r.text
-            soup = BeautifulSoup(response, 'html.parser')
-            
-            scripts = soup.find_all('script')
-            print(scripts)
-            for i in scripts:
-                print(i)
-                res = i.contains
-            print(res)
-            json_object = json.loads(res.contents[0])
-            print(json_object)
-            print(json_object)
-            
-            topprize = soup.find('div', class_='column-4 ticket-explorer-detail-info').find('div').get('h2')
-            overallodds = soup.find('strong', class_='ticket-explorer-detail-info-printed')
-            print(topprize)
-            print(overallodds)
-            print(overallodds)
-        tixdata['gameName'] = tixdata['Game Name'].str.split('#').str[0].str.replace(r"\(.*","", regex=True).str.strip()
-        tixdata['gameNumber'] = tixdata['Game Name'].str.split('#').str[1].str.split('\)').str[0]
-    
-        tixdata.rename(columns={'Ticket Price':'gamePrice','Start of Game':'startDate', 'Value of  Top Prize':'topprize', 
-                                'Number of Estimated  Remaining  Or Unclaimed  Top Prizes':'topprizeremain','Last Day  to Sell Tickets':'endDate',
-                                'Last Day  to Claim a Prize':'lastdatetoclaim'}, inplace=True)
-                
-    tixdata['gameURL'] = 'https://webcache.googleusercontent.com/search?q=cache:https://www.sceducationlottery.com/Games/InstantGame?gameId='+str(tixdata['gameNumber'])
-
-
-    for link in tixdata['gameURL']: 
-        r = requests.get(link)
+            '''
+        
+        #go to game page for tix data
+        r = requests.get(url)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
-        table = soup.find('div', class_='main')
-        print(table)
-        print(table)
-        overallodds = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[5].text.replace('1:','')
-        gamePhoto = 'https://www.kylottery.com'+t.find_all('div',class_='col-md-6')[0].find('img').get('src')
-        print(gamePhoto)
-        dateexported = date.today() if t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text ==None else t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text
-        print(dateexported)
-        
-        if len(table)==0:
-            continue
-        else:
-            print(table)
-            table.rename(columns={'Prize Amount':'prizeamount','Prizes Remaining':'Winning Tickets Unclaimed'}, inplace=True)
-            table['gameName'] = gameName
-            table['gameNumber'] = gameNumber
-            table['prizeamount'] = table['prizeamount'].str.replace('$', '', regex=False).str.replace(',','', regex=False)
-            #table['Winning Tickets Unclaimed'] = table['Winning Tickets Unclaimed'].str.replace(',', '', regex=False)
-            table['Winning Tickets Unclaimed'] = table['Winning Tickets Unclaimed'].replace({'0 - Last Top Prize Claimed':0}).astype('int')
-            table['Winning Tickets At Start'] = table['Winning Tickets Unclaimed']
+        gameURL = 'https://walottery.com/Scratch/'+str(soup.find_all('div', class_='prizes-remaining-item')[0].find('a')['href'])
+        r = requests.get(gameURL)
+        response = r.text
+        soup = BeautifulSoup(response, 'html.parser')
+
+    
+        #get game data from JSON loaded into Script tag
+        scripts = soup.find_all('script', string=re.compile('WaLottery.Scratch.data'))
+        jsontext = scripts[0].string.split('all: ')[1].split('ads: ')[0].replace("JSON.parse('",'').replace('{"Games":[', '')
+        jsontext = '['+jsontext.split('],"Result"')[0]+']'
+        gamesdata = json.loads(jsontext)
+
+        for game in gamesdata:
+            gameNumber = game['Id']
+            gameName = game['GameName'].replace("&#39;","'")
+            gamePrice = game['Cost']
+            gamePhoto = game['GridImageUrl']
+            overallodds = game['OverallOdds'].replace('1 in ','')
+            startDate = game['SalesStartDate']
+            endDate = game['SalesEndDate']
+            lastdatetoclaim = game['RedeemEndDate']
+            dateexported = game['LastUpdated']
+            print(game)
+            print(gameNumber)
+            print(gameName)
+            print(gamePrice)
+            print(gamePhoto)
+            print(overallodds)
+            print(startDate)
+            print(endDate)
+            print(lastdatetoclaim)
+            print(dateexported)
             
-            topprizestarting = table.loc[0,'Winning Tickets At Start']
-            topprizeremain = table.loc[0,'Winning Tickets Unclaimed'] 
+            tixtable = json_normalize(game['Prizes'])
+            tixtable.rename(columns={'PrizeAmount':'prizeamount','TotalPrizesNumber':'Winning Tickets At Start', 'PrizesRemainingNumber':'Winning Tickets Unclaimed'}, inplace=True)
+            tixtable['gameName'] = gameName
+            tixtable['gameNumber'] = gameNumber
+            tixtable['dateexported'] = dateexported
+            tixtable['prizeamount'] = tixtable['prizeamount'].str.replace('$','', regex=False).str.replace(',','', regex=False)
+            tixtable['prizeamount'] = tixtable['prizeamount'].replace({'40000/yr/25 years':40000*25,'80000/yr/25yrs':80000*25,'80000/yr/25 years':80000*25, '150000/yr/10yrs':150000*25, 'LIFE': 1000*52*50}).astype('int')
+            print(tixtable)
+            tixtables = pd.concat([tixtables, tixtable], axis=0, ignore_index=True)
+            
+            topprize = tixtable.loc[0,'prizeamount']
+            topprizestarting = tixtable.loc[0,'Winning Tickets At Start']
+            topprizeremain = tixtable.loc[0,'Winning Tickets Unclaimed']
             topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
             extrachances = None
             secondChance = None
-            table['dateexported'] = dateexported
-            print(topprizeremain)
-            print(table)
-            tixtables = pd.concat([tixtables, table], axis=0)
-            
+      
             tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported']] = [
                 gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
 
-    tixlist.to_csv("./KYtixlist.csv", encoding='utf-8')
+    tixlist.to_csv("./WAtixlist.csv", encoding='utf-8')
     scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
@@ -318,7 +309,7 @@ def exportWAScratcherRecs():
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
-    ratingstable['Stats Page'] = "/kentucky-statistics-for-each-scratcher-game"
+    ratingstable['Stats Page'] = "/washington-statistics-for-each-scratcher-game"
     #ratingstable.to_sql('WAratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./WAratingstable.csv", encoding='utf-8')
     # write to Google Sheets
