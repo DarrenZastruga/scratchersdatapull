@@ -1,66 +1,68 @@
 ,price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,dateexported,gameURL
-0,1,QUICK $50!,711,50.0,4.38,5513.0,5513.0,,,,07/28/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380184
-0,3,MONEY MATRIX,712,30000.0,3.2,3.0,3.0,,,,07/28/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380185
-0,2,$200 LOADED,714,200.0,3.49,2039.0,2039.0,,,,07/28/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380186
-0,3,CROSSWORD,701,30000.0,3.67,8.0,8.0,,,,07/14/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380183
-0,2,DOUBLE THE DOUGH,704,14000.0,3.35,3.0,3.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380176
-0,30,PLATINUM JACKPOT,706,1000000.0,2.61,3.0,3.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380177
-0,1,BLACK DIAMONDS,707,4000.0,4.42,3.0,3.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380178
-0,5,GOLD MINE MULTIPLIER,709,50000.0,3.26,3.0,3.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380179
-0,10,$50 OR $100 BLOWOUT,710,100.0,8.06,17359.0,15309.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380180
-0,1,MONEY BAGS,703,5000.0,4.29,3.0,2.0,,,,05/26/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380169
-0,2,BANKROLL,700,15000.0,3.54,3.0,2.0,,,,05/26/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380170
-0,5,WIN IT ALL,705,60000.0,3.28,3.0,2.0,,,,05/26/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380172
-0,2,CASH FLOW,698,16000.0,3.38,3.0,2.0,,,,04/28/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380166
-0,1,TRIPLE IT!,699,5000.0,4.43,3.0,3.0,,,,04/28/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380167
-0,10,MAX MONEY,702,100000.0,2.98,3.0,3.0,,,,04/28/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380168
-0,1,STINKIN` RICH,693,4000.0,4.31,3.0,2.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380156
-0,2,MYSTERY MULTIPLIER,687,15000.0,3.53,3.0,2.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380157
-0,3,HIGH VOLTAGE,694,25000.0,3.33,3.0,0.0,Top Prize Claimed,,,03/31/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380158
-0,5,$500 FRENZY,695,500.0,3.30,1999.0,768.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380159
-0,20,BIG MONEY,696,250000.0,2.68,3.0,2.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380160
-0,3,BINGO,685,30000.0,3.28,8.0,5.0,,,,03/03/2023,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380155
-0,1,MATCH 2 WIN,686,4000.0,4.37,3.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380149
-0,5,POWER 5S,688,55000.0,3.32,3.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380150
-0,10,ON THE MONEY,697,125000.0,2.81,3.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380151
-0,100,DELUXE GOLD,689,5000000.0,2.64,2.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380152
-0,1,DOUBLE PAYDAY,682,5000.0,4.46,4.0,3.0,,,,01/31/2023,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380144
-0,2,FIND $100,683,14000.0,3.63,3.0,1.0,,,,01/31/2023,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380145
-0,5,LUCKY BREAK,684,50000.0,3.32,3.0,1.0,,,,01/31/2023,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380146
-0,1,WILD 9S,678,4000.0,4.33,3.0,2.0,,,,12/20/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380139
-0,2,EASY MONEY,679,16000.0,3.37,3.0,1.0,,,,12/20/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380140
-0,5,CASH WHEEL,680,50000.0,3.26,3.0,2.0,,,,12/20/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380141
-0,10,DOUBLE YOUR DOLLARS,681,100000.0,3.10,3.0,2.0,,,,12/20/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380142
-0,1,LUCKY 7,659,7000.0,4.17,10.0,7.0,,,,12/19/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380143
-0,1,WHAM! ZAP! KA-POW!,677,3000.0,4.34,3.0,1.0,,,,11/29/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380130
-0,2,TRIPLE 333,674,15000.0,3.35,3.0,0.0,Top Prize Claimed,,,11/29/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380131
-0,5,MORE MONEY,675,60000.0,3.22,3.0,1.0,,,,11/29/2022,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380132
-0,10,SILVER 7S,676,125000.0,3.01,3.0,3.0,,,,11/29/2022,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380133
-0,30,GRAND FORTUNE,673,1000000.0,2.62,3.0,2.0,,,,10/25/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380124
-0,2,WINNER WONDERLAND,672,15000.0,3.33,3.0,1.0,,,,10/25/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380125
-0,3,HOT CASH LINES,665,25000.0,3.24,3.0,0.0,Top Prize Claimed,,,10/25/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380126
-0,1,HOLIDAY FRENZY,671,20.0,4.24,13312.0,3073.0,,,,10/25/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380128
-0,1,10X,667,5000.0,4.47,3.0,1.0,,,,09/27/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380113
-0,5,20X,668,50000.0,3.30,3.0,0.0,Top Prize Claimed,,,09/27/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380114
-0,10,50X,669,100000.0,2.98,3.0,1.0,,,,09/27/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380115
-0,20,100X,670,250000.0,2.74,3.0,2.0,,,,09/27/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380117
-0,5,EXTRA FUNDS,664,50000.0,3.25,3.0,2.0,,,,08/30/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380108
-0,2,LUCKY CORNERS,663,16000.0,3.54,3.0,1.0,,,,08/30/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380111
-0,5,HIGH ROLLER,660,55000.0,3.38,3.0,1.0,,,,07/26/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380104
-0,10,MULTIPLIER MANIA,661,100000.0,2.90,3.0,2.0,,,,07/26/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380105
-0,5,POWER UP,657,50000.0,3.47,3.0,1.0,,,,06/28/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380101
-0,10,BONUS BUCKS,658,100000.0,3.14,3.0,3.0,,,,06/28/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380102
-0,5,PLUS THE MONEY,654,50000.0,3.46,3.0,1.0,,,,05/31/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380096
-0,2,LUCKY 7 DOUBLER,648,14000.0,3.60,3.0,1.0,,,,04/26/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380092
-0,5,SUPER CASH MULTIPLIER,649,60000.0,3.54,3.0,1.0,,,,04/26/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380093
-0,10,EXTREME WINNING,650,100000.0,3.06,3.0,2.0,,,,04/26/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380094
-0,3,BINGO,643,30000.0,3.28,6.0,0.0,Top Prize Claimed,,,03/29/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380087
-0,5,TRIPLE PLAY,646,50000.0,3.37,3.0,1.0,,,,03/29/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380088
-0,20,BREAK THE BANK,633,250000.0,2.63,4.0,1.0,,,,03/29/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380089
-0,3,CROSSWORD,642,30000.0,3.67,8.0,1.0,,,,02/22/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380084
-0,10,"$1,000 LOADED",644,1000.0,3.18,2494.0,941.0,,,,02/22/2022,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380085
-0,30,MILLIONAIRE MAKER,645,1000000.0,2.59,3.0,2.0,,,,02/22/2022,01/01/2099,04/01/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380086
-0,10,TRIPLE RED 777,636,125000.0,3.13,3.0,1.0,,,,12/28/2021,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380079
-0,50,ULTIMATE MILLIONS,637,3000000.0,2.60,3.0,2.0,,,,11/23/2021,01/01/2099,06/30/2099,2023-07-31,https://www.lottery.ok.gov/scratchers/380077
-0,1,LUCKY 7,614,7000.0,4.17,10.0,0.0,Top Prize Claimed,,,04/27/2021,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/380059
-0,20,"$250,000 CASH EXPLOSION",590,250000.0,2.87,4.0,1.0,,,,07/20/2020,06/08/2023,09/06/2023,2023-07-31,https://www.lottery.ok.gov/scratchers/4036
+0,5,OSU,715,50000.0,3.22,3.0,3.0,,,,08/25/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380188
+0,5,OU,716,50000.0,3.22,3.0,3.0,,,,08/25/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380189
+0,1,QUICK $50!,711,50.0,4.38,5513.0,4433.0,,,,07/28/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380184
+0,3,MONEY MATRIX,712,30000.0,3.2,3.0,2.0,,,,07/28/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380185
+0,2,$200 LOADED,714,200.0,3.49,2039.0,1748.0,,,,07/28/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380186
+0,3,CROSSWORD,701,30000.0,3.67,8.0,6.0,,,,07/14/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380183
+0,2,DOUBLE THE DOUGH,704,14000.0,3.35,3.0,3.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380176
+0,30,PLATINUM JACKPOT,706,1000000.0,2.61,3.0,3.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380177
+0,1,BLACK DIAMONDS,707,4000.0,4.42,3.0,3.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380178
+0,5,GOLD MINE MULTIPLIER,709,50000.0,3.26,3.0,2.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380179
+0,10,$50 OR $100 BLOWOUT,710,100.0,8.06,17359.0,12218.0,,,,06/30/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380180
+0,1,MONEY BAGS,703,5000.0,4.29,3.0,1.0,,,,05/26/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380169
+0,2,BANKROLL,700,15000.0,3.54,3.0,2.0,,,,05/26/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380170
+0,5,WIN IT ALL,705,60000.0,3.28,3.0,2.0,,,,05/26/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380172
+0,2,CASH FLOW,698,16000.0,3.38,3.0,2.0,,,,04/28/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380166
+0,1,TRIPLE IT!,699,5000.0,4.43,3.0,2.0,,,,04/28/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380167
+0,10,MAX MONEY,702,100000.0,2.98,3.0,2.0,,,,04/28/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380168
+0,1,STINKIN` RICH,693,4000.0,4.31,3.0,1.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380156
+0,2,MYSTERY MULTIPLIER,687,15000.0,3.53,3.0,2.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380157
+0,3,HIGH VOLTAGE,694,25000.0,3.33,3.0,0.0,Top Prize Claimed,,,03/31/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380158
+0,5,$500 FRENZY,695,500.0,3.30,1999.0,473.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380159
+0,20,BIG MONEY,696,250000.0,2.68,3.0,2.0,,,,03/31/2023,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380160
+0,3,BINGO,685,30000.0,3.28,8.0,5.0,,,,03/03/2023,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380155
+0,1,MATCH 2 WIN,686,4000.0,4.37,3.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380149
+0,5,POWER 5S,688,55000.0,3.32,3.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380150
+0,10,ON THE MONEY,697,125000.0,2.81,3.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380151
+0,100,DELUXE GOLD,689,5000000.0,2.64,2.0,2.0,,,,02/24/2023,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380152
+0,1,DOUBLE PAYDAY,682,5000.0,4.46,4.0,3.0,,,,01/31/2023,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380144
+0,2,FIND $100,683,14000.0,3.63,3.0,1.0,,,,01/31/2023,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380145
+0,5,LUCKY BREAK,684,50000.0,3.32,3.0,0.0,Top Prize Claimed,,,01/31/2023,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380146
+0,1,WILD 9S,678,4000.0,4.33,3.0,2.0,,,,12/20/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380139
+0,2,EASY MONEY,679,16000.0,3.37,3.0,1.0,,,,12/20/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380140
+0,5,CASH WHEEL,680,50000.0,3.26,3.0,1.0,,,,12/20/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380141
+0,10,DOUBLE YOUR DOLLARS,681,100000.0,3.10,3.0,2.0,,,,12/20/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380142
+0,1,LUCKY 7,659,7000.0,4.17,10.0,7.0,,,,12/19/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380143
+0,1,WHAM! ZAP! KA-POW!,677,3000.0,4.34,3.0,1.0,,,,11/29/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380130
+0,2,TRIPLE 333,674,15000.0,3.35,3.0,0.0,Top Prize Claimed,,,11/29/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380131
+0,5,MORE MONEY,675,60000.0,3.22,3.0,1.0,,,,11/29/2022,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380132
+0,10,SILVER 7S,676,125000.0,3.01,3.0,3.0,,,,11/29/2022,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380133
+0,30,GRAND FORTUNE,673,1000000.0,2.62,3.0,2.0,,,,10/25/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380124
+0,2,WINNER WONDERLAND,672,15000.0,3.33,3.0,1.0,,,,10/25/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380125
+0,3,HOT CASH LINES,665,25000.0,3.24,3.0,0.0,Top Prize Claimed,,,10/25/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380126
+0,1,HOLIDAY FRENZY,671,20.0,4.24,13312.0,3057.0,,,,10/25/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380128
+0,1,10X,667,5000.0,4.47,3.0,1.0,,,,09/27/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380113
+0,5,20X,668,50000.0,3.30,3.0,0.0,Top Prize Claimed,,,09/27/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380114
+0,10,50X,669,100000.0,2.98,3.0,1.0,,,,09/27/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380115
+0,20,100X,670,250000.0,2.74,3.0,2.0,,,,09/27/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380117
+0,5,EXTRA FUNDS,664,50000.0,3.25,3.0,2.0,,,,08/30/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380108
+0,2,LUCKY CORNERS,663,16000.0,3.54,3.0,1.0,,,,08/30/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380111
+0,5,HIGH ROLLER,660,55000.0,3.38,3.0,1.0,,,,07/26/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380104
+0,10,MULTIPLIER MANIA,661,100000.0,2.90,3.0,2.0,,,,07/26/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380105
+0,5,POWER UP,657,50000.0,3.47,3.0,1.0,,,,06/28/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380101
+0,10,BONUS BUCKS,658,100000.0,3.14,3.0,3.0,,,,06/28/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380102
+0,5,PLUS THE MONEY,654,50000.0,3.46,3.0,1.0,,,,05/31/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380096
+0,2,LUCKY 7 DOUBLER,648,14000.0,3.60,3.0,1.0,,,,04/26/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380092
+0,5,SUPER CASH MULTIPLIER,649,60000.0,3.54,3.0,1.0,,,,04/26/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380093
+0,10,EXTREME WINNING,650,100000.0,3.06,3.0,2.0,,,,04/26/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380094
+0,3,BINGO,643,30000.0,3.28,6.0,0.0,Top Prize Claimed,,,03/29/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380087
+0,5,TRIPLE PLAY,646,50000.0,3.37,3.0,1.0,,,,03/29/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380088
+0,20,BREAK THE BANK,633,250000.0,2.63,4.0,1.0,,,,03/29/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380089
+0,3,CROSSWORD,642,30000.0,3.67,8.0,0.0,Top Prize Claimed,,,02/22/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380084
+0,10,"$1,000 LOADED",644,1000.0,3.18,2494.0,940.0,,,,02/22/2022,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380085
+0,30,MILLIONAIRE MAKER,645,1000000.0,2.59,3.0,2.0,,,,02/22/2022,01/01/2099,04/01/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380086
+0,10,TRIPLE RED 777,636,125000.0,3.13,3.0,1.0,,,,12/28/2021,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380079
+0,50,ULTIMATE MILLIONS,637,3000000.0,2.60,3.0,2.0,,,,11/23/2021,01/01/2099,06/30/2099,2023-09-03,https://www.lottery.ok.gov/scratchers/380077
+0,1,LUCKY 7,614,7000.0,4.17,10.0,0.0,Top Prize Claimed,,,04/27/2021,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/380059
+0,20,"$250,000 CASH EXPLOSION",590,250000.0,2.87,4.0,1.0,,,,07/20/2020,06/08/2023,09/06/2023,2023-09-03,https://www.lottery.ok.gov/scratchers/4036
