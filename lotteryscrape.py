@@ -590,7 +590,7 @@ def exportAZScratcherRecs():
         tixtables['gameURL'] = gameURL
 
     #tixtables.to_csv("./AZprizedata.csv", encoding='utf-8')
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds', 'topprizeremain',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.drop_duplicates(subset=['price', 'gameName', 'gameNumber', 'topprize', 'topprizeodds', 'overallodds',
                                                   'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported'])
@@ -602,7 +602,7 @@ def exportAZScratcherRecs():
     scratchersall.to_csv("./azscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'tierLevel', 'dateexported']]
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
                                           != "Coming Soon!", :]
@@ -971,7 +971,7 @@ def exportMOScratcherRecs():
 
     tixlist.to_csv("./MOtixlist.csv", encoding='utf-8')
 
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -982,7 +982,7 @@ def exportMOScratcherRecs():
     scratchersall.to_csv("./MOscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./MOscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
@@ -1317,7 +1317,7 @@ def exportOKScratcherRecs():
 
     tixlist.to_csv("./OKtixlist.csv", encoding='utf-8')
 
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -1328,7 +1328,7 @@ def exportOKScratcherRecs():
     scratchersall.to_csv("./OKscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./OKscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
@@ -1660,7 +1660,7 @@ def exportCAScratcherRecs():
 
     tixlist.to_csv("./CAtixlist.csv", encoding='utf-8')
 
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -1671,7 +1671,7 @@ def exportCAScratcherRecs():
     scratchersall.to_csv("./CAscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./CAscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
@@ -2015,7 +2015,7 @@ def exportNMScratcherRecs():
 
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -2026,7 +2026,7 @@ def exportNMScratcherRecs():
     scratchersall.to_csv("./NMscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./NMscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
@@ -2357,7 +2357,7 @@ def exportMDScratcherRecs():
 
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -2368,7 +2368,7 @@ def exportMDScratcherRecs():
     scratchersall.to_csv("./MDscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./MDscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
@@ -2723,7 +2723,7 @@ def exportNYScratcherRecs():
             tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixlist.to_csv("./NYtixlist.csv", encoding='utf-8')
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting',
                                'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -2734,7 +2734,7 @@ def exportNYScratcherRecs():
     scratchersall.to_csv("./NYscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./NYscratchertables.csv", encoding='utf-8')
 
@@ -3102,7 +3102,7 @@ def exportDCScratcherRecs():
     tixlist.to_csv("./DCtixlist.csv", encoding='utf-8')
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting',
                                'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -3113,7 +3113,7 @@ def exportDCScratcherRecs():
     scratchersall.to_csv("./DCscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./DCscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
@@ -3467,7 +3467,7 @@ def exportNCScratcherRecs():
 
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
         tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
@@ -3478,7 +3478,7 @@ def exportNCScratcherRecs():
     scratchersall.to_csv("./NCscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     #scratchertables['prizeamount'] = scratchertables['prizeamount'].str.replace('The Bigger Spin(400000 to 2 Million)','400000')
     scratchertables.to_csv("./NCscratchertables.csv", encoding='utf-8')
@@ -3793,7 +3793,7 @@ def exportFLScratcherRecs():
         tixdata = pd.read_html(str(details))[0]
     
         if len(tixdata) == None:
-            tixtables = tixtables.append([])
+            tixtables = pd.concat([tixtables, []], axis=0, ignore_index=True)
         else:
             tixdata.rename(columns={'Prize Amount':'prizeamount','Total Prizes': 'Winning Tickets At Start', 'Prizes Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
             #in addition to removing dollar signs and commans, changing the text for the Bigger Spin second game game to the minimum possible of $400,000
@@ -3827,7 +3827,7 @@ def exportFLScratcherRecs():
     tixlist.to_csv("./FLtixlist.csv", encoding='utf-8')
 
 
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
+    scratchersall = tixtables.loc[:,['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     
@@ -3836,7 +3836,7 @@ def exportFLScratcherRecs():
     scratchersall.to_csv("./FLscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixtables.loc[:,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./FLscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
@@ -4220,16 +4220,7 @@ def exportILScratcherRecs():
             
             
             #calculate expected value
-            print(totalremain)
             totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
-            print(totalremain.loc[totalremain['prizeamount'] != 'Total',:].dtypes)
-            print(type(startingtotal))
-            print(type(tixtotal))
-            print(type(price))
-            testdf = totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']]
-            print(testdf[~testdf.applymap(np.isreal).all(1)])
-            totalremain.loc[:,'Starting Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
-            print(totalremain.loc[:,'Starting Expected Value'])
             totalremain.loc[:,'Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
             totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Starting Expected Value','Expected Value','dateexported']]
             
@@ -4277,20 +4268,19 @@ def exportILScratcherRecs():
             
             totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
             totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
-            print(totalremain)
-            alltables = alltables.append(totalremain)
+
+            alltables = pd.concat([alltables, totalremain], axis=0, ignore_index=True)
 
     
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-    print(scratchertables.columns)   
+
     
     #save scratchers tables
     #scratchertables.to_sql('FLscratcherstables', engine, if_exists='replace')
     scratchertables.to_csv("./ILscratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
-    print(currentodds.dtypes)
-    print(scratchersall.dtypes)
+
     scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
     ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
@@ -4316,8 +4306,6 @@ def exportILScratcherRecs():
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
     
     #save ratingstable
-    print(ratingstable)
-    print(ratingstable.columns)
     ratingstable['Stats Page'] = "/illinois-statistics-for-each-scratcher-game"
     #ratingstable.to_sql('FLratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./ILratingstable.csv", encoding='utf-8')
@@ -4420,7 +4408,7 @@ def exportKSScratcherRecs():
         tixlist.loc[tixlist['gameNumber']==s,'dateexported'] = date.today()
 
         if len(tixdata) == 0:
-            tixtables = tixtables.append([])
+            tixtables = pd.concat([tixtables, []], axis=0, ignore_index=True)
         else:
             tixdata = tixdata.iloc[:-1].replace('Free Ticket',gamePrice)
             tixdata = tixdata.iloc[:-1].replace('Free 1 Ticket',gamePrice)
@@ -4450,7 +4438,7 @@ def exportKSScratcherRecs():
     
     tixlist.to_csv("./KStixlist.csv", encoding='utf-8')
     tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
-    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
+    scratchersall = tixlist.loc[:,['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     
@@ -4459,7 +4447,7 @@ def exportKSScratcherRecs():
     scratchersall.to_csv("./KSscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixtables.loc[:,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./KSscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
@@ -4762,7 +4750,7 @@ def exportOHScratcherRecs():
     scratchersall.to_csv("./OHscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixtables.loc[:,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./OHscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
@@ -5358,7 +5346,7 @@ def exportKYScratcherRecs():
     scratchersall.to_csv("./KYscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixtables.loc[:,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./KYscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
@@ -5641,7 +5629,7 @@ def exportWAScratcherRecs():
     scratchersall.to_csv("./WAscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixtables.loc[:,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./WAscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
@@ -5950,7 +5938,7 @@ def exportORScratcherRecs():
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
 
-    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed','topprizestarting', 'dateexported']]
 
     scratchertables.to_csv("./ORscratchertables.csv", encoding='utf-8')
