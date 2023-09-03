@@ -150,7 +150,7 @@ def exportVAScratcherRecs():
         tableData['gameNumber'] = soup.find(
             'h2', class_='title-display').find('small').get_text()
         tableData['gameName'] = soup.find(
-            'h2', class_='title-display').find(text=True, recursive=False).strip()
+            'h2', class_='title-display').find(string=True, recursive=False).strip()
         tableData['price'] = soup.find(
             'h2', class_='ticket-price-display').get_text()
         tableData['overallodds'] = soup.find(
@@ -241,7 +241,7 @@ def exportVAScratcherRecs():
         gamesgrouped['Winning Tickets Unclaimed']
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -623,13 +623,13 @@ def exportAZScratcherRecs():
         gamesgrouped['Winning Tickets Unclaimed']
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -1007,13 +1007,13 @@ def exportMOScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -1353,13 +1353,13 @@ def exportOKScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -1698,13 +1698,13 @@ def exportCAScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -2053,13 +2053,13 @@ def exportNMScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -2395,13 +2395,13 @@ def exportMDScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -2762,13 +2762,13 @@ def exportNYScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -3135,12 +3135,12 @@ def exportDCScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -3506,13 +3506,13 @@ def exportNCScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -3849,10 +3849,10 @@ def exportFLScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
-
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+nonprizetix.loc[:, 'prizeamount'] = 0
+    totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
 
@@ -4152,9 +4152,9 @@ def exportILScratcherRecs():
     gamesgrouped = gamesgrouped.loc[pd.isnull(gamesgrouped['overallodds'])==False,:]
     
     print(gamesgrouped.columns)
-    print(gamesgrouped[['gameName','gameNumber','overallodds']])
+    print(gamesgrouped.loc[:,['gameName','gameNumber','overallodds']])
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
-    print(gamesgrouped[['gameName','gameNumber','Total at start']])
+    print(gamesgrouped.loc[:,['gameName','gameNumber','Total at start']])
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed'].astype(float)*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
@@ -4163,11 +4163,11 @@ def exportILScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+    totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
 
@@ -4453,7 +4453,7 @@ def exportKSScratcherRecs():
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
-    print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
+    print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
@@ -4466,11 +4466,11 @@ def exportKSScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
     print(nonprizetix.columns)
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+    totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
     print(totals.columns)
@@ -4756,7 +4756,7 @@ def exportOHScratcherRecs():
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
-    print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
+    print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
@@ -4769,11 +4769,11 @@ def exportOHScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
     print(nonprizetix.columns)
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+    totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
     print(totals.columns)
@@ -5076,9 +5076,9 @@ def exportTXScratcherRecs():
     gamesgrouped = gamesgrouped.loc[pd.isnull(gamesgrouped['overallodds'])==False,:]
     
     print(gamesgrouped.columns)
-    print(gamesgrouped[['gameName','gameNumber','overallodds']])
+    print(gamesgrouped.loc[:,['gameName','gameNumber','overallodds']])
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
-    print(gamesgrouped[['gameName','gameNumber','Total at start']])
+    print(gamesgrouped.loc[:,['gameName','gameNumber','Total at start']])
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed'].astype(float)*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
@@ -5087,11 +5087,11 @@ def exportTXScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+    totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
 
@@ -5352,7 +5352,7 @@ def exportKYScratcherRecs():
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
-    print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
+    print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
@@ -5365,11 +5365,11 @@ def exportKYScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
     print(nonprizetix.columns)
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+    totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
     print(totals.columns)
@@ -5635,7 +5635,7 @@ def exportWAScratcherRecs():
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
-    print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
+    print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
@@ -5648,11 +5648,11 @@ def exportWAScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
     print(nonprizetix.columns)
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+    totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
     print(totals.columns)
@@ -5966,13 +5966,13 @@ def exportORScratcherRecs():
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
