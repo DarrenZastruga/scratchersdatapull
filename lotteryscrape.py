@@ -320,9 +320,6 @@ def exportVAScratcherRecs():
         #totalremain.loc[:,'Starting Expected Value'] = ''
         #totalremain.loc[:,'Expected Value'] = ''
 
-        testdf = totalremain[[
-            'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']]
-
         totalremain.loc[:, 'Starting Expected Value'] = totalremain.apply(lambda row: (
             row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal), axis=1)
 
@@ -4221,6 +4218,7 @@ def exportILScratcherRecs():
             
             #calculate expected value
             totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
+            totalremain.loc[:,'Starting Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
             totalremain.loc[:,'Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
             totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Starting Expected Value','Expected Value','dateexported']]
             
@@ -6498,7 +6496,6 @@ except Exception as error:
 exportWAScratcherRecs()
 exportILScratcherRecs()
 exportFLScratcherRecs()
-
 exportOHScratcherRecs()
 exportKYScratcherRecs()
 exportORScratcherRecs()
