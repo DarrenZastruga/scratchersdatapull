@@ -3851,7 +3851,8 @@ def exportFLScratcherRecs():
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
-nonprizetix.loc[:, 'prizeamount'] = 0
+    nonprizetix.loc[:, 'prizeamount'] = 0
+    
     totals = gamesgrouped.loc[:,['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
