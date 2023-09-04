@@ -3979,7 +3979,7 @@ def exportFLScratcherRecs():
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
     
     #save ratingstable
-    ratingstable['Stats Page'] = "/florida-statistics-for-each-scratcher-game"
+    ratingstable['Stats Page'] = "/florida-statistics-for-each-scratch-off-game"
     #ratingstable.to_sql('FLratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./FLratingstable.csv", encoding='utf-8')
     # write to Google Sheets
@@ -4295,7 +4295,7 @@ def exportILScratcherRecs():
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
     
     #save ratingstable
-    ratingstable['Stats Page'] = "/illinois-statistics-for-each-scratcher-game"
+    ratingstable['Stats Page'] = "/statistics-for-each-illinois-instant-ticket-scratcher-game"
     #ratingstable.to_sql('FLratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./ILratingstable.csv", encoding='utf-8')
     # write to Google Sheets
@@ -6161,7 +6161,7 @@ def exportORScratcherRecs():
 
     # save ratingstable
 
-    ratingstable['Stats Page'] = "/oregon-statistics-for-each-scratcher-game"
+    ratingstable['Stats Page'] = "/oregon-statistics-for-each-scratch-it-game"
     #ratingstable.to_sql('ORratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./ORratingstable.csv", encoding='utf-8')
     # write to Google Sheets
