@@ -5572,11 +5572,11 @@ def exportWAScratcherRecs():
             gameName = game['GameName'].replace("&#39;","'")
             gamePrice = game['Cost']
             gamePhoto = game['GridImageUrl']
-            overallodds = game['OverallOdds'].replace('1 in ','').astype(float)
-            startDate = game['SalesStartDate'].astype(str)
-            endDate = game['SalesEndDate'].astype(str)
-            lastdatetoclaim = game['RedeemEndDate'].astype(str)
-            dateexported = game['LastUpdated'].astype(str)
+            overallodds = float(game['OverallOdds'].replace('1 in ',''))
+            startDate = str(game['SalesStartDate'])
+            endDate = str(game['SalesEndDate'])
+            lastdatetoclaim = str(game['RedeemEndDate'])
+            dateexported = str(game['LastUpdated'])
             print(game)
             print(gameNumber)
             print(gameName)
