@@ -19,6 +19,7 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+import io
 
 
 
@@ -79,13 +80,13 @@ def exportScratcherRecs():
         soup = BeautifulSoup(gameNum, 'html.parser')
         try:
             table = soup.select('#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(4) > div > table')
-            tableData = pd.read_html(str(table))[0]
+            tableData = pd.read_html(io.StringIO(table))[0]
             
         except ValueError as e:
             print(e) # ValueError: No tables found
             try:
                 table = soup.select('#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(5) > div > table')
-                tableData = pd.read_html(str(table))[0]
+                tableData = pd.read_html(io.StringIO(table))[0]
             except ValueError as e:
                 print(e) # ValueError: No tables found 
                 continue

@@ -29,6 +29,7 @@ from scipy import stats
 from psycopg2.extensions import register_adapter, AsIs
 psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
 from pandas import json_normalize
+import io
 
 
 # logging.basicConfig()
@@ -134,14 +135,14 @@ def exportVAScratcherRecs():
         try:
             table = soup.select(
                 '#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(4) > div > table')
-            tableData = pd.read_html(str(table))[0]
+            tableData = pd.read_html(io.StringIO(table))[0]
 
         except ValueError as e:
             print(e)  # ValueError: No tables found
             try:
                 table = soup.select(
                     '#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(5) > div > table')
-                tableData = pd.read_html(str(table))[0]
+                tableData = pd.read_html(io.StringIO(table))[0]
             except ValueError as e:
                 print(e)  # ValueError: No tables found
                 continue
@@ -225,7 +226,7 @@ def exportVAScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:,[
                                       'gameNumber', 'price', 'topprizeodds', 'overallodds']], how='left', on=['gameNumber'])
     gamesgrouped.loc[:, 'topprizeodds'] = gamesgrouped.loc[:,
                                                            'topprizeodds'].str.replace(',', '', regex=True)
@@ -240,7 +241,7 @@ def exportVAScratcherRecs():
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -607,7 +608,7 @@ def exportAZScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(by=['gameNumber', 'gameName', 'dateexported'], group_keys=False).agg({
         'Winning Tickets At Start':'sum', 'Winning Tickets Unclaimed':'sum'}).reset_index(level=['gameNumber', 'gameName', 'dateexported']).copy()
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizeodds', 'overallodds']], how='left', on=['gameNumber'])
     #gamesgrouped.loc[:, 'topprizeodds'] = gamesgrouped.loc[:,'topprizeodds'].str.replace(',', '', regex=True)
 
@@ -622,7 +623,7 @@ def exportAZScratcherRecs():
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -937,7 +938,7 @@ def exportMOScratcherRecs():
             class_='scratchers-single-info__body')[5].string.replace('1 in ', '')
 
         tixdata = soup.find(class_=['table-mo table_highlight-first'])
-        tixdata = pd.read_html(str(tixdata))[0]
+        tixdata = pd.read_html(io.StringIO(tixdata))[0]
         tixdata['gameNumber'] = gameNumber
         tixdata['gameName'] = gameName
         tixdata['price'] = gamePrice
@@ -988,7 +989,7 @@ def exportMOScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -1006,7 +1007,7 @@ def exportMOScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -1334,7 +1335,7 @@ def exportOKScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -1352,7 +1353,7 @@ def exportOKScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -1633,7 +1634,7 @@ def exportCAScratcherRecs():
         tixdata = pd.json_normalize(game['prizeTiers'])
 
         if tixdata.empty:
-            tixtables = tixtables.append([])
+            tixtables = pd.concat([tixtables, []], axis=0)
         else:
             tixdata.rename(columns={'value': 'prizeamount', 'totalNumberOfPrizes': 'Winning Tickets At Start',
                            'numberOfPrizesPending': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -1678,7 +1679,7 @@ def exportCAScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -1697,7 +1698,7 @@ def exportCAScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -1946,7 +1947,7 @@ def exportNMScratcherRecs():
     r = requests.get(url)
     response = r.text
     dateslist = BeautifulSoup(response, 'html.parser')
-    endDateslist = pd.read_html(str(dateslist.find('table')))[0]
+    endDateslist = pd.read_html(io.StringIO(dateslist.find('table')))[0]
 
     tixtables = pd.DataFrame()
 
@@ -1975,10 +1976,10 @@ def exportNMScratcherRecs():
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'startDate', 'overallodds', 'gameURL', 'gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
 
-        tixdata = pd.read_html(str(s.find(class_='data')))[0]
+        tixdata = pd.read_html(io.StringIO(s.find(class_='data')))[0]
 
         if len(tixdata) == 0:
-            tixtables = tixtables.append([])
+            tixtables = pd.concat([tixtables, []], axis=0)
         else:
             tixdata.rename(columns={'Prize:': 'prizeamount', 'Approx. # of Prizes:': 'Winning Tickets At Start',
                            'Approx. Prizes Remaining:': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -2033,7 +2034,7 @@ def exportNMScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -2052,7 +2053,7 @@ def exportNMScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -2316,13 +2317,13 @@ def exportMDScratcherRecs():
         overallodds = s.find(class_='probability').text
         dateexported = s.find('div', id='prize_details_' +
                               gameNumber).find('p').text.replace('Records Last Updated:', '')
-        tixdata = pd.read_html(str(s.find('table')))[0]
+        tixdata = pd.read_html(io.StringIO(s.find('table')))[0]
 
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'startDate', 'overallodds', 'gameURL', 'gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
 
         if len(tixdata) == 0:
-            tixtables = tixtables.append([])
+            tixtables = pd.concat([tixtables, []], axis=0)
         else:
             tixdata.rename(columns={'Prize Amount': 'prizeamount', 'Start': 'Winning Tickets At Start',
                            'Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -2375,7 +2376,7 @@ def exportMDScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -2394,7 +2395,7 @@ def exportMDScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -2661,7 +2662,7 @@ def exportNYScratcherRecs():
         tixdata = pd.json_normalize(s['odds_prizes'])
 
         if len(tixdata) == 0:
-            tixtables = tixtables.append([])
+            tixtables = pd.concat([tixtables, []], axis=0)
         else:
             tixdata = tixdata[['title', 'overall_odds',
                                'prize_amount', 'prizes_paid_out', 'prizes_remaining']]
@@ -2742,7 +2743,7 @@ def exportNYScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds', 'topprizeodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(
@@ -2761,7 +2762,7 @@ def exportNYScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -3051,7 +3052,7 @@ def exportDCScratcherRecs():
                         overallodds = overallodds[2:] if (
                             overallodds.count('.') > 1) else overallodds
                     if (len(tixdata) == 0) & (overallodds == None):
-                        tixtables = tixtables.append([])
+                        tixtables = pd.concat([tixtables, []], axis=0)
                     else:
                         tixdata.rename(columns={'Prize Amount': 'prizeamount', 'Total Prizes': 'Winning Tickets At Start',
                                        'Prizes Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -3120,7 +3121,7 @@ def exportDCScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'topprizeodds', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = None if ((overallodds == None) & (
@@ -3134,7 +3135,7 @@ def exportDCScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -3383,7 +3384,7 @@ def exportNCScratcherRecs():
     r = requests.get(url)
     response = r.text
     dateslist = BeautifulSoup(response, 'html.parser')
-    endDateslist = pd.read_html(str(dateslist.find('table')))[0]
+    endDateslist = pd.read_html(io.StringIO(dateslist.find('table')))[0]
 
     tixtables = pd.DataFrame()
 
@@ -3423,12 +3424,12 @@ def exportNCScratcherRecs():
             gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, startDate, endDate, lastdatetoclaim]
 
         # get the data from the table for this game
-        tixdata = pd.read_html(str(s))[0]
+        tixdata = pd.read_html(io.StringIO(s))[0]
         tixdata = tixdata.droplevel(0, axis=1)
         tixdata = tixdata.dropna(axis=0, inplace=False)
 
         if len(tixdata) == None:
-            tixtables = tixtables.append([])
+            tixtables = pd.concat([tixtables, []], axis=0)
         else:
             tixdata.rename(columns={'Value': 'prizeamount', 'Total': 'Winning Tickets At Start',
                            'Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -3486,7 +3487,7 @@ def exportNCScratcherRecs():
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -3505,7 +3506,7 @@ def exportNCScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -3750,7 +3751,7 @@ def exportFLScratcherRecs():
     soup = BeautifulSoup(response, 'html.parser')
     tixlist = pd.DataFrame()
     table = soup.find('div', class_='gameContent').find('table')
-    table = pd.read_html(str(table))[0]
+    table = pd.read_html(io.StringIO(table))[0]
     
     tixtables = pd.DataFrame()
     
@@ -3787,7 +3788,7 @@ def exportFLScratcherRecs():
             gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, topprizeremain, overallodds, startDate, endDate, lastdatetoclaim]
     
         #get the data from the table for this game
-        tixdata = pd.read_html(str(details))[0]
+        tixdata = pd.read_html(io.StringIO(details))[0]
     
         if len(tixdata) == None:
             tixtables = pd.concat([tixtables, []], axis=0, ignore_index=True)
@@ -3839,7 +3840,7 @@ def exportFLScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
@@ -3848,7 +3849,7 @@ def exportFLScratcherRecs():
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
-    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
@@ -4039,8 +4040,8 @@ def exportILScratcherRecs():
             response = r.text
             soup = BeautifulSoup(response, 'html.parser')
             table = soup.find('div', class_='itg-details-block')
-            table = pd.read_html(str(table.find('table')))[0]
-            print(table)
+            table = pd.read_html(io.StringIO(table.find('table')))[0]
+
             gameNumber = table.loc[table[0]=='Game Number',1].iloc[0]
             overallodds = float(table.loc[table[0]=='Overall Odds',1].iloc[0].replace('1 in ','').replace(' to 1','').replace('1: ',''))
             gamePrice = table.loc[table[0]=='Price Point',1].iloc[0].replace('$','')
@@ -4053,28 +4054,21 @@ def exportILScratcherRecs():
             extrachances = None
             secondChance = None
             dateexported = date.today()
-            
-            print(gameURL)
-            print(gameNumber)
-            print(gamePrice)
-            print(overallodds)
-            print(startDate)
-            print(gamePhoto)
+
     
     
             tixlist.loc[len(tixlist.index), ['price', 'gameNumber','gameURL','gamePhoto','overallodds','startDate','endDate','lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported']] = [
                 gamePrice, gameNumber, gameURL, gamePhoto, overallodds, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
         
     #get the data from the big table of prizes for all games
-    print(tixlist)
+
     #url = "https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
     
     url = "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    print(soup)
-    print(soup.find('div', class_='unclaimed-prizes-table__wrapper'))
+
     tixtables = soup.find('div', class_='unclaimed-prizes-table__wrapper').find('table', class_='unclaimed-prizes-table unclaimed-prizes-table--itg')
     rows = tixtables.find_all('tr')
     
@@ -4106,7 +4100,7 @@ def exportILScratcherRecs():
         
                 ticketrow['Winning Tickets At Start'] = totalatstart
                 ticketrow['Winning Tickets Unclaimed'] = totalremaining
-                print(tixdata)
+ 
                 tixdata = pd.concat([tixdata, ticketrow])
 
             except:
@@ -4114,10 +4108,9 @@ def exportILScratcherRecs():
     
     tixdata['dateexported'] = date.today()
 
-    print(tixlist['gameNumber'])
     #add topprize stats from tixdata foir each gameNumber in tixlist
     for t in tixlist['gameNumber']:
-        print(t)
+
         try:   
             tixlist.loc[tixlist['gameNumber']==t,'gameName'] = tixdata.loc[tixdata['gameNumber']==t,'gameName'].iloc[-1]
             tixlist.loc[tixlist['gameNumber']==t,'topprize'] = tixdata.loc[tixdata['gameNumber']==t,'prizeamount'].iloc[-1]
@@ -4129,7 +4122,6 @@ def exportILScratcherRecs():
 
     tixlist.to_csv("./ILtixlist.csv", encoding='utf-8')
 
-    print(tixlist.columns)
 
     scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
@@ -4147,15 +4139,13 @@ def exportILScratcherRecs():
     
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     
     #drop rows missing a game name, because those don't have a game page with overall odds to use for calculations
     gamesgrouped = gamesgrouped.loc[pd.isnull(gamesgrouped['overallodds'])==False,:]
-    
-    print(gamesgrouped.columns)
-    print(gamesgrouped.loc[:,['gameName','gameNumber','overallodds']])
+ 
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
-    print(gamesgrouped.loc[:,['gameName','gameNumber','Total at start']])
+
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed'].astype(float)*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
@@ -4163,7 +4153,7 @@ def exportILScratcherRecs():
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
-    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
@@ -4349,7 +4339,7 @@ def exportKSScratcherRecs():
     soup = BeautifulSoup(response, 'html.parser')
 
     tixlist = pd.DataFrame()
-    tixlist = pd.read_html(str(soup.find('table', id = 'gametable')))[0]
+    tixlist = pd.read_html(io.StringIO(soup.find('table', id = 'gametable')))[0]
     tixlist.rename(columns={0:'gamePrice',1:'gameNumber',2:'gameName', 3:'gameType',4: 'startDate',5:'topprize',6:'topprizeremain',7:'prizeLevel1',8:'level1remain',9:'prizeLevel2',10:'level2remain'}, inplace=True)
     tixlist = tixlist[tixlist['gameType']=='S']
     tixlist['gameNumber'] = tixlist['gameNumber'].astype(str)
@@ -4368,7 +4358,7 @@ def exportKSScratcherRecs():
         soup = BeautifulSoup(response, 'html.parser')
         #get table of remaining tickets
         page = soup.find('div', class_='page-container')
-        tixdata = pd.read_html(str(page.find('table')))[1]
+        tixdata = pd.read_html(io.StringIO(page.find('table')))[1]
         
         tixdata.rename(columns={'Prize':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
         gameHeader = soup.find('div', class_='col-xs-12 col-md-12 cat-item').find('h2').string
@@ -4452,7 +4442,7 @@ def exportKSScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
     print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
@@ -4466,7 +4456,7 @@ def exportKSScratcherRecs():
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
-    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
@@ -4698,7 +4688,7 @@ def exportOHScratcherRecs():
                 gamePhoto = 'https://www.ohiolottery.com'+str(soup.find('div',class_='igTicketImg').get('style').replace('background-image: url(', '').replace(');', ''))
                 print(overallodds)
                 print(gamePhoto)
-                table = pd.read_html(str(soup.find('div',class_='tbl_PrizesRemaining').find('table')))[0]
+                table = pd.read_html(io.StringIO(soup.find('div',class_='tbl_PrizesRemaining').find('table')))[0]
                 table.columns = table.columns.droplevel(0)
                 table.rename(columns={'Prizes':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
                 table.drop(labels={'Unnamed: 2_level_1'}, axis=1,inplace=True)
@@ -4731,7 +4721,7 @@ def exportOHScratcherRecs():
     r = requests.get('https://www.ohiolottery.com/Games/ScratchOffs/Last-Day-to-Redeem')
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    lastdaytbl = pd.read_html(str(soup.find('div', class_='cf moduleContent').find('table', class_='purple_table igLDTR_tbl')))[0]
+    lastdaytbl = pd.read_html(io.StringIO(soup.find('div', class_='cf moduleContent').find('table', class_='purple_table igLDTR_tbl')))[0]
     lastdaytbl.rename(columns={'Game Name':'gameName', 'Game #':'gameNumber', 'Cost': 'gamePrice', 'Last Day to Redeem': 'lastdatetoclaim'}, inplace=True)
     lastdaytbl['gameNumber'] = lastdaytbl['gameNumber'].astype('str')
     print(lastdaytbl)
@@ -4755,7 +4745,7 @@ def exportOHScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
     print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
@@ -4769,7 +4759,7 @@ def exportOHScratcherRecs():
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
-    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
@@ -4954,7 +4944,7 @@ def exportTXScratcherRecs():
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    tixlist = pd.read_html(str(soup.find('table')))[0]
+    tixlist = pd.read_html(io.StringIO(soup.find('table')))[0]
     tixlist = tixlist.loc[~tixlist['Game Number'].isna()]
     tixlist.rename(columns={'Game Number':'gameNumber', 'Start Date':'startDate', 'Ticket Price':'price', 'Game Name':'gameName', 
                             'Prize Amount':'topprize', 'Prizes Printed':'topprizestarting', 'Prizes Claimed':'topprizeremaining'}, inplace=True)
@@ -4978,7 +4968,7 @@ def exportTXScratcherRecs():
     tables = soup.find_all('table')
     closingtable = pd.DataFrame()
     for tbl in tables: 
-        tbl = pd.read_html(str(tbl))[0]
+        tbl = pd.read_html(io.StringIO(tbl))[0]
         print(tbl)
         closingtable = pd.concat([closingtable ,tbl], axis=0, ignore_index=True)    
     closingtable.rename(columns={'Game Name':'gameName', 'Game Number':'gameNumber', 'End of Game Date':'endDate', 'Last Day to Redeem Prizes':'lastdatetoclaim'}, inplace=True)
@@ -5026,7 +5016,7 @@ def exportTXScratcherRecs():
         gameName = soup.find('div', class_='large-12 cell').find_all('div', class_='text-center')[0].text.split(' - ')[1]
         print(gameName)
         
-        table = pd.read_html(str(soup.find_all('div', class_='large-4 cell')[2].find('table', class_='large-only')))[0]
+        table = pd.read_html(io.StringIO(soup.find_all('div', class_='large-4 cell')[2].find('table', class_='large-only')))[0]
         table.rename(columns={'Amount':'prizeamount', 'No. in Game*': 'Winning Tickets At Start'}, inplace=True)
         table['No. Prizes Claimed'] = table['No. Prizes Claimed'].replace('---',0)
         table['Winning Tickets At Start'] = table['Winning Tickets At Start'].replace('---',0)
@@ -5071,7 +5061,7 @@ def exportTXScratcherRecs():
     
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     
     #drop rows missing a game name, because those don't have a game page with overall odds to use for calculations
     gamesgrouped = gamesgrouped.loc[pd.isnull(gamesgrouped['overallodds'])==False,:]
@@ -5087,7 +5077,7 @@ def exportTXScratcherRecs():
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
-    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
@@ -5309,7 +5299,7 @@ def exportKYScratcherRecs():
         dateexported = date.today() if t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text ==None else t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text
         print(dateexported)
         
-        table = pd.read_html(str(t.find_all('div', class_='col-md-6')[1].find('table')))[0]
+        table = pd.read_html(io.StringIO(t.find_all('div', class_='col-md-6')[1].find('table')))[0]
         if len(table)==0:
             continue
         else:
@@ -5351,7 +5341,7 @@ def exportKYScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
     print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
@@ -5365,7 +5355,7 @@ def exportKYScratcherRecs():
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
-    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
@@ -5565,7 +5555,7 @@ def exportWAScratcherRecs():
         r = requests.get(url)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
-        gameURL = 'https://walottery.com/Scratch/'+str(soup.find_all('div', class_='prizes-remaining-item')[0].find('a')['href'])
+        gameURL = str('https://walottery.com/Scratch/'+str(soup.find_all('div', class_='prizes-remaining-item')[0].find('a')['href']))
         r = requests.get(gameURL)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
@@ -5581,12 +5571,12 @@ def exportWAScratcherRecs():
             gameNumber = game['Id']
             gameName = game['GameName'].replace("&#39;","'")
             gamePrice = game['Cost']
-            gamePhoto = game['GridImageUrl']
-            overallodds = game['OverallOdds'].replace('1 in ','')
-            startDate = game['SalesStartDate']
-            endDate = game['SalesEndDate']
-            lastdatetoclaim = game['RedeemEndDate']
-            dateexported = game['LastUpdated']
+            gamePhoto = game['GridImageUrl'].astype(str)
+            overallodds = game['OverallOdds'].replace('1 in ','').astype(float)
+            startDate = game['SalesStartDate'].astype(str)
+            endDate = game['SalesEndDate'].astype(str)
+            lastdatetoclaim = game['RedeemEndDate'].astype(str)
+            dateexported = game['LastUpdated'].astype(str)
             print(game)
             print(gameNumber)
             print(gameName)
@@ -5634,7 +5624,7 @@ def exportWAScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
     print(gamesgrouped.loc[:,['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
@@ -5648,7 +5638,7 @@ def exportWAScratcherRecs():
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
-    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
@@ -5948,7 +5938,7 @@ def exportORScratcherRecs():
 
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -5966,7 +5956,7 @@ def exportORScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
@@ -6449,8 +6439,8 @@ def clusterloop(ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
         print(simTable)
         print(simOutcomes)
 
-    allSimOutcomes.append(simOutcomes, ignore_index=False)
-    allSimTables.append(simTable, ignore_index=False)
+    allSimOutcomes.concat(simOutcomes, ignore_index=False)
+    allSimTables.concat(simTable, ignore_index=False)
 
     simTable.to_csv("/Users/michaeljames/Documents/scratchersdatapull/simTable_" +
                     description+"2.csv", encoding='utf-8')
