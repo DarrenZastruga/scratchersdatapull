@@ -5571,7 +5571,7 @@ def exportWAScratcherRecs():
             gameNumber = game['Id']
             gameName = game['GameName'].replace("&#39;","'")
             gamePrice = game['Cost']
-            gamePhoto = game['GridImageUrl'].astype(str)
+            gamePhoto = game['GridImageUrl']
             overallodds = game['OverallOdds'].replace('1 in ','').astype(float)
             startDate = game['SalesStartDate'].astype(str)
             endDate = game['SalesEndDate'].astype(str)
