@@ -135,14 +135,14 @@ def exportVAScratcherRecs():
         try:
             table = soup.select(
                 '#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(4) > div > table')
-            tableData = pd.read_html(io.StringIO(table))[0]
+            tableData = pd.read_html(io.StringIO(str(table)))[0]
 
         except ValueError as e:
             print(e)  # ValueError: No tables found
             try:
                 table = soup.select(
                     '#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(5) > div > table')
-                tableData = pd.read_html(io.StringIO(table))[0]
+                tableData = pd.read_html(io.StringIO(str(table)))[0]
             except ValueError as e:
                 print(e)  # ValueError: No tables found
                 continue
@@ -938,7 +938,7 @@ def exportMOScratcherRecs():
             class_='scratchers-single-info__body')[5].string.replace('1 in ', '')
 
         tixdata = soup.find(class_=['table-mo table_highlight-first'])
-        tixdata = pd.read_html(io.StringIO(tixdata))[0]
+        tixdata = pd.read_html(io.StringIO(str(tixdata)))[0]
         tixdata['gameNumber'] = gameNumber
         tixdata['gameName'] = gameName
         tixdata['price'] = gamePrice
@@ -1947,7 +1947,7 @@ def exportNMScratcherRecs():
     r = requests.get(url)
     response = r.text
     dateslist = BeautifulSoup(response, 'html.parser')
-    endDateslist = pd.read_html(io.StringIO(dateslist.find('table')))[0]
+    endDateslist = pd.read_html(io.StringIO(str(dateslist.find('table'))))[0]
 
     tixtables = pd.DataFrame()
 
@@ -1976,7 +1976,7 @@ def exportNMScratcherRecs():
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'startDate', 'overallodds', 'gameURL', 'gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
 
-        tixdata = pd.read_html(io.StringIO(s.find(class_='data')))[0]
+        tixdata = pd.read_html(io.StringIO(str(s.find(class_='data'))))[0]
 
         if len(tixdata) == 0:
             tixtables = pd.concat([tixtables, []], axis=0)
@@ -2317,7 +2317,7 @@ def exportMDScratcherRecs():
         overallodds = s.find(class_='probability').text
         dateexported = s.find('div', id='prize_details_' +
                               gameNumber).find('p').text.replace('Records Last Updated:', '')
-        tixdata = pd.read_html(io.StringIO(s.find('table')))[0]
+        tixdata = pd.read_html(io.StringIO(str(s.find('table'))))[0]
 
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'startDate', 'overallodds', 'gameURL', 'gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
@@ -3384,7 +3384,7 @@ def exportNCScratcherRecs():
     r = requests.get(url)
     response = r.text
     dateslist = BeautifulSoup(response, 'html.parser')
-    endDateslist = pd.read_html(io.StringIO(dateslist.find('table')))[0]
+    endDateslist = pd.read_html(io.StringIO(str(dateslist.find('table'))))[0]
 
     tixtables = pd.DataFrame()
 
@@ -3424,7 +3424,7 @@ def exportNCScratcherRecs():
             gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, startDate, endDate, lastdatetoclaim]
 
         # get the data from the table for this game
-        tixdata = pd.read_html(io.StringIO(s))[0]
+        tixdata = pd.read_html(io.StringIO(str(s)))[0]
         tixdata = tixdata.droplevel(0, axis=1)
         tixdata = tixdata.dropna(axis=0, inplace=False)
 
@@ -3751,7 +3751,7 @@ def exportFLScratcherRecs():
     soup = BeautifulSoup(response, 'html.parser')
     tixlist = pd.DataFrame()
     table = soup.find('div', class_='gameContent').find('table')
-    table = pd.read_html(io.StringIO(table))[0]
+    table = pd.read_html(io.StringIO(str(table)))[0]
     
     tixtables = pd.DataFrame()
     
@@ -3788,7 +3788,7 @@ def exportFLScratcherRecs():
             gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, topprizeremain, overallodds, startDate, endDate, lastdatetoclaim]
     
         #get the data from the table for this game
-        tixdata = pd.read_html(io.StringIO(details))[0]
+        tixdata = pd.read_html(io.StringIO(str(details)))[0]
     
         if len(tixdata) == None:
             tixtables = pd.concat([tixtables, []], axis=0, ignore_index=True)
@@ -4040,7 +4040,8 @@ def exportILScratcherRecs():
             response = r.text
             soup = BeautifulSoup(response, 'html.parser')
             table = soup.find('div', class_='itg-details-block')
-            table = pd.read_html(io.StringIO(table.find('table')))[0]
+            print(table)
+            table = pd.read_html(io.StringIO(str(table.find('table'))))[0]
 
             gameNumber = table.loc[table[0]=='Game Number',1].iloc[0]
             overallodds = float(table.loc[table[0]=='Overall Odds',1].iloc[0].replace('1 in ','').replace(' to 1','').replace('1: ',''))
@@ -4339,7 +4340,7 @@ def exportKSScratcherRecs():
     soup = BeautifulSoup(response, 'html.parser')
 
     tixlist = pd.DataFrame()
-    tixlist = pd.read_html(io.StringIO(soup.find('table', id = 'gametable')))[0]
+    tixlist = pd.read_html(io.StringIO(str(soup.find('table', id = 'gametable'))))[0]
     tixlist.rename(columns={0:'gamePrice',1:'gameNumber',2:'gameName', 3:'gameType',4: 'startDate',5:'topprize',6:'topprizeremain',7:'prizeLevel1',8:'level1remain',9:'prizeLevel2',10:'level2remain'}, inplace=True)
     tixlist = tixlist[tixlist['gameType']=='S']
     tixlist['gameNumber'] = tixlist['gameNumber'].astype(str)
@@ -4358,7 +4359,7 @@ def exportKSScratcherRecs():
         soup = BeautifulSoup(response, 'html.parser')
         #get table of remaining tickets
         page = soup.find('div', class_='page-container')
-        tixdata = pd.read_html(io.StringIO(page.find('table')))[1]
+        tixdata = pd.read_html(io.StringIO(str(page.find('table'))))[1]
         
         tixdata.rename(columns={'Prize':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
         gameHeader = soup.find('div', class_='col-xs-12 col-md-12 cat-item').find('h2').string
@@ -4688,7 +4689,7 @@ def exportOHScratcherRecs():
                 gamePhoto = 'https://www.ohiolottery.com'+str(soup.find('div',class_='igTicketImg').get('style').replace('background-image: url(', '').replace(');', ''))
                 print(overallodds)
                 print(gamePhoto)
-                table = pd.read_html(io.StringIO(soup.find('div',class_='tbl_PrizesRemaining').find('table')))[0]
+                table = pd.read_html(io.StringIO(str(soup.find('div',class_='tbl_PrizesRemaining').find('table'))))[0]
                 table.columns = table.columns.droplevel(0)
                 table.rename(columns={'Prizes':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
                 table.drop(labels={'Unnamed: 2_level_1'}, axis=1,inplace=True)
@@ -4721,7 +4722,7 @@ def exportOHScratcherRecs():
     r = requests.get('https://www.ohiolottery.com/Games/ScratchOffs/Last-Day-to-Redeem')
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    lastdaytbl = pd.read_html(io.StringIO(soup.find('div', class_='cf moduleContent').find('table', class_='purple_table igLDTR_tbl')))[0]
+    lastdaytbl = pd.read_html(io.StringIO(str(soup.find('div', class_='cf moduleContent').find('table', class_='purple_table igLDTR_tbl'))))[0]
     lastdaytbl.rename(columns={'Game Name':'gameName', 'Game #':'gameNumber', 'Cost': 'gamePrice', 'Last Day to Redeem': 'lastdatetoclaim'}, inplace=True)
     lastdaytbl['gameNumber'] = lastdaytbl['gameNumber'].astype('str')
     print(lastdaytbl)
@@ -4944,7 +4945,7 @@ def exportTXScratcherRecs():
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    tixlist = pd.read_html(io.StringIO(soup.find('table')))[0]
+    tixlist = pd.read_html(io.StringIO(str(soup.find('table'))))[0]
     tixlist = tixlist.loc[~tixlist['Game Number'].isna()]
     tixlist.rename(columns={'Game Number':'gameNumber', 'Start Date':'startDate', 'Ticket Price':'price', 'Game Name':'gameName', 
                             'Prize Amount':'topprize', 'Prizes Printed':'topprizestarting', 'Prizes Claimed':'topprizeremaining'}, inplace=True)
@@ -4968,7 +4969,7 @@ def exportTXScratcherRecs():
     tables = soup.find_all('table')
     closingtable = pd.DataFrame()
     for tbl in tables: 
-        tbl = pd.read_html(io.StringIO(tbl))[0]
+        tbl = pd.read_html(io.StringIO(str(tbl)))[0]
         print(tbl)
         closingtable = pd.concat([closingtable ,tbl], axis=0, ignore_index=True)    
     closingtable.rename(columns={'Game Name':'gameName', 'Game Number':'gameNumber', 'End of Game Date':'endDate', 'Last Day to Redeem Prizes':'lastdatetoclaim'}, inplace=True)
@@ -5016,7 +5017,7 @@ def exportTXScratcherRecs():
         gameName = soup.find('div', class_='large-12 cell').find_all('div', class_='text-center')[0].text.split(' - ')[1]
         print(gameName)
         
-        table = pd.read_html(io.StringIO(soup.find_all('div', class_='large-4 cell')[2].find('table', class_='large-only')))[0]
+        table = pd.read_html(io.StringIO(str(soup.find_all('div', class_='large-4 cell')[2].find('table', class_='large-only'))))[0]
         table.rename(columns={'Amount':'prizeamount', 'No. in Game*': 'Winning Tickets At Start'}, inplace=True)
         table['No. Prizes Claimed'] = table['No. Prizes Claimed'].replace('---',0)
         table['Winning Tickets At Start'] = table['Winning Tickets At Start'].replace('---',0)
@@ -5299,7 +5300,7 @@ def exportKYScratcherRecs():
         dateexported = date.today() if t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text ==None else t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text
         print(dateexported)
         
-        table = pd.read_html(io.StringIO(t.find_all('div', class_='col-md-6')[1].find('table')))[0]
+        table = pd.read_html(io.StringIO(str(t.find_all('div', class_='col-md-6')[1].find('table'))))[0]
         if len(table)==0:
             continue
         else:

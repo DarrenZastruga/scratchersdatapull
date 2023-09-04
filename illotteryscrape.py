@@ -27,6 +27,7 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+import io
 
 
 '''
@@ -84,7 +85,8 @@ def exportILScratcherRecs():
             soup = BeautifulSoup(response, 'html.parser')
             print(soup)
             table = soup.find('div', class_='itg-details-block')
-            table = pd.read_html(str(table.find('table')))[0]
+            print(table)
+            table = pd.read_html(io.StringIO(str(table.find('table'))))[0]
             print(table)
             gameNumber = table.loc[table[0]=='Game Number',1].iloc[0]
             overallodds = float(table.loc[table[0]=='Overall Odds',1].iloc[0].replace('1 in ','').replace(' to 1','').replace('1: ',''))
