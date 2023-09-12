@@ -4041,10 +4041,11 @@ def exportILScratcherRecs():
             soup = BeautifulSoup(response, 'html.parser')
             table = soup.find('div', class_='itg-details-block')
             print(table)
-            table = pd.read_html(io.StringIO(str(table.find('table'))))[0]
-            if len(table)==0:
+
+            if table==None:
                 continue
             else:
+                table = pd.read_html(io.StringIO(str(table.find('table'))))[0]
                 gameNumber = table.loc[table[0]=='Game Number',1].iloc[0]
                 overallodds = float(table.loc[table[0]=='Overall Odds',1].iloc[0].replace('1 in ','').replace(' to 1','').replace('1: ',''))
                 gamePrice = table.loc[table[0]=='Price Point',1].iloc[0].replace('$','')

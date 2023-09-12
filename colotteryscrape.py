@@ -95,7 +95,7 @@ def exportCOScratcherRecs():
         print(soup)
         tixdata = pd.read_html(str(soup.find('table', class_='respond')))[0]
         print(tixdata)
-        #tixdata.rename(columns={'Prize Amount':'prizeamount', 
+        tixdata.rename(columns={'Prize Amount':'prizeamount', 'Winning '
         print(tixdata)
         tixdata['topprizeodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]
         tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
