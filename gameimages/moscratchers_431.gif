@@ -271,13 +271,15 @@
 
             </div>
                     <div class="scratchers-single__text">
-            <p>Win prizes to the tune of up to $100,000 on this $5 game!</p>
+            <p>Win prizes to the tune of up to $100,000* on this $5 game!</p>
 
             <h3>How to Play</h3>
             <p>Match any of YOUR NUMBERS to any WINNING NUMBER and win the prize shown.<br />
 Reveal a "DOLLAR" symbol, win prize automatically.<br />
 Reveal a "$50" symbol, win $50 instantly.<br />
 Reveal an "ALL" symbol, WIN ALL 15 PRIZES!</p>
+
+<p>*All top prizes in this game have been claimed. However, through Oct. 23, every $5 "Living Lucky with Luke Combs" Scratchers ticket (game 431) entered into the My Lottery® Players Club will earn an entry into the <a href="https://playersclub.molottery.com/second-chance-promotion?id=10">second-chance promotion</a> for a chance to win a Luke Combs VIP Concert Experience for Two – including a chance to win $500,000 at the event!&nbsp;</p>
 
           </div>
           <div id="scratchers-single-info-standard">
@@ -332,6 +334,8 @@ Reveal an "ALL" symbol, WIN ALL 15 PRIZES!</p>
     <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_left">
     <div class="container">
       <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.LivinLuckyLukeCombsPromoPrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
               </div>
       <div class="scratchers-single-promo__text">
         <h2 class="h1">&quot;Living Lucky with Luke Combs&quot;</h2>
@@ -366,42 +370,42 @@ Reveal an "ALL" symbol, WIN ALL 15 PRIZES!</p>
                   <tr>
             <td>$5</td>
             <td>201,554</td>
-            <td>108,051</td>
+            <td>96,618</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>144,142</td>
-            <td>74,089</td>
+            <td>65,566</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>57,628</td>
-            <td>29,158</td>
+            <td>25,856</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>15,216</td>
-            <td>7,577</td>
+            <td>6,694</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>26,633</td>
-            <td>13,033</td>
+            <td>11,454</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>5,590</td>
-            <td>2,726</td>
+            <td>2,429</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>87</td>
-            <td>53</td>
+            <td>48</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>21</td>
-            <td>11</td>
+            <td>8</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -416,7 +420,7 @@ Reveal an "ALL" symbol, WIN ALL 15 PRIZES!</p>
                   <tr>
             <td>$100,000</td>
             <td>2</td>
-            <td>1</td>
+            <td>0</td>
           </tr>
                 </tbody>
       </table>
@@ -425,8 +429,8 @@ Reveal an "ALL" symbol, WIN ALL 15 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,974,690</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,949,470</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,546,540</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,377,620</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -574,5 +578,5 @@ Reveal an "ALL" symbol, WIN ALL 15 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?rzuuk0"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=11&cb=485184903" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=12&cb=142736490" async></script></body>
 </html>
