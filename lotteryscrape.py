@@ -467,7 +467,7 @@ def exportVAScratcherRecs():
     # select a work sheet from its name
     VAratingssheet = gs.worksheet('VARatingsTable')
     VAratingssheet.clear()
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -835,7 +835,7 @@ def exportAZScratcherRecs():
     # select sheet by name
     AZratingssheet = gs.worksheet('AZRatingsTable')
     AZratingssheet.clear()
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -1221,7 +1221,7 @@ def exportMOScratcherRecs():
     # select a work sheet from its name
     MOratingssheet = gs.worksheet('MORatingsTable')
     MOratingssheet.clear()
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -1565,7 +1565,7 @@ def exportOKScratcherRecs():
     # select a work sheet from its name
     OKratingssheet = gs.worksheet('OKRatingsTable')
     OKratingssheet.clear()
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -1902,7 +1902,7 @@ def exportCAScratcherRecs():
     CAratingssheet = gs.worksheet('CARatingsTable')
     CAratingssheet.clear()
 
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -2258,7 +2258,7 @@ def exportNMScratcherRecs():
     NMratingssheet = gs.worksheet('NMRatingsTable')
     NMratingssheet.clear()
 
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -2600,7 +2600,7 @@ def exportMDScratcherRecs():
     MDratingssheet = gs.worksheet('MDRatingsTable')
     MDratingssheet.clear()
 
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -2966,7 +2966,7 @@ def exportNYScratcherRecs():
     NYratingssheet = gs.worksheet('NYRatingsTable')
     NYratingssheet.clear()
 
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -3342,7 +3342,7 @@ def exportDCScratcherRecs():
     DCratingssheet = gs.worksheet('DCRatingsTable')
     DCratingssheet.clear()
 
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -3716,7 +3716,7 @@ def exportNCScratcherRecs():
     NCratingssheet = gs.worksheet('NCRatingsTable')
     NCratingssheet.clear()
 
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -3987,7 +3987,7 @@ def exportFLScratcherRecs():
     FLratingssheet = gs.worksheet('FLRatingsTable')
     FLratingssheet.clear()
     
-    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -4307,7 +4307,7 @@ def exportILScratcherRecs():
     ILratingssheet = gs.worksheet('ILRatingsTable')
     ILratingssheet.clear()
     
-    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -4612,7 +4612,7 @@ def exportKSScratcherRecs():
     KSratingssheet = gs.worksheet('KSRatingsTable')
     KSratingssheet.clear()
     
-    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -4729,7 +4729,7 @@ def exportOHScratcherRecs():
     lastdaytbl.rename(columns={'Game Name':'gameName', 'Game #':'gameNumber', 'Cost': 'gamePrice', 'Last Day to Redeem': 'lastdatetoclaim'}, inplace=True)
     lastdaytbl['gameNumber'] = lastdaytbl['gameNumber'].astype('str')
     print(lastdaytbl)
-    tixlist = tixlist.merge(lastdaytbl[['gameNumber', 'lastdatetoclaim']], how="left", on= "gameNumber")
+    tixlist = tixlist.merge(lastdaytbl.loc[:, ['gameNumber', 'lastdatetoclaim']], how="left", on= "gameNumber")
     print(tixlist)
     print(tixlist.columns)
 
@@ -4915,7 +4915,7 @@ def exportOHScratcherRecs():
     OHratingssheet = gs.worksheet('OHRatingsTable')
     OHratingssheet.clear()
     
-    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -5244,7 +5244,7 @@ def exportTXScratcherRecs():
     TXratingssheet = gs.worksheet('TXRatingsTable')
     TXratingssheet.clear()
     
-    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -5512,7 +5512,7 @@ def exportKYScratcherRecs():
     KYratingssheet = gs.worksheet('KYRatingsTable')
     KYratingssheet.clear()
     
-    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -5796,7 +5796,7 @@ def exportWAScratcherRecs():
     WAratingssheet.clear()
     
     
-    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
        'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
@@ -6173,7 +6173,7 @@ def exportORScratcherRecs():
     # select a work sheet from its name
     ORratingssheet = gs.worksheet('ORRatingsTable')
     ORratingssheet.clear()
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
