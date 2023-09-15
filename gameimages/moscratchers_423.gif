@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -344,62 +344,62 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$5</td>
             <td>646,304</td>
-            <td>299,604</td>
+            <td>295,525</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>276,876</td>
-            <td>122,117</td>
+            <td>120,251</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>277,021</td>
-            <td>120,076</td>
+            <td>118,205</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>69,239</td>
-            <td>30,182</td>
+            <td>29,742</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>33,688</td>
-            <td>14,711</td>
+            <td>14,495</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>46,211</td>
-            <td>19,846</td>
+            <td>19,528</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>13,810</td>
-            <td>5,936</td>
+            <td>5,845</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,679</td>
-            <td>1,550</td>
+            <td>1,527</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>20,578</td>
-            <td>8,729</td>
+            <td>8,598</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>921</td>
-            <td>397</td>
+            <td>392</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>184</td>
-            <td>73</td>
+            <td>72</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>764</td>
-            <td>340</td>
+            <td>334</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -409,7 +409,7 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$20,000</td>
             <td>6</td>
-            <td>2</td>
+            <td>1</td>
           </tr>
                   <tr>
             <td>$100,000</td>
@@ -423,8 +423,8 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$8,422,435</b></div>
-      <div class="h2">Total Prizes Won: <b>$10,738,005</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$8,281,520</b></div>
+      <div class="h2">Total Prizes Won: <b>$10,878,920</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -572,5 +572,5 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
 <script src="/libraries/superfish/supersubs.js?rzuuk0"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=26&cb=1098068067" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=26&cb=1139291354" async></script></body>
 </html>

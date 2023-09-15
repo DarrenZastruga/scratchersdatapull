@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -342,67 +342,67 @@ Reveal a "50X" symbol, win 50 TIMES the prize.</p>
                   <tr>
             <td>$5</td>
             <td>566,162</td>
-            <td>348,093</td>
+            <td>344,495</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>242,631</td>
-            <td>144,529</td>
+            <td>142,913</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>242,687</td>
-            <td>143,453</td>
+            <td>141,805</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>60,610</td>
-            <td>35,772</td>
+            <td>35,355</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>19,745</td>
-            <td>11,539</td>
+            <td>11,402</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>40,497</td>
-            <td>23,569</td>
+            <td>23,321</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>12,156</td>
-            <td>7,142</td>
+            <td>7,046</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,243</td>
-            <td>1,877</td>
+            <td>1,848</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>15,529</td>
-            <td>9,067</td>
+            <td>8,956</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>812</td>
-            <td>474</td>
+            <td>468</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>204</td>
-            <td>116</td>
+            <td>115</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>682</td>
-            <td>414</td>
+            <td>411</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>30</td>
-            <td>17</td>
+            <td>16</td>
           </tr>
                   <tr>
             <td>$20,000</td>
@@ -421,8 +421,8 @@ Reveal a "50X" symbol, win 50 TIMES the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$9,840,600</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,682,855</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$9,732,270</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,791,185</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -570,5 +570,5 @@ Reveal a "50X" symbol, win 50 TIMES the prize.</p>
 <script src="/libraries/superfish/supersubs.js?rzuuk0"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=786012409" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=447712012" async></script></body>
 </html>

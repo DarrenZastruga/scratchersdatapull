@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -369,32 +369,32 @@
                   <tr>
             <td>$50</td>
             <td>874,780</td>
-            <td>290,906</td>
+            <td>290,151</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>787,264</td>
-            <td>261,592</td>
+            <td>260,937</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>962,251</td>
-            <td>317,830</td>
+            <td>316,972</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>210,191</td>
-            <td>69,211</td>
+            <td>69,019</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>112,126</td>
-            <td>36,940</td>
+            <td>36,852</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>8,758</td>
-            <td>2,982</td>
+            <td>2,973</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -428,8 +428,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$113,473,020</b></div>
-      <div class="h2">Total Prizes Won: <b>$234,136,120</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$113,218,770</b></div>
+      <div class="h2">Total Prizes Won: <b>$234,390,370</b></div>
     </div>
 
     <p>&nbsp;</p>

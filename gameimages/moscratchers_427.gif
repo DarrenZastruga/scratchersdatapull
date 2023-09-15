@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -341,62 +341,62 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>488,547</td>
+            <td>484,986</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>206,083</td>
+            <td>204,343</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>205,473</td>
+            <td>203,793</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>51,216</td>
+            <td>50,787</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>41,109</td>
+            <td>40,756</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,162</td>
-            <td>3,414</td>
+            <td>3,377</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>32,786</td>
+            <td>32,523</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,340</td>
-            <td>2,734</td>
+            <td>2,712</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,624</td>
-            <td>11,925</td>
+            <td>11,845</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>414</td>
-            <td>337</td>
+            <td>333</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>259</td>
-            <td>211</td>
+            <td>210</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>132</td>
-            <td>108</td>
+            <td>107</td>
           </tr>
                   <tr>
             <td>$1,500</td>
@@ -440,8 +440,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$14,188,875</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,897,810</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$14,084,855</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,001,830</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?rzuuk0"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=16&cb=1189830734" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=16&cb=1627324078" async></script></body>
 </html>
