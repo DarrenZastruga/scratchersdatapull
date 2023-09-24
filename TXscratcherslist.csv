@@ -1,78 +1,78 @@
 ,price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,dateexported,gameURL
-0,20,"$1,000,000 Cash Blowout",2442,"$1,000,000",3.42,4,2.0,,,,09/06/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701533.html
-1,20,"$1,000,000 Crossword",2438,"$1,000,000",3.41,8,1.0,,,,06/06/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701558.html
-2,50,"$1,000,000 Diamond Riches",2423,"$1,000,000",3.49,4,1.0,,,,08/01/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701594.html
-3,20,"$1,000,000 Gold Rush",2490,"$1,000,000",3.98,4,4.0,,,,10/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701380.html
-4,50,"$1,000,000 Ultimate",2358,"$1,000,000",3.62,4,1.0,,,,12/20/21,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702457.html
-5,20,"$1,000,000 Winnings",2522,"$1,000,000",3.40,4,4.0,,,,09/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700634.html
-6,2,$100 Frenzy,2210,"$30,000",4.71,5,3.0,,,,07/31/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252703550.html
-7,5,"$100,000 Jackpot",2478,"$100,000",4.35,6,4.0,,,,07/17/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701434.html
-8,20,"$100,000,000 Riches!",2460,"$1,000,000",3.66,4,3.0,,,,12/19/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701473.html
-9,100,$20 Million Supreme,2400,"$20,000,000",3.49,4,1.0,,,,05/16/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701659.html
-10,5,"$200,000 Colossal Cash",2477,"$200,000",3.77,4,2.0,,,,03/20/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701435.html
-11,5,"$200,000 Winnings",2520,"$200,000",4.29,6,6.0,,,,09/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700636.html
-12,10,"$250,000 50X Cashword",2506,"$250,000",3.56,10,9.0,,,,06/19/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700692.html
-13,1,"$5,000 Winnings",2519,"$5,000",4.90,20,18.0,,,,09/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700658.html
-14,50,"$5,000,000 Ultimate",2455,"$5,000,000",3.64,4,4.0,,,,01/16/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701499.html
-15,10,"$50, $100 OR $500!",2525,$500,9.43,7112,6941.0,,,,09/18/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700631.html
-16,3,"$50,000 Bonus Cashword",2321,"$50,000",4.07,18,7.0,,,,04/11/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702557.html
-17,10,"$50,000,000 BLOWOUT!",2489,"$250,000",3.93,7,3.0,,,,06/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701402.html
-18,10,"$500,000 Cash Blowout",2441,"$500,000",3.81,6,3.0,,,,09/06/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701534.html
-19,10,"$500,000 Winnings",2521,"$500,000",4.07,6,5.0,,,,09/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700635.html
-20,30,$750 Million Winner's Circle,2053,"$3,000,000",2.88,12,2.0,,,,03/19/18,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252705345.html
-21,10,100X Cash Blitz,2464,"$500,000",3.86,8,5.0,,,,01/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701469.html
-22,2,10X The Money,2414,"$30,000",4.48,4,2.0,,,,06/19/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701624.html
-23,20,200X Cash Blitz,2465,"$1,000,000",3.68,4,1.0,,,,01/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701468.html
-24,20,200X The Cash,2418,"$1,000,000",3.80,4,3.0,,,,07/03/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701620.html
-25,2,20X,2523,"$30,000",4.95,5,5.0,,,,09/18/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700633.html
-26,1,20X Cash Blitz,2461,"$5,000",4.99,12,5.0,,,,01/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701472.html
-27,3,30X Cash Blitz Crossword,2462,"$60,000",4.38,10,4.0,,,,01/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701471.html
-28,50,500X Loteria Spectacular,2435,"$3,000,000",3.20,4,3.0,,,,03/06/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701561.html
-29,50,500X Loteria Spectacular,2344,"$3,000,000",3.20,4,1.0,,,,10/18/21,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702492.html
-30,5,50X Cash Blitz,2463,"$200,000",4.19,10,6.0,,,,01/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701470.html
-31,5,50X Lucky,2481,"$100,000",4.13,7,3.0,,,,04/17/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701410.html
-32,5,777 Multiplier,2526,"$100,000",3.70,6,6.0,,,,10/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700630.html
-33,5,Bingo Times 20,2502,"$100,000",4.37,8,8.0,,,,09/18/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700696.html
-34,5,Bingo Times 20,2428,"$100,000",4.36,8,2.0,,,,04/11/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701589.html
-35,5,Bonus Money,2459,"$100,000",4.22,5,1.0,,,,01/16/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701495.html
-36,2,Break The Bank,2503,"$30,000",4.80,10,3.0,,,,03/20/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700695.html
-37,10,Ca$h Blowout,2413,"$1,000,000",3.92,8,6.0,,,,03/06/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701625.html
-38,5,Ca$h Payout,2498,"$100,000",3.79,5,2.0,,,,06/19/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701372.html
-39,5,Cash Games,2471,"$100,000",4.35,6,4.0,,,,02/20/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701441.html
-40,50,Cash Royale,2479,"$1,000,000",3.58,4,4.0,,,,07/17/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701433.html
-41,20,Cash Spectacular,2367,"$2,000,000",3.48,4,2.0,,,,11/15/21,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702427.html
-42,10,Cash Winfall,2421,$500,6.83,4743,1290.0,,,,02/06/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701596.html
-43,2,Classic Bingo!,2427,"$30,000",4.38,16,9.0,,,,02/20/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701590.html
-44,5,Cool Cash,2497,"$100,000",4.35,6,2.0,,,,02/06/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701373.html
-45,5,Cowboys,2500,"$100,000",3.79,4,3.0,,,,08/14/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700698.html
-46,20,DIAMOND 7s,2486,"$1,000,000",3.50,4,1.0,,,,05/01/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701405.html
-47,5,EMERALD 7s,2484,"$200,000",4.23,7,4.0,,,,05/01/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701407.html
-48,1,EZ Loteria,2507,$500,4.71,511,155.0,,,,03/06/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700691.html
-49,5,"HIT $100,000",2488,"$100,000",4.09,6,3.0,,,,06/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701403.html
-50,5,Houston Texans,2501,"$100,000",3.79,4,4.0,,,,08/14/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700697.html
-51,10,"Instant $1,000!",2516,"$1,000",3.95,1825,396.0,,,,04/17/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700661.html
-52,20,Jackpot Millions,2475,"$1,000,000",3.76,4,3.0,,,,03/20/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701437.html
-53,100,Loteria Supreme,2515,"$7,500,000",3.23,4,4.0,,,,04/03/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700662.html
-54,5,Lucky Symbols,2473,"$100,000",3.88,6,3.0,,,,04/03/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701439.html
-55,1,Mad Money,2272,"$1,000",4.98,10,4.0,,,,07/03/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252703362.html
-56,10,Mega Loteria,2510,"$250,000",3.54,20,11.0,,,,02/06/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700667.html
-57,20,Million Dollar Loteria,2511,"$1,000,000",3.29,10,8.0,,,,06/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700666.html
-58,20,Million Dollar Loteria,2434,"$1,000,000",3.27,8,1.0,,,,09/19/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701562.html
-59,30,Millionaire Maker,2517,"$1,000,000",3.54,15,15.0,,,,08/14/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700660.html
-60,5,Money Multiplier,2524,"$100,000",4.34,6,6.0,,,,09/18/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700632.html
-61,10,Monopoly™,2410,"$250,000",3.80,5,3.0,,,,12/05/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701628.html
-62,10,Payout Multiplier,2407,"$250,000",3.95,5,1.0,,,,07/05/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701652.html
-63,10,Pink Diamonds,2527,"$250,000",3.63,5,5.0,,,,10/02/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700629.html
-64,30,Premier Cash,2387,"$2,000,000",3.94,4,1.0,,,,04/04/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702365.html
-65,5,Quick $500,2467,$500,4.33,4705,1318.0,,,,05/15/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701466.html
-66,10,RUBY 7s,2485,"$500,000",3.82,5,4.0,,,,05/01/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701406.html
-67,5,Ruby Mine 9X,2491,"$100,000",3.70,6,3.0,,,,07/31/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701379.html
-68,3,Special Edition Loteria,2431,"$50,000",4.38,14,5.0,,,,10/17/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701565.html
-69,5,Special Edition Super Loteria,2432,"$100,000",3.77,30,8.0,,,,12/05/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701564.html
-70,5,Super Cashword,2505,"$100,000",4.07,13,11.0,,,,06/05/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700693.html
-71,5,Super Crossword,2425,"$100,000",3.91,13,1.0,,,,02/24/22,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701592.html
-72,10,Super Ticket™ 777,2356,"$250,000",3.80,4,2.0,,,,05/15/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702459.html
-73,1,TOPAZ 7s,2483,"$5,000",4.75,16,4.0,,,,05/01/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701408.html
-74,5,Triple Tripler,2389,"$100,000",3.88,4,1.0,,,,03/06/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702363.html
-75,30,VIP Club,2468,"$1,000,000",5.01,4,2.0,,,,02/20/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701465.html
-76,5,Winner's Club,2493,"$100,000",4.11,5,1.0,,,,07/03/23,,,"September 21, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701377.html
+0,20,"$1,000,000 Cash Blowout",2442,"$1,000,000",3.42,4,2.0,,,,09/06/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701533.html
+1,20,"$1,000,000 Crossword",2438,"$1,000,000",3.41,8,1.0,,,,06/06/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701558.html
+2,50,"$1,000,000 Diamond Riches",2423,"$1,000,000",3.49,4,1.0,,,,08/01/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701594.html
+3,20,"$1,000,000 Gold Rush",2490,"$1,000,000",3.98,4,4.0,,,,10/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701380.html
+4,50,"$1,000,000 Ultimate",2358,"$1,000,000",3.62,4,1.0,,,,12/20/21,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702457.html
+5,20,"$1,000,000 Winnings",2522,"$1,000,000",3.40,4,4.0,,,,09/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700634.html
+6,2,$100 Frenzy,2210,"$30,000",4.71,5,3.0,,,,07/31/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252703550.html
+7,5,"$100,000 Jackpot",2478,"$100,000",4.35,6,4.0,,,,07/17/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701434.html
+8,20,"$100,000,000 Riches!",2460,"$1,000,000",3.66,4,3.0,,,,12/19/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701473.html
+9,100,$20 Million Supreme,2400,"$20,000,000",3.49,4,1.0,,,,05/16/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701659.html
+10,5,"$200,000 Colossal Cash",2477,"$200,000",3.77,4,2.0,,,,03/20/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701435.html
+11,5,"$200,000 Winnings",2520,"$200,000",4.29,6,6.0,,,,09/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700636.html
+12,10,"$250,000 50X Cashword",2506,"$250,000",3.56,10,9.0,,,,06/19/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700692.html
+13,1,"$5,000 Winnings",2519,"$5,000",4.90,20,18.0,,,,09/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700658.html
+14,50,"$5,000,000 Ultimate",2455,"$5,000,000",3.64,4,4.0,,,,01/16/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701499.html
+15,10,"$50, $100 OR $500!",2525,$500,9.43,7112,6855.0,,,,09/18/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700631.html
+16,3,"$50,000 Bonus Cashword",2321,"$50,000",4.07,18,7.0,,,,04/11/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702557.html
+17,10,"$50,000,000 BLOWOUT!",2489,"$250,000",3.93,7,3.0,,,,06/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701402.html
+18,10,"$500,000 Cash Blowout",2441,"$500,000",3.81,6,3.0,,,,09/06/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701534.html
+19,10,"$500,000 Winnings",2521,"$500,000",4.07,6,5.0,,,,09/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700635.html
+20,30,$750 Million Winner's Circle,2053,"$3,000,000",2.88,12,2.0,,,,03/19/18,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252705345.html
+21,10,100X Cash Blitz,2464,"$500,000",3.86,8,5.0,,,,01/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701469.html
+22,2,10X The Money,2414,"$30,000",4.48,4,2.0,,,,06/19/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701624.html
+23,20,200X Cash Blitz,2465,"$1,000,000",3.68,4,1.0,,,,01/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701468.html
+24,20,200X The Cash,2418,"$1,000,000",3.80,4,3.0,,,,07/03/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701620.html
+25,2,20X,2523,"$30,000",4.95,5,5.0,,,,09/18/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700633.html
+26,1,20X Cash Blitz,2461,"$5,000",4.99,12,5.0,,,,01/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701472.html
+27,3,30X Cash Blitz Crossword,2462,"$60,000",4.38,10,4.0,,,,01/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701471.html
+28,50,500X Loteria Spectacular,2435,"$3,000,000",3.20,4,3.0,,,,03/06/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701561.html
+29,50,500X Loteria Spectacular,2344,"$3,000,000",3.20,4,1.0,,,,10/18/21,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702492.html
+30,5,50X Cash Blitz,2463,"$200,000",4.19,10,6.0,,,,01/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701470.html
+31,5,50X Lucky,2481,"$100,000",4.13,7,3.0,,,,04/17/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701410.html
+32,5,777 Multiplier,2526,"$100,000",3.70,6,6.0,,,,10/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700630.html
+33,5,Bingo Times 20,2502,"$100,000",4.37,8,8.0,,,,09/18/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700696.html
+34,5,Bingo Times 20,2428,"$100,000",4.36,8,2.0,,,,04/11/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701589.html
+35,5,Bonus Money,2459,"$100,000",4.22,5,1.0,,,,01/16/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701495.html
+36,2,Break The Bank,2503,"$30,000",4.80,10,3.0,,,,03/20/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700695.html
+37,10,Ca$h Blowout,2413,"$1,000,000",3.92,8,6.0,,,,03/06/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701625.html
+38,5,Ca$h Payout,2498,"$100,000",3.79,5,2.0,,,,06/19/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701372.html
+39,5,Cash Games,2471,"$100,000",4.35,6,4.0,,,,02/20/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701441.html
+40,50,Cash Royale,2479,"$1,000,000",3.58,4,4.0,,,,07/17/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701433.html
+41,20,Cash Spectacular,2367,"$2,000,000",3.48,4,2.0,,,,11/15/21,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702427.html
+42,10,Cash Winfall,2421,$500,6.83,4743,1287.0,,,,02/06/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701596.html
+43,2,Classic Bingo!,2427,"$30,000",4.38,16,9.0,,,,02/20/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701590.html
+44,5,Cool Cash,2497,"$100,000",4.35,6,2.0,,,,02/06/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701373.html
+45,5,Cowboys,2500,"$100,000",3.79,4,3.0,,,,08/14/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700698.html
+46,20,DIAMOND 7s,2486,"$1,000,000",3.50,4,1.0,,,,05/01/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701405.html
+47,5,EMERALD 7s,2484,"$200,000",4.23,7,4.0,,,,05/01/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701407.html
+48,1,EZ Loteria,2507,$500,4.71,511,154.0,,,,03/06/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700691.html
+49,5,"HIT $100,000",2488,"$100,000",4.09,6,3.0,,,,06/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701403.html
+50,5,Houston Texans,2501,"$100,000",3.79,4,4.0,,,,08/14/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700697.html
+51,10,"Instant $1,000!",2516,"$1,000",3.95,1825,392.0,,,,04/17/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700661.html
+52,20,Jackpot Millions,2475,"$1,000,000",3.76,4,3.0,,,,03/20/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701437.html
+53,100,Loteria Supreme,2515,"$7,500,000",3.23,4,4.0,,,,04/03/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700662.html
+54,5,Lucky Symbols,2473,"$100,000",3.88,6,3.0,,,,04/03/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701439.html
+55,1,Mad Money,2272,"$1,000",4.98,10,4.0,,,,07/03/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252703362.html
+56,10,Mega Loteria,2510,"$250,000",3.54,20,11.0,,,,02/06/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700667.html
+57,20,Million Dollar Loteria,2511,"$1,000,000",3.29,10,8.0,,,,06/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700666.html
+58,20,Million Dollar Loteria,2434,"$1,000,000",3.27,8,1.0,,,,09/19/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701562.html
+59,30,Millionaire Maker,2517,"$1,000,000",3.54,15,15.0,,,,08/14/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700660.html
+60,5,Money Multiplier,2524,"$100,000",4.34,6,6.0,,,,09/18/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700632.html
+61,10,Monopoly™,2410,"$250,000",3.80,5,3.0,,,,12/05/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701628.html
+62,10,Payout Multiplier,2407,"$250,000",3.95,5,1.0,,,,07/05/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701652.html
+63,10,Pink Diamonds,2527,"$250,000",3.63,5,5.0,,,,10/02/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700629.html
+64,30,Premier Cash,2387,"$2,000,000",3.94,4,1.0,,,,04/04/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702365.html
+65,5,Quick $500,2467,$500,4.33,4705,1312.0,,,,05/15/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701466.html
+66,10,RUBY 7s,2485,"$500,000",3.82,5,4.0,,,,05/01/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701406.html
+67,5,Ruby Mine 9X,2491,"$100,000",3.70,6,3.0,,,,07/31/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701379.html
+68,3,Special Edition Loteria,2431,"$50,000",4.38,14,5.0,,,,10/17/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701565.html
+69,5,Special Edition Super Loteria,2432,"$100,000",3.77,30,8.0,,,,12/05/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701564.html
+70,5,Super Cashword,2505,"$100,000",4.07,13,11.0,,,,06/05/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700693.html
+71,5,Super Crossword,2425,"$100,000",3.91,13,1.0,,,,02/24/22,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701592.html
+72,10,Super Ticket™ 777,2356,"$250,000",3.80,4,2.0,,,,05/15/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702459.html
+73,1,TOPAZ 7s,2483,"$5,000",4.75,16,4.0,,,,05/01/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701408.html
+74,5,Triple Tripler,2389,"$100,000",3.88,4,1.0,,,,03/06/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252702363.html
+75,30,VIP Club,2468,"$1,000,000",5.01,4,2.0,,,,02/20/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701465.html
+76,5,Winner's Club,2493,"$100,000",4.11,5,1.0,,,,07/03/23,,,"September 22, 2023",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701377.html
