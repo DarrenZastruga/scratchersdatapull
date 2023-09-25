@@ -368,27 +368,27 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50</td>
             <td>392,929</td>
-            <td>326,897</td>
+            <td>326,483</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>654,962</td>
-            <td>544,660</td>
+            <td>543,880</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>917,236</td>
-            <td>761,625</td>
+            <td>760,480</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>52,409</td>
-            <td>43,505</td>
+            <td>43,443</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>128,761</td>
-            <td>107,039</td>
+            <td>106,874</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -427,8 +427,8 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$210,649,450</b></div>
-      <div class="h2">Total Prizes Won: <b>$47,002,620</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$210,372,550</b></div>
+      <div class="h2">Total Prizes Won: <b>$47,279,520</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -576,5 +576,5 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
 <script src="/libraries/superfish/supersubs.js?s1asf1"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=28&cb=2065323551" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=35&cb=1092766287" async></script></body>
 </html>
