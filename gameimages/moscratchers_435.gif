@@ -264,12 +264,6 @@
       <div class="scratchers-single__id">Game #435</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
-                      <div class="scratchers-single__tags tags">
-                              <a class="tag tag_yellow" href="#">New</a>
-              
-                                            
-
-            </div>
                     <div class="scratchers-single__text">
             <p>Win up to $100,000 on this electrifying $5 ticket filled with Power $25 Spots!</p>
 
@@ -347,37 +341,37 @@ Reveal a "5X" symbol, win 5 TIMES the prize!</p>
                   <tr>
             <td>$5</td>
             <td>517,967</td>
-            <td>407,262</td>
+            <td>403,951</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>222,049</td>
-            <td>173,187</td>
+            <td>171,748</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>148,010</td>
-            <td>115,111</td>
+            <td>114,216</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>148,010</td>
-            <td>114,944</td>
+            <td>114,003</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>49,481</td>
-            <td>38,256</td>
+            <td>37,946</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>12,299</td>
-            <td>9,474</td>
+            <td>9,383</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>298</td>
-            <td>231</td>
+            <td>228</td>
           </tr>
                   <tr>
             <td>$2,500</td>
@@ -401,8 +395,8 @@ Reveal a "5X" symbol, win 5 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$11,856,645</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,347,030</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$11,762,650</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,441,025</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -550,5 +544,5 @@ Reveal a "5X" symbol, win 5 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s1asf1"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=1038561637" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=11&cb=1381856296" async></script></body>
 </html>

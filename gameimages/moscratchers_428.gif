@@ -264,12 +264,6 @@
       <div class="scratchers-single__id">Game #428</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
-                      <div class="scratchers-single__tags tags">
-                              <a class="tag tag_yellow" href="#">New</a>
-              
-                                            
-
-            </div>
                     <div class="scratchers-single__text">
             <p>With over $10 million in $77 prizes, this $10 ticket offers top cash prizes up to $777,777!</p>
 
@@ -347,42 +341,42 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$10</td>
             <td>604,864</td>
-            <td>508,348</td>
+            <td>505,119</td>
           </tr>
                   <tr>
             <td>$17</td>
             <td>529,256</td>
-            <td>443,279</td>
+            <td>440,513</td>
           </tr>
                   <tr>
             <td>$27</td>
             <td>113,378</td>
-            <td>94,776</td>
+            <td>94,143</td>
           </tr>
                   <tr>
             <td>$77</td>
             <td>151,216</td>
-            <td>125,807</td>
+            <td>125,059</td>
           </tr>
                   <tr>
             <td>$177</td>
             <td>6,064</td>
-            <td>5,029</td>
+            <td>5,004</td>
           </tr>
                   <tr>
             <td>$277</td>
             <td>2,289</td>
-            <td>1,922</td>
+            <td>1,914</td>
           </tr>
                   <tr>
             <td>$577</td>
             <td>304</td>
-            <td>247</td>
+            <td>245</td>
           </tr>
                   <tr>
             <td>$777</td>
             <td>225</td>
-            <td>200</td>
+            <td>198</td>
           </tr>
                   <tr>
             <td>$7,777</td>
@@ -406,8 +400,8 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$27,861,300</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,016,015</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$27,697,952</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,179,363</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -555,5 +549,5 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s1asf1"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=7&cb=271570171" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=9&cb=20728584" async></script></body>
 </html>
