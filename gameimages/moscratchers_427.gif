@@ -341,57 +341,57 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>448,717</td>
+            <td>446,807</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>187,331</td>
+            <td>186,493</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>186,754</td>
+            <td>185,851</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>46,478</td>
+            <td>46,270</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>37,358</td>
+            <td>37,202</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,162</td>
-            <td>3,089</td>
+            <td>3,072</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>29,785</td>
+            <td>29,645</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,340</td>
-            <td>2,473</td>
+            <td>2,461</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,624</td>
-            <td>10,789</td>
+            <td>10,727</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>414</td>
-            <td>304</td>
+            <td>298</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>259</td>
-            <td>190</td>
+            <td>189</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -440,8 +440,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$12,996,310</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,090,375</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$12,940,465</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,146,220</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?s1asf1"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=1229263333" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=23&cb=918061457" async></script></body>
 </html>
