@@ -1,69 +1,51 @@
 ,price,gameName,gameNumber,topprize,startDate,endDate,lastdatetoclaim,gameURL,gamePhoto
-0,5.0,OSU,715.0,50000.0,08/25/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380188,https://content.lottery.ok.gov/games/face/715.jpg
-1,5.0,OU,716.0,50000.0,08/25/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380189,https://content.lottery.ok.gov/games/face/716.jpg
-2,1.0,Quick $50!,711.0,50.0,07/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380184,https://content.lottery.ok.gov/games/face/711.jpg
-3,3.0,Money Matrix,712.0,30000.0,07/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380185,https://content.lottery.ok.gov/games/face/712.jpg
-4,2.0,$200 Loaded,714.0,200.0,07/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380186,https://content.lottery.ok.gov/games/face/714.jpg
-5,3.0,Crossword,701.0,30000.0,07/14/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380183,https://content.lottery.ok.gov/games/face/701.jpg
-6,2.0,Double the Dough,704.0,14000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380176,https://content.lottery.ok.gov/games/face/704.jpg
-7,30.0,Platinum Jackpot,706.0,1000000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380177,https://content.lottery.ok.gov/games/face/706.jpg
-8,1.0,Black Diamonds,707.0,4000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380178,https://content.lottery.ok.gov/games/face/707.jpg
-9,5.0,Gold Mine Multiplier,709.0,50000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380179,https://content.lottery.ok.gov/games/face/709.jpg
-10,10.0,$50 or $100 Blowout,710.0,100.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380180,https://content.lottery.ok.gov/games/face/710.jpg
-11,1.0,Money Bags,703.0,5000.0,05/26/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380169,https://content.lottery.ok.gov/games/face/703.jpg
-12,2.0,Bankroll,700.0,15000.0,05/26/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380170,https://content.lottery.ok.gov/games/face/700.jpg
-13,5.0,Win It All,705.0,60000.0,05/26/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380172,https://content.lottery.ok.gov/games/face/705.jpg
-14,2.0,Cash Flow,698.0,16000.0,04/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380166,https://content.lottery.ok.gov/games/face/698.jpg
-15,1.0,Triple It!,699.0,5000.0,04/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380167,https://content.lottery.ok.gov/games/face/699.jpg
-16,10.0,Max Money,702.0,100000.0,04/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380168,https://content.lottery.ok.gov/games/face/702.jpg
-17,1.0,Stinkin' Rich,693.0,4000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380156,https://content.lottery.ok.gov/games/face/693.jpg
-18,2.0,Mystery Multiplier,687.0,15000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380157,https://content.lottery.ok.gov/games/face/687.jpg
-19,3.0,High Voltage,694.0,25000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380158,https://content.lottery.ok.gov/games/face/694.jpg
-20,5.0,$500 Frenzy,695.0,500.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380159,https://content.lottery.ok.gov/games/face/695.jpg
-21,20.0,Big Money,696.0,250000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380160,https://content.lottery.ok.gov/games/face/696.jpg
-22,3.0,Bingo,685.0,30000.0,03/03/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380155,https://content.lottery.ok.gov/games/face/685.jpg
-23,1.0,Match 2 Win,686.0,4000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380149,https://content.lottery.ok.gov/games/face/686.jpg
-24,5.0,Power 5s,688.0,55000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380150,https://content.lottery.ok.gov/games/face/688.jpg
-25,10.0,On The Money,697.0,125000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380151,https://content.lottery.ok.gov/games/face/697.jpg
-26,100.0,Deluxe Gold,689.0,5000000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380152,https://content.lottery.ok.gov/games/face/689.jpg
-27,1.0,Double Payday,682.0,5000.0,01/31/2023,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380144,https://content.lottery.ok.gov/games/face/682.jpg
-28,2.0,Find $100,683.0,14000.0,01/31/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380145,https://content.lottery.ok.gov/games/face/683.jpg
-29,5.0,Lucky Break,684.0,50000.0,01/31/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380146,https://content.lottery.ok.gov/games/face/684.jpg
-30,1.0,Wild 9S,678.0,4000.0,12/20/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380139,https://content.lottery.ok.gov/games/face/678.jpg
-31,2.0,Easy Money,679.0,16000.0,12/20/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380140,https://content.lottery.ok.gov/games/face/679.jpg
+0,1.0,2 For $1,713.0,5000.0,09/29/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380192,https://content.lottery.ok.gov/games/face/713.jpg
+1,2.0,Cornhole Cash™/ Skee-Ball®,718.0,15000.0,09/29/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380193,https://content.lottery.ok.gov/games/face/718.jpg
+2,10.0,Bonus Match Doubler,719.0,150000.0,09/29/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380194,https://content.lottery.ok.gov/games/face/719.jpg
+3,5.0,OSU,715.0,50000.0,08/25/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380188,https://content.lottery.ok.gov/games/face/715.jpg
+4,5.0,OU,716.0,50000.0,08/25/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380189,https://content.lottery.ok.gov/games/face/716.jpg
+5,1.0,Quick $50!,711.0,50.0,07/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380184,https://content.lottery.ok.gov/games/face/711.jpg
+6,3.0,Money Matrix,712.0,30000.0,07/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380185,https://content.lottery.ok.gov/games/face/712.jpg
+7,2.0,$200 Loaded,714.0,200.0,07/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380186,https://content.lottery.ok.gov/games/face/714.jpg
+8,3.0,Crossword,701.0,30000.0,07/14/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380183,https://content.lottery.ok.gov/games/face/701.jpg
+9,2.0,Double the Dough,704.0,14000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380176,https://content.lottery.ok.gov/games/face/704.jpg
+10,30.0,Platinum Jackpot,706.0,1000000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380177,https://content.lottery.ok.gov/games/face/706.jpg
+11,1.0,Black Diamonds,707.0,4000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380178,https://content.lottery.ok.gov/games/face/707.jpg
+12,5.0,Gold Mine Multiplier,709.0,50000.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380179,https://content.lottery.ok.gov/games/face/709.jpg
+13,10.0,$50 or $100 Blowout,710.0,100.0,06/30/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380180,https://content.lottery.ok.gov/games/face/710.jpg
+14,1.0,Money Bags,703.0,5000.0,05/26/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380169,https://content.lottery.ok.gov/games/face/703.jpg
+15,2.0,Bankroll,700.0,15000.0,05/26/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380170,https://content.lottery.ok.gov/games/face/700.jpg
+16,5.0,Win It All,705.0,60000.0,05/26/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380172,https://content.lottery.ok.gov/games/face/705.jpg
+17,2.0,Cash Flow,698.0,16000.0,04/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380166,https://content.lottery.ok.gov/games/face/698.jpg
+18,1.0,Triple It!,699.0,5000.0,04/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380167,https://content.lottery.ok.gov/games/face/699.jpg
+19,10.0,Max Money,702.0,100000.0,04/28/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380168,https://content.lottery.ok.gov/games/face/702.jpg
+20,1.0,Stinkin' Rich,693.0,4000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380156,https://content.lottery.ok.gov/games/face/693.jpg
+21,2.0,Mystery Multiplier,687.0,15000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380157,https://content.lottery.ok.gov/games/face/687.jpg
+22,3.0,High Voltage,694.0,25000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380158,https://content.lottery.ok.gov/games/face/694.jpg
+23,5.0,$500 Frenzy,695.0,500.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380159,https://content.lottery.ok.gov/games/face/695.jpg
+24,20.0,Big Money,696.0,250000.0,03/31/2023,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380160,https://content.lottery.ok.gov/games/face/696.jpg
+25,3.0,Bingo,685.0,30000.0,03/03/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380155,https://content.lottery.ok.gov/games/face/685.jpg
+26,1.0,Match 2 Win,686.0,4000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380149,https://content.lottery.ok.gov/games/face/686.jpg
+27,5.0,Power 5s,688.0,55000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380150,https://content.lottery.ok.gov/games/face/688.jpg
+28,10.0,On The Money,697.0,125000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380151,https://content.lottery.ok.gov/games/face/697.jpg
+29,100.0,Deluxe Gold,689.0,5000000.0,02/24/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380152,https://content.lottery.ok.gov/games/face/689.jpg
+30,2.0,Find $100,683.0,14000.0,01/31/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380145,https://content.lottery.ok.gov/games/face/683.jpg
+31,5.0,Lucky Break,684.0,50000.0,01/31/2023,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380146,https://content.lottery.ok.gov/games/face/684.jpg
 32,5.0,Cash Wheel,680.0,50000.0,12/20/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380141,https://content.lottery.ok.gov/games/face/680.jpg
 33,10.0,Double Your Dollars,681.0,100000.0,12/20/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380142,https://content.lottery.ok.gov/games/face/681.jpg
 34,1.0,Lucky 7,659.0,7000.0,12/19/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380143,https://content.lottery.ok.gov/games/face/659.jpg
-35,1.0,WHAM! ZAP! KA-POW!,677.0,3000.0,11/29/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380130,https://content.lottery.ok.gov/games/face/677.jpg
-36,2.0,Triple 333,674.0,15000.0,11/29/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380131,https://content.lottery.ok.gov/games/face/674.jpg
-37,5.0,More Money,675.0,60000.0,11/29/2022,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380132,https://content.lottery.ok.gov/games/face/675.jpg
-38,10.0,Silver 7s,676.0,125000.0,11/29/2022,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380133,https://content.lottery.ok.gov/games/face/676.jpg
-39,30.0,Grand Fortune,673.0,1000000.0,10/25/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380124,https://content.lottery.ok.gov/games/face/673.jpg
-40,2.0,Winner Wonderland,672.0,15000.0,10/25/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380125,https://content.lottery.ok.gov/games/face/672.jpg
-41,3.0,Hot Cash Lines,665.0,25000.0,10/25/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380126,https://content.lottery.ok.gov/games/face/665.jpg
-42,1.0,Holiday Frenzy,671.0,20.0,10/25/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380128,https://content.lottery.ok.gov/games/face/671.jpg
-43,1.0,10X,667.0,5000.0,09/27/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380113,https://content.lottery.ok.gov/games/face/667.jpg
-44,5.0,20X,668.0,50000.0,09/27/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380114,https://content.lottery.ok.gov/games/face/668.jpg
-45,10.0,50X,669.0,100000.0,09/27/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380115,https://content.lottery.ok.gov/games/face/669.jpg
-46,20.0,100X,670.0,250000.0,09/27/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380117,https://content.lottery.ok.gov/games/face/670.jpg
-47,5.0,Extra Funds,664.0,50000.0,08/30/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380108,https://content.lottery.ok.gov/games/face/664.jpg
-48,2.0,Lucky Corners,663.0,16000.0,08/30/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380111,https://content.lottery.ok.gov/games/face/663.jpg
-49,5.0,High Roller,660.0,55000.0,07/26/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380104,https://content.lottery.ok.gov/games/face/660.jpg
-50,10.0,Multiplier Mania,661.0,100000.0,07/26/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380105,https://content.lottery.ok.gov/games/face/661.jpg
-51,5.0,Power Up,657.0,50000.0,06/28/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380101,https://content.lottery.ok.gov/games/face/657.jpg
-52,10.0,Bonus Bucks,658.0,100000.0,06/28/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380102,https://content.lottery.ok.gov/games/face/658.jpg
-53,5.0,Plus the Money,654.0,50000.0,05/31/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380096,https://content.lottery.ok.gov/games/face/654.jpg
-54,2.0,Lucky 7 Doubler,648.0,14000.0,04/26/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380092,https://content.lottery.ok.gov/games/face/648.jpg
-55,5.0,Super Cash Multiplier,649.0,60000.0,04/26/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380093,https://content.lottery.ok.gov/games/face/649.jpg
-56,10.0,Extreme Winning,650.0,100000.0,04/26/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380094,https://content.lottery.ok.gov/games/face/650.jpg
-57,3.0,Bingo,643.0,30000.0,03/29/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380087,https://content.lottery.ok.gov/games/face/643.jpg
-58,5.0,Triple Play,646.0,50000.0,03/29/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380088,https://content.lottery.ok.gov/games/face/646.jpg
-59,20.0,Break the Bank,633.0,250000.0,03/29/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380089,https://content.lottery.ok.gov/games/face/633.jpg
-60,3.0,Crossword,642.0,30000.0,02/22/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380084,https://content.lottery.ok.gov/games/face/642.jpg
-61,10.0,"$1,000 Loaded",644.0,1000.0,02/22/2022,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380085,https://content.lottery.ok.gov/games/face/644.jpg
-62,30.0,Millionaire Maker,645.0,1000000.0,02/22/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380086,https://content.lottery.ok.gov/games/face/645.jpg
-63,10.0,Triple Red 777,636.0,125000.0,12/28/2021,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380079,https://content.lottery.ok.gov/games/face/636.jpg
-64,50.0,Ultimate Millions,637.0,3000000.0,11/23/2021,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380077,https://content.lottery.ok.gov/games/face/637.jpg
-65,1.0,Lucky 7,614.0,7000.0,04/27/2021,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/380059,https://content.lottery.ok.gov/games/face/614.jpg
-66,2.0,Cash Craze,0.0,17000.0,01/26/2021,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/50056,https://content.lottery.ok.gov/games/face/0.jpg
-67,20.0,Cash Explosion,590.0,250000.0,07/20/2020,06/08/2023,09/06/2023,https://www.lottery.ok.gov/scratchers/4036,https://content.lottery.ok.gov/games/face/590.jpg
+35,5.0,More Money,675.0,60000.0,11/29/2022,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380132,https://content.lottery.ok.gov/games/face/675.jpg
+36,10.0,Silver 7s,676.0,125000.0,11/29/2022,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380133,https://content.lottery.ok.gov/games/face/676.jpg
+37,30.0,Grand Fortune,673.0,1000000.0,10/25/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380124,https://content.lottery.ok.gov/games/face/673.jpg
+38,10.0,50X,669.0,100000.0,09/27/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380115,https://content.lottery.ok.gov/games/face/669.jpg
+39,20.0,100X,670.0,250000.0,09/27/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380117,https://content.lottery.ok.gov/games/face/670.jpg
+40,5.0,Extra Funds,664.0,50000.0,08/30/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380108,https://content.lottery.ok.gov/games/face/664.jpg
+41,5.0,High Roller,660.0,55000.0,07/26/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380104,https://content.lottery.ok.gov/games/face/660.jpg
+42,10.0,Multiplier Mania,661.0,100000.0,07/26/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380105,https://content.lottery.ok.gov/games/face/661.jpg
+43,10.0,Bonus Bucks,658.0,100000.0,06/28/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380102,https://content.lottery.ok.gov/games/face/658.jpg
+44,20.0,Break the Bank,633.0,250000.0,03/29/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380089,https://content.lottery.ok.gov/games/face/633.jpg
+45,3.0,Crossword,642.0,30000.0,02/22/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380084,https://content.lottery.ok.gov/games/face/642.jpg
+46,30.0,Millionaire Maker,645.0,1000000.0,02/22/2022,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/380086,https://content.lottery.ok.gov/games/face/645.jpg
+47,50.0,Ultimate Millions,637.0,3000000.0,11/23/2021,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/380077,https://content.lottery.ok.gov/games/face/637.jpg
+48,2.0,Cash Craze,0.0,17000.0,01/26/2021,01/01/2099,04/01/2099,https://www.lottery.ok.gov/scratchers/50056,https://content.lottery.ok.gov/games/face/0.jpg
+49,1.0,Top Dollar,595.0,4000.0,09/29/2020,01/01/2099,06/30/2099,https://www.lottery.ok.gov/scratchers/4048,https://content.lottery.ok.gov/games/face/595.jpg
