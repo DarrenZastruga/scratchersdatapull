@@ -4702,7 +4702,7 @@ def exportOHScratcherRecs():
                 table['prizeamount'] = table['prizeamount'].replace({'40K/YR FOR 25 YRS':40000*25, '8333MONTH(100K/YR/10YRS)':100000*10, '1000000 (40k/yr/25yrs)':40000*25, '200K/YR FOR 25 YRS': 200000*25, 
                                                                          '80K/YR FOR 25 YRS': 80000*25, '250000YEAR(250K/YR/10YRS)':250000*10, '5000000(200K/YR/25YRS)':200000*25, '36.5K/YR FOR 10 YRS':36500*10, 
                                                                          '1000WEEK(52K/YR/10YRS)': 52000*10, '1M/YR FOR 20 YRS': 1000000*20, '2000000(80K/YR/25YRS)': 80000*25, '400K/YR FOR 25 YRS': 400000*25, 
-                                                                         '1000000(40K/YR/25YRS)':40000*25, '10K/MO FOR 20 YRS': 10000*12*20, '250K/YR FOR 20 YRS': 250000*20, '50/DY FOR 20 YRS': 50*365*20, 
+                                                                         '1000000(40K/YR/25YRS)':40000*25, '1000000(40k/yr/25yrs)':40000*25, '10K/MO FOR 20 YRS': 10000*12*20, '250K/YR FOR 20 YRS': 250000*20, '50/DY FOR 20 YRS': 50*365*20, 
                                                                          '50K/YR FOR 20 YRS':50000*20, '2000000(80k/YR/25YRS)': 80*25, 'ENTRY':gamePrice, 'ENTRY TICKET': gamePrice}).astype('int')
                 table['Winning Tickets At Start'] = table['Winning Tickets Unclaimed']
                 topprize = table.loc[0,'prizeamount']
@@ -6486,7 +6486,7 @@ try:
 
 except Exception as error:
     # handle the exception
-    print("An exception occurred:", error)
+    print("    ", error)
     pass
 
 exportWAScratcherRecs()
