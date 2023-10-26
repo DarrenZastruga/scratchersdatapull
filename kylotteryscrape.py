@@ -49,7 +49,8 @@ def exportKYScratcherRecs():
         #get link from the main page, looping through each page for scratchers in price group
         gameName = t.find('div', class_='panel-heading klc-clickable-item').text.strip().split('-')[0].strip()
         print(gameName)
-        gameNumber = t.find('div', class_='panel-heading klc-clickable-item').text.strip().split('-')[1].strip()
+        #gameNumber = t.find('div', class_='panel-heading klc-clickable-item').text.strip().split('-')[1].strip()
+        gameNumber = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[6].text
         print(gameNumber)
         gameURL = 'https://www.kylottery.com/apps/scratch_offs/prizes_remaining.html'+t.find('div', class_='panel-heading klc-clickable-item').get('href')
         print(gameURL)
