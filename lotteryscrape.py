@@ -6758,7 +6758,6 @@ try:
 except Exception as error:
     # handle the exception
     print("    ", error)
-    pass
 
 exportWAScratcherRecs()
 exportILScratcherRecs()
