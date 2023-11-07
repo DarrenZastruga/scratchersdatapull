@@ -142,7 +142,8 @@ def exportVAScratcherRecs():
             try:
                 table = soup.select(
                     '#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(5) > div > table')
-                tableData = pd.read_html(io.StringIO(str(table)))[0]
+                table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
+                tableData = pd.read_html(table)[0]
             except ValueError as e:
                 print(e)  # ValueError: No tables found
                 continue

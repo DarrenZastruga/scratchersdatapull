@@ -24,7 +24,7 @@ import io
 
 
 logging.basicConfig()
- 
+'''
 DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
 print(DATABASE_URL)
 
@@ -32,7 +32,7 @@ print(DATABASE_URL)
 SQLALCHEMY_DATABASE_URI = DATABASE_URL.replace('postgres://', 'postgresql://')
 conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
-
+'''
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
 powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
@@ -79,8 +79,12 @@ def exportScratcherRecs():
         gameNum = r.text
         soup = BeautifulSoup(gameNum, 'html.parser')
         try:
-            table = soup.select('#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(4) > div > table')
-            tableData = pd.read_html(io.StringIO(table))[0]
+            table = soup.select('#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(4) > div > table')[0]
+            
+            table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
+            print(table)
+            tableData = pd.read_html(table)[0]
+            print(tableData)
             
         except ValueError as e:
             print(e) # ValueError: No tables found
