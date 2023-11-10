@@ -67,6 +67,7 @@ def exportScratcherRecs():
     #with open('scratcherlist.txt') as json_file:
         #tixlist = json.load(json_file)
     for t in tixlist['data']:
+        print(t)
         ticID = t['GameID']
         closing = t['IsClosingSoon']
         PayoutNumber = t['PayoutNumber']
@@ -79,10 +80,8 @@ def exportScratcherRecs():
         gameNum = r.text
         soup = BeautifulSoup(gameNum, 'html.parser')
         try:
-            table = soup.select('#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(4) > div > table')[0]
-            
+            table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
             table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
-            print(table)
             tableData = pd.read_html(table)[0]
             print(tableData)
             
@@ -106,8 +105,13 @@ def exportScratcherRecs():
         tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', text=re.compile('eXTRA Chances')) else np.nan
         tableData['secondChance'] = '2nd Chance' if soup.find('p', text=re.compile('2nd Chance')) else np.nan
         tableData['startDate'] = soup.find_all('h2', class_='start-date-display')[0].get_text()
-        tableData['endDate'] = soup.find_all('h2', class_='start-date-display')[1].get_text() if (closing == True & PayoutNumber != 0) else np.nan
-        tableData['lastdatetoclaim'] = soup.find_all('h2', class_='start-date-display')[2].get_text() if (closing == True & PayoutNumber != 0) else np.nan
+        print(soup.find_all('h2', class_='start-date-display'))
+        if len(soup.find_all('h2', class_='start-date-display')) > 1 & closing == True:
+            tableData['endDate'] = soup.find_all('h2', class_='start-date-display')[1].get_text()
+            tableData['lastdatetoclaim'] = soup.find_all('h2', class_='start-date-display')[2].get_text()
+        else: 
+            tableData['endDate'] = np.nan
+            tableData['lastdatetoclaim'] = np.nan
         tableData['topprizeavail'] = 'Top Prize Claimed' if tableData.iloc[0,2] == 0 else np.nan
         tableData['dateexported'] = date.today()  
 
@@ -138,7 +142,7 @@ def exportScratcherRecs():
     scratchersall = scratchersall.drop_duplicates()
     
     #save scratchers list
-    scratchersall.to_sql('scratcherlist', engine, if_exists='replace')
+    #scratchersall.to_sql('scratcherlist', engine, if_exists='replace')
     scratchersall.to_csv("./scratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
@@ -288,7 +292,7 @@ def exportScratcherRecs():
     print(scratchertables.columns)   
     
     #save scratchers tables
-    scratchertables.to_sql('scratcherstables', engine, if_exists='replace')
+    #scratchertables.to_sql('scratcherstables', engine, if_exists='replace')
     scratchertables.to_csv("./scratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
@@ -321,7 +325,7 @@ def exportScratcherRecs():
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
-    ratingstable.to_sql('ratingstable', engine, if_exists='replace')
+    #ratingstable.to_sql('ratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./ratingstable.csv", encoding='utf-8')
     return ratingstable, scratchertables
 

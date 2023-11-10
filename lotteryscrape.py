@@ -133,48 +133,40 @@ def exportVAScratcherRecs():
         gameNum = r.text
         soup = BeautifulSoup(gameNum, 'html.parser')
         try:
-            table = soup.select(
-                '#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(4) > div > table')
-            tableData = pd.read_html(io.StringIO(str(table)))[0]
-
+            table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
+            table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
+            tableData = pd.read_html(table)[0]
+            print(tableData)
+            
         except ValueError as e:
-            print(e)  # ValueError: No tables found
+            print(e) # ValueError: No tables found
             try:
-                table = soup.select(
-                    '#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(5) > div > table')
-                table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
-                tableData = pd.read_html(table)[0]
+                table = soup.select('#scratcher-detail-container > div > div:nth-child(3) > div:nth-child(5) > div > table')
+                tableData = pd.read_html(io.StringIO(table))[0]
             except ValueError as e:
-                print(e)  # ValueError: No tables found
+                print(e) # ValueError: No tables found 
                 continue
-
-        tableData['prizeamount'] = tableData['Prize Amount'].replace(re.escape('*'), '')
-        tableData['gameNumber'] = soup.find(
-            'h2', class_='title-display').find('small').get_text()
-        tableData['gameName'] = soup.find(
-            'h2', class_='title-display').find(string=True, recursive=False).strip()
-        tableData['price'] = soup.find(
-            'h2', class_='ticket-price-display').get_text()
-        tableData['overallodds'] = soup.find(
-            'p', class_='odds-display').find('span').get_text()
-        tableData['topprize'] = soup.find(
-            'h2', class_='top-prize-display').get_text().replace(re.escape('*'), '')
-        tableData['topprizeodds'] = soup.find(
-            'p', class_='odds-display').find('br').find('span').get_text()
-        tableData['topprizeremain'] = tableData.iloc[0, 2]
-        tableData['extrachances'] = 'eXTRA Chances' if soup.find(
-            'p', string=re.compile('eXTRA Chances')) else np.nan
-        tableData['secondChance'] = '2nd Chance' if soup.find(
-            'p', string=re.compile('2nd Chance')) else np.nan
-        tableData['startDate'] = soup.find_all(
-            'h2', class_='start-date-display')[0].get_text()
-        tableData['endDate'] = soup.find_all('h2', class_='start-date-display')[
-            1].get_text() if (closing == True & PayoutNumber != 0) else np.nan
-        tableData['lastdatetoclaim'] = soup.find_all('h2', class_='start-date-display')[
-            2].get_text() if (closing == True & PayoutNumber != 0) else np.nan
-        tableData['topprizeavail'] = 'Top Prize Claimed' if tableData.iloc[0,
-                                                                           2] == 0 else np.nan
-        tableData['dateexported'] = date.today()
+            
+        tableData['prizeamount'] = tableData['Prize Amount'].replace('*','')
+        tableData['gameNumber'] = soup.find('h2', class_='title-display').find('small').get_text()
+        tableData['gameName'] = soup.find('h2', class_='title-display').find(text=True, recursive=False).strip()
+        tableData['price'] = soup.find('h2', class_='ticket-price-display').get_text()
+        tableData['overallodds'] = soup.find('p', class_='odds-display').find('span').get_text()
+        tableData['topprize'] = soup.find('h2', class_='top-prize-display').get_text().replace('*','')
+        tableData['topprizeodds'] = soup.find('p', class_='odds-display').find('br').find('span').get_text()
+        tableData['topprizeremain'] = tableData.iloc[0,2]
+        tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', text=re.compile('eXTRA Chances')) else np.nan
+        tableData['secondChance'] = '2nd Chance' if soup.find('p', text=re.compile('2nd Chance')) else np.nan
+        tableData['startDate'] = soup.find_all('h2', class_='start-date-display')[0].get_text()
+        print(soup.find_all('h2', class_='start-date-display'))
+        if len(soup.find_all('h2', class_='start-date-display')) > 1 & closing == True:
+            tableData['endDate'] = soup.find_all('h2', class_='start-date-display')[1].get_text()
+            tableData['lastdatetoclaim'] = soup.find_all('h2', class_='start-date-display')[2].get_text()
+        else: 
+            tableData['endDate'] = np.nan
+            tableData['lastdatetoclaim'] = np.nan
+        tableData['topprizeavail'] = 'Top Prize Claimed' if tableData.iloc[0,2] == 0 else np.nan
+        tableData['dateexported'] = date.today()  
         tableData['gameURL'] = ticketurl
 
         if tableData.empty:
