@@ -1972,7 +1972,7 @@ def exportNMScratcherRecs():
         tixdata = pd.read_html(io.StringIO(str(s.find(class_='data'))))[0]
 
         if len(tixdata) == 0:
-            tixtables = pd.concat([tixtables, []], axis=0)
+            tixtables = pd.concat([tixtables, pd.Series()], axis=0)
         else:
             tixdata.rename(columns={'Prize:': 'prizeamount', 'Approx. # of Prizes:': 'Winning Tickets At Start',
                            'Approx. Prizes Remaining:': 'Winning Tickets Unclaimed'}, inplace=True)
