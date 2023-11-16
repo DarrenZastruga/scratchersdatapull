@@ -62,10 +62,9 @@ def exportNCScratcherRecs():
     url = "https://nclottery.com/scratch-off-prizes-remaining"
     r = requests.get(url)
     response = r.text
-            #print(r.text)
     soup = BeautifulSoup(response, 'html.parser')
     tixlist = pd.DataFrame()
-    table = soup.find_all('table')
+    table = soup.find_all('table', class_='datatable')
     
     #get list of end dates from another page on NC site
     url = "https://nclottery.com/scratch-off-games-ending"
@@ -81,74 +80,81 @@ def exportNCScratcherRecs():
         #get the game details
         tixdetails = s.find(class_='ticketdetails')
         gameName = tixdetails.find(class_='gamename').text
+        print(gameName)
         gameNumber = tixdetails.find('span', class_='gamenumber').text.replace('Game Number: ','')
         gamePhoto = 'https://nclottery.com'+str(tixdetails.find(class_='gamethumb').find('a').get('href'))
         gameURL = 'https://nclottery.com'+str(tixdetails.find(class_='gamename').find('a').get('href'))
-        
-        if gameName!="The Bigger Spin":
-            continue
+        print(gameURL)
+        #if gameName!="The Bigger Spin":
+        #    continue
+        #else:
+        #get more details from game page
+        r = requests.get(gameURL)
+        response = r.text
+        details = BeautifulSoup(response, 'html.parser')
+        detailstbl = pd.read_html(str(details.find(class_='datatable prizes')))[0]
+        print(detailstbl)
+        tixinfo = details.find_all('div',class_='part')[1]
+        print(tixinfo)
+        gamePrice = tixinfo.find('span',attrs={'class':'price value'}).string.replace('$','')
+        print(gamePrice)
+
+        topprize = tixinfo.find('span',attrs={'class':'topprize value'}).string.replace('$','').replace(',','')
+        overallodds = tixinfo.find('span',attrs={'class':'odds value'}).string.replace('1 in ','')
+        startDate = tixinfo.find('span',attrs={'class':'status value'}).string.replace('Released ','')
+        lastdatetoclaim = None
+        endDate = None
+
+        print(gameName)
+        print(gameNumber)
+        print(gamePrice)
+        print(gameURL)
+        print(gamePhoto)
+        print(topprize)
+        print(overallodds)
+        print(startDate)
+        print(endDate)
+        print(lastdatetoclaim)
+    
+        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto','topprize','overallodds','startDate','endDate','lastdatetoclaim']] = [
+            gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, startDate, endDate, lastdatetoclaim]
+        print(tixlist)
+        #get the data from the table for this game
+        tixdata = pd.read_html(str(s))[0]
+        tixdata = tixdata.droplevel(0,axis=1)
+        tixdata = tixdata.dropna(axis=0,inplace=False)
+        print(tixdata)
+
+        if len(tixdata) == None:
+            tixtables = tixtables.append([])
         else:
-            #get more details from game page
-            r = requests.get(gameURL)
-            response = r.text
-            details = BeautifulSoup(response, 'html.parser')
-            detailstbl = pd.read_html(str(details.find(class_='juxtable details')))[0]
-            gamePrice = detailstbl.loc[detailstbl[0]=='Ticket Price',1:].iloc[0,0].replace('$','')
-            topprize = detailstbl.loc[detailstbl[0]=='Top Prize',1:].iloc[0,0].replace('$','').replace(',','')
-            overallodds = detailstbl.loc[detailstbl[0]=='Overall Odds*',1:].iloc[0,0].replace('1 in ','')
-            startDate = detailstbl.loc[detailstbl[0]=='Launch Date',1:].iloc[0,0]
-            lastdatetoclaim = None if detailstbl.loc[detailstbl[0]=='Claim Deadline',1:].iloc[0,0]=="-tbd-" else detailstbl.loc[detailstbl[0]=='Claim Deadline',1:].iloc[0,0]
-            endDate = None if detailstbl.loc[detailstbl[0]=='End Date',1:].iloc[0,0]=="-tbd-" else detailstbl.loc[detailstbl[0]=='End Date',1:].iloc[0,0]
-    
-            print(gameName)
-            print(gameNumber)
-            print(gamePrice)
-            print(gameURL)
-            print(gamePhoto)
-            print(topprize)
-            print(overallodds)
-            print(startDate)
-            print(endDate)
-            print(lastdatetoclaim)
-        
-            tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto','topprize','overallodds','startDate','endDate','lastdatetoclaim']] = [
-                gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, startDate, endDate, lastdatetoclaim]
-    
-            #get the data from the table for this game
-            tixdata = pd.read_html(str(s))[0]
-            tixdata = tixdata.droplevel(0,axis=1)
-            tixdata = tixdata.dropna(axis=0,inplace=False)
-    
-            if len(tixdata) == None:
-                tixtables = tixtables.append([])
-            else:
-                tixdata.rename(columns={'Value':'prizeamount','Total': 'Winning Tickets At Start', 'Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
-                #in addition to removing dollar signs and commans, changing the text for the Bigger Spin second game game to the minimum possible of $400,000
-                tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','',regex=False).str.replace(',','',regex=False)
-                tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('The Bigger Spin(400000 to 2 Million)','400000',regex=False)
-                print(tixdata['prizeamount'])
-                tixdata['gameNumber'] = gameNumber
-                tixdata['gameName'] = gameName
-                tixdata['gamePhoto'] = gamePhoto
-                tixdata['price'] = gamePrice
-                #if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
-                tixdata['overallodds'] = overallodds
-                tixdata['topprize'] = topprize
-                
-                tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
-                tixdata['topprizeremain'] = tixdata['Winning Tickets Unclaimed'].iloc[0]
-                tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
-                tixdata['startDate'] = startDate
-                tixdata['endDate'] = endDate
-                tixdata['lastdatetoclaim'] = lastdatetoclaim
-                tixdata['extrachances'] = None
-                tixdata['secondChance'] = None
-                tixdata['dateexported'] = date.today() 
-                print(tixdata)
-                print(tixdata.columns)
-                tixtables = tixtables.append(tixdata)
-                print(tixtables)
-                print(tixtables.columns)
+            tixdata.rename(columns={'Value':'prizeamount','Total': 'Winning Tickets At Start', 'Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
+            #in addition to removing dollar signs and commans, changing the text for the Bigger Spin second game game to the minimum possible of $400,000
+            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','',regex=False).str.replace(',','',regex=False)
+            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('The Bigger Spin(400000 to 2 Million)','400000',regex=False)
+            print(tixdata['prizeamount'])
+            tixdata['gameNumber'] = gameNumber
+            tixdata['gameName'] = gameName
+            tixdata['gamePhoto'] = gamePhoto
+            tixdata['price'] = gamePrice
+            #if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
+            tixdata['overallodds'] = overallodds
+            tixdata['topprize'] = topprize
+            
+            tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
+            tixdata['topprizeremain'] = tixdata['Winning Tickets Unclaimed'].iloc[0]
+            tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
+            tixdata['startDate'] = startDate
+            tixdata['endDate'] = endDate
+            tixdata['lastdatetoclaim'] = lastdatetoclaim
+            tixdata['extrachances'] = None
+            tixdata['secondChance'] = None
+            tixdata['dateexported'] = date.today() 
+            print(tixdata)
+            print(tixdata.columns)
+            tixtables = tixtables.append(tixdata)
+            print(tixtables)
+            print(tixtables.columns)
             
     tixlist.to_csv("./NCtixlist.csv", encoding='utf-8')
     print(tixtables[['gameNumber','prizeamount']])

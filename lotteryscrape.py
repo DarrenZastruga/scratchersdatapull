@@ -3370,7 +3370,7 @@ def exportNCScratcherRecs():
     # print(r.text)
     soup = BeautifulSoup(response, 'html.parser')
     tixlist = pd.DataFrame()
-    table = soup.find_all('table')
+    table = soup.find_all('table', class_='datatable')
 
     # get list of end dates from another page on NC site
     url = "https://nclottery.com/scratch-off-games-ending"
@@ -3383,35 +3383,33 @@ def exportNCScratcherRecs():
 
     # loop through the HTML converting the data table to a dataframe, and the values out of hte still-HTML ticketdetails section
     for s in table:
-        # get the game details
+        #get the game details
         tixdetails = s.find(class_='ticketdetails')
         gameName = tixdetails.find(class_='gamename').text
-        gameNumber = tixdetails.find(
-            'span', class_='gamenumber').text.replace('Game Number: ', '')
-        gamePhoto = 'https://nclottery.com' + \
-            str(tixdetails.find(class_='gamethumb').find('a').get('href'))
-        gameURL = 'https://nclottery.com' + \
-            str(tixdetails.find(class_='gamename').find('a').get('href'))
-
-        # get more details from game page
+        print(gameName)
+        gameNumber = tixdetails.find('span', class_='gamenumber').text.replace('Game Number: ','')
+        gamePhoto = 'https://nclottery.com'+str(tixdetails.find(class_='gamethumb').find('a').get('href'))
+        gameURL = 'https://nclottery.com'+str(tixdetails.find(class_='gamename').find('a').get('href'))
+        print(gameURL)
+        #if gameName!="The Bigger Spin":
+        #    continue
+        #else:
+        #get more details from game page
         r = requests.get(gameURL)
         response = r.text
         details = BeautifulSoup(response, 'html.parser')
-        detailstbl = pd.read_html(
-            str(details.find(class_='juxtable details')))[0]
-        gamePrice = detailstbl.loc[detailstbl[0] ==
-                                   'Ticket Price', 1:].iloc[0, 0].replace('$', '')
-        topprize = detailstbl.loc[detailstbl[0] == 'Top Prize', 1:].iloc[0, 0].replace(
-            '$', '').replace(',', '')
-        overallodds = detailstbl.loc[detailstbl[0] ==
-                                     'Overall Odds*', 1:].iloc[0, 0].replace('1 in ', '')
-        startDate = detailstbl.loc[detailstbl[0]
-                                   == 'Launch Date', 1:].iloc[0, 0]
-        lastdatetoclaim = None if detailstbl.loc[detailstbl[0] == 'Claim Deadline', 1:].iloc[0,
-                                                                                             0] == "-tbd-" else detailstbl.loc[detailstbl[0] == 'Claim Deadline', 1:].iloc[0, 0]
-        endDate = None if detailstbl.loc[detailstbl[0] == 'End Date', 1:].iloc[0,
-                                                                               0] == "-tbd-" else detailstbl.loc[detailstbl[0] == 'End Date', 1:].iloc[0, 0]
+        detailstbl = pd.read_html(str(details.find(class_='datatable prizes')))[0]
+        print(detailstbl)
+        tixinfo = details.find_all('div',class_='part')[1]
+        print(tixinfo)
+        gamePrice = tixinfo.find('span',attrs={'class':'price value'}).string.replace('$','')
+        print(gamePrice)
 
+        topprize = tixinfo.find('span',attrs={'class':'topprize value'}).string.replace('$','').replace(',','')
+        overallodds = tixinfo.find('span',attrs={'class':'odds value'}).string.replace('1 in ','')
+        startDate = tixinfo.find('span',attrs={'class':'status value'}).string.replace('Released ','')
+        lastdatetoclaim = None
+        endDate = None
 
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'gameURL', 'gamePhoto', 'topprize', 'overallodds', 'startDate', 'endDate', 'lastdatetoclaim']] = [
             gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, startDate, endDate, lastdatetoclaim]
