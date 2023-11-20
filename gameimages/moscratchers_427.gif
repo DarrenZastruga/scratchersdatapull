@@ -341,62 +341,62 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>372,464</td>
+            <td>368,527</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>151,869</td>
+            <td>150,022</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>151,146</td>
+            <td>149,301</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>37,511</td>
+            <td>37,071</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>30,124</td>
+            <td>29,758</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,162</td>
-            <td>2,486</td>
+            <td>2,446</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>23,994</td>
+            <td>23,694</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,340</td>
-            <td>2,010</td>
+            <td>1,986</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,624</td>
-            <td>8,700</td>
+            <td>8,595</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>414</td>
-            <td>245</td>
+            <td>242</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>259</td>
-            <td>155</td>
+            <td>153</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>132</td>
-            <td>78</td>
+            <td>76</td>
           </tr>
                   <tr>
             <td>$1,500</td>
@@ -411,7 +411,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$10,000</td>
             <td>7</td>
-            <td>4</td>
+            <td>3</td>
           </tr>
                   <tr>
             <td>$15,000</td>
@@ -440,8 +440,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$10,510,050</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,576,635</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,384,170</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,702,515</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=32&cb=1882266248" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=26&cb=969911192" async></script></body>
 </html>

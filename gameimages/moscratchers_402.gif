@@ -338,32 +338,32 @@
                   <tr>
             <td>$5</td>
             <td>499,458</td>
-            <td>99,911</td>
+            <td>99,239</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>356,746</td>
-            <td>62,187</td>
+            <td>61,790</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>142,700</td>
-            <td>23,972</td>
+            <td>23,821</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>37,507</td>
-            <td>6,036</td>
+            <td>5,992</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>65,999</td>
-            <td>10,263</td>
+            <td>10,167</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>13,750</td>
-            <td>2,096</td>
+            <td>2,079</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -378,7 +378,7 @@
                   <tr>
             <td>$5,000</td>
             <td>18</td>
-            <td>2</td>
+            <td>1</td>
           </tr>
                   <tr>
             <td>$20,000</td>
@@ -397,8 +397,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,497,655</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,113,720</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,475,460</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,135,915</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -546,5 +546,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=86&cb=1137579541" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=80&cb=76156290" async></script></body>
 </html>
