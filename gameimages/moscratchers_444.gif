@@ -366,52 +366,52 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$1</td>
             <td>909,779</td>
-            <td>760,849</td>
+            <td>756,179</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>259,898</td>
-            <td>215,412</td>
+            <td>214,066</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>207,940</td>
-            <td>170,918</td>
+            <td>169,781</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>103,955</td>
-            <td>85,120</td>
+            <td>84,549</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>117,018</td>
-            <td>94,970</td>
+            <td>94,266</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>38,990</td>
-            <td>31,421</td>
+            <td>31,183</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>6,274</td>
-            <td>5,070</td>
+            <td>5,033</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,613</td>
-            <td>1,268</td>
+            <td>1,254</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>133</td>
-            <td>105</td>
+            <td>103</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>36</td>
-            <td>29</td>
+            <td>28</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -425,8 +425,8 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,257,165</b></div>
-      <div class="h2">Total Prizes Won: <b>$948,785</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,226,820</b></div>
+      <div class="h2">Total Prizes Won: <b>$979,130</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -574,5 +574,5 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=1582144345" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=1671001229" async></script></body>
 </html>
