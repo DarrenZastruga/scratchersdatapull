@@ -264,6 +264,12 @@
       <div class="scratchers-single__id">Game #342</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
+              
+                                            
+
+            </div>
                     <div class="scratchers-single__text">
             <p>This $20 game is loaded exclusively with $100 and $200 prizes &ndash; more than $35 million worth in all!</p>
 
@@ -280,12 +286,12 @@
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Nov. 24, 2023</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">May. 22, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -338,12 +344,12 @@
                   <tr>
             <td>$100</td>
             <td>176,174</td>
-            <td>23,128</td>
+            <td>23,123</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>105,675</td>
-            <td>13,849</td>
+            <td>13,846</td>
           </tr>
                 </tbody>
       </table>
@@ -352,8 +358,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,082,600</b></div>
-      <div class="h2">Total Prizes Won: <b>$33,669,800</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,081,500</b></div>
+      <div class="h2">Total Prizes Won: <b>$33,670,900</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -501,5 +507,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=157&cb=754979229" async></script></body>
 </html>

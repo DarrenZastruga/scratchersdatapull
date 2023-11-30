@@ -340,42 +340,42 @@
                   <tr>
             <td>$10</td>
             <td>615,888</td>
-            <td>183,057</td>
+            <td>182,608</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>230,958</td>
-            <td>67,851</td>
+            <td>67,684</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>307,944</td>
-            <td>89,235</td>
+            <td>89,019</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,019</td>
-            <td>14,451</td>
+            <td>14,412</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>46,159</td>
-            <td>13,260</td>
+            <td>13,230</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>153,972</td>
-            <td>49,496</td>
+            <td>49,392</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>38,563</td>
-            <td>11,030</td>
+            <td>11,003</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,600</td>
-            <td>1,323</td>
+            <td>1,318</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -409,8 +409,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$10,747,010</b></div>
-      <div class="h2">Total Prizes Won: <b>$24,216,265</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,724,920</b></div>
+      <div class="h2">Total Prizes Won: <b>$24,238,355</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -558,5 +558,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=147&cb=293295822" async></script></body>
 </html>
