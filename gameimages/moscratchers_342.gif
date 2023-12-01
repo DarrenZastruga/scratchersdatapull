@@ -266,15 +266,16 @@
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
                               <a class="tag tag_orange" href="#">Expires soon</a>
+                              <a class="tag " href="#">No longer distributed</a>
               
                                             
 
             </div>
                     <div class="scratchers-single__text">
-            <p>This $20 game is loaded exclusively with $100 and $200 prizes &ndash; more than $35 million worth in all!</p>
+            <p>This $20 game is loaded exclusively with $100 and $200 prizes – more than $35 million worth in all!</p>
 
             <h3>How to Play</h3>
-            <p>Match any of YOUR NUMBERS to any WINNING NUMBER and win prize shown. Reveal a &quot;money bag&quot; symbol and win prize automatically.</p>
+            <p>Match any of YOUR NUMBERS to any WINNING NUMBER and win prize shown. Reveal a "money bag" symbol and win prize automatically.</p>
 
           </div>
           <div id="scratchers-single-info-standard">
@@ -344,7 +345,7 @@
                   <tr>
             <td>$100</td>
             <td>176,174</td>
-            <td>23,123</td>
+            <td>23,121</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -358,8 +359,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,081,500</b></div>
-      <div class="h2">Total Prizes Won: <b>$33,670,900</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,081,300</b></div>
+      <div class="h2">Total Prizes Won: <b>$33,671,100</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -507,5 +508,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=157&cb=754979229" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=148&cb=336881571" async></script></body>
 </html>

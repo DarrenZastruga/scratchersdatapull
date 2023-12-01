@@ -266,6 +266,7 @@
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
                               <a class="tag tag_orange" href="#">Expires soon</a>
+                              <a class="tag " href="#">No longer distributed</a>
               
                                             
 
@@ -274,7 +275,7 @@
             <p>Multiply prizes by up to 20X on this $2 ticket with top prizes of up to $25,000!</p>
 
             <h3>How to Play</h3>
-            <p>Match any of YOUR NUMBERS to either WINNING NUMBER, win prize shown. Reveal a &quot;5X&quot; symbol, win 5 TIMES the prize. Reveal a &quot;10X&quot; symbol, win 10 TIMES the prizes. Reveal a &quot;20X&quot; symbol, win 20 TIMES the prize!</p>
+            <p>Match any of YOUR NUMBERS to either WINNING NUMBER, win prize shown. Reveal a "5X" symbol, win 5 TIMES the prize. Reveal a "10X" symbol, win 10 TIMES the prizes. Reveal a "20X" symbol, win 20 TIMES the prize!</p>
 
           </div>
           <div id="scratchers-single-info-standard">
@@ -344,22 +345,22 @@
                   <tr>
             <td>$2</td>
             <td>722,282</td>
-            <td>104,451</td>
+            <td>104,376</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>529,597</td>
-            <td>65,138</td>
+            <td>65,101</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>144,444</td>
-            <td>17,013</td>
+            <td>16,999</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>144,444</td>
-            <td>15,549</td>
+            <td>15,541</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -369,12 +370,12 @@
                   <tr>
             <td>$50</td>
             <td>19,593</td>
-            <td>1,817</td>
+            <td>1,816</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>9,654</td>
-            <td>924</td>
+            <td>923</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -403,8 +404,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,083,039</b></div>
-      <div class="h2">Total Prizes Won: <b>$8,494,583</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,082,441</b></div>
+      <div class="h2">Total Prizes Won: <b>$8,495,181</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -552,5 +553,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=111&cb=81646113" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=102&cb=818559269" async></script></body>
 </html>

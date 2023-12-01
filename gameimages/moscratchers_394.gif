@@ -266,6 +266,7 @@
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
                               <a class="tag tag_orange" href="#">Expires soon</a>
+                              <a class="tag " href="#">No longer distributed</a>
               
                                             
 
@@ -344,32 +345,32 @@
                   <tr>
             <td>$1</td>
             <td>1,009,975</td>
-            <td>209,233</td>
+            <td>209,083</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>433,020</td>
-            <td>80,533</td>
+            <td>80,476</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>201,968</td>
-            <td>34,719</td>
+            <td>34,679</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>57,721</td>
-            <td>9,515</td>
+            <td>9,508</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>101,005</td>
-            <td>15,699</td>
+            <td>15,690</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>60,408</td>
-            <td>8,692</td>
+            <td>8,687</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -398,8 +399,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$972,940</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,800,102</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$972,266</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,800,776</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -547,5 +548,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=97&cb=1151915611" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=88&cb=1759164741" async></script></body>
 </html>
