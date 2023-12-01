@@ -82,38 +82,42 @@ def exportOHScratcherRecs():
                 response = r.text
                 soup = BeautifulSoup(response, 'html.parser')
                 overallodds = soup.find('div',class_='mobileToggleContent').find('p', class_='odds').text.replace('Overall odds of winning: ', '').replace('1 in ', '')
-                gamePhoto = 'https://www.ohiolottery.com'+str(soup.find('div',class_='igTicketImg').get('style').replace('background-image: url(', '').replace(');', ''))
-                print(overallodds)
-                print(gamePhoto)
-                table = pd.read_html(str(soup.find('div',class_='tbl_PrizesRemaining').find('table')))[0]
-                table.columns = table.columns.droplevel(0)
-                table.rename(columns={'Prizes':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
-                table.drop(labels={'Unnamed: 2_level_1'}, axis=1,inplace=True)
-                table['gameName'] = gameName
-                table['gameNumber'] = gameNumber
-                table['prizeamount'] = table['prizeamount'].str.replace('$', '', regex=False).str.replace(',','', regex=False).str.strip().str.replace('.00','', regex=False)
-                table['prizeamount'] = table['prizeamount'].replace({'40K/YR FOR 25 YRS':40000*25, '8333MONTH(100K/YR/10YRS)':100000*10, '1000000 (40k/yr/25yrs)':40000*25, '200K/YR FOR 25 YRS': 200000*25, 
-                                                                         '80K/YR FOR 25 YRS': 80000*25, '250000YEAR(250K/YR/10YRS)':250000*10, '5000000(200K/YR/25YRS)':200000*25, '36.5K/YR FOR 10 YRS':36500*10, 
-                                                                         '1000WEEK(52K/YR/10YRS)': 52000*10, '1M/YR FOR 20 YRS': 1000000*20, '2000000(80K/YR/25YRS)': 80000*25, '400K/YR FOR 25 YRS': 400000*25, 
-                                                                         '1000000(40K/YR/25YRS)':40000*25, '10K/MO FOR 20 YRS': 10000*12*20, '250K/YR FOR 20 YRS': 250000*20, '50/DY FOR 20 YRS': 50*365*20, 
-                                                                         '50K/YR FOR 20 YRS':50000*20, 'ENTRY':gamePrice, 'ENTRY TICKET': gamePrice}).astype('int')
-                table['Winning Tickets At Start'] = table['Winning Tickets Unclaimed']
-                topprize = table.loc[0,'prizeamount']
-                topprizestarting = table.loc[0,'Winning Tickets At Start']
-                topprizeremain = table.loc[0,'Winning Tickets Unclaimed'] 
-                topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
-                startDate = None
-                endDate = None
-                extrachances = None
-                secondChance = None
-                dateexported = date.today()
-                table['dateexported'] = dateexported
-                print(topprizeremain)
-                print(table)
-                tixtables = pd.concat([tixtables, table], axis=0)
+                if overallodds == '': 
+                    continue
+                else:
                 
-                tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'extrachances', 'secondChance', 'dateexported']] = [
-                    gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, extrachances, secondChance, dateexported]
+                    gamePhoto = 'https://www.ohiolottery.com'+str(soup.find('div',class_='igTicketImg').get('style').replace('background-image: url(', '').replace(');', ''))
+                    print(overallodds)
+                    print(gamePhoto)
+                    table = pd.read_html(str(soup.find('div',class_='tbl_PrizesRemaining').find('table')))[0]
+                    table.columns = table.columns.droplevel(0)
+                    table.rename(columns={'Prizes':'prizeamount','Remaining':'Winning Tickets Unclaimed'}, inplace=True)
+                    table.drop(labels={'Unnamed: 2_level_1'}, axis=1,inplace=True)
+                    table['gameName'] = gameName
+                    table['gameNumber'] = gameNumber
+                    table['prizeamount'] = table['prizeamount'].str.replace('$', '', regex=False).str.replace(',','', regex=False).str.strip().str.replace('.00','', regex=False)
+                    table['prizeamount'] = table['prizeamount'].replace({'40K/YR FOR 25 YRS':40000*25, '8333MONTH(100K/YR/10YRS)':100000*10, '1000000 (40k/yr/25yrs)':40000*25, '200K/YR FOR 25 YRS': 200000*25, 
+                                                                             '80K/YR FOR 25 YRS': 80000*25, '250000YEAR(250K/YR/10YRS)':250000*10, '5000000(200K/YR/25YRS)':200000*25, '36.5K/YR FOR 10 YRS':36500*10, 
+                                                                             '1000WEEK(52K/YR/10YRS)': 52000*10, '1M/YR FOR 20 YRS': 1000000*20, '2000000(80K/YR/25YRS)': 80000*25, '400K/YR FOR 25 YRS': 400000*25, 
+                                                                             '1000000(40K/YR/25YRS)':40000*25, '1000000(40k/yr/25yrs)':40000*25, '10K/MO FOR 20 YRS': 10000*12*20, '250K/YR FOR 20 YRS': 250000*20, '50/DY FOR 20 YRS': 50*365*20, 
+                                                                             '50K/YR FOR 20 YRS':50000*20, '2000000(80k/YR/25YRS)': 80*25, '2000000 (80K/YR/25YRS)': 80*25, 'ENTRY':gamePrice, 'ENTRY TICKET': gamePrice}).astype('int')
+                    table['Winning Tickets At Start'] = table['Winning Tickets Unclaimed'].astype(float)
+                    topprize = table.loc[0,'prizeamount']
+                    topprizestarting = table.loc[0,'Winning Tickets At Start']
+                    topprizeremain = table.loc[0,'Winning Tickets Unclaimed'] 
+                    topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
+                    startDate = None
+                    endDate = None
+                    extrachances = None
+                    secondChance = None
+                    dateexported = date.today()
+                    table['dateexported'] = dateexported
+                    print(topprizeremain)
+                    print(table)
+                    tixtables = pd.concat([tixtables, table], axis=0)
+                    
+                    tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'extrachances', 'secondChance', 'dateexported']] = [
+                        gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, extrachances, secondChance, dateexported]
         
     r = requests.get('https://www.ohiolottery.com/Games/ScratchOffs/Last-Day-to-Redeem')
     response = r.text
@@ -121,13 +125,15 @@ def exportOHScratcherRecs():
     lastdaytbl = pd.read_html(str(soup.find('div', class_='cf moduleContent').find('table', class_='purple_table igLDTR_tbl')))[0]
     lastdaytbl.rename(columns={'Game Name':'gameName', 'Game #':'gameNumber', 'Cost': 'gamePrice', 'Last Day to Redeem': 'lastdatetoclaim'}, inplace=True)
     lastdaytbl['gameNumber'] = lastdaytbl['gameNumber'].astype('str')
-    print(lastdaytbl)
     tixlist = tixlist.merge(lastdaytbl[['gameNumber', 'lastdatetoclaim']], how="left", on= "gameNumber")
     print(tixlist)
     print(tixlist.columns)
 
+   #tixlist = tixlist.loc[tixlist['overallodds'] != '',:]  
+   # print(tixlist.loc[tixlist['overallodds'].isna()==False, :])
+    #tixlist['overallodds'] = tixlist['overallodds'].astype(float)
     tixlist.to_csv("./OHtixlist.csv", encoding='utf-8')
-    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
+    scratchersall = tixlist.loc[:,['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     
@@ -136,15 +142,15 @@ def exportOHScratcherRecs():
     scratchersall.to_csv("./OHscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixtables.loc[:, ['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./OHscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
-    print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
+    print(gamesgrouped.loc[:, ['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
@@ -157,11 +163,11 @@ def exportOHScratcherRecs():
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
+    nonprizetix = gamesgrouped.loc[:, ['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']]
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
     print(nonprizetix.columns)
-    totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']]
+    totals = gamesgrouped.loc[:, ['gameNumber','gameName','Total at start','Total remaining','dateexported']]
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
     print(totals.columns)
@@ -171,6 +177,9 @@ def exportOHScratcherRecs():
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
         gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:]
+        print(gameid)
+        print(gamerow)
+        print(gamerow.loc[:, 'Total at start'].values[0])
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
@@ -179,7 +188,7 @@ def exportOHScratcherRecs():
         print(gameid)
         print(tixtotal)
         print(totalremain)
-        prizes =totalremain.loc[:,'prizeamount']
+        prizes = totalremain.loc[:,'prizeamount']
         print(gamerow.columns)
 
         #add various columns for the scratcher stats that go into the ratings table
@@ -253,14 +262,12 @@ def exportOHScratcherRecs():
         totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
         totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
         totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
-        print(totalremain.columns)
         
         #add expected values for final totals row
         allexcepttotal = totalremain.loc[totalremain['prizeamount']!='Total',:]
         
         totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
         totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
-        print(totalremain)
         alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
