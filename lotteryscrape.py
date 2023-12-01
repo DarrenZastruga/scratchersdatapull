@@ -6734,20 +6734,21 @@ for t in prizetypes:
         clusterloop(ratingstable, scratchertables, t, std, 2)        
 '''
 
-#try: 
+try: 
+    exportMDScratcherRecs()
     
-    
-
-#except Exception as error:
+except Exception as error:
     # handle the exception
-#    print("    ", error)
+    print("    ", error)
+
+
 exportVAScratcherRecs()
 exportAZScratcherRecs()
 exportMOScratcherRecs()
 exportOKScratcherRecs()
 exportCAScratcherRecs()
 exportNMScratcherRecs()
-exportMDScratcherRecs()
+
 exportNYScratcherRecs()
 exportDCScratcherRecs()
 exportNCScratcherRecs()
