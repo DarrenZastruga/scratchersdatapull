@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -344,52 +344,52 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$5</td>
             <td>646,304</td>
-            <td>156,765</td>
+            <td>155,395</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>276,876</td>
-            <td>58,677</td>
+            <td>58,027</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>277,021</td>
-            <td>55,780</td>
+            <td>55,188</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>69,239</td>
-            <td>14,199</td>
+            <td>14,060</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>33,688</td>
-            <td>6,961</td>
+            <td>6,895</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>46,211</td>
-            <td>9,165</td>
+            <td>9,084</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>13,810</td>
-            <td>2,809</td>
+            <td>2,768</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,679</td>
-            <td>666</td>
+            <td>660</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>20,578</td>
-            <td>3,910</td>
+            <td>3,856</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>921</td>
-            <td>191</td>
+            <td>189</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -399,7 +399,7 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$1,000</td>
             <td>764</td>
-            <td>165</td>
+            <td>161</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -423,8 +423,8 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,976,500</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,183,940</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,934,300</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,226,140</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -572,5 +572,5 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=34&cb=1495033146" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=41&cb=1601502644" async></script></body>
 </html>

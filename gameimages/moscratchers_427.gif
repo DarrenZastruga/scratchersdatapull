@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -341,62 +341,62 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>342,473</td>
+            <td>340,660</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>137,868</td>
+            <td>137,030</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>137,195</td>
+            <td>136,369</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>34,008</td>
+            <td>33,801</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>27,278</td>
+            <td>27,114</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,162</td>
-            <td>2,260</td>
+            <td>2,248</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>21,740</td>
+            <td>21,606</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,340</td>
-            <td>1,817</td>
+            <td>1,800</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,624</td>
-            <td>7,866</td>
+            <td>7,807</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>414</td>
-            <td>218</td>
+            <td>214</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>259</td>
-            <td>137</td>
+            <td>136</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>132</td>
-            <td>70</td>
+            <td>68</td>
           </tr>
                   <tr>
             <td>$1,500</td>
@@ -421,7 +421,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$20,000</td>
             <td>4</td>
-            <td>4</td>
+            <td>3</td>
           </tr>
                   <tr>
             <td>$30,000</td>
@@ -440,8 +440,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$9,551,855</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,534,830</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$9,476,245</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,610,440</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=24&cb=1926593634" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=29&cb=874697562" async></script></body>
 </html>
