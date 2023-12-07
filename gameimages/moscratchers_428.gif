@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -341,32 +341,32 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$10</td>
             <td>604,864</td>
-            <td>343,002</td>
+            <td>341,053</td>
           </tr>
                   <tr>
             <td>$17</td>
             <td>529,256</td>
-            <td>296,787</td>
+            <td>295,128</td>
           </tr>
                   <tr>
             <td>$27</td>
             <td>113,378</td>
-            <td>63,430</td>
+            <td>63,104</td>
           </tr>
                   <tr>
             <td>$77</td>
             <td>151,216</td>
-            <td>83,571</td>
+            <td>83,033</td>
           </tr>
                   <tr>
             <td>$177</td>
             <td>6,064</td>
-            <td>3,350</td>
+            <td>3,328</td>
           </tr>
                   <tr>
             <td>$277</td>
             <td>2,289</td>
-            <td>1,264</td>
+            <td>1,260</td>
           </tr>
                   <tr>
             <td>$577</td>
@@ -400,8 +400,8 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$18,764,216</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,113,099</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$18,661,293</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,216,022</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -549,5 +549,5 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=17&cb=1438668713" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=16&cb=1363676773" async></script></body>
 </html>

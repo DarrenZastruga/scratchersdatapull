@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -348,62 +348,62 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
                   <tr>
             <td>$3</td>
             <td>900,521</td>
-            <td>641,865</td>
+            <td>640,652</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>900,558</td>
-            <td>637,538</td>
+            <td>636,298</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>270,177</td>
-            <td>191,329</td>
+            <td>190,956</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>90,059</td>
-            <td>63,177</td>
+            <td>63,068</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>112,595</td>
-            <td>77,376</td>
+            <td>77,215</td>
           </tr>
                   <tr>
             <td>$33</td>
             <td>9,012</td>
-            <td>6,177</td>
+            <td>6,163</td>
           </tr>
                   <tr>
             <td>$35</td>
             <td>8,233</td>
-            <td>5,594</td>
+            <td>5,585</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>8,258</td>
-            <td>5,695</td>
+            <td>5,682</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>6,025</td>
-            <td>4,097</td>
+            <td>4,091</td>
           </tr>
                   <tr>
             <td>$53</td>
             <td>6,003</td>
-            <td>4,097</td>
+            <td>4,087</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>11,274</td>
-            <td>7,685</td>
+            <td>7,673</td>
           </tr>
                   <tr>
             <td>$150</td>
             <td>145</td>
-            <td>100</td>
+            <td>99</td>
           </tr>
                   <tr>
             <td>$153</td>
@@ -428,7 +428,7 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
                   <tr>
             <td>$500</td>
             <td>221</td>
-            <td>150</td>
+            <td>149</td>
           </tr>
                   <tr>
             <td>$1,003</td>
@@ -467,8 +467,8 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$12,576,111</b></div>
-      <div class="h2">Total Prizes Won: <b>$5,369,375</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$12,552,470</b></div>
+      <div class="h2">Total Prizes Won: <b>$5,393,016</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -616,5 +616,5 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=45&cb=890399263" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=44&cb=1097400076" async></script></body>
 </html>

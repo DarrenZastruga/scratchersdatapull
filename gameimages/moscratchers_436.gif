@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -341,47 +341,47 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
                   <tr>
             <td>$2</td>
             <td>634,231</td>
-            <td>384,204</td>
+            <td>382,907</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>465,120</td>
-            <td>275,555</td>
+            <td>274,566</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>126,849</td>
-            <td>75,086</td>
+            <td>74,812</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>126,849</td>
-            <td>74,009</td>
+            <td>73,734</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>42,283</td>
-            <td>24,291</td>
+            <td>24,187</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>17,217</td>
-            <td>9,840</td>
+            <td>9,799</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>8,483</td>
-            <td>4,846</td>
+            <td>4,834</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,081</td>
-            <td>612</td>
+            <td>609</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>104</td>
-            <td>63</td>
+            <td>62</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -400,8 +400,8 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,917,568</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,483,419</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,899,068</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,501,919</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -549,5 +549,5 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=21&cb=2052220288" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=20&cb=133019886" async></script></body>
 </html>

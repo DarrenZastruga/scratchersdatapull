@@ -82,16 +82,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -340,42 +340,42 @@ Reveal a "Money Roll" symbol, WIN ALL 10 PRIZES!</p>
                   <tr>
             <td>$2</td>
             <td>751,506</td>
-            <td>407,461</td>
+            <td>406,634</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>334,301</td>
-            <td>176,857</td>
+            <td>176,478</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>125,271</td>
-            <td>65,365</td>
+            <td>65,220</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>62,629</td>
-            <td>32,110</td>
+            <td>32,035</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>41,757</td>
-            <td>21,248</td>
+            <td>21,191</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>31,284</td>
-            <td>15,918</td>
+            <td>15,882</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>41,757</td>
-            <td>21,027</td>
+            <td>20,988</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>8,305</td>
-            <td>4,175</td>
+            <td>4,166</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -404,8 +404,8 @@ Reveal a "Money Roll" symbol, WIN ALL 10 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,332,547</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,968,297</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,323,867</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,976,977</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -553,5 +553,5 @@ Reveal a "Money Roll" symbol, WIN ALL 10 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=37&cb=705009609" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=36&cb=1363130085" async></script></body>
 </html>
