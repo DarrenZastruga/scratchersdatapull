@@ -340,32 +340,32 @@
                   <tr>
             <td>$5</td>
             <td>675,927</td>
-            <td>129,420</td>
+            <td>129,379</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>289,512</td>
-            <td>48,066</td>
+            <td>48,051</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>289,766</td>
-            <td>45,548</td>
+            <td>45,531</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>72,344</td>
-            <td>11,815</td>
+            <td>11,810</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>35,192</td>
-            <td>5,872</td>
+            <td>5,871</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>48,325</td>
-            <td>7,638</td>
+            <td>7,636</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -380,7 +380,7 @@
                   <tr>
             <td>$100</td>
             <td>21,476</td>
-            <td>3,223</td>
+            <td>3,222</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -419,8 +419,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,210,800</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,804,025</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,209,885</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,804,940</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -568,5 +568,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=62&cb=597711752" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=64&cb=348717871" async></script></body>
 </html>

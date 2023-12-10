@@ -355,27 +355,27 @@
                   <tr>
             <td>$3</td>
             <td>876,254</td>
-            <td>115,278</td>
+            <td>115,249</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>875,934</td>
-            <td>113,903</td>
+            <td>113,883</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>262,866</td>
-            <td>32,464</td>
+            <td>32,459</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>87,622</td>
-            <td>9,433</td>
+            <td>9,432</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>109,612</td>
-            <td>7,273</td>
+            <td>7,272</td>
           </tr>
                   <tr>
             <td>$33</td>
@@ -385,7 +385,7 @@
                   <tr>
             <td>$35</td>
             <td>8,053</td>
-            <td>414</td>
+            <td>413</td>
           </tr>
                   <tr>
             <td>$40</td>
@@ -405,7 +405,7 @@
                   <tr>
             <td>$100</td>
             <td>10,973</td>
-            <td>660</td>
+            <td>659</td>
           </tr>
                   <tr>
             <td>$150</td>
@@ -474,8 +474,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,826,059</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,651,045</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,825,632</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,651,472</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -623,5 +623,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=130&cb=1043328350" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=132&cb=110244796" async></script></body>
 </html>
