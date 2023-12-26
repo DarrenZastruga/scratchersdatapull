@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="/sites/default/files/Favicons-01_1.png" type="image/png" />
 
-    <title>TRIPLE CHERRY CROSSWORD | molottery.com</title>
+    <title>TREASURE HUNT | molottery.com</title>
     <link rel="stylesheet" media="all" href="/libraries/superfish/css/superfish.css?s3g9q6" />
 <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?s3g9q6" />
 <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?s3g9q6" />
@@ -199,8 +199,8 @@
   <div class="welcome__header">Welcome!</div>
   <div class="welcome__body">
     <div class="welcome__columns">
-            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=scratchers/395" target="_blank">Sign Up</a></div>
-      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=scratchers/395" target="_blank">Log In</a></div>
+            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=scratchers/452" target="_blank">Sign Up</a></div>
+      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=scratchers/452" target="_blank">Log In</a></div>
       <meta content="">
     </div>
   </div>
@@ -236,7 +236,7 @@
                   <a href="/scratchers">Scratchers</a>
               </li>
           <li>
-                  TRIPLE CHERRY CROSSWORD
+                  TREASURE HUNT
               </li>
         </ol>
   </nav>
@@ -260,63 +260,62 @@
   
 
   <div class="scratchers-single">
-      <h1>TRIPLE CHERRY CROSSWORD  </h1>
-      <div class="scratchers-single__id">Game #395</div>
+      <h1>TREASURE HUNT  </h1>
+      <div class="scratchers-single__id">Game #452</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
-                              <a class="tag tag_orange" href="#">Expires soon</a>
-                              <a class="tag " href="#">No longer distributed</a>
+                              <a class="tag tag_yellow" href="#">New</a>
               
                                             
 
             </div>
                     <div class="scratchers-single__text">
-            <p>Spell your way to prizes of up to $100,000 on this $5 Scratchers game!</p>
+            <p>Search this $3 ticket for your chance to win prizes of up to $50,000!</p>
 
             <h3>How to Play</h3>
-            <p>Scratch the YOUR LETTERS box to reveal your 20 letters and scratch all corresponding letters in both CROSSWORD PUZZLES. Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, win prize shown in the PRIZE LEGEND. Complete a word in PUZZLE 1 with a "7" symbol, win DOUBLE the prize. Complete a word in PUZZLE 2 with a "cherry" symbol, win TRIPLE the prize.</p>
-
-<p><strong>Bonus Word:&nbsp;</strong>Completely uncover the BONUS WORD, win prize in the prize box.</p>
+            <p>Scratch YOUR SYMBOLS.<br />
+Then scratch the corresponding symbols in either grid.<br />
+Match all four symbols in a horizontal or vertical line, win prize shown for that line.</p>
 
           </div>
           <div id="scratchers-single-info-standard">
             <div class="scratchers-single__info scratchers-single-info">
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Official Start Date:</div>
-                <div class="scratchers-single-info__body">Oct. 19, 2022</div>
+                <div class="scratchers-single-info__body">Dec. 26, 2023</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">Nov. 24, 2023</div>
+                <div class="scratchers-single-info__body">TBD</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">May. 22, 2024</div>
+                <div class="scratchers-single-info__body">TBD</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Ticket Price:</div>
-                <div class="scratchers-single-info__body">$5</div>
+                <div class="scratchers-single-info__body">$3</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Top Prize:</div>
-                                <div class="scratchers-single-info__body">$100,000</div>
+                                <div class="scratchers-single-info__body">$50,000</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Average Chances*:</div>
-                <div class="scratchers-single-info__body">1 in 3.97</div>
-                <div class="scratchers-single-info__bottom"> including $5 prizes</div>
+                <div class="scratchers-single-info__body">1 in 3.82</div>
+                <div class="scratchers-single-info__bottom"> including $3 prizes</div>
               </div>
             </div>
           </div>
         </div>
         <div class="scratchers-single__right">
-                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/395_p1.gif"><img src="/sites/default/files/scratchers/tile/395.gif"></a>
+                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/452.png"><img src="/sites/default/files/scratchers/tile/452.png"></a>
                   </div>
       </div>
 
@@ -345,99 +344,64 @@
         </thead>
         <tbody>
                   <tr>
-            <td>$5</td>
-            <td>585,584</td>
-            <td>86,109</td>
+            <td>$3</td>
+            <td>654,885</td>
+            <td>654,875</td>
+          </tr>
+                  <tr>
+            <td>$6</td>
+            <td>638,460</td>
+            <td>638,451</td>
+          </tr>
+                  <tr>
+            <td>$9</td>
+            <td>163,656</td>
+            <td>163,655</td>
           </tr>
                   <tr>
             <td>$10</td>
-            <td>251,062</td>
-            <td>33,721</td>
+            <td>131,015</td>
+            <td>131,012</td>
           </tr>
                   <tr>
-            <td>$15</td>
-            <td>250,974</td>
-            <td>31,262</td>
+            <td>$16</td>
+            <td>32,764</td>
+            <td>32,763</td>
           </tr>
                   <tr>
             <td>$20</td>
-            <td>62,705</td>
-            <td>6,204</td>
-          </tr>
-                  <tr>
-            <td>$25</td>
-            <td>50,231</td>
-            <td>4,914</td>
-          </tr>
-                  <tr>
-            <td>$30</td>
-            <td>4,178</td>
-            <td>441</td>
+            <td>65,487</td>
+            <td>65,486</td>
           </tr>
                   <tr>
             <td>$50</td>
-            <td>40,201</td>
-            <td>3,812</td>
+            <td>10,937</td>
+            <td>10,937</td>
           </tr>
                   <tr>
-            <td>$75</td>
-            <td>3,346</td>
-            <td>322</td>
+            <td>$60</td>
+            <td>8,181</td>
+            <td>8,181</td>
           </tr>
                   <tr>
             <td>$100</td>
-            <td>14,639</td>
-            <td>1,304</td>
-          </tr>
-                  <tr>
-            <td>$200</td>
-            <td>411</td>
-            <td>37</td>
+            <td>8,407</td>
+            <td>8,407</td>
           </tr>
                   <tr>
             <td>$500</td>
-            <td>252</td>
-            <td>24</td>
+            <td>543</td>
+            <td>543</td>
           </tr>
                   <tr>
             <td>$1,000</td>
-            <td>125</td>
-            <td>11</td>
+            <td>80</td>
+            <td>80</td>
           </tr>
                   <tr>
-            <td>$1,500</td>
-            <td>41</td>
-            <td>4</td>
-          </tr>
-                  <tr>
-            <td>$5,000</td>
-            <td>14</td>
-            <td>1</td>
-          </tr>
-                  <tr>
-            <td>$10,000</td>
+            <td>$50,000</td>
             <td>7</td>
-            <td>1</td>
-          </tr>
-                  <tr>
-            <td>$15,000</td>
-            <td>6</td>
-            <td>0</td>
-          </tr>
-                  <tr>
-            <td>$20,000</td>
-            <td>4</td>
-            <td>0</td>
-          </tr>
-                  <tr>
-            <td>$30,000</td>
-            <td>3</td>
-            <td>0</td>
-          </tr>
-                  <tr>
-            <td>$100,000</td>
             <td>7</td>
-            <td>0</td>
           </tr>
                 </tbody>
       </table>
@@ -446,8 +410,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,893,395</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,164,570</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$12,992,184</b></div>
+      <div class="h2">Total Prizes Won: <b>$159</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -563,7 +527,7 @@
   </div>
 
 
-<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"scratchers\/395","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"colorbox\/colorbox,colorbox\/default,molottery\/classy.base,molottery\/global-styling,molottery_dashboard\/axios,molottery_dashboard\/molottery_dashboard,scratchers\/scratchers_single,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base","theme":"molottery","theme_token":null},"ajaxTrustedUrl":[],"api":{"domain":"https:\/\/playersclub.molottery.com","tos":"https:\/\/playersclub.molottery.com\/enter"},"superfish":{"superfish-main":{"id":"superfish-main","sf":{"delay":"1700","animation":{"opacity":"show","height":"show"}},"plugins":{"smallscreen":{"mode":"window_width","breakpoint":900,"title":"Main navigation"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"eff30fef41f7e524bb66a459a8585887676a9a4919e2e6d6cc8225cbd43055c1"}}</script>
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"scratchers\/452","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"colorbox\/colorbox,colorbox\/default,molottery\/classy.base,molottery\/global-styling,molottery_dashboard\/axios,molottery_dashboard\/molottery_dashboard,scratchers\/scratchers_single,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base","theme":"molottery","theme_token":null},"ajaxTrustedUrl":[],"api":{"domain":"https:\/\/playersclub.molottery.com","tos":"https:\/\/playersclub.molottery.com\/enter"},"superfish":{"superfish-main":{"id":"superfish-main","sf":{"delay":"1700","animation":{"opacity":"show","height":"show"}},"plugins":{"smallscreen":{"mode":"window_width","breakpoint":900,"title":"Main navigation"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"eff30fef41f7e524bb66a459a8585887676a9a4919e2e6d6cc8225cbd43055c1"}}</script>
 <script src="/core/assets/vendor/jquery/jquery.min.js?v=3.6.0"></script>
 <script src="/core/misc/polyfills/element.matches.js?v=9.4.5"></script>
 <script src="/core/misc/polyfills/object.assign.js?v=9.4.5"></script>
@@ -595,5 +559,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=92&cb=2647106" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=1767310410" async></script></body>
 </html>
