@@ -213,6 +213,7 @@ def exportVAScratcherRecs():
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
                                           != "Coming Soon!", :]
+    scratchertables.to_csv("./VAscratchertables.csv", encoding='utf-8')
 
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(

@@ -125,8 +125,8 @@ def exportScratcherRecs():
     tixtables['gameNumber'] = tixtables['gameNumber'].replace('#','', regex = True)
     tixtables['prizeamount'] = tixtables['prizeamount'].str.replace('*','', regex = True)
     tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(',','', regex = True)
-    tixtables['prizeamount'] = tixtables['prizeamount'].replace({r'\$':''}, regex = True)
-    tixtables['price'] = tixtables['price'].replace({r'\$':''}, regex = True)
+    tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(r'\$','', regex = True)
+    tixtables['price'] = tixtables['price'].str.replace(r'\$','', regex = True)
     tixtables['topprize'] = tixtables['topprize'].str.replace('*','', regex = True)
     tixtables['topprize'] = tixtables['topprize'].str.replace(',','', regex = True)
     tixtables['topprize'] = tixtables['topprize'].str.replace(r'\$','', regex = True)
@@ -574,10 +574,10 @@ for t in prizetypes:
 '''                    
                 
 exportScratcherRecs()
-
+'''
 scheduler = BlockingScheduler()
 scheduler.add_job(exportScratcherRecs, 'cron', hour=0, minute=30)
 
 scheduler.start()
-
+'''
 
