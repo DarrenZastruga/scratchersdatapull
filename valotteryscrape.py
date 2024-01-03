@@ -81,6 +81,7 @@ def exportScratcherRecs():
         soup = BeautifulSoup(gameNum, 'html.parser')
         try:
             table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
+            print(table)
             table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
             tableData = pd.read_html(table)[0]
             print(tableData)
@@ -102,8 +103,8 @@ def exportScratcherRecs():
         tableData['topprize'] = soup.find('h2', class_='top-prize-display').get_text().replace('*','')
         tableData['topprizeodds'] = soup.find('p', class_='odds-display').find('br').find('span').get_text()
         tableData['topprizeremain'] = tableData.iloc[0,2]
-        tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', text=re.compile('eXTRA Chances')) else np.nan
-        tableData['secondChance'] = '2nd Chance' if soup.find('p', text=re.compile('2nd Chance')) else np.nan
+        tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', string=re.compile('eXTRA Chances')) else np.nan
+        tableData['secondChance'] = '2nd Chance' if soup.find('p', string=re.compile('2nd Chance')) else np.nan
         tableData['startDate'] = soup.find_all('h2', class_='start-date-display')[0].get_text()
         print(soup.find_all('h2', class_='start-date-display'))
         if len(soup.find_all('h2', class_='start-date-display')) > 1 & closing == True:

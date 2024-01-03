@@ -123,6 +123,7 @@ def exportVAScratcherRecs():
     #tixlist = json.load(json_file)
     for t in tixlist['data']:
         ticID = t['GameID']
+        print(ticID)
         closing = t['IsClosingSoon']
         PayoutNumber = t['PayoutNumber']
 
@@ -155,8 +156,8 @@ def exportVAScratcherRecs():
         tableData['topprize'] = soup.find('h2', class_='top-prize-display').get_text().replace('*','')
         tableData['topprizeodds'] = soup.find('p', class_='odds-display').find('br').find('span').get_text()
         tableData['topprizeremain'] = tableData.iloc[0,2]
-        tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', text=re.compile('eXTRA Chances')) else np.nan
-        tableData['secondChance'] = '2nd Chance' if soup.find('p', text=re.compile('2nd Chance')) else np.nan
+        tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', string=re.compile('eXTRA Chances')) else np.nan
+        tableData['secondChance'] = '2nd Chance' if soup.find('p', string=re.compile('2nd Chance')) else np.nan
         tableData['startDate'] = soup.find_all('h2', class_='start-date-display')[0].get_text()
         print(soup.find_all('h2', class_='start-date-display'))
         if len(soup.find_all('h2', class_='start-date-display')) > 1 & closing == True:
