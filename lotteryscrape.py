@@ -136,7 +136,7 @@ def exportVAScratcherRecs():
         try:
             table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
             table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
-            tableData = pd.read_html(table)[0]
+            tableData = pd.read_html(io.StringIO(table))[0]
             print(tableData)
             
         except ValueError as e:
@@ -150,7 +150,7 @@ def exportVAScratcherRecs():
             
         tableData['prizeamount'] = tableData['Prize Amount'].replace('*','')
         tableData['gameNumber'] = soup.find('h2', class_='title-display').find('small').get_text()
-        tableData['gameName'] = soup.find('h2', class_='title-display').find(text=True, recursive=False).strip()
+        tableData['gameName'] = soup.find('h2', class_='title-display').find(string=True, recursive=False).strip()
         tableData['price'] = soup.find('h2', class_='ticket-price-display').get_text()
         tableData['overallodds'] = soup.find('p', class_='odds-display').find('span').get_text()
         tableData['topprize'] = soup.find('h2', class_='top-prize-display').get_text().replace('*','')
@@ -215,6 +215,7 @@ def exportVAScratcherRecs():
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
                                           != "Coming Soon!", :]
     scratchertables.to_csv("./VAscratchertables.csv", encoding='utf-8')
+    print(scratchertables.dtypes)
 
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
