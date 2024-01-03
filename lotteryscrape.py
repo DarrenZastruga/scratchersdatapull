@@ -188,15 +188,14 @@ def exportVAScratcherRecs():
         re.escape('*'), '', regex=True)
     tixtables['topprize'] = tixtables['topprize'].str.replace(
         ',', '', regex=True)
-    tixtables['topprize'] = tixtables['topprize'].replace(
-        {r'\$': ''}, regex=True)
+    tixtables['topprize'] = tixtables['topprize'].str.replace(r'\$','', regex = True)
 
     # convert text top prizes by calculating the ammounts
     # converts the tax prizes to the $50k + 4% tax rate, $2k/week*52 weeks/yr*10yrs, and Live Spin to the max prize $500,000
     tixtables['topprize'] = tixtables['topprize'].replace(
-        {'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yr': 10000*12*10})
+        {'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
     tixtables['prizeamount'] = tixtables['prizeamount'].replace(
-        {'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yr': 10000*12*10})
+        {'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
     tixtables['topprize'] = tixtables['topprize'].apply(
         formatstr).astype('int64')
 
