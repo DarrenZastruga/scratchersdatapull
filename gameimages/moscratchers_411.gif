@@ -340,37 +340,37 @@
                   <tr>
             <td>$5</td>
             <td>675,927</td>
-            <td>128,968</td>
+            <td>128,730</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>289,512</td>
-            <td>47,892</td>
+            <td>47,819</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>289,766</td>
-            <td>45,397</td>
+            <td>45,330</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>72,344</td>
-            <td>11,777</td>
+            <td>11,766</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>35,192</td>
-            <td>5,859</td>
+            <td>5,855</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>48,325</td>
-            <td>7,618</td>
+            <td>7,611</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>14,473</td>
-            <td>2,305</td>
+            <td>2,304</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -380,7 +380,7 @@
                   <tr>
             <td>$100</td>
             <td>21,476</td>
-            <td>3,217</td>
+            <td>3,212</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -419,8 +419,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,201,600</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,813,225</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,197,525</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,817,300</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -464,7 +464,7 @@
   
 
         
-<span>© 2023 Missouri Lottery Commission</span>
+<span>© 2024 Missouri Lottery Commission</span>
         <ul>
             <li>
         <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
@@ -568,5 +568,5 @@
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=70&cb=988480468" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=80&cb=1239062175" async></script></body>
 </html>

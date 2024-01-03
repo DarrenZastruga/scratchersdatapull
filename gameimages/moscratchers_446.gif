@@ -264,12 +264,6 @@
       <div class="scratchers-single__id">Game #446</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
-                      <div class="scratchers-single__tags tags">
-                              <a class="tag tag_yellow" href="#">New</a>
-              
-                                            
-
-            </div>
                     <div class="scratchers-single__text">
             <p>Win up to $30,000 in this $2 game loaded with $100 prizes!</p>
 
@@ -347,42 +341,42 @@ Reveal an "ALL" symbol, WIN ALL 10 PRIZES!</p>
                   <tr>
             <td>$2</td>
             <td>736,165</td>
-            <td>612,227</td>
+            <td>573,008</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>357,470</td>
-            <td>295,253</td>
+            <td>275,861</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>126,195</td>
-            <td>103,994</td>
+            <td>97,116</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>126,204</td>
-            <td>103,350</td>
+            <td>96,163</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>31,558</td>
-            <td>25,684</td>
+            <td>23,801</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>24,534</td>
-            <td>19,848</td>
+            <td>18,383</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>17,531</td>
-            <td>14,223</td>
+            <td>13,147</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>30</td>
-            <td>25</td>
+            <td>24</td>
           </tr>
                   <tr>
             <td>$3,000</td>
@@ -392,7 +386,7 @@ Reveal an "ALL" symbol, WIN ALL 10 PRIZES!</p>
                   <tr>
             <td>$30,000</td>
             <td>6</td>
-            <td>6</td>
+            <td>4</td>
           </tr>
                 </tbody>
       </table>
@@ -401,8 +395,8 @@ Reveal an "ALL" symbol, WIN ALL 10 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,905,836</b></div>
-      <div class="h2">Total Prizes Won: <b>$1,477,009</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,378,710</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,004,135</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -446,7 +440,7 @@ Reveal an "ALL" symbol, WIN ALL 10 PRIZES!</p>
   
 
         
-<span>© 2023 Missouri Lottery Commission</span>
+<span>© 2024 Missouri Lottery Commission</span>
         <ul>
             <li>
         <a href="/general-information" data-drupal-link-system-path="node/190">About us</a>
@@ -550,5 +544,5 @@ Reveal an "ALL" symbol, WIN ALL 10 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s3g9q6"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=550244294" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=14&cb=388762399" async></script></body>
 </html>
