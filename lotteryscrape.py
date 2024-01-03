@@ -195,7 +195,7 @@ def exportVAScratcherRecs():
     tixtables['topprize'] = tixtables['topprize'].replace(
         {'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
     tixtables['prizeamount'] = tixtables['prizeamount'].replace(
-        {'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
+        {'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10}).astype('int64')
     tixtables['topprize'] = tixtables['topprize'].apply(
         formatstr).astype('int64')
 
