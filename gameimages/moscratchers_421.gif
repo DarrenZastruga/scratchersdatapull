@@ -230,7 +230,13 @@
                   <a href="/">MOLottery.com</a>
               </li>
           <li>
-                  Page not found
+                  <a href="/games">Games</a>
+              </li>
+          <li>
+                  <a href="/scratchers">Scratchers</a>
+              </li>
+          <li>
+                  500X
               </li>
         </ol>
   </nav>
@@ -362,27 +368,27 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50</td>
             <td>392,929</td>
-            <td>276,072</td>
+            <td>275,641</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>654,962</td>
-            <td>459,886</td>
+            <td>459,135</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>917,236</td>
-            <td>642,245</td>
+            <td>641,153</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>52,409</td>
-            <td>36,713</td>
+            <td>36,643</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>128,761</td>
-            <td>90,268</td>
+            <td>90,107</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -421,8 +427,8 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$179,020,860</b></div>
-      <div class="h2">Total Prizes Won: <b>$78,631,210</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$178,750,550</b></div>
+      <div class="h2">Total Prizes Won: <b>$78,901,520</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -570,5 +576,5 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
 <script src="/libraries/superfish/supersubs.js?s6qxwa"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=65&cb=1888728045" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=62&cb=1270903360" async></script></body>
 </html>
