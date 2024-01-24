@@ -342,47 +342,47 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>256,469</td>
+            <td>255,395</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>98,054</td>
+            <td>97,599</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>97,058</td>
+            <td>96,588</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>23,838</td>
+            <td>23,725</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>19,211</td>
+            <td>19,119</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,162</td>
-            <td>1,581</td>
+            <td>1,577</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>15,191</td>
+            <td>15,115</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,340</td>
-            <td>1,256</td>
+            <td>1,250</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,624</td>
-            <td>5,474</td>
+            <td>5,448</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -441,8 +441,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,859,070</b></div>
-      <div class="h2">Total Prizes Won: <b>$10,227,615</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,830,570</b></div>
+      <div class="h2">Total Prizes Won: <b>$10,256,115</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -590,5 +590,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?s6qxwa"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=43&cb=10478864" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=41&cb=1136971310" async></script></body>
 </html>

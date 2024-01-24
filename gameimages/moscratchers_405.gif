@@ -339,42 +339,42 @@
                   <tr>
             <td>$10</td>
             <td>597,124</td>
-            <td>166,875</td>
+            <td>166,648</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>223,953</td>
-            <td>62,166</td>
+            <td>62,094</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,646</td>
-            <td>80,525</td>
+            <td>80,401</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,511</td>
-            <td>12,920</td>
+            <td>12,902</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>44,818</td>
-            <td>11,907</td>
+            <td>11,891</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>74,651</td>
-            <td>19,670</td>
+            <td>19,651</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>74,651</td>
-            <td>19,514</td>
+            <td>19,480</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,497</td>
-            <td>1,182</td>
+            <td>1,180</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -408,8 +408,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$9,582,250</b></div>
-      <div class="h2">Total Prizes Won: <b>$24,400,570</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$9,570,740</b></div>
+      <div class="h2">Total Prizes Won: <b>$24,412,080</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -557,5 +557,5 @@
 <script src="/libraries/superfish/supersubs.js?s6qxwa"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=87&cb=1516526347" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=85&cb=1168346043" async></script></body>
 </html>
