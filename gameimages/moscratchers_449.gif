@@ -265,12 +265,6 @@
       <div class="scratchers-single__id">Game #449</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
-                      <div class="scratchers-single__tags tags">
-                              <a class="tag tag_yellow" href="#">New</a>
-              
-                                            
-
-            </div>
                     <div class="scratchers-single__text">
             <p>Win prizes of up to $100,000 on this $5 ticket featuring three Bonus spots!</p>
 
@@ -350,37 +344,37 @@ Reveal a "CASH" symbol, WIN ALL 15 PRIZES!</p>
                   <tr>
             <td>$5</td>
             <td>504,365</td>
-            <td>403,991</td>
+            <td>397,133</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>216,071</td>
-            <td>171,050</td>
+            <td>168,053</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>144,078</td>
-            <td>113,739</td>
+            <td>111,743</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>144,078</td>
-            <td>113,249</td>
+            <td>111,228</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>48,674</td>
-            <td>38,064</td>
+            <td>37,404</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>12,021</td>
-            <td>9,465</td>
+            <td>9,332</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>286</td>
-            <td>222</td>
+            <td>217</td>
           </tr>
                   <tr>
             <td>$2,500</td>
@@ -404,8 +398,8 @@ Reveal a "CASH" symbol, WIN ALL 15 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$11,740,965</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,003,490</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$11,547,440</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,197,015</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -553,5 +547,5 @@ Reveal a "CASH" symbol, WIN ALL 15 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s6qxwa"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=627485247" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=245326710" async></script></body>
 </html>

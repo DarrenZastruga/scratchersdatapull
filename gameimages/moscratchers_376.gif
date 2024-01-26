@@ -267,6 +267,7 @@
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
                               <a class="tag tag_orange" href="#">Expires soon</a>
+                              <a class="tag " href="#">No longer distributed</a>
               
                                             
 
@@ -275,7 +276,7 @@
             <p>Look for the chance to double or triple your prizes on this $1 ticket with top prizes of up to $6,000!</p>
 
             <h3>How to Play</h3>
-            <p>Match any of YOUR NUMBERS to either WINNING NUMBER, win prize for that number. Reveal a &quot;2X&quot; symbol and win DOUBLE the prize shown. Reveal a &quot;3X&quot; symbol and win TRIPLE the prize shown.</p>
+            <p>Match any of YOUR NUMBERS to either WINNING NUMBER, win prize for that number. Reveal a "2X" symbol and win DOUBLE the prize shown. Reveal a "3X" symbol and win TRIPLE the prize shown.</p>
 
           </div>
           <div id="scratchers-single-info-standard">
@@ -345,27 +346,27 @@
                   <tr>
             <td>$1</td>
             <td>1,072,307</td>
-            <td>287,373</td>
+            <td>287,358</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>429,005</td>
-            <td>105,883</td>
+            <td>105,877</td>
           </tr>
                   <tr>
             <td>$3</td>
             <td>61,292</td>
-            <td>14,646</td>
+            <td>14,643</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>61,293</td>
-            <td>14,401</td>
+            <td>14,399</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>122,570</td>
-            <td>27,833</td>
+            <td>27,832</td>
           </tr>
                   <tr>
             <td>$6</td>
@@ -434,8 +435,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,418,659</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,711,083</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,418,610</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,711,132</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -583,5 +584,5 @@
 <script src="/libraries/superfish/supersubs.js?s6qxwa"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=123&cb=1339412896" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=125&cb=21061980" async></script></body>
 </html>
