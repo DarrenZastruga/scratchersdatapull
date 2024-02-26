@@ -133,12 +133,16 @@ def exportVAScratcherRecs():
         r = requests.get(ticketurl)
         gameNum = r.text
         soup = BeautifulSoup(gameNum, 'html.parser')
+        
         try:
-            table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
-            table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
-            tableData = pd.read_html(io.StringIO(table))[0]
-            print(tableData)
-            
+            if soup.find('div', id='scratcher-detail-container') == None:
+               continue
+            else:
+                table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
+                table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
+                tableData = pd.read_html(io.StringIO(table))[0]
+                print(tableData)
+                
         except ValueError as e:
             print(e) # ValueError: No tables found
             try:
@@ -147,7 +151,7 @@ def exportVAScratcherRecs():
             except ValueError as e:
                 print(e) # ValueError: No tables found 
                 continue
-            
+                
         tableData['prizeamount'] = tableData['Prize Amount'].replace('*','')
         tableData['gameNumber'] = soup.find('h2', class_='title-display').find('small').get_text()
         tableData['gameName'] = soup.find('h2', class_='title-display').find(string=True, recursive=False).strip()

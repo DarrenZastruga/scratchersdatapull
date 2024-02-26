@@ -80,11 +80,15 @@ def exportScratcherRecs():
         gameNum = r.text
         soup = BeautifulSoup(gameNum, 'html.parser')
         try:
-            table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
-            print(table)
-            table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
-            tableData = pd.read_html(table)[0]
-            print(tableData)
+            if soup.find('div', id='scratcher-detail-container') == None:
+                continue
+            else:
+                table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
+               
+                print(table)
+                table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
+                tableData = pd.read_html(table)[0]
+                print(tableData)
             
         except ValueError as e:
             print(e) # ValueError: No tables found
