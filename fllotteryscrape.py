@@ -65,7 +65,7 @@ def exportFLScratcherRecs():
             #print(r.text)
     soup = BeautifulSoup(response, 'html.parser')
     tixlist = pd.DataFrame()
-    table = soup.find('div', class_='gameContent').find('table')
+    table = soup.find('div', class_='table-wrapper table-md table-wrapper--sticky-head').find('table')
     table = pd.read_html(str(table))[0]
     print(table)
     print(table['Game Name'])
