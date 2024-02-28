@@ -10,55 +10,55 @@
 <link rel="icon" href="/sites/default/files/Favicons-01_1.png" type="image/png" />
 
     <title>$100,000 SUPER CROSSWORD | molottery.com</title>
-    <link rel="stylesheet" media="all" href="/libraries/superfish/css/superfish.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/autocomplete-loading.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/fieldgroup.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/container-inline.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/clearfix.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/details.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/hidden.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/item-list.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/js.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/nowrap.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/position-container.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/progress.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/reset-appearance.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/resize.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/sticky-header.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-counter.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-counters.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-general-info.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tabledrag.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tablesort.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tree-child.module.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/modules/contrib/colorbox/styles/default/colorbox_style.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/main.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/custom.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/action-links.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/breadcrumb.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/button.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/collapse-processed.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/container-inline.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/details.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/exposed-filters.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/field.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/form.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/icons.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/inline-form.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/item-list.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/link.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/links.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/menu.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/more-link.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/pager.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabledrag.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tableselect.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tablesort.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabs.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/textarea.css?s6qxwa" />
-<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/ui-dialog.css?s6qxwa" />
+    <link rel="stylesheet" media="all" href="/libraries/superfish/css/superfish.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/autocomplete-loading.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/fieldgroup.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/container-inline.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/clearfix.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/details.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/hidden.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/item-list.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/js.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/nowrap.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/position-container.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/progress.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/reset-appearance.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/resize.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/sticky-header.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-counter.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-counters.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-general-info.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tabledrag.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tablesort.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tree-child.module.css?s858ta" />
+<link rel="stylesheet" media="all" href="/modules/contrib/colorbox/styles/default/colorbox_style.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/main.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/custom.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/action-links.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/breadcrumb.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/button.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/collapse-processed.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/container-inline.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/details.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/exposed-filters.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/field.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/form.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/icons.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/inline-form.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/item-list.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/link.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/links.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/menu.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/more-link.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/pager.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabledrag.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tableselect.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tablesort.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/tabs.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/textarea.css?s858ta" />
+<link rel="stylesheet" media="all" href="/themes/molottery/css/classy/components/ui-dialog.css?s858ta" />
 
       
         <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DY9BDJRJJ"></script> <script> window.dataLayer = window.dataLayer || []; function gtag()
@@ -342,87 +342,87 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>248,352</td>
+            <td>193,944</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>94,286</td>
+            <td>69,297</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>93,317</td>
+            <td>68,026</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>22,932</td>
+            <td>16,540</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>18,466</td>
+            <td>13,318</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,162</td>
-            <td>1,532</td>
+            <td>1,118</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>14,594</td>
+            <td>10,564</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,340</td>
-            <td>1,210</td>
+            <td>870</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,624</td>
-            <td>5,268</td>
+            <td>3,775</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>414</td>
-            <td>144</td>
+            <td>99</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>259</td>
-            <td>96</td>
+            <td>72</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>132</td>
-            <td>49</td>
+            <td>33</td>
           </tr>
                   <tr>
             <td>$1,500</td>
             <td>42</td>
-            <td>16</td>
+            <td>10</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>14</td>
-            <td>3</td>
+            <td>2</td>
           </tr>
                   <tr>
             <td>$10,000</td>
             <td>7</td>
-            <td>3</td>
+            <td>2</td>
           </tr>
                   <tr>
             <td>$15,000</td>
             <td>6</td>
-            <td>4</td>
+            <td>1</td>
           </tr>
                   <tr>
             <td>$20,000</td>
             <td>4</td>
-            <td>2</td>
+            <td>1</td>
           </tr>
                   <tr>
             <td>$30,000</td>
@@ -432,7 +432,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$100,000</td>
             <td>7</td>
-            <td>4</td>
+            <td>3</td>
           </tr>
                 </tbody>
       </table>
@@ -441,8 +441,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,622,675</b></div>
-      <div class="h2">Total Prizes Won: <b>$10,464,010</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,850,120</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,236,565</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -582,13 +582,13 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/core/modules/responsive_image/js/responsive_image.ajax.js?v=9.4.5"></script>
 <script src="/core/misc/ajax.js?v=9.4.5"></script>
 <script src="/core/themes/stable/js/ajax.js?v=9.4.5"></script>
-<script src="/modules/custom/molottery_dashboard/js/molottery-dashboard.js?s6qxwa"></script>
-<script src="/libraries/superfish/superfish.js?s6qxwa"></script>
-<script src="/libraries/superfish/jquery.hoverIntent.minified.js?s6qxwa"></script>
-<script src="/libraries/superfish/sfsmallscreen.js?s6qxwa"></script>
-<script src="/libraries/superfish/supposition.js?s6qxwa"></script>
-<script src="/libraries/superfish/supersubs.js?s6qxwa"></script>
+<script src="/modules/custom/molottery_dashboard/js/molottery-dashboard.js?s858ta"></script>
+<script src="/libraries/superfish/superfish.js?s858ta"></script>
+<script src="/libraries/superfish/jquery.hoverIntent.minified.js?s858ta"></script>
+<script src="/libraries/superfish/sfsmallscreen.js?s858ta"></script>
+<script src="/libraries/superfish/supposition.js?s858ta"></script>
+<script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=44&cb=304998840" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=55&cb=1890391598" async></script></body>
 </html>
