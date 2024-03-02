@@ -275,9 +275,13 @@
             <p>Win prizes of up to $100,000 on this classic arcade-themed game featuring Frogger!</p>
 
             <h3>How to Play</h3>
-            <p>Scratch&nbsp;<strong>FROGS 1-3&nbsp;</strong>and scratch the squares indicated in the direction of the arrow.<br />
-If the path following the arrows ends in the&nbsp;<strong>FINISH</strong>&nbsp;play area, win the prize shown.<br />
-Uncover 3 identical symbols across the three revealed paths, win the prize shown in the legend.</p>
+            <ul>
+	<li>Begin at each of the 3 Frog Starts</li>
+	<li>Scratch&nbsp;<strong>ONLY</strong>&nbsp;the squares indicated by the directional arrows, while following each of the 3 paths</li>
+	<li>If a path ends in the&nbsp;<strong>FINISH</strong>&nbsp;area, win the prize</li>
+	<li>Uncover 3 identical symbols across&nbsp;<strong>ALL&nbsp;</strong>paths, win the prize in the legend</li>
+	<li>If a path reveals a GAME OVER symbol "X" that path ends</li>
+</ul>
 
 <p>©Konami Digital Entertainment</p>
 
@@ -351,52 +355,52 @@ Uncover 3 identical symbols across the three revealed paths, win the prize shown
                   <tr>
             <td>$5</td>
             <td>381,864</td>
-            <td>379,823</td>
+            <td>354,852</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>218,208</td>
-            <td>217,023</td>
+            <td>203,045</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>109,104</td>
-            <td>108,492</td>
+            <td>100,953</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>54,552</td>
-            <td>54,224</td>
+            <td>50,428</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>16,338</td>
-            <td>16,231</td>
+            <td>15,076</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>32,691</td>
-            <td>32,449</td>
+            <td>30,111</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>13,704</td>
-            <td>13,627</td>
+            <td>12,582</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>108</td>
-            <td>108</td>
+            <td>101</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>65</td>
-            <td>65</td>
+            <td>61</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>14</td>
-            <td>14</td>
+            <td>11</td>
           </tr>
                   <tr>
             <td>$20,000</td>
@@ -415,8 +419,8 @@ Uncover 3 identical symbols across the three revealed paths, win the prize shown
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$11,093,405</b></div>
-      <div class="h2">Total Prizes Won: <b>$62,445</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,342,235</b></div>
+      <div class="h2">Total Prizes Won: <b>$813,615</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -564,5 +568,5 @@ Uncover 3 identical symbols across the three revealed paths, win the prize shown
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1885130101" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1893258938" async></script></body>
 </html>
