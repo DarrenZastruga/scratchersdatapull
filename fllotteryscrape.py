@@ -59,41 +59,51 @@ def formatstr(s):
 
 
 def exportFLScratcherRecs():
-    url = "https://www.flalottery.com/remainingPrizes"
-    r = requests.get(url)
+    url = "https://floridalottery.com/content/flalottery-web/us/en/games/scratch-offs.scratch-offs.json"
+
+    payload={}
+    headers = {
+      'Cookie': 'affinity="8df229a9fa8bc130"; _gcl_au=1.1.823130810.1708975780; _ga=GA1.1.1993580387.1708975780; _scid=bcfbbae0-cc3f-43f3-8178-eb527983b563; btIdentify=d5e7cf83-a7a5-4045-e348-8f0f00b14cd9; _sctr=1%7C1708923600000; _bts=5d641d0f-1847-42af-c7f0-32752a781aac; _bti=%7B%22app_id%22%3A%22florida-lottery%22%2C%22bsin%22%3A%224tgyOi%2Fb1noBvzN1cFLQaEBBlLqYHzF62IOxdZTEr%2BUyJ4eeLa2z5aV5f1zThiSaWFjBOnuRnYbKlARkhj5UGQ%3D%3D%22%2C%22is_identified%22%3Afalse%7D; _ga_3E9WN4YVMF=GS1.1.1709477021.3.1.1709477332.60.0.0; _tq_id.TV-7209812718-1.2469=35696c8b76e61680.1708975781.0.1709477332..; _scid_r=bcfbbae0-cc3f-43f3-8178-eb527983b563'
+    }
+
+    r = requests.request("GET", url, headers=headers, data=payload)
     response = r.text
-            #print(r.text)
-    soup = BeautifulSoup(response, 'html.parser')
-    tixlist = pd.DataFrame()
-    table = soup.find('div', class_='table-wrapper table-md table-wrapper--sticky-head').find('table')
-    table = pd.read_html(str(table))[0]
-    print(table)
-    print(table['Game Name'])
+    table = json.loads(response)
     
+    tixlist = pd.DataFrame()
     tixtables = pd.DataFrame()
     
     #loop through each row of the data table and get data from the game page
-    for s in table['Game Number']:
+    for s in table['data']:
         print(s)
-        gameName = table.loc[table['Game Number'] == s,'Game Name'].iloc[0]
-        print(gameName)
-        gameNumber = s
-        gameURL = 'https://www.flalottery.com/scratch-offsGameDetails?gameNumber='+str(gameNumber)
-        gamePrice = table.loc[table['Game Number'] == s,'Ticket Cost'].iloc[0].replace('$','')
-        topprize = table.loc[table['Game Number'] == s,'Top Prize'].iloc[0].replace('$','').replace(',','')
-        topprizeremain = table.loc[table['Game Number'] == s,'Top Prizes Remaining'].iloc[0].split(' of ')[0]
-    
+        gameName = s['name']
+        gameNumber = s['id']
+        
+        gameURL = 'https://floridalottery.com/games/scratch-offs/view?id='+str(gameNumber)
+        gamePrice = s['price']
+        topprize = s['topPrize']
+   
         print(gameName)
         print(gameNumber)
         print(gamePrice)
         print(gameURL)
         print(topprize)
-        print(topprizeremain)
-    
+        
+
         #get more details from game page
+        url = "https://apim-website-prod-eastus.azure-api.net/scratchgamesapp/getscratchinfo?id=1551"
+
+        payload={}
+        headers = {}
+    
+        r = requests.request("GET", url, headers=headers, data=payload)
+        response = r.text
+        print(response)
+        soup = BeautifulSoup(response, 'html.parser')
         r = requests.get(gameURL)
         response = r.text
-        details = BeautifulSoup(response, 'html.parser').find('div',class_='ticketDetailsContent').find('table', class_='scratchOdds')
+        details = BeautifulSoup(response, 'html.parser').find('div', class_='tabs')
+        print(details)
         gamePhoto = "http://www.flalottery.com/scratch/"+str(gameNumber)+"pic.jpg"
         
         overallodds = None

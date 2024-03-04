@@ -2289,7 +2289,8 @@ def exportMDScratcherRecs():
 
     payload = {}
     headers = {
-        'Cookie': 'incap_ses_1460_1865635=w3c/LNWgrCQpiy7OpfZCFGDjoWMAAAAAev9ixbH7jEujWZqUXKOQKw==; visid_incap_1865635=T+iNyhKJQdimr2R9QqfrhWDjoWMAAAAAQUIPAAAAAABfT6Fd0RLq527L2FIKx4i1'
+      'Cookie': 'incap_ses_1460_1865635=w3c/LNWgrCQpiy7OpfZCFGDjoWMAAAAAev9ixbH7jEujWZqUXKOQKw==; visid_incap_1865635=T+iNyhKJQdimr2R9QqfrhWDjoWMAAAAAQUIPAAAAAABfT6Fd0RLq527L2FIKx4i1',
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
     }
 
     r = requests.request("GET", url, headers=headers, data=payload)
@@ -2324,7 +2325,7 @@ def exportMDScratcherRecs():
             tixtables = pd.concat([tixtables, []], axis=0)
         else:
             tixdata.rename(columns={'Prize Amount': 'prizeamount', 'Start': 'Winning Tickets At Start',
-                           'Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
+                           'Remaining*': 'Winning Tickets Unclaimed'}, inplace=True)
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace(
                 '$', '').str.replace(',', '')
             tixdata['gameNumber'] = gameNumber
@@ -6753,7 +6754,7 @@ exportMOScratcherRecs()
 exportOKScratcherRecs()
 exportCAScratcherRecs()
 exportNMScratcherRecs()
-
+exportNYScratcherRecs()
 exportNYScratcherRecs()
 exportDCScratcherRecs()
 exportNCScratcherRecs()
