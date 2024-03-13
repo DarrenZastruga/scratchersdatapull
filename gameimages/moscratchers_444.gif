@@ -265,6 +265,13 @@
       <div class="scratchers-single__id">Game #444</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
+                              <a class="tag " href="#">No longer distributed</a>
+              
+                                            
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Celebrate the "Pawlidays" and win up to $1,000 with this $1 holiday Scratchers game featuring a flurry of furry friends!</p>
 
@@ -282,12 +289,12 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Mar. 08, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Sep. 04, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -340,42 +347,42 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$1</td>
             <td>909,779</td>
-            <td>473,316</td>
+            <td>470,621</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>259,898</td>
-            <td>130,892</td>
+            <td>130,073</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>207,940</td>
-            <td>100,642</td>
+            <td>100,030</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>103,955</td>
-            <td>49,205</td>
+            <td>48,878</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>117,018</td>
-            <td>52,848</td>
+            <td>52,556</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>38,990</td>
-            <td>16,790</td>
+            <td>16,694</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>6,274</td>
-            <td>2,608</td>
+            <td>2,595</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,613</td>
-            <td>642</td>
+            <td>639</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -385,7 +392,7 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$500</td>
             <td>36</td>
-            <td>13</td>
+            <td>12</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -399,8 +406,8 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,442,593</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,763,357</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,428,017</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,777,933</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -548,5 +555,5 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=34&cb=832534252" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=32&cb=1620469857" async></script></body>
 </html>

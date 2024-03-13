@@ -265,6 +265,13 @@
       <div class="scratchers-single__id">Game #441</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
+                              <a class="tag " href="#">No longer distributed</a>
+              
+                                            
+
+            </div>
                     <div class="scratchers-single__text">
             <p>This shiny $5 holiday Scratchers game offers top prizes up to $100,000!</p>
 
@@ -284,12 +291,12 @@ Reveal a "WREATH" symbol, WIN ALL 15 PRIZES!</p>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Mar. 08, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Sep. 04, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -342,32 +349,32 @@ Reveal a "WREATH" symbol, WIN ALL 15 PRIZES!</p>
                   <tr>
             <td>$5</td>
             <td>475,896</td>
-            <td>199,638</td>
+            <td>198,835</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>297,435</td>
-            <td>118,642</td>
+            <td>118,164</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>118,974</td>
-            <td>46,476</td>
+            <td>46,307</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>33,825</td>
-            <td>13,231</td>
+            <td>13,191</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>55,044</td>
-            <td>21,028</td>
+            <td>20,976</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>11,455</td>
-            <td>4,240</td>
+            <td>4,228</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -401,8 +408,8 @@ Reveal a "WREATH" symbol, WIN ALL 15 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,998,925</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,490,340</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,982,795</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,506,470</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -550,5 +557,5 @@ Reveal a "WREATH" symbol, WIN ALL 15 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=28&cb=855447060" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=26&cb=1181097948" async></script></body>
 </html>
