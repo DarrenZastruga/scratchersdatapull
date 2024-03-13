@@ -99,7 +99,16 @@ def exportNYScratcherRecs():
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','topprizeremain','startDate','lastdatetoclaim','overallodds','gameURL','gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, topprizeremain, startDate, lastdatetoclaim, overallodds, gameURL, gamePhoto]
 
-        tixdata = pd.json_normalize(s['odds_prizes'])
+        #get odds_prizes from json on game page
+        url = "https://nylottery.ny.gov/drupal-api/api/v2/scratch_off_game?game="+str(gameNumber)
+
+        payload={}
+        headers = {}
+    
+        r = requests.request("GET", url, headers=headers, data=payload)
+        response = r.json()
+        tixdata = pd.json_normalize(response['odds_prizes'])
+        print(tixdata)
 
         if len(tixdata) == 0:
             tixtables = tixtables.append([])
