@@ -71,8 +71,8 @@ def exportDCScratcherRecs():
     tixlist = pd.DataFrame()
     tixtables = pd.DataFrame()
     
-    #dclottery puts only 20 games on a page, so loop through each of 5 pages
-    for i in range(0,5):
+    #dclottery puts only 20 games on a page, so loop through each of 7 pages
+    for i in range(0,6):
         url = "https://dclottery.com/dc-scratchers?play_styles=All&theme=All&page="+str(i)
         r = requests.get(url)
         response = r.text
@@ -123,6 +123,7 @@ def exportDCScratcherRecs():
                         tixtables = tixtables.append([])
                     else:
                         tixdata.rename(columns={'Prize Amount':'prizeamount','Total Prizes': 'Winning Tickets At Start', 'Prizes Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
+                        print(tixdata.columns)
                         tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','',regex=False).str.replace(',','',regex=False)
                         tixdata['gameNumber'] = gameNumber
                         tixdata['gameName'] = gameName
@@ -157,6 +158,8 @@ def exportDCScratcherRecs():
                     print(tixlist)
 
     tixlist.to_csv("./DCtixlist.csv", encoding='utf-8')
+    print(tixtables.columns)
+    print(tixtables)
     tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
     scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizeodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]

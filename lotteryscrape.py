@@ -3007,8 +3007,8 @@ def exportDCScratcherRecs():
     tixlist = pd.DataFrame()
     tixtables = pd.DataFrame()
 
-    # dclottery puts only 20 games on a page, so loop through each of 5 pages
-    for i in range(0, 5):
+    # dclottery puts only 20 games on a page, so loop through each of 7 pages
+    for i in range(0, 6):
         url = "https://dclottery.com/dc-scratchers?play_styles=All&theme=All&page=" + \
             str(i)
         r = requests.get(url)
