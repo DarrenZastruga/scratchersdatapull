@@ -308,7 +308,7 @@
           </div>
         </div>
         <div class="scratchers-single__right">
-                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/389_p1.gif"><img src="/sites/default/files/scratchers/tile/389_p1_itvm_card.gif"></a>
+                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/389.png"><img src="/sites/default/files/scratchers/tile/389.png"></a>
                   </div>
       </div>
 
@@ -339,12 +339,12 @@
                   <tr>
             <td>$100</td>
             <td>176,234</td>
-            <td>33,748</td>
+            <td>32,145</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>105,743</td>
-            <td>20,245</td>
+            <td>19,325</td>
           </tr>
                 </tbody>
       </table>
@@ -353,8 +353,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$7,423,800</b></div>
-      <div class="h2">Total Prizes Won: <b>$31,348,200</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$7,079,500</b></div>
+      <div class="h2">Total Prizes Won: <b>$31,692,500</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -502,5 +502,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=116&cb=1290861485" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=114&cb=1164703285" async></script></body>
 </html>
