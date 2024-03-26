@@ -200,8 +200,8 @@
   <div class="welcome__header">Welcome!</div>
   <div class="welcome__body">
     <div class="welcome__columns">
-            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=index.php/scratchers/367" target="_blank">Sign Up</a></div>
-      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=index.php/scratchers/367" target="_blank">Log In</a></div>
+            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=scratchers/367" target="_blank">Sign Up</a></div>
+      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=scratchers/367" target="_blank">Log In</a></div>
       <meta content="">
     </div>
   </div>
@@ -370,27 +370,27 @@
                   <tr>
             <td>$50</td>
             <td>874,780</td>
-            <td>219,896</td>
+            <td>219,601</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>787,264</td>
-            <td>197,698</td>
+            <td>197,424</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>962,251</td>
-            <td>239,426</td>
+            <td>239,120</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>210,191</td>
-            <td>52,060</td>
+            <td>52,003</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>112,126</td>
-            <td>27,868</td>
+            <td>27,823</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -429,8 +429,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$85,585,280</b></div>
-      <div class="h2">Total Prizes Won: <b>$262,023,860</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$85,489,590</b></div>
+      <div class="h2">Total Prizes Won: <b>$262,119,550</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -578,5 +578,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=146&cb=1011166721" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=141&cb=1244976594" async></script></body>
 </html>

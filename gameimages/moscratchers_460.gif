@@ -351,12 +351,12 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
                   <tr>
             <td>$2</td>
             <td>376,080</td>
-            <td>376,036</td>
+            <td>376,032</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>175,504</td>
-            <td>175,488</td>
+            <td>175,485</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -405,8 +405,8 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,026,299</b></div>
-      <div class="h2">Total Prizes Won: <b>$512</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,026,279</b></div>
+      <div class="h2">Total Prizes Won: <b>$532</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -554,5 +554,5 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=1026880619" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=2093452013" async></script></body>
 </html>
