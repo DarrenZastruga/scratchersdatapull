@@ -92,7 +92,7 @@
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://vss.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -346,17 +346,17 @@
                   <tr>
             <td>$1</td>
             <td>1,072,307</td>
-            <td>286,878</td>
+            <td>286,861</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>429,005</td>
-            <td>105,702</td>
+            <td>105,698</td>
           </tr>
                   <tr>
             <td>$3</td>
             <td>61,292</td>
-            <td>14,619</td>
+            <td>14,618</td>
           </tr>
                   <tr>
             <td>$4</td>
@@ -366,7 +366,7 @@
                   <tr>
             <td>$5</td>
             <td>122,570</td>
-            <td>27,787</td>
+            <td>27,785</td>
           </tr>
                   <tr>
             <td>$6</td>
@@ -386,7 +386,7 @@
                   <tr>
             <td>$25</td>
             <td>30,639</td>
-            <td>6,347</td>
+            <td>6,346</td>
           </tr>
                   <tr>
             <td>$30</td>
@@ -435,8 +435,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,416,855</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,712,887</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,416,792</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,712,950</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -584,5 +584,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=140&cb=1316894693" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=135&cb=1680931555" async></script></body>
 </html>
