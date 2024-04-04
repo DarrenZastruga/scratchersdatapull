@@ -339,32 +339,32 @@
                   <tr>
             <td>$3</td>
             <td>906,801</td>
-            <td>165,454</td>
+            <td>165,416</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>884,417</td>
-            <td>140,131</td>
+            <td>140,078</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>226,897</td>
-            <td>32,951</td>
+            <td>32,938</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>181,280</td>
-            <td>28,553</td>
+            <td>28,546</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>45,293</td>
-            <td>6,451</td>
+            <td>6,449</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>90,694</td>
-            <td>13,165</td>
+            <td>13,156</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -374,7 +374,7 @@
                   <tr>
             <td>$60</td>
             <td>11,355</td>
-            <td>1,567</td>
+            <td>1,566</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -403,8 +403,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,816,123</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,184,173</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,815,232</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,185,064</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -552,5 +552,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=153&cb=558660206" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=154&cb=718148206" async></script></body>
 </html>
