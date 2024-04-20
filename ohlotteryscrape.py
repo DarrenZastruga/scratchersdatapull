@@ -35,14 +35,14 @@ powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
 
 def exportOHScratcherRecs():
 
-    urls = ['https://www.ohiolottery.com/Games/ScratchOffs/$1-Games',
-                'https://www.ohiolottery.com/Games/ScratchOffs/$2-Games',
-                'https://www.ohiolottery.com/Games/ScratchOffs/$3-Games',
-                'https://www.ohiolottery.com/Games/ScratchOffs/$5-Games',
-                'https://www.ohiolottery.com/Games/ScratchOffs/10DollarGames',
-                'https://www.ohiolottery.com/Games/ScratchOffs/20DollarGames',
-                'https://www.ohiolottery.com/Games/ScratchOffs/$30-Games',
-                'https://www.ohiolottery.com/Games/ScratchOffs/$50-Games']
+    urls = ['https://www.ohiolottery.com/games/scratch-offs/$1-games',
+                'https://www.ohiolottery.com/games/scratch-offs/$2-games',
+                'https://www.ohiolottery.com/games/scratch-offs/$3-games',
+                'https://www.ohiolottery.com/games/scratch-offs/$5-games',
+                'https://www.ohiolottery.com/games/scratch-offs/$10-games',
+                'https://www.ohiolottery.com/games/scratch-offs/$20-games',
+                'https://www.ohiolottery.com/games/scratch-offs/$30-games',
+                'https://www.ohiolottery.com/games/scratch-offs/$50-games']
     
     tixtables = pd.DataFrame()
     tixlist = pd.DataFrame()
@@ -51,10 +51,11 @@ def exportOHScratcherRecs():
         r = requests.get(u)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
-        if soup.find('div', class_='cf moduleContent') == None:
+        print(soup.find('div', class_='page_content cf'))
+        if soup.find('div', class_='page_content cf') == None:
             continue
         else: 
-            tables = soup.find('div', class_='cf moduleContent').find_all('li')
+            tables = soup.find('div', class_='page_content cf').find_all('li')
             for t in range(len(tables)): 
                 #get link from the main page, looping through each page for scratchers in price group
                 gameName = tables[t].find('a', class_='igName').text
@@ -119,10 +120,11 @@ def exportOHScratcherRecs():
                     tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'extrachances', 'secondChance', 'dateexported']] = [
                         gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, extrachances, secondChance, dateexported]
         
-    r = requests.get('https://www.ohiolottery.com/Games/ScratchOffs/Last-Day-to-Redeem')
+    r = requests.get('https://www.ohiolottery.com/games/scratch-offs/last-day-to-redeem')
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    lastdaytbl = pd.read_html(str(soup.find('div', class_='cf moduleContent').find('table', class_='purple_table igLDTR_tbl')))[0]
+    lastdaytbl = soup.find('div', class_='contentloader')
+    print(lastdaytbl)
     lastdaytbl.rename(columns={'Game Name':'gameName', 'Game #':'gameNumber', 'Cost': 'gamePrice', 'Last Day to Redeem': 'lastdatetoclaim'}, inplace=True)
     lastdaytbl['gameNumber'] = lastdaytbl['gameNumber'].astype('str')
     tixlist = tixlist.merge(lastdaytbl[['gameNumber', 'lastdatetoclaim']], how="left", on= "gameNumber")

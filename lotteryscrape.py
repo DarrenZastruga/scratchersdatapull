@@ -4731,7 +4731,7 @@ def exportOHScratcherRecs():
                     tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'extrachances', 'secondChance', 'dateexported']] = [
                         gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, extrachances, secondChance, dateexported]
             
-    r = requests.get('https://www.ohiolottery.com/Games/ScratchOffs/Last-Day-to-Redeem')
+    r = requests.get('https://www.ohiolottery.com/games/scratch-offs/last-day-to-redeem')
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
     lastdaytbl = pd.read_html(io.StringIO(str(soup.find('div', class_='cf moduleContent').find('table', class_='purple_table igLDTR_tbl'))))[0]
@@ -6773,7 +6773,7 @@ exportKSScratcherRecs()
 exportWAScratcherRecs()
 exportILScratcherRecs()
 #exportFLScratcherRecs()
-exportOHScratcherRecs()
+#exportOHScratcherRecs()
 exportKYScratcherRecs()
 exportORScratcherRecs()
 exportMSScratcherRecs()
