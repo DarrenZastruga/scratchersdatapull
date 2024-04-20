@@ -265,6 +265,13 @@
       <div class="scratchers-single__id">Game #401</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
+                              <a class="tag " href="#">No longer distributed</a>
+              
+                                            
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Win prizes of up to $1 million on this $10 game, with more than $30 million in available prizes!</p>
 
@@ -281,12 +288,12 @@
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Mar. 28, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Sep. 24, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -339,42 +346,42 @@
                   <tr>
             <td>$10</td>
             <td>597,743</td>
-            <td>119,958</td>
+            <td>119,503</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>224,276</td>
-            <td>44,583</td>
+            <td>44,426</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,916</td>
-            <td>57,398</td>
+            <td>57,178</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,548</td>
-            <td>9,219</td>
+            <td>9,188</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>44,862</td>
-            <td>8,457</td>
+            <td>8,430</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>74,729</td>
-            <td>14,063</td>
+            <td>14,018</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>74,729</td>
-            <td>13,954</td>
+            <td>13,917</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>5,124</td>
-            <td>972</td>
+            <td>970</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -403,8 +410,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,170,020</b></div>
-      <div class="h2">Total Prizes Won: <b>$27,930,780</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,150,180</b></div>
+      <div class="h2">Total Prizes Won: <b>$27,950,620</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -438,7 +445,7 @@
     
       <div class="content">
       
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLottery"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
       
     </div>
   </div>
@@ -552,5 +559,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=92&cb=1235277436" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=110&cb=1658428513" async></script></body>
 </html>
