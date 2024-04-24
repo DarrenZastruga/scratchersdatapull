@@ -347,37 +347,37 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$1</td>
             <td>909,779</td>
-            <td>460,923</td>
+            <td>460,783</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>259,898</td>
-            <td>127,195</td>
+            <td>127,155</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>207,940</td>
-            <td>97,803</td>
+            <td>97,775</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>103,955</td>
-            <td>47,751</td>
+            <td>47,735</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>117,018</td>
-            <td>51,510</td>
+            <td>51,491</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>38,990</td>
-            <td>16,385</td>
+            <td>16,381</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>6,274</td>
-            <td>2,535</td>
+            <td>2,534</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -406,8 +406,8 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,377,180</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,828,770</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,376,458</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,829,492</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -555,5 +555,5 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=40&cb=200752961" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=39&cb=401593273" async></script></body>
 </html>
