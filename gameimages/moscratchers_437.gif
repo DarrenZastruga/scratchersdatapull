@@ -322,7 +322,7 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
           </div>
         </div>
         <div class="scratchers-single__right">
-                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/437_front.png"><img src="/sites/default/files/scratchers/tile/437.png"></a>
+                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/437.png"><img src="/sites/default/files/scratchers/tile/437_itvm_card.png"></a>
                   </div>
       </div>
 
@@ -353,22 +353,22 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
                   <tr>
             <td>$20</td>
             <td>245,157</td>
-            <td>81,481</td>
+            <td>81,475</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>163,470</td>
-            <td>53,383</td>
+            <td>53,379</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>79,780</td>
-            <td>25,919</td>
+            <td>25,918</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>59,272</td>
-            <td>19,137</td>
+            <td>19,136</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -417,8 +417,8 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$8,258,990</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,549,450</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$8,258,560</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,549,880</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -566,5 +566,5 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=45&cb=431951226" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=41&cb=2120271757" async></script></body>
 </html>
