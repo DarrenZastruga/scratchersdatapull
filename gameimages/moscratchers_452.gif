@@ -341,52 +341,52 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$3</td>
             <td>654,885</td>
-            <td>385,281</td>
+            <td>383,742</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>638,460</td>
-            <td>366,190</td>
+            <td>364,632</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>163,656</td>
-            <td>92,616</td>
+            <td>92,188</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>131,015</td>
-            <td>74,827</td>
+            <td>74,498</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>32,764</td>
-            <td>18,384</td>
+            <td>18,306</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>65,487</td>
-            <td>36,764</td>
+            <td>36,606</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>10,937</td>
-            <td>6,088</td>
+            <td>6,056</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>8,181</td>
-            <td>4,538</td>
+            <td>4,522</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>8,407</td>
-            <td>4,687</td>
+            <td>4,673</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>543</td>
-            <td>304</td>
+            <td>302</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -405,8 +405,8 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$7,408,601</b></div>
-      <div class="h2">Total Prizes Won: <b>$5,583,742</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$7,378,126</b></div>
+      <div class="h2">Total Prizes Won: <b>$5,614,217</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -554,5 +554,5 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=31&cb=2094312975" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=36&cb=1434857317" async></script></body>
 </html>
