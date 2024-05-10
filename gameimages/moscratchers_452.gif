@@ -341,47 +341,47 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$3</td>
             <td>654,885</td>
-            <td>380,406</td>
+            <td>378,917</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>638,460</td>
-            <td>361,229</td>
+            <td>359,607</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>163,656</td>
-            <td>91,282</td>
+            <td>90,866</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>131,015</td>
-            <td>73,798</td>
+            <td>73,476</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>32,764</td>
-            <td>18,145</td>
+            <td>18,081</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>65,487</td>
-            <td>36,260</td>
+            <td>36,112</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>10,937</td>
-            <td>5,991</td>
+            <td>5,967</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>8,181</td>
-            <td>4,485</td>
+            <td>4,462</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>8,407</td>
-            <td>4,627</td>
+            <td>4,604</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -405,8 +405,8 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$7,310,980</b></div>
-      <div class="h2">Total Prizes Won: <b>$5,681,363</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$7,280,953</b></div>
+      <div class="h2">Total Prizes Won: <b>$5,711,390</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -554,5 +554,5 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=35&cb=514617722" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=32&cb=486497378" async></script></body>
 </html>

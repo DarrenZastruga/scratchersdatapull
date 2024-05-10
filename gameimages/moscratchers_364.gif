@@ -339,37 +339,37 @@
                   <tr>
             <td>$3</td>
             <td>906,801</td>
-            <td>164,122</td>
+            <td>164,083</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>884,417</td>
-            <td>138,823</td>
+            <td>138,786</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>226,897</td>
-            <td>32,596</td>
+            <td>32,588</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>181,280</td>
-            <td>28,304</td>
+            <td>28,297</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>45,293</td>
-            <td>6,384</td>
+            <td>6,381</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>90,694</td>
-            <td>13,023</td>
+            <td>13,021</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>15,129</td>
-            <td>2,107</td>
+            <td>2,106</td>
           </tr>
                   <tr>
             <td>$60</td>
@@ -379,7 +379,7 @@
                   <tr>
             <td>$100</td>
             <td>11,627</td>
-            <td>1,636</td>
+            <td>1,634</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -403,8 +403,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,791,122</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,209,174</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,790,303</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,209,993</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -552,5 +552,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=111&cb=1898713869" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=160&cb=841012468" async></script></body>
 </html>
