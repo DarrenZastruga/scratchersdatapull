@@ -347,32 +347,32 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$1</td>
             <td>909,779</td>
-            <td>458,888</td>
+            <td>458,802</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>259,898</td>
-            <td>126,564</td>
+            <td>126,543</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>207,940</td>
-            <td>97,386</td>
+            <td>97,369</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>103,955</td>
-            <td>47,507</td>
+            <td>47,496</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>117,018</td>
-            <td>51,254</td>
+            <td>51,247</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>38,990</td>
-            <td>16,321</td>
+            <td>16,318</td>
           </tr>
                   <tr>
             <td>$40</td>
@@ -382,7 +382,7 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$100</td>
             <td>1,613</td>
-            <td>626</td>
+            <td>625</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -406,8 +406,8 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,366,955</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,838,995</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,366,474</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,839,476</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -555,5 +555,5 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=46&cb=115541195" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=48&cb=1402903163" async></script></body>
 </html>
