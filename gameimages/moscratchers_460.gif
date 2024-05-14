@@ -265,6 +265,12 @@
       <div class="scratchers-single__id">Game #460</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+              
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Multiply your prizes up to 10X in this $1 game featuring prizes of up to $5,000!</p>
 
@@ -321,6 +327,27 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -340,42 +367,42 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
                   <tr>
             <td>$1</td>
             <td>877,520</td>
-            <td>642,069</td>
+            <td>628,545</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>376,080</td>
-            <td>270,452</td>
+            <td>264,362</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>175,504</td>
-            <td>124,914</td>
+            <td>122,025</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>50,144</td>
-            <td>35,538</td>
+            <td>34,696</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>87,796</td>
-            <td>61,417</td>
+            <td>59,938</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>31,318</td>
-            <td>21,744</td>
+            <td>21,190</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>27,439</td>
-            <td>18,929</td>
+            <td>18,498</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,046</td>
-            <td>1,387</td>
+            <td>1,355</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -399,8 +426,8 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,555,794</b></div>
-      <div class="h2">Total Prizes Won: <b>$1,471,017</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,474,479</b></div>
+      <div class="h2">Total Prizes Won: <b>$1,552,332</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -548,5 +575,5 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=195757563" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=120283241" async></script></body>
 </html>

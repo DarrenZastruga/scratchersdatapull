@@ -269,7 +269,8 @@
                               <a class="tag tag_orange" href="#">Expires soon</a>
                               <a class="tag " href="#">No longer distributed</a>
               
-                                            
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
 
             </div>
                     <div class="scratchers-single__text">
@@ -328,6 +329,27 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -347,42 +369,42 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$1</td>
             <td>909,779</td>
-            <td>458,802</td>
+            <td>458,399</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>259,898</td>
-            <td>126,543</td>
+            <td>126,427</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>207,940</td>
-            <td>97,369</td>
+            <td>97,282</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>103,955</td>
-            <td>47,496</td>
+            <td>47,442</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>117,018</td>
-            <td>51,247</td>
+            <td>51,199</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>38,990</td>
-            <td>16,318</td>
+            <td>16,305</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>6,274</td>
-            <td>2,530</td>
+            <td>2,529</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,613</td>
-            <td>625</td>
+            <td>624</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -406,8 +428,8 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,366,474</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,839,476</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,364,341</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,841,609</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -555,5 +577,5 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=48&cb=1402903163" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=48&cb=261738921" async></script></body>
 </html>

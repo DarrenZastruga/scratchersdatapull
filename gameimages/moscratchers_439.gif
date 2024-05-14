@@ -265,6 +265,12 @@
       <div class="scratchers-single__id">Game #439</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+              
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Win prizes of up to $6,000 in the $1 game.</p>
 
@@ -322,6 +328,27 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -341,67 +368,67 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
                   <tr>
             <td>$1</td>
             <td>964,833</td>
-            <td>380,081</td>
+            <td>378,179</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>385,847</td>
-            <td>144,603</td>
+            <td>143,885</td>
           </tr>
                   <tr>
             <td>$3</td>
             <td>55,118</td>
-            <td>20,307</td>
+            <td>20,212</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>55,113</td>
-            <td>19,863</td>
+            <td>19,757</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>110,248</td>
-            <td>38,924</td>
+            <td>38,697</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>13,797</td>
-            <td>4,846</td>
+            <td>4,825</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>55,130</td>
-            <td>19,074</td>
+            <td>18,969</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>68,927</td>
-            <td>23,289</td>
+            <td>23,150</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>27,565</td>
-            <td>8,847</td>
+            <td>8,784</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>11,380</td>
-            <td>3,723</td>
+            <td>3,708</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>4,853</td>
-            <td>1,531</td>
+            <td>1,516</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,073</td>
-            <td>640</td>
+            <td>638</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>55</td>
-            <td>17</td>
+            <td>16</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -430,8 +457,8 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,945,827</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,575,943</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,934,709</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,587,061</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -579,5 +606,5 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=54&cb=1482452943" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=54&cb=1943211063" async></script></body>
 </html>

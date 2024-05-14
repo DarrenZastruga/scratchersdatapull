@@ -265,6 +265,12 @@
       <div class="scratchers-single__id">Game #438</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+              
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Multiply your prize as you play for prizes of up to $100,000 in this fast-paced $5 game!</p>
 
@@ -321,6 +327,27 @@ If you win, multiply your prize by the Multiplier number.</p>
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -340,37 +367,37 @@ If you win, multiply your prize by the Multiplier number.</p>
                   <tr>
             <td>$10</td>
             <td>721,638</td>
-            <td>165,595</td>
+            <td>163,015</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>113,948</td>
-            <td>25,074</td>
+            <td>24,626</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>37,886</td>
-            <td>8,791</td>
+            <td>8,664</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>38,077</td>
-            <td>7,709</td>
+            <td>7,578</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>11,421</td>
-            <td>2,584</td>
+            <td>2,555</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,036</td>
-            <td>610</td>
+            <td>598</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,708</td>
-            <td>3,328</td>
+            <td>3,266</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -385,7 +412,7 @@ If you win, multiply your prize by the Multiplier number.</p>
                   <tr>
             <td>$1,000</td>
             <td>172</td>
-            <td>43</td>
+            <td>42</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -409,8 +436,8 @@ If you win, multiply your prize by the Multiplier number.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,548,415</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,031,105</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,495,690</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,083,830</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -558,5 +585,5 @@ If you win, multiply your prize by the Multiplier number.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=52&cb=1067424470" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=52&cb=1156373772" async></script></body>
 </html>

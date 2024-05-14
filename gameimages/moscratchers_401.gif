@@ -269,7 +269,8 @@
                               <a class="tag tag_orange" href="#">Expires soon</a>
                               <a class="tag " href="#">No longer distributed</a>
               
-                                            
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
 
             </div>
                     <div class="scratchers-single__text">
@@ -327,6 +328,27 @@
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -346,17 +368,17 @@
                   <tr>
             <td>$10</td>
             <td>597,743</td>
-            <td>119,184</td>
+            <td>119,157</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>224,276</td>
-            <td>44,330</td>
+            <td>44,319</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,916</td>
-            <td>57,059</td>
+            <td>57,052</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -366,12 +388,12 @@
                   <tr>
             <td>$30</td>
             <td>44,862</td>
-            <td>8,412</td>
+            <td>8,411</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>74,729</td>
-            <td>14,002</td>
+            <td>14,000</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -410,8 +432,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,139,480</b></div>
-      <div class="h2">Total Prizes Won: <b>$27,961,320</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,138,775</b></div>
+      <div class="h2">Total Prizes Won: <b>$27,962,025</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -559,5 +581,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=108&cb=532894321" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=108&cb=531654736" async></script></body>
 </html>

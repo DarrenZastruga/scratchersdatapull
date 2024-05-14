@@ -265,6 +265,12 @@
       <div class="scratchers-single__id">Game #434</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+              
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Multiply your prizes up to 100 TIMES in this $10 game featuring top prizes of up to $1 million!</p>
 
@@ -325,6 +331,27 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -344,52 +371,52 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
                   <tr>
             <td>$10</td>
             <td>610,838</td>
-            <td>389,923</td>
+            <td>383,609</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>229,086</td>
-            <td>145,785</td>
+            <td>143,405</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>305,477</td>
-            <td>193,137</td>
+            <td>189,942</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>49,570</td>
-            <td>31,281</td>
+            <td>30,742</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>45,904</td>
-            <td>28,867</td>
+            <td>28,401</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>76,362</td>
-            <td>47,969</td>
+            <td>47,169</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>76,362</td>
-            <td>47,858</td>
+            <td>47,050</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,582</td>
-            <td>2,861</td>
+            <td>2,807</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,622</td>
-            <td>1,022</td>
+            <td>1,008</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>751</td>
-            <td>486</td>
+            <td>480</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -413,8 +440,8 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$21,760,230</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,943,050</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$21,425,435</b></div>
+      <div class="h2">Total Prizes Won: <b>$13,277,845</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -562,5 +589,5 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=16&cb=1226933622" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=16&cb=78311842" async></script></body>
 </html>

@@ -265,6 +265,12 @@
       <div class="scratchers-single__id">Game #447</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+              
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Look out for chances to multiply prizes on this $20 ticket by up to&nbsp;<strong>200X</strong>&nbsp;as you play for top prizes of up to $2 million!</p>
 
@@ -326,6 +332,27 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -345,42 +372,42 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
                   <tr>
             <td>$20</td>
             <td>462,012</td>
-            <td>248,661</td>
+            <td>244,604</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>326,202</td>
-            <td>174,053</td>
+            <td>171,162</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>140,149</td>
-            <td>74,291</td>
+            <td>73,033</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>118,266</td>
-            <td>62,617</td>
+            <td>61,566</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>7,546</td>
-            <td>4,014</td>
+            <td>3,946</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>4,486</td>
-            <td>2,376</td>
+            <td>2,346</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>1,086</td>
-            <td>614</td>
+            <td>607</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>25</td>
-            <td>13</td>
+            <td>12</td>
           </tr>
                   <tr>
             <td>$10,000</td>
@@ -409,8 +436,8 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$26,911,390</b></div>
-      <div class="h2">Total Prizes Won: <b>$23,784,180</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$26,506,010</b></div>
+      <div class="h2">Total Prizes Won: <b>$24,189,560</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -558,5 +585,5 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=24&cb=2130156494" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=24&cb=1151193056" async></script></body>
 </html>

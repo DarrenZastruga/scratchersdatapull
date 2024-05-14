@@ -265,6 +265,12 @@
       <div class="scratchers-single__id">Game #428</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+              
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
+
+            </div>
                     <div class="scratchers-single__text">
             <p>With over $10 million in $77 prizes, this $10 ticket offers top cash prizes up to $777,777!</p>
 
@@ -323,6 +329,27 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -342,27 +369,27 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$10</td>
             <td>604,864</td>
-            <td>117,000</td>
+            <td>116,725</td>
           </tr>
                   <tr>
             <td>$17</td>
             <td>529,256</td>
-            <td>96,156</td>
+            <td>95,913</td>
           </tr>
                   <tr>
             <td>$27</td>
             <td>113,378</td>
-            <td>20,508</td>
+            <td>20,460</td>
           </tr>
                   <tr>
             <td>$77</td>
             <td>151,216</td>
-            <td>25,435</td>
+            <td>25,383</td>
           </tr>
                   <tr>
             <td>$177</td>
             <td>6,064</td>
-            <td>1,030</td>
+            <td>1,028</td>
           </tr>
                   <tr>
             <td>$277</td>
@@ -401,8 +428,8 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,775,356</b></div>
-      <div class="h2">Total Prizes Won: <b>$28,101,959</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,762,821</b></div>
+      <div class="h2">Total Prizes Won: <b>$28,114,494</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -550,5 +577,5 @@ Reveal a RED "777" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=60&cb=652549794" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=60&cb=1678940758" async></script></body>
 </html>

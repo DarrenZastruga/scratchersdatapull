@@ -265,6 +265,12 @@
       <div class="scratchers-single__id">Game #455</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
+                      <div class="scratchers-single__tags tags">
+              
+                                                                    <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
+                                                
+
+            </div>
                     <div class="scratchers-single__text">
             <p>Look for the chance to double your prizes on this $1 ticket with top prizes of up to $3,000!</p>
 
@@ -321,6 +327,27 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
     </div>
 </div>
 
+<div class="scratchers-single-promo-wrapper">
+    <div class="scratchers-single-promo scratchers-single-promo_blue scratchers-single-promo_right">
+    <div class="container">
+      <div class="scratchers-single-promo__banner">
+                <img src="/sites/default/files/scratchers/promotions/5.ChooseYourDreamAdventurePrizeThumbnail.png" alt="" typeof="foaf:Image" />
+
+              </div>
+      <div class="scratchers-single-promo__text">
+        <h2 class="h1">Choose Your Dream Adventure Promotion</h2>
+
+        <div class="scratchers-single-promo__subtitle"></div>
+
+                  <div class="btn-wrapper btn-wrapper_center">
+            <a href="https://playersclub.molottery.com/second-chance-promotion?id=13" class="btn btn_yellow  btn_text-s-18 btn_text-w-500 btn_medium">Details</a>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 <div class="container">
   <p>&nbsp;</p>
@@ -340,57 +367,57 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
                   <tr>
             <td>$1</td>
             <td>901,915</td>
-            <td>538,643</td>
+            <td>530,641</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>386,471</td>
-            <td>226,184</td>
+            <td>222,678</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>180,415</td>
-            <td>103,719</td>
+            <td>102,102</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>51,538</td>
-            <td>29,341</td>
+            <td>28,866</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>90,136</td>
-            <td>50,569</td>
+            <td>49,684</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>32,239</td>
-            <td>17,711</td>
+            <td>17,414</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>9,666</td>
-            <td>5,274</td>
+            <td>5,182</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>4,384</td>
-            <td>2,379</td>
+            <td>2,337</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,789</td>
-            <td>970</td>
+            <td>949</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>390</td>
-            <td>212</td>
+            <td>208</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>132</td>
-            <td>72</td>
+            <td>69</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -409,8 +436,8 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,937,812</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,223,275</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,888,985</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,272,102</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -558,5 +585,5 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=1135749935" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=1235052901" async></script></body>
 </html>
