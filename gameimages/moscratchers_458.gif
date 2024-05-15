@@ -367,42 +367,42 @@ If you win, multiply your prize by the Multiplier number.</p>
                   <tr>
             <td>$2</td>
             <td>582,079</td>
-            <td>365,896</td>
+            <td>364,010</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>426,853</td>
-            <td>265,353</td>
+            <td>263,950</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>116,415</td>
-            <td>71,818</td>
+            <td>71,410</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>116,415</td>
-            <td>70,807</td>
+            <td>70,378</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>38,805</td>
-            <td>23,454</td>
+            <td>23,334</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>15,864</td>
-            <td>9,488</td>
+            <td>9,432</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>7,790</td>
-            <td>4,640</td>
+            <td>4,610</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,004</td>
-            <td>596</td>
+            <td>593</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -412,7 +412,7 @@ If you win, multiply your prize by the Multiplier number.</p>
                   <tr>
             <td>$5,000</td>
             <td>9</td>
-            <td>7</td>
+            <td>6</td>
           </tr>
                   <tr>
             <td>$25,000</td>
@@ -426,8 +426,8 @@ If you win, multiply your prize by the Multiplier number.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,712,844</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,021,251</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,682,430</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,051,665</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -575,5 +575,5 @@ If you win, multiply your prize by the Multiplier number.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=12&cb=717277164" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=12&cb=1385300621" async></script></body>
 </html>
