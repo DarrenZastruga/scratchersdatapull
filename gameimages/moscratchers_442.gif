@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -370,32 +370,32 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$3</td>
             <td>352,444</td>
-            <td>186,245</td>
+            <td>186,178</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>343,540</td>
-            <td>173,421</td>
+            <td>173,351</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>88,093</td>
-            <td>43,568</td>
+            <td>43,545</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>70,501</td>
-            <td>34,828</td>
+            <td>34,818</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>17,630</td>
-            <td>8,415</td>
+            <td>8,413</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>35,241</td>
-            <td>16,826</td>
+            <td>16,819</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -434,8 +434,8 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,469,243</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,537,346</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,468,143</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,538,446</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -583,5 +583,5 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=38&cb=1081136618" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=39&cb=573012144" async></script></body>
 </html>

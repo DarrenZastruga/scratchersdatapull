@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,17 +368,17 @@
                   <tr>
             <td>$1</td>
             <td>1,257,025</td>
-            <td>520,260</td>
+            <td>520,243</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>538,635</td>
-            <td>214,894</td>
+            <td>214,885</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>251,450</td>
-            <td>97,840</td>
+            <td>97,837</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -408,7 +408,7 @@
                   <tr>
             <td>$100</td>
             <td>2,467</td>
-            <td>902</td>
+            <td>901</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -437,8 +437,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,777,023</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,408,882</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,776,876</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,409,029</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -586,5 +586,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=148&cb=128029204" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=149&cb=2589386" async></script></body>
 </html>
