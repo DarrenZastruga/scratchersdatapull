@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,7 +368,7 @@
                   <tr>
             <td>$2</td>
             <td>730,563</td>
-            <td>159,392</td>
+            <td>159,391</td>
           </tr>
                   <tr>
             <td>$4</td>
@@ -427,8 +427,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,941,317</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,765,606</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,941,315</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,765,608</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -576,5 +576,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=143&cb=2112926849" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=138&cb=1788280768" async></script></body>
 </html>

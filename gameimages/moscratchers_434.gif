@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,57 +371,57 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
                   <tr>
             <td>$10</td>
             <td>610,838</td>
-            <td>369,491</td>
+            <td>367,635</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>229,086</td>
-            <td>138,161</td>
+            <td>137,476</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>305,477</td>
-            <td>182,840</td>
+            <td>181,877</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>49,570</td>
-            <td>29,563</td>
+            <td>29,412</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>45,904</td>
-            <td>27,358</td>
+            <td>27,225</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>76,362</td>
-            <td>45,370</td>
+            <td>45,146</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>76,362</td>
-            <td>45,280</td>
+            <td>45,045</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,582</td>
-            <td>2,703</td>
+            <td>2,690</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,622</td>
-            <td>970</td>
+            <td>967</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>751</td>
-            <td>461</td>
+            <td>457</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>50</td>
-            <td>32</td>
+            <td>31</td>
           </tr>
                   <tr>
             <td>$50,000</td>
@@ -440,8 +440,8 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$20,677,040</b></div>
-      <div class="h2">Total Prizes Won: <b>$14,026,240</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$20,573,380</b></div>
+      <div class="h2">Total Prizes Won: <b>$14,129,900</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=13&cb=1454271763" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=18&cb=1056817090" async></script></body>
 </html>

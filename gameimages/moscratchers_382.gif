@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,22 +368,22 @@
                   <tr>
             <td>$1</td>
             <td>1,197,446</td>
-            <td>316,468</td>
+            <td>316,466</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>520,496</td>
-            <td>124,854</td>
+            <td>124,852</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>243,058</td>
-            <td>55,702</td>
+            <td>55,701</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>69,386</td>
-            <td>15,574</td>
+            <td>15,573</td>
           </tr>
                   <tr>
             <td>$10</td>
@@ -427,8 +427,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,581,989</b></div>
-      <div class="h2">Total Prizes Won: <b>$5,340,556</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,581,974</b></div>
+      <div class="h2">Total Prizes Won: <b>$5,340,571</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -576,5 +576,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=137&cb=1550156103" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=132&cb=1040902283" async></script></body>
 </html>

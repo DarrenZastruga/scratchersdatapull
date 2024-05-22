@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,42 +368,42 @@
                   <tr>
             <td>$10</td>
             <td>615,888</td>
-            <td>173,442</td>
+            <td>173,388</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>230,958</td>
-            <td>64,210</td>
+            <td>64,200</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>307,944</td>
-            <td>84,371</td>
+            <td>84,347</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,019</td>
-            <td>13,633</td>
+            <td>13,632</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>46,159</td>
-            <td>12,569</td>
+            <td>12,565</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>153,972</td>
-            <td>47,210</td>
+            <td>47,198</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>38,563</td>
-            <td>10,456</td>
+            <td>10,452</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,600</td>
-            <td>1,246</td>
+            <td>1,245</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -437,8 +437,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$10,242,685</b></div>
-      <div class="h2">Total Prizes Won: <b>$24,720,590</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,240,170</b></div>
+      <div class="h2">Total Prizes Won: <b>$24,723,105</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -586,5 +586,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=161&cb=1628442683" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=156&cb=776982391" async></script></body>
 </html>

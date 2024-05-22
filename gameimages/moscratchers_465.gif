@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -369,47 +369,47 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
                   <tr>
             <td>$5</td>
             <td>586,512</td>
-            <td>554,344</td>
+            <td>552,656</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,476</td>
-            <td>237,308</td>
+            <td>236,589</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,397</td>
-            <td>237,001</td>
+            <td>236,240</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,830</td>
-            <td>59,026</td>
+            <td>58,841</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,322</td>
-            <td>47,337</td>
+            <td>47,180</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,197</td>
-            <td>3,952</td>
+            <td>3,943</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>41,901</td>
-            <td>39,398</td>
+            <td>39,262</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,360</td>
-            <td>3,167</td>
+            <td>3,161</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,723</td>
-            <td>13,847</td>
+            <td>13,812</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -424,7 +424,7 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
                   <tr>
             <td>$1,000</td>
             <td>129</td>
-            <td>123</td>
+            <td>122</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -463,8 +463,8 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$16,189,345</b></div>
-      <div class="h2">Total Prizes Won: <b>$930,240</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$16,142,655</b></div>
+      <div class="h2">Total Prizes Won: <b>$976,930</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -612,5 +612,5 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=7&cb=209913135" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=7&cb=1682383107" async></script></body>
 </html>

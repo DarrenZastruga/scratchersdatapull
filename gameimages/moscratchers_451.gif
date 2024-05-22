@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -370,42 +370,42 @@ Reveal a "CASH" symbol, WIN ALL 5 PRIZES!</p>
                   <tr>
             <td>$1</td>
             <td>946,425</td>
-            <td>462,504</td>
+            <td>461,089</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>411,407</td>
-            <td>199,325</td>
+            <td>198,714</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>192,084</td>
-            <td>89,121</td>
+            <td>88,836</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>54,866</td>
-            <td>25,562</td>
+            <td>25,473</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>61,722</td>
-            <td>27,783</td>
+            <td>27,704</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>27,433</td>
-            <td>12,328</td>
+            <td>12,278</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>54,866</td>
-            <td>24,052</td>
+            <td>23,969</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,213</td>
-            <td>950</td>
+            <td>947</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -429,8 +429,8 @@ Reveal a "CASH" symbol, WIN ALL 5 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,528,998</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,960,572</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,520,861</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,968,709</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -578,5 +578,5 @@ Reveal a "CASH" symbol, WIN ALL 5 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=27&cb=1222328077" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=34&cb=1303690322" async></script></body>
 </html>

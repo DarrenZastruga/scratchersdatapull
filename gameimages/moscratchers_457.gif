@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -376,37 +376,37 @@
                   <tr>
             <td>$5</td>
             <td>381,864</td>
-            <td>89,969</td>
+            <td>89,154</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>218,208</td>
-            <td>58,060</td>
+            <td>57,577</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>109,104</td>
-            <td>23,500</td>
+            <td>23,278</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>54,552</td>
-            <td>12,536</td>
+            <td>12,418</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>16,338</td>
-            <td>3,323</td>
+            <td>3,279</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>32,691</td>
-            <td>7,273</td>
+            <td>7,195</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>13,704</td>
-            <td>2,649</td>
+            <td>2,621</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -440,8 +440,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,452,585</b></div>
-      <div class="h2">Total Prizes Won: <b>$8,703,265</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,429,380</b></div>
+      <div class="h2">Total Prizes Won: <b>$8,726,470</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=11&cb=1830137582" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=14&cb=131106343" async></script></body>
 </html>

@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -374,22 +374,22 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$5</td>
             <td>646,304</td>
-            <td>64,812</td>
+            <td>64,783</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>276,876</td>
-            <td>18,444</td>
+            <td>18,435</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>277,021</td>
-            <td>15,087</td>
+            <td>15,080</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>69,239</td>
-            <td>4,264</td>
+            <td>4,263</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -404,7 +404,7 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$50</td>
             <td>13,810</td>
-            <td>808</td>
+            <td>807</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -453,8 +453,8 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,281,155</b></div>
-      <div class="h2">Total Prizes Won: <b>$17,879,285</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,280,745</b></div>
+      <div class="h2">Total Prizes Won: <b>$17,879,695</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -602,5 +602,5 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=73&cb=1516590174" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=80&cb=782890363" async></script></body>
 </html>
