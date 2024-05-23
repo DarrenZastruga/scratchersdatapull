@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -372,32 +372,32 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
                   <tr>
             <td>$20</td>
             <td>462,012</td>
-            <td>234,403</td>
+            <td>233,190</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>326,202</td>
-            <td>163,790</td>
+            <td>162,902</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>140,149</td>
-            <td>69,845</td>
+            <td>69,472</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>118,266</td>
-            <td>58,889</td>
+            <td>58,586</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>7,546</td>
-            <td>3,771</td>
+            <td>3,750</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>4,486</td>
-            <td>2,269</td>
+            <td>2,258</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -436,8 +436,8 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$25,473,510</b></div>
-      <div class="h2">Total Prizes Won: <b>$25,222,060</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$25,355,080</b></div>
+      <div class="h2">Total Prizes Won: <b>$25,340,490</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -471,7 +471,7 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
     
       <div class="content">
       
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://x.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
       
     </div>
   </div>
@@ -585,5 +585,5 @@ Reveal a "200X" symbol, win 200 TIMES the prize.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=26&cb=373221638" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=28&cb=363620349" async></script></body>
 </html>

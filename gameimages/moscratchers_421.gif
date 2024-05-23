@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -389,37 +389,37 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50</td>
             <td>392,929</td>
-            <td>216,823</td>
+            <td>216,417</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>654,962</td>
-            <td>360,852</td>
+            <td>360,221</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>917,236</td>
-            <td>502,801</td>
+            <td>501,878</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>52,409</td>
-            <td>28,703</td>
+            <td>28,666</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>128,761</td>
-            <td>70,716</td>
+            <td>70,585</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>2,622</td>
-            <td>1,481</td>
+            <td>1,479</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>700</td>
-            <td>390</td>
+            <td>389</td>
           </tr>
                   <tr>
             <td>$10,000</td>
@@ -448,8 +448,8 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$137,081,970</b></div>
-      <div class="h2">Total Prizes Won: <b>$120,570,100</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$136,851,610</b></div>
+      <div class="h2">Total Prizes Won: <b>$120,800,460</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -483,7 +483,7 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
     
       <div class="content">
       
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://x.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
       
     </div>
   </div>
@@ -597,5 +597,5 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=84&cb=67638794" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=86&cb=1524460003" async></script></body>
 </html>

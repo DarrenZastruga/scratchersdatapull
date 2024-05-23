@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -399,47 +399,47 @@ Reveal a "300" symbol, win $300.</p>
                   <tr>
             <td>$30</td>
             <td>442,463</td>
-            <td>360,831</td>
+            <td>360,354</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>353,818</td>
-            <td>288,088</td>
+            <td>287,673</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>353,783</td>
-            <td>287,629</td>
+            <td>287,227</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>265,387</td>
-            <td>215,804</td>
+            <td>215,479</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>221,153</td>
-            <td>179,621</td>
+            <td>179,373</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>17,690</td>
-            <td>14,400</td>
+            <td>14,374</td>
           </tr>
                   <tr>
             <td>$300</td>
             <td>7,755</td>
-            <td>6,325</td>
+            <td>6,316</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>16,055</td>
-            <td>13,047</td>
+            <td>13,032</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>94</td>
-            <td>79</td>
+            <td>78</td>
           </tr>
                   <tr>
             <td>$3,000</td>
@@ -473,8 +473,8 @@ Reveal a "300" symbol, win $300.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$85,953,240</b></div>
-      <div class="h2">Total Prizes Won: <b>$21,270,040</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$85,841,530</b></div>
+      <div class="h2">Total Prizes Won: <b>$21,381,750</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -508,7 +508,7 @@ Reveal a "300" symbol, win $300.</p>
     
       <div class="content">
       
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://x.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
       
     </div>
   </div>
@@ -622,5 +622,5 @@ Reveal a "300" symbol, win $300.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=20&cb=1146625309" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=459549264" async></script></body>
 </html>

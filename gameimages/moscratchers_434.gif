@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,57 +371,57 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
                   <tr>
             <td>$10</td>
             <td>610,838</td>
-            <td>367,635</td>
+            <td>365,872</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>229,086</td>
-            <td>137,476</td>
+            <td>136,824</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>305,477</td>
-            <td>181,877</td>
+            <td>180,965</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>49,570</td>
-            <td>29,412</td>
+            <td>29,276</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>45,904</td>
-            <td>27,225</td>
+            <td>27,102</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>76,362</td>
-            <td>45,146</td>
+            <td>44,908</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>76,362</td>
-            <td>45,045</td>
+            <td>44,803</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,582</td>
-            <td>2,690</td>
+            <td>2,679</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,622</td>
-            <td>967</td>
+            <td>961</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>751</td>
-            <td>457</td>
+            <td>451</td>
           </tr>
                   <tr>
             <td>$5,000</td>
             <td>50</td>
-            <td>31</td>
+            <td>30</td>
           </tr>
                   <tr>
             <td>$50,000</td>
@@ -440,8 +440,8 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$20,573,380</b></div>
-      <div class="h2">Total Prizes Won: <b>$14,129,900</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$20,468,340</b></div>
+      <div class="h2">Total Prizes Won: <b>$14,234,940</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -475,7 +475,7 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
     
       <div class="content">
       
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://x.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
       
     </div>
   </div>
@@ -589,5 +589,5 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=18&cb=1056817090" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=20&cb=663048669" async></script></body>
 </html>

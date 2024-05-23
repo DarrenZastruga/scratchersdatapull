@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,62 +368,62 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
                   <tr>
             <td>$1</td>
             <td>964,833</td>
-            <td>373,253</td>
+            <td>372,717</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>385,847</td>
-            <td>141,968</td>
+            <td>141,743</td>
           </tr>
                   <tr>
             <td>$3</td>
             <td>55,118</td>
-            <td>19,916</td>
+            <td>19,886</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>55,113</td>
-            <td>19,464</td>
+            <td>19,431</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>110,248</td>
-            <td>38,114</td>
+            <td>38,052</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>13,797</td>
-            <td>4,749</td>
+            <td>4,743</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>55,130</td>
-            <td>18,719</td>
+            <td>18,691</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>68,927</td>
-            <td>22,818</td>
+            <td>22,780</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>27,565</td>
-            <td>8,653</td>
+            <td>8,634</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>11,380</td>
-            <td>3,655</td>
+            <td>3,653</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>4,853</td>
-            <td>1,493</td>
+            <td>1,490</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,073</td>
-            <td>626</td>
+            <td>625</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -457,8 +457,8 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,906,233</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,615,537</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,903,262</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,618,508</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -492,7 +492,7 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
     
       <div class="content">
       
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://x.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
       
     </div>
   </div>
@@ -606,5 +606,5 @@ Reveal a "3X" symbol, and win TRIPLE the prize shown.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=56&cb=259653080" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=58&cb=1216613714" async></script></body>
 </html>

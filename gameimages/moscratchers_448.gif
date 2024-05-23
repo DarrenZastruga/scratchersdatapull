@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,52 +371,52 @@ Reveal a "CASH" symbol, WIN ALL 20 PRIZES!</p>
                   <tr>
             <td>$10</td>
             <td>602,104</td>
-            <td>318,534</td>
+            <td>317,549</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>225,789</td>
-            <td>118,593</td>
+            <td>118,289</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>301,052</td>
-            <td>157,222</td>
+            <td>156,761</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,981</td>
-            <td>25,415</td>
+            <td>25,322</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>45,123</td>
-            <td>23,492</td>
+            <td>23,423</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>150,526</td>
-            <td>77,946</td>
+            <td>77,711</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>37,682</td>
-            <td>19,461</td>
+            <td>19,412</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,532</td>
-            <td>2,367</td>
+            <td>2,358</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,575</td>
-            <td>803</td>
+            <td>800</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>739</td>
-            <td>395</td>
+            <td>394</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -440,8 +440,8 @@ Reveal a "CASH" symbol, WIN ALL 20 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$17,742,110</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,492,420</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$17,693,135</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,541,395</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -475,7 +475,7 @@ Reveal a "CASH" symbol, WIN ALL 20 PRIZES!</p>
     
       <div class="content">
       
-            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://twitter.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><a href="https://x.com/MissouriLottery"><img src="/sites/default/files/images/icon_tw.svg"></a><a href="https://www.facebook.com/MOLotteryOfficial"><img src="/sites/default/files/images/icon_fb.svg"></a><a href="https://youtube.com/MissouriLotteryOfficial"><img src="/sites/default/files/images/icon_yt.svg"></a><a href="https://888betsoff.org/"><img src="/sites/default/files/images/icon_betsOff.svg" width="55" alt=""></a></div>
       
     </div>
   </div>
@@ -589,5 +589,5 @@ Reveal a "CASH" symbol, WIN ALL 20 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=28&cb=436620516" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=30&cb=382632286" async></script></body>
 </html>
