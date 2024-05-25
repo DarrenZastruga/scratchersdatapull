@@ -368,42 +368,42 @@
                   <tr>
             <td>$10</td>
             <td>615,888</td>
-            <td>173,287</td>
+            <td>173,235</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>230,958</td>
-            <td>64,168</td>
+            <td>64,140</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>307,944</td>
-            <td>84,311</td>
+            <td>84,280</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,019</td>
-            <td>13,620</td>
+            <td>13,616</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>46,159</td>
-            <td>12,561</td>
+            <td>12,559</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>153,972</td>
-            <td>47,177</td>
+            <td>47,167</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>38,563</td>
-            <td>10,447</td>
+            <td>10,445</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,600</td>
-            <td>1,245</td>
+            <td>1,244</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -437,8 +437,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$10,235,990</b></div>
-      <div class="h2">Total Prizes Won: <b>$24,727,285</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$10,233,370</b></div>
+      <div class="h2">Total Prizes Won: <b>$24,729,905</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -586,5 +586,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=154&cb=1286952406" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=150&cb=2081980264" async></script></body>
 </html>

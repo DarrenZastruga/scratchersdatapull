@@ -367,47 +367,47 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
                   <tr>
             <td>$1</td>
             <td>901,915</td>
-            <td>505,631</td>
+            <td>503,056</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>386,471</td>
-            <td>211,526</td>
+            <td>210,382</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>180,415</td>
-            <td>96,755</td>
+            <td>96,192</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>51,538</td>
-            <td>27,372</td>
+            <td>27,205</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>90,136</td>
-            <td>47,029</td>
+            <td>46,758</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>32,239</td>
-            <td>16,441</td>
+            <td>16,334</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>9,666</td>
-            <td>4,881</td>
+            <td>4,852</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>4,384</td>
-            <td>2,211</td>
+            <td>2,193</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,789</td>
-            <td>898</td>
+            <td>895</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -436,8 +436,8 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,739,063</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,422,024</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,723,903</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,437,184</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,5 +585,5 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=1663006905" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=18&cb=1709816463" async></script></body>
 </html>
