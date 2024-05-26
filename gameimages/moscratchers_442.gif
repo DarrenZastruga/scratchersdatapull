@@ -92,7 +92,7 @@
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://web2.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -370,37 +370,37 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$3</td>
             <td>352,444</td>
-            <td>186,094</td>
+            <td>186,068</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>343,540</td>
-            <td>173,290</td>
+            <td>173,261</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>88,093</td>
-            <td>43,538</td>
+            <td>43,536</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>70,501</td>
-            <td>34,800</td>
+            <td>34,794</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>17,630</td>
-            <td>8,408</td>
+            <td>8,406</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>35,241</td>
-            <td>16,813</td>
+            <td>16,810</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>5,897</td>
-            <td>2,728</td>
+            <td>2,727</td>
           </tr>
                   <tr>
             <td>$60</td>
@@ -434,8 +434,8 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,466,872</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,539,717</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,466,400</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,540,189</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -583,5 +583,5 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=40&cb=331710858" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=45&cb=1235172067" async></script></body>
 </html>

@@ -92,7 +92,7 @@
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://web2.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -367,42 +367,42 @@ If you win, multiply your prize by the Multiplier number.</p>
                   <tr>
             <td>$10</td>
             <td>721,638</td>
-            <td>152,872</td>
+            <td>151,781</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>113,948</td>
-            <td>22,993</td>
+            <td>22,812</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>37,886</td>
-            <td>8,112</td>
+            <td>8,040</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>38,077</td>
-            <td>6,990</td>
+            <td>6,938</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>11,421</td>
-            <td>2,394</td>
+            <td>2,379</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,036</td>
-            <td>541</td>
+            <td>537</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,708</td>
-            <td>3,063</td>
+            <td>3,049</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>767</td>
-            <td>157</td>
+            <td>153</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -436,8 +436,8 @@ If you win, multiply your prize by the Multiplier number.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,286,455</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,293,065</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,264,795</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,314,725</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,5 +585,5 @@ If you win, multiply your prize by the Multiplier number.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=48&cb=268217850" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=53&cb=991815457" async></script></body>
 </html>

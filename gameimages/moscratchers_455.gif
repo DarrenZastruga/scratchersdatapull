@@ -92,7 +92,7 @@
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://web2.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -367,52 +367,52 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
                   <tr>
             <td>$1</td>
             <td>901,915</td>
-            <td>503,056</td>
+            <td>500,457</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>386,471</td>
-            <td>210,382</td>
+            <td>209,231</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>180,415</td>
-            <td>96,192</td>
+            <td>95,660</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>51,538</td>
-            <td>27,205</td>
+            <td>27,059</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>90,136</td>
-            <td>46,758</td>
+            <td>46,471</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>32,239</td>
-            <td>16,334</td>
+            <td>16,208</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>9,666</td>
-            <td>4,852</td>
+            <td>4,822</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>4,384</td>
-            <td>2,193</td>
+            <td>2,184</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,789</td>
-            <td>895</td>
+            <td>888</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>390</td>
-            <td>194</td>
+            <td>193</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -436,8 +436,8 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,723,903</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,437,184</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,708,204</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,452,883</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,5 +585,5 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=18&cb=1709816463" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=23&cb=808175798" async></script></body>
 </html>
