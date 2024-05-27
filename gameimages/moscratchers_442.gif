@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -370,27 +370,27 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$3</td>
             <td>352,444</td>
-            <td>186,068</td>
+            <td>186,051</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>343,540</td>
-            <td>173,261</td>
+            <td>173,244</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>88,093</td>
-            <td>43,536</td>
+            <td>43,529</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>70,501</td>
-            <td>34,794</td>
+            <td>34,793</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>17,630</td>
-            <td>8,406</td>
+            <td>8,405</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -434,8 +434,8 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,466,400</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,540,189</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,466,158</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,540,431</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -583,5 +583,5 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=45&cb=1235172067" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=40&cb=1192146361" async></script></body>
 </html>

@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -374,22 +374,22 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$5</td>
             <td>646,304</td>
-            <td>64,699</td>
+            <td>64,680</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>276,876</td>
-            <td>18,419</td>
+            <td>18,412</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>277,021</td>
-            <td>15,052</td>
+            <td>15,044</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>69,239</td>
-            <td>4,256</td>
+            <td>4,255</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -399,7 +399,7 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$40</td>
             <td>46,211</td>
-            <td>2,500</td>
+            <td>2,499</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -414,7 +414,7 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
                   <tr>
             <td>$100</td>
             <td>20,578</td>
-            <td>939</td>
+            <td>938</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -453,8 +453,8 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,279,110</b></div>
-      <div class="h2">Total Prizes Won: <b>$17,881,330</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,278,665</b></div>
+      <div class="h2">Total Prizes Won: <b>$17,881,775</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -602,5 +602,5 @@ Reveal a "WILD" symbol, WIN ALL 5 PRIZES on the back side!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=79&cb=1267331290" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=74&cb=2105761808" async></script></body>
 </html>

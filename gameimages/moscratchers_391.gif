@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -366,32 +366,32 @@
                   <tr>
             <td>$2</td>
             <td>635,038</td>
-            <td>124,766</td>
+            <td>124,748</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>465,771</td>
-            <td>81,082</td>
+            <td>81,078</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>127,020</td>
-            <td>22,527</td>
+            <td>22,525</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>127,020</td>
-            <td>24,565</td>
+            <td>24,562</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>42,340</td>
-            <td>7,702</td>
+            <td>7,700</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>17,210</td>
-            <td>3,126</td>
+            <td>3,125</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -425,8 +425,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,500,485</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,911,175</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,500,303</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,911,357</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -574,5 +574,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=125&cb=381371421" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=120&cb=33527985" async></script></body>
 </html>

@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -390,27 +390,27 @@
                   <tr>
             <td>$50</td>
             <td>874,780</td>
-            <td>197,491</td>
+            <td>197,178</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>787,264</td>
-            <td>177,513</td>
+            <td>177,214</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>962,251</td>
-            <td>214,788</td>
+            <td>214,424</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>210,191</td>
-            <td>46,703</td>
+            <td>46,633</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>112,126</td>
-            <td>24,937</td>
+            <td>24,891</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -449,8 +449,8 @@
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$72,657,230</b></div>
-      <div class="h2">Total Prizes Won: <b>$274,951,910</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$72,550,240</b></div>
+      <div class="h2">Total Prizes Won: <b>$275,058,900</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -598,5 +598,5 @@
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=141&cb=1141314506" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=136&cb=1440823617" async></script></body>
 </html>

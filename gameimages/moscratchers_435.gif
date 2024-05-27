@@ -177,7 +177,7 @@
         <a href="https://playersstore.molottery.com/users/drawing_orders.php">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -369,37 +369,37 @@ Reveal a "5X" symbol, win 5 TIMES the prize!</p>
                   <tr>
             <td>$5</td>
             <td>517,967</td>
-            <td>113,982</td>
+            <td>113,479</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>222,049</td>
-            <td>46,206</td>
+            <td>45,990</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>148,010</td>
-            <td>30,032</td>
+            <td>29,911</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>148,010</td>
-            <td>30,914</td>
+            <td>30,773</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>49,481</td>
-            <td>9,947</td>
+            <td>9,913</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>12,299</td>
-            <td>2,346</td>
+            <td>2,334</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>298</td>
-            <td>56</td>
+            <td>55</td>
           </tr>
                   <tr>
             <td>$2,500</td>
@@ -423,8 +423,8 @@ Reveal a "5X" symbol, win 5 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,147,750</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,055,925</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,134,335</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,069,340</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -572,5 +572,5 @@ Reveal a "5X" symbol, win 5 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=57&cb=1342997983" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=52&cb=1799379775" async></script></body>
 </html>
