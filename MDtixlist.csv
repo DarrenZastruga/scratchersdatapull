@@ -1,7 +1,7 @@
 ,price,gameName,gameNumber,topprize,startDate,overallodds,gameURL,gamePhoto
 0,20,Gold Rush 777,695,1000000,05/20/2024,3.04,https://www.mdlottery.com/games/scratch-offs/#prize_details_695,https://www.mdlottery.com/wp-content/uploads/2024/05/GoldRush777_Website_Front_RGB.jpg
 1,10,Gold Rush 7s Multiplier,694,100000,05/20/2024,3.43,https://www.mdlottery.com/games/scratch-offs/#prize_details_694,https://www.mdlottery.com/wp-content/uploads/2024/05/GoldRush_7sMultiplier_Website_Front.jpg
-2,5,Gold Rush 7s Tripler,693,50000,05/20/2024,3.99,https://www.mdlottery.com/games/scratch-offs/#prize_details_693,https://www.mdlottery.com/wp-content/uploads/2024/05/GoldRush_7sTripler_Website_Front_RGB.jpg
+2,5,Gold Rush 7s Tripler,693,50000,05/20/2024,3.99,https://www.mdlottery.com/games/scratch-offs/#prize_details_693,https://www.mdlottery.com/wp-content/uploads/2024/05/GoldRush_7sTripler_Website_Front_RGB-1.jpg
 3,2,Gold Rush 7s Doubler,692,10000,05/20/2024,4.20,https://www.mdlottery.com/games/scratch-offs/#prize_details_692,https://www.mdlottery.com/wp-content/uploads/2024/05/GoldRush_7sDoubler_Website_Front_RGB.jpg
 4,1,Gold Rush 7s,691,1000,05/20/2024,4.60,https://www.mdlottery.com/games/scratch-offs/#prize_details_691,https://www.mdlottery.com/wp-content/uploads/2024/05/Gold-Rush-7s_FRONT_Simplified_576w_RGB.jpg
 5,10,Jumbo Cash,689,250000,04/22/2024,3.43,https://www.mdlottery.com/games/scratch-offs/#prize_details_689,https://www.mdlottery.com/wp-content/uploads/2024/04/JumboCash_Website_Front_RGB.jpg
@@ -77,11 +77,9 @@
 75,5,Cash Money,615,50000,12/29/2022,3.95,https://www.mdlottery.com/games/scratch-offs/#prize_details_615,https://www.mdlottery.com/wp-content/uploads/2022/12/CashMoney_Simplified_Website_Front_RGB.jpg
 76,1,Match 2 Win,614,1000,12/29/2022,4.60,https://www.mdlottery.com/games/scratch-offs/#prize_details_614,https://www.mdlottery.com/wp-content/uploads/2022/12/Match-2-Win_FRONT_Simplified_576w_RGB.jpg
 77,10,Lucky Times 10,612,100000,11/21/2022,3.50,https://www.mdlottery.com/games/scratch-offs/#prize_details_612,https://www.mdlottery.com/wp-content/uploads/2022/11/Lucky-Times-10_FRONT_Simplified_576w_RGB.jpg
-78,5,Crazy 8s,611,50000,11/21/2022,3.90,https://www.mdlottery.com/games/scratch-offs/#prize_details_611,https://www.mdlottery.com/wp-content/uploads/2022/11/Crazy8s_Simplified_Website_Front_RGB.jpg
-79,20,THE GAME OF LIFE™,609,1000000,10/17/2022,3.02,https://www.mdlottery.com/games/scratch-offs/#prize_details_609,https://www.mdlottery.com/wp-content/uploads/2022/10/TheGameOfLife_FRONT_Simplified_576w_RGB.jpg
-80,30,Cash is King,603,2000000,09/19/2022,2.93,https://www.mdlottery.com/games/scratch-offs/#prize_details_603,https://www.mdlottery.com/wp-content/uploads/2022/09/Cash-is-King_FRONT_Simplified_576w_RGB.jpg
-81,20,Million Dollar Mega Multiplier,596,1000000,07/18/2022,3.04,https://www.mdlottery.com/games/scratch-offs/#prize_details_596,https://www.mdlottery.com/wp-content/uploads/2022/07/MillionDollar-MegaMultiplier_FRONT_Simplified_576w_RGB.jpg
-82,10,"Show Me $100,000!",585,100000,05/23/2022,3.77,https://www.mdlottery.com/games/scratch-offs/#prize_details_585,https://www.mdlottery.com/wp-content/uploads/2022/05/ShowMe-100K_FRONT_Simplified_576w_RGB.jpg
-83,30,"$2,000,000 Gold Rush",574,2000000,02/21/2022,2.90,https://www.mdlottery.com/games/scratch-offs/#prize_details_574,https://www.mdlottery.com/wp-content/uploads/2022/02/2M_GoldRush_FRONT_Simplified_576w_RGB.jpg
-84,20,Bonus Bingo X20,499,500000,08/24/2020,2.96,https://www.mdlottery.com/games/scratch-offs/#prize_details_499,https://www.mdlottery.com/wp-content/uploads/2020/08/BonusBingoX20_Front.jpg
-85,20,"$500,000 Crossword",446,500000,09/23/2019,2.84,https://www.mdlottery.com/games/scratch-offs/#prize_details_446,https://www.mdlottery.com/wp-content/uploads/2019/09/500K_Crossword_FRONT_576w_RGB.jpg
+78,20,THE GAME OF LIFE™,609,1000000,10/17/2022,3.02,https://www.mdlottery.com/games/scratch-offs/#prize_details_609,https://www.mdlottery.com/wp-content/uploads/2022/10/TheGameOfLife_FRONT_Simplified_576w_RGB.jpg
+79,30,Cash is King,603,2000000,09/19/2022,2.93,https://www.mdlottery.com/games/scratch-offs/#prize_details_603,https://www.mdlottery.com/wp-content/uploads/2022/09/Cash-is-King_FRONT_Simplified_576w_RGB.jpg
+80,10,"Show Me $100,000!",585,100000,05/23/2022,3.77,https://www.mdlottery.com/games/scratch-offs/#prize_details_585,https://www.mdlottery.com/wp-content/uploads/2022/05/ShowMe-100K_FRONT_Simplified_576w_RGB.jpg
+81,30,"$2,000,000 Gold Rush",574,2000000,02/21/2022,2.90,https://www.mdlottery.com/games/scratch-offs/#prize_details_574,https://www.mdlottery.com/wp-content/uploads/2022/02/2M_GoldRush_FRONT_Simplified_576w_RGB.jpg
+82,20,Bonus Bingo X20,499,500000,08/24/2020,2.96,https://www.mdlottery.com/games/scratch-offs/#prize_details_499,https://www.mdlottery.com/wp-content/uploads/2020/08/BonusBingoX20_Front.jpg
+83,20,"$500,000 Crossword",446,500000,09/23/2019,2.84,https://www.mdlottery.com/games/scratch-offs/#prize_details_446,https://www.mdlottery.com/wp-content/uploads/2019/09/500K_Crossword_FRONT_576w_RGB.jpg
