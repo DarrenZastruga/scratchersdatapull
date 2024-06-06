@@ -367,7 +367,7 @@ Reveal a "BILL" symbol and win prize automatically.</p>
                   <tr>
             <td>$50</td>
             <td>247,330</td>
-            <td>31,658</td>
+            <td>31,657</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -381,8 +381,8 @@ Reveal a "BILL" symbol and win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,434,300</b></div>
-      <div class="h2">Total Prizes Won: <b>$23,767,800</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,434,250</b></div>
+      <div class="h2">Total Prizes Won: <b>$23,767,850</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -530,5 +530,5 @@ Reveal a "BILL" symbol and win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=166&cb=907971720" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=171&cb=314835851" async></script></body>
 </html>

@@ -372,17 +372,17 @@ Reveal a "CASH STACK" symbol, WIN ALL 20 PRIZES!</p>
                   <tr>
             <td>$10</td>
             <td>597,743</td>
-            <td>119,013</td>
+            <td>119,010</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>224,276</td>
-            <td>44,280</td>
+            <td>44,279</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,916</td>
-            <td>56,995</td>
+            <td>56,994</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -436,8 +436,8 @@ Reveal a "CASH STACK" symbol, WIN ALL 20 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,133,840</b></div>
-      <div class="h2">Total Prizes Won: <b>$27,966,960</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,133,775</b></div>
+      <div class="h2">Total Prizes Won: <b>$27,967,025</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,5 +585,5 @@ Reveal a "CASH STACK" symbol, WIN ALL 20 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=110&cb=1525776765" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=115&cb=2107796014" async></script></body>
 </html>
