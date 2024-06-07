@@ -368,32 +368,32 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$3</td>
             <td>906,784</td>
-            <td>226,145</td>
+            <td>226,007</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>883,981</td>
-            <td>198,638</td>
+            <td>198,526</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>226,602</td>
-            <td>47,706</td>
+            <td>47,685</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>181,396</td>
-            <td>40,371</td>
+            <td>40,340</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>45,362</td>
-            <td>9,320</td>
+            <td>9,317</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>90,672</td>
-            <td>19,047</td>
+            <td>19,032</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -403,7 +403,7 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$60</td>
             <td>11,364</td>
-            <td>2,321</td>
+            <td>2,320</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -432,8 +432,8 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,961,247</b></div>
-      <div class="h2">Total Prizes Won: <b>$14,045,441</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,959,254</b></div>
+      <div class="h2">Total Prizes Won: <b>$14,047,434</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -581,5 +581,5 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=127&cb=147681660" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=118&cb=25788992" async></script></body>
 </html>
