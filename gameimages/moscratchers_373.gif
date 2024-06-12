@@ -372,17 +372,17 @@ Reveal a "ROCKET" symbol, WIN ALL 25 PRIZES!</p>
                   <tr>
             <td>$20</td>
             <td>463,175</td>
-            <td>82,864</td>
+            <td>82,862</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>327,034</td>
-            <td>56,886</td>
+            <td>56,884</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>140,388</td>
-            <td>23,827</td>
+            <td>23,826</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -436,8 +436,8 @@ Reveal a "ROCKET" symbol, WIN ALL 25 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$8,007,070</b></div>
-      <div class="h2">Total Prizes Won: <b>$42,753,890</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$8,006,900</b></div>
+      <div class="h2">Total Prizes Won: <b>$42,754,060</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,5 +585,5 @@ Reveal a "ROCKET" symbol, WIN ALL 25 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?s858ta"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=142&cb=1722752236" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=146&cb=1425651610" async></script></body>
 </html>
