@@ -368,32 +368,32 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$3</td>
             <td>906,801</td>
-            <td>162,949</td>
+            <td>162,930</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>884,417</td>
-            <td>137,592</td>
+            <td>137,577</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>226,897</td>
-            <td>32,275</td>
+            <td>32,272</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>181,280</td>
-            <td>28,068</td>
+            <td>28,064</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>45,293</td>
-            <td>6,329</td>
+            <td>6,328</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>90,694</td>
-            <td>12,904</td>
+            <td>12,901</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -432,8 +432,8 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,767,558</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,232,738</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,767,268</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,233,028</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -581,5 +581,5 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=154&cb=28621233" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=153&cb=1667658282" async></script></body>
 </html>
