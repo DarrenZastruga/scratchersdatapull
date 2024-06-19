@@ -266,6 +266,7 @@
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
               
                                                                     <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
                                                 
@@ -368,22 +369,22 @@ Reveal an "all" symbol, WIN ALL 5 PRIZES!</p>
                   <tr>
             <td>$1</td>
             <td>982,643</td>
-            <td>200,798</td>
+            <td>200,757</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>427,286</td>
-            <td>75,281</td>
+            <td>75,263</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>199,340</td>
-            <td>32,507</td>
+            <td>32,499</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>56,965</td>
-            <td>9,044</td>
+            <td>9,041</td>
           </tr>
                   <tr>
             <td>$10</td>
@@ -427,8 +428,8 @@ Reveal an "all" symbol, WIN ALL 5 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$905,798</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,776,807</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$905,674</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,776,931</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -576,5 +577,5 @@ Reveal an "all" symbol, WIN ALL 5 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=74&cb=1501618809" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=71&cb=1976329292" async></script></body>
 </html>

@@ -371,52 +371,52 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
                   <tr>
             <td>$10</td>
             <td>610,838</td>
-            <td>318,621</td>
+            <td>316,673</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>229,086</td>
-            <td>119,056</td>
+            <td>118,361</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>305,477</td>
-            <td>157,071</td>
+            <td>156,157</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>49,570</td>
-            <td>25,421</td>
+            <td>25,278</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>45,904</td>
-            <td>23,429</td>
+            <td>23,297</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>76,362</td>
-            <td>38,826</td>
+            <td>38,618</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>76,362</td>
-            <td>38,755</td>
+            <td>38,514</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,582</td>
-            <td>2,313</td>
+            <td>2,299</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,622</td>
-            <td>827</td>
+            <td>819</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>751</td>
-            <td>403</td>
+            <td>398</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -440,8 +440,8 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$17,867,765</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,835,515</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$17,765,745</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,937,535</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=24&cb=1269319911" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=21&cb=980347431" async></script></body>
 </html>

@@ -266,6 +266,7 @@
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
               
                                                                     <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
                                                 
@@ -368,22 +369,22 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$3</td>
             <td>906,149</td>
-            <td>97,422</td>
+            <td>97,420</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>883,426</td>
-            <td>71,704</td>
+            <td>71,702</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>226,450</td>
-            <td>15,236</td>
+            <td>15,235</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>181,281</td>
-            <td>14,347</td>
+            <td>14,345</td>
           </tr>
                   <tr>
             <td>$16</td>
@@ -393,7 +394,7 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$20</td>
             <td>90,613</td>
-            <td>5,950</td>
+            <td>5,949</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -432,8 +433,8 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,398,304</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,601,923</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,398,237</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,601,990</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -581,5 +582,5 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=174&cb=2111804446" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=171&cb=1061827688" async></script></body>
 </html>

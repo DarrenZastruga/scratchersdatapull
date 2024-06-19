@@ -266,6 +266,7 @@
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
               
                                                                     <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
                                                 
@@ -369,27 +370,27 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
                   <tr>
             <td>$1</td>
             <td>1,147,860</td>
-            <td>332,669</td>
+            <td>332,651</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>491,940</td>
-            <td>132,754</td>
+            <td>132,748</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>229,572</td>
-            <td>59,966</td>
+            <td>59,961</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>65,592</td>
-            <td>16,919</td>
+            <td>16,918</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>114,782</td>
-            <td>28,724</td>
+            <td>28,723</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -399,7 +400,7 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
                   <tr>
             <td>$25</td>
             <td>35,861</td>
-            <td>8,702</td>
+            <td>8,701</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -428,8 +429,8 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,709,086</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,860,687</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,708,996</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,860,777</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -577,5 +578,5 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=122&cb=222991668" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=119&cb=177392448" async></script></body>
 </html>

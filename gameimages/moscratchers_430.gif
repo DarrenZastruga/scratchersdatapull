@@ -266,6 +266,7 @@
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
               
                                                                     <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
                                                 
@@ -369,17 +370,17 @@ Reveal a "HOT" symbol, WIN ALL 25 PRIZES!</p>
                   <tr>
             <td>$20</td>
             <td>463,531</td>
-            <td>220,725</td>
+            <td>220,721</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>327,246</td>
-            <td>154,089</td>
+            <td>154,087</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>140,469</td>
-            <td>65,716</td>
+            <td>65,713</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -433,8 +434,8 @@ Reveal a "HOT" symbol, WIN ALL 25 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$21,894,660</b></div>
-      <div class="h2">Total Prizes Won: <b>$28,926,850</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$21,894,350</b></div>
+      <div class="h2">Total Prizes Won: <b>$28,927,160</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -582,5 +583,5 @@ Reveal a "HOT" symbol, WIN ALL 25 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=70&cb=342614539" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=67&cb=1472803093" async></script></body>
 </html>
