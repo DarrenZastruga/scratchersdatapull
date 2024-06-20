@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,52 +371,52 @@ If you have completely matched and scratched three (3) or more words in the CROS
                   <tr>
             <td>$3</td>
             <td>846,149</td>
-            <td>273,052</td>
+            <td>271,622</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>785,782</td>
-            <td>232,249</td>
+            <td>230,884</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>180,996</td>
-            <td>47,348</td>
+            <td>46,993</td>
           </tr>
                   <tr>
             <td>$12</td>
             <td>100,663</td>
-            <td>27,070</td>
+            <td>26,885</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>40,366</td>
-            <td>12,257</td>
+            <td>12,197</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>80,567</td>
-            <td>20,946</td>
+            <td>20,805</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>13,420</td>
-            <td>3,353</td>
+            <td>3,330</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>10,095</td>
-            <td>2,523</td>
+            <td>2,509</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>10,383</td>
-            <td>2,594</td>
+            <td>2,570</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>674</td>
-            <td>161</td>
+            <td>159</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -440,8 +440,8 @@ If you have completely matched and scratched three (3) or more words in the CROS
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,449,675</b></div>
-      <div class="h2">Total Prizes Won: <b>$11,537,210</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,422,315</b></div>
+      <div class="h2">Total Prizes Won: <b>$11,564,570</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ If you have completely matched and scratched three (3) or more words in the CROS
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=75&cb=858010402" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=75&cb=249779369" async></script></body>
 </html>

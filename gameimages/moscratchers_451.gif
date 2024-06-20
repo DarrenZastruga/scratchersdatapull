@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -370,42 +370,42 @@ Reveal a "CASH" symbol, WIN ALL 5 PRIZES!</p>
                   <tr>
             <td>$1</td>
             <td>946,425</td>
-            <td>432,945</td>
+            <td>432,247</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>411,407</td>
-            <td>186,614</td>
+            <td>186,310</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>192,084</td>
-            <td>83,059</td>
+            <td>82,934</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>54,866</td>
-            <td>23,855</td>
+            <td>23,816</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>61,722</td>
-            <td>25,885</td>
+            <td>25,847</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>27,433</td>
-            <td>11,478</td>
+            <td>11,455</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>54,866</td>
-            <td>22,385</td>
+            <td>22,347</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,213</td>
-            <td>889</td>
+            <td>886</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -429,8 +429,8 @@ Reveal a "CASH" symbol, WIN ALL 5 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,361,729</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,127,841</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,357,753</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,131,817</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -578,5 +578,5 @@ Reveal a "CASH" symbol, WIN ALL 5 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=37&cb=519178243" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=37&cb=393982704" async></script></body>
 </html>

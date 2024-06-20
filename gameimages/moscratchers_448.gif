@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,52 +371,52 @@ Reveal a "CASH" symbol, WIN ALL 20 PRIZES!</p>
                   <tr>
             <td>$10</td>
             <td>602,104</td>
-            <td>291,970</td>
+            <td>291,079</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>225,789</td>
-            <td>108,635</td>
+            <td>108,342</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>301,052</td>
-            <td>143,945</td>
+            <td>143,478</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,981</td>
-            <td>23,228</td>
+            <td>23,160</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>45,123</td>
-            <td>21,476</td>
+            <td>21,413</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>150,526</td>
-            <td>71,256</td>
+            <td>71,009</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>37,682</td>
-            <td>17,834</td>
+            <td>17,771</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>4,532</td>
-            <td>2,162</td>
+            <td>2,155</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>1,575</td>
-            <td>734</td>
+            <td>731</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>739</td>
-            <td>363</td>
+            <td>361</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -440,8 +440,8 @@ Reveal a "CASH" symbol, WIN ALL 20 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$16,331,705</b></div>
-      <div class="h2">Total Prizes Won: <b>$17,902,825</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$16,281,920</b></div>
+      <div class="h2">Total Prizes Won: <b>$17,952,610</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Reveal a "CASH" symbol, WIN ALL 20 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=31&cb=145049185" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=31&cb=877195123" async></script></body>
 </html>

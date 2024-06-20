@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,47 +368,47 @@ Match any of YOUR NUMBERS to the WIN ALL NUMBER, WIN ALL 10 PRIZES!</p>
                   <tr>
             <td>$2</td>
             <td>553,666</td>
-            <td>408,171</td>
+            <td>406,027</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>406,039</td>
-            <td>295,172</td>
+            <td>293,480</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>110,736</td>
-            <td>80,461</td>
+            <td>80,038</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>110,736</td>
-            <td>80,660</td>
+            <td>80,199</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>36,912</td>
-            <td>26,627</td>
+            <td>26,463</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>15,006</td>
-            <td>10,753</td>
+            <td>10,691</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>7,392</td>
-            <td>5,243</td>
+            <td>5,218</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>917</td>
-            <td>641</td>
+            <td>637</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>92</td>
-            <td>63</td>
+            <td>62</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -427,8 +427,8 @@ Match any of YOUR NUMBERS to the WIN ALL NUMBER, WIN ALL 10 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,308,925</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,016,843</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,279,264</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,046,504</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -576,5 +576,5 @@ Match any of YOUR NUMBERS to the WIN ALL NUMBER, WIN ALL 10 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=1211438754" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=733741382" async></script></body>
 </html>

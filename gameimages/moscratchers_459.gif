@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,32 +368,32 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
                   <tr>
             <td>$5</td>
             <td>483,086</td>
-            <td>245,942</td>
+            <td>244,272</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>207,126</td>
-            <td>103,874</td>
+            <td>103,133</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>138,052</td>
-            <td>68,401</td>
+            <td>67,879</td>
           </tr>
                   <tr>
             <td>$17</td>
             <td>69,026</td>
-            <td>34,262</td>
+            <td>34,005</td>
           </tr>
                   <tr>
             <td>$27</td>
             <td>81,151</td>
-            <td>39,724</td>
+            <td>39,424</td>
           </tr>
                   <tr>
             <td>$77</td>
             <td>43,327</td>
-            <td>21,074</td>
+            <td>20,928</td>
           </tr>
                   <tr>
             <td>$277</td>
@@ -403,12 +403,12 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
                   <tr>
             <td>$500</td>
             <td>172</td>
-            <td>79</td>
+            <td>77</td>
           </tr>
                   <tr>
             <td>$777</td>
             <td>229</td>
-            <td>120</td>
+            <td>118</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -437,8 +437,8 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,975,070</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,163,800</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,925,215</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,213,655</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -586,5 +586,5 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=11&cb=1379398456" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=12&cb=1767889227" async></script></body>
 </html>

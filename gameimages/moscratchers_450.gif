@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,62 +371,62 @@ Reveal a "CASH" symbol, WIN ALL 10 PRIZES!</p>
                   <tr>
             <td>$2</td>
             <td>730,855</td>
-            <td>295,108</td>
+            <td>293,989</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>172,508</td>
-            <td>67,087</td>
+            <td>66,795</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>284,228</td>
-            <td>107,521</td>
+            <td>107,089</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>162,433</td>
-            <td>60,165</td>
+            <td>59,918</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>30,458</td>
-            <td>10,898</td>
+            <td>10,844</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>11,132</td>
-            <td>3,950</td>
+            <td>3,936</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>5,576</td>
-            <td>1,967</td>
+            <td>1,957</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>11,580</td>
-            <td>4,061</td>
+            <td>4,032</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>3,808</td>
-            <td>1,355</td>
+            <td>1,349</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>1,337</td>
-            <td>484</td>
+            <td>480</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>6,971</td>
-            <td>2,423</td>
+            <td>2,414</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>299</td>
-            <td>99</td>
+            <td>98</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -445,8 +445,8 @@ Reveal a "CASH" symbol, WIN ALL 10 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,973,829</b></div>
-      <div class="h2">Total Prizes Won: <b>$5,078,598</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,960,903</b></div>
+      <div class="h2">Total Prizes Won: <b>$5,091,524</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -594,5 +594,5 @@ Reveal a "CASH" symbol, WIN ALL 10 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=35&cb=1032293020" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=35&cb=1912185255" async></script></body>
 </html>

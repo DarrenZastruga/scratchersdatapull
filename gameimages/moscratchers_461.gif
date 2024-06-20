@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -373,62 +373,62 @@ Reveal a "STAR" symbol, WIN ALL 5 PRIZES on this side!</p>
                   <tr>
             <td>$5</td>
             <td>645,318</td>
-            <td>492,773</td>
+            <td>490,570</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>276,524</td>
-            <td>208,334</td>
+            <td>207,341</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>276,470</td>
-            <td>207,216</td>
+            <td>206,204</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>69,131</td>
-            <td>51,974</td>
+            <td>51,731</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>33,491</td>
-            <td>25,281</td>
+            <td>25,164</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>46,150</td>
-            <td>34,522</td>
+            <td>34,339</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>13,921</td>
-            <td>10,446</td>
+            <td>10,388</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,698</td>
-            <td>2,772</td>
+            <td>2,765</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>20,537</td>
-            <td>15,272</td>
+            <td>15,205</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>933</td>
-            <td>686</td>
+            <td>684</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>184</td>
-            <td>135</td>
+            <td>134</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>720</td>
-            <td>560</td>
+            <td>557</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -452,8 +452,8 @@ Reveal a "STAR" symbol, WIN ALL 5 PRIZES on this side!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$14,449,930</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,645,545</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$14,384,675</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,710,800</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -601,5 +601,5 @@ Reveal a "STAR" symbol, WIN ALL 5 PRIZES on this side!</p>
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=9&cb=18244592" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=9&cb=391497541" async></script></body>
 </html>

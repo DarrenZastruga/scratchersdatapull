@@ -83,16 +83,16 @@
         
               <ul class="menu">
                     <li class="menu-item">
-        <a href="/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
+        <a href="/index.php/contact-us" data-drupal-link-system-path="node/199">Contact Us</a>
               </li>
                 <li class="menu-item">
-        <a href="/retailers" data-drupal-link-system-path="node/198">Retailers</a>
+        <a href="/index.php/retailers" data-drupal-link-system-path="node/198">Retailers</a>
               </li>
                 <li class="menu-item">
         <a href="https://cse.google.com/cse?cx=008670732227888200372%3Adxa_8s7ruxa" class="search">Search</a>
               </li>
                 <li class="menu-item">
-        <a href="/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
+        <a href="/index.php/play-responsibly" class="play-image" data-drupal-link-system-path="node/193"><img src="http://www.molottery.com/sites/default/files/menu/playResponsibly_18.png" alt="" /></a>
               </li>
         </ul>
   
@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -376,57 +376,57 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
                   <tr>
             <td>$3</td>
             <td>900,521</td>
-            <td>418,727</td>
+            <td>417,732</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>900,558</td>
-            <td>411,304</td>
+            <td>410,312</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>270,177</td>
-            <td>123,697</td>
+            <td>123,364</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>90,059</td>
-            <td>40,162</td>
+            <td>40,056</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>112,595</td>
-            <td>47,385</td>
+            <td>47,239</td>
           </tr>
                   <tr>
             <td>$33</td>
             <td>9,012</td>
-            <td>3,746</td>
+            <td>3,732</td>
           </tr>
                   <tr>
             <td>$35</td>
             <td>8,233</td>
-            <td>3,351</td>
+            <td>3,344</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>8,258</td>
-            <td>3,495</td>
+            <td>3,482</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>6,025</td>
-            <td>2,459</td>
+            <td>2,453</td>
           </tr>
                   <tr>
             <td>$53</td>
             <td>6,003</td>
-            <td>2,469</td>
+            <td>2,457</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>11,274</td>
-            <td>4,661</td>
+            <td>4,644</td>
           </tr>
                   <tr>
             <td>$150</td>
@@ -471,7 +471,7 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
                   <tr>
             <td>$3,003</td>
             <td>12</td>
-            <td>7</td>
+            <td>6</td>
           </tr>
                   <tr>
             <td>$10,003</td>
@@ -495,8 +495,8 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$7,999,013</b></div>
-      <div class="h2">Total Prizes Won: <b>$9,946,473</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$7,975,370</b></div>
+      <div class="h2">Total Prizes Won: <b>$9,970,116</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -644,5 +644,5 @@ If the free TWIST spot completes a winning LINE, win 5 TIMES the prize!&nbsp;</p
 <script src="/libraries/superfish/supersubs.js?seyw46"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=89&cb=1487582196" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=89&cb=582187093" async></script></body>
 </html>
