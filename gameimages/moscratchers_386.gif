@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -374,7 +374,7 @@ Reveal a "MONEY ROLL" symbol and win prize automatically.</p>
                   <tr>
             <td>$100</td>
             <td>149,988</td>
-            <td>16,649</td>
+            <td>16,648</td>
           </tr>
                 </tbody>
       </table>
@@ -383,8 +383,8 @@ Reveal a "MONEY ROLL" symbol and win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,098,550</b></div>
-      <div class="h2">Total Prizes Won: <b>$24,394,450</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,098,450</b></div>
+      <div class="h2">Total Prizes Won: <b>$24,394,550</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -532,5 +532,5 @@ Reveal a "MONEY ROLL" symbol and win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=132&cb=1642303283" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=142&cb=67233451" async></script></body>
 </html>

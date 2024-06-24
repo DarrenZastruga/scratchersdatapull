@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,47 +368,47 @@ Reveal a "<strong>333</strong>" symbol, win TRIPLE the prize.</p>
                   <tr>
             <td>$2</td>
             <td>759,780</td>
-            <td>139,221</td>
+            <td>138,978</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>337,680</td>
-            <td>58,599</td>
+            <td>58,504</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>126,630</td>
-            <td>20,665</td>
+            <td>20,613</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>63,340</td>
-            <td>9,793</td>
+            <td>9,776</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>42,210</td>
-            <td>6,305</td>
+            <td>6,297</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>31,645</td>
-            <td>4,688</td>
+            <td>4,681</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>55,957</td>
-            <td>8,069</td>
+            <td>8,055</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>8,900</td>
-            <td>1,249</td>
+            <td>1,246</td>
           </tr>
                   <tr>
             <td>$333</td>
             <td>524</td>
-            <td>63</td>
+            <td>62</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -432,8 +432,8 @@ Reveal a "<strong>333</strong>" symbol, win TRIPLE the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,366,376</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,023,369</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,363,767</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,025,978</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -581,5 +581,5 @@ Reveal a "<strong>333</strong>" symbol, win TRIPLE the prize.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=96&cb=732471025" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=106&cb=654599419" async></script></body>
 </html>

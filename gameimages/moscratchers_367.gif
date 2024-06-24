@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -395,32 +395,32 @@ Reveal a "POT OF GOLD" symbol, WIN ALL 35 PRIZES!</p>
                   <tr>
             <td>$50</td>
             <td>874,780</td>
-            <td>195,146</td>
+            <td>195,078</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>787,264</td>
-            <td>175,371</td>
+            <td>175,312</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>962,251</td>
-            <td>212,137</td>
+            <td>212,080</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>210,191</td>
-            <td>46,139</td>
+            <td>46,124</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>112,126</td>
-            <td>24,589</td>
+            <td>24,584</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>8,758</td>
-            <td>1,981</td>
+            <td>1,980</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -454,8 +454,8 @@ Reveal a "POT OF GOLD" symbol, WIN ALL 35 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$71,786,560</b></div>
-      <div class="h2">Total Prizes Won: <b>$275,822,580</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$71,767,420</b></div>
+      <div class="h2">Total Prizes Won: <b>$275,841,720</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -603,5 +603,5 @@ Reveal a "POT OF GOLD" symbol, WIN ALL 35 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=146&cb=1229996709" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=156&cb=1002711973" async></script></body>
 </html>

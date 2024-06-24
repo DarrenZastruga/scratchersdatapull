@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,7 +371,7 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
                   <tr>
             <td>$2</td>
             <td>922,674</td>
-            <td>223,482</td>
+            <td>223,479</td>
           </tr>
                   <tr>
             <td>$4</td>
@@ -430,8 +430,8 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,636,517</b></div>
-      <div class="h2">Total Prizes Won: <b>$9,561,467</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,636,511</b></div>
+      <div class="h2">Total Prizes Won: <b>$9,561,473</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -579,5 +579,5 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=170&cb=1212774269" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=180&cb=350291924" async></script></body>
 </html>

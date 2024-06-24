@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -393,32 +393,32 @@ Reveal a "BIG" symbol, WIN ALL 30 PRIZES!</p>
                   <tr>
             <td>$30</td>
             <td>595,407</td>
-            <td>210,705</td>
+            <td>210,650</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>476,386</td>
-            <td>167,672</td>
+            <td>167,621</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>476,349</td>
-            <td>166,984</td>
+            <td>166,931</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>357,363</td>
-            <td>125,455</td>
+            <td>125,420</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>297,741</td>
-            <td>103,954</td>
+            <td>103,926</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>37,968</td>
-            <td>13,280</td>
+            <td>13,278</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -457,8 +457,8 @@ Reveal a "BIG" symbol, WIN ALL 30 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$49,478,430</b></div>
-      <div class="h2">Total Prizes Won: <b>$94,806,550</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$49,466,190</b></div>
+      <div class="h2">Total Prizes Won: <b>$94,818,790</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -606,5 +606,5 @@ Reveal a "BIG" symbol, WIN ALL 30 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=162&cb=1923609566" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=172&cb=1480914785" async></script></body>
 </html>

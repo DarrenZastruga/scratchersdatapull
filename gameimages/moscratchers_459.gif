@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -368,42 +368,42 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
                   <tr>
             <td>$5</td>
             <td>483,086</td>
-            <td>240,775</td>
+            <td>237,220</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>207,126</td>
-            <td>101,702</td>
+            <td>100,139</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>138,052</td>
-            <td>66,864</td>
+            <td>65,814</td>
           </tr>
                   <tr>
             <td>$17</td>
             <td>69,026</td>
-            <td>33,512</td>
+            <td>32,948</td>
           </tr>
                   <tr>
             <td>$27</td>
             <td>81,151</td>
-            <td>38,807</td>
+            <td>38,185</td>
           </tr>
                   <tr>
             <td>$77</td>
             <td>43,327</td>
-            <td>20,603</td>
+            <td>20,285</td>
           </tr>
                   <tr>
             <td>$277</td>
             <td>280</td>
-            <td>134</td>
+            <td>133</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>172</td>
-            <td>77</td>
+            <td>75</td>
           </tr>
                   <tr>
             <td>$777</td>
@@ -418,7 +418,7 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
                   <tr>
             <td>$7,777</td>
             <td>12</td>
-            <td>6</td>
+            <td>5</td>
           </tr>
                   <tr>
             <td>$10,000</td>
@@ -437,8 +437,8 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,827,299</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,311,571</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$6,718,222</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,420,648</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -586,5 +586,5 @@ Reveal a&nbsp;<strong>"SILVER BAR"&nbsp;</strong>symbol, WIN ALL 15 prizes!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=12&cb=1097569830" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=1372060435" async></script></body>
 </html>

@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -370,37 +370,37 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$3</td>
             <td>352,444</td>
-            <td>185,533</td>
+            <td>185,507</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>343,540</td>
-            <td>172,764</td>
+            <td>172,734</td>
           </tr>
                   <tr>
             <td>$9</td>
             <td>88,093</td>
-            <td>43,419</td>
+            <td>43,411</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>70,501</td>
-            <td>34,703</td>
+            <td>34,700</td>
           </tr>
                   <tr>
             <td>$16</td>
             <td>17,630</td>
-            <td>8,384</td>
+            <td>8,383</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>35,241</td>
-            <td>16,776</td>
+            <td>16,774</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>5,897</td>
-            <td>2,721</td>
+            <td>2,719</td>
           </tr>
                   <tr>
             <td>$60</td>
@@ -434,8 +434,8 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,458,298</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,548,291</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,457,782</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,548,807</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -583,5 +583,5 @@ Reveal a "CANDY CANE" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=50&cb=1678996480" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=60&cb=1325041318" async></script></body>
 </html>

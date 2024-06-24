@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,32 +371,32 @@ Reveal a "50X" symbol, win 50 TIMES the prize.</p>
                   <tr>
             <td>$5</td>
             <td>566,162</td>
-            <td>144,131</td>
+            <td>144,095</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>242,631</td>
-            <td>54,025</td>
+            <td>54,007</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>242,687</td>
-            <td>52,457</td>
+            <td>52,447</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>60,610</td>
-            <td>13,192</td>
+            <td>13,191</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>19,745</td>
-            <td>4,160</td>
+            <td>4,159</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>40,497</td>
-            <td>8,341</td>
+            <td>8,337</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -450,8 +450,8 @@ Reveal a "50X" symbol, win 50 TIMES the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,527,415</b></div>
-      <div class="h2">Total Prizes Won: <b>$12,996,040</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,526,700</b></div>
+      <div class="h2">Total Prizes Won: <b>$12,996,755</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -599,5 +599,5 @@ Reveal a "50X" symbol, win 50 TIMES the prize.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=78&cb=1940828584" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=88&cb=1262375027" async></script></body>
 </html>
