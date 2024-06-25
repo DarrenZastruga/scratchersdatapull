@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -369,12 +369,12 @@ Match 3 like prize amounts, win that amount.</p>
                   <tr>
             <td>$2</td>
             <td>969,512</td>
-            <td>220,277</td>
+            <td>220,274</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>430,983</td>
-            <td>80,757</td>
+            <td>80,755</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -433,8 +433,8 @@ Match 3 like prize amounts, win that amount.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,917,392</b></div>
-      <div class="h2">Total Prizes Won: <b>$8,777,764</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,917,378</b></div>
+      <div class="h2">Total Prizes Won: <b>$8,777,778</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -582,5 +582,5 @@ Match 3 like prize amounts, win that amount.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=178&cb=1302239451" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=181&cb=918593924" async></script></body>
 </html>

@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -371,37 +371,37 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
                   <tr>
             <td>$10</td>
             <td>597,124</td>
-            <td>121,511</td>
+            <td>121,364</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>223,953</td>
-            <td>45,044</td>
+            <td>44,974</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>298,646</td>
-            <td>57,544</td>
+            <td>57,494</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>48,511</td>
-            <td>9,207</td>
+            <td>9,197</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>44,818</td>
-            <td>8,449</td>
+            <td>8,438</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>74,651</td>
-            <td>13,886</td>
+            <td>13,876</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>74,651</td>
-            <td>13,776</td>
+            <td>13,760</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -440,8 +440,8 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$7,086,595</b></div>
-      <div class="h2">Total Prizes Won: <b>$26,896,225</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$7,080,395</b></div>
+      <div class="h2">Total Prizes Won: <b>$26,902,425</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -589,5 +589,5 @@ Reveal a "100X" symbol, win 100 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=124&cb=1964084411" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=127&cb=1775894993" async></script></body>
 </html>

@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -389,27 +389,27 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
                   <tr>
             <td>$50</td>
             <td>392,929</td>
-            <td>206,767</td>
+            <td>206,541</td>
           </tr>
                   <tr>
             <td>$60</td>
             <td>654,962</td>
-            <td>344,258</td>
+            <td>343,843</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>917,236</td>
-            <td>479,348</td>
+            <td>478,827</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>52,409</td>
-            <td>27,398</td>
+            <td>27,369</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>128,761</td>
-            <td>67,359</td>
+            <td>67,272</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -448,8 +448,8 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$131,125,730</b></div>
-      <div class="h2">Total Prizes Won: <b>$126,526,340</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$130,988,130</b></div>
+      <div class="h2">Total Prizes Won: <b>$126,663,940</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -597,5 +597,5 @@ Reveal a "5X," "10X," "20X," "50X," "100X," "250X," "500X" symbol, multiply your
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=98&cb=13102874" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=101&cb=861232459" async></script></body>
 </html>

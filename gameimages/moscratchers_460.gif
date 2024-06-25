@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -367,42 +367,42 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
                   <tr>
             <td>$1</td>
             <td>877,520</td>
-            <td>478,052</td>
+            <td>475,028</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>376,080</td>
-            <td>198,004</td>
+            <td>196,635</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>175,504</td>
-            <td>90,274</td>
+            <td>89,660</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>50,144</td>
-            <td>25,724</td>
+            <td>25,562</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>87,796</td>
-            <td>43,871</td>
+            <td>43,584</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>31,318</td>
-            <td>15,402</td>
+            <td>15,292</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>27,439</td>
-            <td>13,419</td>
+            <td>13,326</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,046</td>
-            <td>989</td>
+            <td>980</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -426,8 +426,8 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,568,901</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,457,910</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,551,578</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,475,233</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -575,5 +575,5 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=24&cb=970586787" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=27&cb=1668139868" async></script></body>
 </html>

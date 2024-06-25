@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -370,17 +370,17 @@ Reveal an "ALL" symbol, WIN ALL 5 PRIZES!</p>
                   <tr>
             <td>$1</td>
             <td>1,197,446</td>
-            <td>316,315</td>
+            <td>316,313</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>520,496</td>
-            <td>124,780</td>
+            <td>124,779</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>243,058</td>
-            <td>55,673</td>
+            <td>55,672</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -429,8 +429,8 @@ Reveal an "ALL" symbol, WIN ALL 5 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,581,372</b></div>
-      <div class="h2">Total Prizes Won: <b>$5,341,173</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,581,364</b></div>
+      <div class="h2">Total Prizes Won: <b>$5,341,181</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -578,5 +578,5 @@ Reveal an "ALL" symbol, WIN ALL 5 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=146&cb=2061293860" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=149&cb=245053730" async></script></body>
 </html>

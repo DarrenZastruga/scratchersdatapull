@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -369,27 +369,27 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
                   <tr>
             <td>$2</td>
             <td>698,756</td>
-            <td>239,969</td>
+            <td>239,928</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>512,611</td>
-            <td>167,853</td>
+            <td>167,812</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>139,782</td>
-            <td>45,394</td>
+            <td>45,390</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>139,782</td>
-            <td>44,367</td>
+            <td>44,360</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>46,594</td>
-            <td>14,366</td>
+            <td>14,364</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -428,8 +428,8 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,967,510</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,306,756</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,967,134</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,307,132</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -577,5 +577,5 @@ Reveal a "20X" symbol, win 20 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=128&cb=777747787" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=131&cb=1200824350" async></script></body>
 </html>

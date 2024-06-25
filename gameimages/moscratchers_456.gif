@@ -177,7 +177,7 @@
         <a href="https://playersclub.molottery.com/my-activity#points-for-drawing">Points for Drawings History</a>
               </li>
                 <li class="menu-item">
-        <a href="/index.php/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
+        <a href="/favorite-numbers" data-drupal-link-system-path="favorite-numbers">Favorite Numbers</a>
               </li>
                 <li class="menu-item">
         <a href="https://playersclub.molottery.com/refer-a-friend">Refer a Friend</a>
@@ -367,12 +367,12 @@ Reveal a "MONEY BAG" symbol and win prize automatically.</p>
                   <tr>
             <td>$100</td>
             <td>150,747</td>
-            <td>109,540</td>
+            <td>109,249</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>90,445</td>
-            <td>65,586</td>
+            <td>65,430</td>
           </tr>
                 </tbody>
       </table>
@@ -381,8 +381,8 @@ Reveal a "MONEY BAG" symbol and win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$24,071,200</b></div>
-      <div class="h2">Total Prizes Won: <b>$9,092,500</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$24,010,900</b></div>
+      <div class="h2">Total Prizes Won: <b>$9,152,800</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -530,5 +530,5 @@ Reveal a "MONEY BAG" symbol and win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=26&cb=541442917" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=29&cb=1971810644" async></script></body>
 </html>
