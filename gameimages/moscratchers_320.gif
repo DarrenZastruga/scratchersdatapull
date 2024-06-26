@@ -369,12 +369,12 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
                   <tr>
             <td>$3</td>
             <td>906,149</td>
-            <td>97,411</td>
+            <td>97,410</td>
           </tr>
                   <tr>
             <td>$6</td>
             <td>883,426</td>
-            <td>71,687</td>
+            <td>71,681</td>
           </tr>
                   <tr>
             <td>$9</td>
@@ -433,8 +433,8 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,398,053</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,602,174</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,398,014</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,602,213</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -582,5 +582,5 @@ Match all four symbols in a horizontal or vertical line, win prize shown for tha
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=185&cb=716594093" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=182&cb=1314393329" async></script></body>
 </html>

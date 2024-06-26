@@ -370,17 +370,17 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
                   <tr>
             <td>$1</td>
             <td>1,147,860</td>
-            <td>332,523</td>
+            <td>332,514</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>491,940</td>
-            <td>132,685</td>
+            <td>132,677</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>229,572</td>
-            <td>59,924</td>
+            <td>59,919</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -390,7 +390,7 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
                   <tr>
             <td>$10</td>
             <td>114,782</td>
-            <td>28,711</td>
+            <td>28,710</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -429,8 +429,8 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,708,189</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,861,584</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,708,134</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,861,639</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -578,5 +578,5 @@ Reveal a "10X" symbol, win 10 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=133&cb=935879122" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=130&cb=1427373008" async></script></body>
 </html>
