@@ -369,27 +369,27 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
                   <tr>
             <td>$1</td>
             <td>909,779</td>
-            <td>454,619</td>
+            <td>454,558</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>259,898</td>
-            <td>125,276</td>
+            <td>125,256</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>207,940</td>
-            <td>96,458</td>
+            <td>96,440</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>103,955</td>
-            <td>47,026</td>
+            <td>47,022</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>117,018</td>
-            <td>50,760</td>
+            <td>50,749</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -428,8 +428,8 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,345,213</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,860,737</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,344,910</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,861,040</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -577,5 +577,5 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=64&cb=1666189936" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=66&cb=110024279" async></script></body>
 </html>
