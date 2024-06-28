@@ -369,47 +369,47 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
                   <tr>
             <td>$5</td>
             <td>586,512</td>
-            <td>486,421</td>
+            <td>484,670</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,476</td>
-            <td>207,748</td>
+            <td>206,974</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,397</td>
-            <td>206,969</td>
+            <td>206,161</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,830</td>
-            <td>51,289</td>
+            <td>51,085</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,322</td>
-            <td>41,279</td>
+            <td>41,139</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>4,197</td>
-            <td>3,423</td>
+            <td>3,406</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>41,901</td>
-            <td>34,339</td>
+            <td>34,213</td>
           </tr>
                   <tr>
             <td>$75</td>
             <td>3,360</td>
-            <td>2,726</td>
+            <td>2,711</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>14,723</td>
-            <td>12,092</td>
+            <td>12,038</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -419,12 +419,12 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
                   <tr>
             <td>$500</td>
             <td>256</td>
-            <td>203</td>
+            <td>202</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>129</td>
-            <td>107</td>
+            <td>106</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -463,8 +463,8 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$14,273,265</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,846,320</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$14,222,235</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,897,350</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -612,5 +612,5 @@ Multiply your prize won by the number revealed for that PUZZLE.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=22&cb=733574992" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=21&cb=1586200953" async></script></body>
 </html>
