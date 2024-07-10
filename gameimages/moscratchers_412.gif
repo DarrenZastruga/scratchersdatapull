@@ -367,32 +367,32 @@ If coins add to over $1.00, win prize shown.</p>
                   <tr>
             <td>$1</td>
             <td>999,398</td>
-            <td>218,417</td>
+            <td>218,372</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>440,908</td>
-            <td>90,323</td>
+            <td>90,305</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>205,756</td>
-            <td>39,721</td>
+            <td>39,708</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>58,752</td>
-            <td>10,968</td>
+            <td>10,966</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>73,504</td>
-            <td>13,241</td>
+            <td>13,237</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>29,394</td>
-            <td>5,137</td>
+            <td>5,136</td>
           </tr>
                   <tr>
             <td>$40</td>
@@ -426,8 +426,8 @@ If coins add to over $1.00, win prize shown.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,114,957</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,760,501</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,114,754</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,760,704</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -575,5 +575,5 @@ If coins add to over $1.00, win prize shown.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=119&cb=1461588511" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=123&cb=1492919886" async></script></body>
 </html>
