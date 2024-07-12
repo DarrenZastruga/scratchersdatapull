@@ -369,7 +369,7 @@ Reveal a "MONEY STACK" symbol, and win DOUBLE the prize.</p>
                   <tr>
             <td>$1</td>
             <td>1,257,025</td>
-            <td>520,045</td>
+            <td>520,039</td>
           </tr>
                   <tr>
             <td>$2</td>
@@ -379,7 +379,7 @@ Reveal a "MONEY STACK" symbol, and win DOUBLE the prize.</p>
                   <tr>
             <td>$4</td>
             <td>251,450</td>
-            <td>97,814</td>
+            <td>97,812</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -438,8 +438,8 @@ Reveal a "MONEY STACK" symbol, and win DOUBLE the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,776,142</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,409,763</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,776,128</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,409,777</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -587,5 +587,5 @@ Reveal a "MONEY STACK" symbol, and win DOUBLE the prize.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=157&cb=1483432255" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=158&cb=94850862" async></script></body>
 </html>
