@@ -266,6 +266,7 @@
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
               
                                                                     <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
                                                 
@@ -290,12 +291,12 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Jul. 14, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Jan. 10, 2025</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -369,27 +370,27 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>76,958</td>
+            <td>76,908</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>15,546</td>
+            <td>15,535</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>14,049</td>
+            <td>14,040</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>2,963</td>
+            <td>2,958</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>2,537</td>
+            <td>2,534</td>
           </tr>
                   <tr>
             <td>$30</td>
@@ -399,7 +400,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>1,864</td>
+            <td>1,862</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -468,8 +469,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,259,900</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,826,785</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,259,130</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,827,555</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -617,5 +618,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=88&cb=380228219" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=87&cb=167213342" async></script></body>
 </html>

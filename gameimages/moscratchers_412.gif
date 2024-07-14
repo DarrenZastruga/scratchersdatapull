@@ -367,27 +367,27 @@ If coins add to over $1.00, win prize shown.</p>
                   <tr>
             <td>$1</td>
             <td>999,398</td>
-            <td>218,224</td>
+            <td>218,181</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>440,908</td>
-            <td>90,238</td>
+            <td>90,223</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>205,756</td>
-            <td>39,677</td>
+            <td>39,671</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>58,752</td>
-            <td>10,960</td>
+            <td>10,959</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>73,504</td>
-            <td>13,226</td>
+            <td>13,224</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -397,7 +397,7 @@ If coins add to over $1.00, win prize shown.</p>
                   <tr>
             <td>$40</td>
             <td>32,346</td>
-            <td>5,588</td>
+            <td>5,585</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -426,8 +426,8 @@ If coins add to over $1.00, win prize shown.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,114,008</b></div>
-      <div class="h2">Total Prizes Won: <b>$4,761,450</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,113,766</b></div>
+      <div class="h2">Total Prizes Won: <b>$4,761,692</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -575,5 +575,5 @@ If coins add to over $1.00, win prize shown.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=122&cb=1810719393" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=121&cb=408889185" async></script></body>
 </html>
