@@ -367,47 +367,47 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
                   <tr>
             <td>$1</td>
             <td>877,520</td>
-            <td>416,493</td>
+            <td>413,423</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>376,080</td>
-            <td>170,641</td>
+            <td>169,291</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>175,504</td>
-            <td>77,302</td>
+            <td>76,655</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>50,144</td>
-            <td>22,112</td>
+            <td>21,957</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>87,796</td>
-            <td>37,259</td>
+            <td>36,900</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>31,318</td>
-            <td>13,069</td>
+            <td>12,955</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>27,439</td>
-            <td>11,381</td>
+            <td>11,276</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>2,046</td>
-            <td>841</td>
+            <td>829</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>15</td>
-            <td>6</td>
+            <td>5</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -426,8 +426,8 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,201,138</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,825,673</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,181,810</b></div>
+      <div class="h2">Total Prizes Won: <b>$2,845,001</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -575,5 +575,5 @@ Reveal a "2X" symbol, "5X" symbol or "10X" symbol, win 2, 5 or 10 TIMES the priz
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=27&cb=171311170" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=24&cb=271848308" async></script></body>
 </html>

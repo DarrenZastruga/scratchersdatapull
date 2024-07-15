@@ -370,27 +370,27 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>76,908</td>
+            <td>76,874</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>15,535</td>
+            <td>15,523</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>14,040</td>
+            <td>14,034</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>2,958</td>
+            <td>2,954</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>2,534</td>
+            <td>2,533</td>
           </tr>
                   <tr>
             <td>$30</td>
@@ -400,7 +400,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>1,862</td>
+            <td>1,855</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -469,8 +469,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,259,130</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,827,555</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,258,295</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,828,390</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -618,5 +618,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=87&cb=167213342" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=84&cb=1483901078" async></script></body>
 </html>

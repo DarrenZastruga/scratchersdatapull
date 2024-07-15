@@ -375,7 +375,7 @@ Reveal an "ALL" symbol, WIN ALL 5 PRIZES on this side!</p>
                   <tr>
             <td>$5</td>
             <td>675,927</td>
-            <td>127,211</td>
+            <td>127,206</td>
           </tr>
                   <tr>
             <td>$10</td>
@@ -385,7 +385,7 @@ Reveal an "ALL" symbol, WIN ALL 5 PRIZES on this side!</p>
                   <tr>
             <td>$15</td>
             <td>289,766</td>
-            <td>44,861</td>
+            <td>44,858</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -454,8 +454,8 @@ Reveal an "ALL" symbol, WIN ALL 5 PRIZES on this side!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$3,164,465</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,850,360</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$3,164,395</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,850,430</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -603,5 +603,5 @@ Reveal an "ALL" symbol, WIN ALL 5 PRIZES on this side!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=119&cb=1960729512" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=116&cb=1764351179" async></script></body>
 </html>

@@ -369,27 +369,27 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
                   <tr>
             <td>$5</td>
             <td>640,608</td>
-            <td>89,021</td>
+            <td>88,998</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>274,518</td>
-            <td>29,129</td>
+            <td>29,117</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>274,534</td>
-            <td>27,501</td>
+            <td>27,489</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>68,601</td>
-            <td>7,091</td>
+            <td>7,086</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>22,303</td>
-            <td>2,153</td>
+            <td>2,152</td>
           </tr>
                   <tr>
             <td>$40</td>
@@ -399,7 +399,7 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
                   <tr>
             <td>$50</td>
             <td>13,727</td>
-            <td>1,305</td>
+            <td>1,304</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -448,8 +448,8 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,921,020</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,761,960</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,920,430</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,762,550</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -597,5 +597,5 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-</body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=186&cb=534731463" async></script></body>
 </html>
