@@ -374,17 +374,17 @@ Reveal a "TREE" symbol, win 10 TIMES the prize.</p>
                   <tr>
             <td>$10</td>
             <td>377,080</td>
-            <td>124,301</td>
+            <td>124,293</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>226,248</td>
-            <td>72,052</td>
+            <td>72,050</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>30,151</td>
-            <td>9,578</td>
+            <td>9,577</td>
           </tr>
                   <tr>
             <td>$50</td>
@@ -438,8 +438,8 @@ Reveal a "TREE" symbol, win 10 TIMES the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$5,222,450</b></div>
-      <div class="h2">Total Prizes Won: <b>$11,543,035</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,222,305</b></div>
+      <div class="h2">Total Prizes Won: <b>$11,543,180</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -587,5 +587,5 @@ Reveal a "TREE" symbol, win 10 TIMES the prize.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=56&cb=734232005" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=32&cb=1805836192" async></script></body>
 </html>
