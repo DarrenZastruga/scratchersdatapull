@@ -369,52 +369,52 @@ Reveal a "<strong>333</strong>" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$2</td>
             <td>626,958</td>
-            <td>547,748</td>
+            <td>533,630</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>278,648</td>
-            <td>242,279</td>
+            <td>235,884</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>104,375</td>
-            <td>90,544</td>
+            <td>88,008</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>52,230</td>
-            <td>45,106</td>
+            <td>43,871</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>34,831</td>
-            <td>29,909</td>
+            <td>29,101</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>26,161</td>
-            <td>22,463</td>
+            <td>21,846</td>
           </tr>
                   <tr>
             <td>$30</td>
             <td>46,186</td>
-            <td>39,590</td>
+            <td>38,451</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>7,351</td>
-            <td>6,236</td>
+            <td>6,068</td>
           </tr>
                   <tr>
             <td>$333</td>
             <td>441</td>
-            <td>375</td>
+            <td>362</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>43</td>
-            <td>38</td>
+            <td>37</td>
           </tr>
                   <tr>
             <td>$3,333</td>
@@ -424,7 +424,7 @@ Reveal a "<strong>333</strong>" symbol, win TRIPLE the prize!</p>
                   <tr>
             <td>$33,333</td>
             <td>5</td>
-            <td>5</td>
+            <td>4</td>
           </tr>
                 </tbody>
       </table>
@@ -433,8 +433,8 @@ Reveal a "<strong>333</strong>" symbol, win TRIPLE the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$6,023,792</b></div>
-      <div class="h2">Total Prizes Won: <b>$928,439</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$5,830,854</b></div>
+      <div class="h2">Total Prizes Won: <b>$1,121,377</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -582,5 +582,5 @@ Reveal a "<strong>333</strong>" symbol, win TRIPLE the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=1558186186" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=510906886" async></script></body>
 </html>
