@@ -393,27 +393,27 @@ Reveal a "BANK" symbol, WIN ALL 35 PRIZES!</p>
                   <tr>
             <td>$75</td>
             <td>1,029,452</td>
-            <td>945,771</td>
+            <td>944,527</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>514,726</td>
-            <td>472,751</td>
+            <td>472,112</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>218,830</td>
-            <td>200,995</td>
+            <td>200,705</td>
           </tr>
                   <tr>
             <td>$500</td>
             <td>103,102</td>
-            <td>94,798</td>
+            <td>94,645</td>
           </tr>
                   <tr>
             <td>$1,000</td>
             <td>2,566</td>
-            <td>2,389</td>
+            <td>2,382</td>
           </tr>
                   <tr>
             <td>$5,000</td>
@@ -447,8 +447,8 @@ Reveal a "BANK" symbol, WIN ALL 35 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$228,534,925</b></div>
-      <div class="h2">Total Prizes Won: <b>$24,029,575</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$228,236,225</b></div>
+      <div class="h2">Total Prizes Won: <b>$24,328,275</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -596,5 +596,5 @@ Reveal a "BANK" symbol, WIN ALL 35 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1789356690" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=1040442534" async></script></body>
 </html>
