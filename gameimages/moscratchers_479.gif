@@ -9,7 +9,7 @@
 <meta name="google-site-verification" content="0RxkWp7wrPuv6mY2OKfS5YwWetGuTOuo2u3fAJKPIHQ" />
 <link rel="icon" href="/sites/default/files/Favicons-01_1.png" type="image/png" />
 
-    <title>HAPPY PAWLIDAYS! | molottery.com</title>
+    <title>KING OF SPADES | molottery.com</title>
     <link rel="stylesheet" media="all" href="/libraries/superfish/css/superfish.css?sffm2t" />
 <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?sffm2t" />
 <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?sffm2t" />
@@ -200,8 +200,8 @@
   <div class="welcome__header">Welcome!</div>
   <div class="welcome__body">
     <div class="welcome__columns">
-            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=scratchers/444" target="_blank">Sign Up</a></div>
-      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=scratchers/444" target="_blank">Log In</a></div>
+            <div class="welcome__item"><a class="welcome__link btn btn_red welcome-reg" href="https://playersclub.molottery.com/register?partner=evelopers&redirect=scratchers/479" target="_blank">Sign Up</a></div>
+      <div class="welcome__item"><a class="welcome__link btn btn_yellow welcome-auth" href="https://playersclub.molottery.com/login?partner=evelopers&redirect=scratchers/479" target="_blank">Log In</a></div>
       <meta content="">
     </div>
   </div>
@@ -237,7 +237,7 @@
                   <a href="/scratchers">Scratchers</a>
               </li>
           <li>
-                  HAPPY PAWLIDAYS!
+                  KING OF SPADES
               </li>
         </ol>
   </nav>
@@ -261,63 +261,68 @@
   
 
   <div class="scratchers-single">
-      <h1>HAPPY PAWLIDAYS!  </h1>
-      <div class="scratchers-single__id">Game #444</div>
+      <h1>KING OF SPADES  </h1>
+      <div class="scratchers-single__id">Game #479</div>
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
-                              <a class="tag tag_orange" href="#">Expires soon</a>
-                              <a class="tag " href="#">No longer distributed</a>
+                              <a class="tag tag_yellow" href="#">New</a>
               
                                                                     <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
                                                 
 
             </div>
                     <div class="scratchers-single__text">
-            <p>Celebrate the "Pawlidays" and win up to $1,000 with this $1 holiday Scratchers game featuring a flurry of furry friends!</p>
+            <p>Win top prizes of up to $100,000 in this $5 game featuring a BONUS Scratch the Back feature!</p>
 
             <h3>How to Play</h3>
-            <p>Match any of YOUR NUMBERS to either PAW NUMBER, win prize shown.<br />
-Reveal a "STOCKING" symbol, win prize automatically.</p>
+            <p><strong>Front:&nbsp;</strong>Match any of YOUR NUMBERS to any WINNING NUMBER and win the prize shown.<br />
+Reveal a "SPADE" symbol, win prize automatically.<br />
+Reveal a "5X" symbol, win 5 TIMES the prize!<br />
+Reveal a "K" symbol, WIN ALL 15 PRIZES!</p>
+
+<p><strong>Back:&nbsp;</strong>Reveal a "POKER CHIP" symbol in any spot, win prize shown.<br />
+Reveal a "5X" symbol, win 5 TIMES the prize!<br />
+Reveal a "CROWN" symbol, WIN ALL 5 PRIZES!</p>
 
           </div>
           <div id="scratchers-single-info-standard">
             <div class="scratchers-single__info scratchers-single-info">
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Official Start Date:</div>
-                <div class="scratchers-single-info__body">Oct. 16, 2023</div>
+                <div class="scratchers-single-info__body">Jul. 29, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">Mar. 08, 2024</div>
+                <div class="scratchers-single-info__body">TBD</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">Sep. 04, 2024</div>
+                <div class="scratchers-single-info__body">TBD</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Ticket Price:</div>
-                <div class="scratchers-single-info__body">$1</div>
+                <div class="scratchers-single-info__body">$5</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Top Prize:</div>
-                                <div class="scratchers-single-info__body">$1,000</div>
+                                <div class="scratchers-single-info__body">$100,000</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Average Chances*:</div>
-                <div class="scratchers-single-info__body">1 in 4.74</div>
-                <div class="scratchers-single-info__bottom"> including free ticket prizes</div>
+                <div class="scratchers-single-info__body">1 in 3.99</div>
+                <div class="scratchers-single-info__bottom"> including $5 prizes</div>
               </div>
             </div>
           </div>
         </div>
         <div class="scratchers-single__right">
-                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/444_s1.png"><img src="/sites/default/files/scratchers/tile/444_itvm_card.png"></a>
+                                          <a class="colorbox-image" href="/sites/default/files/scratchers/full/479_front.png"><img src="/sites/default/files/scratchers/tile/479.png"></a>
                   </div>
       </div>
 
@@ -367,59 +372,79 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
         </thead>
         <tbody>
                   <tr>
-            <td>$1</td>
-            <td>909,779</td>
-            <td>452,579</td>
-          </tr>
-                  <tr>
-            <td>$2</td>
-            <td>259,898</td>
-            <td>124,720</td>
-          </tr>
-                  <tr>
-            <td>$4</td>
-            <td>207,940</td>
-            <td>95,982</td>
-          </tr>
-                  <tr>
             <td>$5</td>
-            <td>103,955</td>
-            <td>46,811</td>
+            <td>645,401</td>
+            <td>645,395</td>
           </tr>
                   <tr>
             <td>$10</td>
-            <td>117,018</td>
-            <td>50,520</td>
+            <td>276,575</td>
+            <td>276,571</td>
+          </tr>
+                  <tr>
+            <td>$15</td>
+            <td>276,582</td>
+            <td>276,580</td>
           </tr>
                   <tr>
             <td>$20</td>
-            <td>38,990</td>
-            <td>16,119</td>
+            <td>69,182</td>
+            <td>69,181</td>
+          </tr>
+                  <tr>
+            <td>$25</td>
+            <td>33,516</td>
+            <td>33,516</td>
           </tr>
                   <tr>
             <td>$40</td>
-            <td>6,274</td>
-            <td>2,503</td>
+            <td>46,165</td>
+            <td>46,165</td>
+          </tr>
+                  <tr>
+            <td>$50</td>
+            <td>13,886</td>
+            <td>13,885</td>
+          </tr>
+                  <tr>
+            <td>$75</td>
+            <td>3,712</td>
+            <td>3,712</td>
           </tr>
                   <tr>
             <td>$100</td>
-            <td>1,613</td>
-            <td>621</td>
+            <td>20,574</td>
+            <td>20,574</td>
           </tr>
                   <tr>
             <td>$200</td>
-            <td>133</td>
-            <td>48</td>
+            <td>929</td>
+            <td>929</td>
           </tr>
                   <tr>
             <td>$500</td>
-            <td>36</td>
-            <td>11</td>
+            <td>184</td>
+            <td>184</td>
           </tr>
                   <tr>
             <td>$1,000</td>
-            <td>18</td>
-            <td>10</td>
+            <td>720</td>
+            <td>720</td>
+          </tr>
+                  <tr>
+            <td>$5,000</td>
+            <td>29</td>
+            <td>29</td>
+          </tr>
+                  <tr>
+            <td>$20,000</td>
+            <td>6</td>
+            <td>6</td>
+          </tr>
+                  <tr>
+            <td>$100,000</td>
+            <td>6</td>
+            <td>6</td>
           </tr>
                 </tbody>
       </table>
@@ -428,8 +453,8 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,334,902</b></div>
-      <div class="h2">Total Prizes Won: <b>$2,871,048</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$19,102,355</b></div>
+      <div class="h2">Total Prizes Won: <b>$170</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -545,7 +570,7 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
   </div>
 
 
-<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"scratchers\/444","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"colorbox\/colorbox,colorbox\/default,molottery\/classy.base,molottery\/global-styling,molottery_dashboard\/axios,molottery_dashboard\/molottery_dashboard,scratchers\/scratchers_single,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base","theme":"molottery","theme_token":null},"ajaxTrustedUrl":[],"api":{"domain":"https:\/\/playersclub.molottery.com","tos":"https:\/\/playersclub.molottery.com\/enter"},"superfish":{"superfish-main":{"id":"superfish-main","sf":{"delay":"1700","animation":{"opacity":"show","height":"show"}},"plugins":{"smallscreen":{"mode":"window_width","breakpoint":900,"title":"Main navigation"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"eff30fef41f7e524bb66a459a8585887676a9a4919e2e6d6cc8225cbd43055c1"}}</script>
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"scratchers\/479","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"colorbox\/colorbox,colorbox\/default,molottery\/classy.base,molottery\/global-styling,molottery_dashboard\/axios,molottery_dashboard\/molottery_dashboard,scratchers\/scratchers_single,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base","theme":"molottery","theme_token":null},"ajaxTrustedUrl":[],"api":{"domain":"https:\/\/playersclub.molottery.com","tos":"https:\/\/playersclub.molottery.com\/enter"},"superfish":{"superfish-main":{"id":"superfish-main","sf":{"delay":"1700","animation":{"opacity":"show","height":"show"}},"plugins":{"smallscreen":{"mode":"window_width","breakpoint":900,"title":"Main navigation"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"eff30fef41f7e524bb66a459a8585887676a9a4919e2e6d6cc8225cbd43055c1"}}</script>
 <script src="/core/assets/vendor/jquery/jquery.min.js?v=3.6.0"></script>
 <script src="/core/misc/polyfills/element.matches.js?v=9.4.5"></script>
 <script src="/core/misc/polyfills/object.assign.js?v=9.4.5"></script>
@@ -577,5 +602,5 @@ Reveal a "STOCKING" symbol, win prize automatically.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=33&cb=1805882638" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=170210213" async></script></body>
 </html>
