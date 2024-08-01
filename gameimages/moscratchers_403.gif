@@ -266,6 +266,7 @@
       <div class="scratchers-single__columns">
         <div class="scratchers-single__left">
                       <div class="scratchers-single__tags tags">
+                              <a class="tag tag_orange" href="#">Expires soon</a>
               
                                                                     <a class="tag" href="https://playersclub.molottery.com/second-chance-promotion?id=13">Choose Your Dream Adventure</a>
                                                 
@@ -288,12 +289,12 @@ Match three like prize amounts, win that amount.</p>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">End Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Aug. 01, 2024</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
                 <div class="scratchers-single-info__title">Expire Date:</div>
-                <div class="scratchers-single-info__body">TBD</div>
+                <div class="scratchers-single-info__body">Jan. 28, 2025</div>
                 <div class="scratchers-single-info__bottom"></div>
               </div>
               <div class="scratchers-single-info__block">
@@ -367,22 +368,22 @@ Match three like prize amounts, win that amount.</p>
                   <tr>
             <td>$2</td>
             <td>727,528</td>
-            <td>184,832</td>
+            <td>184,811</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>323,461</td>
-            <td>68,674</td>
+            <td>68,666</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>121,295</td>
-            <td>26,920</td>
+            <td>26,915</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>60,677</td>
-            <td>12,120</td>
+            <td>12,119</td>
           </tr>
                   <tr>
             <td>$15</td>
@@ -431,8 +432,8 @@ Match three like prize amounts, win that amount.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,630,815</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,398,385</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,630,706</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,398,494</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -580,5 +581,5 @@ Match three like prize amounts, win that amount.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=136&cb=1070819252" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=98&cb=172864181" async></script></body>
 </html>

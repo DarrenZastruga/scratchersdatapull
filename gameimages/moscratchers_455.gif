@@ -367,52 +367,52 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
                   <tr>
             <td>$1</td>
             <td>901,915</td>
-            <td>399,851</td>
+            <td>398,886</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>386,471</td>
-            <td>165,643</td>
+            <td>165,277</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>180,415</td>
-            <td>75,132</td>
+            <td>74,950</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>51,538</td>
-            <td>21,241</td>
+            <td>21,189</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>90,136</td>
-            <td>36,150</td>
+            <td>36,068</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>32,239</td>
-            <td>12,470</td>
+            <td>12,442</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>9,666</td>
-            <td>3,749</td>
+            <td>3,736</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>4,384</td>
-            <td>1,655</td>
+            <td>1,652</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,789</td>
-            <td>663</td>
+            <td>659</td>
           </tr>
                   <tr>
             <td>$200</td>
             <td>390</td>
-            <td>151</td>
+            <td>150</td>
           </tr>
                   <tr>
             <td>$500</td>
@@ -436,8 +436,8 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,121,980</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,039,107</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,116,645</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,044,442</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,5 +585,5 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=42&cb=509661112" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=31&cb=951866211" async></script></body>
 </html>
