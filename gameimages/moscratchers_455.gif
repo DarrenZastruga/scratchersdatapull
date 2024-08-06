@@ -367,47 +367,47 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
                   <tr>
             <td>$1</td>
             <td>901,915</td>
-            <td>394,981</td>
+            <td>394,102</td>
           </tr>
                   <tr>
             <td>$2</td>
             <td>386,471</td>
-            <td>163,444</td>
+            <td>163,084</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>180,415</td>
-            <td>74,172</td>
+            <td>73,995</td>
           </tr>
                   <tr>
             <td>$5</td>
             <td>51,538</td>
-            <td>20,951</td>
+            <td>20,894</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>90,136</td>
-            <td>35,649</td>
+            <td>35,569</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>32,239</td>
-            <td>12,315</td>
+            <td>12,294</td>
           </tr>
                   <tr>
             <td>$40</td>
             <td>9,666</td>
-            <td>3,692</td>
+            <td>3,686</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>4,384</td>
-            <td>1,633</td>
+            <td>1,627</td>
           </tr>
                   <tr>
             <td>$100</td>
             <td>1,789</td>
-            <td>652</td>
+            <td>651</td>
           </tr>
                   <tr>
             <td>$200</td>
@@ -417,7 +417,7 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
                   <tr>
             <td>$500</td>
             <td>132</td>
-            <td>53</td>
+            <td>52</td>
           </tr>
                   <tr>
             <td>$1,000</td>
@@ -436,8 +436,8 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$2,093,732</b></div>
-      <div class="h2">Total Prizes Won: <b>$3,067,355</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$2,088,780</b></div>
+      <div class="h2">Total Prizes Won: <b>$3,072,307</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -585,5 +585,5 @@ Reveal a "MONEY STACK" symbol, win DOUBLE the prize.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=44&cb=1659070858" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=44&cb=366507360" async></script></body>
 </html>
