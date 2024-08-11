@@ -252,84 +252,7 @@
 <main id="content" role="main">
   <a id="main-content" tabindex="-1"></a>
     <div class="region region-content">
-    <div data-drupal-messages-fallback class="hidden"></div><div data-drupal-messages>
-      <div role="contentinfo" aria-label="Error message">
-            <div role="alert" class="message-error">
-                          <h2 class="visually-hidden">Error message</h2>
-                          <em class="placeholder">Warning</em>: Undefined array key "preload-paths:/scratchers/441 " in <em class="placeholder">Drupal\Core\Cache\DatabaseBackend-&gt;getMultiple()</em> (line <em class="placeholder">121</em> of <em class="placeholder">core/lib/Drupal/Core/Cache/DatabaseBackend.php</em>). <pre class="backtrace">Drupal\Core\Cache\DatabaseBackend-&gt;getMultiple(Array, ) (Line: 92)
-Drupal\Core\Cache\DatabaseBackend-&gt;get(&#039;preload-paths:/scratchers/441&#039;) (Line: 211)
-Drupal\path_alias\AliasManager-&gt;getAliasByPath(&#039;/node/14&#039;, &#039;en&#039;) (Line: 47)
-Drupal\path_alias\PathProcessor\AliasPathProcessor-&gt;processOutbound(&#039;/node/14&#039;, Array, Object, Object) (Line: 108)
-Drupal\Core\PathProcessor\PathProcessorManager-&gt;processOutbound(&#039;/node/14&#039;, Array, Object, Object) (Line: 388)
-Drupal\Core\Routing\UrlGenerator-&gt;processPath(&#039;/node/14&#039;, Array, Object) (Line: 297)
-Drupal\Core\Routing\UrlGenerator-&gt;generateFromRoute(&#039;entity.node.canonical&#039;, Array, Array, 1) (Line: 105)
-Drupal\Core\Render\MetadataBubblingUrlGenerator-&gt;generateFromRoute(&#039;entity.node.canonical&#039;, Array, Array, ) (Line: 765)
-Drupal\Core\Url-&gt;toString() (Line: 135)
-template_preprocess_superfish_menu_items(Array, &#039;superfish_menu_items&#039;, Array)
-call_user_func_array(&#039;template_preprocess_superfish_menu_items&#039;, Array) (Line: 287)
-Drupal\Core\Theme\ThemeManager-&gt;render(&#039;superfish_menu_items&#039;, Array) (Line: 422)
-Drupal\Core\Render\Renderer-&gt;doRender(Array, ) (Line: 201)
-Drupal\Core\Render\Renderer-&gt;render(Array) (Line: 479)
-Drupal\Core\Template\TwigExtension-&gt;escapeFilter(Object, Array, &#039;html&#039;, NULL, 1) (Line: 48)
-__TwigTemplate_fc0c5db88f5d323723b5aaf478edd24f-&gt;doDisplay(Array, Array) (Line: 405)
-Twig\Template-&gt;displayWithErrorHandling(Array, Array) (Line: 378)
-Twig\Template-&gt;display(Array) (Line: 390)
-Twig\Template-&gt;render(Array) (Line: 55)
-twig_render_template(&#039;modules/contrib/superfish/templates/superfish.html.twig&#039;, Array) (Line: 384)
-Drupal\Core\Theme\ThemeManager-&gt;render(&#039;superfish&#039;, Array) (Line: 422)
-Drupal\Core\Render\Renderer-&gt;doRender(Array) (Line: 435)
-Drupal\Core\Render\Renderer-&gt;doRender(Array, ) (Line: 201)
-Drupal\Core\Render\Renderer-&gt;render(Array) (Line: 479)
-Drupal\Core\Template\TwigExtension-&gt;escapeFilter(Object, Array, &#039;html&#039;, NULL, 1) (Line: 84)
-__TwigTemplate_0cec8cc6dcd523832e2598f9eb9489dd-&gt;block_content(Array, Array) (Line: 182)
-Twig\Template-&gt;displayBlock(&#039;content&#039;, Array, Array) (Line: 68)
-__TwigTemplate_0cec8cc6dcd523832e2598f9eb9489dd-&gt;doDisplay(Array, Array) (Line: 405)
-Twig\Template-&gt;displayWithErrorHandling(Array, Array) (Line: 378)
-Twig\Template-&gt;display(Array) (Line: 390)
-Twig\Template-&gt;render(Array) (Line: 55)
-twig_render_template(&#039;themes/molottery/templates/block/block.html.twig&#039;, Array) (Line: 384)
-Drupal\Core\Theme\ThemeManager-&gt;render(&#039;block&#039;, Array) (Line: 422)
-Drupal\Core\Render\Renderer-&gt;doRender(Array) (Line: 435)
-Drupal\Core\Render\Renderer-&gt;doRender(Array, ) (Line: 201)
-Drupal\Core\Render\Renderer-&gt;render(Array) (Line: 479)
-Drupal\Core\Template\TwigExtension-&gt;escapeFilter(Object, Array, &#039;html&#039;, NULL, 1) (Line: 69)
-__TwigTemplate_14fd8c88b7f4478b090edd6151d57555-&gt;doDisplay(Array, Array) (Line: 405)
-Twig\Template-&gt;displayWithErrorHandling(Array, Array) (Line: 378)
-Twig\Template-&gt;display(Array) (Line: 390)
-Twig\Template-&gt;render(Array) (Line: 55)
-twig_render_template(&#039;themes/molottery/templates/content/page--scratchers.html.twig&#039;, Array) (Line: 384)
-Drupal\Core\Theme\ThemeManager-&gt;render(&#039;page&#039;, Array) (Line: 422)
-Drupal\Core\Render\Renderer-&gt;doRender(Array, ) (Line: 201)
-Drupal\Core\Render\Renderer-&gt;render(Array) (Line: 479)
-Drupal\Core\Template\TwigExtension-&gt;escapeFilter(Object, Array, &#039;html&#039;, NULL, 1) (Line: 90)
-__TwigTemplate_df40ca236ad23e589b1e958d2dabb14e-&gt;doDisplay(Array, Array) (Line: 405)
-Twig\Template-&gt;displayWithErrorHandling(Array, Array) (Line: 378)
-Twig\Template-&gt;display(Array) (Line: 390)
-Twig\Template-&gt;render(Array) (Line: 55)
-twig_render_template(&#039;themes/molottery/templates/html.html.twig&#039;, Array) (Line: 384)
-Drupal\Core\Theme\ThemeManager-&gt;render(&#039;html&#039;, Array) (Line: 422)
-Drupal\Core\Render\Renderer-&gt;doRender(Array, ) (Line: 201)
-Drupal\Core\Render\Renderer-&gt;render(Array) (Line: 162)
-Drupal\Core\Render\MainContent\HtmlRenderer-&gt;Drupal\Core\Render\MainContent\{closure}() (Line: 564)
-Drupal\Core\Render\Renderer-&gt;executeInRenderContext(Object, Object) (Line: 163)
-Drupal\Core\Render\MainContent\HtmlRenderer-&gt;renderResponse(Array, Object, Object) (Line: 90)
-Drupal\Core\EventSubscriber\MainContentViewSubscriber-&gt;onViewRenderArray(Object, &#039;kernel.view&#039;, Object)
-call_user_func(Array, Object, &#039;kernel.view&#039;, Object) (Line: 142)
-Drupal\Component\EventDispatcher\ContainerAwareEventDispatcher-&gt;dispatch(Object, &#039;kernel.view&#039;) (Line: 163)
-Symfony\Component\HttpKernel\HttpKernel-&gt;handleRaw(Object, 1) (Line: 80)
-Symfony\Component\HttpKernel\HttpKernel-&gt;handle(Object, 1, 1) (Line: 58)
-Drupal\Core\StackMiddleware\Session-&gt;handle(Object, 1, 1) (Line: 48)
-Drupal\Core\StackMiddleware\KernelPreHandle-&gt;handle(Object, 1, 1) (Line: 49)
-Asm89\Stack\Cors-&gt;handle(Object, 1, 1) (Line: 48)
-Drupal\Core\StackMiddleware\ReverseProxyMiddleware-&gt;handle(Object, 1, 1) (Line: 51)
-Drupal\Core\StackMiddleware\NegotiationMiddleware-&gt;handle(Object, 1, 1) (Line: 23)
-Stack\StackedHttpKernel-&gt;handle(Object, 1, 1) (Line: 709)
-Drupal\Core\DrupalKernel-&gt;handle(Object) (Line: 19)
-</pre>
-                      </div>
-          </div>
-  </div>
-
+    <div data-drupal-messages-fallback class="hidden"></div>
 <div id="block-molottery-content" class="block block-system block-system-main-block">
   
     
@@ -448,27 +371,27 @@ Reveal a "WREATH" symbol, WIN ALL 15 PRIZES!</p>
                   <tr>
             <td>$5</td>
             <td>475,896</td>
-            <td>193,529</td>
+            <td>193,520</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>297,435</td>
-            <td>115,137</td>
+            <td>115,132</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>118,974</td>
-            <td>45,190</td>
+            <td>45,183</td>
           </tr>
                   <tr>
             <td>$25</td>
             <td>33,825</td>
-            <td>12,929</td>
+            <td>12,928</td>
           </tr>
                   <tr>
             <td>$50</td>
             <td>55,044</td>
-            <td>20,640</td>
+            <td>20,639</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -507,8 +430,8 @@ Reveal a "WREATH" symbol, WIN ALL 15 PRIZES!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$4,878,590</b></div>
-      <div class="h2">Total Prizes Won: <b>$7,610,675</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$4,878,315</b></div>
+      <div class="h2">Total Prizes Won: <b>$7,610,950</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -656,5 +579,5 @@ Reveal a "WREATH" symbol, WIN ALL 15 PRIZES!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=60&cb=1774092945" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=64&cb=1224394885" async></script></body>
 </html>
