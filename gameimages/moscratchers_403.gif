@@ -368,12 +368,12 @@ Match three like prize amounts, win that amount.</p>
                   <tr>
             <td>$2</td>
             <td>727,528</td>
-            <td>184,624</td>
+            <td>184,608</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>323,461</td>
-            <td>68,588</td>
+            <td>68,580</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -383,7 +383,7 @@ Match three like prize amounts, win that amount.</p>
                   <tr>
             <td>$10</td>
             <td>60,677</td>
-            <td>12,107</td>
+            <td>12,106</td>
           </tr>
                   <tr>
             <td>$15</td>
@@ -432,8 +432,8 @@ Match three like prize amounts, win that amount.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,629,150</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,400,050</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,629,076</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,400,124</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -581,5 +581,5 @@ Match three like prize amounts, win that amount.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=134&cb=674914477" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=133&cb=880386052" async></script></body>
 </html>
