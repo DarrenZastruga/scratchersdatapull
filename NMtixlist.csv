@@ -1,63 +1,59 @@
 ,price,gameName,gameNumber,topprize,startDate,overallodds,gameURL,gamePhoto
-0,1,Gold Multiplier,595,1000,08/06/2024,4.87,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/08/595.jpg
-1,10,Ultimate 7s,579,10000,08/06/2024,3.23,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/08/579.jpg
-2,5,Chile Bonus Crossword,603,10000,07/09/2024,3.65,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/603.jpg
-3,2,Fantastic 5s,599,5000,07/02/2024,4.04,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/599.jpg
-4,3,Vaults of Cash,607,5000,07/02/2024,4.05,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/607.jpg
-5,10,Bonus Money,598,10000,07/02/2024,3.40,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/598.jpg
-6,3,CROSSWORD X-TRA®,578,25000,06/25/2024,3.86,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/06/578.jpg
-7,1,Celebrate Cash,586,1000,06/04/2024,4.78,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/586.jpg
-8,2,$50 Frenzy,604,50,06/04/2024,3.85,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/604.jpg
-9,5,LOTERIA® Super Grande!,585,50000,06/04/2024,3.81,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/585-1.jpg
-10,1,5X,590,500,05/07/2024,4.72,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/590.jpg
-11,2,10X,591,1000,05/07/2024,4.02,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/591.jpg
-12,5,20X,592,5000,05/07/2024,3.59,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/592.jpg
-13,10,50X,593,10000,05/07/2024,3.09,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/593.jpg
-14,20,Cash Spectacular,584,100000,04/23/2024,3.42,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/04/584-1.jpg
-15,5,Win $500!,580,500,04/02/2024,3.63,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/04/580.jpg
+0,3,Blingo Bingo,589,15000,08/13/2024,3.79,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/08/589.jpg
+1,1,Gold Multiplier,595,1000,08/06/2024,4.87,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/08/595.jpg
+2,10,Ultimate 7s,579,10000,08/06/2024,3.23,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/08/579.jpg
+3,5,Chile Bonus Crossword,603,10000,07/09/2024,3.65,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/603.jpg
+4,2,Fantastic 5s,599,5000,07/02/2024,4.04,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/599.jpg
+5,3,Vaults of Cash,607,5000,07/02/2024,4.05,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/607.jpg
+6,10,Bonus Money,598,10000,07/02/2024,3.40,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/07/598.jpg
+7,3,CROSSWORD X-TRA®,578,25000,06/25/2024,3.86,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/06/578.jpg
+8,1,Celebrate Cash,586,1000,06/04/2024,4.78,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/586.jpg
+9,2,$50 Frenzy,604,50,06/04/2024,3.85,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/604.jpg
+10,5,LOTERIA® Super Grande!,585,50000,06/04/2024,3.81,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/585-1.jpg
+11,10,50X,593,10000,05/07/2024,3.09,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/593.jpg
+12,1,5X,590,500,05/07/2024,4.72,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/590.jpg
+13,2,10X,591,1000,05/07/2024,4.02,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/591.jpg
+14,5,20X,592,5000,05/07/2024,3.59,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/05/592.jpg
+15,20,Cash Spectacular,584,100000,04/23/2024,3.42,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/04/584-1.jpg
 16,1,Double Doubler,587,400,04/02/2024,4.77,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/04/587.jpg
 17,2,Mad Money,484,1000,04/02/2024,4.14,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/04/484.jpg
-18,1,Match 2 Win,554,2000,03/05/2024,4.97,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/554.jpg
-19,2,Super 7s,583,5000,03/05/2024,3.99,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/583-1.jpg
-20,5,Guy Fieri Flavortown Fortune!,572,50000,03/05/2024,3.72,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/572-1.jpg
-21,10,Wild Cherry Crossword,550,50000,03/05/2024,3.09,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/550.jpg
-22,5,Crossword Cash,569,10000,02/12/2024,3.66,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/569.jpg
-23,1,Red Hot 7s,573,500,02/06/2024,4.73,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/573.jpg
-24,2,"$1,000 Money Multiplier",570,1000,02/06/2024,4.13,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/570.jpg
-25,3,Blazing Hot 7s,594,7000,02/06/2024,3.83,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/594.jpg
-26,5,Money Match,576,10000,02/06/2024,3.66,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/576.jpg
-27,20,Extreme Cash!,582,50000,01/16/2024,2.88,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/01/582-1.jpg
-28,2,Universal Monsters – Valentine’s Day,567,500,01/03/2024,3.78,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/01/567-1.jpg
-29,1,Money Bags,568,1000,11/07/2023,4.79,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/11/568.jpg
-30,10,Money,574,10000,11/07/2023,2.89,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/11/574.jpg
-31,15,Pink Panther™ Crossword,577,15000,11/07/2023,2.52,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/11/577.jpg
-32,3,Taco ‘Bout Bingo,561,10000,10/16/2023,3.93,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/10/561.jpg
-33,3,Lucky Duck Crossword,556,25000,08/21/2023,3.87,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/556.jpg
-34,2,$2 MONOPOLY™,539,500,08/01/2023,3.93,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/539.jpg
-35,5,$5 MONOPOLY™,540,1000,08/01/2023,3.86,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/540.jpg
-36,10,$10 MONOPOLY™,559,5000,08/01/2023,3.24,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/559.jpg
-37,2,Cash Blast,522,1000,07/18/2023,4.07,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/07/522.jpg
-38,10,"$25, $50 or $100!",549,100,07/06/2023,7.32,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/07/549-1.jpg
-39,10,Ca$h Is King,491,10000,07/06/2023,3.26,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/07/491-1.jpg
-40,3,LOTERIA™,557,25000,06/06/2023,3.89,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/06/557-1.jpg
-41,2,Quick $100s,512,100,05/01/2023,3.99,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/05/512.jpg
-42,5,Ca$h Plu$,541,25000,05/01/2023,3.60,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/05/541.jpg
-43,1,Fast $25s,514,25,03/06/2023,4.84,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/03/514.jpg
-44,5,Ruby Red 9X / Sapphire Blue 9X,460,1000,11/01/2022,3.93,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/11/460-1.jpg
-45,10,Bankroll,446,1000,11/01/2022,3.69,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/11/446.jpg
-46,5,Bonus Letter Crossword,523,500,08/22/2022,3.84,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/08/523.jpg
-47,10,X the Money,510,20000,08/16/2022,3.44,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/08/510.jpg
-48,2,Super Cash Bonus,516,2500,08/01/2022,3.99,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/08/516.jpg
-49,2,Lucky Number Doubler,490,500,07/05/2022,3.98,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/07/490.jpg
-50,10,Cash Out,497,1000,07/05/2022,3.61,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/07/497.jpg
-51,3,Love Crossword,500,30000,05/15/2022,3.90,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/05/500.jpg
-52,1,Double Doubler,507,400,05/02/2022,4.80,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/05/507.jpg
-53,1,Aces High,481,500,04/04/2022,4.96,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/04/481-1.jpg
-54,2,Fast $50s,495,50,03/01/2022,3.95,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/03/495.jpg
-55,3,Bingo Night,498,25000,02/14/2022,3.81,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/02/498.jpg
-56,5,Lucky Cash,453,1000,01/18/2022,3.68,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/01/453.jpg
-57,2,Winning 7’s,483,500,11/01/2021,4.10,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2021/11/483.jpg
-58,3,Hot Cash Lines,482,500,09/07/2021,3.80,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2021/12/482-1.jpg
-59,10,Mega Cash,436,1000,11/30/2020,3.72,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2020/12/436.jpg
-60,10,Best of 7’s,421,1000,09/14/2020,3.69,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2020/12/421.jpg
-61,10,"$25, $50 or $100!",358,100,07/02/2019,7.49,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2020/12/358_1.jpg
+18,5,Win $500!,580,500,04/02/2024,3.63,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/04/580.jpg
+19,1,Match 2 Win,554,2000,03/05/2024,4.97,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/554.jpg
+20,2,Super 7s,583,5000,03/05/2024,3.99,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/583-1.jpg
+21,5,Guy Fieri Flavortown Fortune!,572,50000,03/05/2024,3.72,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/572-1.jpg
+22,10,Wild Cherry Crossword,550,50000,03/05/2024,3.09,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/03/550.jpg
+23,5,Crossword Cash,569,10000,02/12/2024,3.66,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/569.jpg
+24,1,Red Hot 7s,573,500,02/06/2024,4.73,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/573.jpg
+25,2,"$1,000 Money Multiplier",570,1000,02/06/2024,4.13,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/570.jpg
+26,3,Blazing Hot 7s,594,7000,02/06/2024,3.83,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/594.jpg
+27,5,Money Match,576,10000,02/06/2024,3.66,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/02/576.jpg
+28,20,Extreme Cash!,582,50000,01/16/2024,2.88,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/01/582-1.jpg
+29,2,Universal Monsters – Valentine’s Day,567,500,01/03/2024,3.78,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2024/01/567-1.jpg
+30,1,Money Bags,568,1000,11/07/2023,4.79,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/11/568.jpg
+31,10,Money,574,10000,11/07/2023,2.89,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/11/574.jpg
+32,15,Pink Panther™ Crossword,577,15000,11/07/2023,2.52,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/11/577.jpg
+33,3,Taco ‘Bout Bingo,561,10000,10/16/2023,3.93,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/10/561.jpg
+34,3,Lucky Duck Crossword,556,25000,08/21/2023,3.87,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/556.jpg
+35,2,$2 MONOPOLY™,539,500,08/01/2023,3.93,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/539.jpg
+36,5,$5 MONOPOLY™,540,1000,08/01/2023,3.86,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/540.jpg
+37,10,$10 MONOPOLY™,559,5000,08/01/2023,3.24,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/08/559.jpg
+38,2,Cash Blast,522,1000,07/18/2023,4.07,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/07/522.jpg
+39,10,"$25, $50 or $100!",549,100,07/06/2023,7.32,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/07/549-1.jpg
+40,10,Ca$h Is King,491,10000,07/06/2023,3.26,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/07/491-1.jpg
+41,3,LOTERIA™,557,25000,06/06/2023,3.89,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/06/557-1.jpg
+42,2,Quick $100s,512,100,05/01/2023,3.99,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/05/512.jpg
+43,5,Ca$h Plu$,541,25000,05/01/2023,3.60,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/05/541.jpg
+44,1,Fast $25s,514,25,03/06/2023,4.84,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2023/03/514.jpg
+45,5,Ruby Red 9X / Sapphire Blue 9X,460,1000,11/01/2022,3.93,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/11/460-1.jpg
+46,10,Bankroll,446,1000,11/01/2022,3.69,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/11/446.jpg
+47,5,Bonus Letter Crossword,523,500,08/22/2022,3.84,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/08/523.jpg
+48,10,X the Money,510,20000,08/16/2022,3.44,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/08/510.jpg
+49,2,Super Cash Bonus,516,2500,08/01/2022,3.99,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/08/516.jpg
+50,2,Lucky Number Doubler,490,500,07/05/2022,3.98,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/07/490.jpg
+51,10,Cash Out,497,1000,07/05/2022,3.61,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/07/497.jpg
+52,3,Love Crossword,500,30000,05/15/2022,3.90,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/05/500.jpg
+53,1,Double Doubler,507,400,05/02/2022,4.80,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/05/507.jpg
+54,1,Aces High,481,500,04/04/2022,4.96,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/04/481-1.jpg
+55,2,Fast $50s,495,50,03/01/2022,3.95,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/03/495.jpg
+56,3,Bingo Night,498,25000,02/14/2022,3.81,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/02/498.jpg
+57,5,Lucky Cash,453,1000,01/18/2022,3.68,https://www.nmlottery.com/games/scratchers,https://www.nmlottery.com/wp-content/uploads/2022/01/453.jpg
