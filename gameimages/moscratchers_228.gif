@@ -369,7 +369,7 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
                   <tr>
             <td>$5</td>
             <td>640,608</td>
-            <td>88,582</td>
+            <td>88,574</td>
           </tr>
                   <tr>
             <td>$10</td>
@@ -379,7 +379,7 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
                   <tr>
             <td>$15</td>
             <td>274,534</td>
-            <td>27,334</td>
+            <td>27,332</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -448,8 +448,8 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,907,775</b></div>
-      <div class="h2">Total Prizes Won: <b>$16,775,205</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,907,705</b></div>
+      <div class="h2">Total Prizes Won: <b>$16,775,275</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -597,5 +597,5 @@ Reveal a "20X" symbol and win 20 TIMES the prize!</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=165&cb=364571095" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=162&cb=1792963777" async></script></body>
 </html>
