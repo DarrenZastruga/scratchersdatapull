@@ -371,17 +371,17 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>76,102</td>
+            <td>76,087</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>15,237</td>
+            <td>15,229</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>13,764</td>
+            <td>13,757</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -391,7 +391,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>2,481</td>
+            <td>2,480</td>
           </tr>
                   <tr>
             <td>$30</td>
@@ -401,7 +401,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>1,801</td>
+            <td>1,800</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -470,8 +470,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,238,215</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,848,470</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,237,880</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,848,805</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -619,5 +619,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=88&cb=910211670" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=90&cb=849315798" async></script></body>
 </html>
