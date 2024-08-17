@@ -371,22 +371,22 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>76,087</td>
+            <td>76,073</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>15,229</td>
+            <td>15,222</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>13,757</td>
+            <td>13,754</td>
           </tr>
                   <tr>
             <td>$20</td>
             <td>62,797</td>
-            <td>2,876</td>
+            <td>2,874</td>
           </tr>
                   <tr>
             <td>$25</td>
@@ -401,7 +401,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$50</td>
             <td>40,306</td>
-            <td>1,800</td>
+            <td>1,799</td>
           </tr>
                   <tr>
             <td>$75</td>
@@ -470,8 +470,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,237,880</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,848,805</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,237,605</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,849,080</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -619,5 +619,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=90&cb=849315798" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=89&cb=2112272632" async></script></body>
 </html>
