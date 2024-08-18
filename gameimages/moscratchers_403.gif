@@ -368,12 +368,12 @@ Match three like prize amounts, win that amount.</p>
                   <tr>
             <td>$2</td>
             <td>727,528</td>
-            <td>184,532</td>
+            <td>184,522</td>
           </tr>
                   <tr>
             <td>$4</td>
             <td>323,461</td>
-            <td>68,551</td>
+            <td>68,544</td>
           </tr>
                   <tr>
             <td>$5</td>
@@ -383,12 +383,12 @@ Match three like prize amounts, win that amount.</p>
                   <tr>
             <td>$10</td>
             <td>60,677</td>
-            <td>12,101</td>
+            <td>12,100</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>40,425</td>
-            <td>7,296</td>
+            <td>7,295</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -398,7 +398,7 @@ Match three like prize amounts, win that amount.</p>
                   <tr>
             <td>$40</td>
             <td>40,425</td>
-            <td>6,839</td>
+            <td>6,837</td>
           </tr>
                   <tr>
             <td>$100</td>
@@ -432,8 +432,8 @@ Match three like prize amounts, win that amount.</p>
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,628,388</b></div>
-      <div class="h2">Total Prizes Won: <b>$6,400,812</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,628,235</b></div>
+      <div class="h2">Total Prizes Won: <b>$6,400,965</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -581,5 +581,5 @@ Match three like prize amounts, win that amount.</p>
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=135&cb=1379114661" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=133&cb=1948247819" async></script></body>
 </html>
