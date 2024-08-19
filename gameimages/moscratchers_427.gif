@@ -371,17 +371,17 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$5</td>
             <td>586,088</td>
-            <td>76,059</td>
+            <td>76,036</td>
           </tr>
                   <tr>
             <td>$10</td>
             <td>251,346</td>
-            <td>15,221</td>
+            <td>15,217</td>
           </tr>
                   <tr>
             <td>$15</td>
             <td>251,244</td>
-            <td>13,746</td>
+            <td>13,744</td>
           </tr>
                   <tr>
             <td>$20</td>
@@ -391,7 +391,7 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
                   <tr>
             <td>$25</td>
             <td>50,313</td>
-            <td>2,479</td>
+            <td>2,477</td>
           </tr>
                   <tr>
             <td>$30</td>
@@ -470,8 +470,8 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
     <p>&nbsp;</p>
 
     <div class="text-center">
-      <div class="h2">Total Prizes Unclaimed: <b>$1,237,300</b></div>
-      <div class="h2">Total Prizes Won: <b>$15,849,385</b></div>
+      <div class="h2">Total Prizes Unclaimed: <b>$1,237,065</b></div>
+      <div class="h2">Total Prizes Won: <b>$15,849,620</b></div>
     </div>
 
     <p>&nbsp;</p>
@@ -619,5 +619,5 @@ Completely match 3 or more words in PUZZLE 1, or 3 or more words in PUZZLE 2, wi
 <script src="/libraries/superfish/supersubs.js?sffm2t"></script>
 <script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
 
-<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=87&cb=170796128" async></script></body>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=87&cb=654717841" async></script></body>
 </html>
