@@ -1,48 +1,48 @@
 ,price,gameName,gameNumber,topprize,overallodds,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,dateexported,gameURL
-204,2.0,Lucky Bug,1439,10000.0,3.75,0,Top Prize Claimed,,2nd Chance,2022-08-23,2023-09-26T00:00:00,2024-09-26,2024-08-19,https:/www.oregonlottery.org/scratch-its/lucky-bug/
-213,1.0,Lucky Spot,1448,1000.0,4.37,3,,,2nd Chance,2022-12-21,2023-09-26T00:00:00,2024-09-26,2024-08-19,https:/www.oregonlottery.org/scratch-its/lucky-spot/
-232,1.0,Leap Frog Crossword,1467,1500.0,3.57,1,,,2nd Chance,2022-09-07,2023-12-29T00:00:00,2024-12-29,2024-08-19,https:/www.oregonlottery.org/scratch-its/leap-frog-crossword/
-234,2.0,Bingo Bongo,1469,10000.0,3.47,0,Top Prize Claimed,,2nd Chance,2022-08-23,2023-08-22T00:00:00,2024-08-22,2024-08-19,https:/www.oregonlottery.org/scratch-its/bingo-bongo/
-238,2.0,Easy As... 123,1473,10000.0,3.71,1,,,2nd Chance,2022-12-22,2023-10-20T00:00:00,2024-10-20,2024-08-19,https:/www.oregonlottery.org/scratch-its/easy-as-123/
-241,3.0,Beach Party Bingo,1476,25000.0,3.78,0,Top Prize Claimed,,2nd Chance,2023-01-24,2024-02-16T00:00:00,2025-02-16,2024-08-19,https:/www.oregonlottery.org/scratch-its/beach-party-bingo/
-248,20.0,Colossal Cash,1483,200000.0,2.72,0,Top Prize Claimed,,2nd Chance,2022-06-28,2023-08-22T00:00:00,2024-08-22,2024-08-19,https:/www.oregonlottery.org/scratch-its/colossal-cash/
-252,20.0,20X,1487,250000.0,2.93,0,Top Prize Claimed,,2nd Chance,2022-06-15,2023-12-29T00:00:00,2024-12-29,2024-08-19,https:/www.oregonlottery.org/scratch-its/20x/
-253,10.0,Platinum Payout,1488,100000.0,3.21,0,Top Prize Claimed,,2nd Chance,2022-07-14,2023-10-20T00:00:00,2024-10-20,2024-08-19,https:/www.oregonlottery.org/scratch-its/platinum-payout/
-256,2.0,Crossword Encounters,1491,15000.0,3.65,0,Top Prize Claimed,,2nd Chance,2022-10-10,2024-02-16T00:00:00,2025-02-16,2024-08-19,https:/www.oregonlottery.org/scratch-its/crossword-encounters/
-258,2.0,Lazy Dog Crossword,1493,15000.0,3.65,0,Top Prize Claimed,,2nd Chance,2023-02-27,2024-05-31T00:00:00,2025-05-31,2024-08-19,https:/www.oregonlottery.org/scratch-its/lazy-dog-crossword/
-259,10.0,7s On FIre,1494,100000.0,3.5,0,Top Prize Claimed,,2nd Chance,2023-02-27,2024-05-01T00:00:00,2025-05-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/7s-on-fire/
-260,2.0,Let's Celebrate!,1495,500.0,3.6,0,Top Prize Claimed,,2nd Chance,2022-09-23,2023-09-26T00:00:00,2024-09-26,2024-08-19,https:/www.oregonlottery.org/scratch-its/lets-celebrate/
-262,3.0,Cash-a-doodle Crossword,1497,25000.0,3.62,0,Top Prize Claimed,,2nd Chance,2023-02-06,2024-04-01T00:00:00,2025-04-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/cash-a-doodle-crossword/
-263,5.0,Bronze,1498,50000.0,3.77,0,Top Prize Claimed,,2nd Chance,2022-12-14,2023-08-22T00:00:00,2024-08-22,2024-08-19,https:/www.oregonlottery.org/scratch-its/bronze/
-265,5.0,Casino Cash Crossword,1500,50000.0,3.53,1,,,2nd Chance,2023-03-15,2024-05-15T00:00:00,2025-05-15,2024-08-19,https:/www.oregonlottery.org/scratch-its/casino-cash-crossword/
-266,10.0,Firewolf Crossword,1501,100000.0,3.35,0,Top Prize Claimed,,2nd Chance,2023-02-08,2024-04-01T00:00:00,2025-04-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/firewolf-crossword/
-272,2.0,Fine Silver,1507,10000.0,3.7,0,Top Prize Claimed,,2nd Chance,2023-03-01,2024-06-28T00:00:00,2025-06-28,2024-08-19,https:/www.oregonlottery.org/scratch-its/fine-silver/
-274,1.0,Cash Hunt,1509,2000.0,4.16,0,Top Prize Claimed,,2nd Chance,2022-12-23,2023-12-29T00:00:00,2024-12-29,2024-08-19,https:/www.oregonlottery.org/scratch-its/cash-hunt/
-275,2.0,Marionberry Bingo,1510,10000.0,3.47,0,Top Prize Claimed,,2nd Chance,2023-03-14,2024-06-28T00:00:00,2025-06-28,2024-08-19,https:/www.oregonlottery.org/scratch-its/marionberry-bingo/
-276,1.0,Deep Sea Crossword,1511,1500.0,3.57,0,Top Prize Claimed,,2nd Chance,2023-06-05,2024-07-15T00:00:00,2025-07-15,2024-08-19,https:/www.oregonlottery.org/scratch-its/deep-sea-crossword/
-278,5.0,"$50,000 Fortune",1513,50000.0,3.76,0,Top Prize Claimed,,2nd Chance,2023-03-16,2023-09-26T00:00:00,2024-09-26,2024-08-19,https:/www.oregonlottery.org/scratch-its/50000-fortune/
-279,5.0,Ace of Spades,1514,50000.0,3.81,0,Top Prize Claimed,,2nd Chance,2022-12-20,2023-10-20T00:00:00,2024-10-20,2024-08-19,https:/www.oregonlottery.org/scratch-its/ace-of-spades/
-280,5.0,Rose Gold Riches,1515,50000.0,3.8,0,Top Prize Claimed,,2nd Chance,2023-07-27,2024-07-15T00:00:00,2025-07-15,2024-08-19,https:/www.oregonlottery.org/scratch-its/rose-gold-riches/
-281,1.0,Grand,1516,1000.0,4.2,1,,,2nd Chance,2023-05-30,2024-06-14T00:00:00,2025-06-14,2024-08-19,https:/www.oregonlottery.org/scratch-its/grand/
-282,2.0,Bigfoot Crossword,1517,15000.0,3.65,0,Top Prize Claimed,,2nd Chance,2023-06-23,2024-07-15T00:00:00,2025-07-15,2024-08-19,https:/www.oregonlottery.org/scratch-its/bigfoot-crossword/
-283,2.0,This Calls For Confetti,1518,500.0,3.64,3,,,2nd Chance,2023-06-13,2024-08-01T00:00:00,2025-08-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/this-calls-for-confetti/
-284,10.0,$50 Or $100,1519,100.0,9.0,301,,,2nd Chance,2023-02-14,2023-12-29T00:00:00,2024-12-29,2024-08-19,https:/www.oregonlottery.org/scratch-its/50-or-100-2/
-286,10.0,Magnificent 9s,1521,100000.0,3.19,0,Top Prize Claimed,,2nd Chance,2023-05-17,2024-05-01T00:00:00,2025-05-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/magnificent-9s/
-289,5.0,5X The Cash,1524,50000.0,3.82,0,Top Prize Claimed,,2nd Chance,2023-03-21,2024-02-16T00:00:00,2025-02-16,2024-08-19,https:/www.oregonlottery.org/scratch-its/5x-the-cash/
-290,10.0,Big Money,1525,100000.0,3.49,0,Top Prize Claimed,,2nd Chance,2023-08-02,2024-06-14T00:00:00,2025-06-14,2024-08-19,https:/www.oregonlottery.org/scratch-its/big-money-2/
-291,10.0,Casino Action,1526,100000.0,3.46,0,Top Prize Claimed,,2nd Chance,2023-02-27,2024-02-16T00:00:00,2025-02-16,2024-08-19,https:/www.oregonlottery.org/scratch-its/casino-action/
-292,2.0,Enchanted,1527,10000.0,3.85,0,Top Prize Claimed,,2nd Chance,2023-03-02,2024-04-01T00:00:00,2025-04-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/enchanted/
-293,3.0,Knotty Bingo,1528,25000.0,3.78,0,Top Prize Claimed,,2nd Chance,2023-08-01,2024-05-31T00:00:00,2025-05-31,2024-08-19,https:/www.oregonlottery.org/scratch-its/knotty-bingo/
-294,20.0,Pharaoh's Tomb,1529,250000.0,4.27,0,Top Prize Claimed,,2nd Chance,2023-04-26,2024-06-14T00:00:00,2025-06-14,2024-08-19,https:/www.oregonlottery.org/scratch-its/pharaohs-tomb/
-295,10.0,Masquerade Crossword,1530,100000.0,3.32,0,Top Prize Claimed,,2nd Chance,2023-08-23,2024-06-28T00:00:00,2025-06-28,2024-08-19,https:/www.oregonlottery.org/scratch-its/masquerade-crossword/
-298,10.0,$50 Or $100 Cash Overload,1533,100.0,9.0,351,,,2nd Chance,2023-06-13,2024-04-01T00:00:00,2025-04-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/50-or-100-cash-overload/
-299,2.0,Porker Chip,1534,10000.0,3.91,0,Top Prize Claimed,,2nd Chance,2023-12-19,2024-08-01T00:00:00,2025-08-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/porker-chip/
-300,5.0,Money Numbers,1535,50000.0,3.76,0,Top Prize Claimed,,2nd Chance,2023-05-31,2024-05-15T00:00:00,2025-05-15,2024-08-19,https:/www.oregonlottery.org/scratch-its/money-numbers/
-302,5.0,Player's Club,1537,50000.0,3.79,0,Top Prize Claimed,,2nd Chance,2023-08-22,2024-06-14T00:00:00,2025-06-14,2024-08-19,https:/www.oregonlottery.org/scratch-its/players-club/
-306,1.0,Holiday Cookie Cash,1541,1000.0,4.05,1,,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-19,https:/www.oregonlottery.org/scratch-its/holiday-cookie-cash/
-307,2.0,Meowy Catsmas,1542,10000.0,3.86,0,Top Prize Claimed,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-19,https:/www.oregonlottery.org/scratch-its/meowy-catsmas/
-308,5.0,Build A Snowman,1543,50000.0,3.74,1,,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-19,https:/www.oregonlottery.org/scratch-its/build-a-snowman/
-309,10.0,Let It Snow,1544,75000.0,3.15,0,Top Prize Claimed,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-19,https:/www.oregonlottery.org/scratch-its/let-it-snow/
-310,20.0,Under the Mistletoe,1545,150000.0,2.86,0,Top Prize Claimed,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-19,https:/www.oregonlottery.org/scratch-its/under-the-mistletoe/
-315,10.0,$50 Or $100,1550,100.0,9.0,375,,,2nd Chance,2023-09-20,2024-06-28T00:00:00,2025-06-28,2024-08-19,https:/www.oregonlottery.org/scratch-its/50-or-100-3/
-327,10.0,$50 Or $100,1562,100.0,9.0,386,,,2nd Chance,2023-12-18,2024-08-01T00:00:00,2025-08-01,2024-08-19,https:/www.oregonlottery.org/scratch-its/50-or-100-4/
+204,2.0,Lucky Bug,1439,10000.0,3.75,0,Top Prize Claimed,,2nd Chance,2022-08-23,2023-09-26T00:00:00,2024-09-26,2024-08-21,https:/www.oregonlottery.org/scratch-its/lucky-bug/
+213,1.0,Lucky Spot,1448,1000.0,4.37,3,,,2nd Chance,2022-12-21,2023-09-26T00:00:00,2024-09-26,2024-08-21,https:/www.oregonlottery.org/scratch-its/lucky-spot/
+232,1.0,Leap Frog Crossword,1467,1500.0,3.57,1,,,2nd Chance,2022-09-07,2023-12-29T00:00:00,2024-12-29,2024-08-21,https:/www.oregonlottery.org/scratch-its/leap-frog-crossword/
+234,2.0,Bingo Bongo,1469,10000.0,3.47,0,Top Prize Claimed,,2nd Chance,2022-08-23,2023-08-22T00:00:00,2024-08-22,2024-08-21,https:/www.oregonlottery.org/scratch-its/bingo-bongo/
+238,2.0,Easy As... 123,1473,10000.0,3.71,1,,,2nd Chance,2022-12-22,2023-10-20T00:00:00,2024-10-20,2024-08-21,https:/www.oregonlottery.org/scratch-its/easy-as-123/
+241,3.0,Beach Party Bingo,1476,25000.0,3.78,0,Top Prize Claimed,,2nd Chance,2023-01-24,2024-02-16T00:00:00,2025-02-16,2024-08-21,https:/www.oregonlottery.org/scratch-its/beach-party-bingo/
+248,20.0,Colossal Cash,1483,200000.0,2.72,0,Top Prize Claimed,,2nd Chance,2022-06-28,2023-08-22T00:00:00,2024-08-22,2024-08-21,https:/www.oregonlottery.org/scratch-its/colossal-cash/
+252,20.0,20X,1487,250000.0,2.93,0,Top Prize Claimed,,2nd Chance,2022-06-15,2023-12-29T00:00:00,2024-12-29,2024-08-21,https:/www.oregonlottery.org/scratch-its/20x/
+253,10.0,Platinum Payout,1488,100000.0,3.21,0,Top Prize Claimed,,2nd Chance,2022-07-14,2023-10-20T00:00:00,2024-10-20,2024-08-21,https:/www.oregonlottery.org/scratch-its/platinum-payout/
+256,2.0,Crossword Encounters,1491,15000.0,3.65,0,Top Prize Claimed,,2nd Chance,2022-10-10,2024-02-16T00:00:00,2025-02-16,2024-08-21,https:/www.oregonlottery.org/scratch-its/crossword-encounters/
+258,2.0,Lazy Dog Crossword,1493,15000.0,3.65,0,Top Prize Claimed,,2nd Chance,2023-02-27,2024-05-31T00:00:00,2025-05-31,2024-08-21,https:/www.oregonlottery.org/scratch-its/lazy-dog-crossword/
+259,10.0,7s On FIre,1494,100000.0,3.5,0,Top Prize Claimed,,2nd Chance,2023-02-27,2024-05-01T00:00:00,2025-05-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/7s-on-fire/
+260,2.0,Let's Celebrate!,1495,500.0,3.6,0,Top Prize Claimed,,2nd Chance,2022-09-23,2023-09-26T00:00:00,2024-09-26,2024-08-21,https:/www.oregonlottery.org/scratch-its/lets-celebrate/
+262,3.0,Cash-a-doodle Crossword,1497,25000.0,3.62,0,Top Prize Claimed,,2nd Chance,2023-02-06,2024-04-01T00:00:00,2025-04-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/cash-a-doodle-crossword/
+263,5.0,Bronze,1498,50000.0,3.77,0,Top Prize Claimed,,2nd Chance,2022-12-14,2023-08-22T00:00:00,2024-08-22,2024-08-21,https:/www.oregonlottery.org/scratch-its/bronze/
+265,5.0,Casino Cash Crossword,1500,50000.0,3.53,1,,,2nd Chance,2023-03-15,2024-05-15T00:00:00,2025-05-15,2024-08-21,https:/www.oregonlottery.org/scratch-its/casino-cash-crossword/
+266,10.0,Firewolf Crossword,1501,100000.0,3.35,0,Top Prize Claimed,,2nd Chance,2023-02-08,2024-04-01T00:00:00,2025-04-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/firewolf-crossword/
+272,2.0,Fine Silver,1507,10000.0,3.7,0,Top Prize Claimed,,2nd Chance,2023-03-01,2024-06-28T00:00:00,2025-06-28,2024-08-21,https:/www.oregonlottery.org/scratch-its/fine-silver/
+274,1.0,Cash Hunt,1509,2000.0,4.16,0,Top Prize Claimed,,2nd Chance,2022-12-23,2023-12-29T00:00:00,2024-12-29,2024-08-21,https:/www.oregonlottery.org/scratch-its/cash-hunt/
+275,2.0,Marionberry Bingo,1510,10000.0,3.47,0,Top Prize Claimed,,2nd Chance,2023-03-14,2024-06-28T00:00:00,2025-06-28,2024-08-21,https:/www.oregonlottery.org/scratch-its/marionberry-bingo/
+276,1.0,Deep Sea Crossword,1511,1500.0,3.57,0,Top Prize Claimed,,2nd Chance,2023-06-05,2024-07-15T00:00:00,2025-07-15,2024-08-21,https:/www.oregonlottery.org/scratch-its/deep-sea-crossword/
+278,5.0,"$50,000 Fortune",1513,50000.0,3.76,0,Top Prize Claimed,,2nd Chance,2023-03-16,2023-09-26T00:00:00,2024-09-26,2024-08-21,https:/www.oregonlottery.org/scratch-its/50000-fortune/
+279,5.0,Ace of Spades,1514,50000.0,3.81,0,Top Prize Claimed,,2nd Chance,2022-12-20,2023-10-20T00:00:00,2024-10-20,2024-08-21,https:/www.oregonlottery.org/scratch-its/ace-of-spades/
+280,5.0,Rose Gold Riches,1515,50000.0,3.8,0,Top Prize Claimed,,2nd Chance,2023-07-27,2024-07-15T00:00:00,2025-07-15,2024-08-21,https:/www.oregonlottery.org/scratch-its/rose-gold-riches/
+281,1.0,Grand,1516,1000.0,4.2,1,,,2nd Chance,2023-05-30,2024-06-14T00:00:00,2025-06-14,2024-08-21,https:/www.oregonlottery.org/scratch-its/grand/
+282,2.0,Bigfoot Crossword,1517,15000.0,3.65,0,Top Prize Claimed,,2nd Chance,2023-06-23,2024-07-15T00:00:00,2025-07-15,2024-08-21,https:/www.oregonlottery.org/scratch-its/bigfoot-crossword/
+283,2.0,This Calls For Confetti,1518,500.0,3.64,3,,,2nd Chance,2023-06-13,2024-08-01T00:00:00,2025-08-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/this-calls-for-confetti/
+284,10.0,$50 Or $100,1519,100.0,9.0,301,,,2nd Chance,2023-02-14,2023-12-29T00:00:00,2024-12-29,2024-08-21,https:/www.oregonlottery.org/scratch-its/50-or-100-2/
+286,10.0,Magnificent 9s,1521,100000.0,3.19,0,Top Prize Claimed,,2nd Chance,2023-05-17,2024-05-01T00:00:00,2025-05-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/magnificent-9s/
+289,5.0,5X The Cash,1524,50000.0,3.82,0,Top Prize Claimed,,2nd Chance,2023-03-21,2024-02-16T00:00:00,2025-02-16,2024-08-21,https:/www.oregonlottery.org/scratch-its/5x-the-cash/
+290,10.0,Big Money,1525,100000.0,3.49,0,Top Prize Claimed,,2nd Chance,2023-08-02,2024-06-14T00:00:00,2025-06-14,2024-08-21,https:/www.oregonlottery.org/scratch-its/big-money-2/
+291,10.0,Casino Action,1526,100000.0,3.46,0,Top Prize Claimed,,2nd Chance,2023-02-27,2024-02-16T00:00:00,2025-02-16,2024-08-21,https:/www.oregonlottery.org/scratch-its/casino-action/
+292,2.0,Enchanted,1527,10000.0,3.85,0,Top Prize Claimed,,2nd Chance,2023-03-02,2024-04-01T00:00:00,2025-04-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/enchanted/
+293,3.0,Knotty Bingo,1528,25000.0,3.78,0,Top Prize Claimed,,2nd Chance,2023-08-01,2024-05-31T00:00:00,2025-05-31,2024-08-21,https:/www.oregonlottery.org/scratch-its/knotty-bingo/
+294,20.0,Pharaoh's Tomb,1529,250000.0,4.27,0,Top Prize Claimed,,2nd Chance,2023-04-26,2024-06-14T00:00:00,2025-06-14,2024-08-21,https:/www.oregonlottery.org/scratch-its/pharaohs-tomb/
+295,10.0,Masquerade Crossword,1530,100000.0,3.32,0,Top Prize Claimed,,2nd Chance,2023-08-23,2024-06-28T00:00:00,2025-06-28,2024-08-21,https:/www.oregonlottery.org/scratch-its/masquerade-crossword/
+298,10.0,$50 Or $100 Cash Overload,1533,100.0,9.0,351,,,2nd Chance,2023-06-13,2024-04-01T00:00:00,2025-04-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/50-or-100-cash-overload/
+299,2.0,Porker Chip,1534,10000.0,3.91,0,Top Prize Claimed,,2nd Chance,2023-12-19,2024-08-01T00:00:00,2025-08-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/porker-chip/
+300,5.0,Money Numbers,1535,50000.0,3.76,0,Top Prize Claimed,,2nd Chance,2023-05-31,2024-05-15T00:00:00,2025-05-15,2024-08-21,https:/www.oregonlottery.org/scratch-its/money-numbers/
+302,5.0,Player's Club,1537,50000.0,3.79,0,Top Prize Claimed,,2nd Chance,2023-08-22,2024-06-14T00:00:00,2025-06-14,2024-08-21,https:/www.oregonlottery.org/scratch-its/players-club/
+306,1.0,Holiday Cookie Cash,1541,1000.0,4.05,1,,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-21,https:/www.oregonlottery.org/scratch-its/holiday-cookie-cash/
+307,2.0,Meowy Catsmas,1542,10000.0,3.86,0,Top Prize Claimed,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-21,https:/www.oregonlottery.org/scratch-its/meowy-catsmas/
+308,5.0,Build A Snowman,1543,50000.0,3.74,1,,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-21,https:/www.oregonlottery.org/scratch-its/build-a-snowman/
+309,10.0,Let It Snow,1544,75000.0,3.15,0,Top Prize Claimed,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-21,https:/www.oregonlottery.org/scratch-its/let-it-snow/
+310,20.0,Under the Mistletoe,1545,150000.0,2.86,0,Top Prize Claimed,,2nd Chance,2023-10-03,2024-01-31T00:00:00,2025-01-31,2024-08-21,https:/www.oregonlottery.org/scratch-its/under-the-mistletoe/
+315,10.0,$50 Or $100,1550,100.0,9.0,375,,,2nd Chance,2023-09-20,2024-06-28T00:00:00,2025-06-28,2024-08-21,https:/www.oregonlottery.org/scratch-its/50-or-100-3/
+327,10.0,$50 Or $100,1562,100.0,9.0,385,,,2nd Chance,2023-12-18,2024-08-01T00:00:00,2025-08-01,2024-08-21,https:/www.oregonlottery.org/scratch-its/50-or-100-4/
