@@ -124,7 +124,6 @@ def exportMOScratcherRecs():
 
     tixlist = pd.DataFrame(columns=['gameName', 'gameNumber', 'price', 'gameURL'])
     table = soup.find_all(class_=['scratchers-list__item'])
-    print(table)
     tixrow = pd.DataFrame()
     tixtables = pd.DataFrame(columns=['gameNumber','gameName','price','prizeamount','startDate','endDate','lastdatetoclaim','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported'])
     
@@ -145,11 +144,7 @@ def exportMOScratcherRecs():
         gameURL = 'https://www.molottery.com/scratchers/'+gameNumber
         gamePhoto = 'https://www.molottery.com/sites/default/files/scratchers/tile/'+gameNumber+'.gif'
         
-        #download the MO scratcher tile images to folder
-        file_name = "moscratchers_"+gameNumber+'.gif'
-        download_image(gameURL, '/Users/michaeljames/Documents/GitHub/scratcherstatscom/wp-content/uploads/gameimages/', file_name)
-        
-        
+
         print(gameName)
         print(gameNumber)
         print(gamePrice)
@@ -162,6 +157,13 @@ def exportMOScratcherRecs():
         print(percentMoneyClaimed)
         print(gameURL)
         print(gamePhoto)
+        
+        #download the MO scratcher tile images to folder
+        file_name = "moscratchers_"+gameNumber+'.gif'
+        print(file_name)
+       #download_image(gameURL, '/Users/michaeljames/Documents/GitHub/scratcherstatscom/wp-content/uploads/gameimages/', file_name)
+        
+        
             
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','startDate','endDate','Total Prize Money at start','Total Prize Money Won', 'Total Prize Money remaining', 'Percent of Prize Money Won', 'gameURL','gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, startDate, endDate, totalMoneyStart, totalMoneyWon, totalMoneyUnclaimed, percentMoneyClaimed , gameURL, gamePhoto]
@@ -362,7 +364,11 @@ def exportMOScratcherRecs():
     ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
     ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds', 'topprizeremain_y':'topprizeremain'}, inplace=True)
     #add number of days since the game start date as of date exported
-    ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'])).dt.days
+    #ratingstable['dateexported'] = pd.to_datetime(ratingstable['dateexported'].apply(lambda x: x.string))
+    print(pd.Series(ratingstable['dateexported']).dtype)
+    ratingstable['startDate'] = pd.to_datetime(pd.Series(ratingstable['startDate']).to_string())
+    print(pd.Series(ratingstable['startDate']).dtype)
+    ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported'].astype(str)) - pd.to_datetime(ratingstable['startDate'].astype(str))).dt.days
     
     #add rankings columns of all scratchers to ratings table
     ratingstable['Rank by Best Probability of Winning Any Prize'] = (ratingstable['Current Odds of Any Prize'].rank()+ratingstable['Probability of Winning Any Prize'].rank()+ratingstable['Odds of Any Prize + 3 StdDevs'].rank())/3

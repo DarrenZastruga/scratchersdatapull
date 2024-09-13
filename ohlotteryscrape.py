@@ -51,11 +51,12 @@ def exportOHScratcherRecs():
         r = requests.get(u)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
-        print(soup.find('div', class_='page_content cf'))
+        #print(soup.find('div', class_='page_content cf'))
         if soup.find('div', class_='page_content cf') == None:
             continue
         else: 
-            tables = soup.find('div', class_='page_content cf').find_all('li')
+            tables = soup.find('div', class_='page_content cf').find('ul', class_='list_scratchOffsByPrice')
+            print(tables)
             for t in range(len(tables)): 
                 #get link from the main page, looping through each page for scratchers in price group
                 gameName = tables[t].find('a', class_='igName').text
@@ -83,6 +84,7 @@ def exportOHScratcherRecs():
                 response = r.text
                 soup = BeautifulSoup(response, 'html.parser')
                 overallodds = soup.find('div',class_='mobileToggleContent').find('p', class_='odds').text.replace('Overall odds of winning: ', '').replace('1 in ', '')
+                print(overallodds)
                 if overallodds == '': 
                     continue
                 else:
@@ -120,6 +122,8 @@ def exportOHScratcherRecs():
                     tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'extrachances', 'secondChance', 'dateexported']] = [
                         gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, extrachances, secondChance, dateexported]
         
+    print(tixlist)
+    print(tixlist.columns)
     r = requests.get('https://www.ohiolottery.com/games/scratch-offs/last-day-to-redeem')
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')

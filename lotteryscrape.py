@@ -906,7 +906,7 @@ def exportMOScratcherRecs():
 
         # download the MO scratcher tile images to folder
         file_name = "moscratchers_"+gameNumber+'.gif'
-        download_image(gameURL, './gameimages/', file_name)
+        #download_image(gameURL, './gameimages/', file_name)
 
         # get photo from where it was saved
         gamePhoto = 'https://www.scratcherstats.com/wp-content/uploads/gameimages/'+file_name
