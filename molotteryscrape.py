@@ -20,6 +20,7 @@ import logging
 import logging.handlers
 from datetime import datetime
 from dateutil.tz import tzlocal
+import dateutil.parser as parser 
 from sqlalchemy import create_engine
 import lxml
 from datetime import date
@@ -366,7 +367,7 @@ def exportMOScratcherRecs():
     #add number of days since the game start date as of date exported
     #ratingstable['dateexported'] = pd.to_datetime(ratingstable['dateexported'].apply(lambda x: x.string))
     print(pd.Series(ratingstable['dateexported']).dtype)
-    ratingstable['startDate'] = pd.to_datetime(pd.Series(ratingstable['startDate']).to_string())
+    ratingstable['startDate'] = parser.parse(ratingstable['startDate'])
     print(pd.Series(ratingstable['startDate']).dtype)
     ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported'].astype(str)) - pd.to_datetime(ratingstable['startDate'].astype(str))).dt.days
     

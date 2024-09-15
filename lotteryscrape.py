@@ -6759,7 +6759,7 @@ except Exception as error:
 
 exportVAScratcherRecs()
 exportAZScratcherRecs()
-exportMOScratcherRecs()
+#exportMOScratcherRecs()
 exportOKScratcherRecs()
 exportCAScratcherRecs()
 exportNMScratcherRecs()
