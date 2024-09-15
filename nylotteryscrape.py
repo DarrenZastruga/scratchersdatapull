@@ -127,6 +127,9 @@ def exportNYScratcherRecs():
             elif tixdata['prizeamount'].iloc[0].find('k annual installments')>0:
                 tixdata.at[0,'prizeamount'] = str(int(tixdata['prizeamount'].iloc[0].replace('k annual installments','000'))*60)
                 print(tixdata['prizeamount'].iloc[0])
+            elif tixdata['prizeamount'].iloc[0].find('1000/week/life') > 0:
+                tixdata.at[0, 'prizeamount'] = str(
+                    tixdata['prizeamount'].iloc[0].replace('1000/week/life', 1000*52*50))
             else:
                 tixdata['prizeamount'].iloc[0] = tixdata['prizeamount'].iloc[0]
             print(tixdata['prizeamount'])
