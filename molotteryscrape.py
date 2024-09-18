@@ -367,9 +367,10 @@ def exportMOScratcherRecs():
     #add number of days since the game start date as of date exported
     #ratingstable['dateexported'] = pd.to_datetime(ratingstable['dateexported'].apply(lambda x: x.string))
     print(pd.Series(ratingstable['dateexported']).dtype)
-    ratingstable['startDate'] = parser.parse(ratingstable['startDate'])
+    ratingstable['startDate'] = pd.to_datetime(pd.Series(ratingstable['startDate']).to_string(), infer_datetime_format=True)
     print(pd.Series(ratingstable['startDate']).dtype)
-    ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported'].astype(str)) - pd.to_datetime(ratingstable['startDate'].astype(str))).dt.days
+    print(ratingstable['startDate'])
+    ratingstable.loc[:,'Days Since Start'] = ratingstable['dateexported'] - pd.to_datetime(ratingstable['startDate'], infer_datetime_format=True).dt.days
     
     #add rankings columns of all scratchers to ratings table
     ratingstable['Rank by Best Probability of Winning Any Prize'] = (ratingstable['Current Odds of Any Prize'].rank()+ratingstable['Probability of Winning Any Prize'].rank()+ratingstable['Odds of Any Prize + 3 StdDevs'].rank())/3

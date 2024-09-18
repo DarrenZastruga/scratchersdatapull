@@ -2680,9 +2680,9 @@ def exportNYScratcherRecs():
                 'int')+tixdata['Winning Tickets Unclaimed'].astype('int')
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace(
                 '$', '').str.replace(',', '').str.lower()
-            if tixdata['prizeamount'].iloc[0].find('week') > 0:
-                tixdata.at[0, 'prizeamount'] = str(
-                    int(tixdata['prizeamount'].iloc[0].replace(' a week for life', ''))*52*50)
+            if tixdata['prizeamount'].iloc[0].find(' a week for life')>0:
+                print(tixdata['prizeamount'][0])
+                tixdata.at[0,'prizeamount'] = str(int(tixdata['prizeamount'].iloc[0].replace(' a week for life',''))*52*50)
             elif tixdata['prizeamount'][0].find('k/wk/life') > 0:
                 tixdata.at[0, 'prizeamount'] = str(
                     int(tixdata['prizeamount'].iloc[0].replace('k/wk/life', '000'))*52*50)
