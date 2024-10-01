@@ -6774,7 +6774,7 @@ exportTXScratcherRecs()
 exportKSScratcherRecs()
 
 exportWAScratcherRecs()
-exportILScratcherRecs()
+#exportILScratcherRecs()
 #exportFLScratcherRecs()
 #exportOHScratcherRecs()
 exportKYScratcherRecs()

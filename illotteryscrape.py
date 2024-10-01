@@ -60,28 +60,32 @@ def formatstr(s):
 
 
 def exportILScratcherRecs():
-    #urls = ["https://www.illinoislottery.com/games-hub/instant-tickets",
-          #  "https://www.illinoislottery.com/games-hub/instant-tickets?page=1",
-           # "https://www.illinoislottery.com/games-hub/instant-tickets?page=2"]
-    
+    urls = ["https://www.illinoislottery.com/games-hub/instant-tickets",
+            "https://www.illinoislottery.com/games-hub/instant-tickets?page=1",
+            "https://www.illinoislottery.com/games-hub/instant-tickets?page=2"]
+    '''
     urls = ["https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/games-hub/instant-tickets",
             "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/games-hub/instant-tickets?page=1",
             "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/games-hub/instant-tickets?page=2"]
+    '''
     tixlist = pd.DataFrame()
     #loop through each page of scratcher games, from list above. 
     for u in urls:
         url = u
         r = requests.get(url)
         response = r.text
+        print(response)
         soup = BeautifulSoup(response, 'html.parser')
         pages = soup.find_all('div', class_='simple-game-card card-container__item')
+        print(pages)
         #loop through each row of the data table and get data from the game page
         for p in pages:
-            #gameURL = 'https://www.illinoislottery.com'+str(p.find('a').get('href'))
+            gameURL = 'https://www.illinoislottery.com'+str(p.find('a').get('href'))
             
-            gameURL = 'https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com'+str(p.find('a').get('href'))
+            #gameURL = 'https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com'+str(p.find('a').get('href'))
             r = requests.get(gameURL)
             response = r.text
+            print(response)
             soup = BeautifulSoup(response, 'html.parser')
             print(soup)
             table = soup.find('div', class_='itg-details-block')
@@ -114,9 +118,9 @@ def exportILScratcherRecs():
         
     #get the data from the big table of prizes for all games
     print(tixlist)
-    #url = "https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
+    url = "https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
     
-    url = "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
+    #url = "https://webcache.googleusercontent.com/search?q=cache:https://www.illinoislottery.com/about-the-games/unpaid-instant-games-prizes"
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
