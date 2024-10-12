@@ -20,7 +20,7 @@
 18,2,CASHWORD DOUBLER              ,1531,20000,1,2022-07-13,          ,5.09,https://nylottery.ny.gov/scratch-off-game?game=1531,https://edit.nylottery.ny.gov/sites/default/files/2022-04/cashwordDoubler_1531_1.jpg
 19,10,FAST $500!                    ,1524,500000,0,2022-06-07,2025-04-10,4.17,https://nylottery.ny.gov/scratch-off-game?game=1524,https://edit.nylottery.ny.gov/sites/default/files/2022-04/fast500_1524.jpg
 20,5,FAST $250!                    ,1525,250000,1,2022-06-07,2025-09-06,4.12,https://nylottery.ny.gov/scratch-off-game?game=1525,https://edit.nylottery.ny.gov/sites/default/files/2022-04/fast250_1525.jpg
-21,2,FAST $100!                    ,1526,10000,1,2022-06-07,2025-01-19,4.9,https://nylottery.ny.gov/scratch-off-game?game=1526,https://edit.nylottery.ny.gov/sites/default/files/2022-04/fast100_1526.jpg
+21,2,FAST $100!                    ,1526,10000,0,2022-06-07,2025-01-19,4.9,https://nylottery.ny.gov/scratch-off-game?game=1526,https://edit.nylottery.ny.gov/sites/default/files/2022-04/fast100_1526.jpg
 22,2,CASHWORD                      ,1515,10000,0,2022-04-14,2025-02-12,5.02,https://nylottery.ny.gov/scratch-off-game?game=1515,https://edit.nylottery.ny.gov/sites/default/files/2022-04/cashword_1515.jpg
 23,3,MYSTERY MULTIPLIER CASHWORD   ,1530,60000,0,2022-07-05,2025-03-08,4.18,https://nylottery.ny.gov/scratch-off-game?game=1530,https://edit.nylottery.ny.gov/sites/default/files/2022-05/mysteryMultiplierCashword_1530_1.jpg
 24,5,EXTREME 8S                    ,1533,888888,1,2022-07-05,          ,4.36,https://nylottery.ny.gov/scratch-off-game?game=1533,https://edit.nylottery.ny.gov/sites/default/files/2022-05/Extreme8s_1533.jpg
@@ -46,7 +46,7 @@
 44,5,HIT IT BIG!                   ,1559,1000000,2,2023-02-07,          ,4.55,https://nylottery.ny.gov/scratch-off-game?game=1559,https://edit.nylottery.ny.gov/sites/default/files/2022-12/hitItBig_1559.jpg
 45,3,CASHWORD X15                  ,1560,60000,0,2023-02-07,2025-03-01,4.2,https://nylottery.ny.gov/scratch-off-game?game=1560,https://edit.nylottery.ny.gov/sites/default/files/2022-12/Cashword15X_1560.jpg
 46,5,DOUBLE TRIPLE CASHWORD        ,1549,300000,0,2022-12-22,2025-07-23,5.14,https://nylottery.ny.gov/scratch-off-game?game=1549,https://edit.nylottery.ny.gov/sites/default/files/2022-12/doubleTripleCashword_1549.jpg
-47,10,INSTANT $500                  ,1561,500,21342,2023-03-07,          ,4.19,https://nylottery.ny.gov/scratch-off-game?game=1561,https://edit.nylottery.ny.gov/sites/default/files/2023-01/instant500_1_1561.jpg
+47,10,INSTANT $500                  ,1561,500,21296,2023-03-07,          ,4.19,https://nylottery.ny.gov/scratch-off-game?game=1561,https://edit.nylottery.ny.gov/sites/default/files/2023-01/instant500_1_1561.jpg
 48,5,BREAK THE BANK                ,1562,500000,1,2023-03-07,2025-08-09,4.16,https://nylottery.ny.gov/scratch-off-game?game=1562,https://edit.nylottery.ny.gov/sites/default/files/2023-01/breakTheBank_1562.jpg
 49,2,TRIPLE WINNING 7'S            ,1563,25000,0,2023-03-07,2025-01-19,4.84,https://nylottery.ny.gov/scratch-off-game?game=1563,https://edit.nylottery.ny.gov/sites/default/files/2023-01/tripleWinning7s_1563.jpg
 50,30,"$100, $200 OR $500            ",1565,500,971,2023-04-04,2025-03-01,6.45,https://nylottery.ny.gov/scratch-off-game?game=1565,https://edit.nylottery.ny.gov/sites/default/files/2023-02/100_200_500_1565.jpg
@@ -86,12 +86,12 @@
 84,20,XTREME MONEY                  ,1599,5000000,2,2024-02-06,          ,3.66,https://nylottery.ny.gov/scratch-off-game?game=1599,https://edit.nylottery.ny.gov/sites/default/files/2023-11/XtremeMoney_1599.jpg
 85,5,"$500,000 BLAST                ",1600,500000,2,2024-02-06,          ,4.02,https://nylottery.ny.gov/scratch-off-game?game=1600,https://edit.nylottery.ny.gov/sites/default/files/2023-11/500kBlast_1600.jpg
 86,3,XTREME CASHWORD               ,1601,60000,0,2024-02-06,2025-05-29,4.12,https://nylottery.ny.gov/scratch-off-game?game=1601,https://edit.nylottery.ny.gov/sites/default/files/2023-11/XtremeCashword_1601.jpg
-87,10,SHOW ME $500                  ,1603,500,19364,2024-03-05,          ,4.17,https://nylottery.ny.gov/scratch-off-game?game=1603,https://edit.nylottery.ny.gov/sites/default/files/2024-01/showMe500_1603.jpg
-88,5,WIN $250                      ,1604,250,6244,2024-03-05,          ,4.38,https://nylottery.ny.gov/scratch-off-game?game=1604,https://edit.nylottery.ny.gov/sites/default/files/2024-01/win250_1604.jpg
-89,1,FIND $50                      ,1605,50,1942,2024-03-05,          ,,https://nylottery.ny.gov/scratch-off-game?game=1605,https://edit.nylottery.ny.gov/sites/default/files/2024-01/find50_1605_0.jpg
+87,10,SHOW ME $500                  ,1603,500,19231,2024-03-05,          ,4.17,https://nylottery.ny.gov/scratch-off-game?game=1603,https://edit.nylottery.ny.gov/sites/default/files/2024-01/showMe500_1603.jpg
+88,5,WIN $250                      ,1604,250,6202,2024-03-05,          ,4.38,https://nylottery.ny.gov/scratch-off-game?game=1604,https://edit.nylottery.ny.gov/sites/default/files/2024-01/win250_1604.jpg
+89,1,FIND $50                      ,1605,50,1932,2024-03-05,          ,,https://nylottery.ny.gov/scratch-off-game?game=1605,https://edit.nylottery.ny.gov/sites/default/files/2024-01/find50_1605_0.jpg
 90,30,"$10,000,000 CASH              ",1606,10000000,2,2024-04-02,          ,3.65,https://nylottery.ny.gov/scratch-off-game?game=1606,https://edit.nylottery.ny.gov/sites/default/files/2024-01/10milCash_1606.jpg
 91,5,PLATINUM POWER                ,1607,1000000,1,2024-04-02,          ,4.18,https://nylottery.ny.gov/scratch-off-game?game=1607,https://edit.nylottery.ny.gov/sites/default/files/2024-01/platinumPower_1607.jpg
-92,2,DOUBLE DEUCES                 ,1608,25000,5,2024-04-02,          ,4.88,https://nylottery.ny.gov/scratch-off-game?game=1608,https://edit.nylottery.ny.gov/sites/default/files/2024-01/doubleDeuces_1608.jpg
+92,2,DOUBLE DEUCES                 ,1608,25000,4,2024-04-02,          ,4.88,https://nylottery.ny.gov/scratch-off-game?game=1608,https://edit.nylottery.ny.gov/sites/default/files/2024-01/doubleDeuces_1608.jpg
 93,2,CASHWORD DOUBLER              ,1602,20000,0,2024-02-01,2025-05-24,5.09,https://nylottery.ny.gov/scratch-off-game?game=1602,https://edit.nylottery.ny.gov/sites/default/files/2024-02/cashwordDoubler_1602.jpg
 94,1,LUCKY 7S                      ,1598,7000,13,2024-04-09,          ,4.96,https://nylottery.ny.gov/scratch-off-game?game=1598,https://edit.nylottery.ny.gov/sites/default/files/2024-03/lucky7s_1_1598.jpg
 95,20,"$2,000,000 CASHWORD           ",1609,2000000,3,2024-05-07,          ,3.82,https://nylottery.ny.gov/scratch-off-game?game=1609,https://edit.nylottery.ny.gov/sites/default/files/2024-03/2milCashword_1609.jpg
@@ -105,8 +105,8 @@
 103,3,EXTRA! EXTRA! BONUS CASHWORD  ,1616,60000,1,2024-07-02,          ,4.07,https://nylottery.ny.gov/scratch-off-game?game=1616,https://edit.nylottery.ny.gov/sites/default/files/2024-05/extraExtraBonusCashword_1616.jpg
 104,2,TRIPLE 7-11-21                ,1617,21000,1,2024-07-02,          ,4.91,https://nylottery.ny.gov/scratch-off-game?game=1617,https://edit.nylottery.ny.gov/sites/default/files/2024-05/triple7-11-21_1617.jpg
 105,2,WIN FOR LIFE                  ,1624,1000 a Week for Life,10,2024-08-30,          ,3.97,https://nylottery.ny.gov/scratch-off-game?game=1624,https://edit.nylottery.ny.gov/sites/default/files/2024-05/winForLife_1624.jpg
-106,1,LOOSE CHANGE                  ,1618,500,489,2024-07-16,          ,4.7,https://nylottery.ny.gov/scratch-off-game?game=1618,https://edit.nylottery.ny.gov/sites/default/files/2024-05/looseChange_1552.jpg
-107,20,WIN $100 OR $200              ,1621,200,62195,2024-08-06,          ,8.0,https://nylottery.ny.gov/scratch-off-game?game=1621,https://edit.nylottery.ny.gov/sites/default/files/2024-06/win100or200_1621.jpg
+106,1,LOOSE CHANGE                  ,1618,500,479,2024-07-16,          ,4.7,https://nylottery.ny.gov/scratch-off-game?game=1618,https://edit.nylottery.ny.gov/sites/default/files/2024-05/looseChange_1552.jpg
+107,20,WIN $100 OR $200              ,1621,200,60927,2024-08-06,          ,8.0,https://nylottery.ny.gov/scratch-off-game?game=1621,https://edit.nylottery.ny.gov/sites/default/files/2024-06/win100or200_1621.jpg
 108,5,25X THE GOLD                  ,1622,500000,1,2024-08-06,          ,4.23,https://nylottery.ny.gov/scratch-off-game?game=1622,https://edit.nylottery.ny.gov/sites/default/files/2024-06/25XtheGold_1622.jpg
 109,1,DOUBLE DOUBLER                ,1623,4000,4,2024-08-06,          ,4.84,https://nylottery.ny.gov/scratch-off-game?game=1623,https://edit.nylottery.ny.gov/sites/default/files/2024-06/doubleDoubler_1623.jpg
 110,1,INSTANT TAKE 5                ,1628,5555,90,2024-09-04,          ,4.69,https://nylottery.ny.gov/scratch-off-game?game=1628,https://edit.nylottery.ny.gov/sites/default/files/2024-06/instantTake5_1574_1.jpg
@@ -115,6 +115,6 @@
 113,2,CASH DROP                     ,1627,25000,5,2024-09-03,          ,4.81,https://nylottery.ny.gov/scratch-off-game?game=1627,https://edit.nylottery.ny.gov/sites/default/files/2024-07/cashDrop_1627.jpg
 114,10,"$3,000,000 GRANDE             ",1625,3000000,2,2024-09-03,          ,3.93,https://nylottery.ny.gov/scratch-off-game?game=1625,https://edit.nylottery.ny.gov/sites/default/files/2024-07/3milGrande_1625.jpg
 115,5,"$1,000,000 GRANDE             ",1626,1000000,2,2024-09-03,          ,4.01,https://nylottery.ny.gov/scratch-off-game?game=1626,https://edit.nylottery.ny.gov/sites/default/files/2024-07/1milGrande_1626.jpg
-116,30,"$100, $200 0R $500            ",1629,500,58027,2024-10-01,          ,6.25,https://nylottery.ny.gov/scratch-off-game?game=1629,https://edit.nylottery.ny.gov/sites/default/files/2024-08/100_200or500_1629.jpg
+116,30,"$100, $200 0R $500            ",1629,500,57155,2024-10-01,          ,6.25,https://nylottery.ny.gov/scratch-off-game?game=1629,https://edit.nylottery.ny.gov/sites/default/files/2024-08/100_200or500_1629.jpg
 117,5,MONEY RUSH                    ,1630,500000,3,2024-10-01,          ,4.6,https://nylottery.ny.gov/scratch-off-game?game=1630,https://edit.nylottery.ny.gov/sites/default/files/2024-08/moneyRush_1630.jpg
 118,3,MULTIPLY YOUR NUMBERS         ,1631,60000,4,2024-10-01,          ,4.12,https://nylottery.ny.gov/scratch-off-game?game=1631,https://edit.nylottery.ny.gov/sites/default/files/2024-08/multiplyYourNumbers_1631.jpg
