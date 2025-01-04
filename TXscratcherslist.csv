@@ -1,83 +1,83 @@
 ,price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,dateexported,gameURL
-0,20,"$1,000,000 Blitz",2621,"$1,000,000",3.74,4,4.0,,,,01/06/25,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699674.html
-1,20,"$1,000,000 Crossword",2583,"$1,000,000",3.41,6,3.0,,,,05/20/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700447.html
-2,20,"$1,000,000 Lucky 7s",2596,"$1,000,000",3.40,4,1.0,,,,09/03/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700413.html
-3,20,"$100, $200, $500 OR $1,000!",2609,"$1,000",9.49,4913,4220.0,,,,11/18/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699728.html
-4,5,"$100,000 Fortune",2608,"$100,000",4.35,6,5.0,,,,11/18/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699729.html
-5,100,$20 Million Supreme,2400,"$20,000,000",3.49,4,1.0,,,,05/16/22,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701659.html
-6,5,"$200,000 Blitz",2619,"$200,000",4.08,5,5.0,,,,01/06/25,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699697.html
-7,5,"$200,000 Lucky 7s",2594,"$200,000",4.20,4,2.0,,,,09/03/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700415.html
-8,10,"$250,000 50X Cashword",2582,"$250,000",3.56,10,6.0,,,,07/01/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700448.html
-9,10,"$250,000 50X Cashword",2506,"$250,000",3.56,10,1.0,,,,06/19/23,01/22/2025,07/21/2025,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700692.html
-10,100,$400 Million Mega Bucks,2588,"$5,000,000",3.84,4,3.0,,,,02/05/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700442.html
-11,1,"$5,000 Blitz",2617,"$5,000",4.75,6,6.0,,,,01/06/25,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699699.html
-12,1,"$5,000 Lucky 7s",2593,"$5,000",4.95,10,1.0,,,,09/03/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700416.html
-13,50,"$5,000,000 Ultimate",2455,"$5,000,000",3.64,4,2.0,,,,01/16/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701499.html
-14,5,$50 Blowout,2629,$50,4.00,93817,73721.0,,,,12/16/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699666.html
-15,10,"$50, $100 OR $500!",2598,$500,9.43,10860,5430.0,,,,07/15/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700411.html
-16,5,$500 Frenzy,2572,"$100,000",3.98,4,2.0,,,,06/17/24,02/19/2025,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700479.html
-17,10,"$500,000 Blitz",2620,"$500,000",3.83,4,4.0,,,,01/06/25,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699675.html
-18,10,"$500,000 Lucky 7s",2595,"$500,000",4.05,5,1.0,,,,09/03/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700414.html
-19,3,"$60,000 Blitz Word Search",2618,"$60,000",4.34,8,8.0,,,,01/06/25,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699698.html
-20,10,100X Power Blitz,2544,"$500,000",3.88,7,3.0,,,,01/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700570.html
-21,20,200X Power Blitz,2545,"$1,000,000",3.72,4,2.0,,,,01/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700569.html
-22,1,20X Power Blitz,2541,"$5,000",4.83,8,3.0,,,,01/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700573.html
-23,5,25 Days of Winning,2606,"$100,000",3.82,5,2.0,,,,11/04/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699731.html
-24,3,30X Power Word Blitz,2542,"$60,000",4.38,10,4.0,,,,01/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700572.html
-25,30,30X Supreme,2616,"$3,000,000",3.76,4,4.0,,,,12/16/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699700.html
-26,50,500X,2589,"$1,000,000",3.36,15,12.0,,,,09/16/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700441.html
-27,50,500X Loteria Spectacular,2518,"$3,000,000",3.21,4,3.0,,,,05/20/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700659.html
-28,50,500X Loteria Spectacular,2435,"$3,000,000",3.20,4,1.0,,,,03/06/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701561.html
-29,5,50X Power Blitz,2543,"$200,000",4.07,8,4.0,,,,01/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700571.html
-30,10,7,2626,"$250,000",3.66,5,3.0,,,,12/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699669.html
-31,20,Big Money,2556,"$1,000,000",3.73,4,4.0,,,,12/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700537.html
-32,5,Big Winnings,2574,"$200,000",4.35,4,2.0,,,,07/01/24,02/19/2025,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700477.html
-33,5,Bingo Times 20,2584,"$100,000",4.37,8,5.0,,,,09/16/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700446.html
-34,5,Bingo Times 20,2502,"$100,000",4.37,8,2.0,,,,09/18/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700696.html
-35,2,Break the Bank,2614,"$30,000",4.80,10,9.0,,,,12/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699702.html
-36,2,Break the Bank,2552,"$30,000",4.80,10,1.0,,,,12/04/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700541.html
-37,10,Ca$h Blowout,2413,"$1,000,000",3.92,8,3.0,,,,03/06/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701625.html
-38,10,Cash Payout,2612,"$250,000",3.89,5,4.0,,,,10/07/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699704.html
-39,50,Cash Royale,2479,"$1,000,000",3.58,4,2.0,,,,07/17/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701433.html
-40,2,Classic Bingo!,2571,"$30,000",4.38,16,11.0,,,,05/20/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700480.html
-41,50,Colossal Cashword,2599,"$3,000,000",3.31,4,3.0,,,,11/18/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700410.html
-42,5,Cowboys,2579,"$100,000",3.80,4,2.0,,,,08/19/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700472.html
-43,3,Crossword,2504,"$50,000",4.07,18,10.0,,,,03/04/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700694.html
-44,5,Double Doubler,2569,"$100,000",4.08,6,3.0,,,,06/03/24,01/22/2025,07/21/2025,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700503.html
-45,5,Extreme Green,2499,"$100,000",4.07,5,1.0,,,,07/15/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701371.html
-46,5,Game of Thronesâ¢,2592,"$100,000",4.28,4,2.0,,,,10/07/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700417.html
-47,5,High Roller,2540,"$100,000",4.10,6,4.0,,,,08/05/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700574.html
-48,20,"Hit $1,000,000",2567,"$1,000,000",3.41,4,3.0,,,,05/06/24,02/19/2025,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700505.html
-49,5,"Hit $200,000",2565,"$200,000",4.20,6,1.0,,,,05/06/24,02/19/2025,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700507.html
-50,1,"Hit $5,000",2564,"$5,000",4.75,15,1.0,,,,05/06/24,01/22/2025,07/21/2025,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700508.html
-51,10,"Hit $500,000",2566,"$500,000",3.72,5,3.0,,,,05/06/24,02/19/2025,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700506.html
-52,10,Holiday Gold,2607,"$250,000",3.82,5,4.0,,,,11/04/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699730.html
-53,5,Houston Texans,2580,"$100,000",3.79,4,2.0,,,,08/19/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700450.html
-54,20,Jackpot Millions,2570,"$1,000,000",3.88,4,3.0,,,,06/03/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700481.html
-55,10,Limited Edition Mega Loteria,2623,"$250,000",3.54,10,7.0,,,,08/05/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699672.html
-56,100,Loteria Supreme,2515,"$7,500,000",3.23,4,2.0,,,,04/03/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700662.html
-57,20,Lucky Millions,2603,"$1,000,000",3.99,4,3.0,,,,10/21/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699734.html
-58,50,Luxe,2548,"$5,000,000",3.48,4,2.0,,,,03/04/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700566.html
-59,30,Maximum Millions,2561,"$3,000,000",3.93,4,2.0,,,,04/01/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700511.html
-60,10,Mega Loteria,2563,"$250,000",3.54,20,10.0,,,,02/19/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700509.html
-61,20,Million Dollar Loteria,2586,"$1,000,000",3.29,10,7.0,,,,04/15/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700444.html
-62,20,Million Dollar Loteria,2511,"$1,000,000",3.29,10,2.0,,,,06/05/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700666.html
-63,30,Millionaire Maker,2517,"$1,000,000",3.54,15,7.0,,,,08/14/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700660.html
-64,50,Millions Club,2536,"$1,000,000",3.36,10,2.0,,,,11/15/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700599.html
-65,10,Money Money Money,2551,"$250,000",3.80,5,1.0,,,,03/04/24,01/22/2025,07/21/2025,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700542.html
-66,2,Neon 9s,2466,"$30,000",4.48,5,3.0,,,,06/17/24,02/19/2025,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701467.html
-67,1,"Oh, Snap!",2604,$500,4.52,50,19.0,,,,11/04/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699733.html
-68,20,Platinum Millions,2495,"$1,000,000",3.66,4,1.0,,,,02/05/24,01/22/2025,07/21/2025,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701375.html
-69,2,Power 10X,2496,"$30,000",4.37,5,0.0,Top Prize Claimed,,,07/15/24,02/13/2025,08/12/2025,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701374.html
-70,2,Spicy 9s,2597,"$30,000",4.02,6,1.0,,,,09/16/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700412.html
-71,5,Super Cashword,2505,"$100,000",4.07,13,1.0,,,,06/05/23,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700693.html
-72,5,Super Crossword,2581,"$100,000",4.07,13,13.0,,,,12/16/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700449.html
-73,5,Super Loteria,2585,"$100,000",3.77,25,13.0,,,,06/17/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700445.html
-74,3,Texas Loteria,2508,"$50,000",4.38,14,7.0,,,,01/16/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700690.html
-75,30,Ultimate Riches,2591,"$2,000,000",4.31,4,3.0,,,,08/19/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700418.html
-76,30,VIP Club,2468,"$1,000,000",5.01,4,1.0,,,,02/20/23,02/19/2025,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701465.html
-77,20,VIP Millions,2575,"$1,000,000",3.62,4,2.0,,,,07/01/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700476.html
-78,2,Veterans Cash,2601,"$30,000",4.40,5,3.0,,,,10/21/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699736.html
-79,5,Wild Cherries,2611,"$100,000",4.09,6,5.0,,,,12/02/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699705.html
-80,5,Wild Side,2602,"$100,000",4.09,6,2.0,,,,10/21/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699735.html
-81,3,Winter Words,2605,"$50,000",4.15,5,3.0,,,,11/04/24,,,"January 1, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699732.html
+0,20,"$1,000,000 Blitz",2621,"$1,000,000",3.74,4,4.0,,,,01/06/25,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699674.html
+1,20,"$1,000,000 Crossword",2583,"$1,000,000",3.41,6,3.0,,,,05/20/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700447.html
+2,20,"$1,000,000 Lucky 7s",2596,"$1,000,000",3.40,4,1.0,,,,09/03/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700413.html
+3,20,"$100, $200, $500 OR $1,000!",2609,"$1,000",9.49,4913,4198.0,,,,11/18/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699728.html
+4,5,"$100,000 Fortune",2608,"$100,000",4.35,6,5.0,,,,11/18/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699729.html
+5,100,$20 Million Supreme,2400,"$20,000,000",3.49,4,1.0,,,,05/16/22,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701659.html
+6,5,"$200,000 Blitz",2619,"$200,000",4.08,5,5.0,,,,01/06/25,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699697.html
+7,5,"$200,000 Lucky 7s",2594,"$200,000",4.20,4,2.0,,,,09/03/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700415.html
+8,10,"$250,000 50X Cashword",2582,"$250,000",3.56,10,6.0,,,,07/01/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700448.html
+9,10,"$250,000 50X Cashword",2506,"$250,000",3.56,10,1.0,,,,06/19/23,01/22/2025,07/21/2025,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700692.html
+10,100,$400 Million Mega Bucks,2588,"$5,000,000",3.84,4,3.0,,,,02/05/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700442.html
+11,1,"$5,000 Blitz",2617,"$5,000",4.75,6,6.0,,,,01/06/25,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699699.html
+12,1,"$5,000 Lucky 7s",2593,"$5,000",4.95,10,1.0,,,,09/03/24,03/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700416.html
+13,50,"$5,000,000 Ultimate",2455,"$5,000,000",3.64,4,2.0,,,,01/16/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701499.html
+14,5,$50 Blowout,2629,$50,4.00,93817,72622.0,,,,12/16/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699666.html
+15,10,"$50, $100 OR $500!",2598,$500,9.43,10860,5402.0,,,,07/15/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700411.html
+16,5,$500 Frenzy,2572,"$100,000",3.98,4,2.0,,,,06/17/24,02/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700479.html
+17,10,"$500,000 Blitz",2620,"$500,000",3.83,4,4.0,,,,01/06/25,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699675.html
+18,10,"$500,000 Lucky 7s",2595,"$500,000",4.05,5,1.0,,,,09/03/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700414.html
+19,3,"$60,000 Blitz Word Search",2618,"$60,000",4.34,8,8.0,,,,01/06/25,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699698.html
+20,10,100X Power Blitz,2544,"$500,000",3.88,7,3.0,,,,01/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700570.html
+21,20,200X Power Blitz,2545,"$1,000,000",3.72,4,2.0,,,,01/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700569.html
+22,1,20X Power Blitz,2541,"$5,000",4.83,8,3.0,,,,01/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700573.html
+23,5,25 Days of Winning,2606,"$100,000",3.82,5,2.0,,,,11/04/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699731.html
+24,3,30X Power Word Blitz,2542,"$60,000",4.38,10,4.0,,,,01/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700572.html
+25,30,30X Supreme,2616,"$3,000,000",3.76,4,4.0,,,,12/16/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699700.html
+26,50,500X,2589,"$1,000,000",3.36,15,12.0,,,,09/16/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700441.html
+27,50,500X Loteria Spectacular,2518,"$3,000,000",3.21,4,3.0,,,,05/20/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700659.html
+28,50,500X Loteria Spectacular,2435,"$3,000,000",3.20,4,1.0,,,,03/06/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701561.html
+29,5,50X Power Blitz,2543,"$200,000",4.07,8,4.0,,,,01/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700571.html
+30,10,7,2626,"$250,000",3.66,5,3.0,,,,12/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699669.html
+31,20,Big Money,2556,"$1,000,000",3.73,4,4.0,,,,12/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700537.html
+32,5,Big Winnings,2574,"$200,000",4.35,4,2.0,,,,07/01/24,02/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700477.html
+33,5,Bingo Times 20,2584,"$100,000",4.37,8,5.0,,,,09/16/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700446.html
+34,5,Bingo Times 20,2502,"$100,000",4.37,8,2.0,,,,09/18/23,03/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700696.html
+35,2,Break the Bank,2614,"$30,000",4.80,10,9.0,,,,12/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699702.html
+36,2,Break the Bank,2552,"$30,000",4.80,10,1.0,,,,12/04/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700541.html
+37,10,Ca$h Blowout,2413,"$1,000,000",3.92,8,3.0,,,,03/06/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701625.html
+38,10,Cash Payout,2612,"$250,000",3.89,5,4.0,,,,10/07/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699704.html
+39,50,Cash Royale,2479,"$1,000,000",3.58,4,2.0,,,,07/17/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701433.html
+40,2,Classic Bingo!,2571,"$30,000",4.38,16,11.0,,,,05/20/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700480.html
+41,50,Colossal Cashword,2599,"$3,000,000",3.31,4,3.0,,,,11/18/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700410.html
+42,5,Cowboys,2579,"$100,000",3.80,4,2.0,,,,08/19/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700472.html
+43,3,Crossword,2504,"$50,000",4.07,18,10.0,,,,03/04/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700694.html
+44,5,Double Doubler,2569,"$100,000",4.08,6,3.0,,,,06/03/24,01/22/2025,07/21/2025,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700503.html
+45,5,Extreme Green,2499,"$100,000",4.07,5,1.0,,,,07/15/24,03/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701371.html
+46,5,Game of Thronesâ¢,2592,"$100,000",4.28,4,2.0,,,,10/07/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700417.html
+47,5,High Roller,2540,"$100,000",4.10,6,4.0,,,,08/05/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700574.html
+48,20,"Hit $1,000,000",2567,"$1,000,000",3.41,4,2.0,,,,05/06/24,02/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700505.html
+49,5,"Hit $200,000",2565,"$200,000",4.20,6,1.0,,,,05/06/24,02/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700507.html
+50,1,"Hit $5,000",2564,"$5,000",4.75,15,1.0,,,,05/06/24,01/22/2025,07/21/2025,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700508.html
+51,10,"Hit $500,000",2566,"$500,000",3.72,5,3.0,,,,05/06/24,02/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700506.html
+52,10,Holiday Gold,2607,"$250,000",3.82,5,3.0,,,,11/04/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699730.html
+53,5,Houston Texans,2580,"$100,000",3.79,4,2.0,,,,08/19/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700450.html
+54,20,Jackpot Millions,2570,"$1,000,000",3.88,4,3.0,,,,06/03/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700481.html
+55,10,Limited Edition Mega Loteria,2623,"$250,000",3.54,10,7.0,,,,08/05/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699672.html
+56,100,Loteria Supreme,2515,"$7,500,000",3.23,4,2.0,,,,04/03/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700662.html
+57,20,Lucky Millions,2603,"$1,000,000",3.99,4,3.0,,,,10/21/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699734.html
+58,50,Luxe,2548,"$5,000,000",3.48,4,2.0,,,,03/04/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700566.html
+59,30,Maximum Millions,2561,"$3,000,000",3.93,4,2.0,,,,04/01/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700511.html
+60,10,Mega Loteria,2563,"$250,000",3.54,20,10.0,,,,02/19/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700509.html
+61,20,Million Dollar Loteria,2586,"$1,000,000",3.29,10,7.0,,,,04/15/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700444.html
+62,20,Million Dollar Loteria,2511,"$1,000,000",3.29,10,2.0,,,,06/05/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700666.html
+63,30,Millionaire Maker,2517,"$1,000,000",3.54,15,7.0,,,,08/14/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700660.html
+64,50,Millions Club,2536,"$1,000,000",3.36,10,2.0,,,,11/15/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700599.html
+65,10,Money Money Money,2551,"$250,000",3.80,5,1.0,,,,03/04/24,01/22/2025,07/21/2025,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700542.html
+66,2,Neon 9s,2466,"$30,000",4.48,5,3.0,,,,06/17/24,02/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701467.html
+67,1,"Oh, Snap!",2604,$500,4.52,50,18.0,,,,11/04/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699733.html
+68,20,Platinum Millions,2495,"$1,000,000",3.66,4,1.0,,,,02/05/24,01/22/2025,07/21/2025,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701375.html
+69,2,Power 10X,2496,"$30,000",4.37,5,0.0,Top Prize Claimed,,,07/15/24,02/13/2025,08/12/2025,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701374.html
+70,2,Spicy 9s,2597,"$30,000",4.02,6,1.0,,,,09/16/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700412.html
+71,5,Super Cashword,2505,"$100,000",4.07,13,1.0,,,,06/05/23,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700693.html
+72,5,Super Crossword,2581,"$100,000",4.07,13,13.0,,,,12/16/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700449.html
+73,5,Super Loteria,2585,"$100,000",3.77,25,13.0,,,,06/17/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700445.html
+74,3,Texas Loteria,2508,"$50,000",4.38,14,7.0,,,,01/16/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700690.html
+75,30,Ultimate Riches,2591,"$2,000,000",4.31,4,3.0,,,,08/19/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700418.html
+76,30,VIP Club,2468,"$1,000,000",5.01,4,1.0,,,,02/20/23,02/19/2025,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701465.html
+77,20,VIP Millions,2575,"$1,000,000",3.62,4,2.0,,,,07/01/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700476.html
+78,2,Veterans Cash,2601,"$30,000",4.40,5,3.0,,,,10/21/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699736.html
+79,5,Wild Cherries,2611,"$100,000",4.09,6,5.0,,,,12/02/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699705.html
+80,5,Wild Side,2602,"$100,000",4.09,6,2.0,,,,10/21/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699735.html
+81,3,Winter Words,2605,"$50,000",4.15,5,3.0,,,,11/04/24,,,"January 2, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699732.html
