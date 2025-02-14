@@ -558,7 +558,14 @@ def exportAZScratcherRecs():
         print('Looping through each prize tier row for scratcher #'+i)
         for row in scratcherdata['prizeTiers']:
             prizetier = pd.DataFrame.from_dict([row])
-            prizeamount = prizetier['prizeAmount'][0]
+            if "prizeAmont" in prizetier:
+                prizeamount = prizetier['prizeAmount'][0]
+            else: 
+                prizeamount = prizetier['displayTitle'][0].replace('$','').replace(',','')
+                if "Million" in prizeamount:
+                    prizeamount = int(prizeamount.replace(' Million','000000').replace('.',''))
+                else:    
+                    prizeamount = int(prizeamount)
             prizeodds = prizetier['odds'][0]
             startingprizecount = prizetier['totalCount'][0]
             remainingprizecount = prizetier['count'][0]
