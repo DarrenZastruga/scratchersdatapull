@@ -6787,7 +6787,7 @@ exportWAScratcherRecs()
 #exportOHScratcherRecs()
 exportKYScratcherRecs()
 exportORScratcherRecs()
-exportMSScratcherRecs()
+#exportMSScratcherRecs()
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 logger.info(f'Finishing lotteryscrape.py at: {now}')
