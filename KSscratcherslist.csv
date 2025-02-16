@@ -1,55 +1,59 @@
 ,price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,gamePhoto,dateexported
-0,1 ,10X BLITZ,310,"$10,000",4.25,105522.0,2,,,,1/30/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/10XBlitzP1_310.jpg,2025-02-02
-1,1 ,BOBBIN FOR CASH,388,"$1,000",3.92,87611.0,36,,,,4/21/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Bobbin for CashF_388.jpg,2025-02-02
-2,1 ,HIT $50,404,$50,4.06,108478.0,6447,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Hit50F_404.jpg,2025-02-02
-3,1 ,HOLIDAY SURPRIZE,428,$100,3.41,55760.0,811,,,,9/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSHolidaySurprizeF_428.jpg,2025-02-02
-4,1 ,HOT 7S,435,"$10,000",4.05,115624.0,6,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/Hot7sF_435.jpg,2025-02-02
-6,2 ,20X BLITZ,311,"$20,000",3.99,45588.0,1,,,,1/30/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/20XBlitzP1_311.jpg,2025-02-02
-7,2 ,BINGO EXTRA,333,"$10,000",3.89,93016.0,2,,,,12/29/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/BingoExtraP1_333.jpg,2025-02-02
-8,2 ,BURNING HOT 7S,436,"$20,000",4.00,159850.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/BurningHot7sF_436.jpg,2025-02-02
-10,2 ,COOL CASH,392,"$20,000",4.22,119199.0,2,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Cool CashF_392.jpg,2025-02-02
-11,2 ,DOUBLE BONUS CROSSWORD,307,"$20,000",4.05,156063.0,1,,,,11/1/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Double Bonus CrosswordF_307.jpg,2025-02-02
-12,2 ,DOUBLE BONUS CROSSWORD,386,"$20,000",4.05,1113691.0,28,,,,10/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSDblBonusXwordF_386.jpg,2025-02-02
-13,2 ,HAPPY HOLLY DAYS,429,"$10,000",3.21,70926.0,2,,,,9/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSHappyHollyDaysF_429.jpg,2025-02-02
-15,3 ,30X BLITZ,312,"$30,000",3.88,52967.0,2,,,,1/30/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/30XBlitzP1_312.jpg,2025-02-02
-16,3 ,PLAY 2,245,"$15,000",4.02,58410.0,4,,,,2/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Play2P1_245.jpg,2025-02-02
-17,3 ,RED HOT CASH,263,"$15,000",4.01,108046.0,5,,,,8/4/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/RedHotCashP1_263.jpg,2025-02-02
-18,5 ,50X LUCKY,255,"$25,000",3.00,5275.0,1,,,,7/14/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/50XLuckyP1_255.jpg,2025-02-02
-19,5 ,BLAZING HOT 7S,437,"$50,000",3.94,72996.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/BlazingHot7sF_437.jpg,2025-02-02
-20,5 ,FIRE & ICE DOUBLER,256,"$25,000",2.99,6203.0,1,,,,4/2/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/FireIceDblrP1_256.jpg,2025-02-02
-21,5 ,FULL OF $500S,430,$500,3.61,11707.0,67,,,,9/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSFullof500sF_430.jpg,2025-02-02
-22,5 ,KANSAS GRANDE LOTERIA,409,"$25,000",3.77,17588.0,1,,,,6/16/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KansasGrandeLoteriaF_409.jpg,2025-02-02
-23,5 ,LUCKY LINES DOUBLER,239,"$25,000",3.56,11713.0,2,,,,12/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/LuckyLinesDoublerF_239.jpg,2025-02-02
-24,5 ,LUCKY LINES DRAGON DOUBLER,405,"$25,000",3.56,69621.0,3,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Lucky Lines Dragon DoublerF_405.jpg,2025-02-02
-25,5 ,PHARAOH'S FORTUNE,393,"$25,000",3.63,18468.0,2,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/PharaohFortuneF_393.jpg,2025-02-02
-26,5 ,RIVALRY RICHES,427,"$50,000",3.31,15443.0,1,,,,8/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSRivalryRichesF_427.jpg,2025-02-02
-27,5 ,SUPER RED HOT CROSSWORD,445,"$50,000",3.60,293787.0,6,,,,12/22/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KS Super Red Hot XwordF_445.jpg,2025-02-02
-28,5 ,WILD SIDE,358,"$25,000",3.05,13029.0,1,,,,2/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Wild SideF_358.jpg,2025-02-02
-29,10 ,"$100,000 CASH ADVENTURE",399,"$100,000",2.83,30258.0,3,,,,8/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/100KCashAdventureF_399.jpg,2025-02-02
-30,10 ,"$100,000 CROSSWORD",398,"$100,000",3.08,60195.0,4,,,,10/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/100000 CrosswordF_398.jpg,2025-02-02
-31,10 ,"$50, $100 OR $200",370,$200,9.68,1865.0,176,,,,3/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/$50 $100 or $200F_370.jpg,2025-02-02
-32,10 ,2024,374,"$2,024",3.59,15298.0,82,,,,12/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/2024F_374.jpg,2025-02-02
-33,10 ,2025,441,"$2,025",3.66,27694.0,294,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/2025F_441.jpg,2025-02-02
-34,10 ,CHIEFS,397,"$75,000",3.47,14161.0,2,,,,7/14/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSChiefsF_397.jpg,2025-02-02
-35,10 ,PHARAOH'S RICHES,394,"$75,000",3.47,35180.0,1,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/PharaohRichesF_394.jpg,2025-02-02
-36,10 ,POWER SHOT MULTIPLIER,330,"$75,000",2.78,5111.0,1,,,,6/12/2022,,,https://www.kslottery.com/Graphics/TicketArt/Front/PowerShotMultiplierP1_330.jpg,2025-02-02
-37,10 ,SMOKING HOT 7S,438,"$100,000",3.15,67260.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/SmokingHot7sF_438.jpg,2025-02-02
-38,10 ,SPECTACULAR SLOTS,332,"$100,000",3.44,35664.0,2,,,,11/15/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Spectacular SlotsF_332.jpg,2025-02-02
-39,10 ,TRIPLE PLAY,346,"$75,000",2.88,15756.0,2,,,,12/17/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Triple PlayF_346.jpg,2025-02-02
-40,20 ,"$100, $200 OR $500!",371,$500,9.16,1045.0,62,,,,3/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/$100 $200 or $500F_371.jpg,2025-02-02
-41,20 ,200X CASH BLITZ,378,"$200,000",3.25,6039.0,2,,,,1/28/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/200XCashBlitzF_378.jpg,2025-02-02
-42,20 ,CA$H WINDFALL,324,"$150,000",3.01,37679.0,3,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Ca$h WindfallF_324.jpg,2025-02-02
-43,20 ,CASH FLOW,350,"$150,000",2.90,17956.0,2,,,,11/5/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Cash FlowF_350.jpg,2025-02-02
-44,20 ,EXTREME CROSSWORD,347,"$150,000",2.34,23802.0,3,,,,6/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Extreme CrosswordF_347.jpg,2025-02-02
-45,20 ,GIFTS OF GOLD,432,"$100,000",2.90,16311.0,1,,,,8/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSGiftsofGoldF_432.jpg,2025-02-02
-46,20 ,PHARAOH'S CROWN,395,"$125,000",3.36,19126.0,1,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/PharaohsCrownF_395.jpg,2025-02-02
-47,20 ,SCORCHING HOT 7S,439,"$200,000",3.20,92585.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/ScorchingHot7sF_439.jpg,2025-02-02
-48,20 ,STRIKE IT RICH!,344,"$100,000",2.90,6636.0,1,,,,4/2/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/StrikeItRichP1_344.jpg,2025-02-02
-49,20 ,"WIN $100,000",265,"$100,000",2.85,4670.0,1,,,,6/4/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Win100000P1_265.jpg,2025-02-02
-50,30 ,"$250,000 DAZZLE",262,"$250,000",3.03,17044.0,1,,,,4/21/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/250000DazzleP1_262.jpg,2025-02-02
-51,30 ,300X CASH BLITZ,379,"$300,000",3.59,12437.0,1,,,,1/28/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/300XCashBlitzF_379.jpg,2025-02-02
-52,30 ,FIERY HOT 7S,440,"$300,000",3.31,52448.0,3,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/FieryHot7sF_440.jpg,2025-02-02
-53,30 ,MEGA MULTIPLIER,334,"$250,000",3.00,3857.0,1,,,,7/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/MegaMultiplier_334.jpg,2025-02-02
-54,30 ,SAPPHIRE 7S,331,"$300,000",2.92,44448.0,2,,,,12/28/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Sapphire 7sF_331.jpg,2025-02-02
-55,50 ,FABULOUS FORTUNE,417,"$500,000",2.94,137405.0,4,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Fabulous FortuneF1_417.jpg,2025-02-02
-56,50 ,PREMIER PLAY,375,"$500,000",2.98,34264.0,2,,,,12/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/KS Premier Play Pulse1 F_375.jpg,2025-02-02
+0,1 ,10X BLITZ,310,"$10,000",4.25,103888.0,2,,,,1/30/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/10XBlitzP1_310.jpg,2025-02-16
+1,1 ,DIAMOND DASH,402,"$1,500",3.62,368417.0,58,,,,2/16/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/KS Diamond DashF_402.jpg,2025-02-16
+3,1 ,HIT $50,404,$50,4.06,103056.0,6097,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Hit50F_404.jpg,2025-02-16
+4,1 ,HOLIDAY SURPRIZE,428,$100,3.41,52970.0,744,,,,9/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSHolidaySurprizeF_428.jpg,2025-02-16
+5,1 ,HOT 7S,435,"$10,000",4.05,110413.0,6,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/Hot7sF_435.jpg,2025-02-16
+7,2 ,20X BLITZ,311,"$20,000",3.99,44898.0,1,,,,1/30/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/20XBlitzP1_311.jpg,2025-02-16
+8,2 ,BINGO EXTRA,333,"$10,000",3.89,83799.0,2,,,,12/29/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/BingoExtraP1_333.jpg,2025-02-16
+9,2 ,BURNING HOT 7S,436,"$20,000",4.00,153745.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/BurningHot7sF_436.jpg,2025-02-16
+11,2 ,COOL CASH,392,"$20,000",4.22,118075.0,2,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Cool CashF_392.jpg,2025-02-16
+12,2 ,DOUBLE BONUS CROSSWORD,307,"$20,000",4.05,155002.0,1,,,,11/1/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Double Bonus CrosswordF_307.jpg,2025-02-16
+13,2 ,DOUBLE BONUS CROSSWORD,386,"$20,000",4.05,1073559.0,28,,,,10/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSDblBonusXwordF_386.jpg,2025-02-16
+14,2 ,DOUBLE DOUBLER,411,"$10,000",4.39,116235.0,12,,,,2/16/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/KS Double DoublerF_411.jpg,2025-02-16
+15,2 ,HAPPY HOLLY DAYS,429,"$10,000",3.21,66844.0,2,,,,9/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSHappyHollyDaysF_429.jpg,2025-02-16
+17,3 ,30X BLITZ,312,"$30,000",3.88,52878.0,2,,,,1/30/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/30XBlitzP1_312.jpg,2025-02-16
+18,3 ,PLAY 2,245,"$15,000",4.02,57238.0,4,,,,2/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Play2P1_245.jpg,2025-02-16
+19,3 ,RED HOT CASH,263,"$15,000",4.01,106218.0,5,,,,8/4/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/RedHotCashP1_263.jpg,2025-02-16
+20,5 ,50X LUCKY,255,"$25,000",3.00,5082.0,1,,,,7/14/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/50XLuckyP1_255.jpg,2025-02-16
+21,5 ,BLAZING HOT 7S,437,"$50,000",3.94,68206.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/BlazingHot7sF_437.jpg,2025-02-16
+22,5 ,DELUXE DOLLARS,413,"$25,000",3.80,62120.0,5,,,,2/16/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSDeluxeDollarsF_413.jpg,2025-02-16
+23,5 ,FIRE & ICE DOUBLER,256,"$25,000",2.99,6171.0,1,,,,4/2/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/FireIceDblrP1_256.jpg,2025-02-16
+24,5 ,FULL OF $500S,430,$500,3.61,10687.0,63,,,,9/29/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSFullof500sF_430.jpg,2025-02-16
+25,5 ,KANSAS GRANDE LOTERIA,409,"$25,000",3.77,15384.0,1,,,,6/16/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KansasGrandeLoteriaF_409.jpg,2025-02-16
+26,5 ,LUCKY LINES DOUBLER,239,"$25,000",3.56,11660.0,2,,,,12/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/LuckyLinesDoublerF_239.jpg,2025-02-16
+27,5 ,LUCKY LINES DRAGON DOUBLER,405,"$25,000",3.56,62892.0,3,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Lucky Lines Dragon DoublerF_405.jpg,2025-02-16
+28,5 ,PHARAOH'S FORTUNE,393,"$25,000",3.63,17601.0,2,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/PharaohFortuneF_393.jpg,2025-02-16
+29,5 ,PSYCHEDELIC PAYOUT,406,"$25,000",3.68,52484.0,5,,,,2/16/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/KS Psychedelic PayoutF_406.jpg,2025-02-16
+30,5 ,RIVALRY RICHES,427,"$50,000",3.31,12655.0,1,,,,8/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSRivalryRichesF_427.jpg,2025-02-16
+31,5 ,SUPER RED HOT CROSSWORD,445,"$50,000",3.60,280436.0,6,,,,12/22/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KS Super Red Hot XwordF_445.jpg,2025-02-16
+32,5 ,WILD SIDE,358,"$25,000",3.05,12685.0,1,,,,2/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Wild SideF_358.jpg,2025-02-16
+33,10 ,"$100,000 CASH ADVENTURE",399,"$100,000",2.83,29145.0,3,,,,8/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/100KCashAdventureF_399.jpg,2025-02-16
+34,10 ,"$100,000 CROSSWORD",398,"$100,000",3.08,55943.0,3,,,,10/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/100000 CrosswordF_398.jpg,2025-02-16
+35,10 ,"$50, $100 OR $200",370,$200,9.68,1831.0,171,,,,3/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/$50 $100 or $200F_370.jpg,2025-02-16
+36,10 ,"$75,000 CASHOUT",264,"$75,000",2.78,52548.0,7,,,,2/16/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/75KCashoutP1_264.jpg,2025-02-16
+37,10 ,2024,374,"$2,024",3.59,15280.0,82,,,,12/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/2024F_374.jpg,2025-02-16
+38,10 ,2025,441,"$2,025",3.66,25315.0,262,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/2025F_441.jpg,2025-02-16
+39,10 ,CHIEFS,397,"$75,000",3.47,11981.0,1,,,,7/14/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSChiefsF_397.jpg,2025-02-16
+40,10 ,PHARAOH'S RICHES,394,"$75,000",3.47,33866.0,1,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/PharaohRichesF_394.jpg,2025-02-16
+41,10 ,POWER SHOT MULTIPLIER,330,"$75,000",2.78,5040.0,1,,,,6/12/2022,,,https://www.kslottery.com/Graphics/TicketArt/Front/PowerShotMultiplierP1_330.jpg,2025-02-16
+42,10 ,SMOKING HOT 7S,438,"$100,000",3.15,64083.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/SmokingHot7sF_438.jpg,2025-02-16
+43,10 ,SPECTACULAR SLOTS,332,"$100,000",3.44,34964.0,2,,,,11/15/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Spectacular SlotsF_332.jpg,2025-02-16
+44,10 ,TRIPLE PLAY,346,"$75,000",2.88,15542.0,2,,,,12/17/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Triple PlayF_346.jpg,2025-02-16
+45,20 ,"$100, $200 OR $500!",371,$500,9.16,992.0,61,,,,3/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/$100 $200 or $500F_371.jpg,2025-02-16
+46,20 ,200X CASH BLITZ,378,"$200,000",3.25,5109.0,2,,,,1/28/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/200XCashBlitzF_378.jpg,2025-02-16
+47,20 ,CA$H WINDFALL,324,"$150,000",3.01,35327.0,3,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Ca$h WindfallF_324.jpg,2025-02-16
+48,20 ,CASH FLOW,350,"$150,000",2.90,17900.0,2,,,,11/5/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Cash FlowF_350.jpg,2025-02-16
+49,20 ,EXTREME CROSSWORD,347,"$150,000",2.34,23352.0,3,,,,6/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Extreme CrosswordF_347.jpg,2025-02-16
+50,20 ,GIFTS OF GOLD,432,"$100,000",2.90,15538.0,1,,,,8/18/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/KSGiftsofGoldF_432.jpg,2025-02-16
+51,20 ,PHARAOH'S CROWN,395,"$125,000",3.36,18999.0,1,,,,5/19/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/PharaohsCrownF_395.jpg,2025-02-16
+52,20 ,SCORCHING HOT 7S,439,"$200,000",3.20,89486.0,4,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/ScorchingHot7sF_439.jpg,2025-02-16
+53,20 ,STRIKE IT RICH!,344,"$100,000",2.90,6604.0,1,,,,4/2/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/StrikeItRichP1_344.jpg,2025-02-16
+54,20 ,"WIN $100,000",265,"$100,000",2.85,4629.0,1,,,,6/4/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Win100000P1_265.jpg,2025-02-16
+55,30 ,"$250,000 DAZZLE",262,"$250,000",3.03,16384.0,1,,,,4/21/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/250000DazzleP1_262.jpg,2025-02-16
+56,30 ,300X CASH BLITZ,379,"$300,000",3.59,11498.0,1,,,,1/28/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/300XCashBlitzF_379.jpg,2025-02-16
+57,30 ,FIERY HOT 7S,440,"$300,000",3.31,51230.0,3,,,,1/26/2025,,,https://www.kslottery.com/Graphics/TicketArt/Front/FieryHot7sF_440.jpg,2025-02-16
+58,30 ,MEGA MULTIPLIER,334,"$250,000",3.00,3787.0,1,,,,7/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/MegaMultiplier_334.jpg,2025-02-16
+59,30 ,SAPPHIRE 7S,331,"$300,000",2.92,44121.0,2,,,,12/28/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/Sapphire 7sF_331.jpg,2025-02-16
+60,50 ,FABULOUS FORTUNE,417,"$500,000",2.94,133645.0,3,,,,11/17/2024,,,https://www.kslottery.com/Graphics/TicketArt/Front/Fabulous FortuneF1_417.jpg,2025-02-16
+61,50 ,PREMIER PLAY,375,"$500,000",2.98,34053.0,2,,,,12/3/2023,,,https://www.kslottery.com/Graphics/TicketArt/Front/KS Premier Play Pulse1 F_375.jpg,2025-02-16
