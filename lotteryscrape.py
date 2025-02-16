@@ -2334,8 +2334,7 @@ def exportMDScratcherRecs():
         else:
             tixdata.rename(columns={'Prize Amount': 'prizeamount', 'Start': 'Winning Tickets At Start',
                            'Remaining*': 'Winning Tickets Unclaimed'}, inplace=True)
-            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace(
-                '$', '').str.replace(',', '')
+            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','').str.replace("\(Digital Spin\)",'').replace('Big Spin',50000)
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
             tixdata['gamePhoto'] = gamePhoto
@@ -2351,7 +2350,7 @@ def exportMDScratcherRecs():
             tixdata['startDate'] = startDate
             tixdata['endDate'] = None
             tixdata['lastdatetoclaim'] = None
-            tixdata['extrachances'] = None
+            tixdata['extrachances'] = "Digital Spin" if "(Digital Spin)" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else "Big Spin" if "Big Spin" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else None 
             tixdata['secondChance'] = None
             tixdata['dateexported'] = dateexported
             tixdata['gameURL'] = gameURL
@@ -6770,11 +6769,10 @@ except Exception as error:
 
 exportVAScratcherRecs()
 exportAZScratcherRecs()
-#exportMOScratcherRecs()
+exportMOScratcherRecs()
 exportOKScratcherRecs()
 exportCAScratcherRecs()
 exportNMScratcherRecs()
-exportNYScratcherRecs()
 exportNYScratcherRecs()
 exportDCScratcherRecs()
 exportNCScratcherRecs()

@@ -69,15 +69,17 @@ def exportMDScratcherRecs():
 
     r = requests.request("GET", url, headers=headers, data=payload)
     response = r.text
+
     soup = BeautifulSoup(response, 'html.parser')
     table = soup.find_all('li', class_= 'ticket')
+    print(table)
     tixtables = pd.DataFrame()
     tixlist = pd.DataFrame()
     
     for s in table:
         gameName = s.find(class_='name').string
 
-        gameNumber = s.find(class_='gamenumber').string
+        gameNumber = s.find(class_='gamenumber').string.replace('Game #','')
         print(gameNumber)
         gamePhoto = s.find(class_='magnific-img').get('href')
         gameURL = 'https://www.mdlottery.com/games/scratch-offs/#prize_details_'+str(gameNumber)
@@ -86,6 +88,7 @@ def exportMDScratcherRecs():
         topprizeremain = s.find(class_='topremaining').string
         startDate = s.find(class_='launchdate').text
         overallodds = s.find(class_='probability').text
+        
         dateexported = s.find('div', id = 'prize_details_'+gameNumber).find('p').text.replace('Records Last Updated:','')
         
         tixdata = pd.read_html(str(s.find('table')))[0]
@@ -113,7 +116,7 @@ def exportMDScratcherRecs():
             print(tixdata.columns)
             tixdata.rename(columns={'Prize Amount':'prizeamount','Start': 'Winning Tickets At Start', 'Remaining*': 'Winning Tickets Unclaimed'}, inplace=True)
             print(tixdata.columns)
-            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','')
+            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','').str.replace("\(Digital Spin\)",'').replace('Big Spin',50000)
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
             tixdata['gamePhoto'] = gamePhoto
@@ -127,7 +130,7 @@ def exportMDScratcherRecs():
             tixdata['startDate'] = startDate
             tixdata['endDate'] = None
             tixdata['lastdatetoclaim'] = None
-            tixdata['extrachances'] = None
+            tixdata['extrachances'] = "Digital Spin" if "(Digital Spin)" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else "Big Spin" if "Big Spin" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else None 
             tixdata['secondChance'] = None
             tixdata['dateexported'] = dateexported
             print(tixdata)
