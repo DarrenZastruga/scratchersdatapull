@@ -2295,7 +2295,7 @@ def exportNMScratcherRecs():
 def exportMDScratcherRecs():
     url = "https://www.mdlottery.com/wp-admin/admin-ajax.php?action=jquery_shortcode&shortcode=scratch_offs&atts=%7B%22null%22%3A%22null%22%7D"
 
-    payload = {}
+    payload={}
     headers = {
       'Cookie': 'incap_ses_1460_1865635=w3c/LNWgrCQpiy7OpfZCFGDjoWMAAAAAev9ixbH7jEujWZqUXKOQKw==; visid_incap_1865635=T+iNyhKJQdimr2R9QqfrhWDjoWMAAAAAQUIPAAAAAABfT6Fd0RLq527L2FIKx4i1',
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
@@ -2303,47 +2303,61 @@ def exportMDScratcherRecs():
 
     r = requests.request("GET", url, headers=headers, data=payload)
     response = r.text
+
     soup = BeautifulSoup(response, 'html.parser')
-    table = soup.find_all('li', class_='ticket')
+    table = soup.find_all('li', class_= 'ticket')
+    print(table)
     tixtables = pd.DataFrame()
     tixlist = pd.DataFrame()
-
+    
     for s in table:
         gameName = s.find(class_='name').string
 
-        gameNumber = s.find(class_='gamenumber').string
+        gameNumber = s.find(class_='gamenumber').string.replace('Game #','')
         print(gameNumber)
         gamePhoto = s.find(class_='magnific-img').get('href')
-        gameURL = 'https://www.mdlottery.com/games/scratch-offs/#prize_details_' + \
-            str(gameNumber)
-        gamePrice = s.find(class_='price').string.replace('$', '')
-        topprize = s.find(class_='topprize').string.replace(
-            '$', '').replace(',', '')
+        gameURL = 'https://www.mdlottery.com/games/scratch-offs/#prize_details_'+str(gameNumber)
+        gamePrice = s.find(class_='price').string.replace('$','')
+        topprize = s.find(class_='topprize').string.replace('$','').replace(',','')
         topprizeremain = s.find(class_='topremaining').string
         startDate = s.find(class_='launchdate').text
         overallodds = s.find(class_='probability').text
-        dateexported = s.find('div', id='prize_details_' +
-                              gameNumber).find('p').text.replace('Records Last Updated:', '')
-        tixdata = pd.read_html(io.StringIO(str(s.find('table'))))[0]
+        
+        dateexported = s.find('div', id = 'prize_details_'+gameNumber).find('p').text.replace('Records Last Updated:','')
+        
+        tixdata = pd.read_html(str(s.find('table')))[0]
+        
 
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'startDate', 'overallodds', 'gameURL', 'gamePhoto']] = [
-            gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
+        
+        print(gameName)
+        print(gameNumber)
+        print(gamePrice)
+        print(gameURL)
+        print(gamePhoto)
+        print(topprize)
+        print(topprizeremain)
+        print(startDate)
+        print(overallodds)
+        print(dateexported)
+            
+        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','topprizeremain', 'startDate','overallodds','gameURL','gamePhoto']] = [
+            gamePrice, gameName, gameNumber, topprize, topprizeremain, startDate, overallodds, gameURL, gamePhoto]
 
+        print(tixdata)
         if len(tixdata) == 0:
-            tixtables = pd.concat([tixtables, []], axis=0)
+            tixtables = tixtables.append([])
         else:
-            tixdata.rename(columns={'Prize Amount': 'prizeamount', 'Start': 'Winning Tickets At Start',
-                           'Remaining*': 'Winning Tickets Unclaimed'}, inplace=True)
+            print(tixdata.columns)
+            tixdata.rename(columns={'Prize Amount':'prizeamount','Start': 'Winning Tickets At Start', 'Remaining*': 'Winning Tickets Unclaimed'}, inplace=True)
+            print(tixdata.columns)
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','').str.replace("\(Digital Spin\)",'').replace('Big Spin',50000)
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
             tixdata['gamePhoto'] = gamePhoto
             tixdata['price'] = gamePrice
-            # if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
-            tixdata['overallodds'] = tixdata['Approx. Odds 1 in:'].iloc[0] * \
-                tixdata['Winning Tickets At Start'].iloc[0] if overallodds == None else overallodds
+            #if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
+            tixdata['overallodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]*tixdata['Winning Tickets At Start'].iloc[0] if overallodds==None else overallodds
             tixdata['topprize'] = topprize
-            #tixdata['topprizeodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]
             tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
             tixdata['topprizeremain'] = topprizeremain
             tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
@@ -2353,10 +2367,10 @@ def exportMDScratcherRecs():
             tixdata['extrachances'] = "Digital Spin" if "(Digital Spin)" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else "Big Spin" if "Big Spin" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else None 
             tixdata['secondChance'] = None
             tixdata['dateexported'] = dateexported
-            tixdata['gameURL'] = gameURL
-
-            tixtables = pd.concat([tixtables, tixdata], axis=0)
-
+            print(tixdata)
+            print(tixdata.columns)
+            tixtables = tixtables.append(tixdata)
+            
     tixlist.to_csv("./MDtixlist.csv", encoding='utf-8')
 
     tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
