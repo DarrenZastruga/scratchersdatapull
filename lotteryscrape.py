@@ -2306,7 +2306,6 @@ def exportMDScratcherRecs():
 
     soup = BeautifulSoup(response, 'html.parser')
     table = soup.find_all('li', class_= 'ticket')
-    print(table)
     tixtables = pd.DataFrame()
     tixlist = pd.DataFrame()
     
@@ -2369,7 +2368,7 @@ def exportMDScratcherRecs():
             tixdata['dateexported'] = dateexported
             print(tixdata)
             print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
+            tixtables = pd.concat([tixtables, tixdata], axis=0)
             
     tixlist.to_csv("./MDtixlist.csv", encoding='utf-8')
 
