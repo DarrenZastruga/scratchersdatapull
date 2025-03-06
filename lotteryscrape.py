@@ -2354,6 +2354,7 @@ def exportMDScratcherRecs():
             tixdata['gameName'] = gameName
             tixdata['gamePhoto'] = gamePhoto
             tixdata['price'] = gamePrice
+            tixdata['gameURL'] = gameURL
             #if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
             tixdata['overallodds'] = tixdata['Approx. Odds 1 in:'].iloc[0]*tixdata['Winning Tickets At Start'].iloc[0] if overallodds==None else overallodds
             tixdata['topprize'] = topprize
