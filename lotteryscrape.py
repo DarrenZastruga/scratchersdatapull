@@ -2370,13 +2370,17 @@ def exportMDScratcherRecs():
             print(tixdata)
             print(tixdata.columns)
             tixtables = pd.concat([tixtables, tixdata], axis=0)
-            
-    tixlist.to_csv("./MDtixlist.csv", encoding='utf-8')
 
-    tixtables = tixtables.loc[(tixtables['prizeamount'] != 'Prize Ticket') & (
-        tixtables['prizeamount'] != 'Prize ticket') & (tixtables['prizeamount'] != 'PRIZE TICKET'), :]
+    tixtables = tixtables.astype(
+        {'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+
+    tixtables['prizeamount'] = pd.to_numeric(tixtables['prizeamount'], errors='coerce')  # Replace invalid values with NaN
+    
+    scratchertables = tixtables.dropna(subset=['prizeamount'])
+    scratchertables.astype(int)
     scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
+
     scratchersall = scratchersall.loc[scratchersall['gameNumber']
                                       != "Coming Soon!", :]
     scratchersall = scratchersall.drop_duplicates()
