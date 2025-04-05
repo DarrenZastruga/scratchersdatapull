@@ -2375,9 +2375,8 @@ def exportMDScratcherRecs():
         {'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
 
     tixtables['prizeamount'] = pd.to_numeric(tixtables['prizeamount'], errors='coerce')  # Replace invalid values with NaN
-    print(tixtables['prizeamount'])
+    
     scratchertables = tixtables.dropna(subset=['prizeamount'])
-    print(scratchertables['prizeamount'])
     scratchertables['prizeamount'] = scratchertables['prizeamount'].astype(int)
     scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]

@@ -73,7 +73,7 @@ allSimOutcomes = pd.DataFrame()
 allSimTables = pd.DataFrame()
 
 
-def clusterloop(ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
+def clusterloop(state, ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
 
     # determine the size of the roll based on the scratcher price
     def rollsize(price):
