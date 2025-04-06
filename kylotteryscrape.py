@@ -43,7 +43,9 @@ def exportKYScratcherRecs():
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
+    print(soup)
     tixdata = soup.find_all('div', class_='panel panel-info')
+    print(tixdata)
 
     for t in tixdata: 
         #get link from the main page, looping through each page for scratchers in price group
