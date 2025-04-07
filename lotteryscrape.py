@@ -2396,7 +2396,7 @@ def exportMDScratcherRecs():
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
                                           != "Coming Soon!", :]
     scratchertables = scratchertables.astype(
-        {'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+        {'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True).sum(
     ).reset_index(level=['gameNumber', 'gameName', 'dateexported'])
