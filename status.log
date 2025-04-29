@@ -2417,3 +2417,13 @@ Traceback (most recent call last):
 UnboundLocalError: local variable 'service_account_info' referenced before assignment
 2025-04-29 06:29:50,765 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-04-29 06:29:50 UTC
 2025-04-29 06:29:50,765 - __main__ - INFO - Total execution time: 0:00:00.000504
+2025-04-29 23:18:56,521 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-04-29 23:18:56 UTC
+2025-04-29 23:18:56,521 - __main__ - ERROR - A critical error occurred in the main execution block: local variable 'service_account_info' referenced before assignment
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 637, in main
+    gspread_client = authorize_gspread() #from github
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 173, in authorize_gspread
+    service_account_info, scopes=SCOPES)
+UnboundLocalError: local variable 'service_account_info' referenced before assignment
+2025-04-29 23:18:56,522 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-04-29 23:18:56 UTC
+2025-04-29 23:18:56,522 - __main__ - INFO - Total execution time: 0:00:00.000524
