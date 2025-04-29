@@ -58,7 +58,7 @@ def formatstr(s):
         return s
 
 
-def exportNYScratcherRecs():
+def exportScratcherRecs():
     url = "https://nylottery.ny.gov/drupal-api/api/v2/scratch_off_data?_format=json"
 
     payload={}
@@ -376,4 +376,4 @@ def exportNYScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportNYScratcherRecs()
+exportScratcherRecs()

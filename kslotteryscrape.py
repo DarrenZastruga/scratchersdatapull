@@ -60,7 +60,7 @@ def formatstr(s):
         return s
 
 
-def exportKSScratcherRecs():
+def exportScratcherRecs():
     url = "https://www.kslottery.com/games/instantgameslist"
     r = requests.get(url)
     response = r.text
@@ -370,4 +370,4 @@ def exportKSScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportKSScratcherRecs()
+exportScratcherRecs()

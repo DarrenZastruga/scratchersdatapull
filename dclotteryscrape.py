@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Dec  4 08:16:13 2022
-
-@author: michaeljames
-"""
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep 13 23:34:32 2022
+Created on Sat Apr 19 23:24:22 2025
 
 @author: michaeljames
 """
@@ -65,115 +57,360 @@ def formatstr(s):
     except TypeError:
         return s
 
+import pandas as pd
+import os
+# ... other imports ...
+import numpy as np
+from datetime import date
+import requests
+from bs4 import BeautifulSoup, re # Added re import
 
-def exportDCScratcherRecs():
-    
-    tixlist = pd.DataFrame()
+# ... (keep constants, formatstr function, etc.) ...
+
+def exportScratcherRecs():
+
+    # Initialize DataFrames BEFORE the loop
+    tixlist = pd.DataFrame(columns=['price', 'gameName', 'gameNumber','topprize','gameURL','gamePhoto', 'overallodds', 'topprizeodds', 'startDate', 'lastdatetoclaim'])
     tixtables = pd.DataFrame()
-    
-    #dclottery puts only 20 games on a page, so loop through each of 7 pages
-    for i in range(0,6):
-        url = "https://dclottery.com/dc-scratchers?play_styles=All&theme=All&page="+str(i)
-        r = requests.get(url)
-        response = r.text
-        soup = BeautifulSoup(response, 'html.parser')
 
-        tixinfo = pd.DataFrame()
-        table = soup.find_all(class_='node__content')
+    # Outer Loop (Iterates through pages 0-5) - Using your reliable structure
+    for page_num in range(0, 6):
+        url = f"https://dclottery.com/dc-scratchers?play_styles=All&theme=All&page={page_num}"
+        print(f"Scraping page: {page_num} - URL: {url}")
+        try:
+            r = requests.get(url, timeout=20)
+            r.raise_for_status()
+            response = r.text
+            # Parse the LISTING page soup
+            soup_list_page = BeautifulSoup(response, 'html.parser')
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching page {page_num}: {e}")
+            continue
 
-        #loop through each game on the page
-        for s in table:
-            if s.find('h3', class_='teaser__title')==None:
+        # Find all game containers on THIS listing page - Using your reliable method
+        game_containers = soup_list_page.find_all(class_='node__content')
+        print(f"  Found {len(game_containers)} game containers on page {page_num}.")
+
+        # Inner Loop 1 (Iterates through games ON THE CURRENT page)
+        for s in game_containers: # s is a game container from the listing page
+            # --- Extract basic game info from the LISTING page container 's' ---
+            if s.find('h3', class_='teaser__title') is None:
                 continue
-            else:
-                gameName = s.find('h3', class_='teaser__title').find('span').string
-                gameNumber = s.find(class_='field field_game_number').find(class_='field__item').text
-            
-                gameURL = 'https://dclottery.com'+s.find('a', class_='teaser__image').get('href')
-                print(gameName)
-                gamePhoto = 'https://dclottery.com'+s.find(class_='teaser__image-background')['style'].replace('background-image:url(','').replace(')','')
-                print(gamePhoto)
-                gamePrice = s.find('a', class_='teaser__image').find(class_='field--name-field-price').text.replace('$','').strip()
-                topprize = None
-                
-                print(gameName)
-                print(gameNumber)
-                print(gameURL)
-                print(gamePrice)
-                print(topprize)
-             
-                tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','gameURL','gamePhoto']] = [
-                    gamePrice, gameName, gameNumber, topprize, gameURL, gamePhoto]
-                
-                for i in tixlist.loc[:,'gameNumber']:
-                    url = gameURL
-                    r = requests.get(url)
-                    response = r.text
-                    soup = BeautifulSoup(response, 'html.parser')
-        
-                    #get the table of ticket numbers
-                    tixdata = pd.read_html(str(soup.find(class_='view-content').find('table')))[0]
-                    #check if overall odds exists, if not we'll ignore this game
-                    overallodds = None if soup.find(class_='field field--name-field-odds field--type-string field--label-above')==None else soup.find(class_='field field--name-field-odds field--type-string field--label-above').find(class_='field__item').text.replace('1:','').replace(',','')
-                    
-                    #count number of periods in odds number to check if more than one due to type (period instead of colon) and then replace
-                    if overallodds != None:
-                        overallodds = overallodds[2:] if (overallodds.count('.')>1) else overallodds
-                    if (len(tixdata) == 0) & (overallodds == None):
-                        tixtables = tixtables.append([])
+
+            gameName_tag = s.find('h3', class_='teaser__title').find('span')
+            gameName = gameName_tag.string if gameName_tag else None
+
+            gameNumber_tag = s.find(class_='field field_game_number')
+            gameNumber = gameNumber_tag.find(class_='field__item').text if gameNumber_tag and gameNumber_tag.find(class_='field__item') else None
+
+            gameURL_tag = s.find('a', class_='teaser__image')
+            gameURL = 'https://dclottery.com' + gameURL_tag.get('href') if gameURL_tag else None
+
+            gamePhoto_style = s.find(class_='teaser__image-background')
+            gamePhoto = None
+            if gamePhoto_style and 'style' in gamePhoto_style.attrs:
+                 style_text = gamePhoto_style['style']
+                 # Use regex to reliably extract URL, handling potential quotes
+                 match = re.search(r'url\([\'\"]?(.*?)[\'\"]?\)', style_text)
+                 if match:
+                    gamePhoto = 'https://dclottery.com' + match.group(1)
+
+
+            gamePrice_tag = s.find('a', class_='teaser__image')
+            gamePrice = gamePrice_tag.find(class_='field--name-field-price').text.replace('$', '').strip() if gamePrice_tag and gamePrice_tag.find(class_='field--name-field-price') else None
+
+            if not all([gameName, gameNumber, gameURL, gamePrice]):
+                print(f"Skipping game due to missing basic info on page {page_num}")
+                continue
+
+            print(f"\nProcessing Game: {gameName} ({gameNumber})")
+            print(f"  Price: ${gamePrice}")
+            print(f"  URL: {gameURL}")
+            # print(f"  Photo: {gamePhoto}") # Keep photo URL shorter in logs
+
+            # --- NOW, Fetch and process prize details from the DETAIL page (gameURL) ---
+            try:
+                r_detail = requests.get(gameURL, timeout=20)
+                r_detail.raise_for_status()
+                response_detail = r_detail.text
+                # Parse the DETAIL page soup
+                soup_detail = BeautifulSoup(response_detail, 'html.parser')
+
+                # --- ROBUST TABLE FINDING LOGIC (Applied to soup_detail) ---
+                table_html = None
+                print(f"  Searching for prize table on detail page: {gameURL}")
+
+                # Attempt 1: Find table by common class(es) ON DETAIL PAGE
+                # **INSPECT THE DETAIL PAGE HTML** and update these classes if needed.
+                possible_table_classes = ['views-table', 'cols-3', 'sticky-enabled', 'datatable']
+                for table_class in possible_table_classes:
+                    # Use a lambda function for more flexible class matching (contains)
+                    found_tables = soup_detail.find_all('table', class_=lambda x: x and table_class in x.split())
+                    # Check if any found table has the expected headers
+                    for tbl in found_tables:
+                        headers = [th.get_text(strip=True).lower() for th in tbl.find_all('th')]
+                        if 'prize amount' in headers and 'total prizes' in headers: # Add more required headers if needed
+                            print(f"    Found table using class containing '{table_class}' and matching headers.")
+                            table_html = tbl
+                            break
+                    if table_html:
+                        break
+
+                # Attempt 2: Find based on table header content (more robust if classes change)
+                if table_html is None:
+                    print("    Table class search failed or didn't match headers. Trying header content search...")
+                    all_tables = soup_detail.find_all('table')
+                    for tbl in all_tables:
+                        headers = [th.get_text(strip=True).lower() for th in tbl.find_all('th')]
+                        if 'prize amount' in headers and 'total prizes' in headers and 'prizes remaining' in headers:
+                            print("    Found table based on header content.")
+                            table_html = tbl
+                            break
+
+                # Attempt 3: Find using a container ID or Class ON DETAIL PAGE
+                # **INSPECT THE DETAIL PAGE HTML** for a reliable container DIV/SECTION around the table
+                # if table_html is None:
+                #    print("    Header content search failed. Trying container search...")
+                #    container = soup_detail.find('div', id='game-prize-details') # EXAMPLE ID - REPLACE
+                #    # container = soup_detail.find('section', class_='prize-table-section') # EXAMPLE CLASS - REPLACE
+                #    if container:
+                #        table_html = container.find('table')
+                #        if table_html:
+                #             print("    Found table within specified container.")
+                #    else:
+                #         print("    Specified container not found.")
+
+                # --- END OF ROBUST TABLE FINDING LOGIC ---
+
+                if table_html is None:
+                    print(f"  WARNING: Could not find prize table HTML for {gameName} ({gameNumber}) on its detail page. Skipping prize details.")
+                    # Log this game to tixlist with missing prize info
+                    tixlist_row = {'price': gamePrice, 'gameName': gameName, 'gameNumber': gameNumber, 'topprize': None, 'gameURL': gameURL, 'gamePhoto': gamePhoto, 'overallodds': None, 'topprizeodds': None, 'startDate': None, 'lastdatetoclaim': None}
+                    tixlist = pd.concat([tixlist, pd.DataFrame([tixlist_row])], ignore_index=True)
+                    continue # Skip to the next game in the loop
+
+                # --- Proceed with processing table_html ---
+                try:
+                    tixdata_list = pd.read_html(str(table_html))
+                    if not tixdata_list:
+                         print(f"  WARNING: pd.read_html found no tables in the found HTML for {gameName} ({gameNumber}). Skipping prize details.")
+                         # Log to tixlist...
+                         continue
+
+                    tixdata = tixdata_list[0]
+                    print(f"    Successfully read table data for {gameName} ({gameNumber}).")
+                    print(f"      Raw columns found by pandas: {tixdata.columns.tolist()}") # Debug output
+
+                except ValueError as ve:
+                     print(f"  ERROR: pd.read_html failed for {gameName} ({gameNumber}). ValueError: {ve}. Skipping prize details.")
+                     # Log to tixlist...
+                     continue
+                except Exception as e:
+                    print(f"  ERROR: An unexpected error occurred during pd.read_html for {gameName} ({gameNumber}): {e}")
+                    # Log to tixlist...
+                    continue
+
+                # Check if expected columns exist BEFORE rename (Adapt based on Raw Columns printout)
+                # Use lower case for comparison flexibility
+                raw_columns_lower = [str(col).lower() for col in tixdata.columns]
+                # Find the actual column names matching the expected content (case-insensitive)
+                try:
+                    prize_col = tixdata.columns[[ 'prize amount' in str(col).lower() for col in tixdata.columns]][0]
+                    start_col = tixdata.columns[[ 'total prizes' in str(col).lower() for col in tixdata.columns]][0]
+                    remain_col = tixdata.columns[[ 'prizes remaining' in str(col).lower() for col in tixdata.columns]][0]
+                    print(f"      Mapping columns: '{prize_col}'->prizeamount, '{start_col}'->Start, '{remain_col}'->Unclaimed")
+                except IndexError:
+                    print(f"  WARNING: Table for {gameName} ({gameNumber}) is missing expected column content (Prize Amount, Total Prizes, Prizes Remaining). Found: {tixdata.columns.tolist()}. Skipping prize processing.")
+                    # Log to tixlist...
+                    continue
+
+                # --- The rest of your prize data processing using the identified column names ---
+                tixdata.rename(columns={prize_col: 'prizeamount', start_col: 'Winning Tickets At Start', remain_col: 'Winning Tickets Unclaimed'}, inplace=True)
+
+                # Convert to string before cleaning
+                tixdata['prizeamount'] = tixdata['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True)
+                tixdata['Winning Tickets At Start'] = tixdata['Winning Tickets At Start'].astype(str).str.replace(r'[,]', '', regex=True)
+                tixdata['Winning Tickets Unclaimed'] = tixdata['Winning Tickets Unclaimed'].astype(str).str.replace(r'[,]', '', regex=True)
+
+                # Keep original for topprize calculations first
+                tixdata_numeric = tixdata[pd.to_numeric(tixdata['prizeamount'], errors='coerce').notna()].copy()
+
+                if tixdata_numeric.empty:
+                    print(f"    WARNING: No numeric prize amounts found after filtering for {gameName} ({gameNumber}). Skipping appending to tixtables.")
+                    # Log to tixlist...
+                    continue
+
+                tixdata_numeric['gameNumber'] = gameNumber
+                tixdata_numeric['gameName'] = gameName
+                tixdata_numeric['price'] = gamePrice
+
+                # --- Extract other details from the DETAIL page (soup_detail) ---
+                overallodds_tag = soup_detail.find(class_='field field--name-field-odds field--type-string field--label-above')
+                overallodds = None
+                if overallodds_tag and overallodds_tag.find(class_='field__item'):
+                    overallodds_text = overallodds_tag.find(class_='field__item').text.replace('1:', '').replace('1 in ','').replace(',', '').strip()
+                    # Your existing logic to handle potential periods/typos
+                    if overallodds_text.count('.') > 1:
+                         parts = overallodds_text.split('.')
+                         if len(parts) > 1 and parts[1].replace('.','').isdigit():
+                            overallodds = parts[1]
+                         else:
+                            overallodds = overallodds_text # Fallback
+                    elif overallodds_text.replace('.', '').isdigit():
+                         overallodds = overallodds_text
                     else:
-                        tixdata.rename(columns={'Prize Amount':'prizeamount','Total Prizes': 'Winning Tickets At Start', 'Prizes Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
-                        print(tixdata.columns)
-                        tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','',regex=False).str.replace(',','',regex=False)
-                        tixdata['gameNumber'] = gameNumber
-                        tixdata['gameName'] = gameName
-                        tixdata['gamePhoto'] = gamePhoto
-                        tixdata['price'] = gamePrice
-                        tixdata['overallodds'] = None if overallodds==None else overallodds
-                        tixdata['topprize'] = tixdata['prizeamount'].iloc[0]
-                        tixdata['topprizeodds'] = None if soup.find(class_='field field--name-field-top-prize-odds field--type-string field--label-above')==None else soup.find(class_='field field--name-field-top-prize-odds field--type-string field--label-above').find(class_='field__item').text.replace('1:','').replace(',','').replace(':','')
-                        tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0].astype('float')
-                        tixdata['topprizeremain'] = tixdata['Winning Tickets Unclaimed'].iloc[0].astype('float')
-                        tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
-                        tixdata['startDate'] = soup.find(class_='field field--name-field-date field--type-daterange field--label-above').find(class_='field__item').text
-                        tixdata['endDate'] = None
-                        tixdata['lastdatetoclaim'] = None if soup.find(class_='field field--name-field-last-date-to-claim field--type-datetime field--label-above')==None else soup.find(class_='field field--name-field-last-date-to-claim field--type-datetime field--label-above').find(class_='field__item').text
-                        tixdata['extrachances'] = None
-                        tixdata['secondChance'] = None
-                        tixdata['dateexported'] = date.today() 
+                         print(f"    WARNING: Could not parse overall odds '{overallodds_text}' for {gameName}")
+                print(f"    Overall Odds raw: {overallodds}")
+                tixdata_numeric['overallodds'] = overallodds
 
-                        #for game 1533, Fat Wallet, the overall odds and top prize odds are switched on the dclottery site 
-                        if gameNumber == '1533':
-                            tixdata['overallodds'] = tixdata['topprizeodds']
-                            tixdata['topprizeodds'] = overallodds
-                        elif gameNumber == '1521':
-                            #this game, Double Your Money, seems to be missing a decimal point
-                            revisedodds = str('3.99')
-                            tixdata['overallodds'] = revisedodds if overallodds=='399' else overallodds
-                        tixtables = tixtables.append(tixdata)
-                    
-                    #have to get the game photo link from the game page and add with tixinfo
-                    #tixlist['gamePhoto'] = tixdata.loc[tixdata['gameNumber']==gameNumber,'gamePhoto'].iloc[0]
-                    tixlist['topprize'] = tixdata.loc[tixdata['gameNumber']==gameNumber,'topprize'].iloc[0]
-                    print(tixlist)
 
-    tixlist.to_csv("./DCtixlist.csv", encoding='utf-8')
-    print(tixtables.columns)
-    print(tixtables)
-    tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizeodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
-    scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
-    scratchersall = scratchersall.drop_duplicates()
-    
+                topprizeodds_tag = soup_detail.find(class_='field field--name-field-top-prize-odds field--type-string field--label-above')
+                topprizeodds = None
+                if topprizeodds_tag and topprizeodds_tag.find(class_='field__item'):
+                    topprizeodds = topprizeodds_tag.find(class_='field__item').text.replace('1:', '').replace('1 in ','').replace(',', '').replace(':','').strip()
+                print(f"    Top Prize Odds raw: {topprizeodds}")
+                # Add topprizeodds to tixdata_numeric later
+
+                startDate_tag = soup_detail.find(class_='field field--name-field-date field--type-daterange field--label-above')
+                startDate = startDate_tag.find(class_='field__item').text if startDate_tag and startDate_tag.find(class_='field__item') else None
+
+                lastdatetoclaim_tag = soup_detail.find(class_='field field--name-field-last-date-to-claim field--type-datetime field--label-above')
+                lastdatetoclaim = lastdatetoclaim_tag.find(class_='field__item').text if lastdatetoclaim_tag and lastdatetoclaim_tag.find(class_='field__item') else None
+                endDate = None
+
+                # Calculate Top Prize details from the original tixdata
+                if not tixdata.empty:
+                     topprize = tixdata['prizeamount'].iloc[0]
+                     topprizestarting = pd.to_numeric(tixdata['Winning Tickets At Start'].iloc[0], errors='coerce')
+                     topprizeremain = pd.to_numeric(tixdata['Winning Tickets Unclaimed'].iloc[0], errors='coerce')
+                     topprizeavail = 'Top Prize Claimed' if pd.notna(topprizeremain) and topprizeremain == 0 else np.nan
+                else:
+                     topprize, topprizestarting, topprizeremain, topprizeavail = None, None, None, np.nan
+
+                # Add remaining columns to tixdata_numeric
+                tixdata_numeric['topprize'] = topprize
+                tixdata_numeric['topprizeodds'] = topprizeodds # Added here
+                tixdata_numeric['topprizestarting'] = topprizestarting
+                tixdata_numeric['topprizeremain'] = topprizeremain
+                tixdata_numeric['topprizeavail'] = topprizeavail
+                tixdata_numeric['startDate'] = startDate
+                tixdata_numeric['endDate'] = endDate
+                tixdata_numeric['lastdatetoclaim'] = lastdatetoclaim
+                tixdata_numeric['extrachances'] = None
+                tixdata_numeric['secondChance'] = None
+                tixdata_numeric['dateexported'] = date.today()
+
+                # Handle special cases
+                if gameNumber == '1533':
+                    tixdata_numeric['overallodds'], tixdata_numeric['topprizeodds'] = tixdata_numeric['topprizeodds'], tixdata_numeric['overallodds']
+                elif gameNumber == '1521':
+                    # Ensure overallodds is checked correctly before modifying
+                    if 'overallodds' in tixdata_numeric.columns and pd.notna(tixdata_numeric['overallodds'].iloc[0]) and tixdata_numeric['overallodds'].iloc[0] == '399':
+                        tixdata_numeric['overallodds'] = '3.99'
+
+
+                # Append the processed prize table for THIS game to tixtables
+                tixtables = pd.concat([tixtables, tixdata_numeric], ignore_index=True)
+                print(f"    Appended {len(tixdata_numeric)} rows to tixtables for {gameName}. Total tixtables rows: {len(tixtables)}")
+
+                # Add the summary row for THIS game to tixlist
+                tixlist_row = {
+                    'price': gamePrice, 'gameName': gameName, 'gameNumber': gameNumber,
+                    'topprize': topprize, 'gameURL': gameURL, 'gamePhoto': gamePhoto,
+                    'overallodds': overallodds, 'topprizeodds': topprizeodds,
+                    'startDate': startDate, 'lastdatetoclaim': lastdatetoclaim,
+                    'endDate': endDate
+                }
+                tixlist = pd.concat([tixlist, pd.DataFrame([tixlist_row])], ignore_index=True)
+
+            except requests.exceptions.RequestException as e:
+                print(f"  Error fetching detail page for {gameName} ({gameNumber}): {e}")
+                # Log error to tixlist
+                tixlist_row = {'price': gamePrice, 'gameName': gameName, 'gameNumber': gameNumber, 'topprize': 'FETCH_ERROR', 'gameURL': gameURL, 'gamePhoto': gamePhoto, 'overallodds': None, 'topprizeodds': None, 'startDate': None, 'lastdatetoclaim': None}
+                tixlist = pd.concat([tixlist, pd.DataFrame([tixlist_row])], ignore_index=True)
+            except Exception as e:
+                 print(f"  An unexpected error occurred processing details for {gameName} ({gameNumber}): {e}")
+                 import traceback
+                 traceback.print_exc()
+                 # Log error to tixlist
+                 tixlist_row = {'price': gamePrice, 'gameName': gameName, 'gameNumber': gameNumber, 'topprize': 'PROCESSING_ERROR', 'gameURL': gameURL, 'gamePhoto': gamePhoto, 'overallodds': None, 'topprizeodds': None, 'startDate': None, 'lastdatetoclaim': None}
+                 tixlist = pd.concat([tixlist, pd.DataFrame([tixlist_row])], ignore_index=True)
+
+        # --- End of Inner Loop 1 (game loop) ---
+    # --- End of Outer Loop (page loop) ---
+
+    print("\nFinished Scraping.")
+    print(f"Total unique games found in tixlist: {len(tixlist['gameNumber'].unique())}")
+    print(f"Total prize rows found in tixtables: {len(tixtables)}")
+
+    # Remove duplicates just in case any slip through
+    tixlist.drop_duplicates(subset=['gameNumber'], keep='last', inplace=True)
+    # Ensure gameNumber/prizeamount exist before dropping duplicates
+    if 'gameNumber' in tixtables.columns and 'prizeamount' in tixtables.columns:
+        tixtables.drop_duplicates(subset=['gameNumber', 'prizeamount'], keep='last', inplace=True)
+    else:
+        print("WARNING: Cannot drop duplicates in tixtables as 'gameNumber' or 'prizeamount' is missing.")
+
+
+    # --- Calculations Section ---
+    print("\nStarting Calculations...")
+
+    # Check if tixtables is empty or lacks necessary columns BEFORE calculations
+    required_cols = ['gameNumber', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'price', 'overallodds']
+    if tixtables.empty or not all(col in tixtables.columns for col in required_cols):
+        print("WARNING: tixtables is empty or missing required columns for calculation. Returning empty DataFrames.")
+        final_rating_cols = ['price', 'gameName','gameNumber', 'topprize', ...] # Define expected columns
+        scratchertables_cols = ['gameNumber', 'gameName', 'prizeamount', ...] # Define expected columns
+        # Ensure the required columns exist even if empty for consistency downstream
+        return pd.DataFrame(columns=final_rating_cols), pd.DataFrame(columns=scratchertables_cols)
+
+
+    # Filter out non-numeric prize amounts
+    tixtables['prizeamount'] = tixtables['prizeamount'].astype(str)
+    tixtables = tixtables[~tixtables['prizeamount'].str.contains('ticket', case=False, na=False)].copy() # Use .copy()
+
+
+    # Convert columns needed for calculations to numeric, coercing errors
+    numeric_cols_tixtables = ['price', 'overallodds', 'topprizeodds', 'topprizestarting', 'topprizeremain', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']
+    for col in numeric_cols_tixtables:
+        if col in tixtables.columns:
+             tixtables[col] = pd.to_numeric(tixtables[col], errors='coerce')
+
+    # Drop rows where essential numeric conversions failed
+    tixtables.dropna(subset=['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'price', 'overallodds'], inplace=True)
+
+    if tixtables.empty:
+        print("WARNING: tixtables became empty after numeric conversion and NaN dropping. Cannot proceed. Returning empty DataFrames.")
+        # Return empty DataFrames...
+        return pd.DataFrame(columns=final_rating_cols), pd.DataFrame(columns=scratchertables_cols) # Use previously defined cols
+
+
+    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']].copy()
+    scratchersall = scratchersall.loc[scratchersall['gameNumber'].astype(str) != "Coming Soon!", :]
+    scratchersall.drop_duplicates(inplace=True)
+
+    # Save scratchers list (optional)
+    # scratchersall.to_csv("./DCscratcherslist.csv", encoding='utf-8')
+
+    # Prepare scratchertables for grouping
+    scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']].copy()
+    scratchertables = scratchertables.loc[scratchertables['gameNumber'].astype(str) != "Coming Soon!", :]
+
+    # Ensure correct types before grouping
+    try:
+        scratchertables = scratchertables.astype({'prizeamount': 'float', 'Winning Tickets At Start': 'int64', 'Winning Tickets Unclaimed': 'int64'})
+    except Exception as e:
+         print(f"Error converting scratchertables types before grouping: {e}")
+         # Handle or raise
+
+    # Grouping
+    scratchertables.dropna(subset=['gameNumber'], inplace=True)
+    gamesgrouped = scratchertables.groupby(['gameNumber', 'gameName', 'dateexported'], observed=True, dropna=False)[['Winning Tickets At Start', 'Winning Tickets Unclaimed']].sum().reset_index()
+ 
     #save scratchers list
     #scratchersall.to_sql('DCscratcherlist', engine, if_exists='replace')
     scratchersall.to_csv("./DCscratcherslist.csv", encoding='utf-8')
     
-    #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-    scratchertables.to_csv("./DCscratchertables.csv", encoding='utf-8')
-    scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
-    scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','topprizeodds','overallodds']], how='left', on=['gameNumber'])
@@ -365,4 +602,4 @@ def exportDCScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportDCScratcherRecs()
+exportScratcherRecs()

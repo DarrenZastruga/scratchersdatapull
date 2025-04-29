@@ -56,7 +56,7 @@ def formatstr(s):
     except TypeError:
         return s
 
-def exportTXScratcherRecs():
+def exportScratcherRecs():
 
     url = "https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/all.html"
     r = requests.get(url)
@@ -385,4 +385,4 @@ def exportTXScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportTXScratcherRecs()
+exportScratcherRecs()

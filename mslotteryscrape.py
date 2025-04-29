@@ -34,7 +34,7 @@ now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
 # add some more to powers as necessary
 
-def exportMSScratcherRecs():
+def exportScratcherRecs():
 
     urls = ['https://www.mslottery.com/gamestatus/active/',
            'https://www.mslottery.com/gamestatus/ending/']
@@ -46,11 +46,14 @@ def exportMSScratcherRecs():
         r = requests.get(url)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
+        print(soup)
+        
         if soup.find_all('div',class_='col-lg-3 gamebox') == None:
             continue
         else:
             tixurls = soup.find_all('div',class_='col-lg-3 gamebox')
         
+            print(tixurls)
             for t in tixurls: 
                 gameURL = t.find('a').get('href')
                 print(gameURL)
@@ -305,4 +308,4 @@ def exportMSScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportMSScratcherRecs()
+exportScratcherRecs()

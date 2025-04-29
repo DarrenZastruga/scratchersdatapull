@@ -35,7 +35,7 @@ now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
 # add some more to powers as necessary
 
-def exportORScratcherRecs():
+def exportScratcherRecs():
     url = "https://api2.oregonlottery.org/instant/GetAll"
 
     payload = {}
@@ -413,4 +413,4 @@ def exportORScratcherRecs():
     #                   include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportORScratcherRecs()
+exportScratcherRecs()

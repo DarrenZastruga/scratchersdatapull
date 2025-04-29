@@ -33,7 +33,7 @@ now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
 # add some more to powers as necessary
 
-def exportKYScratcherRecs():
+def exportScratcherRecs():
 
     url = 'https://www.kylottery.com/apps/scratch_offs/available_games.html'
     
@@ -48,27 +48,28 @@ def exportKYScratcherRecs():
     print(tixdata)
 
     for t in tixdata: 
+        print(t.find('h4', class_='panel-title').text.strip().split('-')[1])
         #get link from the main page, looping through each page for scratchers in price group
-        gameName = t.find('div', class_='panel-heading klc-clickable-item').text.strip().split('-')[0].strip()
+        gameName = t.find('h4', class_='panel-title').text.strip().split('-')[0].strip()
         print(gameName)
         #gameNumber = t.find('div', class_='panel-heading klc-clickable-item').text.strip().split('-')[1].strip()
-        gameNumber = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[6].text
+        gameNumber = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[6].text
         print(gameNumber)
-        gameURL = 'https://www.kylottery.com/apps/scratch_offs/prizes_remaining.html'+t.find('div', class_='panel-heading klc-clickable-item').get('href')
+        gameURL = 'https://www.kylottery.com/apps/scratch_offs/prizes_remaining.html'+t.find('div', class_='il24-ac-heading il24-custom-accordion-item').get('href')
         print(gameURL)
-        startDate = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[0].text
+        startDate = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[0].text
         print(startDate)
-        endDate = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[1].text
-        lastdatetoclaim = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[2].text
-        gamePrice = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[3].text.replace('$','')
-        topprize = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[4].text.replace('$','').replace('*','').replace(',','')
-        overallodds = t.find_all('div', class_='col-md-6')[1].find('div').find_all('b')[5].text.replace('1:','')
-        gamePhoto = 'https://www.kylottery.com'+t.find_all('div',class_='col-md-6')[0].find('img').get('src')
+        endDate = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[1].text
+        lastdatetoclaim = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[2].text
+        gamePrice = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[3].text.replace('$','')
+        topprize = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[4].text.replace('$','').replace('*','').replace(',','')
+        overallodds = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[5].text.replace('1:','')
+        gamePhoto = 'https://www.kylottery.com'+t.find_all('div',class_='klc-grid-col-md-6')[0].find('img').get('src')
         print(gamePhoto)
-        dateexported = date.today() if t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text ==None else t.find_all('div', class_='col-md-6')[1].find_all('div')[1].find('b').text
+        dateexported = date.today() if t.find_all('div', class_='klc-grid-col-md-6')[1].find_all('div')[1].find('b').text ==None else t.find_all('div', class_='klc-grid-col-md-6')[1].find_all('div')[1].find('b').text
         print(dateexported)
         
-        table = pd.read_html(str(t.find_all('div', class_='col-md-6')[1].find('table')))[0]
+        table = pd.read_html(str(t.find_all('div', class_='klc-grid-col-md-6')[1].find('table')))[0]
         if len(table)==0:
             continue
         else:
@@ -304,4 +305,4 @@ def exportKYScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportKYScratcherRecs()
+exportScratcherRecs()

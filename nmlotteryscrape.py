@@ -66,7 +66,7 @@ def formatstr(s):
         return s
 
 
-def exportNMScratcherRecs():
+def exportScratcherRecs():
     url = "https://www.nmlottery.com/games/scratchers/"
     r = requests.get(url)
     response = r.text
@@ -357,4 +357,4 @@ def exportNMScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportNMScratcherRecs()
+exportScratcherRecs()

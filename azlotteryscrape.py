@@ -72,11 +72,11 @@ def exportScratcherRecs():
     # print(table)
     tixrow = pd.DataFrame()
     for s in table:
-        gamenames = s.find(class_='game-name').string
+        gamenames = s.find(class_='game-name').get_text(strip=True)
         gameURL = s.find(class_='game-name').get('href')
         gameName = gamenames.partition(' #')[0]
         gameNumber = gamenames.partition(' #')[2]
-        gamePrice = s.find(class_='col-md-6 price').find('span').string
+        gamePrice = s.find(class_='col-md-6 price').find('span').get_text(strip=True)
         try:
             gamePhoto = "https://www.arizonalottery.com"+soup.select_one("img[src*='"+gameNumber+"']")["src"].split('?')[0]
         except:
@@ -117,16 +117,24 @@ def exportScratcherRecs():
         startDate = datetime.fromisoformat(scratcherdata['beginDate'][0])
         endDate = None if 'endDate' not in scratcherdata else datetime.fromisoformat(scratcherdata['endDate'][0])
         lastdatetoclaim = datetime.fromisoformat(scratcherdata['lastDate'][0])
-        gameOdds = scratcherdata['gameOdds'][0]
+        gameOdds = float(scratcherdata['gameOdds'][0])
         dateexported = pd.to_datetime(scratcherdata['dateModified'][0],infer_datetime_format=True)
 
         print('Looping through each prize tier row for scratcher #'+i)
         for row in scratcherdata['prizeTiers']:
             prizetier = pd.DataFrame.from_dict([row])
-            prizeamount = prizetier['prizeAmount'][0]
-            prizeodds = prizetier['odds'][0]
-            startingprizecount = prizetier['totalCount'][0]
-            remainingprizecount = prizetier['count'][0]
+            if "prizeAmont" in prizetier:
+                prizeamount = prizetier['prizeAmount'][0]
+            else: 
+                prizeamount = prizetier['displayTitle'][0].replace('$','').replace(',','').replace('\n', '')
+            if "Million" in prizeamount:
+                prizeamount = int(prizeamount.replace(' Million','000000').replace('.',''))
+            else:    
+                prizeamount = int(prizeamount)
+        
+            prizeodds = float(prizetier['odds'][0])
+            startingprizecount = int(prizetier['totalCount'][0])
+            remainingprizecount = int(prizetier['count'][0])
             tixtables.loc[len(tixtables.index), ['gameNumber','gameName','price','prizeamount','startDate','endDate','lastdatetoclaim',
                                                  'overallodds','prizeodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported','tierLevel']] = [gameNumber, gameName, gamePrice, prizeamount, 
                                                                                                                                           startDate, endDate, lastdatetoclaim, gameOdds, prizeodds, startingprizecount, remainingprizecount, dateexported, prizetier['tierLevel'][0]]
@@ -148,7 +156,8 @@ def exportScratcherRecs():
         tixtables.loc[index,'extrachances'] = None
         tixtables.loc[index,'secondChance'] = None
                                                                                                                                
-    #tixtables.to_csv("./AZprizedata.csv", encoding='utf-8')
+    tixtables.to_csv("./AZprizedata.csv", encoding='utf-8')
+    print(tixtables.dtypes)
     scratchersall = tixtables[['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
     scratchersall = scratchersall.drop_duplicates(subset=['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported'])
     scratchersall = scratchersall.loc[scratchersall['gameNumber']!= "Coming Soon!", :]
@@ -160,7 +169,8 @@ def exportScratcherRecs():
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount','Winning Tickets At Start', 'Winning Tickets Unclaimed','tierLevel', 'dateexported']]
     scratchertables = scratchertables.loc[scratchertables['gameNumber']!= "Coming Soon!", :]
-
+    scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+    
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(by=['gameNumber', 'gameName', 'dateexported'],group_keys=False)['Winning Tickets At Start', 'Winning Tickets Unclaimed'].sum().reset_index(level=['gameNumber','gameName','dateexported']).copy()
     gamesgrouped = gamesgrouped.merge(scratchersall[[
@@ -255,10 +265,6 @@ def exportScratcherRecs():
 
         totalremain[['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
             'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
-
-
-        testdf = totalremain[[
-            'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']]
         totalremain.loc[:, 'Starting Expected Value'] = totalremain.apply(lambda row: (
             row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal), axis=1)
         totalremain.loc[:, 'Expected Value'] = totalremain.apply(lambda row: (
@@ -336,8 +342,68 @@ def exportScratcherRecs():
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
 
+
+    # --- REVISED CONVERSION FOR JSON SERIALIZATION (Simpler) ---
+    print("Converting numeric types in scratchertables to JSON-compatible types (using .astype(object))...")
+    numeric_cols = scratchertables.select_dtypes(include=np.number).columns
+    print(f"Numeric columns identified for conversion: {numeric_cols.tolist()}")
+    
+    for col in numeric_cols:
+        # Force conversion to object dtype, which stores Python native types
+        # This handles NaN by converting them to None within the object array.
+        try:
+            scratchertables[col] = scratchertables[col].astype(object)
+            print(f"Converted column '{col}' using astype(object).")
+        except Exception as e:
+            # Added error handling just in case astype fails for some reason
+            print(f"ERROR: Failed to convert column '{col}' using astype(object): {e}")
+    
+    # Ensure columns that might contain non-numeric strings like 'Total' are object type
+    if 'prizeamount' in scratchertables.columns and scratchertables['prizeamount'].dtype != 'object':
+        scratchertables['prizeamount'] = scratchertables['prizeamount'].astype(object)
+    if 'gameNumber' in scratchertables.columns and scratchertables['gameNumber'].dtype != 'object':
+         scratchertables['gameNumber'] = scratchertables['gameNumber'].astype(object) # Game number can be string
+    
+    print("Final scratchertables dtypes before returning:")
+    print(scratchertables.dtypes)
+# --- Corrected Diagnostic Check ---
+    # Check for problematic NumPy types *within* object columns after conversion attempt
+    print("\nDetailed check of types within potentially converted columns...")
+    conversion_issue_found = False
+    for col in numeric_cols: # Iterate over columns that *should* have been converted
+        if col in scratchertables.columns:
+            col_dtype = scratchertables[col].dtype
+            print(f"  Column '{col}': Reported dtype = {col_dtype}")
+            if col_dtype == 'object':
+                # Sample the first few non-null values to check their actual Python type
+                try:
+                    # Using unique types found in a sample is more informative
+                    unique_types_in_sample = scratchertables[col].dropna().head(20).apply(type).unique()
+                    print(f"    Sampled value types: {unique_types_in_sample}")
+                    # Explicitly check for numpy types within the object column
+                    numpy_types_present = [t for t in unique_types_in_sample if 'numpy' in str(t)]
+                    if numpy_types_present:
+                         print(f"    WARNING: NumPy types {numpy_types_present} still present in object column '{col}'!")
+                         conversion_issue_found = True
+                except Exception as e:
+                    print(f"    - Could not inspect types within column '{col}': {e}")
+            elif col_dtype == np.int64:
+                print(f"    ERROR: Column '{col}' is still {np.int64} despite conversion attempt!")
+                conversion_issue_found = True
+            elif col_dtype == np.float64:
+                 print(f"    WARNING: Column '{col}' is still {np.float64}. This might be acceptable, but was expected to be object.")
+                 # Decide if this is truly an error or just a warning
+                 # conversion_issue_found = True # Uncomment if float64 is also problematic
+
+    if conversion_issue_found:
+        print("-----> WARNING: Potential type conversion issues detected. Review column types above. <-----")
+    else:
+        print("-----> Type conversion check passed (object columns inspected where applicable). <-----")
+    # --- End of Corrected Diagnostic Check ---    
+        print(scratchertables.dtypes)
+
     # save scratchers tables
-    scratchertables.to_sql('AZscratcherstables', engine, if_exists='replace')
+    #scratchertables.to_sql('AZscratcherstables', engine, if_exists='replace')
     scratchertables.to_csv("./azscratchertables.csv", encoding='utf-8')
 
     # create rankings table by merging the list with the tables
@@ -379,12 +445,30 @@ def exportScratcherRecs():
     ratingstable[twodecimalcols] = ratingstable[twodecimalcols].round(2)
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(
         0)
-
+    
+    # Also convert key columns in ratingstable if they might be numpy types
+    # Although less likely to cause issues if not directly serialized as granularly.
+    numeric_cols_ratings = [ # Add relevant numeric columns from ratingstable
+        'price', 'topprizeremain', 'Days Since Start', # Integers
+        'topprizeodds', 'overallodds', 'Current Odds of Top Prize', # Floats that might be np.float64
+        # ... include all other numeric columns from ratingstable ...
+        'Rank Average', 'Overall Rank', 'Rank by Cost'
+    ]
+    for col in numeric_cols_ratings:
+        if col in ratingstable.columns:
+             ratingstable[col] = ratingstable[col].astype(object) # Convert to object/python types
+             
+    print(scratchertables.columns)
+    print(scratchertables)
+    print(scratchertables.dtypes)
     # save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
-    ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
+    #ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
+    
+    
+                             
     return ratingstable, scratchertables
 
 

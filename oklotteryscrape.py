@@ -118,7 +118,7 @@ def download_image(url, file_path, file_name):
 
 
 
-def exportOKScratcherRecs():
+def exportScratcherRecs():
     url = "https://www.lottery.ok.gov/scratchers/get"
     
     payload={}
@@ -398,4 +398,4 @@ def exportOKScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportOKScratcherRecs()
+exportScratcherRecs()

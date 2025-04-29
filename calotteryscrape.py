@@ -105,7 +105,7 @@ def formatstr(s):
 
 
 
-def exportCAScratcherRecs():
+def exportScratcherRecs():
     url = "https://www.calottery.com/api/games/scratchers"
     
     payload={}
@@ -382,4 +382,4 @@ def exportCAScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportCAScratcherRecs()
+exportScratcherRecs()

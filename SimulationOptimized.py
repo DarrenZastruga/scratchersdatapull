@@ -56,6 +56,134 @@ formatter = logging.Formatter(
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
+def authorize_gspread_from_path():
+    """Authorizes using the file path specified in GOOGLE_APPLICATION_CREDENTIALS."""
+    creds_path = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS') # Use the PATH variable
+    print(f"Trying to use credentials path: {creds_path}") # Debug
+
+    if not creds_path:
+        logging.error("GOOGLE_APPLICATION_CREDENTIALS environment variable (path) not found.")
+        return None
+
+    # Optional: Construct full path if creds_path is just the filename
+    # if not os.path.isabs(creds_path):
+    #    script_dir = os.path.dirname(__file__) # Get script directory
+    #    creds_path = os.path.join(script_dir, creds_path) # Join with filename
+    #    print(f"Constructed full path: {creds_path}") # Debug
+
+    if not os.path.exists(creds_path):
+        logging.error(f"Credentials file not found at path: {creds_path}")
+        print(f"Current working directory is: {os.getcwd()}") # Show where Python is looking
+        return None
+
+    try:
+        scopes = [
+            'https://spreadsheets.google.com/feeds',
+            'https://www.googleapis.com/auth/drive'
+        ]
+        credentials = Credentials.from_service_account_file(
+            creds_path, scopes=scopes
+        )
+        client = gspread.authorize(credentials)
+        logging.info(f"Successfully authorized gspread using file: {creds_path}")
+        print(f"Successfully authorized gspread using file: {creds_path}") # Debug
+        return client
+    except Exception as e:
+        logging.error(f"Error during gspread authorization from file: {e}", exc_info=True)
+        print(f"Error authorizing from file: {e}") # Debug
+        return None
+
+#save this for when run on GitHub
+def authorize_gspread():
+    """Authorizes gspread client using service account credentials."""
+    try:
+        
+        # --- Verification START ---
+        creds_json_string = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON')
+
+        print("-" * 20) # Separator for clarity
+        print(f"Type of retrieved value: {type(creds_json_string)}")
+    
+        if creds_json_string is None:
+            print("ERROR: GOOGLE_APPLICATION_CREDENTIALS_JSON environment variable is NOT SET or accessible.")
+            logging.error("GOOGLE_APPLICATION_CREDENTIALS_JSON environment variable not found.")
+            return None # Or raise an error
+        elif isinstance(creds_json_string, str):
+            print(f"Retrieved value (first 100 chars): {creds_json_string[:100]}...") # Print only the start
+            print(f"Length of retrieved string: {len(creds_json_string)}")
+            # Optional: Basic check for JSON structure
+            if creds_json_string.strip().startswith('{') and creds_json_string.strip().endswith('}'):
+                print("Value appears to start and end like JSON.")
+            else:
+                print("WARNING: Value does NOT look like a complete JSON object (missing '{' or '}').")
+        else:
+             print(f"WARNING: Retrieved value is not a string or None. Value: {creds_json_string}")
+    
+        print("-" * 20)
+        # --- Verification END ---
+
+        # Now, proceed with the original logic, including the None check we added before
+        if creds_json_string is None:
+            # This logging might be redundant now but keeps the previous fix logic
+            logging.error("Failed to load Google Service Account credentials. Environment variable not set.")
+            return None
+    
+            try:
+                service_account_info = json.loads(creds_json_string)
+                logging.info("Successfully parsed credentials JSON string.")
+                
+            except json.JSONDecodeError as e:
+                logging.error(f"Failed to parse credentials JSON: {e}. Check if the content copied into the environment variable is the complete and valid JSON.", exc_info=True)
+                return None
+    except Exception as e:
+         logging.error(f"An unexpected error occurred during gspread authorization: {e}", exc_info=True)
+         return None
+    credentials = Credentials.from_service_account_info(
+         service_account_info, scopes=SCOPES)
+    return gspread.authorize(credentials)
+
+def get_pack_sizes(gspread_client,  state_name=None):
+    """Retrieves pack sizes from a Google Sheet, considering state/location."""
+    
+    try:
+        gspread_client = authorize_gspread_from_path()
+        if gspread_client:
+            #Proceed with using the client
+            print("Authorization successful!")
+        else:
+            print("Authorization failed.")
+        
+        #gspread_client = authorize_gspread() - use this for running on GitHub
+
+        gsheet = gspread_client.open_by_key(GSHEET_KEY)
+        worksheet = gsheet.worksheet('PackSizes')
+        data = worksheet.get_all_values()
+        
+        # Check if the header row exists
+        if len(data) <= 1:
+            logger.warning(f"No pack sizes found in sheet: PackSizes")
+            return {}
+        
+        header = data[0]  # First row is the header
+        pack_sizes_df = pd.DataFrame(data[1:], columns=header)  # Skip header row
+
+        if 'State' not in pack_sizes_df.columns or 'price' not in pack_sizes_df.columns or 'packsize' not in pack_sizes_df.columns:
+            logger.warning(f"Missing 'State', 'price' or 'packsize' column in sheet: PackSizes")
+            return {}
+
+        pack_sizes_df = pack_sizes_df[~pack_sizes_df['price'].isna()] #drop Nan values
+        pack_sizes_df.dropna(subset=['State'], inplace=True)  # Drop rows with NaN in State and Prize
+
+        # set State and price for quicker lookup
+        pack_sizes_df.set_index(['State', 'price'], inplace=True)
+        pack_sizes_df = pack_sizes_df.astype({'packsize':'int'})
+
+        # Return a dict for easier roll size lookup
+        return pack_sizes_df.loc[state_name].to_dict()['packsize']
+
+    except Exception as e:
+        logger.error(f"Failed to retrieve pack sizes from Google Sheet: {e}")
+        return {}  # Return empty dictionary in case of error
 
 def generateWeightedList(prizes, prizeNumbers):
     """
@@ -78,17 +206,20 @@ def optimalbankroll(cost, stDev, probability, odds, riskCoeff):
     return {'Longest Losing Streak': LonglosingStreak, 'Optimal Bankroll': bankroll}
 
 
-def clusterloop(ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
+def clusterloop(state, ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
     """
         Runs a simulation of buying scratcher tickets in clusters to evaluate
         profitability, risk, and other metrics.
     """
 
-    def rollsize(price):
-        """Determines roll size based on ticket price."""
-        switcher = {
-            0: 100, 1: 200, 2: 100, 3: 100, 5: 40, 10: 40, 20: 20, 30: 20}
-        return switcher.get(price, "Invalid game price")
+   
+    
+    #commenting this function out in favor of the above, which gets roll size based on state    
+   # def rollsize(price):
+       # """Determines roll size based on ticket price."""
+       # switcher = {
+       #     0: 100, 1: 200, 2: 100, 3: 100, 5: 40, 10: 40, 20: 20, 30: 20}
+       # return switcher.get(price, "Invalid game price")
 
     simTable = []  # Use a list to accumulate data efficiently
     simOutcomes = []
@@ -112,7 +243,8 @@ def clusterloop(ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
         prize_counts = totalprizes['Winning Tickets Unclaimed'].to_list() # Use for faster zip in generateWeightedList
 
 
-        tixinRoll = rollsize(price)
+        #tixinRoll = rollsize(price)
+        tixinRoll = get_pack_sizes(state_name=state)
 
         # Settings for profit/any prize
         if prizetype == "profit":
@@ -215,3 +347,32 @@ def clusterloop(ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
     simTable_df.to_csv(f"./simTable_{description}2.csv", encoding='utf-8')
     simOutcomes_df.to_csv(f"./simOutcomes_{description}2.csv", encoding='utf-8')
     return simTable_df, simOutcomes_df
+
+def main():
+    """Main function to orchestrate the scratcher scraping process."""
+    now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
+    logger.info(f'Starting lotteryscrape.py at: {now}')
+
+    try:
+        gspread_client = authorize_gspread_from_path()
+        if gspread_client:
+            # Proceed with using the client
+            print("Authorization successful!")
+        else:
+            print("Authorization failed.")
+
+        # gspread_client = authorize_gspread() - use this for running on GitHub
+        #pydrive_client = authorize_pydrive()
+
+        gsheet = gspread_client.open_by_key(GSHEET_KEY)
+        clusterloop(state, ratingstable, scratchertables, prizetype, stddevs, riskCoeff)
+
+        now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
+        logger.info(f'Finishing lotteryscrape.py at: {now}')
+
+    except Exception as e:
+        logger.exception(f"A critical error occurred: {e}")
+
+
+if __name__ == "__main__":
+    main()
