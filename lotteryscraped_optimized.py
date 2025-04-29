@@ -623,7 +623,7 @@ def run_ky_scratcher_recs(gspread_client):
 #         return None
 #     except Exception as e:
 #         logger.exception(f"Error occurred during {state_code} processing: {e}")
-#         return None   
+#         return None   ###
 
 
 def main():
