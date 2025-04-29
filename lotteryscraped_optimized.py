@@ -29,11 +29,11 @@ import json
 import logging
 import logging.handlers
 import os
-from dotenv import load_dotenv
-load_dotenv()
+#from dotenv import load_dotenv
+#load_dotenv()
 # Verify path is loaded
-print(
-    f"Attempting to use credentials file: {os.getenv('GOOGLE_APPLICATION_CREDENTIALS')}")
+#print(
+ #   f"Attempting to use credentials file: {os.getenv('GOOGLE_APPLICATION_CREDENTIALS')}")
 
 
 psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
@@ -64,9 +64,9 @@ logger.addHandler(logger_file_handler)
 
 # use this for running the script locally
 # Load .env - make sure this is at the top
-script_dir = os.path.dirname(__file__)
-dotenv_path = os.path.join(script_dir, '.env')
-load_dotenv(dotenv_path=dotenv_path, override=True, verbose=True)
+#script_dir = os.path.dirname(__file__)
+#dotenv_path = os.path.join(script_dir, '.env')
+#load_dotenv(dotenv_path=dotenv_path, override=True, verbose=True)
 
 
 def authorize_gspread_from_path():
