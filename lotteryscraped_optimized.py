@@ -117,13 +117,14 @@ def authorize_gspread_from_path():
 
 def authorize_gspread():
     """Authorizes gspread client using service account credentials."""
+    service_account_info = None # Initialize to None
     try:
-
-        # --- Verification START ---
+        # --- Get Credentials String ---
         creds_json_string = os.environ.get(
             'GOOGLE_APPLICATION_CREDENTIALS_JSON')
 
-        print("-" * 20)  # Separator for clarity
+        # --- Verification and Parsing ---
+        print("-" * 20)
         print(f"Type of retrieved value: {type(creds_json_string)}")
 
         if creds_json_string is None:
@@ -131,47 +132,55 @@ def authorize_gspread():
                 "ERROR: GOOGLE_APPLICATION_CREDENTIALS_JSON environment variable is NOT SET or accessible.")
             logging.error(
                 "GOOGLE_APPLICATION_CREDENTIALS_JSON environment variable not found.")
-            return None  # Or raise an error
+            return None  # Exit if not set
+
         elif isinstance(creds_json_string, str):
-            # Print only the start
+            # Print details
             print(
                 f"Retrieved value (first 100 chars): {creds_json_string[:100]}...")
             print(f"Length of retrieved string: {len(creds_json_string)}")
-            # Optional: Basic check for JSON structure
-            if creds_json_string.strip().startswith('{') and creds_json_string.strip().endswith('}'):
-                print("Value appears to start and end like JSON.")
-            else:
-                print(
-                    "WARNING: Value does NOT look like a complete JSON object (missing '{' or '}').")
-        else:
-            print(
-                f"WARNING: Retrieved value is not a string or None. Value: {creds_json_string}")
 
-        print("-" * 20)
-        # --- Verification END ---
-
-        # Now, proceed with the original logic, including the None check we added before
-        if creds_json_string is None:
-            # This logging might be redundant now but keeps the previous fix logic
-            logging.error(
-                "Failed to load Google Service Account credentials. Environment variable not set.")
-            return None
-
+            # --- Parse the JSON string (moved here) ---
             try:
-                service_account_info = json.loads(creds_json_string)
+                service_account_info = json.loads(creds_json_string) # Assign here
                 logging.info("Successfully parsed credentials JSON string.")
+                # Basic structure check (optional but good)
+                if not isinstance(service_account_info, dict) or 'client_email' not in service_account_info:
+                     print("WARNING: Parsed JSON does not look like a valid service account credential dictionary.")
+                     logging.warning("Parsed JSON does not look like a valid service account credential dictionary.")
+                     # You might want to return None here too if structure is invalid
+                     # return None
 
             except json.JSONDecodeError as e:
+                print(f"ERROR: Failed to parse credentials JSON: {e}. Check the environment variable content.")
                 logging.error(
                     f"Failed to parse credentials JSON: {e}. Check if the content copied into the environment variable is the complete and valid JSON.", exc_info=True)
-                return None
-    except Exception as e:
+                return None # Exit if parsing fails
+            # --- End of JSON Parsing ---
+
+        else: # Handle cases where it's retrieved but not None or str
+            print(
+                f"WARNING: Retrieved GOOGLE_APPLICATION_CREDENTIALS_JSON is not a string or None. Value: {creds_json_string}")
+            logging.warning(f"Retrieved GOOGLE_APPLICATION_CREDENTIALS_JSON is not a string or None. Value: {creds_json_string}")
+            return None # Exit for unexpected type
+
+        print("-" * 20)
+
+        # --- Create Credentials (only if parsing succeeded) ---
+        if service_account_info: # Check if parsing was successful and assigned the dict
+             credentials = Credentials.from_service_account_info(
+                 service_account_info, scopes=SCOPES)
+             return gspread.authorize(credentials)
+        else:
+             # This case should theoretically be caught by earlier returns, but added for safety
+             logging.error("Could not create credentials because service_account_info was not properly set.")
+             return None
+
+    except Exception as e: # Catch any other unexpected errors during the process
         logging.error(
             f"An unexpected error occurred during gspread authorization: {e}", exc_info=True)
+        print(f"An unexpected critical error occurred during authorization: {e}")
         return None
-    credentials = Credentials.from_service_account_info(
-        service_account_info, scopes=SCOPES)
-    return gspread.authorize(credentials)
 
 
 def authorize_pydrive():
