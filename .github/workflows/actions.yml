@@ -25,7 +25,7 @@ jobs:
       - name: execute py script # run lotteryscrape.py
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
-        run: python lotteryscrape.py
+        run: python lotteryscrape_optimized.py
           
       - name: commit files
         run: |
