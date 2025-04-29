@@ -1,5 +1,5 @@
 name: run lotteryscrape.py
-
+ 
 on: [push] 
  # schedule:
   # - cron: '0 6 * * *'
