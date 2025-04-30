@@ -1,8 +1,8 @@
 name: run lotteryscrape.py
  
-on: [push] 
-  #schedule:
-  # - cron: '0 6 * * *'
+on: #[push] 
+  schedule:
+   - cron: '0 6 * * *'
  
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       - name: execute py script # run lotteryscrape.py
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
-        run: python lotteryscraped_optimized.py
+        run: python lotteryscrape.py
           
       - name: commit files
         run: |
