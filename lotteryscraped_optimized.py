@@ -29,6 +29,14 @@ import json
 import logging
 import logging.handlers
 import os
+import sys 
+
+# Ensure the script's directory is in the Python path for module imports
+script_dir = os.path.dirname(os.path.abspath(__file__))
+if script_dir not in sys.path:
+    sys.path.insert(0, script_dir)
+    print(f"Added '{script_dir}' to sys.path") # Optional: for confirmation in logs
+    
 #from dotenv import load_dotenv
 #load_dotenv()
 # Verify path is loaded
