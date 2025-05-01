@@ -2531,3 +2531,48 @@ Traceback (most recent call last):
 UnboundLocalError: local variable 'combined_scratchertables' referenced before assignment
 2025-05-01 02:40:34,390 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-01 02:40:34 UTC
 2025-05-01 02:40:34,390 - __main__ - INFO - Total execution time: 0:00:00.112585
+2025-05-01 02:56:30,974 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-01 02:56:30 UTC
+2025-05-01 02:56:30,975 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-01 02:56:31,080 - __main__ - ERROR - Could not import azlotteryscrape. Skipping AZ.
+2025-05-01 02:56:31,081 - __main__ - WARNING - Function run_az_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,081 - __main__ - INFO - --- Processing State: CA ---
+2025-05-01 02:56:31,085 - __main__ - ERROR - Could not import calotteryscrape. Skipping CA.
+2025-05-01 02:56:31,085 - __main__ - WARNING - Function run_ca_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,085 - __main__ - INFO - --- Processing State: DC ---
+2025-05-01 02:56:31,090 - __main__ - ERROR - Could not import dclotteryscrape. Skipping DC.
+2025-05-01 02:56:31,090 - __main__ - WARNING - Function run_dc_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,090 - __main__ - INFO - --- Processing State: KS ---
+2025-05-01 02:56:31,094 - __main__ - ERROR - Could not import kslotteryscrape. Skipping KS.
+2025-05-01 02:56:31,094 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,095 - __main__ - INFO - --- Processing State: KY ---
+2025-05-01 02:56:31,098 - __main__ - ERROR - Could not import kylotteryscrape. Skipping KY.
+2025-05-01 02:56:31,099 - __main__ - WARNING - Function run_ky_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,099 - __main__ - INFO - --- Processing State: MO ---
+2025-05-01 02:56:31,102 - __main__ - ERROR - Could not import molotteryscrape. Skipping MO.
+2025-05-01 02:56:31,102 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,103 - __main__ - INFO - --- Processing State: NC ---
+2025-05-01 02:56:31,106 - __main__ - ERROR - Could not import nclotteryscrape. Skipping NC.
+2025-05-01 02:56:31,106 - __main__ - WARNING - Function run_nc_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,107 - __main__ - INFO - --- Processing State: NM ---
+2025-05-01 02:56:31,110 - __main__ - ERROR - Could not import nmlotteryscrape. Skipping NM.
+2025-05-01 02:56:31,110 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,110 - __main__ - INFO - --- Processing State: NY ---
+2025-05-01 02:56:31,115 - __main__ - ERROR - Could not import nylotteryscrape. Skipping NY.
+2025-05-01 02:56:31,115 - __main__ - WARNING - Function run_ny_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,115 - __main__ - INFO - --- Processing State: OK ---
+2025-05-01 02:56:31,119 - __main__ - ERROR - Could not import oklotteryscrape. Skipping OK.
+2025-05-01 02:56:31,119 - __main__ - WARNING - Function run_ok_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,119 - __main__ - INFO - --- Processing State: OR ---
+2025-05-01 02:56:31,122 - __main__ - ERROR - Could not import orlotteryscrape. Skipping OR.
+2025-05-01 02:56:31,123 - __main__ - WARNING - Function run_or_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,123 - __main__ - INFO - --- Processing State: TX ---
+2025-05-01 02:56:31,127 - __main__ - ERROR - Could not import txlotteryscrape. Skipping TX.
+2025-05-01 02:56:31,127 - __main__ - WARNING - Function run_tx_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,127 - __main__ - INFO - --- Processing State: VA ---
+2025-05-01 02:56:31,132 - __main__ - ERROR - Could not import valotteryscrape. Skipping VA.
+2025-05-01 02:56:31,132 - __main__ - WARNING - Function run_va_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,132 - __main__ - INFO - --- Processing State: WA ---
+2025-05-01 02:56:31,136 - __main__ - ERROR - Could not import walotteryscrape. Skipping WA.
+2025-05-01 02:56:31,136 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid data.
+2025-05-01 02:56:31,136 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-01 02:56:31 UTC
+2025-05-01 02:56:31,136 - __main__ - INFO - Total execution time: 0:00:00.162654
