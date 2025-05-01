@@ -2,7 +2,7 @@ name: run lotteryscrape.py
  
 on: [push] 
   #schedule:
-  # - cron: '0 6 * * *'
+   #- cron: '0 6 * * *'
  
 jobs:
   build:
@@ -21,7 +21,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
+
+      - name: List files in workspace root
+        run: ls -laR $GITHUB_WORKSPACE
+        shell: bash # Ensure bash for ls -laR
+
+      - name: Show Current Working Directory
+        run: pwd
+        shell: bash
+
+      - name: Show Python Path
+        run: python -c "import sys; print('\n'.join(sys.path))"
+
       - name: execute py script # run lotteryscrape.py
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
