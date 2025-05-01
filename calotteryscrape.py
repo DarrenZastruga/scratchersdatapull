@@ -382,4 +382,4 @@ def exportScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportScratcherRecs()
+#exportScratcherRecs()

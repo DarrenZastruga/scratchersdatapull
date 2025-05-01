@@ -472,4 +472,4 @@ def exportScratcherRecs():
     return ratingstable, scratchertables
 
 
-exportScratcherRecs()
+#exportScratcherRecs()
