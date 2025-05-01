@@ -746,10 +746,10 @@ def main():
             # except Exception as e:
             #     logger.error(f"Failed to clear 'ScratcherTables' sheet after collecting no data: {e}")
 
-        logger.info("Attempting to save combined data to 'ScratcherTables' sheet.")
-        # Use the save function which handles clearing and uploading
-        save_dataframe_to_gsheet(combined_scratchertables, 'ScratcherTables', gspread_client)
-        
+            logger.info("Attempting to save combined data to 'ScratcherTables' sheet.")
+            # Use the save function which handles clearing and uploading
+            save_dataframe_to_gsheet(combined_scratchertables, 'ScratcherTables', gspread_client)
+            
     except Exception as e:
         logger.exception(f"A critical error occurred in the main execution block: {e}")
         print(f"A critical error occurred: {e}")

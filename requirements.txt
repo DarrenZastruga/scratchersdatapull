@@ -1,5 +1,4 @@
 pandas
-psycopg2
 requests
 apscheduler
 bs4
@@ -14,3 +13,9 @@ gspread
 gspread_dataframe
 df2gspread
 pydrive
+psycopg2-binary  # Or psycopg2 if you handle build dependencies
+google-auth
+google-auth-oauthlib # Often needed with gspread/google-auth
+google-api-python-client # Might be needed depending on auth flow
+beautifulsoup4
+python-dateutil
