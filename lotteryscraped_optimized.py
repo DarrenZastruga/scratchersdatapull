@@ -331,6 +331,7 @@ def run_az_scratcher_recs(gspread_client):
         if scratchertables is not None and not scratchertables.empty:
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
             return scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
@@ -671,7 +672,6 @@ def main():
         # Add or remove state functions here as needed
         state_scrape_functions = [
             run_az_scratcher_recs,
-            '''
             run_ca_scratcher_recs,
             run_dc_scratcher_recs,
             run_ks_scratcher_recs,
@@ -685,7 +685,7 @@ def main():
             run_tx_scratcher_recs,
             run_va_scratcher_recs,
             run_wa_scratcher_recs,
-            '''
+            
             # Add other state functions here if enabled:
             # run_ms_scratcher_recs,
             # run_il_scratcher_recs,
@@ -694,12 +694,16 @@ def main():
         ]
 
         for scrape_func in state_scrape_functions:
-             tables = scrape_func(gspread_client)
-             if tables is not None and not tables.empty:
-                 all_scratchertables_list.append(tables)
+             # Ensure scrape_func is actually callable before calling it
+             if callable(scrape_func):
+                 tables = scrape_func(gspread_client)
+                 if tables is not None and not tables.empty:
+                     all_scratchertables_list.append(tables)
+                 else:
+                     logger.warning(f"Function {scrape_func.__name__} did not return valid data.")
              else:
-                 logger.warning(f"Function {scrape_func.__name__} did not return valid data.")
-
+                 # This handles cases where non-callable items might still be in the list
+                 logger.error(f"Item in state_scrape_functions is not callable: {scrape_func} (type: {type(scrape_func)})")
 
         # --- Combine and Upload ---
         if all_scratchertables_list:

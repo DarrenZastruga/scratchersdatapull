@@ -177,7 +177,6 @@ def exportScratcherRecs():
     cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
-    # gamesgrouped = gamesgrouped.copy() # .copy() is often redundant after operations like reset_index
     gamesgrouped = gamesgrouped.merge(scratchersall[[
                                       'gameNumber', 'price', 'topprizeodds', 'overallodds']], how='left', on=['gameNumber'])
     #gamesgrouped.loc[:, 'topprizeodds'] = gamesgrouped.loc[:,'topprizeodds'].str.replace(',', '', regex=True)
