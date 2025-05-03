@@ -2673,3 +2673,20 @@ UnboundLocalError: local variable 'combined_scratchertables' referenced before a
 2025-05-03 12:28:04,209 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid data.
 2025-05-03 12:28:04,209 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 12:28:04 UTC
 2025-05-03 12:28:04,209 - __main__ - INFO - Total execution time: 0:00:00.126120
+2025-05-03 12:38:39,541 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-03 12:38:39 UTC
+2025-05-03 12:38:39,542 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-03 12:38:39,594 - __main__ - ERROR - Could not import AZlotteryscrape. Skipping AZ.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 325, in run_az_scratcher_recs
+    import azlotteryscrape
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/azlotteryscrape.py", line 18, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-03 12:38:39,594 - __main__ - WARNING - Function run_az_scratcher_recs did not return valid data.
+2025-05-03 12:38:39,595 - __main__ - ERROR - A critical error occurred in the main execution block: 'str' object is not callable
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 703, in main
+    tables = scrape_func(gspread_client)
+TypeError: 'str' object is not callable
+2025-05-03 12:38:39,595 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 12:38:39 UTC
+2025-05-03 12:38:39,595 - __main__ - INFO - Total execution time: 0:00:00.053719
