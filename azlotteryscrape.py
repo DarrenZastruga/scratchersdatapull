@@ -304,7 +304,7 @@ def exportScratcherRecs():
         gamerow.loc[:, 'Directory'] = None
         gamerow.loc[:, 'Data Date'] = gamerow.loc[:, 'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], ignore_index=True)
 
         # add non-prize and totals rows with matching columns
         totalremain.loc[:, 'Total remaining'] = tixtotal
