@@ -553,7 +553,7 @@ def exportAZScratcherRecs():
         lastdatetoclaim = datetime.fromisoformat(scratcherdata['lastDate'][0])
         gameOdds = scratcherdata['gameOdds'][0]
         dateexported = pd.to_datetime(
-            scratcherdata['dateModified'][0], infer_datetime_format=True)
+            scratcherdata['dateModified'][0])
 
         print('Looping through each prize tier row for scratcher #'+i)
         for row in scratcherdata['prizeTiers']:
