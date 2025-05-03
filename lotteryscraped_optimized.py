@@ -321,8 +321,14 @@ def run_az_scratcher_recs(gspread_client):
     state_code = 'AZ'
     logger.info(f"--- Processing State: {state_code} ---")
     try:
-        from azlotteryscrape import exportScratcherRecs
+        # Attempt the import explicitly first to get a better error
+        import azlotteryscrape
+        # If import succeeded, get the function
+        exportScratcherRecs = azlotteryscrape.exportScratcherRecs
+
+        # Now run the function
         ratingstable, scratchertables = exportScratcherRecs()
+
         save_dataframe_to_gsheet(
             ratingstable, f'{state_code}RatingsTable', gspread_client)
         if scratchertables is not None and not scratchertables.empty:
@@ -332,12 +338,17 @@ def run_az_scratcher_recs(gspread_client):
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
-    except ImportError:
-        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.")
+    except ImportError as ie: # Catch ONLY ImportError here
+        # Log the full traceback for the ImportError
+        logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
+        print(f"*** DETAILED IMPORT ERROR for {state_code} ***")
+        import traceback
+        traceback.print_exc() # Print traceback to standard output
+        print(f"*** END DETAILED IMPORT ERROR for {state_code} ***")
         return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
+    except Exception as e: # Catch other errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None # Return None on error
 
 def run_mo_scratcher_recs(gspread_client):
     """Scrapes MO data, saves ratingstable, returns scratchertables."""
@@ -666,6 +677,7 @@ def main():
         # Add or remove state functions here as needed
         state_scrape_functions = [
             run_az_scratcher_recs,
+            '''
             run_ca_scratcher_recs,
             run_dc_scratcher_recs,
             run_ks_scratcher_recs,
@@ -679,6 +691,7 @@ def main():
             run_tx_scratcher_recs,
             run_va_scratcher_recs,
             run_wa_scratcher_recs,
+            '''
             # Add other state functions here if enabled:
             # run_ms_scratcher_recs,
             # run_il_scratcher_recs,
