@@ -2690,3 +2690,22 @@ Traceback (most recent call last):
 TypeError: 'str' object is not callable
 2025-05-03 12:38:39,595 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 12:38:39 UTC
 2025-05-03 12:38:39,595 - __main__ - INFO - Total execution time: 0:00:00.053719
+2025-05-03 12:44:52,563 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-03 12:44:52 UTC
+2025-05-03 12:44:52,564 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-03 12:45:03,323 - __main__ - ERROR - Error occurred during AZ processing (after import): Cannot subset columns with a tuple with more than one element. Use a list instead.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 327, in run_az_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/azlotteryscrape.py", line 176, in exportScratcherRecs
+    gamesgrouped = scratchertables.groupby(by=['gameNumber', 'gameName', 'dateexported'],group_keys=False)['Winning Tickets At Start', 'Winning Tickets Unclaimed'].sum().reset_index(level=['gameNumber','gameName','dateexported']).copy()
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/groupby/generic.py", line 1947, in __getitem__
+    raise ValueError(
+ValueError: Cannot subset columns with a tuple with more than one element. Use a list instead.
+2025-05-03 12:45:03,324 - __main__ - WARNING - Function run_az_scratcher_recs did not return valid data.
+2025-05-03 12:45:03,325 - __main__ - ERROR - A critical error occurred in the main execution block: 'str' object is not callable
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 700, in main
+    tables = scrape_func(gspread_client)
+TypeError: 'str' object is not callable
+2025-05-03 12:45:03,325 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 12:45:03 UTC
+2025-05-03 12:45:03,325 - __main__ - INFO - Total execution time: 0:00:10.762287
