@@ -173,7 +173,11 @@ def exportScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
-    gamesgrouped = scratchertables.groupby(by=['gameNumber', 'gameName', 'dateexported'],group_keys=False)['Winning Tickets At Start', 'Winning Tickets Unclaimed'].sum().reset_index(level=['gameNumber','gameName','dateexported']).copy()
+    # Select columns first, then groupby and aggregate
+    cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']
+    gamesgrouped = scratchertables.groupby(
+        by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
+    # gamesgrouped = gamesgrouped.copy() # .copy() is often redundant after operations like reset_index
     gamesgrouped = gamesgrouped.merge(scratchersall[[
                                       'gameNumber', 'price', 'topprizeodds', 'overallodds']], how='left', on=['gameNumber'])
     #gamesgrouped.loc[:, 'topprizeodds'] = gamesgrouped.loc[:,'topprizeodds'].str.replace(',', '', regex=True)

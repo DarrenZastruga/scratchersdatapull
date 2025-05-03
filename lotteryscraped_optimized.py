@@ -335,17 +335,14 @@ def run_az_scratcher_recs(gspread_client):
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
-    except ImportError as ie: # Catch ONLY ImportError here
-        # Log the full traceback for the ImportError
-        logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        print(f"*** DETAILED IMPORT ERROR for {state_code} ***")
-        import traceback
-        traceback.print_exc() # Print traceback to standard output
-        print(f"*** END DETAILED IMPORT ERROR for {state_code} ***")
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
         return None
-    except Exception as e: # Catch other errors during execution
+    except Exception as e:
+        # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None # Return None on error
+        return None
 
 def run_mo_scratcher_recs(gspread_client):
     """Scrapes MO data, saves ratingstable, returns scratchertables."""
