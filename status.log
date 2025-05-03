@@ -2747,3 +2747,16 @@ Traceback (most recent call last):
 TypeError: 'str' object is not callable
 2025-05-03 18:36:02,704 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 18:36:02 UTC
 2025-05-03 18:36:02,704 - __main__ - INFO - Total execution time: 0:00:11.907769
+2025-05-03 18:49:51,785 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-03 18:49:51 UTC
+2025-05-03 18:49:51,786 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-03 18:50:13,421 - __main__ - INFO - Clearing worksheet 'AZRatingsTable' before saving new data.
+2025-05-03 18:50:13,820 - __main__ - INFO - Saving DataFrame to worksheet 'AZRatingsTable'...
+2025-05-03 18:50:15,459 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: AZRatingsTable
+2025-05-03 18:50:15,460 - __main__ - INFO - Successfully processed AZ. Returning scratchertables.
+2025-05-03 18:50:15,460 - __main__ - ERROR - A critical error occurred in the main execution block: 'str' object is not callable
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 697, in main
+    tables = scrape_func(gspread_client)
+TypeError: 'str' object is not callable
+2025-05-03 18:50:15,460 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 18:50:15 UTC
+2025-05-03 18:50:15,460 - __main__ - INFO - Total execution time: 0:00:23.675517
