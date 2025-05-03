@@ -2773,3 +2773,82 @@ Traceback (most recent call last):
 TypeError: 'str' object is not callable
 2025-05-03 19:07:07,999 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 19:07:07 UTC
 2025-05-03 19:07:07,999 - __main__ - INFO - Total execution time: 0:00:16.050236
+2025-05-03 20:16:17,729 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-03 20:16:17 UTC
+2025-05-03 20:16:17,730 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-03 20:16:33,644 - __main__ - INFO - Clearing worksheet 'AZRatingsTable' before saving new data.
+2025-05-03 20:16:34,010 - __main__ - INFO - Saving DataFrame to worksheet 'AZRatingsTable'...
+2025-05-03 20:16:34,801 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: AZRatingsTable
+2025-05-03 20:16:34,801 - __main__ - INFO - Successfully processed AZ. Returning scratchertables.
+2025-05-03 20:16:34,811 - __main__ - INFO - --- Processing State: CA ---
+2025-05-03 20:16:34,815 - __main__ - ERROR - Could not import calotteryscrape. Skipping CA.
+2025-05-03 20:16:34,815 - __main__ - WARNING - Function run_ca_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,815 - __main__ - INFO - --- Processing State: DC ---
+2025-05-03 20:16:34,820 - __main__ - ERROR - Could not import dclotteryscrape. Skipping DC.
+2025-05-03 20:16:34,820 - __main__ - WARNING - Function run_dc_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,820 - __main__ - INFO - --- Processing State: KS ---
+2025-05-03 20:16:34,824 - __main__ - ERROR - Could not import kslotteryscrape. Skipping KS.
+2025-05-03 20:16:34,825 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,825 - __main__ - INFO - --- Processing State: KY ---
+2025-05-03 20:16:34,828 - __main__ - ERROR - Could not import kylotteryscrape. Skipping KY.
+2025-05-03 20:16:34,828 - __main__ - WARNING - Function run_ky_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,829 - __main__ - INFO - --- Processing State: MO ---
+2025-05-03 20:16:34,832 - __main__ - ERROR - Could not import molotteryscrape. Skipping MO.
+2025-05-03 20:16:34,832 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,832 - __main__ - INFO - --- Processing State: NC ---
+2025-05-03 20:16:34,836 - __main__ - ERROR - Could not import nclotteryscrape. Skipping NC.
+2025-05-03 20:16:34,836 - __main__ - WARNING - Function run_nc_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,836 - __main__ - INFO - --- Processing State: NM ---
+2025-05-03 20:16:34,840 - __main__ - ERROR - Could not import nmlotteryscrape. Skipping NM.
+2025-05-03 20:16:34,840 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,840 - __main__ - INFO - --- Processing State: NY ---
+2025-05-03 20:16:34,844 - __main__ - ERROR - Could not import nylotteryscrape. Skipping NY.
+2025-05-03 20:16:34,844 - __main__ - WARNING - Function run_ny_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,845 - __main__ - INFO - --- Processing State: OK ---
+2025-05-03 20:16:34,848 - __main__ - ERROR - Could not import oklotteryscrape. Skipping OK.
+2025-05-03 20:16:34,848 - __main__ - WARNING - Function run_ok_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,848 - __main__ - INFO - --- Processing State: OR ---
+2025-05-03 20:16:34,852 - __main__ - ERROR - Could not import orlotteryscrape. Skipping OR.
+2025-05-03 20:16:34,852 - __main__ - WARNING - Function run_or_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,852 - __main__ - INFO - --- Processing State: TX ---
+2025-05-03 20:16:34,856 - __main__ - ERROR - Could not import txlotteryscrape. Skipping TX.
+2025-05-03 20:16:34,856 - __main__ - WARNING - Function run_tx_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,856 - __main__ - INFO - --- Processing State: VA ---
+2025-05-03 20:16:34,861 - __main__ - ERROR - Could not import valotteryscrape. Skipping VA.
+2025-05-03 20:16:34,862 - __main__ - WARNING - Function run_va_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,862 - __main__ - INFO - --- Processing State: WA ---
+2025-05-03 20:16:34,865 - __main__ - ERROR - Could not import walotteryscrape. Skipping WA.
+2025-05-03 20:16:34,865 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid data.
+2025-05-03 20:16:34,865 - __main__ - INFO - Combining scratchertables data from 1 states.
+2025-05-03 20:16:34,866 - __main__ - INFO - Combined DataFrame shape: (371, 11)
+2025-05-03 20:16:34,866 - __main__ - INFO - Dtypes immediately after concat:
+gameNumber                   object
+gameName                     object
+prizeamount                  object
+Winning Tickets At Start     object
+Winning Tickets Unclaimed    object
+Prize Probability            object
+Percent Tix Remaining        object
+Starting Expected Value      object
+Expected Value               object
+dateexported                 object
+State                        object
+dtype: object
+2025-05-03 20:16:34,866 - __main__ - INFO - Performing AGGRESSIVE final type conversion for JSON compatibility...
+2025-05-03 20:16:34,867 - __main__ - INFO -   - Converted/Checked column 'gameNumber' (Original dtype: object, New dtype: int64)
+2025-05-03 20:16:34,868 - __main__ - INFO -   - Converted/Checked column 'gameName' (Original dtype: object, New dtype: object)
+2025-05-03 20:16:34,868 - __main__ - INFO -   - Converted/Checked column 'prizeamount' (Original dtype: object, New dtype: object)
+2025-05-03 20:16:34,869 - __main__ - INFO -   - Converted/Checked column 'Winning Tickets At Start' (Original dtype: object, New dtype: float64)
+2025-05-03 20:16:34,869 - __main__ - INFO -   - Converted/Checked column 'Winning Tickets Unclaimed' (Original dtype: object, New dtype: float64)
+2025-05-03 20:16:34,870 - __main__ - INFO -   - Converted/Checked column 'Prize Probability' (Original dtype: object, New dtype: float64)
+2025-05-03 20:16:34,870 - __main__ - INFO -   - Converted/Checked column 'Percent Tix Remaining' (Original dtype: object, New dtype: float64)
+2025-05-03 20:16:34,871 - __main__ - INFO -   - Converted/Checked column 'Starting Expected Value' (Original dtype: object, New dtype: object)
+2025-05-03 20:16:34,871 - __main__ - INFO -   - Converted/Checked column 'Expected Value' (Original dtype: object, New dtype: object)
+2025-05-03 20:16:34,872 - __main__ - INFO -   - Converted/Checked column 'dateexported' (Original dtype: object, New dtype: datetime64[ns])
+2025-05-03 20:16:34,873 - __main__ - INFO -   - Converted/Checked column 'State' (Original dtype: object, New dtype: object)
+2025-05-03 20:16:34,873 - __main__ - INFO - Final check of dtypes before saving:
+2025-05-03 20:16:34,874 - __main__ - INFO - Attempting to save combined data to 'ScratcherTables' sheet.
+2025-05-03 20:16:35,828 - __main__ - INFO - Clearing worksheet 'ScratcherTables' before saving new data.
+2025-05-03 20:16:36,081 - __main__ - INFO - Saving DataFrame to worksheet 'ScratcherTables'...
+2025-05-03 20:16:37,099 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ScratcherTables
+2025-05-03 20:16:37,099 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 20:16:37 UTC
+2025-05-03 20:16:37,099 - __main__ - INFO - Total execution time: 0:00:19.369640
