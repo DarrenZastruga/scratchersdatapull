@@ -650,8 +650,8 @@ def main():
 
     gspread_client = None # Initialize client to None
     try:
-        gspread_client = authorize_gspread_from_path() #from local
-        #gspread_client = authorize_gspread() #from github
+        #gspread_client = authorize_gspread_from_path() #from local
+        gspread_client = authorize_gspread() #from github
         if not gspread_client:
             logger.error("Gspread authorization failed. Exiting.")
             print("Authorization failed. Cannot proceed.")
