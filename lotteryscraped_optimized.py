@@ -293,28 +293,7 @@ def generic_scratcher_scrape(url, state_name, payload=None, headers=None, data=N
 # --- MODIFIED run_XX_scratcher_recs functions ---
 # Each function will now return the scratchertables DataFrame or None if an error occurs
 
-def run_va_scratcher_recs(gspread_client):
-    """Scrapes VA data, saves ratingstable, returns scratchertables."""
-    state_code = 'VA'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from valotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client) # Save ratings table immediately
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import valotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None # Return None on error
+
 
 def run_az_scratcher_recs(gspread_client):
     """Scrapes AZ data, saves ratingstable, returns scratchertables."""
@@ -345,190 +324,67 @@ def run_az_scratcher_recs(gspread_client):
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
         return None
 
-def run_mo_scratcher_recs(gspread_client):
-    """Scrapes MO data, saves ratingstable, returns scratchertables."""
-    state_code = 'MO'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from molotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import molotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
-
-# --- Repeat the pattern for ALL other run_XX_scratcher_recs functions ---
-
-def run_ok_scratcher_recs(gspread_client):
-    """Scrapes OK data, saves ratingstable, returns scratchertables."""
-    state_code = 'OK'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from oklotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import oklotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
 
 def run_ca_scratcher_recs(gspread_client):
     """Scrapes CA data, saves ratingstable, returns scratchertables."""
     state_code = 'CA'
     logger.info(f"--- Processing State: {state_code} ---")
     try:
-        from calotteryscrape import exportScratcherRecs
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
+
         save_dataframe_to_gsheet(
             ratingstable, f'{state_code}RatingsTable', gspread_client)
         if scratchertables is not None and not scratchertables.empty:
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
             return scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
     except ImportError:
-        logger.error(f"Could not import calotteryscrape. Skipping {state_code}.")
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
         return None
     except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
         return None
 
-def run_nm_scratcher_recs(gspread_client):
-    """Scrapes NM data, saves ratingstable, returns scratchertables."""
-    state_code = 'NM'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from nmlotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import nmlotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
 
-def run_ny_scratcher_recs(gspread_client):
-    """Scrapes NY data, saves ratingstable, returns scratchertables."""
-    state_code = 'NY'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from nylotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import nylotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
+
+
 
 def run_dc_scratcher_recs(gspread_client):
     """Scrapes DC data, saves ratingstable, returns scratchertables."""
     state_code = 'DC'
     logger.info(f"--- Processing State: {state_code} ---")
     try:
-        from dclotteryscrape import exportScratcherRecs
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import dclotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
 
-def run_nc_scratcher_recs(gspread_client):
-    """Scrapes NC data, saves ratingstable, returns scratchertables."""
-    state_code = 'NC'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from nclotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
         save_dataframe_to_gsheet(
             ratingstable, f'{state_code}RatingsTable', gspread_client)
         if scratchertables is not None and not scratchertables.empty:
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
             return scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
     except ImportError:
-        logger.error(f"Could not import nclotteryscrape. Skipping {state_code}.")
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
         return None
     except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
-
-def run_tx_scratcher_recs(gspread_client):
-    """Scrapes TX data, saves ratingstable, returns scratchertables."""
-    state_code = 'TX'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from txlotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import txlotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
         return None
 
 def run_ks_scratcher_recs(gspread_client):
@@ -536,70 +392,30 @@ def run_ks_scratcher_recs(gspread_client):
     state_code = 'KS'
     logger.info(f"--- Processing State: {state_code} ---")
     try:
-        from kslotteryscrape import exportScratcherRecs
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
+
         save_dataframe_to_gsheet(
             ratingstable, f'{state_code}RatingsTable', gspread_client)
         if scratchertables is not None and not scratchertables.empty:
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
             return scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
     except ImportError:
-        logger.error(f"Could not import kslotteryscrape. Skipping {state_code}.")
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
         return None
     except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
-
-def run_wa_scratcher_recs(gspread_client):
-    """Scrapes WA data, saves ratingstable, returns scratchertables."""
-    state_code = 'WA'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from walotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import walotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
-
-def run_or_scratcher_recs(gspread_client):
-    """Scrapes OR data, saves ratingstable, returns scratchertables."""
-    state_code = 'OR'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        from orlotteryscrape import exportScratcherRecs
-        ratingstable, scratchertables = exportScratcherRecs()
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        logger.error(f"Could not import orlotteryscrape. Skipping {state_code}.")
-        return None
-    except Exception as e:
-        logger.exception(f"Error occurred during {state_code} processing: {e}")
-        return None
-
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None  
+    
 def run_ky_scratcher_recs(gspread_client):
     """Scrapes KY data, saves ratingstable, returns scratchertables."""
     state_code = 'KY'
@@ -621,7 +437,263 @@ def run_ky_scratcher_recs(gspread_client):
         return None
     except Exception as e:
         logger.exception(f"Error occurred during {state_code} processing: {e}")
+        return None        
+
+def run_mo_scratcher_recs(gspread_client):
+    """Scrapes MO data, saves ratingstable, returns scratchertables."""
+    state_code = 'MO'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
         return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+    
+def run_ok_scratcher_recs(gspread_client):
+    """Scrapes OK data, saves ratingstable, returns scratchertables."""
+    state_code = 'OK'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+    
+def run_nc_scratcher_recs(gspread_client):
+    """Scrapes NC data, saves ratingstable, returns scratchertables."""
+    state_code = 'NC'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+
+def run_nm_scratcher_recs(gspread_client):
+    """Scrapes NM data, saves ratingstable, returns scratchertables."""
+    state_code = 'NM'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+    
+def run_ny_scratcher_recs(gspread_client):
+    """Scrapes NY data, saves ratingstable, returns scratchertables."""
+    state_code = 'NY'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+    
+def run_or_scratcher_recs(gspread_client):
+    """Scrapes OR data, saves ratingstable, returns scratchertables."""
+    state_code = 'OR'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+
+def run_tx_scratcher_recs(gspread_client):
+    """Scrapes TX data, saves ratingstable, returns scratchertables."""
+    state_code = 'TX'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+
+def run_va_scratcher_recs(gspread_client):
+    """Scrapes VA data, saves ratingstable, returns scratchertables."""
+    state_code = 'VA'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        from valotteryscrape import exportScratcherRecs
+        ratingstable, scratchertables = exportScratcherRecs()
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client) # Save ratings table immediately
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        logger.error(f"Could not import valotteryscrape. Skipping {state_code}.")
+        return None
+    except Exception as e:
+        logger.exception(f"Error occurred during {state_code} processing: {e}")
+        return None # Return None on error
+    
+def run_wa_scratcher_recs(gspread_client):
+    """Scrapes WA data, saves ratingstable, returns scratchertables."""
+    state_code = 'WA'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+
 
 # --- Add similar wrappers for il, fl, oh, ms if you enable them ---
 # Example:
