@@ -321,12 +321,9 @@ def run_az_scratcher_recs(gspread_client):
     state_code = 'AZ'
     logger.info(f"--- Processing State: {state_code} ---")
     try:
-        # Attempt the import explicitly first to get a better error
-        import azlotteryscrape
-        # If import succeeded, get the function
-        exportScratcherRecs = azlotteryscrape.exportScratcherRecs
-
-        # Now run the function
+        # --- Keep the original import style ---
+        from azlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
         save_dataframe_to_gsheet(
