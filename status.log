@@ -3080,3 +3080,16 @@ Traceback (most recent call last):
 ValueError: too many values to unpack (expected 2)
 2025-05-04 20:03:55,279 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-04 20:03:55 UTC
 2025-05-04 20:03:55,279 - __main__ - INFO - Total execution time: 0:00:11.591529
+2025-05-04 20:20:51,345 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-04 20:20:51 UTC
+2025-05-04 20:20:51,346 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-04 20:21:04,579 - __main__ - INFO - Clearing worksheet 'AZRatingsTable' before saving new data.
+2025-05-04 20:21:05,068 - __main__ - INFO - Saving DataFrame to worksheet 'AZRatingsTable'...
+2025-05-04 20:21:06,256 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: AZRatingsTable
+2025-05-04 20:21:06,257 - __main__ - INFO - Successfully processed AZ. Returning scratchertables.
+2025-05-04 20:21:06,266 - __main__ - ERROR - A critical error occurred in the main execution block: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 881, in main
+    ratingstable, scratchertables = scrape_func(gspread_client)
+ValueError: too many values to unpack (expected 2)
+2025-05-04 20:21:06,266 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-04 20:21:06 UTC
+2025-05-04 20:21:06,266 - __main__ - INFO - Total execution time: 0:00:14.921667
