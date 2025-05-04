@@ -290,6 +290,74 @@ def generic_scratcher_scrape(url, state_name, payload=None, headers=None, data=N
         return None
 
 
+
+# --- NEW FUNCTION ---
+def save_dataframe_starting_at_row(dataframe, worksheet_name, start_row, gspread_client):
+    """
+    Clears content from a specified row downwards and saves a DataFrame starting at that row.
+    Assumes headers ALREADY EXIST in the sheet rows ABOVE start_row.
+    """
+    try:
+        if dataframe is None or dataframe.empty:
+            logger.warning(f"Attempted to save an empty or None DataFrame to {worksheet_name} at row {start_row}. Skipping.")
+            return
+        if start_row < 1:
+            logger.error(f"Invalid start_row ({start_row}). Must be 1 or greater.")
+            return
+
+        gsheet = gspread_client.open_by_key(GSHEET_KEY)
+        try:
+            worksheet = gsheet.worksheet(worksheet_name)
+        except gspread.WorksheetNotFound:
+            logger.error(f"Worksheet '{worksheet_name}' not found. Cannot save data starting at row {start_row}.")
+            return
+
+        # --- Clear existing data from start_row downwards ---
+        logger.info(f"Clearing data in worksheet '{worksheet_name}' from row {start_row} onwards.")
+        try:
+            max_rows = worksheet.row_count
+            max_cols = worksheet.col_count # Use current actual max columns
+
+            if max_rows >= start_row:
+                # Use A1 notation for the clear range
+                # Calculate end column letter based on DataFrame width if worksheet is narrower
+                # Or just use a reasonably wide fixed range like 'ZZ' if simpler
+                end_col_letter = gspread.utils.convert_to_a1_notation(1, max(max_cols, len(dataframe.columns))).rstrip('1')
+                clear_range = f'A{start_row}:{end_col_letter}{max_rows}'
+                logger.debug(f"Calculated clear range: {clear_range}")
+                worksheet.batch_clear([clear_range])
+                logger.info(f"Cleared range {clear_range} in '{worksheet_name}'.")
+            else:
+                logger.info(f"Worksheet '{worksheet_name}' has fewer than {start_row} rows. No clearing needed below start row.")
+
+        except gspread.exceptions.APIError as api_err:
+             logger.error(f"gspread API Error during clearing range below row {start_row} in {worksheet_name}: {api_err}", exc_info=True)
+        except Exception as clear_err:
+             logger.error(f"Unexpected error during clearing range below row {start_row} in {worksheet_name}: {clear_err}", exc_info=True)
+
+
+        # --- PREPROCESSING BEFORE SAVING ---
+        df_to_save = dataframe.copy()
+        df_to_save.replace([np.inf, -np.inf], None, inplace=True)
+        # Ensure fillna('') happens *after* potential conversions to object
+        df_to_save = df_to_save.astype(object) # Ensure object type before fillna
+        df_to_save.fillna('', inplace=True)
+
+        logger.info(f"Saving DataFrame to worksheet '{worksheet_name}' starting at row {start_row} (headers excluded)...")
+        # Upload data starting at the specified row, EXCLUDING the header
+        set_with_dataframe(worksheet=worksheet, dataframe=df_to_save,
+                           row=start_row, col=1, # Start writing data at cell A{start_row}
+                           include_index=False,
+                           include_column_header=False, # Set header to False
+                           resize=False) # Do NOT resize the sheet
+        logger.info(
+            f"DataFrame successfully saved to '{worksheet_name}' starting at row {start_row}.")
+
+    except gspread.exceptions.APIError as e:
+         logger.error(f"gspread API Error saving to {worksheet_name} at row {start_row}: {e}", exc_info=True)
+    except Exception as e:
+        logger.error(
+            f"Failed to save DataFrame to '{worksheet_name}' at row {start_row}: {e}", exc_info=True)
 # --- MODIFIED run_XX_scratcher_recs functions ---
 # Each function will now return the scratchertables DataFrame or None if an error occurs
 
@@ -736,9 +804,38 @@ def main():
             return # Exit if authorization fails
 
         print("Authorization successful!")
+        
+        # --- Define Target Columns for Combined Rating Table ---
+        target_columns = [
+            'price', 'gameName','gameNumber', 'topprize', 'topprizeremain',
+            'topprizeavail','extrachances', 'secondChance','startDate',
+            'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds',
+            'Current Odds of Top Prize','Change in Current Odds of Top Prize',
+            'Current Odds of Any Prize','Change in Current Odds of Any Prize',
+            'Odds of Profit Prize','Change in Odds of Profit Prize',
+            'Probability of Winning Any Prize','Change in Probability of Any Prize',
+            'Probability of Winning Profit Prize','Change in Probability of Profit Prize',
+            'StdDev of All Prizes','StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs',
+            'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy',
+            'Expected Value of Any Prize (as % of cost)',
+            'Change in Expected Value of Any Prize',
+            'Expected Value of Profit Prize (as % of cost)',
+            'Change in Expected Value of Profit Prize',
+            'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining',
+            'Ratio of Decline in Prizes to Decline in Losing Ticket',
+            'Rank by Best Probability of Winning Any Prize',
+            'Rank by Best Probability of Winning Profit Prize',
+            'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
+            'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank',
+            'Rank by Cost', 'Photo','FAQ', 'About', 'Directory', 'Data Date',
+            'Stats Page', # Assuming this column might exist in some scrapers
+            'State' # Add State column here
+        ]
+
 
         # --- Data Collection ---
         all_scratchertables_list = [] # Initialize list to hold DataFrames from each state
+        all_ratingstables_list = []   # NEW: For combined ratings tables
 
         # List of functions to run
         # Add or remove state functions here as needed
@@ -766,81 +863,116 @@ def main():
         ]
 
         for scrape_func in state_scrape_functions:
-             # Ensure scrape_func is actually callable before calling it
              if callable(scrape_func):
-                 tables = scrape_func(gspread_client)
-                 if tables is not None and not tables.empty:
-                     all_scratchertables_list.append(tables)
+                 # Get both tables from the state function
+                 ratingstable, scratchertables = scrape_func(gspread_client)
+                 state_code = scrape_func.__name__.split('_')[1].upper() # Infer state code
+
+                 # Process scratchertables for combined sheet (as before)
+                 if scratchertables is not None and not scratchertables.empty:
+                     if 'State' not in scratchertables.columns: # Add state if not already added
+                          scratchertables['State'] = state_code
+                     all_scratchertables_list.append(scratchertables)
                  else:
-                     logger.warning(f"Function {scrape_func.__name__} did not return valid data.")
+                     logger.warning(f"Function {scrape_func.__name__} did not return valid scratchertables data.")
+
+                 # --- NEW: Process ratingstable for combined sheet ---
+                 if ratingstable is not None and not ratingstable.empty:
+                     logger.info(f"Processing ratingstable for {state_code}...")
+                     ratingstable_processed = ratingstable.copy()
+                     ratingstable_processed['State'] = state_code # Add State column
+
+                     # Ensure all target columns exist, add if missing
+                     for col in target_columns:
+                         if col not in ratingstable_processed.columns:
+                             logger.warning(f"Column '{col}' missing in {state_code} ratingstable. Adding with None.")
+                             ratingstable_processed[col] = None # Or np.nan
+
+                     # Reindex to ensure correct column order and drop extras
+                     try:
+                        # Filter target_columns to only those present in the df + State + added ones
+                        final_cols_for_state = [col for col in target_columns if col in ratingstable_processed.columns]
+                        ratingstable_processed = ratingstable_processed[final_cols_for_state]
+                        all_ratingstables_list.append(ratingstable_processed)
+                        logger.info(f"Added processed {state_code} ratingstable to combined list.")
+                     except KeyError as ke:
+                         logger.error(f"KeyError re-indexing {state_code} ratingstable. Columns: {ratingstable_processed.columns}. Target: {target_columns}. Error: {ke}", exc_info=True)
+                     except Exception as e:
+                         logger.error(f"Error processing/re-indexing {state_code} ratingstable: {e}", exc_info=True)
+
+                 else:
+                     logger.warning(f"Function {scrape_func.__name__} did not return valid ratingstable data.")
+                 # --- END NEW ---
+
              else:
-                 # This handles cases where non-callable items might still be in the list
                  logger.error(f"Item in state_scrape_functions is not callable: {scrape_func} (type: {type(scrape_func)})")
 
-        # --- Combine and Upload ---
+        # --- Combine and Upload ScratcherTables (as before) ---
         if all_scratchertables_list:
             logger.info(f"Combining scratchertables data from {len(all_scratchertables_list)} states.")
-            # Combine DataFrames, trying to preserve object dtype where possible
-            combined_scratchertables = pd.concat(all_scratchertables_list, ignore_index=True, join='outer') # Use outer join just in case columns differ slightly
-            logger.info(f"Combined DataFrame shape: {combined_scratchertables.shape}")
-            logger.info(f"Dtypes immediately after concat:\n{combined_scratchertables.dtypes}")
+            combined_scratchertables = pd.concat(all_scratchertables_list, ignore_index=True, join='outer')
+            logger.info(f"Combined scratchertables shape: {combined_scratchertables.shape}")
 
-
-            # --- AGGRESSIVE FINAL CONVERSION FOR JSON SERIALIZATION ---
-            logger.info("Performing AGGRESSIVE final type conversion for JSON compatibility...")
+            # Aggressive final conversion (keep as before)
+            logger.info("Performing final type conversion for JSON compatibility on combined scratchertables...")
+            # ... (keep the aggressive conversion loop for combined_scratchertables) ...
             for col in combined_scratchertables.columns:
-                # Check if column has a numeric-like dtype OR is object (could contain mixed types)
-                is_potentially_numeric = pd.api.types.is_numeric_dtype(combined_scratchertables[col]) \
-                                        or combined_scratchertables[col].dtype == 'object'
-
-                if is_potentially_numeric:
-                    # Apply a lambda function to convert numpy ints/floats to Python natives
-                    # This needs to handle potential errors if non-numeric data exists in an object column
-                    original_dtype = combined_scratchertables[col].dtype
-                    try:
-                        # Make a copy of the column before applying changes
-                        col_copy = combined_scratchertables[col].copy()
-                        # Apply the corrected conversion
-                        combined_scratchertables[col] = col_copy.apply(
-                            lambda x: int(x) if isinstance(x, np.integer) else       # Convert numpy int -> python int
-                                      float(x) if isinstance(x, np.floating) else   # Convert numpy float -> python float
-                                      (None if pd.isna(x) else x)                    # Keep None/NaN as None, preserve others
-                        )
-                        # Check if dtype actually changed or if object column was processed
-                        if original_dtype != combined_scratchertables[col].dtype or original_dtype == 'object':
-                             logger.info(f"  - Converted/Checked column '{col}' (Original dtype: {original_dtype}, New dtype: {combined_scratchertables[col].dtype})")
-
-                    except (TypeError, ValueError) as e:
-                         # This might happen if an object column has truly non-numeric strings mixed in (like 'Total')
-                         logger.warning(f"  - Could not apply numeric conversion to column '{col}' (dtype: {original_dtype}): {e}. Ensuring it's object type.")
-                         # Fallback: Ensure the column is object type if conversion fails
-                         if combined_scratchertables[col].dtype != 'object':
-                            combined_scratchertables[col] = combined_scratchertables[col].astype(object)
-                    except Exception as e:
-                        logger.error(f"  - Unexpected error during final conversion of column '{col}': {e}", exc_info=True)
-                        # Fallback: Ensure the column is object type
-                        if combined_scratchertables[col].dtype != 'object':
+                 is_potentially_numeric = pd.api.types.is_numeric_dtype(combined_scratchertables[col]) or combined_scratchertables[col].dtype == 'object'
+                 if is_potentially_numeric:
+                     original_dtype = combined_scratchertables[col].dtype
+                     try:
+                         col_copy = combined_scratchertables[col].copy()
+                         combined_scratchertables[col] = col_copy.apply(
+                             lambda x: int(x) if isinstance(x, np.integer) else float(x) if isinstance(x, np.floating) else (None if pd.isna(x) else x)
+                         )
+                         if original_dtype != combined_scratchertables[col].dtype or original_dtype == 'object':
+                              logger.info(f"  - Converted/Checked scratchertables column '{col}' (Original dtype: {original_dtype}, New dtype: {combined_scratchertables[col].dtype})")
+                     except Exception as e:
+                          logger.warning(f"  - Could not apply numeric conversion to scratchertables column '{col}' (dtype: {original_dtype}): {e}. Ensuring it's object type.")
+                          if combined_scratchertables[col].dtype != 'object':
                              combined_scratchertables[col] = combined_scratchertables[col].astype(object)
 
-            logger.info("Final check of dtypes before saving:")
-            print(combined_scratchertables.dtypes)
-            # --- END OF AGGRESSIVE CONVERSION ---
-            
-            # Optionally clear the sheet
-            # (Keep existing commented-out code for clearing if desired)
-            # Optionally clear the sheet even if no data was collected
-            # try:
-            #     gsheet = gspread_client.open_by_key(GSHEET_KEY)
-            #     worksheet = gsheet.worksheet('ScratcherTables')
-            #     worksheet.clear()
-            #     logger.info("Cleared 'ScratcherTables' sheet as no data was collected.")
-            # except Exception as e:
-            #     logger.error(f"Failed to clear 'ScratcherTables' sheet after collecting no data: {e}")
 
             logger.info("Attempting to save combined data to 'ScratcherTables' sheet.")
-            # Use the save function which handles clearing and uploading
             save_dataframe_to_gsheet(combined_scratchertables, 'ScratcherTables', gspread_client)
-            
+        else:
+            logger.warning("No scratchertables data collected. 'ScratcherTables' sheet will not be updated/cleared.")
+
+        # --- NEW: Combine and Upload RatingsTables ---
+        if all_ratingstables_list:
+            logger.info(f"Combining ratingstable data from {len(all_ratingstables_list)} states.")
+            # Use outer join to handle potentially missing columns gracefully during concat
+            combined_ratingstable = pd.concat(all_ratingstables_list, ignore_index=True, join='outer', sort=False)
+            # Reindex one last time with the final target columns to ensure order and presence
+            combined_ratingstable = combined_ratingstable.reindex(columns=target_columns)
+            logger.info(f"Combined ratingstable shape: {combined_ratingstable.shape}")
+
+            # Aggressive final conversion for the combined ratings table
+            logger.info("Performing final type conversion for JSON compatibility on combined ratingstable...")
+            # ... (Apply the same aggressive conversion loop as for scratchertables, but on combined_ratingstable) ...
+            for col in combined_ratingstable.columns:
+                 is_potentially_numeric = pd.api.types.is_numeric_dtype(combined_ratingstable[col]) or combined_ratingstable[col].dtype == 'object'
+                 if is_potentially_numeric:
+                     original_dtype = combined_ratingstable[col].dtype
+                     try:
+                         col_copy = combined_ratingstable[col].copy()
+                         combined_ratingstable[col] = col_copy.apply(
+                             lambda x: int(x) if isinstance(x, np.integer) else float(x) if isinstance(x, np.floating) else (None if pd.isna(x) else x)
+                         )
+                         if original_dtype != combined_ratingstable[col].dtype or original_dtype == 'object':
+                              logger.info(f"  - Converted/Checked ratingstable column '{col}' (Original dtype: {original_dtype}, New dtype: {combined_ratingstable[col].dtype})")
+                     except Exception as e:
+                          logger.warning(f"  - Could not apply numeric conversion to ratingstable column '{col}' (dtype: {original_dtype}): {e}. Ensuring it's object type.")
+                          if combined_ratingstable[col].dtype != 'object':
+                             combined_ratingstable[col] = combined_ratingstable[col].astype(object)
+
+            logger.info("Attempting to save combined data to 'AllStatesRankings' sheet starting at row 3.")
+            # Use the NEW save function
+            save_dataframe_starting_at_row(combined_ratingstable, 'AllStatesRankings', 3, gspread_client)
+        else:
+            logger.warning("No ratingstable data collected. 'AllStatesRankings' sheet will not be updated.")
+
+
     except Exception as e:
         logger.exception(f"A critical error occurred in the main execution block: {e}")
         print(f"A critical error occurred: {e}")
