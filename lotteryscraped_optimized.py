@@ -996,7 +996,7 @@ def main():
         logger.info(f'Finishing lotteryscrape_optimized.py run at: {end_time.strftime("%Y-%m-%d %H:%M:%S %Z")}')
         logger.info(f'Total execution time: {duration}')
         print(f'Total execution time: {duration}')
-
+  
 
 if __name__ == "__main__":
     main()
