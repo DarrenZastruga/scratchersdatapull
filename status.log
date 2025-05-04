@@ -2953,3 +2953,104 @@ dtype: object
 2025-05-03 21:04:43,913 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ScratcherTables
 2025-05-03 21:04:43,914 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-03 21:04:43 UTC
 2025-05-03 21:04:43,914 - __main__ - INFO - Total execution time: 0:02:32.296481
+2025-05-04 06:15:58,986 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-04 06:15:58 UTC
+2025-05-04 06:15:58,988 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-04 06:16:14,354 - __main__ - INFO - Clearing worksheet 'AZRatingsTable' before saving new data.
+2025-05-04 06:16:14,737 - __main__ - INFO - Saving DataFrame to worksheet 'AZRatingsTable'...
+2025-05-04 06:16:15,518 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: AZRatingsTable
+2025-05-04 06:16:15,519 - __main__ - INFO - Successfully processed AZ. Returning scratchertables.
+2025-05-04 06:16:15,529 - __main__ - INFO - --- Processing State: CA ---
+2025-05-04 06:16:26,717 - __main__ - INFO - Clearing worksheet 'CARatingsTable' before saving new data.
+2025-05-04 06:16:26,923 - __main__ - INFO - Saving DataFrame to worksheet 'CARatingsTable'...
+2025-05-04 06:16:27,592 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: CARatingsTable
+2025-05-04 06:16:27,593 - __main__ - INFO - Successfully processed CA. Returning scratchertables.
+2025-05-04 06:16:27,603 - __main__ - INFO - --- Processing State: DC ---
+2025-05-04 06:16:38,805 - __main__ - INFO - Clearing worksheet 'DCRatingsTable' before saving new data.
+2025-05-04 06:16:39,137 - __main__ - INFO - Saving DataFrame to worksheet 'DCRatingsTable'...
+2025-05-04 06:16:39,935 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: DCRatingsTable
+2025-05-04 06:16:39,935 - __main__ - INFO - Successfully processed DC. Returning scratchertables.
+2025-05-04 06:16:39,945 - __main__ - INFO - --- Processing State: KS ---
+2025-05-04 06:16:50,371 - __main__ - INFO - Clearing worksheet 'KSRatingsTable' before saving new data.
+2025-05-04 06:16:50,712 - __main__ - INFO - Saving DataFrame to worksheet 'KSRatingsTable'...
+2025-05-04 06:16:51,273 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: KSRatingsTable
+2025-05-04 06:16:51,274 - __main__ - INFO - Successfully processed KS. Returning scratchertables.
+2025-05-04 06:16:51,284 - __main__ - INFO - --- Processing State: KY ---
+2025-05-04 06:16:51,288 - __main__ - ERROR - Could not import kylotteryscrape. Skipping KY.
+2025-05-04 06:16:51,288 - __main__ - WARNING - Function run_ky_scratcher_recs did not return valid data.
+2025-05-04 06:16:51,288 - __main__ - INFO - --- Processing State: MO ---
+2025-05-04 06:17:02,889 - __main__ - INFO - Clearing worksheet 'MORatingsTable' before saving new data.
+2025-05-04 06:17:03,109 - __main__ - INFO - Saving DataFrame to worksheet 'MORatingsTable'...
+2025-05-04 06:17:03,671 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: MORatingsTable
+2025-05-04 06:17:03,672 - __main__ - INFO - Successfully processed MO. Returning scratchertables.
+2025-05-04 06:17:03,681 - __main__ - INFO - --- Processing State: NC ---
+2025-05-04 06:17:15,515 - __main__ - INFO - Clearing worksheet 'NCRatingsTable' before saving new data.
+2025-05-04 06:17:15,738 - __main__ - INFO - Saving DataFrame to worksheet 'NCRatingsTable'...
+2025-05-04 06:17:16,253 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NCRatingsTable
+2025-05-04 06:17:16,254 - __main__ - INFO - Successfully processed NC. Returning scratchertables.
+2025-05-04 06:17:16,263 - __main__ - INFO - --- Processing State: NM ---
+2025-05-04 06:17:26,752 - __main__ - INFO - Clearing worksheet 'NMRatingsTable' before saving new data.
+2025-05-04 06:17:26,927 - __main__ - INFO - Saving DataFrame to worksheet 'NMRatingsTable'...
+2025-05-04 06:17:27,731 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NMRatingsTable
+2025-05-04 06:17:27,732 - __main__ - INFO - Successfully processed NM. Returning scratchertables.
+2025-05-04 06:17:27,741 - __main__ - INFO - --- Processing State: NY ---
+2025-05-04 06:17:37,802 - __main__ - INFO - Clearing worksheet 'NYRatingsTable' before saving new data.
+2025-05-04 06:17:37,994 - __main__ - INFO - Saving DataFrame to worksheet 'NYRatingsTable'...
+2025-05-04 06:17:38,554 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NYRatingsTable
+2025-05-04 06:17:38,554 - __main__ - INFO - Successfully processed NY. Returning scratchertables.
+2025-05-04 06:17:38,564 - __main__ - INFO - --- Processing State: OK ---
+2025-05-04 06:17:48,878 - __main__ - INFO - Clearing worksheet 'OKRatingsTable' before saving new data.
+2025-05-04 06:17:49,069 - __main__ - INFO - Saving DataFrame to worksheet 'OKRatingsTable'...
+2025-05-04 06:17:49,587 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: OKRatingsTable
+2025-05-04 06:17:49,588 - __main__ - INFO - Successfully processed OK. Returning scratchertables.
+2025-05-04 06:17:49,597 - __main__ - INFO - --- Processing State: OR ---
+2025-05-04 06:17:59,815 - __main__ - INFO - Clearing worksheet 'ORRatingsTable' before saving new data.
+2025-05-04 06:18:00,023 - __main__ - INFO - Saving DataFrame to worksheet 'ORRatingsTable'...
+2025-05-04 06:18:00,539 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ORRatingsTable
+2025-05-04 06:18:00,540 - __main__ - INFO - Successfully processed OR. Returning scratchertables.
+2025-05-04 06:18:00,549 - __main__ - INFO - --- Processing State: TX ---
+2025-05-04 06:18:11,118 - __main__ - INFO - Clearing worksheet 'TXRatingsTable' before saving new data.
+2025-05-04 06:18:11,288 - __main__ - INFO - Saving DataFrame to worksheet 'TXRatingsTable'...
+2025-05-04 06:18:11,787 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: TXRatingsTable
+2025-05-04 06:18:11,787 - __main__ - INFO - Successfully processed TX. Returning scratchertables.
+2025-05-04 06:18:11,797 - __main__ - INFO - --- Processing State: VA ---
+2025-05-04 06:18:11,802 - __main__ - ERROR - Could not import valotteryscrape. Skipping VA.
+2025-05-04 06:18:11,802 - __main__ - WARNING - Function run_va_scratcher_recs did not return valid data.
+2025-05-04 06:18:11,803 - __main__ - INFO - --- Processing State: WA ---
+2025-05-04 06:18:22,863 - __main__ - INFO - Clearing worksheet 'WARatingsTable' before saving new data.
+2025-05-04 06:18:23,050 - __main__ - INFO - Saving DataFrame to worksheet 'WARatingsTable'...
+2025-05-04 06:18:23,525 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: WARatingsTable
+2025-05-04 06:18:23,525 - __main__ - INFO - Successfully processed WA. Returning scratchertables.
+2025-05-04 06:18:23,535 - __main__ - INFO - Combining scratchertables data from 12 states.
+2025-05-04 06:18:23,536 - __main__ - INFO - Combined DataFrame shape: (4452, 11)
+2025-05-04 06:18:23,537 - __main__ - INFO - Dtypes immediately after concat:
+gameNumber                   object
+gameName                     object
+prizeamount                  object
+Winning Tickets At Start     object
+Winning Tickets Unclaimed    object
+Prize Probability            object
+Percent Tix Remaining        object
+Starting Expected Value      object
+Expected Value               object
+dateexported                 object
+State                        object
+dtype: object
+2025-05-04 06:18:23,537 - __main__ - INFO - Performing AGGRESSIVE final type conversion for JSON compatibility...
+2025-05-04 06:18:23,539 - __main__ - INFO -   - Converted/Checked column 'gameNumber' (Original dtype: object, New dtype: int64)
+2025-05-04 06:18:23,542 - __main__ - INFO -   - Converted/Checked column 'gameName' (Original dtype: object, New dtype: object)
+2025-05-04 06:18:23,545 - __main__ - INFO -   - Converted/Checked column 'prizeamount' (Original dtype: object, New dtype: object)
+2025-05-04 06:18:23,548 - __main__ - INFO -   - Converted/Checked column 'Winning Tickets At Start' (Original dtype: object, New dtype: float64)
+2025-05-04 06:18:23,550 - __main__ - INFO -   - Converted/Checked column 'Winning Tickets Unclaimed' (Original dtype: object, New dtype: float64)
+2025-05-04 06:18:23,553 - __main__ - INFO -   - Converted/Checked column 'Prize Probability' (Original dtype: object, New dtype: float64)
+2025-05-04 06:18:23,556 - __main__ - INFO -   - Converted/Checked column 'Percent Tix Remaining' (Original dtype: object, New dtype: float64)
+2025-05-04 06:18:23,558 - __main__ - INFO -   - Converted/Checked column 'Starting Expected Value' (Original dtype: object, New dtype: object)
+2025-05-04 06:18:23,561 - __main__ - INFO -   - Converted/Checked column 'Expected Value' (Original dtype: object, New dtype: object)
+2025-05-04 06:18:23,566 - __main__ - INFO -   - Converted/Checked column 'dateexported' (Original dtype: object, New dtype: datetime64[ns])
+2025-05-04 06:18:23,569 - __main__ - INFO -   - Converted/Checked column 'State' (Original dtype: object, New dtype: object)
+2025-05-04 06:18:23,569 - __main__ - INFO - Final check of dtypes before saving:
+2025-05-04 06:18:23,570 - __main__ - INFO - Attempting to save combined data to 'ScratcherTables' sheet.
+2025-05-04 06:18:24,334 - __main__ - INFO - Clearing worksheet 'ScratcherTables' before saving new data.
+2025-05-04 06:18:24,514 - __main__ - INFO - Saving DataFrame to worksheet 'ScratcherTables'...
+2025-05-04 06:18:26,251 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ScratcherTables
+2025-05-04 06:18:26,251 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-04 06:18:26 UTC
+2025-05-04 06:18:26,251 - __main__ - INFO - Total execution time: 0:02:27.264596
