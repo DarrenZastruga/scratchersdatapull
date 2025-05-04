@@ -417,7 +417,7 @@ def exportScratcherRecs():
         currentodds, how='left', on=['gameNumber', 'price'])
     ratingstable.drop(labels=['gameName_x', 'dateexported_y',
                       'topprizeodds_y', 'overallodds_y'], axis=1, inplace=True)
-    ratingstable.rename(columns={'gameName_x': 'gameName', 'dateexported_x': 'dateexported',
+    ratingstable.rename(columns={'gameName_y': 'gameName', 'dateexported_x': 'dateexported',
                         'topprizeodds_x': 'topprizeodds', 'overallodds_x': 'overallodds'}, inplace=True)
     # add number of days since the game start date as of date exported
     ratingstable.loc[:, 'Days Since Start'] = (pd.to_datetime(

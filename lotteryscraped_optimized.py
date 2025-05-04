@@ -399,7 +399,7 @@ def run_ca_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from calotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -432,7 +432,7 @@ def run_dc_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from dclotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -461,7 +461,7 @@ def run_ks_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from kslotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -513,7 +513,7 @@ def run_mo_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from molotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -536,34 +536,7 @@ def run_mo_scratcher_recs(gspread_client):
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
         return None
     
-def run_ok_scratcher_recs(gspread_client):
-    """Scrapes OK data, saves ratingstable, returns scratchertables."""
-    state_code = 'OK'
-    logger.info(f"--- Processing State: {state_code} ---")
-    try:
-        # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
-        # --- Run the function ---
-        ratingstable, scratchertables = exportScratcherRecs()
 
-        save_dataframe_to_gsheet(
-            ratingstable, f'{state_code}RatingsTable', gspread_client)
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
-            print(scratchertables)
-            return scratchertables
-        else:
-             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
-             return None
-    except ImportError:
-        # Log the error WITH traceback using exc_info=True
-        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
-    except Exception as e:
-        # Catch other potential errors during execution
-        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
     
 def run_nc_scratcher_recs(gspread_client):
     """Scrapes NC data, saves ratingstable, returns scratchertables."""
@@ -571,7 +544,7 @@ def run_nc_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from nclotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -600,7 +573,7 @@ def run_nm_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from nmlotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -629,7 +602,36 @@ def run_ny_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from nylotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import azlotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None
+
+def run_ok_scratcher_recs(gspread_client):
+    """Scrapes OK data, saves ratingstable, returns scratchertables."""
+    state_code = 'OK'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from oklotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -658,7 +660,7 @@ def run_or_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from orlotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -687,7 +689,7 @@ def run_tx_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from txlotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
@@ -739,7 +741,7 @@ def run_wa_scratcher_recs(gspread_client):
     logger.info(f"--- Processing State: {state_code} ---")
     try:
         # --- Keep the original import style ---
-        from azlotteryscrape import exportScratcherRecs
+        from walotteryscrape import exportScratcherRecs
         # --- Run the function ---
         ratingstable, scratchertables = exportScratcherRecs()
 
