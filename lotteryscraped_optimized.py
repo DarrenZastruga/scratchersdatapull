@@ -386,11 +386,11 @@ def run_az_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
 
 
 def run_ca_scratcher_recs(gspread_client):
@@ -416,11 +416,11 @@ def run_ca_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
 
 
 
@@ -449,11 +449,11 @@ def run_dc_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
 
 def run_ks_scratcher_recs(gspread_client):
     """Scrapes KS data, saves ratingstable, returns scratchertables."""
@@ -478,11 +478,11 @@ def run_ks_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None  
+        return None, None 
     
 def run_ky_scratcher_recs(gspread_client):
     """Scrapes KY data, saves ratingstable, returns scratchertables."""
@@ -506,11 +506,11 @@ def run_ky_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None  
+        return None, None
     
 
 def run_mo_scratcher_recs(gspread_client):
@@ -536,11 +536,11 @@ def run_mo_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
     
 
     
@@ -567,11 +567,11 @@ def run_nc_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
 
 def run_nm_scratcher_recs(gspread_client):
     """Scrapes NM data, saves ratingstable, returns scratchertables."""
@@ -596,11 +596,11 @@ def run_nm_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
     
 def run_ny_scratcher_recs(gspread_client):
     """Scrapes NY data, saves ratingstable, returns scratchertables."""
@@ -625,11 +625,11 @@ def run_ny_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
 
 def run_ok_scratcher_recs(gspread_client):
     """Scrapes OK data, saves ratingstable, returns scratchertables."""
@@ -654,11 +654,11 @@ def run_ok_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
     
 def run_or_scratcher_recs(gspread_client):
     """Scrapes OR data, saves ratingstable, returns scratchertables."""
@@ -683,12 +683,12 @@ def run_or_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
-
+        return None, None
+    
 def run_tx_scratcher_recs(gspread_client):
     """Scrapes TX data, saves ratingstable, returns scratchertables."""
     state_code = 'TX'
@@ -712,11 +712,11 @@ def run_tx_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
 
 def run_va_scratcher_recs(gspread_client):
     """Scrapes VA data, saves ratingstable, returns scratchertables."""
@@ -740,11 +740,11 @@ def run_va_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
     
 def run_wa_scratcher_recs(gspread_client):
     """Scrapes WA data, saves ratingstable, returns scratchertables."""
@@ -769,11 +769,11 @@ def run_wa_scratcher_recs(gspread_client):
     except ImportError:
         # Log the error WITH traceback using exc_info=True
         logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
-        return None
+        return None, None
     except Exception as e:
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
-        return None
+        return None, None
 
 
 # --- Add similar wrappers for il, fl, oh, ms if you enable them ---
