@@ -379,7 +379,7 @@ def run_az_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
