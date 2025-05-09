@@ -1844,3 +1844,189 @@ Traceback (most recent call last):
     simTable_filename = os.path.join(output_dir, f"simTable_{run_description_for_file}.csv")
 UnboundLocalError: local variable 'run_description_for_file' referenced before assignment
 2025-05-09 15:16:35,321 - __main__ - INFO - Finishing SimulationOptimized.py at: 2025-05-09 15:16:35 EDT
+2025-05-09 20:06:44,592 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-09 20:06:44 UTC
+2025-05-09 20:06:44,593 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-09 20:06:59,786 - __main__ - INFO - Clearing worksheet 'AZRatingsTable' before saving new data.
+2025-05-09 20:07:00,144 - __main__ - INFO - Saving DataFrame to worksheet 'AZRatingsTable'...
+2025-05-09 20:07:00,877 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: AZRatingsTable
+2025-05-09 20:07:00,878 - __main__ - INFO - Successfully processed AZ. Returning scratchertables.
+2025-05-09 20:07:00,887 - __main__ - INFO - Processing ratingstable for AZ...
+2025-05-09 20:07:00,888 - __main__ - WARNING - Column 'Stats Page' missing in AZ ratingstable. Adding with None.
+2025-05-09 20:07:00,889 - __main__ - INFO - Added processed AZ ratingstable to combined list.
+2025-05-09 20:07:00,889 - __main__ - INFO - --- Processing State: CA ---
+2025-05-09 20:07:00,893 - __main__ - ERROR - Could not import CAlotteryscrape. Skipping CA.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 402, in run_ca_scratcher_recs
+    from calotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/calotteryscrape.py", line 18, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,893 - __main__ - WARNING - Function run_ca_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,893 - __main__ - WARNING - Function run_ca_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,893 - __main__ - INFO - --- Processing State: DC ---
+2025-05-09 20:07:00,899 - __main__ - ERROR - Could not import DClotteryscrape. Skipping DC.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 435, in run_dc_scratcher_recs
+    from dclotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/dclotteryscrape.py", line 18, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,900 - __main__ - WARNING - Function run_dc_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,900 - __main__ - WARNING - Function run_dc_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,900 - __main__ - INFO - --- Processing State: KS ---
+2025-05-09 20:07:00,904 - __main__ - ERROR - Could not import KSlotteryscrape. Skipping KS.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 464, in run_ks_scratcher_recs
+    from kslotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/kslotteryscrape.py", line 20, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,904 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,904 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,904 - __main__ - INFO - --- Processing State: KY ---
+2025-05-09 20:07:00,908 - __main__ - ERROR - Could not import KYlotteryscrape. Skipping KY.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 492, in run_ky_scratcher_recs
+    from kylotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/kylotteryscrape.py", line 18, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,908 - __main__ - WARNING - Function run_ky_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,908 - __main__ - WARNING - Function run_ky_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,908 - __main__ - INFO - --- Processing State: MO ---
+2025-05-09 20:07:00,912 - __main__ - ERROR - Could not import MOlotteryscrape. Skipping MO.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 522, in run_mo_scratcher_recs
+    from molotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/molotteryscrape.py", line 10, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,912 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,912 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,913 - __main__ - INFO - --- Processing State: NC ---
+2025-05-09 20:07:00,916 - __main__ - ERROR - Could not import NClotteryscrape. Skipping NC.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 553, in run_nc_scratcher_recs
+    from nclotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/nclotteryscrape.py", line 18, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,917 - __main__ - WARNING - Function run_nc_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,917 - __main__ - WARNING - Function run_nc_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,917 - __main__ - INFO - --- Processing State: NM ---
+2025-05-09 20:07:00,920 - __main__ - ERROR - Could not import NMlotteryscrape. Skipping NM.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 582, in run_nm_scratcher_recs
+    from nmlotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/nmlotteryscrape.py", line 26, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,921 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,921 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,921 - __main__ - INFO - --- Processing State: NY ---
+2025-05-09 20:07:00,925 - __main__ - ERROR - Could not import NYlotteryscrape. Skipping NY.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 611, in run_ny_scratcher_recs
+    from nylotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/nylotteryscrape.py", line 18, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,925 - __main__ - WARNING - Function run_ny_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,925 - __main__ - WARNING - Function run_ny_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,926 - __main__ - INFO - --- Processing State: OK ---
+2025-05-09 20:07:00,929 - __main__ - ERROR - Could not import OKlotteryscrape. Skipping OK.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 640, in run_ok_scratcher_recs
+    from oklotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/oklotteryscrape.py", line 26, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,930 - __main__ - WARNING - Function run_ok_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,930 - __main__ - WARNING - Function run_ok_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,930 - __main__ - INFO - --- Processing State: OR ---
+2025-05-09 20:07:00,934 - __main__ - ERROR - Could not import ORlotteryscrape. Skipping OR.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 669, in run_or_scratcher_recs
+    from orlotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/orlotteryscrape.py", line 18, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,934 - __main__ - WARNING - Function run_or_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,934 - __main__ - WARNING - Function run_or_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,934 - __main__ - INFO - --- Processing State: TX ---
+2025-05-09 20:07:00,938 - __main__ - ERROR - Could not import TXlotteryscrape. Skipping TX.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 698, in run_tx_scratcher_recs
+    from txlotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/txlotteryscrape.py", line 17, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,938 - __main__ - WARNING - Function run_tx_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,938 - __main__ - WARNING - Function run_tx_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,938 - __main__ - INFO - --- Processing State: VA ---
+2025-05-09 20:07:00,944 - __main__ - ERROR - Could not import VAlotteryscrape. Skipping VA.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 726, in run_va_scratcher_recs
+    from valotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/valotteryscrape.py", line 10, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,944 - __main__ - WARNING - Function run_va_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,944 - __main__ - WARNING - Function run_va_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,944 - __main__ - INFO - --- Processing State: WA ---
+2025-05-09 20:07:00,948 - __main__ - ERROR - Could not import WAlotteryscrape. Skipping WA.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 755, in run_wa_scratcher_recs
+    from walotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/walotteryscrape.py", line 19, in <module>
+    from bs4 import BeautifulSoup, re
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-09 20:07:00,948 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid scratchertables data.
+2025-05-09 20:07:00,948 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid ratingstable data.
+2025-05-09 20:07:00,948 - __main__ - INFO - Combining scratchertables data from 1 states.
+2025-05-09 20:07:00,948 - __main__ - INFO - Combined scratchertables shape: (418, 11)
+2025-05-09 20:07:00,948 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined scratchertables...
+2025-05-09 20:07:00,949 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameNumber' (Original dtype: object, New dtype: int64)
+2025-05-09 20:07:00,950 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameName' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:00,950 - __main__ - INFO -   - Converted/Checked scratchertables column 'prizeamount' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:00,951 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets At Start' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:00,952 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets Unclaimed' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:00,952 - __main__ - INFO -   - Converted/Checked scratchertables column 'Prize Probability' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:00,953 - __main__ - INFO -   - Converted/Checked scratchertables column 'Percent Tix Remaining' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:00,953 - __main__ - INFO -   - Converted/Checked scratchertables column 'Starting Expected Value' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:00,954 - __main__ - INFO -   - Converted/Checked scratchertables column 'Expected Value' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:00,955 - __main__ - INFO -   - Converted/Checked scratchertables column 'dateexported' (Original dtype: object, New dtype: datetime64[ns])
+2025-05-09 20:07:00,956 - __main__ - INFO -   - Converted/Checked scratchertables column 'State' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:00,956 - __main__ - INFO - Attempting to save combined data to 'ScratcherTables' sheet.
+2025-05-09 20:07:02,073 - __main__ - INFO - Clearing worksheet 'ScratcherTables' before saving new data.
+2025-05-09 20:07:02,503 - __main__ - INFO - Saving DataFrame to worksheet 'ScratcherTables'...
+2025-05-09 20:07:04,286 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ScratcherTables
+2025-05-09 20:07:04,286 - __main__ - INFO - Combining ratingstable data from 1 states.
+2025-05-09 20:07:04,287 - __main__ - INFO - Combined ratingstable shape: (35, 50)
+2025-05-09 20:07:04,287 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined ratingstable...
+2025-05-09 20:07:04,287 - __main__ - INFO -   - Converted/Checked ratingstable column 'price' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,288 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameName' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,288 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameNumber' (Original dtype: object, New dtype: int64)
+2025-05-09 20:07:04,289 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeremain' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,290 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeavail' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,290 - __main__ - INFO -   - Converted/Checked ratingstable column 'extrachances' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,290 - __main__ - INFO -   - Converted/Checked ratingstable column 'secondChance' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,291 - __main__ - INFO -   - Converted/Checked ratingstable column 'startDate' (Original dtype: object, New dtype: datetime64[ns])
+2025-05-09 20:07:04,291 - __main__ - INFO -   - Converted/Checked ratingstable column 'Days Since Start' (Original dtype: object, New dtype: int64)
+2025-05-09 20:07:04,292 - __main__ - INFO -   - Converted/Checked ratingstable column 'lastdatetoclaim' (Original dtype: object, New dtype: datetime64[ns])
+2025-05-09 20:07:04,293 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeodds' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,293 - __main__ - INFO -   - Converted/Checked ratingstable column 'overallodds' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,293 - __main__ - INFO -   - Converted/Checked ratingstable column 'Current Odds of Top Prize' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,300 - __main__ - INFO -   - Converted/Checked ratingstable column 'Rank Average' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,301 - __main__ - INFO -   - Converted/Checked ratingstable column 'Overall Rank' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,301 - __main__ - INFO -   - Converted/Checked ratingstable column 'Rank by Cost' (Original dtype: object, New dtype: float64)
+2025-05-09 20:07:04,302 - __main__ - INFO -   - Converted/Checked ratingstable column 'Photo' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,302 - __main__ - INFO -   - Converted/Checked ratingstable column 'FAQ' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,303 - __main__ - INFO -   - Converted/Checked ratingstable column 'About' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,303 - __main__ - INFO -   - Converted/Checked ratingstable column 'Directory' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,303 - __main__ - INFO -   - Converted/Checked ratingstable column 'Stats Page' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,304 - __main__ - INFO -   - Converted/Checked ratingstable column 'State' (Original dtype: object, New dtype: object)
+2025-05-09 20:07:04,304 - __main__ - INFO - Attempting to save combined data to 'AllStatesRankings' sheet starting at row 3.
+2025-05-09 20:07:04,951 - __main__ - ERROR - Worksheet 'AllStatesRankings' not found. Cannot save data starting at row 3.
+2025-05-09 20:07:04,951 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-09 20:07:04 UTC
+2025-05-09 20:07:04,951 - __main__ - INFO - Total execution time: 0:00:20.359148
