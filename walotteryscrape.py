@@ -16,7 +16,8 @@ import urllib.request
 import json
 import requests
 from apscheduler.schedulers.blocking import BlockingScheduler
-from bs4 import BeautifulSoup, re
+from bs4 import BeautifulSoup
+import re
 import logging
 from datetime import datetime
 from dateutil.tz import tzlocal

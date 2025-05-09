@@ -470,8 +470,29 @@ def exportScratcherRecs():
     print(ratingstable.columns)
     #ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
-    
-    
+    ratingstable['Stats Page'] = "/washington-statistics-for-each-scratcher-game"
+    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+       'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
+       'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
+       'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
+       'Probability of Winning Any Prize','Change in Probability of Any Prize',
+       'Probability of Winning Profit Prize','Change in Probability of Profit Prize',
+       'StdDev of All Prizes','StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs',
+       'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy',
+       'Expected Value of Any Prize (as % of cost)',
+       'Change in Expected Value of Any Prize',
+       'Expected Value of Profit Prize (as % of cost)',
+       'Change in Expected Value of Profit Prize',
+       'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining',
+       'Ratio of Decline in Prizes to Decline in Losing Ticket',
+       'Rank by Best Probability of Winning Any Prize',
+       'Rank by Best Probability of Winning Profit Prize',
+       'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
+       'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
+       'Photo','FAQ', 'About', 'Directory', 
+       'Data Date','Stats Page']]
+    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
+    ratingstable.fillna('',inplace=True)
                              
     return ratingstable, scratchertables
 
