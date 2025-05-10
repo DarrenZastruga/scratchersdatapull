@@ -470,7 +470,7 @@ def exportScratcherRecs():
     print(ratingstable.columns)
     #ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
-    ratingstable['Stats Page'] = "/washington-statistics-for-each-scratcher-game"
+    ratingstable['Stats Page'] = "/arizona-statistics-for-each-scratcher-game"
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
