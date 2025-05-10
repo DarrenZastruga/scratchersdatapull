@@ -979,11 +979,11 @@ def main():
                           if combined_ratingstable[col].dtype != 'object':
                              combined_ratingstable[col] = combined_ratingstable[col].astype(object)
 
-            logger.info("Attempting to save combined data to 'AllStatesRankings' sheet starting at row 3.")
+            logger.info("Attempting to save combined data to 'AllStatesRatings' sheet starting at row 3.")
             # Use the NEW save function
-            save_dataframe_starting_at_row(combined_ratingstable, 'AllStatesRankings', 3, gspread_client)
+            save_dataframe_starting_at_row(combined_ratingstable, 'AllStatesRatings', 3, gspread_client)
         else:
-            logger.warning("No ratingstable data collected. 'AllStatesRankings' sheet will not be updated.")
+            logger.warning("No ratingstable data collected. 'AllStatesRatings' sheet will not be updated.")
 
 
     except Exception as e:
