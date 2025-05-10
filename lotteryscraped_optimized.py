@@ -409,7 +409,7 @@ def run_ca_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -442,7 +442,7 @@ def run_dc_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -471,7 +471,7 @@ def run_ks_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -499,7 +499,7 @@ def run_ky_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -529,7 +529,7 @@ def run_mo_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -560,7 +560,7 @@ def run_nc_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -589,7 +589,7 @@ def run_nm_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -618,7 +618,7 @@ def run_ny_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -647,7 +647,7 @@ def run_ok_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -676,7 +676,7 @@ def run_or_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -705,7 +705,7 @@ def run_tx_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -733,7 +733,7 @@ def run_va_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
@@ -762,7 +762,7 @@ def run_wa_scratcher_recs(gspread_client):
             scratchertables['State'] = state_code
             logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
             print(scratchertables)
-            return scratchertables
+            return ratingstable, scratchertables
         else:
              logger.warning(f"No scratchertables data returned from {state_code} scrape.")
              return None
