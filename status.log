@@ -2301,3 +2301,274 @@ KeyError: "['prizeamount'] not found in axis"
 2025-05-09 20:29:52,771 - __main__ - ERROR - Worksheet 'AllStatesRankings' not found. Cannot save data starting at row 3.
 2025-05-09 20:29:52,771 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-09 20:29:52 UTC
 2025-05-09 20:29:52,771 - __main__ - INFO - Total execution time: 0:04:33.224558
+2025-05-10 14:49:53,814 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-05-10 14:49:53 UTC
+2025-05-10 14:49:53,815 - __main__ - INFO - --- Processing State: AZ ---
+2025-05-10 14:50:10,381 - __main__ - INFO - Clearing worksheet 'AZRatingsTable' before saving new data.
+2025-05-10 14:50:10,816 - __main__ - INFO - Saving DataFrame to worksheet 'AZRatingsTable'...
+2025-05-10 14:50:11,979 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: AZRatingsTable
+2025-05-10 14:50:11,980 - __main__ - INFO - Successfully processed AZ. Returning scratchertables.
+2025-05-10 14:50:11,990 - __main__ - INFO - Processing ratingstable for AZ...
+2025-05-10 14:50:11,991 - __main__ - INFO - Added processed AZ ratingstable to combined list.
+2025-05-10 14:50:11,991 - __main__ - INFO - --- Processing State: CA ---
+2025-05-10 14:50:11,995 - calotteryscrape - INFO - Running lotteryscrape.py at: 2025-05-10 14:50:11 UTC
+2025-05-10 14:50:20,524 - __main__ - ERROR - Error occurred during CA processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 404, in run_ca_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/calotteryscrape.py", line 330, in exportScratcherRecs
+    ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:50:20,529 - __main__ - WARNING - Function run_ca_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:50:20,529 - __main__ - WARNING - Function run_ca_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:50:20,529 - __main__ - INFO - --- Processing State: DC ---
+2025-05-10 14:50:20,535 - __main__ - ERROR - Could not import DClotteryscrape. Skipping DC.
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 435, in run_dc_scratcher_recs
+    from dclotteryscrape import exportScratcherRecs
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/dclotteryscrape.py", line 67, in <module>
+    from bs4 import BeautifulSoup, re # Added re import
+ImportError: cannot import name 're' from 'bs4' (/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/bs4/__init__.py)
+2025-05-10 14:50:20,535 - __main__ - WARNING - Function run_dc_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:50:20,535 - __main__ - WARNING - Function run_dc_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:50:20,535 - __main__ - INFO - --- Processing State: KS ---
+2025-05-10 14:50:36,706 - __main__ - ERROR - Error occurred during KS processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 466, in run_ks_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/kslotteryscrape.py", line 319, in exportScratcherRecs
+    ratingstable.drop(labels=['gamePhoto', 'gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:50:36,708 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:50:36,708 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:50:36,708 - __main__ - INFO - --- Processing State: KY ---
+2025-05-10 14:50:46,461 - __main__ - ERROR - Error occurred during KY processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 494, in run_ky_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/kylotteryscrape.py", line 252, in exportScratcherRecs
+    ratingstable.drop(labels=['gamePhoto', 'gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:50:46,462 - __main__ - WARNING - Function run_ky_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:50:46,462 - __main__ - WARNING - Function run_ky_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:50:46,462 - __main__ - INFO - --- Processing State: MO ---
+2025-05-10 14:51:35,425 - __main__ - ERROR - Error occurred during MO processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 524, in run_mo_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/molotteryscrape.py", line 368, in exportScratcherRecs
+    ratingstable.drop(labels=['gameName_x', 'dateexported_y', 'overallodds_y',
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:51:35,426 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:51:35,426 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:51:35,426 - __main__ - INFO - --- Processing State: NC ---
+2025-05-10 14:51:58,339 - __main__ - ERROR - Error occurred during NC processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 555, in run_nc_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/nclotteryscrape.py", line 315, in exportScratcherRecs
+    ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:51:58,340 - __main__ - WARNING - Function run_nc_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:51:58,340 - __main__ - WARNING - Function run_nc_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:51:58,341 - __main__ - INFO - --- Processing State: NM ---
+2025-05-10 14:52:01,912 - __main__ - ERROR - Error occurred during NM processing (after import): cannot concatenate object of type '<class 'list'>'; only Series and DataFrame objs are valid
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 584, in run_nm_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/nmlotteryscrape.py", line 126, in exportScratcherRecs
+    tixtables = pd.concat([tixtables, []], axis=0)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/reshape/concat.py", line 448, in __init__
+    ndims = self._get_ndims(objs)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/reshape/concat.py", line 489, in _get_ndims
+    raise TypeError(msg)
+TypeError: cannot concatenate object of type '<class 'list'>'; only Series and DataFrame objs are valid
+2025-05-10 14:52:01,913 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:52:01,913 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:52:01,913 - __main__ - INFO - --- Processing State: NY ---
+2025-05-10 14:52:03,782 - __main__ - ERROR - Error occurred during NY processing (after import): invalid literal for int() with base 10: '$1000'
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 613, in run_ny_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/nylotteryscrape.py", line 126, in exportScratcherRecs
+    tixdata.at[0,'prizeamount'] = str(int(tixdata['prizeamount'].iloc[0].replace('k/wk/life','000'))*52*50)
+ValueError: invalid literal for int() with base 10: '$1000'
+2025-05-10 14:52:03,783 - __main__ - WARNING - Function run_ny_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:52:03,783 - __main__ - WARNING - Function run_ny_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:52:03,783 - __main__ - INFO - --- Processing State: OK ---
+2025-05-10 14:52:03,787 - oklotteryscrape - INFO - Running lotteryscrape.py at: 2025-05-10 14:52:03 UTC
+2025-05-10 14:52:09,662 - __main__ - ERROR - Error occurred during OK processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 642, in run_ok_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/oklotteryscrape.py", line 346, in exportScratcherRecs
+    ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:52:09,663 - __main__ - WARNING - Function run_ok_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:52:09,663 - __main__ - WARNING - Function run_ok_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:52:09,663 - __main__ - INFO - --- Processing State: OR ---
+2025-05-10 14:52:25,791 - __main__ - ERROR - Error occurred during OR processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 671, in run_or_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/orlotteryscrape.py", line 345, in exportScratcherRecs
+    ratingstable.drop(labels=['gameName_x', 'dateexported_y', 'overallodds_y',
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:52:25,792 - __main__ - WARNING - Function run_or_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:52:25,792 - __main__ - WARNING - Function run_or_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:52:25,792 - __main__ - INFO - --- Processing State: TX ---
+2025-05-10 14:52:48,711 - __main__ - ERROR - Error occurred during TX processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 700, in run_tx_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/txlotteryscrape.py", line 330, in exportScratcherRecs
+    ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:52:48,712 - __main__ - WARNING - Function run_tx_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:52:48,712 - __main__ - WARNING - Function run_tx_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:52:48,712 - __main__ - INFO - --- Processing State: VA ---
+2025-05-10 14:53:25,773 - __main__ - ERROR - Error occurred during VA processing (after import): nothing to repeat at position 0
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 728, in run_va_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/valotteryscrape.py", line 132, in exportScratcherRecs
+    tixtables['prizeamount'] = tixtables['prizeamount'].str.replace('*','', regex = True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/strings/accessor.py", line 137, in wrapper
+    return func(self, *args, **kwargs)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/strings/accessor.py", line 1567, in replace
+    result = self._data.array._str_replace(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/strings/object_array.py", line 172, in _str_replace
+    pat = re.compile(pat, flags=flags)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/re.py", line 252, in compile
+    return _compile(pattern, flags)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/re.py", line 304, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/sre_compile.py", line 788, in compile
+    p = sre_parse.parse(p, flags)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/sre_parse.py", line 955, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/sre_parse.py", line 669, in _parse
+    raise source.error("nothing to repeat",
+re.error: nothing to repeat at position 0
+2025-05-10 14:53:25,822 - __main__ - WARNING - Function run_va_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:53:25,823 - __main__ - WARNING - Function run_va_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:53:25,823 - __main__ - INFO - --- Processing State: WA ---
+2025-05-10 14:53:39,158 - __main__ - ERROR - Error occurred during WA processing (after import): "['prizeamount'] not found in axis"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 757, in run_wa_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/walotteryscrape.py", line 291, in exportScratcherRecs
+    ratingstable.drop(labels=['gamePhoto', 'gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['prizeamount'] not found in axis"
+2025-05-10 14:53:39,159 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid scratchertables data.
+2025-05-10 14:53:39,159 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid ratingstable data.
+2025-05-10 14:53:39,160 - __main__ - INFO - Combining scratchertables data from 1 states.
+2025-05-10 14:53:39,160 - __main__ - INFO - Combined scratchertables shape: (418, 11)
+2025-05-10 14:53:39,160 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined scratchertables...
+2025-05-10 14:53:39,161 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameNumber' (Original dtype: object, New dtype: int64)
+2025-05-10 14:53:39,161 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameName' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:39,162 - __main__ - INFO -   - Converted/Checked scratchertables column 'prizeamount' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:39,163 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets At Start' (Original dtype: object, New dtype: float64)
+2025-05-10 14:53:39,163 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets Unclaimed' (Original dtype: object, New dtype: float64)
+2025-05-10 14:53:39,164 - __main__ - INFO -   - Converted/Checked scratchertables column 'Prize Probability' (Original dtype: object, New dtype: float64)
+2025-05-10 14:53:39,164 - __main__ - INFO -   - Converted/Checked scratchertables column 'Percent Tix Remaining' (Original dtype: object, New dtype: float64)
+2025-05-10 14:53:39,165 - __main__ - INFO -   - Converted/Checked scratchertables column 'Starting Expected Value' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:39,165 - __main__ - INFO -   - Converted/Checked scratchertables column 'Expected Value' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:39,166 - __main__ - INFO -   - Converted/Checked scratchertables column 'dateexported' (Original dtype: object, New dtype: datetime64[ns])
+2025-05-10 14:53:39,167 - __main__ - INFO -   - Converted/Checked scratchertables column 'State' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:39,167 - __main__ - INFO - Attempting to save combined data to 'ScratcherTables' sheet.
+2025-05-10 14:53:40,378 - __main__ - INFO - Clearing worksheet 'ScratcherTables' before saving new data.
+2025-05-10 14:53:40,628 - __main__ - INFO - Saving DataFrame to worksheet 'ScratcherTables'...
+2025-05-10 14:53:41,798 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ScratcherTables
+2025-05-10 14:53:41,798 - __main__ - INFO - Combining ratingstable data from 1 states.
+2025-05-10 14:53:41,799 - __main__ - INFO - Combined ratingstable shape: (35, 50)
+2025-05-10 14:53:41,799 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined ratingstable...
+2025-05-10 14:53:41,800 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameName' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,802 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeavail' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,802 - __main__ - INFO -   - Converted/Checked ratingstable column 'extrachances' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,803 - __main__ - INFO -   - Converted/Checked ratingstable column 'secondChance' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,811 - __main__ - INFO -   - Converted/Checked ratingstable column 'Photo' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,812 - __main__ - INFO -   - Converted/Checked ratingstable column 'FAQ' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,812 - __main__ - INFO -   - Converted/Checked ratingstable column 'About' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,813 - __main__ - INFO -   - Converted/Checked ratingstable column 'Directory' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,813 - __main__ - INFO -   - Converted/Checked ratingstable column 'Stats Page' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,814 - __main__ - INFO -   - Converted/Checked ratingstable column 'State' (Original dtype: object, New dtype: object)
+2025-05-10 14:53:41,814 - __main__ - INFO - Attempting to save combined data to 'AllStatesRankings' sheet starting at row 3.
+2025-05-10 14:53:43,077 - __main__ - ERROR - Worksheet 'AllStatesRankings' not found. Cannot save data starting at row 3.
+2025-05-10 14:53:43,077 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-05-10 14:53:43 UTC
+2025-05-10 14:53:43,077 - __main__ - INFO - Total execution time: 0:03:49.263416
