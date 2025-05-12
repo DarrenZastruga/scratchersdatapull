@@ -51,33 +51,6 @@ def exportScratcherRecs():
         
         tixtables = pd.DataFrame()
         tixlist = pd.DataFrame()
-        '''
-        r = requests.get(url)
-        response = r.text
-        
-        
-        soup = BeautifulSoup(response, 'html.parser')
-        tixdata = soup.find_all('div', class_='prizes-remaining-item')
-        
-        
-        
-        for t in tixdata:
-            gameName = t.find('img')['alt']
-            gamePhoto = gameName = t.find('img')['src']
-            gameNumber = t.find_all('div')[-1].find_all('p')[0].string.split(' | ')[1]
-            gamePrice = t.find_all('div')[-1].find_all('p')[0].string.split(' | ')[0].replace('$','')
-            lastdatetoclaim = t.find_all('div')[-1].find_all('p')[1].string.split(': ')[1]
-            print(gameNumber)
-            print(gamePrice)
-            print(lastdatetoclaim)
-            
-            gameURL = 'https://walottery.com/Scratch/'+str(t.find('a')['href'])
-            print(gameURL)
-            print(gameName)
-            print(gamePhoto)
-            table = pd.read_html(str(t.find('table')))[0]
-            print(table)
-            '''
         
         #go to game page for tix data
         r = requests.get(url)
@@ -100,6 +73,7 @@ def exportScratcherRecs():
             gameName = game['GameName'].replace("&#39;","'")
             gamePrice = game['Cost']
             gamePhoto = game['GridImageUrl']
+            gameURL = 'https://walottery.com/Scratch/Explorer.aspx?id='+gameNumber
             overallodds = game['OverallOdds'].replace('1 in ','')
             startDate = game['SalesStartDate']
             endDate = game['SalesEndDate']

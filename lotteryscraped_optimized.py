@@ -322,7 +322,7 @@ def save_dataframe_starting_at_row(dataframe, worksheet_name, start_row, gspread
                 # Use A1 notation for the clear range
                 # Calculate end column letter based on DataFrame width if worksheet is narrower
                 # Or just use a reasonably wide fixed range like 'ZZ' if simpler
-                end_col_letter = gspread.utils.convert_to_a1_notation(1, max(max_cols, len(dataframe.columns))).rstrip('1')
+                end_col_letter = gspread.utils.rowcol_to_a1(1, max(max_cols, len(dataframe.columns))).rstrip('1') # Get column letter
                 clear_range = f'A{start_row}:{end_col_letter}{max_rows}'
                 logger.debug(f"Calculated clear range: {clear_range}")
                 worksheet.batch_clear([clear_range])
