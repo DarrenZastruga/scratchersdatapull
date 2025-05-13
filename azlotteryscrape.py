@@ -115,6 +115,7 @@ def exportScratcherRecs():
         gameName = scratcherdata['gameName'][0]
         gameNumber = scratcherdata['gameNum'][0]
         gamePrice = scratcherdata['ticketValue'][0]
+        gameURL = i['gameURL']   #new line here
         startDate = datetime.fromisoformat(scratcherdata['beginDate'][0])
         endDate = None if 'endDate' not in scratcherdata else datetime.fromisoformat(scratcherdata['endDate'][0])
         lastdatetoclaim = datetime.fromisoformat(scratcherdata['lastDate'][0])
@@ -137,8 +138,8 @@ def exportScratcherRecs():
             startingprizecount = int(prizetier['totalCount'][0])
             remainingprizecount = int(prizetier['count'][0])
             tixtables.loc[len(tixtables.index), ['gameNumber','gameName','price','prizeamount','startDate','endDate','lastdatetoclaim',
-                                                 'overallodds','prizeodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported','tierLevel']] = [gameNumber, gameName, gamePrice, prizeamount, 
-                                                                                                                                          startDate, endDate, lastdatetoclaim, gameOdds, prizeodds, startingprizecount, remainingprizecount, dateexported, prizetier['tierLevel'][0]]
+                                                 'overallodds','prizeodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported', 'gameURL', 'tierLevel']] = [gameNumber, gameName, gamePrice, prizeamount, 
+                                                                                                                                          startDate, endDate, lastdatetoclaim, gameOdds, prizeodds, startingprizecount, remainingprizecount, dateexported, gameURL, prizetier['tierLevel'][0]]
         
         #tixtables['gameNumber'] = gameNumber
         index = tixtables[tixtables['gameNumber']==gameNumber].index
@@ -159,7 +160,7 @@ def exportScratcherRecs():
                                                                                                                                
     tixtables.to_csv("./AZprizedata.csv", encoding='utf-8')
     print(tixtables.dtypes)
-    scratchersall = tixtables[['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']]
+    scratchersall = tixtables[['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported', 'gameURL']]
     scratchersall = scratchersall.drop_duplicates(subset=['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported'])
     scratchersall = scratchersall.loc[scratchersall['gameNumber']!= "Coming Soon!", :]
     #scratchersall = scratchersall.drop_duplicates()
