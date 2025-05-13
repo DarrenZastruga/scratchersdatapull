@@ -111,7 +111,7 @@ def exportScratcherRecs():
                 gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
 
     tixlist.to_csv("./WAtixlist.csv", encoding='utf-8')
-    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']].copy()
+    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported', 'gameURL']].copy()
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     

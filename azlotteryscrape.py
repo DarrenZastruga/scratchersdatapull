@@ -93,7 +93,7 @@ def exportScratcherRecs():
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto']] = [
             gamePrice, gameName, gameNumber, gameURL, gamePhoto]
 
-    #tixlist.to_csv("./AZtixlist.csv", encoding='utf-8')
+    tixlist.to_csv("./AZtixlist.csv", encoding='utf-8')
     
     
     tixtables = pd.DataFrame(columns=['gameNumber','gameName','price','prizeamount','startDate','endDate','lastdatetoclaim','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported'])
