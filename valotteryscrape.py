@@ -129,11 +129,11 @@ def exportScratcherRecs():
     
     #remove characters from numeric values
     tixtables['gameNumber'] = tixtables['gameNumber'].replace('#','', regex = True)
-    tixtables['prizeamount'] = tixtables['prizeamount'].str.replace('*','', regex = True)
+    tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(r'\*','', regex = True)
     tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(',','', regex = True)
     tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(r'\$','', regex = True)
     tixtables['price'] = tixtables['price'].str.replace(r'\$','', regex = True)
-    tixtables['topprize'] = tixtables['topprize'].str.replace('*','', regex = True)
+    tixtables['topprize'] = tixtables['topprize'].str.replace(r'\*','', regex = True)
     tixtables['topprize'] = tixtables['topprize'].str.replace(',','', regex = True)
     tixtables['topprize'] = tixtables['topprize'].str.replace(r'\$','', regex = True)
     

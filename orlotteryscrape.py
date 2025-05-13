@@ -343,7 +343,7 @@ def exportScratcherRecs():
     ratingstable = scratchersall.merge(
         currentodds, how='left', on=['gameNumber', 'price'])
     ratingstable.drop(labels=['gameName_x', 'dateexported_y', 'overallodds_y',
-                      'topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
+                      'topprizeremain_x'], axis=1, inplace=True)
     ratingstable.rename(columns={'gameName_y': 'gameName', 'dateexported_x': 'dateexported', 'topprizeodds_x': 'topprizeodds',
                         'overallodds_x': 'overallodds', 'topprizeremain_y': 'topprizeremain'}, inplace=True)
     # add number of days since the game start date as of date exported

@@ -122,8 +122,8 @@ def exportScratcherRecs():
         
         tixdata = pd.read_html(str(s.find(class_='data')))[0]
         print(tixdata)
-        if len(tixdata) == 0:
-            tixtables = pd.concat([tixtables, []], axis=0)
+        if tixdata.empty:
+            pass # Do nothing, tixtables remains as is
         else:
             tixdata.rename(columns={'Prize:':'prizeamount','Approx. # of Prizes:': 'Winning Tickets At Start', 'Approx. Prizes Remaining:': 'Winning Tickets Unclaimed'}, inplace=True)
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','')

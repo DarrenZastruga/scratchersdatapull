@@ -58,13 +58,6 @@ def formatstr(s):
     except TypeError:
         return s
 
-import pandas as pd
-import os
-# ... other imports ...
-import numpy as np
-from datetime import date
-import requests
-from bs4 import BeautifulSoup, re # Added re import
 
 # ... (keep constants, formatstr function, etc.) ...
 

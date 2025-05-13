@@ -73,7 +73,7 @@ def exportScratcherRecs():
             gameName = game['GameName'].replace("&#39;","'")
             gamePrice = game['Cost']
             gamePhoto = game['GridImageUrl']
-            gameURL = 'https://walottery.com/Scratch/Explorer.aspx?id='+gameNumber
+            gameURL = 'https://walottery.com/Scratch/Explorer.aspx?id='+str(gameNumber)
             overallodds = game['OverallOdds'].replace('1 in ','')
             startDate = game['SalesStartDate']
             endDate = game['SalesEndDate']
