@@ -954,11 +954,35 @@ def main():
         # --- NEW: Combine and Upload RatingsTables ---
         if all_ratingstables_list:
             logger.info(f"Combining ratingstable data from {len(all_ratingstables_list)} states.")
-            # Use outer join to handle potentially missing columns gracefully during concat
+            # Concat first
             combined_ratingstable = pd.concat(all_ratingstables_list, ignore_index=True, join='outer', sort=False)
-            # Reindex one last time with the final target columns to ensure order and presence
+            logger.info(f"Combined ratingstable columns BEFORE final reindex: {combined_ratingstable.columns.tolist()}")
+    
+            # Ensure only columns from target_columns that exist in the combined_df are kept,
+            # and in the correct order. Add any missing target_columns with None.
+            final_ordered_cols = []
+            for col in target_columns:
+                if col in combined_ratingstable.columns:
+                    final_ordered_cols.append(col)
+                # else: # If you want to ensure all target_columns are present, add them here
+                #     combined_ratingstable[col] = None
+                #     final_ordered_cols.append(col)
+    
+            # Select only the desired columns in the target order
+            # This implicitly handles dropping columns not in target_columns
+            combined_ratingstable = combined_ratingstable[final_ordered_cols]
+    
+            # Now, explicitly add any target columns that were completely missing from all DFs
+            for col in target_columns:
+                if col not in combined_ratingstable.columns:
+                    logger.warning(f"Target column '{col}' was missing from all ratingstables, adding with None.")
+                    combined_ratingstable[col] = None
+            
+            # One final reindex to absolutely ensure target_columns order for any newly added columns
             combined_ratingstable = combined_ratingstable.reindex(columns=target_columns)
-            logger.info(f"Combined ratingstable shape: {combined_ratingstable.shape}")
+    
+            logger.info(f"Combined ratingstable shape after reindex: {combined_ratingstable.shape}")
+            logger.info(f"Combined ratingstable columns AFTER final reindex: {combined_ratingstable.columns.tolist()}")
 
             # Aggressive final conversion for the combined ratings table
             logger.info("Performing final type conversion for JSON compatibility on combined ratingstable...")

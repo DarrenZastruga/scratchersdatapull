@@ -86,10 +86,8 @@ def exportScratcherRecs():
             else:
                 table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
                
-                print(table)
                 table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
-                tableData = pd.read_html(table)[0]
-                print(tableData)
+                tableData = pd.read_html(io.StringIO(str(table)))[0]
             
         except ValueError as e:
             print(e) # ValueError: No tables found
@@ -102,7 +100,8 @@ def exportScratcherRecs():
             
         tableData['prizeamount'] = tableData['Prize Amount'].replace('*','')
         tableData['gameNumber'] = soup.find('h2', class_='title-display').find('small').get_text()
-        tableData['gameName'] = soup.find('h2', class_='title-display').find(text=True, recursive=False).strip()
+        tableData['gameName'] = soup.find('h2', class_='title-display').find(string=True, recursive=False).strip()
+        tableData['gameURL'] = ticketurl
         tableData['price'] = soup.find('h2', class_='ticket-price-display').get_text()
         tableData['overallodds'] = soup.find('p', class_='odds-display').find('span').get_text()
         tableData['topprize'] = soup.find('h2', class_='top-prize-display').get_text().replace('*','')
@@ -111,7 +110,6 @@ def exportScratcherRecs():
         tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', string=re.compile('eXTRA Chances')) else np.nan
         tableData['secondChance'] = '2nd Chance' if soup.find('p', string=re.compile('2nd Chance')) else np.nan
         tableData['startDate'] = soup.find_all('h2', class_='start-date-display')[0].get_text()
-        print(soup.find_all('h2', class_='start-date-display'))
         if len(soup.find_all('h2', class_='start-date-display')) > 1 & closing == True:
             tableData['endDate'] = soup.find_all('h2', class_='start-date-display')[1].get_text()
             tableData['lastdatetoclaim'] = soup.find_all('h2', class_='start-date-display')[2].get_text()
@@ -141,11 +139,11 @@ def exportScratcherRecs():
     #converts the tax prizes to the $50k + 4% tax rate, $2k/week*52 weeks/yr*10yrs, and Live Spin to the max prize $500,000 
     tixtables['topprize'] = tixtables['topprize'].replace({'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
     tixtables['prizeamount'] = tixtables['prizeamount'].replace({'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
-    print(tixtables['topprize'])
     tixtables['topprize'] = tixtables['topprize'].apply(
         formatstr).astype('int64')
     
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','topprizeodds','overallodds','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
+    print(tixtables.columns)
+    scratchersall = tixtables[['price','gameName','gameNumber','topprize','topprizeodds','overallodds','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     
@@ -332,7 +330,7 @@ def exportScratcherRecs():
     twodecimalcols = ['Current Odds of Any Prize', 'Odds of Profit Prize', 'Percent of Prizes Remaining', 'Expected Value of Any Prize (as % of cost)']
     ratingstable[twodecimalcols] = ratingstable[twodecimalcols].round(2)
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
-    ratingstable['Stats Page'] = "/washington-statistics-for-each-scratcher-game"
+    ratingstable['Stats Page'] = "/virginia-statistics-for-each-scratcher-game"
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
@@ -605,7 +603,7 @@ for t in prizetypes:
         clusterloop(ratingstable, scratchertables, t, std, 2)        
 '''                    
                 
-#exportScratcherRecs()
+exportScratcherRecs()
 '''
 scheduler = BlockingScheduler()
 scheduler.add_job(exportScratcherRecs, 'cron', hour=0, minute=30)
