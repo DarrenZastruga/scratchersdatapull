@@ -603,7 +603,7 @@ for t in prizetypes:
         clusterloop(ratingstable, scratchertables, t, std, 2)        
 '''                    
                 
-exportScratcherRecs()
+#exportScratcherRecs()
 '''
 scheduler = BlockingScheduler()
 scheduler.add_job(exportScratcherRecs, 'cron', hour=0, minute=30)
