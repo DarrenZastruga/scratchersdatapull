@@ -332,10 +332,33 @@ def exportScratcherRecs():
     twodecimalcols = ['Current Odds of Any Prize', 'Odds of Profit Prize', 'Percent of Prizes Remaining', 'Expected Value of Any Prize (as % of cost)']
     ratingstable[twodecimalcols] = ratingstable[twodecimalcols].round(2)
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
-    
+    ratingstable['Stats Page'] = "/washington-statistics-for-each-scratcher-game"
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
+    ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+       'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
+       'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
+       'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
+       'Probability of Winning Any Prize','Change in Probability of Any Prize',
+       'Probability of Winning Profit Prize','Change in Probability of Profit Prize',
+       'StdDev of All Prizes','StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs',
+       'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy',
+       'Expected Value of Any Prize (as % of cost)',
+       'Change in Expected Value of Any Prize',
+       'Expected Value of Profit Prize (as % of cost)',
+       'Change in Expected Value of Profit Prize',
+       'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining',
+       'Ratio of Decline in Prizes to Decline in Losing Ticket',
+       'Rank by Best Probability of Winning Any Prize',
+       'Rank by Best Probability of Winning Profit Prize',
+       'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
+       'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
+       'Photo','FAQ', 'About', 'Directory', 
+       'Data Date','Stats Page','gameURL']]
+    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
+    ratingstable.fillna('',inplace=True)
+    print(ratingstable)
     #ratingstable.to_sql('ratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./ratingstable.csv", encoding='utf-8')
     return ratingstable, scratchertables

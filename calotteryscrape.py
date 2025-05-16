@@ -160,6 +160,7 @@ def exportScratcherRecs():
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
             tixdata['gamePhoto'] = gamePhoto
+            tixdata['gameURL'] = gameURL
             tixdata['price'] = gamePrice
             tixdata['overallodds'] = overallodds
             tixdata['topprize'] = topprize
@@ -177,7 +178,7 @@ def exportScratcherRecs():
     tixlist.to_csv("./CAtixlist.csv", encoding='utf-8')
   
     
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
+    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     

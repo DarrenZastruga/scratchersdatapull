@@ -74,7 +74,7 @@ def exportScratcherRecs():
     tixrow = pd.DataFrame()
     for s in table:
         gamenames = s.find(class_='game-name').get_text(strip=True)
-        gameURL = s.find(class_='game-name').get('href')
+        gameURL = "https://www.arizonalottery.com"+s.find(class_='game-name').get('href')
         gameName = gamenames.partition(' #')[0]
         gameNumber = gamenames.partition(' #')[2]
         gamePrice = s.find(class_='col-md-6 price').find('span').get_text(strip=True)
@@ -115,7 +115,9 @@ def exportScratcherRecs():
         gameName = scratcherdata['gameName'][0]
         gameNumber = scratcherdata['gameNum'][0]
         gamePrice = scratcherdata['ticketValue'][0]
-        gameURL = i['gameURL']   #new line here
+        gameURL = tixlist.loc[tixlist['gameNumber']==i,'gameURL'].text
+        print(i)
+        print(gameURL)#new line here
         startDate = datetime.fromisoformat(scratcherdata['beginDate'][0])
         endDate = None if 'endDate' not in scratcherdata else datetime.fromisoformat(scratcherdata['endDate'][0])
         lastdatetoclaim = datetime.fromisoformat(scratcherdata['lastDate'][0])
@@ -498,4 +500,4 @@ def exportScratcherRecs():
     return ratingstable, scratchertables
 
 
-#exportScratcherRecs()
+exportScratcherRecs()

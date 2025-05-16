@@ -142,6 +142,7 @@ def exportScratcherRecs():
         table['Winning Tickets Unclaimed'] = table['Winning Tickets At Start'].astype('int')-table['No. Prizes Claimed'].astype('int')
         table['gameName'] = gameName
         table['gameNumber'] = gameNumber
+        table['gameURL'] = gameURL
         table['dateexported'] = dateexported
         table['prizeamount'] = table['prizeamount'].str.replace('$','', regex=False).str.replace(',','', regex=False)
 

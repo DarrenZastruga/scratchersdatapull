@@ -78,6 +78,7 @@ def exportScratcherRecs():
             table.rename(columns={'Prize Amount':'prizeamount','Prizes Remaining':'Winning Tickets Unclaimed'}, inplace=True)
             table['gameName'] = gameName
             table['gameNumber'] = gameNumber
+            table['gameURL'] = gameURL
             table['prizeamount'] = table['prizeamount'].str.replace('$', '', regex=False).str.replace(',','', regex=False)
             #table['Winning Tickets Unclaimed'] = table['Winning Tickets Unclaimed'].str.replace(',', '', regex=False)
             table['Winning Tickets Unclaimed'] = table['Winning Tickets Unclaimed'].replace({'0 - Last Top Prize Claimed':0}).astype('int')
@@ -98,7 +99,7 @@ def exportScratcherRecs():
 
     tixlist.to_csv("./KYtixlist.csv", encoding='utf-8')
     print(tixlist)
-    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
+    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     

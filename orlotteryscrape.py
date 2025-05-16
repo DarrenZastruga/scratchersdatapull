@@ -85,8 +85,8 @@ def exportScratcherRecs():
         secondChance = '2nd Chance' if game['SecondChanceDrawDate'] else None
         dateexported = date.today()
 
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'overallodds', 'extrachances', 'secondChance', 'dateexported']] = [
-            gamePrice, gameName, gameNumber, topprize, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, overallodds, extrachances, secondChance, dateexported]
+        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'overallodds', 'extrachances', 'secondChance', 'dateexported', 'gameURL']] = [
+            gamePrice, gameName, gameNumber, topprize, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, overallodds, extrachances, secondChance, dateexported, gameURL]
         
     #merge gameURLs with tix list to start looping through each game page, to get remaining tickets data
     tixlist = pd.merge(tixlist, linkslist, how='left', on=['gameNumber'])
