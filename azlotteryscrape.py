@@ -115,7 +115,7 @@ def exportScratcherRecs():
         gameName = scratcherdata['gameName'][0]
         gameNumber = scratcherdata['gameNum'][0]
         gamePrice = scratcherdata['ticketValue'][0]
-        gameURL = tixlist.loc[tixlist['gameNumber']==i,'gameURL'].text
+        gameURL = tixlist.loc[tixlist['gameNumber']==i,'gameURL'].iloc[0]
         print(i)
         print(gameURL)#new line here
         startDate = datetime.fromisoformat(scratcherdata['beginDate'][0])
@@ -277,7 +277,7 @@ def exportScratcherRecs():
         totalremain.loc[:, 'Expected Value'] = totalremain.apply(lambda row: (
             row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                   'Winning Tickets Unclaimed', 'Starting Expected Value', 'Expected Value', 'dateexported']]
+                                   'Winning Tickets Unclaimed', 'Starting Expected Value', 'Expected Value', 'dateexported']].copy()
 
         gamerow.loc[:, 'Expected Value of Any Prize (as % of cost)'] = sum(
             totalremain['Expected Value'])/price if price > 0 else sum(totalremain['Expected Value'])
@@ -329,7 +329,7 @@ def exportScratcherRecs():
         totals.loc[:, 'Starting Expected Value'] = ''
         totals.loc[:, 'Expected Value'] = ''
         totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
-                                   'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
+                                   'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']].copy()
         totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
                                          'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
