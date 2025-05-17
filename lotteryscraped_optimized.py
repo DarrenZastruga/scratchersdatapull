@@ -842,6 +842,7 @@ def main():
             'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank',
             'Rank by Cost', 'Photo','FAQ', 'About', 'Directory', 'Data Date',
             'Stats Page', # Assuming this column might exist in some scrapers
+            'gameURL',
             'State' # Add State column here
         ]
 
