@@ -894,8 +894,13 @@ def main():
                      logger.info(f"Processing ratingstable for {state_code}...")
                      ratingstable_processed = ratingstable.copy()
                      ratingstable_processed['State'] = state_code # Add State column
-
-                     # Ensure all target columns exist, add if missing
+                     if not ratingstable_processed.columns.is_unique:
+                            logger.warning(f"Duplicate columns found in {state_code} ratingstable BEFORE filtering: {ratingstable_processed.columns[ratingstable_processed.columns.duplicated(keep=False)].tolist()}")
+                            # Option 1: Keep first occurrence
+                            ratingstable_processed = ratingstable_processed.loc[:, ~ratingstable_processed.columns.duplicated(keep='first')]
+                            logger.info(f"Duplicate columns handled for {state_code} ratingstable. New columns: {ratingstable_processed.columns.tolist()}")
+                     
+                    # Ensure all target columns exist, add if missing
                      for col in target_columns:
                          if col not in ratingstable_processed.columns:
                              logger.warning(f"Column '{col}' missing in {state_code} ratingstable. Adding with None.")
