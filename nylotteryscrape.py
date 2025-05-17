@@ -132,12 +132,13 @@ def exportScratcherRecs():
                 tixdata.at[0, 'prizeamount'] = str(
                     int(tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '').replace('/week/life', ''))*52*50)
             else:
-                tixdata['prizeamount'].iloc[0] = tixdata['prizeamount'].iloc[0]
+                tixdata['prizeamount'].iloc[0] = tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '')
             print(tixdata['prizeamount'])
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('free take 5 fp',gamePrice, regex=True).astype('str')
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('free c4l qp',gamePrice, regex=True).astype('str')
             tixdata['prizeamount'] = tixdata['prizeamount'].replace('.00','')
             tixdata['prizeamount'] = tixdata['prizeamount'].replace('10.00','10')
+            tixdata['prizeamount'] = tixdata['prizeamount'].replace('$','')
             print(tixdata['prizeamount'])
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
@@ -165,6 +166,19 @@ def exportScratcherRecs():
             print(tixdata.columns)
             tixtables = pd.concat([tixtables, tixdata], axis=0)
             
+    if 'prizeamount' in tixtables.columns:
+        # Ensure it's string type first to use .str accessor
+        tixtables['prizeamount'] = tixtables['prizeamount'].astype(str)
+        tixtables['prizeamount'] = tixtables['prizeamount'].str.replace('$', '', regex=False)
+        tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(',', '', regex=False)
+        # Add any other specific string replacements needed for NY prize amounts
+        tixtables['prizeamount'] = tixtables['prizeamount'].str.replace('k annual installments', '000', regex=False)
+        tixtables['prizeamount'] = tixtables['prizeamount'].str.replace('/week/life', '', regex=False) # Handle this case too
+    # After cleaning, attempt to convert to numeric, coercing errors for non-convertible rows
+    tixtables['prizeamount'] = pd.to_numeric(tixtables['prizeamount'], errors='coerce')
+     # Fill any NaNs resulting from coercion if necessary, e.g., with 0 or a specific marker
+    tixtables['prizeamount'] = tixtables['prizeamount'].fillna(0) # Or handle as you see fit
+     
     tixlist.to_csv("./NYtixlist.csv", encoding='utf-8')
     scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizeodds', 'topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
@@ -381,4 +395,4 @@ def exportScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-#exportScratcherRecs()
+exportScratcherRecs()
