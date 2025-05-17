@@ -87,7 +87,7 @@ def exportScratcherRecs():
                 table = soup.find('div', id='scratcher-detail-container').find('table',class_='table table-responsive scratcher-prize-table')
                
                 table = str(table).split('!--')[0]+str(table).split('!-- } -->')[1]
-                tableData = pd.read_html(io.StringIO(str(table)))[0]
+                tableData = pd.read_html(io.StringIO(table))[0]
             
         except ValueError as e:
             print(e) # ValueError: No tables found
@@ -160,7 +160,9 @@ def exportScratcherRecs():
     cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
+    print(gamesgrouped.columns)
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizeodds','overallodds']], how='left', on=['gameNumber'])
+    print(gamesgrouped.columns)
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped.loc[:,'topprizeodds'].str.replace(',','', regex = True)
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
@@ -172,12 +174,10 @@ def exportScratcherRecs():
     nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']].copy()
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
-    print(nonprizetix.columns)
     totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']].copy()
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
-    print(totals.columns)
-      
+
     #loop through each scratcher game id number and add columns for each statistical calculation
     alltables = pd.DataFrame() 
     currentodds = pd.DataFrame()
@@ -309,8 +309,11 @@ def exportScratcherRecs():
     print(scratchersall.dtypes)
     scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
-    ratingstable.drop(labels=['gameName_x','dateexported_y','topprizeodds_y','overallodds_y'], axis=1, inplace=True)
+    print(ratingstable.columns)
+    ratingstable.drop(labels=['gameName_y','dateexported_y','topprizeodds_y','overallodds_y'], axis=1, inplace=True)
+    print(ratingstable.columns)
     ratingstable.rename(columns={'gameName_x':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds'}, inplace=True)
+    print(ratingstable.columns)
     #add number of days since the game start date as of date exported
     ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'])).dt.days
     
@@ -603,7 +606,7 @@ for t in prizetypes:
         clusterloop(ratingstable, scratchertables, t, std, 2)        
 '''                    
                 
-#exportScratcherRecs()
+exportScratcherRecs()
 '''
 scheduler = BlockingScheduler()
 scheduler.add_job(exportScratcherRecs, 'cron', hour=0, minute=30)
