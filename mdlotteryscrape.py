@@ -60,7 +60,7 @@ def formatstr(s):
         return s
 
 
-def exportMDScratcherRecs():
+def exportScratcherRecs():
     url = "https://www.mdlottery.com/wp-admin/admin-ajax.php?action=jquery_shortcode&shortcode=scratch_offs&atts=%7B%22null%22%3A%22null%22%7D"
 
     payload={}
