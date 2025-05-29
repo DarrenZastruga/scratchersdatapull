@@ -137,6 +137,7 @@ def exportScratcherRecs():
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','', regex=False).str.replace(',','', regex=False)
             tixdata['gameNumber'] = str(gameNumber)
             tixdata['gameName'] = gameName
+            tixdata['gameURL'] = gameURL
             #since Kansas doesn't post the Winning Tickets At Start, just set as Winning Tickets Unclaimed
             tixdata['Winning Tickets At Start'] = tixdata['Winning Tickets Unclaimed']                                                                        
             tixdata['gamePhoto'] = tixlist.loc[tixlist['gameNumber']==s,'gamePhoto'].iloc[0]
@@ -160,7 +161,7 @@ def exportScratcherRecs():
     
     tixlist.to_csv("./KStixlist.csv", encoding='utf-8')
     tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
-    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported','gamePhoto']]
+    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported','gamePhoto', 'gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     

@@ -511,7 +511,36 @@ def run_ky_scratcher_recs(gspread_client):
         # Catch other potential errors during execution
         logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
         return None, None
-    
+
+def run_md_scratcher_recs(gspread_client):
+    """Scrapes MD data, saves ratingstable, returns scratchertables."""
+    state_code = 'MD'
+    logger.info(f"--- Processing State: {state_code} ---")
+    try:
+        # --- Keep the original import style ---
+        from mdlotteryscrape import exportScratcherRecs
+        # --- Run the function ---
+        ratingstable, scratchertables = exportScratcherRecs()
+
+        save_dataframe_to_gsheet(
+            ratingstable, f'{state_code}RatingsTable', gspread_client)
+        if scratchertables is not None and not scratchertables.empty:
+            scratchertables['State'] = state_code
+            logger.info(f"Successfully processed {state_code}. Returning scratchertables.")
+            print(scratchertables)
+            return ratingstable, scratchertables
+        else:
+             logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+             return None
+    except ImportError:
+        # Log the error WITH traceback using exc_info=True
+        logger.error(f"Could not import {state_code}lotteryscrape. Skipping {state_code}.", exc_info=True)
+        return None, None
+    except Exception as e:
+        # Catch other potential errors during execution
+        logger.exception(f"Error occurred during {state_code} processing (after import): {e}")
+        return None, None
+        
 
 def run_mo_scratcher_recs(gspread_client):
     """Scrapes MO data, saves ratingstable, returns scratchertables."""
@@ -859,6 +888,7 @@ def main():
             run_dc_scratcher_recs,
             run_ks_scratcher_recs,
             run_ky_scratcher_recs,
+            run_md_scratcher_recs,
             run_mo_scratcher_recs,
             run_nc_scratcher_recs,
             run_nm_scratcher_recs,

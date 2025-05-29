@@ -28,6 +28,7 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+import io
 
 
 '''
@@ -91,7 +92,7 @@ def exportMDScratcherRecs():
         
         dateexported = s.find('div', id = 'prize_details_'+gameNumber).find('p').text.replace('Records Last Updated:','')
         
-        tixdata = pd.read_html(str(s.find('table')))[0]
+        tixdata = pd.read_html(io.StringIO(str(s.find('table'))))[0]
         
 
         
@@ -116,7 +117,7 @@ def exportMDScratcherRecs():
             print(tixdata.columns)
             tixdata.rename(columns={'Prize Amount':'prizeamount','Start': 'Winning Tickets At Start', 'Remaining*': 'Winning Tickets Unclaimed'}, inplace=True)
             print(tixdata.columns)
-            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','').str.replace("\(Digital Spin\)",'').replace('Big Spin',50000)
+            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','').str.replace("\(Digital Spin\)",'').str.replace('Big Spin','50000')
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
             tixdata['gamePhoto'] = gamePhoto
@@ -143,7 +144,7 @@ def exportMDScratcherRecs():
 
     tixtables['prizeamount'] = pd.to_numeric(tixtables['prizeamount'], errors='coerce')  # Replace invalid values with NaN
     
-    scratchertables = tixtables.dropna(subset=['prizeamount'])
+    scratchertables = tixtables.dropna(subset=['prizeamount']).copy()
     scratchertables['prizeamount'] = scratchertables['prizeamount'].astype(int)
     scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
                                'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
@@ -157,7 +158,7 @@ def exportMDScratcherRecs():
     scratchersall.to_csv("./MDscratcherslist.csv", encoding='utf-8')
 
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
+    scratchertables = scratchertables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
     scratchertables.to_csv("./MDscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber']
@@ -188,13 +189,13 @@ def exportMDScratcherRecs():
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
-                                'Non-prize at start', 'Non-prize remaining', 'dateexported']]
+                                'Non-prize at start', 'Non-prize remaining', 'dateexported']].copy()
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
     totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
-                           'Total at start', 'Total remaining', 'dateexported']]
+                           'Total at start', 'Total remaining', 'dateexported']].copy()
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:, 'prizeamount'] = "Total"
@@ -419,4 +420,4 @@ def exportMDScratcherRecs():
     return ratingstable, scratchertables
 
 
-exportMDScratcherRecs()
+#exportMDScratcherRecs()

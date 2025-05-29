@@ -236,6 +236,7 @@ def exportScratcherRecs():
 
                 tixdata_numeric['gameNumber'] = gameNumber
                 tixdata_numeric['gameName'] = gameName
+                tixdata_numeric['gameURL'] = gameURL
                 tixdata_numeric['price'] = gamePrice
 
                 # --- Extract other details from the DETAIL page (soup_detail) ---
@@ -379,7 +380,7 @@ def exportScratcherRecs():
         return pd.DataFrame(columns=final_rating_cols), pd.DataFrame(columns=scratchertables_cols) # Use previously defined cols
 
 
-    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported']].copy()
+    scratchersall = tixtables[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported', 'gameURL']].copy()
     scratchersall = scratchersall.loc[scratchersall['gameNumber'].astype(str) != "Coming Soon!", :]
     scratchersall.drop_duplicates(inplace=True)
 
