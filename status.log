@@ -7583,3 +7583,187 @@ KeyError: "['topprize', 'topprizestarting', 'topprizeremain', 'topprizeavail', '
 2025-07-29 06:28:04,289 - __main__ - INFO - DataFrame successfully saved to 'AllStatesRatings' starting at row 3.
 2025-07-29 06:28:04,289 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-07-29 06:28:04 UTC
 2025-07-29 06:28:04,289 - __main__ - INFO - Total execution time: 0:07:05.614620
+2025-07-30 06:21:45,772 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-07-30 06:21:45 UTC
+2025-07-30 06:21:45,774 - __main__ - INFO - --- Processing State: AZ ---
+2025-07-30 06:22:02,772 - __main__ - INFO - Clearing worksheet 'AZRatingsTable' before saving new data.
+2025-07-30 06:22:02,992 - __main__ - INFO - Saving DataFrame to worksheet 'AZRatingsTable'...
+2025-07-30 06:22:06,571 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: AZRatingsTable
+2025-07-30 06:22:06,572 - __main__ - INFO - Successfully processed AZ. Returning scratchertables.
+2025-07-30 06:22:06,582 - __main__ - INFO - Processing ratingstable for AZ...
+2025-07-30 06:22:06,583 - __main__ - INFO - Added processed AZ ratingstable to combined list.
+2025-07-30 06:22:06,583 - __main__ - INFO - --- Processing State: CA ---
+2025-07-30 06:22:06,587 - calotteryscrape - INFO - Running lotteryscrape.py at: 2025-07-30 06:22:06 UTC
+2025-07-30 06:22:16,645 - __main__ - INFO - Clearing worksheet 'CARatingsTable' before saving new data.
+2025-07-30 06:22:16,780 - __main__ - INFO - Saving DataFrame to worksheet 'CARatingsTable'...
+2025-07-30 06:22:17,643 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: CARatingsTable
+2025-07-30 06:22:17,643 - __main__ - INFO - Successfully processed CA. Returning scratchertables.
+2025-07-30 06:22:17,653 - __main__ - INFO - Processing ratingstable for CA...
+2025-07-30 06:22:17,654 - __main__ - INFO - Added processed CA ratingstable to combined list.
+2025-07-30 06:22:17,654 - __main__ - INFO - --- Processing State: DC ---
+2025-07-30 06:22:57,458 - __main__ - INFO - Clearing worksheet 'DCRatingsTable' before saving new data.
+2025-07-30 06:22:57,591 - __main__ - INFO - Saving DataFrame to worksheet 'DCRatingsTable'...
+2025-07-30 06:22:58,452 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: DCRatingsTable
+2025-07-30 06:22:58,453 - __main__ - INFO - Successfully processed DC. Returning scratchertables.
+2025-07-30 06:22:58,462 - __main__ - INFO - Processing ratingstable for DC...
+2025-07-30 06:22:58,463 - __main__ - INFO - Added processed DC ratingstable to combined list.
+2025-07-30 06:22:58,463 - __main__ - INFO - --- Processing State: KS ---
+2025-07-30 06:23:16,250 - __main__ - INFO - Clearing worksheet 'KSRatingsTable' before saving new data.
+2025-07-30 06:23:16,403 - __main__ - INFO - Saving DataFrame to worksheet 'KSRatingsTable'...
+2025-07-30 06:23:17,202 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: KSRatingsTable
+2025-07-30 06:23:17,203 - __main__ - INFO - Successfully processed KS. Returning scratchertables.
+2025-07-30 06:23:17,212 - __main__ - INFO - Processing ratingstable for KS...
+2025-07-30 06:23:17,213 - __main__ - WARNING - Duplicate columns found in KS ratingstable BEFORE filtering: ['Photo', 'Photo']
+2025-07-30 06:23:17,214 - __main__ - INFO - Duplicate columns handled for KS ratingstable. New columns: ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize', 'Change in Current Odds of Top Prize', 'Current Odds of Any Prize', 'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize', 'Probability of Winning Any Prize', 'Change in Probability of Any Prize', 'Probability of Winning Profit Prize', 'Change in Probability of Profit Prize', 'StdDev of All Prizes', 'StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs', 'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy', 'Expected Value of Any Prize (as % of cost)', 'Change in Expected Value of Any Prize', 'Expected Value of Profit Prize (as % of cost)', 'Change in Expected Value of Profit Prize', 'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining', 'Ratio of Decline in Prizes to Decline in Losing Ticket', 'Rank by Best Probability of Winning Any Prize', 'Rank by Best Probability of Winning Profit Prize', 'Rank by Least Expected Losses', 'Rank by Most Available Prizes', 'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost', 'Photo', 'FAQ', 'About', 'Directory', 'Data Date', 'Stats Page', 'gameURL', 'State']
+2025-07-30 06:23:17,214 - __main__ - INFO - Added processed KS ratingstable to combined list.
+2025-07-30 06:23:17,214 - __main__ - INFO - --- Processing State: KY ---
+2025-07-30 06:23:28,819 - __main__ - INFO - Clearing worksheet 'KYRatingsTable' before saving new data.
+2025-07-30 06:23:28,972 - __main__ - INFO - Saving DataFrame to worksheet 'KYRatingsTable'...
+2025-07-30 06:23:29,775 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: KYRatingsTable
+2025-07-30 06:23:29,775 - __main__ - INFO - Successfully processed KY. Returning scratchertables.
+2025-07-30 06:23:29,785 - __main__ - INFO - Processing ratingstable for KY...
+2025-07-30 06:23:29,787 - __main__ - INFO - Added processed KY ratingstable to combined list.
+2025-07-30 06:23:29,787 - __main__ - INFO - --- Processing State: MD ---
+2025-07-30 06:23:38,294 - __main__ - INFO - Clearing worksheet 'MDRatingsTable' before saving new data.
+2025-07-30 06:23:38,430 - __main__ - INFO - Saving DataFrame to worksheet 'MDRatingsTable'...
+2025-07-30 06:23:39,254 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: MDRatingsTable
+2025-07-30 06:23:39,254 - __main__ - INFO - Successfully processed MD. Returning scratchertables.
+2025-07-30 06:23:39,264 - __main__ - INFO - Processing ratingstable for MD...
+2025-07-30 06:23:39,265 - __main__ - INFO - Added processed MD ratingstable to combined list.
+2025-07-30 06:23:39,265 - __main__ - INFO - --- Processing State: MO ---
+2025-07-30 06:23:39,490 - __main__ - ERROR - Error occurred during MO processing (after import): "['topprize', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'gameURL'] not in index"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 553, in run_mo_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/molotteryscrape.py", line 160, in exportScratcherRecs
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1184, in __getitem__
+    return self._getitem_tuple(key)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1377, in _getitem_tuple
+    return self._getitem_tuple_same_dim(tup)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1020, in _getitem_tuple_same_dim
+    retval = getattr(retval, self.name)._getitem_axis(key, axis=i)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1420, in _getitem_axis
+    return self._getitem_iterable(key, axis=axis)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1360, in _getitem_iterable
+    keyarr, indexer = self._get_listlike_indexer(key, axis)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1558, in _get_listlike_indexer
+    keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6264, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['topprize', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'gameURL'] not in index"
+2025-07-30 06:23:39,492 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid scratchertables data.
+2025-07-30 06:23:39,492 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid ratingstable data.
+2025-07-30 06:23:39,492 - __main__ - INFO - --- Processing State: NC ---
+2025-07-30 06:24:28,415 - __main__ - INFO - Clearing worksheet 'NCRatingsTable' before saving new data.
+2025-07-30 06:24:28,590 - __main__ - INFO - Saving DataFrame to worksheet 'NCRatingsTable'...
+2025-07-30 06:24:29,379 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NCRatingsTable
+2025-07-30 06:24:29,379 - __main__ - INFO - Successfully processed NC. Returning scratchertables.
+2025-07-30 06:24:29,389 - __main__ - INFO - Processing ratingstable for NC...
+2025-07-30 06:24:29,390 - __main__ - INFO - Added processed NC ratingstable to combined list.
+2025-07-30 06:24:29,390 - __main__ - INFO - --- Processing State: NM ---
+2025-07-30 06:24:39,222 - __main__ - INFO - Clearing worksheet 'NMRatingsTable' before saving new data.
+2025-07-30 06:24:39,575 - __main__ - INFO - Saving DataFrame to worksheet 'NMRatingsTable'...
+2025-07-30 06:24:40,320 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NMRatingsTable
+2025-07-30 06:24:40,321 - __main__ - INFO - Successfully processed NM. Returning scratchertables.
+2025-07-30 06:24:40,331 - __main__ - INFO - Processing ratingstable for NM...
+2025-07-30 06:24:40,332 - __main__ - INFO - Added processed NM ratingstable to combined list.
+2025-07-30 06:24:40,332 - __main__ - INFO - --- Processing State: NY ---
+2025-07-30 06:25:42,533 - __main__ - INFO - Clearing worksheet 'NYRatingsTable' before saving new data.
+2025-07-30 06:25:42,714 - __main__ - INFO - Saving DataFrame to worksheet 'NYRatingsTable'...
+2025-07-30 06:25:43,549 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NYRatingsTable
+2025-07-30 06:25:43,550 - __main__ - INFO - Successfully processed NY. Returning scratchertables.
+2025-07-30 06:25:43,559 - __main__ - INFO - Processing ratingstable for NY...
+2025-07-30 06:25:43,560 - __main__ - INFO - Added processed NY ratingstable to combined list.
+2025-07-30 06:25:43,560 - __main__ - INFO - --- Processing State: OK ---
+2025-07-30 06:25:43,564 - oklotteryscrape - INFO - Running lotteryscrape.py at: 2025-07-30 06:25:43 UTC
+2025-07-30 06:25:51,177 - __main__ - INFO - Clearing worksheet 'OKRatingsTable' before saving new data.
+2025-07-30 06:25:51,311 - __main__ - INFO - Saving DataFrame to worksheet 'OKRatingsTable'...
+2025-07-30 06:25:51,977 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: OKRatingsTable
+2025-07-30 06:25:51,977 - __main__ - INFO - Successfully processed OK. Returning scratchertables.
+2025-07-30 06:25:51,986 - __main__ - INFO - Processing ratingstable for OK...
+2025-07-30 06:25:51,987 - __main__ - INFO - Added processed OK ratingstable to combined list.
+2025-07-30 06:25:51,987 - __main__ - INFO - --- Processing State: OR ---
+2025-07-30 06:26:00,371 - __main__ - INFO - Clearing worksheet 'ORRatingsTable' before saving new data.
+2025-07-30 06:26:00,507 - __main__ - INFO - Saving DataFrame to worksheet 'ORRatingsTable'...
+2025-07-30 06:26:01,162 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ORRatingsTable
+2025-07-30 06:26:01,162 - __main__ - INFO - Successfully processed OR. Returning scratchertables.
+2025-07-30 06:26:01,172 - __main__ - INFO - Processing ratingstable for OR...
+2025-07-30 06:26:01,173 - __main__ - INFO - Added processed OR ratingstable to combined list.
+2025-07-30 06:26:01,173 - __main__ - INFO - --- Processing State: TX ---
+2025-07-30 06:26:25,210 - __main__ - INFO - Clearing worksheet 'TXRatingsTable' before saving new data.
+2025-07-30 06:26:25,345 - __main__ - INFO - Saving DataFrame to worksheet 'TXRatingsTable'...
+2025-07-30 06:26:26,094 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: TXRatingsTable
+2025-07-30 06:26:26,095 - __main__ - INFO - Successfully processed TX. Returning scratchertables.
+2025-07-30 06:26:26,104 - __main__ - INFO - Processing ratingstable for TX...
+2025-07-30 06:26:26,105 - __main__ - INFO - Added processed TX ratingstable to combined list.
+2025-07-30 06:26:26,105 - __main__ - INFO - --- Processing State: VA ---
+2025-07-30 06:27:28,805 - __main__ - INFO - Clearing worksheet 'VARatingsTable' before saving new data.
+2025-07-30 06:27:28,993 - __main__ - INFO - Saving DataFrame to worksheet 'VARatingsTable'...
+2025-07-30 06:27:29,839 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: VARatingsTable
+2025-07-30 06:27:29,840 - __main__ - INFO - Successfully processed VA. Returning scratchertables.
+2025-07-30 06:27:29,850 - __main__ - INFO - Processing ratingstable for VA...
+2025-07-30 06:27:29,851 - __main__ - INFO - Added processed VA ratingstable to combined list.
+2025-07-30 06:27:29,851 - __main__ - INFO - --- Processing State: WA ---
+2025-07-30 06:27:53,470 - __main__ - INFO - Clearing worksheet 'WARatingsTable' before saving new data.
+2025-07-30 06:27:53,597 - __main__ - INFO - Saving DataFrame to worksheet 'WARatingsTable'...
+2025-07-30 06:27:54,302 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: WARatingsTable
+2025-07-30 06:27:54,302 - __main__ - INFO - Successfully processed WA. Returning scratchertables.
+2025-07-30 06:27:54,312 - __main__ - INFO - Processing ratingstable for WA...
+2025-07-30 06:27:54,313 - __main__ - INFO - Added processed WA ratingstable to combined list.
+2025-07-30 06:27:54,313 - __main__ - INFO - Combining scratchertables data from 14 states.
+2025-07-30 06:27:54,316 - __main__ - INFO - Combined scratchertables shape: (13601, 11)
+2025-07-30 06:27:54,316 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined scratchertables...
+2025-07-30 06:27:54,324 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameNumber' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:54,331 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameName' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:54,338 - __main__ - INFO -   - Converted/Checked scratchertables column 'prizeamount' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:54,346 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets At Start' (Original dtype: object, New dtype: float64)
+2025-07-30 06:27:54,354 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets Unclaimed' (Original dtype: object, New dtype: float64)
+2025-07-30 06:27:54,362 - __main__ - INFO -   - Converted/Checked scratchertables column 'Prize Probability' (Original dtype: object, New dtype: float64)
+2025-07-30 06:27:54,369 - __main__ - INFO -   - Converted/Checked scratchertables column 'Percent Tix Remaining' (Original dtype: object, New dtype: float64)
+2025-07-30 06:27:54,377 - __main__ - INFO -   - Converted/Checked scratchertables column 'Starting Expected Value' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:54,384 - __main__ - INFO -   - Converted/Checked scratchertables column 'Expected Value' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:54,392 - __main__ - INFO -   - Converted/Checked scratchertables column 'dateexported' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:54,399 - __main__ - INFO -   - Converted/Checked scratchertables column 'State' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:54,399 - __main__ - INFO - Attempting to save combined data to 'ScratcherTables' sheet.
+2025-07-30 06:27:55,335 - __main__ - INFO - Clearing worksheet 'ScratcherTables' before saving new data.
+2025-07-30 06:27:55,523 - __main__ - INFO - Saving DataFrame to worksheet 'ScratcherTables'...
+2025-07-30 06:27:59,112 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ScratcherTables
+2025-07-30 06:27:59,113 - __main__ - INFO - Combining ratingstable data from 14 states.
+2025-07-30 06:27:59,118 - __main__ - INFO - Combined ratingstable columns BEFORE final reindex: ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize', 'Change in Current Odds of Top Prize', 'Current Odds of Any Prize', 'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize', 'Probability of Winning Any Prize', 'Change in Probability of Any Prize', 'Probability of Winning Profit Prize', 'Change in Probability of Profit Prize', 'StdDev of All Prizes', 'StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs', 'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy', 'Expected Value of Any Prize (as % of cost)', 'Change in Expected Value of Any Prize', 'Expected Value of Profit Prize (as % of cost)', 'Change in Expected Value of Profit Prize', 'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining', 'Ratio of Decline in Prizes to Decline in Losing Ticket', 'Rank by Best Probability of Winning Any Prize', 'Rank by Best Probability of Winning Profit Prize', 'Rank by Least Expected Losses', 'Rank by Most Available Prizes', 'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost', 'Photo', 'FAQ', 'About', 'Directory', 'Data Date', 'Stats Page', 'gameURL', 'State']
+2025-07-30 06:27:59,120 - __main__ - INFO - Combined ratingstable shape after reindex: (1086, 51)
+2025-07-30 06:27:59,120 - __main__ - INFO - Combined ratingstable columns AFTER final reindex: ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize', 'Change in Current Odds of Top Prize', 'Current Odds of Any Prize', 'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize', 'Probability of Winning Any Prize', 'Change in Probability of Any Prize', 'Probability of Winning Profit Prize', 'Change in Probability of Profit Prize', 'StdDev of All Prizes', 'StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs', 'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy', 'Expected Value of Any Prize (as % of cost)', 'Change in Expected Value of Any Prize', 'Expected Value of Profit Prize (as % of cost)', 'Change in Expected Value of Profit Prize', 'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining', 'Ratio of Decline in Prizes to Decline in Losing Ticket', 'Rank by Best Probability of Winning Any Prize', 'Rank by Best Probability of Winning Profit Prize', 'Rank by Least Expected Losses', 'Rank by Most Available Prizes', 'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost', 'Photo', 'FAQ', 'About', 'Directory', 'Data Date', 'Stats Page', 'gameURL', 'State']
+2025-07-30 06:27:59,120 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined ratingstable...
+2025-07-30 06:27:59,122 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameName' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,123 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameNumber' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,124 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprize' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,125 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeremain' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,126 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeavail' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,127 - __main__ - INFO -   - Converted/Checked ratingstable column 'extrachances' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,128 - __main__ - INFO -   - Converted/Checked ratingstable column 'secondChance' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,129 - __main__ - INFO -   - Converted/Checked ratingstable column 'startDate' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,130 - __main__ - INFO -   - Converted/Checked ratingstable column 'Days Since Start' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,131 - __main__ - INFO -   - Converted/Checked ratingstable column 'lastdatetoclaim' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,132 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeodds' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,133 - __main__ - INFO -   - Converted/Checked ratingstable column 'overallodds' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,135 - __main__ - INFO -   - Converted/Checked ratingstable column 'Change in Current Odds of Top Prize' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,152 - __main__ - INFO -   - Converted/Checked ratingstable column 'Ratio of Decline in Prizes to Decline in Losing Ticket' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,155 - __main__ - INFO -   - Converted/Checked ratingstable column 'Rank by Most Available Prizes' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,156 - __main__ - INFO -   - Converted/Checked ratingstable column 'Rank by Best Change in Probabilities' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,161 - __main__ - INFO -   - Converted/Checked ratingstable column 'Photo' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,162 - __main__ - INFO -   - Converted/Checked ratingstable column 'FAQ' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,163 - __main__ - INFO -   - Converted/Checked ratingstable column 'About' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,164 - __main__ - INFO -   - Converted/Checked ratingstable column 'Directory' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,165 - __main__ - INFO -   - Converted/Checked ratingstable column 'Data Date' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,166 - __main__ - INFO -   - Converted/Checked ratingstable column 'Stats Page' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,167 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameURL' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,168 - __main__ - INFO -   - Converted/Checked ratingstable column 'State' (Original dtype: object, New dtype: object)
+2025-07-30 06:27:59,168 - __main__ - INFO - Attempting to save combined data to 'AllStatesRatings' sheet starting at row 3.
+2025-07-30 06:28:00,336 - __main__ - INFO - Clearing data in worksheet 'AllStatesRatings' from row 3 onwards.
+2025-07-30 06:28:00,337 - __main__ - DEBUG - Calculated clear range: A3:CW2579
+2025-07-30 06:28:00,528 - __main__ - INFO - Cleared range A3:CW2579 in 'AllStatesRatings'.
+2025-07-30 06:28:00,533 - __main__ - INFO - Saving DataFrame to worksheet 'AllStatesRatings' starting at row 3 (headers excluded)...
+2025-07-30 06:28:02,610 - __main__ - INFO - DataFrame successfully saved to 'AllStatesRatings' starting at row 3.
+2025-07-30 06:28:02,611 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-07-30 06:28:02 UTC
+2025-07-30 06:28:02,611 - __main__ - INFO - Total execution time: 0:06:16.838844
