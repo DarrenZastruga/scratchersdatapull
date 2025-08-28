@@ -5526,3 +5526,32 @@ ValueError: invalid literal for int() with base 10: 'Ticket': Error while type c
 2025-08-27 06:24:29,200 - __main__ - INFO - DataFrame successfully saved to 'AllStatesRatings' starting at row 3.
 2025-08-27 06:24:29,200 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-08-27 06:24:29 UTC
 2025-08-27 06:24:29,201 - __main__ - INFO - Total execution time: 0:06:19.468161
+2025-08-28 06:18:46,146 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-08-28 06:18:46 UTC
+2025-08-28 06:18:46,148 - __main__ - INFO - --- Processing State: AZ ---
+2025-08-28 06:18:47,813 - __main__ - ERROR - Error occurred during AZ processing (after import): 'NoneType' object has no attribute 'find'
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 374, in run_az_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/azlotteryscrape.py", line 80, in exportScratcherRecs
+    gamePrice = s.find(class_='col-md-6 price').find('span').get_text(strip=True)
+AttributeError: 'NoneType' object has no attribute 'find'
+2025-08-28 06:18:47,815 - __main__ - WARNING - Function run_az_scratcher_recs did not return valid scratchertables data.
+2025-08-28 06:18:47,815 - __main__ - WARNING - Function run_az_scratcher_recs did not return valid ratingstable data.
+2025-08-28 06:18:47,815 - __main__ - INFO - --- Processing State: CA ---
+2025-08-28 06:18:47,820 - calotteryscrape - INFO - Running lotteryscrape.py at: 2025-08-28 06:18:47 UTC
+2025-08-28 06:19:08,611 - __main__ - INFO - Clearing worksheet 'CARatingsTable' before saving new data.
+2025-08-28 06:19:08,992 - __main__ - INFO - Saving DataFrame to worksheet 'CARatingsTable'...
+2025-08-28 06:19:12,706 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: CARatingsTable
+2025-08-28 06:19:12,707 - __main__ - INFO - Successfully processed CA. Returning scratchertables.
+2025-08-28 06:19:12,717 - __main__ - INFO - Processing ratingstable for CA...
+2025-08-28 06:19:12,718 - __main__ - INFO - Added processed CA ratingstable to combined list.
+2025-08-28 06:19:12,718 - __main__ - INFO - --- Processing State: DC ---
+2025-08-28 06:19:14,611 - __main__ - WARNING - Attempted to save an empty or None DataFrame to DCRatingsTable. Skipping.
+2025-08-28 06:19:14,612 - __main__ - WARNING - No scratchertables data returned from DC scrape.
+2025-08-28 06:19:14,612 - __main__ - ERROR - A critical error occurred in the main execution block: cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 912, in main
+    ratingstable, scratchertables = scrape_func(gspread_client)
+TypeError: cannot unpack non-iterable NoneType object
+2025-08-28 06:19:14,612 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-08-28 06:19:14 UTC
+2025-08-28 06:19:14,613 - __main__ - INFO - Total execution time: 0:00:28.466138
