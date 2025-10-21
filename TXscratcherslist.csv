@@ -1,78 +1,82 @@
 ,price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,dateexported,gameURL
-0,20,"$1,000,000 Blitz",2621,"$1,000,000",3.74,4,3.0,,,,01/06/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699674.html
-1,20,"$1,000,000 CROSSWORD",2658,"$1,000,000",3.41,6,4.0,,,,06/16/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699574.html
-2,20,"$100, $200, $500 OR $1,000!",2609,"$1,000",9.49,4913,2271.0,,,,11/18/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699728.html
-3,5,"$100,000 Richer",2631,"$100,000",4.34,4,4.0,,,,07/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699643.html
-4,100,$20 Million Supreme,2400,"$20,000,000",3.49,4,1.0,,,,05/16/22,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701659.html
-5,5,"$200,000 Blitz",2619,"$200,000",4.08,5,3.0,,,,01/06/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699697.html
-6,10,$250 Grand,2474,"$250,000",3.86,6,4.0,,,,06/02/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701438.html
-7,10,"$250,000 50X Cashword",2668,"$250,000",3.56,10,10.0,,,,09/15/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699543.html
-8,10,"$250,000 50X Cashword",2582,"$250,000",3.56,10,3.0,,,,07/01/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700448.html
-9,30,$3 Million Ca$h,2633,"$3,000,000",3.72,4,2.0,,,,04/07/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699641.html
-10,2,"$30,000 Cash",2634,"$30,000",4.29,8,3.0,,,,03/17/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699640.html
-11,2,"$30,000 Gold Rush",2686,"$30,000",4.28,6,5.0,,,,09/15/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699483.html
-12,100,$400 Million Mega Bucks,2588,"$5,000,000",3.84,4,2.0,,,,02/05/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700442.html
-13,50,$5 Million Royale,2624,"$5,000,000",3.66,4,3.0,,,,04/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699671.html
-14,1,"$5,000 Blitz",2617,"$5,000",4.75,6,2.0,,,,01/06/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699699.html
-15,100,"$5,000,000 Fortune",2665,"$5,000,000",3.91,4,2.0,,,,02/03/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699546.html
-16,10,"$50, $100 OR $500!",2637,$500,9.43,10081,6649.0,,,,07/07/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699637.html
-17,10,"$500,000 Blitz",2620,"$500,000",3.83,4,3.0,,,,01/06/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699675.html
-18,3,"$60,000 Blitz Word Search",2618,"$60,000",4.34,8,6.0,,,,01/06/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699698.html
-19,10,100X,2644,"$500,000",3.93,5,3.0,,,,05/05/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699609.html
-20,10,100X Sonic Blast,2691,"$250,000",3.67,4,4.0,,,,10/06/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699457.html
-21,20,200X,2645,"$1,000,000",3.39,4,3.0,,,,05/05/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699608.html
-22,1,20X,2642,"$5,000",4.76,15,7.0,,,,05/05/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699611.html
-23,30,30X Supreme,2616,"$3,000,000",3.76,4,2.0,,,,12/16/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699700.html
-24,50,500X,2589,"$1,000,000",3.36,15,5.0,,,,09/16/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700441.html
-25,50,500X Loteria Spectacular,2659,"$3,000,000",3.21,4,4.0,,,,09/15/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699573.html
-26,50,500X Loteria Spectacular,2518,"$3,000,000",3.21,4,1.0,,,,05/20/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700659.html
-27,5,50X,2643,"$200,000",4.10,6,2.0,,,,05/05/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699610.html
-28,5,Azulejos,2635,"$100,000",4.15,4,1.0,,,,03/17/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699639.html
-29,20,Big Money,2556,"$1,000,000",3.73,4,2.0,,,,12/02/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700537.html
-30,10,Bingo Mania,2578,"$250,000",3.79,5,1.0,,,,02/03/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700473.html
-31,5,Bingo Times 20,2584,"$100,000",4.37,8,1.0,,,,09/16/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700446.html
-32,5,Bonus Break the Bank,2430,"$100,000",4.28,10,8.0,,,,07/07/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701566.html
-33,10,Bonus Money,2652,"$250,000",3.83,7,2.0,,,,03/03/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699580.html
-34,2,Break the Bank,2700,"$30,000",4.80,10,7.0,,,,08/04/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252698776.html
-35,2,Break the Bank,2614,"$30,000",4.80,10,1.0,,,,12/02/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699702.html
-36,2,Cash Line Bingo,2647,"$30,000",4.09,10,7.0,,,,07/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699606.html
-37,10,Casino Night,2600,"$250,000",3.51,4,3.0,,,,08/18/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699737.html
-38,2,Classic Bingo!,2571,"$30,000",4.38,16,3.0,,,,05/20/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700480.html
-39,20,Colossal Cash,2630,"$50,000",3.41,50,26.0,,,,02/17/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699644.html
-40,50,Colossal Cashword,2599,"$3,000,000",3.31,4,1.0,,,,11/18/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700410.html
-41,5,Cowboys,2663,"$100,000",3.80,4,3.0,,,,08/18/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699548.html
-42,3,Crossword,2504,"$50,000",4.07,18,5.0,,,,03/04/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700694.html
-43,10,Dazzling Winnings,2494,"$250,000",3.82,4,2.0,,,,04/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701376.html
-44,20,Diamond 7s,2685,"$1,000,000",3.51,4,3.0,,,,09/02/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699484.html
-45,5,Double Sided Dollars,2639,"$100,000",4.35,6,1.0,,,,05/19/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699635.html
-46,5,Emerald 7s,2683,"$200,000",4.23,4,3.0,,,,09/02/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699486.html
-47,20,Extreme Multiplier,2655,"$1,000,000",3.75,4,4.0,,,,08/04/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699577.html
-48,2,Great 8s,2458,"$30,000",4.40,5,3.0,,,,01/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701496.html
-49,5,Hot Pink 7s,2625,"$100,000",4.10,5,2.0,,,,02/03/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699670.html
-50,5,Houston Texans,2664,"$100,000",3.77,4,1.0,,,,08/18/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699547.html
-51,20,Instant Millions,2671,"$1,000,000",3.80,4,4.0,,,,10/20/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699519.html
-52,5,Jaws,2657,"$100,000",4.19,4,1.0,,,,06/02/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699575.html
-53,5,Joker's Wild,2615,"$100,000",3.70,6,1.0,,,,02/17/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699701.html
-54,5,Jurassic Park,2690,"$100,000",4.28,4,3.0,,,,10/06/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699458.html
-55,5,Lady Luck Multiplier,2651,"$100,000",4.34,4,3.0,,,,06/16/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699581.html
-56,10,Limited Edition Mega Loteria,2676,"$250,000",3.54,10,8.0,,,,06/23/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699514.html
-57,10,Limited Edition Mega Loteria,2623,"$250,000",3.54,10,2.0,,,,08/05/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699672.html
-58,100,Loteria Supreme,2587,"$7,500,000",3.23,4,4.0,,,,08/18/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700443.html
-59,100,Loteria Supreme,2515,"$7,500,000",3.23,4,1.0,,,,04/03/23,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700662.html
-60,5,Lucky $ymbols,2649,"$100,000",3.70,5,3.0,,,,03/03/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699604.html
-61,20,Mega Jumbo Bucks,2638,"$1,000,000",3.76,4,2.0,,,,03/03/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699636.html
-62,10,Mega Loteria,2669,"$250,000",3.54,10,9.0,,,,08/04/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699542.html
-63,10,Mega Loteria,2563,"$250,000",3.54,20,6.0,,,,02/19/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700509.html
-64,20,Million Dollar Loteria,2653,"$1,000,000",3.29,10,8.0,,,,07/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699579.html
-65,20,Million Dollar Loteria,2586,"$1,000,000",3.29,10,1.0,,,,04/15/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700444.html
-66,5,Money Money Money,2670,"$100,000",4.09,6,4.0,,,,09/15/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699520.html
-67,2,Patriotic Payout,2692,"$30,000",4.03,5,5.0,,,,10/20/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699456.html
-68,30,Premier Play,2661,"$1,000,000",3.55,10,8.0,,,,08/04/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699550.html
-69,10,Ruby 7s,2684,"$500,000",3.88,4,3.0,,,,09/02/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699485.html
-70,5,Super Crossword,2581,"$100,000",4.07,13,7.0,,,,12/16/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700449.html
-71,5,Super Loteria,2648,"$100,000",3.77,30,23.0,,,,04/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699605.html
-72,3,Texas Loteria,2628,"$50,000",4.38,14,9.0,,,,05/19/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699667.html
-73,3,Texas Loteria,2508,"$50,000",4.38,14,3.0,,,,01/16/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700690.html
-74,30,Ultimate Riches,2591,"$2,000,000",4.31,4,2.0,,,,08/19/24,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700418.html
-75,5,Wild Cash,2693,"$100,000",4.10,4,4.0,,,,10/20/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699455.html
-76,50,X,2590,"$1,000,000",3.49,4,2.0,,,,01/21/25,,,"October 18, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700419.html
+0,20,"$1,000,000 Blitz",2621,"$1,000,000",3.74,4,3.0,,,,01/06/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699674.html
+1,20,"$1,000,000 CROSSWORD",2658,"$1,000,000",3.41,6,4.0,,,,06/16/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699574.html
+2,20,"$100, $200, $500 OR $1,000!",2609,"$1,000",9.49,4913,2271.0,,,,11/18/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699728.html
+3,5,"$100,000 Richer",2631,"$100,000",4.34,4,4.0,,,,07/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699643.html
+4,100,$20 Million Supreme,2400,"$20,000,000",3.49,4,1.0,,,,05/16/22,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701659.html
+5,5,"$200,000 Blitz",2619,"$200,000",4.08,5,3.0,,,,01/06/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699697.html
+6,10,$250 Grand,2474,"$250,000",3.86,6,4.0,,,,06/02/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701438.html
+7,10,"$250,000 50X Cashword",2668,"$250,000",3.56,10,10.0,,,,09/15/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699543.html
+8,10,"$250,000 50X Cashword",2582,"$250,000",3.56,10,3.0,,,,07/01/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700448.html
+9,30,$3 Million Ca$h,2633,"$3,000,000",3.72,4,2.0,,,,04/07/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699641.html
+10,2,"$30,000 Cash",2634,"$30,000",4.29,8,3.0,,,,03/17/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699640.html
+11,2,"$30,000 Gold Rush",2686,"$30,000",4.28,6,5.0,,,,09/15/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699483.html
+12,100,$400 Million Mega Bucks,2588,"$5,000,000",3.84,4,2.0,,,,02/05/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700442.html
+13,50,$5 Million Royale,2624,"$5,000,000",3.66,4,3.0,,,,04/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699671.html
+14,1,"$5,000 Blitz",2617,"$5,000",4.75,6,2.0,,,,01/06/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699699.html
+15,100,"$5,000,000 Fortune",2665,"$5,000,000",3.91,4,2.0,,,,02/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699546.html
+16,10,"$50, $100 OR $500!",2637,$500,9.43,10081,6630.0,,,,07/07/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699637.html
+17,10,"$500,000 Blitz",2620,"$500,000",3.83,4,3.0,,,,01/06/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699675.html
+18,3,"$60,000 Blitz Word Search",2618,"$60,000",4.34,8,6.0,,,,01/06/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699698.html
+19,10,100X,2644,"$500,000",3.93,5,3.0,,,,05/05/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699609.html
+20,10,100X Sonic Blast,2691,"$250,000",3.67,4,4.0,,,,10/06/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699457.html
+21,20,200X,2645,"$1,000,000",3.39,4,3.0,,,,05/05/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699608.html
+22,1,20X,2642,"$5,000",4.76,15,7.0,,,,05/05/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699611.html
+23,30,30X Supreme,2616,"$3,000,000",3.76,4,2.0,,,,12/16/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699700.html
+24,50,500X,2589,"$1,000,000",3.36,15,5.0,,,,09/16/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700441.html
+25,50,500X Loteria Spectacular,2659,"$3,000,000",3.21,4,4.0,,,,09/15/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699573.html
+26,50,500X Loteria Spectacular,2518,"$3,000,000",3.21,4,1.0,,,,05/20/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700659.html
+27,5,50X,2643,"$200,000",4.10,6,2.0,,,,05/05/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699610.html
+28,5,Azulejos,2635,"$100,000",4.15,4,1.0,,,,03/17/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699639.html
+29,20,Big Money,2556,"$1,000,000",3.73,4,2.0,,,,12/02/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700537.html
+30,10,Bingo Mania,2578,"$250,000",3.79,5,1.0,,,,02/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700473.html
+31,5,Bingo Times 20,2584,"$100,000",4.37,8,1.0,,,,09/16/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700446.html
+32,5,Bonus Break the Bank,2430,"$100,000",4.28,10,8.0,,,,07/07/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701566.html
+33,10,Bonus Money,2652,"$250,000",3.83,7,2.0,,,,03/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699580.html
+34,2,Break the Bank,2700,"$30,000",4.80,10,7.0,,,,08/04/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252698776.html
+35,2,Break the Bank,2614,"$30,000",4.80,10,1.0,,,,12/02/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699702.html
+36,2,Cash Line Bingo,2647,"$30,000",4.09,10,7.0,,,,07/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699606.html
+37,10,Casino Night,2600,"$250,000",3.51,4,3.0,,,,08/18/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699737.html
+38,2,Classic Bingo!,2571,"$30,000",4.38,16,3.0,,,,05/20/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700480.html
+39,20,Colossal Cash,2630,"$50,000",3.41,50,26.0,,,,02/17/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699644.html
+40,50,Colossal Cashword,2599,"$3,000,000",3.31,4,1.0,,,,11/18/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700410.html
+41,5,Cowboys,2663,"$100,000",3.80,4,3.0,,,,08/18/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699548.html
+42,3,Crossword,2504,"$50,000",4.07,18,5.0,,,,03/04/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700694.html
+43,10,Dazzling Winnings,2494,"$250,000",3.82,4,2.0,,,,04/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701376.html
+44,20,Diamond 7s,2685,"$1,000,000",3.51,4,3.0,,,,09/02/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699484.html
+45,5,Double Sided Dollars,2639,"$100,000",4.35,6,1.0,,,,05/19/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699635.html
+46,5,Emerald 7s,2683,"$200,000",4.23,4,3.0,,,,09/02/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699486.html
+47,20,Extreme Multiplier,2655,"$1,000,000",3.75,4,4.0,,,,08/04/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699577.html
+48,2,Great 8s,2458,"$30,000",4.40,5,3.0,,,,01/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252701496.html
+49,3,Holiday Word Blast,2697,"$50,000",4.15,5,5.0,,,,11/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699451.html
+50,5,Hot Pink 7s,2625,"$100,000",4.10,5,2.0,,,,02/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699670.html
+51,5,Houston Texans,2664,"$100,000",3.77,4,1.0,,,,08/18/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699547.html
+52,20,Instant Millions,2671,"$1,000,000",3.80,4,4.0,,,,10/20/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699519.html
+53,5,Jaws,2657,"$100,000",4.19,4,1.0,,,,06/02/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699575.html
+54,5,Joker's Wild,2615,"$100,000",3.70,6,1.0,,,,02/17/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699701.html
+55,5,Jurassic Park,2690,"$100,000",4.28,4,3.0,,,,10/06/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699458.html
+56,5,Lady Luck Multiplier,2651,"$100,000",4.34,4,3.0,,,,06/16/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699581.html
+57,10,Limited Edition Mega Loteria,2676,"$250,000",3.54,10,8.0,,,,06/23/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699514.html
+58,10,Limited Edition Mega Loteria,2623,"$250,000",3.54,10,2.0,,,,08/05/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699672.html
+59,100,Loteria Supreme,2587,"$7,500,000",3.23,4,4.0,,,,08/18/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700443.html
+60,100,Loteria Supreme,2515,"$7,500,000",3.23,4,1.0,,,,04/03/23,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700662.html
+61,5,Lucky $ymbols,2649,"$100,000",3.70,5,3.0,,,,03/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699604.html
+62,20,Mega Jumbo Bucks,2638,"$1,000,000",3.76,4,2.0,,,,03/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699636.html
+63,10,Mega Loteria,2669,"$250,000",3.54,10,9.0,,,,08/04/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699542.html
+64,10,Mega Loteria,2563,"$250,000",3.54,20,6.0,,,,02/19/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700509.html
+65,20,Million Dollar Loteria,2653,"$1,000,000",3.29,10,8.0,,,,07/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699579.html
+66,20,Million Dollar Loteria,2586,"$1,000,000",3.29,10,1.0,,,,04/15/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700444.html
+67,5,Money Money Money,2670,"$100,000",4.09,6,4.0,,,,09/15/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699520.html
+68,2,Patriotic Payout,2692,"$30,000",4.03,5,5.0,,,,10/20/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699456.html
+69,30,Premier Play,2661,"$1,000,000",3.55,10,8.0,,,,08/04/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699550.html
+70,10,Reindeer Riches,2699,"$250,000",3.75,5,5.0,,,,11/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699449.html
+71,10,Ruby 7s,2684,"$500,000",3.88,4,3.0,,,,09/02/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699485.html
+72,5,Super Crossword,2581,"$100,000",4.07,13,7.0,,,,12/16/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700449.html
+73,5,Super Loteria,2648,"$100,000",3.77,30,23.0,,,,04/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699605.html
+74,3,Texas Loteria,2628,"$50,000",4.38,14,9.0,,,,05/19/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699667.html
+75,3,Texas Loteria,2508,"$50,000",4.38,14,3.0,,,,01/16/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700690.html
+76,30,Ultimate Riches,2591,"$2,000,000",4.31,4,2.0,,,,08/19/24,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700418.html
+77,1,White Elephant,2696,$500,4.49,58,58.0,,,,11/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699452.html
+78,5,Wild Cash,2693,"$100,000",4.10,4,4.0,,,,10/20/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699455.html
+79,5,Winter Winnings,2698,"$100,000",3.91,5,5.0,,,,11/03/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252699450.html
+80,50,X,2590,"$1,000,000",3.49,4,2.0,,,,01/21/25,,,"October 19, 2025",https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/details.html_252700419.html
