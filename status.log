@@ -1534,3 +1534,237 @@ ValueError: invalid literal for int() with base 10: '(50 x 10)'
 2025-12-06 06:23:38,552 - __main__ - INFO - DataFrame successfully saved to 'AllStatesRatings' starting at row 3.
 2025-12-06 06:23:38,553 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-12-06 06:23:38 UTC
 2025-12-06 06:23:38,553 - __main__ - INFO - Total execution time: 0:05:30.491284
+2025-12-07 06:18:08,151 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2025-12-07 06:18:08 UTC
+2025-12-07 06:18:08,152 - __main__ - INFO - --- Processing State: AZ ---
+2025-12-07 06:18:09,903 - __main__ - ERROR - Error occurred during AZ processing (after import): 'NoneType' object has no attribute 'find'
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 374, in run_az_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/azlotteryscrape.py", line 80, in exportScratcherRecs
+    gamePrice = s.find(class_='col-md-6 price').find('span').get_text(strip=True)
+AttributeError: 'NoneType' object has no attribute 'find'
+2025-12-07 06:18:09,904 - __main__ - WARNING - Function run_az_scratcher_recs did not return valid scratchertables data.
+2025-12-07 06:18:09,905 - __main__ - WARNING - Function run_az_scratcher_recs did not return valid ratingstable data.
+2025-12-07 06:18:09,905 - __main__ - INFO - --- Processing State: CA ---
+2025-12-07 06:18:09,909 - calotteryscrape - INFO - Running lotteryscrape.py at: 2025-12-07 06:18:09 UTC
+2025-12-07 06:18:24,788 - __main__ - INFO - Clearing worksheet 'CARatingsTable' before saving new data.
+2025-12-07 06:18:24,940 - __main__ - INFO - Saving DataFrame to worksheet 'CARatingsTable'...
+2025-12-07 06:18:25,519 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: CARatingsTable
+2025-12-07 06:18:25,520 - __main__ - INFO - Successfully processed CA. Returning scratchertables.
+2025-12-07 06:18:25,530 - __main__ - INFO - Processing ratingstable for CA...
+2025-12-07 06:18:25,531 - __main__ - INFO - Added processed CA ratingstable to combined list.
+2025-12-07 06:18:25,531 - __main__ - INFO - --- Processing State: DC ---
+2025-12-07 06:19:23,105 - __main__ - INFO - Clearing worksheet 'DCRatingsTable' before saving new data.
+2025-12-07 06:19:23,235 - __main__ - INFO - Saving DataFrame to worksheet 'DCRatingsTable'...
+2025-12-07 06:19:23,893 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: DCRatingsTable
+2025-12-07 06:19:23,894 - __main__ - INFO - Successfully processed DC. Returning scratchertables.
+2025-12-07 06:19:23,904 - __main__ - INFO - Processing ratingstable for DC...
+2025-12-07 06:19:23,905 - __main__ - INFO - Added processed DC ratingstable to combined list.
+2025-12-07 06:19:23,905 - __main__ - INFO - --- Processing State: KS ---
+2025-12-07 06:19:24,781 - __main__ - ERROR - Error occurred during KS processing (after import): No tables found
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 466, in run_ks_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/kslotteryscrape.py", line 72, in exportScratcherRecs
+    tixlist = pd.read_html(str(soup.find('table', id = 'gametable')))[0]
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/io/html.py", line 1240, in read_html
+    return _parse(
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/io/html.py", line 1003, in _parse
+    raise retained
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/io/html.py", line 983, in _parse
+    tables = p.parse_tables()
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/io/html.py", line 249, in parse_tables
+    tables = self._parse_tables(self._build_doc(), self.match, self.attrs)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/io/html.py", line 598, in _parse_tables
+    raise ValueError("No tables found")
+ValueError: No tables found
+2025-12-07 06:19:24,781 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid scratchertables data.
+2025-12-07 06:19:24,782 - __main__ - WARNING - Function run_ks_scratcher_recs did not return valid ratingstable data.
+2025-12-07 06:19:24,782 - __main__ - INFO - --- Processing State: KY ---
+2025-12-07 06:19:33,726 - __main__ - INFO - Clearing worksheet 'KYRatingsTable' before saving new data.
+2025-12-07 06:19:33,857 - __main__ - INFO - Saving DataFrame to worksheet 'KYRatingsTable'...
+2025-12-07 06:19:34,428 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: KYRatingsTable
+2025-12-07 06:19:34,429 - __main__ - INFO - Successfully processed KY. Returning scratchertables.
+2025-12-07 06:19:34,439 - __main__ - INFO - Processing ratingstable for KY...
+2025-12-07 06:19:34,440 - __main__ - INFO - Added processed KY ratingstable to combined list.
+2025-12-07 06:19:34,440 - __main__ - INFO - --- Processing State: MD ---
+2025-12-07 06:19:42,361 - __main__ - INFO - Clearing worksheet 'MDRatingsTable' before saving new data.
+2025-12-07 06:19:42,482 - __main__ - INFO - Saving DataFrame to worksheet 'MDRatingsTable'...
+2025-12-07 06:19:42,962 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: MDRatingsTable
+2025-12-07 06:19:42,963 - __main__ - INFO - Successfully processed MD. Returning scratchertables.
+2025-12-07 06:19:42,973 - __main__ - INFO - Processing ratingstable for MD...
+2025-12-07 06:19:42,974 - __main__ - INFO - Added processed MD ratingstable to combined list.
+2025-12-07 06:19:42,974 - __main__ - INFO - --- Processing State: MO ---
+2025-12-07 06:19:43,215 - __main__ - ERROR - Error occurred during MO processing (after import): "['topprize', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'gameURL'] not in index"
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 553, in run_mo_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/molotteryscrape.py", line 160, in exportScratcherRecs
+    scratchersall = tixtables.loc[:,['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1185, in __getitem__
+    return self._getitem_tuple(key)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1378, in _getitem_tuple
+    return self._getitem_tuple_same_dim(tup)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1021, in _getitem_tuple_same_dim
+    retval = getattr(retval, self.name)._getitem_axis(key, axis=i)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1421, in _getitem_axis
+    return self._getitem_iterable(key, axis=axis)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1361, in _getitem_iterable
+    keyarr, indexer = self._get_listlike_indexer(key, axis)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexing.py", line 1559, in _get_listlike_indexer
+    keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6264, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['topprize', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'gameURL'] not in index"
+2025-12-07 06:19:43,217 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid scratchertables data.
+2025-12-07 06:19:43,218 - __main__ - WARNING - Function run_mo_scratcher_recs did not return valid ratingstable data.
+2025-12-07 06:19:43,218 - __main__ - INFO - --- Processing State: NC ---
+2025-12-07 06:20:21,432 - __main__ - INFO - Clearing worksheet 'NCRatingsTable' before saving new data.
+2025-12-07 06:20:21,558 - __main__ - INFO - Saving DataFrame to worksheet 'NCRatingsTable'...
+2025-12-07 06:20:22,137 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NCRatingsTable
+2025-12-07 06:20:22,138 - __main__ - INFO - Successfully processed NC. Returning scratchertables.
+2025-12-07 06:20:22,147 - __main__ - INFO - Processing ratingstable for NC...
+2025-12-07 06:20:22,148 - __main__ - INFO - Added processed NC ratingstable to combined list.
+2025-12-07 06:20:22,148 - __main__ - INFO - --- Processing State: NM ---
+2025-12-07 06:20:25,368 - __main__ - ERROR - Error occurred during NM processing (after import): invalid literal for int() with base 10: 'TICKET': Error while type casting for column 'prizeamount'
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 613, in run_nm_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/nmlotteryscrape.py", line 167, in exportScratcherRecs
+    scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 6642, in astype
+    res_col = col.astype(dtype=cdt, copy=copy, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 6665, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/internals/managers.py", line 449, in astype
+    return self.apply(
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/internals/managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/internals/blocks.py", line 784, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/dtypes/astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/dtypes/astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/dtypes/astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: invalid literal for int() with base 10: 'TICKET': Error while type casting for column 'prizeamount'
+2025-12-07 06:20:25,371 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid scratchertables data.
+2025-12-07 06:20:25,372 - __main__ - WARNING - Function run_nm_scratcher_recs did not return valid ratingstable data.
+2025-12-07 06:20:25,372 - __main__ - INFO - --- Processing State: NY ---
+2025-12-07 06:21:17,809 - __main__ - INFO - Clearing worksheet 'NYRatingsTable' before saving new data.
+2025-12-07 06:21:17,934 - __main__ - INFO - Saving DataFrame to worksheet 'NYRatingsTable'...
+2025-12-07 06:21:18,361 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: NYRatingsTable
+2025-12-07 06:21:18,362 - __main__ - INFO - Successfully processed NY. Returning scratchertables.
+2025-12-07 06:21:18,371 - __main__ - INFO - Processing ratingstable for NY...
+2025-12-07 06:21:18,373 - __main__ - INFO - Added processed NY ratingstable to combined list.
+2025-12-07 06:21:18,373 - __main__ - INFO - --- Processing State: OK ---
+2025-12-07 06:21:18,377 - oklotteryscrape - INFO - Running lotteryscrape.py at: 2025-12-07 06:21:18 UTC
+2025-12-07 06:21:25,764 - __main__ - INFO - Clearing worksheet 'OKRatingsTable' before saving new data.
+2025-12-07 06:21:25,894 - __main__ - INFO - Saving DataFrame to worksheet 'OKRatingsTable'...
+2025-12-07 06:21:26,359 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: OKRatingsTable
+2025-12-07 06:21:26,359 - __main__ - INFO - Successfully processed OK. Returning scratchertables.
+2025-12-07 06:21:26,368 - __main__ - INFO - Processing ratingstable for OK...
+2025-12-07 06:21:26,369 - __main__ - INFO - Added processed OK ratingstable to combined list.
+2025-12-07 06:21:26,369 - __main__ - INFO - --- Processing State: OR ---
+2025-12-07 06:21:37,002 - __main__ - INFO - Clearing worksheet 'ORRatingsTable' before saving new data.
+2025-12-07 06:21:37,122 - __main__ - INFO - Saving DataFrame to worksheet 'ORRatingsTable'...
+2025-12-07 06:21:37,460 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ORRatingsTable
+2025-12-07 06:21:37,461 - __main__ - INFO - Successfully processed OR. Returning scratchertables.
+2025-12-07 06:21:37,470 - __main__ - INFO - Processing ratingstable for OR...
+2025-12-07 06:21:37,471 - __main__ - INFO - Added processed OR ratingstable to combined list.
+2025-12-07 06:21:37,472 - __main__ - INFO - --- Processing State: TX ---
+2025-12-07 06:22:01,620 - __main__ - INFO - Clearing worksheet 'TXRatingsTable' before saving new data.
+2025-12-07 06:22:01,746 - __main__ - INFO - Saving DataFrame to worksheet 'TXRatingsTable'...
+2025-12-07 06:22:02,306 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: TXRatingsTable
+2025-12-07 06:22:02,306 - __main__ - INFO - Successfully processed TX. Returning scratchertables.
+2025-12-07 06:22:02,316 - __main__ - INFO - Processing ratingstable for TX...
+2025-12-07 06:22:02,317 - __main__ - INFO - Added processed TX ratingstable to combined list.
+2025-12-07 06:22:02,317 - __main__ - INFO - --- Processing State: VA ---
+2025-12-07 06:23:06,622 - __main__ - INFO - Clearing worksheet 'VARatingsTable' before saving new data.
+2025-12-07 06:23:06,754 - __main__ - INFO - Saving DataFrame to worksheet 'VARatingsTable'...
+2025-12-07 06:23:07,238 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: VARatingsTable
+2025-12-07 06:23:07,238 - __main__ - INFO - Successfully processed VA. Returning scratchertables.
+2025-12-07 06:23:07,248 - __main__ - INFO - Processing ratingstable for VA...
+2025-12-07 06:23:07,249 - __main__ - INFO - Added processed VA ratingstable to combined list.
+2025-12-07 06:23:07,249 - __main__ - INFO - --- Processing State: WA ---
+2025-12-07 06:23:16,145 - __main__ - ERROR - Error occurred during WA processing (after import): invalid literal for int() with base 10: '(50 x 10)'
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 786, in run_wa_scratcher_recs
+    ratingstable, scratchertables = exportScratcherRecs()
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/walotteryscrape.py", line 99, in exportScratcherRecs
+    tixtable['prizeamount'] = tixtable['prizeamount'].replace({'40000/yr/25 years':40000*25,'80000/yr/25yrs':80000*25,'80000/yr/25 years':80000*25, '150000/yr/10yrs':150000*25, 'LIFE': 1000*52*50}).astype('int')
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/generic.py", line 6665, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/internals/managers.py", line 449, in astype
+    return self.apply(
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/internals/managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/internals/blocks.py", line 784, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/dtypes/astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/dtypes/astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "/opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages/pandas/core/dtypes/astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: invalid literal for int() with base 10: '(50 x 10)'
+2025-12-07 06:23:16,147 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid scratchertables data.
+2025-12-07 06:23:16,147 - __main__ - WARNING - Function run_wa_scratcher_recs did not return valid ratingstable data.
+2025-12-07 06:23:16,147 - __main__ - INFO - Combining scratchertables data from 10 states.
+2025-12-07 06:23:16,150 - __main__ - INFO - Combined scratchertables shape: (10915, 11)
+2025-12-07 06:23:16,150 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined scratchertables...
+2025-12-07 06:23:16,157 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameNumber' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:16,163 - __main__ - INFO -   - Converted/Checked scratchertables column 'gameName' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:16,169 - __main__ - INFO -   - Converted/Checked scratchertables column 'prizeamount' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:16,175 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets At Start' (Original dtype: object, New dtype: float64)
+2025-12-07 06:23:16,181 - __main__ - INFO -   - Converted/Checked scratchertables column 'Winning Tickets Unclaimed' (Original dtype: object, New dtype: float64)
+2025-12-07 06:23:16,187 - __main__ - INFO -   - Converted/Checked scratchertables column 'Prize Probability' (Original dtype: object, New dtype: float64)
+2025-12-07 06:23:16,194 - __main__ - INFO -   - Converted/Checked scratchertables column 'Percent Tix Remaining' (Original dtype: object, New dtype: float64)
+2025-12-07 06:23:16,200 - __main__ - INFO -   - Converted/Checked scratchertables column 'Starting Expected Value' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:16,206 - __main__ - INFO -   - Converted/Checked scratchertables column 'Expected Value' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:16,212 - __main__ - INFO -   - Converted/Checked scratchertables column 'dateexported' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:16,218 - __main__ - INFO -   - Converted/Checked scratchertables column 'State' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:16,218 - __main__ - INFO - Attempting to save combined data to 'ScratcherTables' sheet.
+2025-12-07 06:23:17,142 - __main__ - INFO - Clearing worksheet 'ScratcherTables' before saving new data.
+2025-12-07 06:23:17,308 - __main__ - INFO - Saving DataFrame to worksheet 'ScratcherTables'...
+2025-12-07 06:23:20,265 - __main__ - INFO - DataFrame successfully saved to Google Sheet worksheet: ScratcherTables
+2025-12-07 06:23:20,266 - __main__ - INFO - Combining ratingstable data from 10 states.
+2025-12-07 06:23:20,269 - __main__ - INFO - Combined ratingstable columns BEFORE final reindex: ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize', 'Change in Current Odds of Top Prize', 'Current Odds of Any Prize', 'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize', 'Probability of Winning Any Prize', 'Change in Probability of Any Prize', 'Probability of Winning Profit Prize', 'Change in Probability of Profit Prize', 'StdDev of All Prizes', 'StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs', 'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy', 'Expected Value of Any Prize (as % of cost)', 'Change in Expected Value of Any Prize', 'Expected Value of Profit Prize (as % of cost)', 'Change in Expected Value of Profit Prize', 'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining', 'Ratio of Decline in Prizes to Decline in Losing Ticket', 'Rank by Best Probability of Winning Any Prize', 'Rank by Best Probability of Winning Profit Prize', 'Rank by Least Expected Losses', 'Rank by Most Available Prizes', 'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost', 'Photo', 'FAQ', 'About', 'Directory', 'Data Date', 'Stats Page', 'gameURL', 'State']
+2025-12-07 06:23:20,271 - __main__ - INFO - Combined ratingstable shape after reindex: (861, 51)
+2025-12-07 06:23:20,271 - __main__ - INFO - Combined ratingstable columns AFTER final reindex: ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize', 'Change in Current Odds of Top Prize', 'Current Odds of Any Prize', 'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize', 'Probability of Winning Any Prize', 'Change in Probability of Any Prize', 'Probability of Winning Profit Prize', 'Change in Probability of Profit Prize', 'StdDev of All Prizes', 'StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs', 'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy', 'Expected Value of Any Prize (as % of cost)', 'Change in Expected Value of Any Prize', 'Expected Value of Profit Prize (as % of cost)', 'Change in Expected Value of Profit Prize', 'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining', 'Ratio of Decline in Prizes to Decline in Losing Ticket', 'Rank by Best Probability of Winning Any Prize', 'Rank by Best Probability of Winning Profit Prize', 'Rank by Least Expected Losses', 'Rank by Most Available Prizes', 'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost', 'Photo', 'FAQ', 'About', 'Directory', 'Data Date', 'Stats Page', 'gameURL', 'State']
+2025-12-07 06:23:20,272 - __main__ - INFO - Performing final type conversion for JSON compatibility on combined ratingstable...
+2025-12-07 06:23:20,273 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameName' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,274 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameNumber' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,275 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprize' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,276 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeremain' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,277 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeavail' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,278 - __main__ - INFO -   - Converted/Checked ratingstable column 'extrachances' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,279 - __main__ - INFO -   - Converted/Checked ratingstable column 'secondChance' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,280 - __main__ - INFO -   - Converted/Checked ratingstable column 'startDate' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,281 - __main__ - INFO -   - Converted/Checked ratingstable column 'Days Since Start' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,281 - __main__ - INFO -   - Converted/Checked ratingstable column 'lastdatetoclaim' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,282 - __main__ - INFO -   - Converted/Checked ratingstable column 'topprizeodds' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,283 - __main__ - INFO -   - Converted/Checked ratingstable column 'overallodds' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,285 - __main__ - INFO -   - Converted/Checked ratingstable column 'Change in Current Odds of Top Prize' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,299 - __main__ - INFO -   - Converted/Checked ratingstable column 'Ratio of Decline in Prizes to Decline in Losing Ticket' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,302 - __main__ - INFO -   - Converted/Checked ratingstable column 'Rank by Most Available Prizes' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,303 - __main__ - INFO -   - Converted/Checked ratingstable column 'Rank by Best Change in Probabilities' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,306 - __main__ - INFO -   - Converted/Checked ratingstable column 'Photo' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,307 - __main__ - INFO -   - Converted/Checked ratingstable column 'FAQ' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,308 - __main__ - INFO -   - Converted/Checked ratingstable column 'About' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,309 - __main__ - INFO -   - Converted/Checked ratingstable column 'Directory' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,310 - __main__ - INFO -   - Converted/Checked ratingstable column 'Data Date' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,310 - __main__ - INFO -   - Converted/Checked ratingstable column 'Stats Page' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,311 - __main__ - INFO -   - Converted/Checked ratingstable column 'gameURL' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,312 - __main__ - INFO -   - Converted/Checked ratingstable column 'State' (Original dtype: object, New dtype: object)
+2025-12-07 06:23:20,312 - __main__ - INFO - Attempting to save combined data to 'AllStatesRatings' sheet starting at row 3.
+2025-12-07 06:23:21,517 - __main__ - INFO - Clearing data in worksheet 'AllStatesRatings' from row 3 onwards.
+2025-12-07 06:23:21,517 - __main__ - DEBUG - Calculated clear range: A3:CW2579
+2025-12-07 06:23:21,656 - __main__ - INFO - Cleared range A3:CW2579 in 'AllStatesRatings'.
+2025-12-07 06:23:21,660 - __main__ - INFO - Saving DataFrame to worksheet 'AllStatesRatings' starting at row 3 (headers excluded)...
+2025-12-07 06:23:22,720 - __main__ - INFO - DataFrame successfully saved to 'AllStatesRatings' starting at row 3.
+2025-12-07 06:23:22,721 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2025-12-07 06:23:22 UTC
+2025-12-07 06:23:22,721 - __main__ - INFO - Total execution time: 0:05:14.570068
