@@ -1,13 +1,3 @@
-
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep 13 23:34:32 2022
-
-@author: michaeljames
-"""
-
 import pandas as pd
 import requests
 import json
@@ -16,175 +6,209 @@ from dateutil.tz import tzlocal
 import numpy as np
 from bs4 import BeautifulSoup
 import io
-import re
-import time
-from urllib.parse import urljoin # Import the urljoin function
-
-
+import re # Import the regular expression module
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
-powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
-# add some more to powers as necessary
-
-
-def formatstr(s):
-    try:
-        power = s[-1]
-        if (power.isdigit()):
-            return s
-        else:
-            return float(s[:-1]) * powers[power]
-    except TypeError:
-        return s
-
-
-def exportCOScratcherRecs():
+def exportWVScratcherRecs():
     """
-    Scrapes the Colorado Lottery website for scratch-off data.
-    It gets the main game list from the "Scratch Insider" page, then visits
-    each detail page for prize info.
+    Scrapes the West Virginia Lottery website. 
+    Extracts main game list and detail prize tables from Next.js hydration data script tags.
     """
-    base_url = "https://www.coloradolottery.com"
-    list_page_url = "https://www.coloradolottery.com/en/player-tools/scratch-insider/"
-    
+    base_url = "https://wvlottery.com"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
     }
 
-    print(f"Fetching game list from: {list_page_url}")
-    
-    try:
-        # Use pandas to directly read the main table from the insider page
-        # We pass the raw request text and tell pandas to use the lxml parser
-        r = requests.get(list_page_url, headers=headers)
-        r.raise_for_status()
-        
-        # pd.read_html returns a list of all tables found
-        main_table_list = pd.read_html(io.StringIO(r.text))
-        if not main_table_list:
-            print("Could not find the main game table on the page.")
-            return None, None
-            
-        main_df = main_table_list[0]
-
-    except Exception as e:
-        print(f"Failed to fetch or parse the main game list page. Error: {e}")
-        return None, None
-
     tixtables = pd.DataFrame()
     scratchersall_list = []
-
-    # The links are embedded in the 'Game Name' column, so we need to parse the HTML
-    soup = BeautifulSoup(r.text, 'html.parser')
-    table_rows = soup.find('table').find('tbody').find_all('tr')
-
-    # Loop through each row of the main table to get the game link
-    for row in table_rows:
-        try:
-            cell = row.find('td')
-            if not cell: continue
-            
-            link_tag = cell.find('a')
-            if not link_tag or not link_tag.has_attr('href'):
-                continue
-
-            detail_path = link_tag['href']
-            # --- CORRECTED URL CONSTRUCTION ---
-            # Use urljoin to safely combine the base URL and the relative path.
-            detail_url = urljoin(base_url, detail_path)
-            game_name = link_tag.get_text(strip=True)
-            
-            # Extract other info directly from the row cells
-            cells = row.find_all('td')
-            price = float(cells[1].get_text(strip=True).replace('$', ''))
-            game_number = cells[2].get_text(strip=True)
-            overall_odds = cells[8].get_text(strip=True).split(' in ')[-1]
-            startDate = cells[3].get_text(strip=True)
-            lastdatetoclaim = cells[4].get_text(strip=True)
-            secondChance = '2nd Chance' if int(cells[9].get_text(strip=True).replace('➞', ''))>0 else None
-            extrachances = 'eXTRA Chances' if int(cells[9].get_text(strip=True).replace('➞', ''))>0 else None
-            
-            print(f"  > Processing game: {game_name}")
-
-            # Visit the detail page to get the prize table
-            detail_r = requests.get(detail_url, headers=headers)
-            
-            detail_soup = BeautifulSoup(detail_r.content, 'html.parser')
-            
-            
-            # Find the prize table
-            prize_table_tag = detail_soup.find('table', class_='respond')
-            if not prize_table_tag:
-                print(f"    - No prize table found for {game_name}. Skipping.")
-                continue
-            prize_table_df = pd.read_html(io.StringIO(str(prize_table_tag)))[0]
-            # Rename columns to match the required format
-            prize_table_df.rename(columns={
-                'Prize Amount': 'prizeamount',
-                'Winning Tickets': 'Winning Tickets At Start',
-                'Probability': 'probability_text' # Temporarily name the probability column
-            }, inplace=True)
-            
-            # Ensure numeric types for calculation
-            prize_table_df['Winning Tickets At Start'] = pd.to_numeric(prize_table_df['Winning Tickets At Start'], errors='coerce')
-
-            #add a "Winning Tickets Unclaimed column that is the same as the Winning Tickets At Start, since no current prize data is provided by CO Lottery.
-            prize_table_df['Winning Tickets Unclaimed'] = prize_table_df['Winning Tickets At Start']
-            # Clean up the prize amount first
-            prize_table_df['prizeamount'] = prize_table_df['prizeamount'].astype(str).str.replace(r'[\$,]', '', regex=True)
-            prize_table_df['prizeamount'] = pd.to_numeric(prize_table_df['prizeamount'], errors='coerce')
-            # Add other necessary columns
-            prize_table_df['gameNumber'] = game_number
-            prize_table_df['gameName'] = game_name
-            prize_table_df['price'] = price
-            prize_table_df['extrachances'] = extrachances
-            prize_table_df['secondChance'] = secondChance
-            prize_table_df['dateexported'] = date.today()
-
-            # Get top prize info from the table
-            topprize = prize_table_df['prizeamount'].max()
-            topprizestarting = prize_table_df.loc[prize_table_df['prizeamount'] == topprize, 'Winning Tickets At Start'].iloc[0]
-            topprizeremain = prize_table_df.loc[prize_table_df['prizeamount'] == topprize, 'Winning Tickets Unclaimed'].iloc[0]
-            topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
-            
-            prize_table_df['overallodds'] = overall_odds
-            prize_table_df['topprize'] = topprize
-            prize_table_df['topprizestarting'] = topprizestarting
-            prize_table_df['topprizeremain'] = topprizeremain
-            prize_table_df['topprizeavail'] = topprizeavail
-            prize_table_df['startDate'] = startDate
-            prize_table_df['endDate'] = None
-            prize_table_df['lastdatetoclaim'] = lastdatetoclaim
-            prize_table_df['gameURL'] = detail_url
-            
-            # Get game photo URL
-            game_photo_tag = detail_soup.find('img', class_='img-responsive')
-            game_photo = f"{base_url}{game_photo_tag['src']}" if game_photo_tag and game_photo_tag.has_attr('src') else None
-
-            prize_table_df['gamePhoto'] = game_photo
-            prize_table_df['dateexported'] = date.today()
-
-            tixtables = pd.concat([tixtables, prize_table_df], ignore_index=True)
-            
-            
-        except Exception as e:
-            print(f"    - ERROR processing a game row. Skipping. Error: {e}")
-            continue
-            
-    print(tixtables.columns)
-    print(tixtables.loc[tixtables['prizeamount']=='Prize ticket'],'gameNumber','prizeamount')
-    tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
-    scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     
-    #save scratchers list
-    #scratchersall.to_sql('NMscratcherlist', engine, if_exists='replace')
-    scratchersall.to_csv("./COscratcherslist.csv", encoding='utf-8')
+    # 1. FETCH MAIN LIST
+    # We use the base URL without the _rsc parameter to ensure we get full HTML with script tags
+    list_page_url = f"{base_url}/games/scratch-offs"
+    print(f"Fetching game data from: {list_page_url}")
+    
+    try:
+        r = requests.get(list_page_url, headers=headers)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.content, 'html.parser')
+        
+        games_on_page = []
+        all_script_tags = soup.find_all('script')
+        
+        # --- PARSE MAIN PAGE SCRIPT ---
+        for script_tag in all_script_tags:
+            script_content = script_tag.get_text()
+            if 'scratchOffs' in script_content and 'self.__next_f.push' in script_content:
+                games_on_page = extract_nextjs_json(script_content, '"scratchOffs":')
+                if games_on_page:
+                    print(f"  > Successfully parsed {len(games_on_page)} games from main listing.")
+                    break 
+
+        if not games_on_page:
+            print("No game data found on main page. Exiting.")
+            return None, None
+        
+        # 2. PROCESS EACH GAME
+        for game_data in games_on_page:
+            try:
+                # Extract basic fields
+                game_number = game_data.get("gameNumber")
+                top_prize = game_data.get("topPrize")
+                slug = game_data.get("slug")
+                title = game_data.get("title")
+                start_date = game_data.get("startDate")
+                end_date = game_data.get("endDate")
+                claim_end_date = game_data.get("claimEndDate")
+                ticket_price = game_data.get("ticketPrice")
+                odds = game_data.get("odds")
+                
+                # Normalize types
+                price = float(ticket_price) if ticket_price is not None else 0.0
+                try:
+                    top_prize_float = float(top_prize) if top_prize is not None else 0.0
+                except (ValueError, TypeError):
+                    top_prize_float = 0.0
+
+                game_photo_data = game_data.get("image", {})
+                game_photo = game_photo_data.get("url") if isinstance(game_photo_data, dict) else None
+
+                if not slug:
+                    print(f"  - Skipping game '{title}' due to missing slug.")
+                    continue
+
+                detail_url = f"{base_url}/games/scratch-offs/{slug}"
+                print(f"  > Processing game details for: {title} (#{game_number})")
+
+                # --- DETAIL PAGE LOGIC ---
+                try:
+                    detail_r = requests.get(detail_url, headers=headers)
+                    detail_r.raise_for_status()
+                    detail_soup = BeautifulSoup(detail_r.content, 'html.parser')
+
+                    # 3. PARSE DETAIL PAGE SCRIPT (Robust search)
+                    prize_details_list = None
+                    detail_scripts = detail_soup.find_all('script')
+                    
+                    for ds in detail_scripts:
+                        dsc = ds.get_text()
+                        # Look for 'prizeDetails' key
+                        if 'prizeDetails' in dsc and 'self.__next_f.push' in dsc:
+                            prize_details_list = extract_nextjs_json(dsc, '"prizeDetails":')
+                            if prize_details_list:
+                                break
+                    
+                    topprizestarting = 0
+                    topprizeremain = 0
+                    
+                    if prize_details_list:
+                        # Convert list of dicts to DataFrame
+                        prize_table_df = pd.DataFrame(prize_details_list)
+                        
+                        # Map JSON keys to legacy column names
+                        prize_table_df.rename(columns={
+                            'prize': 'prizeamount',
+                            'totalPrizes': 'Winning Tickets At Start',
+                            'remainingPrizes': 'Winning Tickets Unclaimed'
+                        }, inplace=True)
+
+                        # Clean/Ensure numeric columns
+                        prize_table_df['prizeamount'] = pd.to_numeric(prize_table_df['prizeamount'], errors='coerce').fillna(0)
+                        prize_table_df['Winning Tickets At Start'] = pd.to_numeric(prize_table_df['Winning Tickets At Start'], errors='coerce').fillna(0)
+                        prize_table_df['Winning Tickets Unclaimed'] = pd.to_numeric(prize_table_df['Winning Tickets Unclaimed'], errors='coerce').fillna(0)
+                        
+                        # Add metadata
+                        prize_table_df['gameNumber'] = game_number
+                        prize_table_df['gameName'] = title
+                        prize_table_df['price'] = price
+                        prize_table_df['dateexported'] = date.today()
+                        
+                        # Calculate top prize stats
+                        if top_prize_float in prize_table_df['prizeamount'].values:
+                            topprizestarting = prize_table_df.loc[prize_table_df['prizeamount'] == top_prize_float, 'Winning Tickets At Start'].iloc[0]
+                            topprizeremain = prize_table_df.loc[prize_table_df['prizeamount'] == top_prize_float, 'Winning Tickets Unclaimed'].iloc[0]
+                        else: 
+                            # Fallback: grab the max prize in the table
+                            if not prize_table_df.empty:
+                                actual_top_prize = prize_table_df['prizeamount'].max()
+                                top_prize_float = actual_top_prize 
+                                topprizestarting = prize_table_df.loc[prize_table_df['prizeamount'] == actual_top_prize, 'Winning Tickets At Start'].iloc[0]
+                                topprizeremain = prize_table_df.loc[prize_table_df['prizeamount'] == actual_top_prize, 'Winning Tickets Unclaimed'].iloc[0]
+
+                        tixtables = pd.concat([tixtables, prize_table_df], ignore_index=True)
+                    else:
+                        print(f"    - Warning: No 'prizeDetails' found in scripts for {title}.")
+
+                    topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
+
+                    # Clean Odds string
+                    if odds:
+                        clean_odds = str(odds).lower().replace("1 in ", "").strip()
+                    else:
+                        clean_odds = None
+
+                    scratchersall_list.append({
+                        'gameNumber': game_number,
+                        'gameName': title,
+                        'title': title,
+                        'slug': slug,
+                        'price': price,
+                        'ticketPrice': ticket_price,
+                        'topprize': top_prize_float,
+                        'topPrize': top_prize,
+                        'overallodds': clean_odds,
+                        'odds': odds,
+                        'startDate': start_date,
+                        'endDate': end_date,
+                        'claimEndDate': claim_end_date,
+                        'lastdatetoclaim': claim_end_date,
+                        'topprizestarting': topprizestarting,
+                        'topprizeremain': topprizeremain,
+                        'topprizeavail': topprizeavail,
+                        'dateexported': date.today(),
+                        'gameURL': detail_url,
+                        'gamePhoto': game_photo
+                    })
+
+                except Exception as e:
+                    print(f"    - ERROR processing detail page for {title}: {e}")
+                    continue
+
+            except Exception as e:
+                print(f"  - Error processing game item: {e}")
+                continue
+    
+    except requests.RequestException as e:
+        print(f"ERROR: Could not fetch list page. Error: {e}")
+
+    # --- SAVE ---
+    if not scratchersall_list:
+        print("Scraping finished, but no data was collected. Exiting.")
+        return None, None
+        
+    scratchersall = pd.DataFrame(scratchersall_list)
+    print("Saving data to CSV...")
+    scratchersall.to_csv("./WVscratcherslist.csv", encoding='utf-8', index=False)
+    
+    if not tixtables.empty:
+        scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
+        scratchertables.to_csv("./WVscratchertables.csv", encoding='utf-8', index=False)
+        return scratchersall, scratchertables
+    else:
+        print("Warning: Prize tables were empty.")
+        return scratchersall, None
+
+    # --- Statistical analysis section ---
+  
+    if not scratchersall_list:
+        print("Scraping finished, but no data was collected. Exiting.")
+        return None, None
+        
+
+    
+    print("\nScraping and data extraction complete. Statistical analysis would follow.")
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-    scratchertables.to_csv("./COscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
@@ -380,5 +404,74 @@ def exportCOScratcherRecs():
     #set_with_dataframe(worksheet=COratingssheet, dataframe=ratingstable, include_index=False,
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
+    return scratchersall, scratchertables
 
-exportCOScratcherRecs()
+def extract_nextjs_json(script_content, target_key):
+    """
+    Helper to extract a specific JSON list from Next.js hydration data.
+    Uses Regex to identify the push pattern regardless of Chunk ID.
+    """
+    try:
+        # Regex to find: self.__next_f.push([<DIGITS>,"
+        # matching ANY chunk ID
+        pattern = re.compile(r'self\.__next_f\.push\(\[\d+,"')
+        
+        matches = list(pattern.finditer(script_content))
+        
+        for match in matches:
+            # Start of the content string is at the end of the match
+            start_content_idx = match.end()
+            
+            # The string usually ends with "])
+            # We take the rest of the string from this point
+            remaining_script = script_content[start_content_idx:]
+            
+            # Find the end of this specific push call
+            # Usually looks like "]) at the end of the script tag, 
+            # but safer to look for the last occurrence in this substring
+            end_idx = remaining_script.rfind('"])')
+            if end_idx == -1:
+                continue
+            
+            raw_content = remaining_script[:end_idx]
+            
+            # Unescape: reverse \" to " and \\ to \
+            unescaped_content = raw_content.replace('\\"', '"').replace('\\\\', '\\')
+            
+            # Check if this chunk contains our target key
+            key_idx = unescaped_content.find(target_key)
+            if key_idx == -1:
+                continue # Try the next match match
+            
+            # Move index to the start of the value (should be '[')
+            list_start_idx = key_idx + len(target_key)
+            
+            if unescaped_content[list_start_idx] != '[':
+                continue
+
+            # Bracket counting to extract the valid JSON array
+            bracket_count = 0
+            json_snippet = ""
+            
+            for i in range(list_start_idx, len(unescaped_content)):
+                char = unescaped_content[i]
+                json_snippet += char
+                
+                if char == '[':
+                    bracket_count += 1
+                elif char == ']':
+                    bracket_count -= 1
+                
+                if bracket_count == 0:
+                    # Parse and return immediately upon success
+                    return json.loads(json_snippet)
+                    
+    except Exception as e:
+        # print(f"Regex extraction error: {e}") 
+        return None
+    return None
+
+
+
+if __name__ == '__main__':
+    exportWVScratcherRecs()

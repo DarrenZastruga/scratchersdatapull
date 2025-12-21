@@ -257,7 +257,7 @@ def exportScratcherRecs():
             elif i == '1948':
                 link = "https://www.valottery.com/-/media/VAL/Images/Scratcher-Game-Tiles/1948_teaser.ashx"
             else:
-                link = "https://www.valottery.com/-/media/val/images/digital-scratcher-teaser-images/" + i + "_teaser.ashx"   
+                link = "https://cdnprodpaasmedia-valottery-com.azureedge.net/-/media/val/images/scratcher-teaser/" + i + "_teaser.ashx"   
 
             return link
                     
