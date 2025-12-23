@@ -591,7 +591,7 @@ def clusterloop(ratingstable, scratchertables, prizetype, stddevs, riskCoeff):
     return simTable, simOutcomes
     
          
-
+   
 
 
 #ratingstable = pd.read_csv ('/Users/michaeljames/Documents/scratchersdatapull/ratingstable.csv')
