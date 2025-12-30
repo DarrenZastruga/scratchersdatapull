@@ -31,6 +31,7 @@ from itertools import repeat
 from scipy import stats
 from lxml import etree
 from pandas import json_normalize
+import io
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
@@ -95,9 +96,31 @@ def exportScratcherRecs():
             tixtable['gameName'] = gameName
             tixtable['gameNumber'] = gameNumber
             tixtable['dateexported'] = dateexported
+            # --- DATA CLEANING FOR PRIZE AMOUNT ---
+            # Remove currency symbols
             tixtable['prizeamount'] = tixtable['prizeamount'].str.replace('$','', regex=False).str.replace(',','', regex=False)
-            tixtable['prizeamount'] = tixtable['prizeamount'].replace({'40000/yr/25 years':40000*25,'80000/yr/25yrs':80000*25,'80000/yr/25 years':80000*25, '150000/yr/10yrs':150000*25, 'LIFE': 1000*52*50}).astype('int')
-            print(tixtable)
+            tixtable['prizeamount'] = tixtable['prizeamount'].apply(clean_wa_prizes)
+            # Handle Text Prizes & Annuities
+            # Added '(50 x 10)': 500 to fix the ValueError
+            #replace_map = {
+              #  '40000/yr/25 years': 40000*25,
+               # '80000/yr/25yrs': 80000*25,
+              #  '80000/yr/25 years': 80000*25, 
+              #  '150000/yr/10yrs': 150000*25, 
+               # 'LIFE': 1000*52*50,
+               # '(50 x 10)': 50*10,
+               # '(100 x 5)':100*5,
+               # '(50 x 4)':50*4,
+               # '(20 x 10)':20*10,
+               # '(10 x 20)':10*20,
+               # '(50 x 2)':50*2,
+               # '(25 x 4)':25*4
+            #}
+            #tixtable['prizeamount'] = tixtable['prizeamount'].replace(replace_map)
+            
+            # Now convert to int
+            tixtable['prizeamount'] = tixtable['prizeamount'].astype('int')
+            
             tixtables = pd.concat([tixtables, tixtable], axis=0, ignore_index=True)
             
             topprize = tixtable.loc[0,'prizeamount']
@@ -321,5 +344,41 @@ def exportScratcherRecs():
     #set_with_dataframe(worksheet=WAratingssheet, dataframe=ratingstable, include_index=False,
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
+
+
+# --- DATA CLEANING FUNCTION ---
+def clean_wa_prizes(val):
+    s = str(val).strip()
+    
+    # 1. Handle Multiplier Logic: "(50 x 10)" -> 500
+    if '(' in s and 'x' in s.lower():
+        try:
+            # Remove parentheses and split by 'x'
+            clean = s.replace('(', '').replace(')', '').lower()
+            parts = clean.split('x')
+            # Multiply the two numbers
+            return int(parts[0].strip()) * int(parts[1].strip())
+        except:
+            pass # If it fails, fall through to other checks
+
+    # 2. Handle specific text replacements (Annuities)
+    replacements = {
+        '40000/yr/25 years': 40000*25,
+        '80000/yr/25yrs': 80000*25,
+        '80000/yr/25 years': 80000*25, 
+        '150000/yr/10yrs': 150000*25, 
+        'LIFE': 1000*52*50
+    }
+    if s in replacements:
+        return replacements[s]
+
+    # 3. Standard Cleanup: Remove $ and ,
+    s = s.replace('$', '').replace(',', '')
+    
+    # 4. Final conversion
+    try:
+        return int(float(s))
+    except:
+        return 0
 
 #exportScratcherRecs()

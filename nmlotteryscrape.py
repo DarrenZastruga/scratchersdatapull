@@ -164,7 +164,24 @@ def exportScratcherRecs():
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./NMscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
-    scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+    
+    # --- FIX START ---
+    # 1. Handle "TICKET" prizes by converting them to 0 (or another number)
+    # We use regex=True to be safe, though strict replacement works too.
+    scratchertables['prizeamount'] = scratchertables['prizeamount'].astype(str).str.replace('TICKET', '0', case=False, regex=False)
+    
+    # 2. Remove any other non-numeric characters (like currency symbols if any slipped through)
+    scratchertables['prizeamount'] = scratchertables['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True)
+    
+    # 3. Handle potential floats (e.g. '10.0') by converting to float first, then int
+    # This prevents errors if a prize is parsed as "10.00" string
+    for col in ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        scratchertables[col] = pd.to_numeric(scratchertables[col], errors='coerce').fillna(0).astype('int32')
+    # --- FIX END ---
+
+    # (The original .astype line is effectively replaced by the loop above)
+    # scratchertables = scratchertables.astype({'prizeamount': 'int32', ...})
+    
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     # Select columns first, then groupby and aggregate
     cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']

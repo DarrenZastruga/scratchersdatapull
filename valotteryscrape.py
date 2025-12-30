@@ -102,6 +102,8 @@ def exportScratcherRecs():
         tableData['gameNumber'] = soup.find('h2', class_='title-display').find('small').get_text()
         tableData['gameName'] = soup.find('h2', class_='title-display').find(string=True, recursive=False).strip()
         tableData['gameURL'] = ticketurl
+        tableData['gamePhoto'] = t['RolloverImageUrl']
+        print(tableData['gamePhoto'])
         tableData['price'] = soup.find('h2', class_='ticket-price-display').get_text()
         tableData['overallodds'] = soup.find('p', class_='odds-display').find('span').get_text()
         tableData['topprize'] = soup.find('h2', class_='top-prize-display').get_text().replace('*','')
@@ -261,7 +263,7 @@ def exportScratcherRecs():
 
             return link
                     
-        gamerow.loc[:,'Photo'] = photolink(str(gameid))
+        gamerow.loc[:,'Photo'] = tixtables.loc[tixtables['gameNumber']==gameid,'gamePhoto'].values[0]
         gamerow.loc[:,'FAQ'] = None
         gamerow.loc[:,'About'] = None
         gamerow.loc[:,'Directory'] = None
@@ -606,7 +608,7 @@ for t in prizetypes:
         clusterloop(ratingstable, scratchertables, t, std, 2)        
 '''                    
                 
-#exportScratcherRecs()
+exportScratcherRecs()
 '''
 scheduler = BlockingScheduler()
 scheduler.add_job(exportScratcherRecs, 'cron', hour=0, minute=30)

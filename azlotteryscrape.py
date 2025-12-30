@@ -2,174 +2,246 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Sep 13 23:34:32 2022
-
-@author: michaeljames
+Updated for robust Hybrid Scraping: API for Data + HTML for Images
 """
 
 import pandas as pd
-import os
-import psycopg2
-import urllib.parse
-from urllib.parse import urlparse
-import urllib.request
-import json
 import requests
-from apscheduler.schedulers.blocking import BlockingScheduler
+from datetime import date, datetime
+from dateutil.tz import tzlocal
+import numpy as np
 from bs4 import BeautifulSoup
 import re
-import logging
-from datetime import datetime
-from dateutil.tz import tzlocal
-from sqlalchemy import create_engine
-import lxml
-from datetime import date
-import numpy as np
-import html5lib
-import random
-from itertools import repeat
-from scipy import stats
 
-
-'''
-logging.basicConfig()
- 
-DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
-print(DATABASE_URL)
-
-#replace 'postgres' with 'postgresql' in the database URL since SQLAlchemy stopped supporting 'postgres' 
-SQLALCHEMY_DATABASE_URI = DATABASE_URL.replace('postgres://', 'postgresql://')
-conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
-engine = create_engine(SQLALCHEMY_DATABASE_URI)
-'''
-
-now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
-
-powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
-# add some more to powers as necessary
-
-
-def formatstr(s):
-    try:
-        power = s[-1]
-        if (power.isdigit()):
-            return s
-        else:
-            return float(s[:-1]) * powers[power]
-    except TypeError:
-        return s
-
+# Constants
+MAIN_URL = "https://www.arizonalottery.com/scratchers/"
+API_BASE_URL = "https://api.arizonalottery.com/v2/Scratchers"
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+}
 
 def exportScratcherRecs():
-    url = "https://www.arizonalottery.com/scratchers/#all"
-    r = requests.get(url)
-    response = r.text
-    # print(r.text)
-    soup = BeautifulSoup(response, 'html.parser')
+    """
+    Scrapes Arizona Lottery data.
+    1. Gets Game IDs from the main website HTML.
+    2. Fetches details for each ID from the official API.
+    3. Scrapes the individual game page to find the ticket image.
+    """
+    print(f"Fetching game IDs from: {MAIN_URL}")
+    
+    game_ids = set()
+    
+    try:
+        # 1. Get HTML to find Game IDs
+        r = requests.get(MAIN_URL, headers=HEADERS)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, 'html.parser')
+        
+        # Strategy A: Find links containing /scratchers/####-
+        links = soup.find_all('a', href=re.compile(r'/scratchers/\d+'))
+        for link in links:
+            href = link['href']
+            match = re.search(r'/scratchers/(\d+)', href)
+            if match:
+                game_ids.add(match.group(1))
+        
+        # Strategy B: Find text like "#1234" (backup)
+        text_matches = re.findall(r'#(\d{4})\b', r.text)
+        game_ids.update(text_matches)
+        
+        print(f"Found {len(game_ids)} unique game IDs: {sorted(list(game_ids))}")
+        
+    except Exception as e:
+        print(f"Error scraping HTML list: {e}")
+        return None, None
 
-    tixlist = pd.DataFrame(columns=['gameName', 'gameNumber', 'price', 'gameURL'])
-    table = soup.find_all(class_=['section'])
-    logos = soup.find_all(class_=['logo'])
+    tixtables = pd.DataFrame()
+    scratchersall_list = []
 
-    # print(table)
-    tixrow = pd.DataFrame()
-    for s in table:
-        gamenames = s.find(class_='game-name').get_text(strip=True)
-        gameURL = "https://www.arizonalottery.com"+s.find(class_='game-name').get('href')
-        gameName = gamenames.partition(' #')[0]
-        gameNumber = gamenames.partition(' #')[2]
-        gamePrice = s.find(class_='col-md-6 price').find('span').get_text(strip=True)
+    # 2. Loop through IDs and hit the API
+    for game_id in game_ids:
+        api_url = f"{API_BASE_URL}/{game_id}"
+        
         try:
-            gamePhoto = "https://www.arizonalottery.com"+soup.select_one("img[src*='"+gameNumber+"']")["src"].split('?')[0]
-        except:
-            gamePhoto = None
-            continue
-        print(gamenames)
-        print(gameName)
-        print(gameNumber)
-        print(gamePrice)
-        print(gameURL)
-        print(gamePhoto)
+            api_r = requests.get(api_url, headers=HEADERS)
             
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto']] = [
-            gamePrice, gameName, gameNumber, gameURL, gamePhoto]
+            if api_r.status_code == 404:
+                print(f"    - API 404 for Game #{game_id} (likely expired/hidden). Skipping.")
+                continue
+            
+            api_r.raise_for_status()
+            data = api_r.json()
+            
+            if isinstance(data, list):
+                if not data: continue
+                game_data = data[0]
+            else:
+                game_data = data
 
-    tixlist.to_csv("./AZtixlist.csv", encoding='utf-8')
+            # --- Extract Header Info ---
+            gameNumber = str(game_data.get('gameNum', game_id))
+            gameName = game_data.get('gameName', 'Unknown')
+            try:
+                gamePrice = float(game_data.get('ticketValue', 0))
+            except:
+                gamePrice = 0.0
+            
+            # Dates
+            startDate = game_data.get('beginDate')
+            if startDate: startDate = startDate.split('T')[0]
+            
+            endDate = game_data.get('endDate')
+            if endDate: endDate = endDate.split('T')[0]
+            
+            lastDate = game_data.get('lastDate')
+            lastdatetoclaim = lastDate.split('T')[0] if lastDate else None
+            
+            gameOdds = float(game_data.get('gameOdds', 0))
+            
+            # Construct Web URL
+            slug = gameName.lower().replace(' ', '-').replace('#', '').replace('$', '').replace("'", "")
+            gameURL = f"https://www.arizonalottery.com/scratchers/{gameNumber}-{slug}/"
+
+            print(f"  > Processing: {gameName} (#{gameNumber})")
+
+            # --- 3. FETCH GAME PHOTO ---
+            gamePhoto = None
+            
+            # Try API first
+            if 'image' in game_data and game_data['image']:
+                gamePhoto = f"https://www.arizonalottery.com/media/{game_data['image']}"
+            elif 'ticketImage' in game_data and game_data['ticketImage']:
+                gamePhoto = game_data['ticketImage']
+
+            # HTML Scraping Fallback (Only if API failed)
+            if not gamePhoto:
+                try:
+                    page_r = requests.get(gameURL, headers=HEADERS, timeout=10)
+                    if page_r.status_code == 200:
+                        page_soup = BeautifulSoup(page_r.text, 'html.parser')
+                        
+                        # Strategy A: Open Graph Image (Most reliable)
+                        og_img = page_soup.find('meta', property='og:image')
+                        if og_img and og_img.get('content'):
+                            gamePhoto = og_img['content']
+                        
+                        # Strategy B: Image with Game Number in src
+                        if not gamePhoto:
+                            img_tag = page_soup.select_one(f"img[src*='{gameNumber}']")
+                            if img_tag and img_tag.has_attr('src'):
+                                src = img_tag['src'].split('?')[0]
+                                if src.startswith('http'):
+                                    gamePhoto = src
+                                else:
+                                    gamePhoto = f"https://www.arizonalottery.com{src}"
+                        
+                        # Strategy C: Specific Class
+                        if not gamePhoto:
+                            img_tag = page_soup.select_one(".scratchers-detail-image img")
+                            if img_tag and img_tag.has_attr('src'):
+                                src = img_tag['src'].split('?')[0]
+                                if src.startswith('http'):
+                                    gamePhoto = src
+                                else:
+                                    gamePhoto = f"https://www.arizonalottery.com{src}"
+                except Exception as e:
+                    pass # Ignore photo errors
+            # --- Extract Prize Tiers ---
+            prize_tiers = game_data.get('prizeTiers', [])
+            
+            topprize = 0
+            topprizestarting = 0
+            topprizeremain = 0
+            topprizeodds = 0  # Initialize variable
+            
+            for tier in prize_tiers:
+                # Prize Amount Cleaning
+                raw_amt = str(tier.get('prizeAmount', 0))
+                disp_title = str(tier.get('displayTitle', raw_amt))
+                
+                clean_amt_str = disp_title.replace('$', '').replace(',', '').replace('.00', '')
+                if 'Million' in clean_amt_str:
+                    try:
+                        val = float(clean_amt_str.replace(' Million', '').strip())
+                        clean_amt = int(val * 1_000_000)
+                    except:
+                        clean_amt = 0
+                elif 'TICKET' in clean_amt_str.upper() or 'FREE' in clean_amt_str.upper():
+                    clean_amt = 0 
+                else:
+                    try:
+                        clean_amt = int(float(clean_amt_str))
+                    except:
+                        clean_amt = 0
+                
+                prizeamount = clean_amt
+                
+                # Stats
+                start_count = int(tier.get('totalCount', 0))
+                remain_count = int(tier.get('count', 0))
+                tier_odds = float(tier.get('odds', 0))
+                tier_level = int(tier.get('tierLevel', 99))
+                
+                if prizeamount > topprize:
+                    topprize = prizeamount
+                    topprizestarting = start_count
+                    topprizeremain = remain_count
+                    topprizeodds = tier_odds  # Capture the odds for the top prize tier
+                
+                row_data = {
+                    'gameNumber': gameNumber,
+                    'gameName': gameName,
+                    'price': gamePrice,
+                    'prizeamount': prizeamount,
+                    'startDate': startDate,
+                    'endDate': endDate,
+                    'lastdatetoclaim': lastdatetoclaim,
+                    'overallodds': gameOdds,
+                    'prizeodds': tier_odds,
+                    'Winning Tickets At Start': start_count,
+                    'Winning Tickets Unclaimed': remain_count,
+                    'dateexported': date.today(),
+                    'gameURL': gameURL,
+                    'tierLevel': tier_level
+                }
+                tixtables = pd.concat([tixtables, pd.DataFrame([row_data])], ignore_index=True)
+
+            topprizeavail = "Top Prize Claimed" if topprizeremain == 0 else "Available"
+            
+            scratchersall_list.append({
+                'price': gamePrice,
+                'gameName': gameName,
+                'gameNumber': gameNumber,
+                'topprize': topprize,
+                'overallodds': gameOdds,
+                'topprizestarting': topprizestarting,
+                'topprizeremain': topprizeremain,
+                'topprizeavail': topprizeavail,
+                'topprizeodds': topprizeodds,  # Store the captured odds here
+                'extrachances': None,
+                'secondChance': None,
+                'startDate': startDate,
+                'endDate': endDate,
+                'lastdatetoclaim': lastdatetoclaim,
+                'dateexported': date.today(),
+                'gameURL': gameURL,
+                'gamePhoto': gamePhoto
+            })
+
+        except Exception as e:
+            print(f"    - Error processing Game #{game_id}: {e}")
+            continue
+
+    # --- SAVE OUTPUTS ---
+    if not scratchersall_list:
+        print("No data collected.")
+        return None, None
+
+    scratchersall = pd.DataFrame(scratchersall_list)
+    scratchersall.to_csv("./AZscratcherslist.csv", encoding='utf-8', index=False)
     
+    tixtables.to_csv("./AZscratchertables.csv", encoding='utf-8', index=False)
     
-    tixtables = pd.DataFrame(columns=['gameNumber','gameName','price','prizeamount','startDate','endDate','lastdatetoclaim','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported'])
-
-    for i in tixlist.loc[:, 'gameNumber']:
-
-        url = "https://api.arizonalottery.com/v2/Scratchers/"+i
-
-        payload = "page=0&totalPages=0&pageSize=150\n"
-        headers = {
-            'Accept': '*/*',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
-        }
-
-        response = requests.get(url=url)
-        tixdata = response.json()
-        scratcherdata = pd.DataFrame.from_dict(tixdata)
-
-        gameName = scratcherdata['gameName'][0]
-        gameNumber = scratcherdata['gameNum'][0]
-        gamePrice = scratcherdata['ticketValue'][0]
-        gameURL = tixlist.loc[tixlist['gameNumber']==i,'gameURL'].iloc[0]
-        print(i)
-        print(gameURL)#new line here
-        startDate = datetime.fromisoformat(scratcherdata['beginDate'][0])
-        endDate = None if 'endDate' not in scratcherdata else datetime.fromisoformat(scratcherdata['endDate'][0])
-        lastdatetoclaim = datetime.fromisoformat(scratcherdata['lastDate'][0])
-        gameOdds = float(scratcherdata['gameOdds'][0])
-        dateexported = pd.to_datetime(scratcherdata['dateModified'][0])
-
-        print('Looping through each prize tier row for scratcher #'+i)
-        for row in scratcherdata['prizeTiers']:
-            prizetier = pd.DataFrame.from_dict([row])
-            if "prizeAmont" in prizetier:
-                prizeamount = prizetier['prizeAmount'][0]
-            else: 
-                prizeamount = prizetier['displayTitle'][0].replace('$','').replace(',','').replace('\n', '')
-            if "Million" in prizeamount:
-                prizeamount = int(prizeamount.replace(' Million','000000').replace('.',''))
-            else:    
-                prizeamount = int(prizeamount)
-        
-            prizeodds = float(prizetier['odds'][0])
-            startingprizecount = int(prizetier['totalCount'][0])
-            remainingprizecount = int(prizetier['count'][0])
-            tixtables.loc[len(tixtables.index), ['gameNumber','gameName','price','prizeamount','startDate','endDate','lastdatetoclaim',
-                                                 'overallodds','prizeodds','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported', 'gameURL', 'tierLevel']] = [gameNumber, gameName, gamePrice, prizeamount, 
-                                                                                                                                          startDate, endDate, lastdatetoclaim, gameOdds, prizeodds, startingprizecount, remainingprizecount, dateexported, gameURL, prizetier['tierLevel'][0]]
-        
-        #tixtables['gameNumber'] = gameNumber
-        index = tixtables[tixtables['gameNumber']==gameNumber].index
-        tixtables.loc[index,'gameName'] = gameName
-        tixtables.loc[index,'price'] = gamePrice
-        topprize = tixtables.loc[(tixtables['tierLevel']==1) & (tixtables['gameNumber']==gameNumber),'prizeamount'].iloc[0]
-        topprizeodds = tixtables.loc[(tixtables['tierLevel']==1) & (tixtables['gameNumber']==gameNumber),'prizeodds'].iloc[0]
-        topprizeremain = tixtables.loc[(tixtables['tierLevel']==1) & (tixtables['gameNumber']==gameNumber),'Winning Tickets Unclaimed'].iloc[0]
-        topprizeavail = 'Top Prize Claimed' if topprizeremain==0 else None
-
-        
-        tixtables.loc[index,'topprize'] = topprize
-        tixtables.loc[index,'topprizeodds'] = topprizeodds
-        tixtables.loc[index,'topprizeremain'] = topprizeremain
-        tixtables.loc[index,'topprizeavail'] =  topprizeavail                                                                                                                             
-        tixtables.loc[index,'extrachances'] = None
-        tixtables.loc[index,'secondChance'] = None
-                                                                                                                               
-    tixtables.to_csv("./AZprizedata.csv", encoding='utf-8')
-    print(tixtables.dtypes)
-    scratchersall = tixtables[['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported', 'gameURL']]
-    scratchersall = scratchersall.drop_duplicates(subset=['price','gameName', 'gameNumber','topprize', 'topprizeodds', 'overallodds', 'topprizeremain','topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported'])
-    scratchersall = scratchersall.loc[scratchersall['gameNumber']!= "Coming Soon!", :]
-    #scratchersall = scratchersall.drop_duplicates()
-    # save scratchers list
-    #scratchersall.to_sql('azscratcherlist', engine, if_exists='replace')
-    scratchersall.to_csv("./azscratcherslist.csv", encoding='utf-8')
-
     # Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount','Winning Tickets At Start', 'Winning Tickets Unclaimed','tierLevel', 'dateexported']]
     scratchertables = scratchertables.loc[scratchertables['gameNumber']!= "Coming Soon!", :]
@@ -181,7 +253,7 @@ def exportScratcherRecs():
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
     gamesgrouped = gamesgrouped.merge(scratchersall[[
-                                      'gameNumber', 'price', 'topprizeodds', 'overallodds']], how='left', on=['gameNumber'])
+                                      'gameNumber', 'price', 'topprizeodds', 'overallodds', 'gamePhoto']], how='left', on=['gameNumber'])
     #gamesgrouped.loc[:, 'topprizeodds'] = gamesgrouped.loc[:,'topprizeodds'].str.replace(',', '', regex=True)
 
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
@@ -296,11 +368,7 @@ def exportScratcherRecs():
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
         gamerow.loc[:, 'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
 
-        print(gameid)
-        print(tixlist.dtypes)
-        print(type(gameid))
-        print(tixlist.loc[tixlist['gameNumber'].astype('int')==gameid, ['gameName','gameNumber','gamePhoto']])
-        gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber'].astype('int')==gameid,['gamePhoto']].values[0]
+        gamerow.loc[:, 'Photo'] = gamerow.loc[:,'gamePhoto']
         gamerow.loc[:, 'FAQ'] = None
         gamerow.loc[:, 'About'] = None
         gamerow.loc[:, 'Directory'] = None
@@ -498,6 +566,5 @@ def exportScratcherRecs():
     ratingstable.fillna('',inplace=True)
                              
     return ratingstable, scratchertables
-
 
 #exportScratcherRecs()

@@ -39,7 +39,7 @@ def formatstr(s):
         return s
 
 
-def exportCOScratcherRecs():
+def exportScratcherRecs():
     """
     Scrapes the Colorado Lottery website for scratch-off data.
     It gets the main game list from the "Scratch Insider" page, then visits
@@ -112,7 +112,6 @@ def exportCOScratcherRecs():
             
             detail_soup = BeautifulSoup(detail_r.content, 'html.parser')
             
-            
             # Find the prize table
             prize_table_tag = detail_soup.find('table', class_='respond')
             if not prize_table_tag:
@@ -158,7 +157,7 @@ def exportCOScratcherRecs():
             prize_table_df['lastdatetoclaim'] = lastdatetoclaim
             prize_table_df['gameURL'] = detail_url
             
-            # Get game photo URL
+            # Get game photo URL 
             game_photo_tag = detail_soup.find('img', class_='img-responsive')
             game_photo = f"{base_url}{game_photo_tag['src']}" if game_photo_tag and game_photo_tag.has_attr('src') else None
 
@@ -175,7 +174,7 @@ def exportCOScratcherRecs():
     print(tixtables.columns)
     print(tixtables.loc[tixtables['prizeamount']=='Prize ticket'],'gameNumber','prizeamount')
     tixtables = tixtables.loc[(tixtables['prizeamount']!='Prize Ticket') & (tixtables['prizeamount']!='Prize ticket') & (tixtables['prizeamount']!='PRIZE TICKET'),:]
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported']]
+    scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL', 'gamePhoto']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     
     #save scratchers list
@@ -189,7 +188,7 @@ def exportCOScratcherRecs():
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds', 'gamePhoto']], how='left', on=['gameNumber'])
     print(gamesgrouped.columns)
     print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
@@ -281,7 +280,7 @@ def exportCOScratcherRecs():
         gamerow.loc[:,'Directory'] = None
         gamerow.loc[:,'Data Date'] = gamerow.loc[:,'dateexported']
 
-        currentodds = currentodds.append(gamerow, ignore_index=True)
+        currentodds = pd.concat([currentodds, gamerow], ignore_index=True)
         print(currentodds)
 
         #add non-prize and totals rows with matching columns
@@ -297,8 +296,10 @@ def exportCOScratcherRecs():
         totals.loc[:,'Starting Expected Value'] = ''
         totals.loc[:,'Expected Value'] = ''
         totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                         'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
         
         #add expected values for final totals row
@@ -307,7 +308,7 @@ def exportCOScratcherRecs():
         totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
         totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
         print(totalremain)
-        alltables = alltables.append(totalremain)
+        alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
     print(scratchertables.columns)   
@@ -381,4 +382,4 @@ def exportCOScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-exportCOScratcherRecs()
+#exportScratcherRecs()
