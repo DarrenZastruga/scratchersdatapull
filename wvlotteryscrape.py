@@ -344,8 +344,8 @@ def exportScratcherRecs():
         totals.loc[:,'Starting Expected Value'] = ''
         totals.loc[:,'Expected Value'] = ''
         totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-        totalremain = totalremain.append(nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
-        totalremain = totalremain.append(totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']], ignore_index=True)
+        totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
+        totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
         print(totalremain.columns)
         
         #add expected values for final totals row
@@ -361,7 +361,7 @@ def exportScratcherRecs():
     
     #save scratchers tables
     #scratchertables.to_sql('COscratcherstables', engine, if_exists='replace')
-    scratchertables.to_csv("./COscratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./WVscratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
     print(currentodds.dtypes)
@@ -393,13 +393,8 @@ def exportScratcherRecs():
     #save ratingstable
     print(ratingstable)
     print(ratingstable.columns)
-    ratingstable['Stats Page'] = "/colorado-statistics-for-each-scratcher-game"
-    #ratingstable.to_sql('NMratingstable', engine, if_exists='replace')
-    ratingstable.to_csv("./COratingstable.csv", encoding='utf-8')
-    # write to Google Sheets
-    # select a work sheet from its name
-    #COratingssheet = gs.worksheet('CORatingsTable')
-    #COratingssheet.clear()
+    ratingstable['Stats Page'] = "/west-virginia-statistics-for-each-scratcher-game"
+    ratingstable.to_csv("./WVratingstable.csv", encoding='utf-8')
     
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
@@ -420,12 +415,11 @@ def exportScratcherRecs():
        'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
-       'Data Date','Stats Page']]
+       'Data Date','Stats Page', 'gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #set_with_dataframe(worksheet=COratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
+
     return ratingstable, scratchertables
 
 def scan_and_extract_json(script_content, target_key):

@@ -7,168 +7,259 @@ Created on Tue Sep 13 23:34:32 2022
 """
 
 import pandas as pd
-import os
-import psycopg2
-import urllib.parse
-from urllib.parse import urlparse
-import urllib.request
-import json
-import requests
-from apscheduler.schedulers.blocking import BlockingScheduler
-from bs4 import BeautifulSoup, re
-import logging
-from datetime import datetime
+import time
+from datetime import date, datetime
 from dateutil.tz import tzlocal
-from sqlalchemy import create_engine
-import lxml
-from datetime import date
+import re
+import io
 import numpy as np
-import html5lib
-import random
-from itertools import repeat
-from scipy import stats
+import requests
+import json
+import gc # Garbage Collector
 
-
-'''
-logging.basicConfig()
- 
-DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
-print(DATABASE_URL)
-
-#replace 'postgres' with 'postgresql' in the database URL since SQLAlchemy stopped supporting 'postgres' 
-SQLALCHEMY_DATABASE_URI = DATABASE_URL.replace('postgres://', 'postgresql://')
-conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
-engine = create_engine(SQLALCHEMY_DATABASE_URI)
-'''
+# Selenium Imports
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.firefox import GeckoDriverManager
+from bs4 import BeautifulSoup
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
-powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
-# add some more to powers as necessary
-
-
-def formatstr(s):
-    try:
-        power = s[-1]
-        if (power.isdigit()):
-            return s
-        else:
-            return float(s[:-1]) * powers[power]
-    except TypeError:
-        return s
-
-
 def exportFLScratcherRecs():
-    url = "https://floridalottery.com/content/flalottery-web/us/en/games/scratch-offs.scratch-offs.json"
-
-    payload={}
-    headers = {
-      'Cookie': 'affinity="8df229a9fa8bc130"; _gcl_au=1.1.823130810.1708975780; _ga=GA1.1.1993580387.1708975780; _scid=bcfbbae0-cc3f-43f3-8178-eb527983b563; btIdentify=d5e7cf83-a7a5-4045-e348-8f0f00b14cd9; _sctr=1%7C1708923600000; _bts=5d641d0f-1847-42af-c7f0-32752a781aac; _bti=%7B%22app_id%22%3A%22florida-lottery%22%2C%22bsin%22%3A%224tgyOi%2Fb1noBvzN1cFLQaEBBlLqYHzF62IOxdZTEr%2BUyJ4eeLa2z5aV5f1zThiSaWFjBOnuRnYbKlARkhj5UGQ%3D%3D%22%2C%22is_identified%22%3Afalse%7D; _ga_3E9WN4YVMF=GS1.1.1709477021.3.1.1709477332.60.0.0; _tq_id.TV-7209812718-1.2469=35696c8b76e61680.1708975781.0.1709477332..; _scid_r=bcfbbae0-cc3f-43f3-8178-eb527983b563'
-    }
-
-    r = requests.request("GET", url, headers=headers, data=payload)
-    response = r.text
-    table = json.loads(response)
+    # --- SELENIUM SETUP (LOW MEMORY PROFILE) ---
+    print("Initializing Firefox (Low Memory Mode)...")
+    firefox_options = Options()
+    firefox_options.add_argument("--headless")
     
-    tixlist = pd.DataFrame()
-    tixtables = pd.DataFrame()
+    # 1. Disable Images to save RAM
+    firefox_options.set_preference("permissions.default.image", 2)
+    # 2. Disable Flash/Plugins
+    firefox_options.set_preference("plugin.state.flash", 0)
+    # 3. Limit Cache
+    firefox_options.set_preference("browser.cache.disk.enable", False)
+    firefox_options.set_preference("browser.cache.memory.enable", False)
+    firefox_options.set_preference("browser.cache.offline.enable", False)
     
-    #loop through each row of the data table and get data from the game page
-    for s in table['data']:
-        print(s)
-        gameName = s['name']
-        gameNumber = s['id']
+    firefox_options.set_preference("general.useragent.override", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0) Gecko/20100101 Firefox/91.0")
+
+    driver = None
+    try:
+        service = Service(GeckoDriverManager().install())
+        driver = webdriver.Firefox(service=service, options=firefox_options)
         
-        gameURL = 'https://floridalottery.com/games/scratch-offs/view?id='+str(gameNumber)
-        gamePrice = s['price']
-        topprize = s['topPrize']
-   
-        print(gameName)
-        print(gameNumber)
-        print(gamePrice)
-        print(gameURL)
-        print(topprize)
+        # 1. Get Game List via JSON
+        url_json = "https://floridalottery.com/content/flalottery-web/us/en/games/scratch-offs.scratch-offs.json"
         
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
 
-        #get more details from game page
-        url = "https://apim-website-prod-eastus.azure-api.net/scratchgamesapp/getscratchinfo?id=1551"
+        print("Fetching Game List...")
+        try:
+            r = requests.get(url_json, headers=headers, timeout=15)
+            r.raise_for_status()
+            data = r.json()
+            games_data = data.get('data', [])
+        except Exception as e:
+            print(f"Error fetching JSON list: {e}")
+            return None, None
 
-        payload={}
-        headers = {}
-    
-        r = requests.request("GET", url, headers=headers, data=payload)
-        response = r.text
-        print(response)
-        soup = BeautifulSoup(response, 'html.parser')
-        r = requests.get(gameURL)
-        response = r.text
-        details = BeautifulSoup(response, 'html.parser').find('div', class_='tabs')
-        print(details)
-        gamePhoto = "http://www.flalottery.com/scratch/"+str(gameNumber)+"pic.jpg"
-        
-        overallodds = None
-        
-        for p in BeautifulSoup(response, 'html.parser').find('div',class_='ticketDetailsContent').find_all('p'):
-            if 'Launch Date: ' in p.text: 
-                dates = p.text
-                startDate = dates[dates.index('Launch Date:')+len('Launch Date:'):dates.index('End Date:')].strip()
-                print(dates[dates.index('End Date:')+len('End Date:'):dates.index('Redemption Deadline:')].strip())
-                endDate = None if dates[dates.index('End Date:')+len('End Date:'):dates.index('Redemption Deadline:')].strip()=="TBA" else dates[dates.index('End Date:')+len('End Date:'):dates.index('Redemption Deadline:')].strip()
-                lastdatetoclaim = None if dates[dates.index('Redemption Deadline:')+len('Redemption Deadline:'):].strip()=="TBA" else dates[dates.index('Redemption Deadline:')+len('Redemption Deadline:'):].strip()
-            elif 'Overall Odds: ' in p.text:
-                overallodds = p.text.replace('Overall Odds: 1-in-','')
+        print(f"Found {len(games_data)} games.")
 
-    
-        print(gamePhoto)
-        print(overallodds)
-        print(startDate)
-        print(endDate)
-        print(lastdatetoclaim)
-    
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto','topprize','topprizeremain','overallodds','startDate','endDate','lastdatetoclaim']] = [
-            gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, topprizeremain, overallodds, startDate, endDate, lastdatetoclaim]
-    
-        #get the data from the table for this game
-        tixdata = pd.read_html(str(details))[0]
-    
-        if len(tixdata) == None:
-            tixtables = tixtables.append([])
+        # --- MEMORY FIX: Use Lists, not DataFrames, for the loop ---
+        all_game_rows = []   # Stores summary data dictionaries
+        all_table_frames = [] # Stores prize table dataframes
+
+        # 2. Loop through games
+        for i, s in enumerate(games_data):
+            try:
+                gameName = s.get('name')
+                gameNumber = s.get('id')
+                gamePrice = s.get('price')
+                topprize = s.get('topPrize')
+                
+                gameURL = f'https://floridalottery.com/games/scratch-offs/view?id={gameNumber}'
+                gamePhoto = f"http://www.flalottery.com/scratch/{gameNumber}pic.jpg"
+                
+                print(f"Processing #{gameNumber}: {gameName} ({i+1}/{len(games_data)})")
+
+                # Navigate
+                driver.get(gameURL)
+                
+                # Handle Tabs
+                try:
+                    WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+                    tabs = driver.find_elements(By.CSS_SELECTOR, "button[role='tab']")
+                    for tab in tabs:
+                        if "Rules" in tab.text or "Info" in tab.text:
+                            driver.execute_script("arguments[0].click();", tab)
+                            time.sleep(0.2)
+                            break
+                except: pass
+
+                soup = BeautifulSoup(driver.page_source, 'html.parser')
+                full_text = soup.get_text(" ", strip=True)
+                
+                # Extract Metadata
+                startDate, endDate, lastdatetoclaim, overallodds = None, None, None, 0
+                
+                start_match = re.search(r'Launch Date:?\s*([A-Za-z]+\s+\d{1,2},?\s+\d{4})', full_text)
+                if start_match: startDate = start_match.group(1)
+                
+                end_match = re.search(r'End Date:?\s*([A-Za-z]+\s+\d{1,2},?\s+\d{4}|TBA)', full_text)
+                if end_match: endDate = None if 'TBA' in end_match.group(1) else end_match.group(1)
+                
+                claim_match = re.search(r'(?:Redeem|Redemption) [Bb]y:?\s*([A-Za-z]+\s+\d{1,2},?\s+\d{4}|TBA)', full_text)
+                if claim_match: lastdatetoclaim = None if 'TBA' in claim_match.group(1) else claim_match.group(1)
+                
+                odds_match = re.search(r'Overall Odds:?\s*1[- ]in[- ]([\d\.]+)', full_text, re.IGNORECASE)
+                if odds_match: overallodds = float(odds_match.group(1))
+
+                # Extract Table
+                tixdata = pd.DataFrame()
+                tables = soup.find_all('table')
+                for tbl in tables:
+                    if 'Prize' in tbl.get_text() and ('Remaining' in tbl.get_text() or 'Odds' in tbl.get_text()):
+                        rows = []
+                        # Custom parser for robust headers
+                        headers_list = [th.get_text(strip=True) for th in tbl.find_all('th')]
+                        if not headers_list: headers_list = [td.get_text(strip=True) for td in tbl.find('tr').find_all('td')]
+                        
+                        for tr in tbl.find_all('tr')[1:]:
+                            cells = tr.find_all(['td', 'th'])
+                            row_data = [c.get_text(strip=True) for c in cells]
+                            if row_data: rows.append(row_data)
+                        
+                        if rows:
+                            max_cols = max(len(r) for r in rows)
+                            while len(headers_list) < max_cols: headers_list.append(f"Col_{len(headers_list)}")
+                            tixdata = pd.DataFrame(rows, columns=headers_list[:max_cols])
+                        break
+                
+                topprizeremain = 0
+                topprizestarting = 0
+                topprizeavail = "Unknown"
+
+                if not tixdata.empty:
+                    # Map Columns
+                    cols_map = {}
+                    for c in tixdata.columns:
+                        c_lower = str(c).lower()
+                        if 'prize' in c_lower and 'amount' in c_lower: cols_map[c] = 'prizeamount'
+                        elif 'odds' in c_lower: cols_map[c] = 'odds'
+                        elif 'remaining' in c_lower: cols_map[c] = 'remaining_raw'
+                    tixdata.rename(columns=cols_map, inplace=True)
+                    
+                    # New columns
+                    tixdata['Winning Tickets Unclaimed'] = 0
+                    tixdata['Winning Tickets At Start'] = 0
+                    tixdata['odds_val'] = 0.0
+
+                    # Parse 'X of Y' Logic
+                    for idx, row in tixdata.iterrows():
+                        raw = str(row.get('remaining_raw', ''))
+                        of_match = re.search(r'([\d,]+)\s*of\s*([\d,]+)', raw)
+                        
+                        if of_match:
+                            rem = int(of_match.group(1).replace(',', ''))
+                            start = int(of_match.group(2).replace(',', ''))
+                            tixdata.at[idx, 'Winning Tickets Unclaimed'] = rem
+                            tixdata.at[idx, 'Winning Tickets At Start'] = start
+                        else:
+                            try:
+                                rem = int(re.sub(r'[^\d]', '', raw))
+                                tixdata.at[idx, 'Winning Tickets Unclaimed'] = rem
+                            except: pass
+                        
+                        # Parse Odds
+                        try:
+                            ov = float(re.search(r'[\d\.,]+', str(row.get('odds','')).replace('1-in-', '')).group().replace(',',''))
+                            tixdata.at[idx, 'odds_val'] = ov
+                        except: pass
+
+                    # Clean Prize Amount (Money)
+                    def clean_money(val):
+                        try:
+                            if '/WK' in str(val) or 'WEEK' in str(val):
+                                base = float(re.search(r'[\d\.]+', val).group())
+                                return base * 52 * 20 
+                            if '/YR' in str(val) or 'YEAR' in str(val):
+                                base = float(re.search(r'[\d\.]+', val).group())
+                                return base * 20
+                            return float(str(val).replace('$','').replace(',',''))
+                        except: return 0
+                    
+                    if 'prizeamount' in tixdata.columns:
+                        tixdata['prizeamount'] = tixdata['prizeamount'].apply(clean_money)
+
+                    # Top Prize
+                    topprize_row = tixdata.iloc[0]
+                    topprizeremain = topprize_row['Winning Tickets Unclaimed']
+                    topprizestarting = topprize_row['Winning Tickets At Start']
+                    topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else "Available"
+                    
+                    tixdata['gameNumber'] = gameNumber
+                    tixdata['gameName'] = gameName
+                    tixdata['gamePhoto'] = gamePhoto
+                    tixdata['price'] = gamePrice
+                    tixdata['overallodds'] = overallodds
+                    tixdata['topprize'] = topprize
+                    tixdata['dateexported'] = date.today()
+                    
+                    # MEMORY FIX: Append DF to list, do NOT concat yet
+                    all_table_frames.append(tixdata)
+
+                # Add to Summary List
+                list_row = {
+                    'price': gamePrice, 'gameName': gameName, 'gameNumber': gameNumber,
+                    'gameURL': gameURL, 'gamePhoto': gamePhoto, 'topprize': topprize,
+                    'topprizeremain': topprizeremain, 'overallodds': overallodds,
+                    'startDate': startDate, 'endDate': endDate, 'lastdatetoclaim': lastdatetoclaim,
+                    'topprizestarting': topprizestarting, 'topprizeavail': topprizeavail,
+                    'extrachances': None, 'secondChance': None, 'dateexported': date.today()
+                }
+                all_game_rows.append(list_row)
+                
+                # --- MEMORY CLEANUP ---
+                # Force garbage collection every 10 games
+                if i % 10 == 0:
+                    gc.collect()
+
+            except Exception as e:
+                print(f"  Error processing {s.get('name')}: {e}")
+                continue
+
+    finally:
+        print("Closing Browser...")
+        if driver: driver.quit()
+
+    # --- SAVE ---
+    if all_game_rows:
+        print("Compiling DataFrames...")
+        # Create DataFrames ONCE at the end
+        tixlist = pd.DataFrame(all_game_rows)
+        if all_table_frames:
+            tixtables = pd.concat(all_table_frames, ignore_index=True)
         else:
-            tixdata.rename(columns={'Prize Amount':'prizeamount','Total Prizes': 'Winning Tickets At Start', 'Prizes Remaining': 'Winning Tickets Unclaimed'}, inplace=True)
-            #in addition to removing dollar signs and commans, changing the text for the Bigger Spin second game game to the minimum possible of $400,000
-            tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','',regex=False).str.replace(',','',regex=False).str.replace('.00','',regex=False)
-            #if prize is an amount per week for life, then strip text and multiply by 52 weeks for 50 years
-            tixdata['prizeamount'] = tixdata['prizeamount'].replace({'1000/Week for Life':1000*52*50,'500/Week for Life':500*52*50, '1MM/YR/LF (MIN 25)':1000000*25, 
-                                                                     '250000YR/LIFE':250000*50, '150000YR/LIFE':150000*50, '50000YR/LIFE':50000*50, '25000YR/LIFE':25000*50}).astype('int')
-            tixdata['gameNumber'] = gameNumber
-            tixdata['gameName'] = gameName
-            tixdata['gamePhoto'] = gamePhoto
-            tixdata['price'] = gamePrice
-            #if overallodds text not available, calculate overallodds by top prize odds x number of top prizes at start
-            tixdata['overallodds'] = overallodds
-            tixdata['topprize'] = topprize
-            tixdata['topprizeodds'] = tixdata['Odds of Winning'].iloc[0].replace('1-in-','').replace(',','')
-            print(tixdata['topprizeodds'])
-            tixdata['topprizestarting'] = tixdata['Winning Tickets At Start'].iloc[0]
-            tixdata['topprizeremain'] = topprizeremain
-            tixdata['topprizeavail'] = 'Top Prize Claimed' if tixdata['Winning Tickets Unclaimed'].iloc[0] == 0 else np.nan
-            tixdata['startDate'] = startDate
-            tixdata['endDate'] = endDate
-            tixdata['lastdatetoclaim'] = lastdatetoclaim
-            tixdata['extrachances'] = None
-            tixdata['secondChance'] = None
-            tixdata['dateexported'] = date.today() 
-            tixdata['gameURL'] = gameURL
-            print(tixdata)
-            print(tixdata.columns)
-            tixtables = tixtables.append(tixdata)
-            print(tixtables)
-            print(tixtables.columns)
-            
-    tixlist.to_csv("./FLtixlist.csv", encoding='utf-8')
-    print(tixtables[['gameNumber','prizeamount']])
-    print(tixtables[['gameNumber','prizeamount']].dtypes)
+            tixtables = pd.DataFrame()
 
+        tixlist.to_csv("./FLtixlist.csv", index=False)
+        tixlist.to_csv("./FLscratcherslist.csv", index=False)
+        tixtables.to_csv("./FLscratchertables.csv", index=False)
+        
+        # Stats merge for return
+        scratchersall = tixlist.copy()
+        scratchersall = scratchersall[scratchersall['gameNumber'] != "Coming Soon!"]
+        
+        print("Success! Files saved.")
+    else:
+        print("No data collected.")
+
+    
     scratchersall = tixtables[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
@@ -179,7 +270,6 @@ def exportFLScratcherRecs():
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-    scratchertables.to_csv("./FLscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall

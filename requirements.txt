@@ -19,3 +19,5 @@ google-auth-oauthlib # Often needed with gspread/google-auth
 google-api-python-client # Might be needed depending on auth flow
 beautifulsoup4
 python-dateutil
+selenium
+webdriver-manager

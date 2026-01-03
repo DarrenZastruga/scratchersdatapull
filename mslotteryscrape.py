@@ -1,116 +1,174 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 19 23:15:15 2023
-
-@author: michaeljames
+Updated MS Scraper:
+1. Fixes ValueError by forcing 'price' to numeric before merging.
+2. Includes previous fixes (User-Agent headers, removed unused imports).
 """
 
 import pandas as pd
-import os
-import psycopg2
-import urllib.parse
-from urllib.parse import urlparse
-import urllib.request
-import json
 import requests
-from apscheduler.schedulers.blocking import BlockingScheduler
 from bs4 import BeautifulSoup
 import re
-import logging
-from datetime import datetime
+from datetime import datetime, date
 from dateutil.tz import tzlocal
-from sqlalchemy import create_engine
-import lxml
-from datetime import date
 import numpy as np
-import html5lib
-import random
-from itertools import repeat
-from scipy import stats
 import io
+import time
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
-
-powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
-# add some more to powers as necessary
 
 def exportScratcherRecs():
 
     urls = ['https://www.mslottery.com/gamestatus/active/',
            'https://www.mslottery.com/gamestatus/ending/']
     
+    # Headers to bypass Sucuri Firewall
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Referer': 'https://www.google.com/'
+    }
+
     tixtables = pd.DataFrame()
     tixlist = pd.DataFrame()
     
-    for url in urls:
-        r = requests.get(url)
-        response = r.text
-        soup = BeautifulSoup(response, 'html.parser')
-        print(soup)
-        
-        if soup.find_all('div',class_='col-lg-3 gamebox') == None:
-            continue
-        else:
-            tixurls = soup.find_all('div',class_='col-lg-3 gamebox')
-        
-            print(tixurls)
-            for t in tixurls: 
-                gameURL = t.find('a').get('href')
-                print(gameURL)
-                gamePhoto = t.find('img').get('data-src')
-                print(gamePhoto)
-                
-                r = requests.get(gameURL)
-                response = r.text
-                soup = BeautifulSoup(response, 'html.parser')
-                gameName = soup.find('h1', class_='entry-title').string
+    print("Starting scrape...")
 
-                tixdata = pd.read_html(io.StringIO(str(soup.find('table', class_='juxtable'))))[0]
-                gameNumber = tixdata.loc[tixdata[0]=='Game Number',1].iloc[0]
-                gamePrice = tixdata.loc[tixdata[0]=='Ticket Price',1].iloc[0].replace('$','')
-                topprize = tixdata.loc[tixdata[0]=='Top Prize',1].iloc[0].replace('$','').replace(',','')
-                overallodds = tixdata.loc[tixdata[0]=='Overall Odds',1].iloc[0].replace('1:','')
-                startDate = tixdata.loc[tixdata[0]=='Launch Date',1].iloc[0]
-                endDate = tixdata.loc[tixdata[0]=='End Date',1].iloc[0] if len(tixdata.loc[tixdata[0]=='End Date',1]) > 0 else None
-                lastdatetoclaim = tixdata.loc[tixdata[0]=='Claim Deadline',1].iloc[0] if len(tixdata.loc[tixdata[0]=='Claim Deadline',1]) > 0 else None
+    for url in urls:
+        print(f"Fetching {url}...")
+        try:
+            r = requests.get(url, headers=headers, timeout=15)
+            r.raise_for_status()
+        except Exception as e:
+            print(f"  Error fetching URL: {e}")
+            continue
+
+        soup = BeautifulSoup(r.text, 'html.parser')
+        
+        game_boxes = soup.find_all('div', class_='col-lg-3 gamebox')
+        
+        if not game_boxes:
+            print("  No game boxes found on this page.")
+            continue
+        
+        print(f"  Found {len(game_boxes)} games. Processing...")
+
+        for t in game_boxes: 
+            try:
+                link_tag = t.find('a')
+                if not link_tag: continue
+                
+                gameURL = link_tag.get('href')
+                img_tag = t.find('img')
+                gamePhoto = img_tag.get('data-src') if img_tag else None
+                
+                print(f"    Scraping game: {gameURL}")
+                
+                r_game = requests.get(gameURL, headers=headers, timeout=10)
+                game_soup = BeautifulSoup(r_game.text, 'html.parser')
+                
+                title_tag = game_soup.find('h1', class_='entry-title')
+                gameName = title_tag.string.strip() if title_tag else "Unknown"
+
+                juxtable = game_soup.find('table', class_='juxtable')
+                if not juxtable:
+                    print("      > No metadata table found.")
+                    continue
+                    
+                tixdata = pd.read_html(io.StringIO(str(juxtable)))[0]
+                
+                def get_val(key):
+                    res = tixdata.loc[tixdata[0]==key, 1]
+                    return res.iloc[0] if not res.empty else None
+
+                gameNumber = get_val('Game Number')
+                gamePrice = get_val('Ticket Price').replace('$','') if get_val('Ticket Price') else 0
+                topprize = get_val('Top Prize').replace('$','').replace(',','') if get_val('Top Prize') else 0
+                overallodds = get_val('Overall Odds').replace('1:','') if get_val('Overall Odds') else 0
+                startDate = get_val('Launch Date')
+                endDate = get_val('End Date')
+                lastdatetoclaim = get_val('Claim Deadline')
                 extrachances = None
                 dateexported = date.today()
                 
-                print(gameName)
-                print(gamePrice)
-                print(topprize)
-                print(overallodds)
-                print(startDate)
-                print(endDate)
-                print(gameNumber)
+                tables = game_soup.find_all('table')
+                if len(tables) < 2:
+                    print("      > No prize table found.")
+                    continue
                 
-                table = pd.read_html(io.StringIO(str(soup.find_all('table')[1])))[0]
-                secondChance = '2nd Chance'if table.iloc[0,2]>0 else None
-                table.columns = table.columns.droplevel(0)
-                table.rename(columns={table.columns[0]:'prizeamount', table.columns[1]: 'Winning Tickets At Start', table.columns[2]: 'Winning Tickets Unclaimed'}, inplace=True)
-                table['prizeamount'] = table['prizeamount'].str.replace('$','', regex=False).str.replace(',','', regex=False)
+                prize_table_html = str(tables[1])
+                table = pd.read_html(io.StringIO(prize_table_html))[0]
+                
+                secondChance = '2nd Chance' if table.shape[1] > 2 and table.iloc[0,2] > 0 else None
+                
+                if isinstance(table.columns, pd.MultiIndex):
+                    table.columns = table.columns.droplevel(0)
+                
+                if table.shape[1] >= 3:
+                     table.columns.values[0] = 'prizeamount'
+                     table.columns.values[1] = 'Winning Tickets At Start'
+                     table.columns.values[2] = 'Winning Tickets Unclaimed'
+                elif table.shape[1] == 2:
+                     table.columns.values[0] = 'prizeamount'
+                     table.columns.values[1] = 'Winning Tickets Unclaimed'
+                     table['Winning Tickets At Start'] = 0
+
+                if 'prizeamount' in table.columns:
+                    table['prizeamount'] = table['prizeamount'].astype(str).str.replace('$','', regex=False).str.replace(',','', regex=False)
+                
                 table['gameNumber'] = gameNumber
                 table['gameName'] = gameName
                 table['dateexported'] = dateexported
-                print(table)
+                
                 tixtables = pd.concat([tixtables, table], axis=0)
 
-                topprizeremain = table.loc[0,'Winning Tickets Unclaimed']
-                topprizestarting = table.loc[0,'Winning Tickets At Start']
-                topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
+                if 'Winning Tickets Unclaimed' in table.columns:
+                    topprizeremain = table.iloc[0]['Winning Tickets Unclaimed']
+                    topprizestarting = table.iloc[0]['Winning Tickets At Start']
+                    topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
+                else:
+                    topprizeremain = 0
+                    topprizestarting = 0
+                    topprizeavail = "Unknown"
 
-                tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported']] = [
-                gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
+                new_row = {
+                    'price': gamePrice, 'gameName': gameName, 'gameNumber': gameNumber,
+                    'gameURL': gameURL, 'gamePhoto': gamePhoto, 'topprize': topprize,
+                    'overallodds': overallodds, 'topprizestarting': topprizestarting,
+                    'topprizeremain': topprizeremain, 'topprizeavail': topprizeavail,
+                    'startDate': startDate, 'endDate': endDate, 
+                    'lastdatetoclaim': lastdatetoclaim, 'extrachances': extrachances,
+                    'secondChance': secondChance, 'dateexported': dateexported
+                }
+                
+                tixlist = pd.concat([tixlist, pd.DataFrame([new_row])], ignore_index=True)
+                time.sleep(0.5)
+
+            except Exception as e:
+                print(f"    Error processing game: {e}")
+                continue
     
-    tixlist.to_csv("./MStixlist.csv", encoding='utf-8')
-    print(tixlist.columns)
-    scratchersall = tixlist.loc[:,['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
-    scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
+    if tixlist.empty:
+        print("No data collected.")
+        return None, None
+
+    tixlist.to_csv("./MStixlist.csv", encoding='utf-8', index=False)
+    
+    cols_to_keep = ['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']
+    for col in cols_to_keep:
+        if col not in tixlist.columns: tixlist[col] = None
+            
+    scratchersall = tixlist[cols_to_keep].copy()
+    scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!"]
     scratchersall = scratchersall.drop_duplicates()
     
-    #save scratchers list
-    scratchersall.to_csv("./MSscratcherslist.csv", encoding='utf-8')
+    scratchersall.to_csv("./MSscratcherslist.csv", encoding='utf-8', index=False)
+    
+    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables.to_csv("./MSscratchertables.csv", encoding='utf-8', index=False)
+    
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables.loc[:,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
@@ -277,10 +335,6 @@ def exportScratcherRecs():
     print(ratingstable.columns)
     ratingstable['Stats Page'] = "/mississippi-statistics-for-each-scratch-off-game"
     ratingstable.to_csv("./MSratingstable.csv", encoding='utf-8')
-    # write to Google Sheets
-    # select a work sheet from its name
-    #MSratingssheet = gs.worksheet('MSRatingsTable')
-    #MSratingssheet.clear()
     
     ratingstable = ratingstable.loc[:, ['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
@@ -305,8 +359,7 @@ def exportScratcherRecs():
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #set_with_dataframe(worksheet=MSratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
+
     return ratingstable, scratchertables
 
-exportScratcherRecs()
+#exportScratcherRecs()

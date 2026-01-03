@@ -9,7 +9,6 @@ Created on Tue Jul  4 10:34:06 2023
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -147,6 +146,7 @@ def exportScratcherRecs():
     scratchertables.to_csv("./WAscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+    
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     # Select columns first, then groupby and aggregate
     cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']

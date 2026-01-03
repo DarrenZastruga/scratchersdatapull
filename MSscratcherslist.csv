@@ -1,87 +1,94 @@
-,price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,gamePhoto,dateexported
-0,20,Colossal Cash,196,500000,3.50,2,2,,,2nd Chance,02/04/2025,,,,2025-02-02
-1,5,Pink Panther Diamond Tripler,195,100000,4.26,2,2,,,2nd Chance,02/04/2025,,,,2025-02-02
-2,2,Lucky Doubler,194,20000,4.47,2,2,,,2nd Chance,02/04/2025,,,,2025-02-02
-3,5,Stacks of Cash,158,100000,3.82,2,2,,,2nd Chance,01/07/2025,,,,2025-02-02
-4,2,Wonder Bucks,157,20000,4.91,2,2,,,2nd Chance,01/07/2025,,,,2025-02-02
-5,1,Moola,193,5000, 4.88,4,3,,,2nd Chance,01/07/2025,,,,2025-02-02
-6,10,Jumbo Bucks Limited,192,200000,3.81,2,2,,,2nd Chance,12/03/2024,,,,2025-02-02
-7,5,Super Cashword,191,75000,4.07,2,2,,,2nd Chance,12/03/2024,,,,2025-02-02
-8,2,Cash Grab,190,20000,4.51,2,1,,,2nd Chance,12/03/2024,,,,2025-02-02
-9,20,My Lottery Dream Home,189,500000,3.46,2,1,,,2nd Chance,11/05/2024,,,,2025-02-02
-10,5,5 Times the Joy,188,100000,3.94,2,2,,,2nd Chance,11/05/2024,,,,2025-02-02
-11,2,High Roller,187,20000,4.53,2,2,,,2nd Chance,11/05/2024,,,,2025-02-02
-12,5,Wild Money,186,100000,4.02,2,1,,,2nd Chance,10/01/2024,,,,2025-02-02
-13,2,Mystery Multiplier,185,20000,4.58,2,1,,,2nd Chance,10/01/2024,,,,2025-02-02
-14,1,Triple Tripler,184,5000,4.99,2,1,,,2nd Chance,10/01/2024,,,,2025-02-02
-15,10,Diamond White,183,200000,3.85,2,2,,,2nd Chance,08/30/2024,,,,2025-02-02
-16,5,Sapphire Blue,182,100000,4.31,2,1,,,2nd Chance,08/30/2024,,,,2025-02-02
-17,2,Emerald Green,181,20000,4.54,2,1,,,2nd Chance,08/30/2024,,,,2025-02-02
-18,5,Cruisin’ the Coast,180,100000,3.67,2,2,,,2nd Chance,08/06/2024,,,,2025-02-02
-19,2,"$20,000 Power Shot",179,20000,4.55,2,1,,,2nd Chance,08/06/2024,,,,2025-02-02
-20,1,Winner Winner Chicken Dinner,178,5000,5.20,2,0,Top Prize Claimed,,,08/06/2024,,,,2025-02-02
-21,5,Big Money Bingo,177,75000,3.79,2,2,,,2nd Chance,07/02/2024,,,,2025-02-02
-22,2,It Takes 2,175,20000,4.65,3,1,,,2nd Chance,07/02/2024,,,,2025-02-02
-23,1,$1 Lottery Ticket,176,5000,4.67,4,1,,,2nd Chance,07/02/2024,,,,2025-02-02
-24,10,Extreme Payday,174,200000,4.18,2,2,,,2nd Chance,06/04/2024,,,,2025-02-02
-25,5,Lucky Dog,173,100000,4.03,2,1,,,2nd Chance,06/04/2024,,,,2025-02-02
-26,2,Bring the Heat,172,20000,4.73,2,2,,,2nd Chance,06/04/2024,,,,2025-02-02
-27,2,Double Match,171,20000,4.23,2,1,,,2nd Chance,04/29/2024,,,,2025-02-02
-28,5,Money Maker,170,100000,4.94,2,0,Top Prize Claimed,,,05/07/2024,,,,2025-02-02
-29,2,Jumbo Bucks Classic,169,25000,4.49,3,1,,,2nd Chance,05/07/2024,,,,2025-02-02
-30,1,Pocket Change,155,5000,4.82,2,0,Top Prize Claimed,,,05/07/2024,,,,2025-02-02
-31,5,Fun 5s,168,100000, 4.31,2,1,,,2nd Chance,04/02/2024,,,,2025-02-02
-32,3,Bingo Mania,167,30000,4.03,2,1,,,2nd Chance,04/02/2024,,,,2025-02-02
-33,2,Home Run Riches,166,20000, 4.94,2,1,,,2nd Chance,04/02/2024,,,,2025-02-02
-34,10,100X Cash Blitz,165,200000,3.82,2,0,Top Prize Claimed,,,03/05/2024,,,,2025-02-02
-35,20,200X Cash Blitz,161,500000,4.66,4,2,,,2nd Chance,02/06/2024,,,,2025-02-02
-36,5,CA$HTASTIC,160,100000,4.05,2,1,,,2nd Chance,02/06/2024,,,,2025-02-02
-37,2,Triple Play,159,20000,4.69,2,1,,,2nd Chance,02/06/2024,,,,2025-02-02
-38,1,3 Times Lucky,162,3000,4.75,12,8,,,2nd Chance,01/23/2024,,,,2025-02-02
-39,5,CA$H BLAST,137,100000, 3.75,2,1,,,2nd Chance,12/29/2023,,,,2025-02-02
-40,2,Bankroll Doubler,136,20000,4.32,2,1,,,2nd Chance,12/29/2023,,,,2025-02-02
-41,10,Hamilton,154,200000,3.84,2,0,Top Prize Claimed,,,12/05/2023,,,,2025-02-02
-42,5,Lincoln,153,100000,4.49,2,1,,,2nd Chance,12/05/2023,,,,2025-02-02
-43,2,Jefferson,152,20000,4.66,2,0,Top Prize Claimed,,,12/05/2023,,,,2025-02-02
-44,20,Jackson,151,1000000,4.82,2,1,,,2nd Chance,11/07/2023,,,,2025-02-02
-45,5,Money Bag Multiplier,150,100000,4.15,2,0,Top Prize Claimed,,,11/07/2023,,,,2025-02-02
-46,2,"$25,000 Bonus",149,25000,4.66,2,1,,,2nd Chance,11/07/2023,,,,2025-02-02
-47,5,Bonus Cashword,148,75000,4.32,2,0,Top Prize Claimed,,,10/03/2023,,,,2025-02-02
-48,2,Easy as 1 2 3,147,20000,4.90,2,1,,,2nd Chance,,,,,2025-02-02
-49,5,Diamond$ and Dollar$,145,100000,4.92,2,0,Top Prize Claimed,,,09/01/2023,,,,2025-02-02
-50,5,Cruisin’ the Coast II,146,50000,4.79,3,2,,,2nd Chance,09/01/2023,,,,2025-02-02
-51,10,Gold 7s,143,200000,3.94,2,1,,,2nd Chance,07/27/2023,,,,2025-02-02
-52,2,Bronze 7s,141,20000,4.88,3,0,Top Prize Claimed,,,07/27/2023,,,,2025-02-02
-53,2,Win Win Win,139,20000,4.20,4,1,,,2nd Chance,07/01/2023,,,,2025-02-02
-54,10,Jumbo Bucks,134,200000,4.05,2,0,Top Prize Claimed,,,06/06/2023,,,,2025-02-02
-55,2,CA$H CRAZE,132,20000,4.77,3,1,,,2nd Chance,06/06/2023,,,,2025-02-02
-56,5,Cash in a Flash,131,100000,4.97,2,1,,,2nd Chance,05/02/2023,,,,2025-02-02
-57,2,Aces High,130,20000,4.35,2,1,,,2nd Chance,05/02/2023,,,,2025-02-02
-58,10,"$200,000 Jackpot",128,200000,4.22,2,1,,,2nd Chance,04/04/2023,,,,2025-02-02
-59,2,"$20,000 Jackpot",125,20000,4.73,2,1,,,2nd Chance,04/04/2023,,,,2025-02-02
-60,5,Ruby 7,124,77000,3.86,2,1,,,2nd Chance,02/28/2023,,,,2025-02-02
-61,3,Skee-Ball,127,40000,4.21,2,1,,,2nd Chance,02/28/2023,,,,2025-02-02
-62,20,Triple Diamond Payout,122,500000,3.92,2,0,Top Prize Claimed,,,02/07/2023,,,,2025-02-02
-63,10,"$10,000 Payout",116,10000,3.83,50,8,,,2nd Chance,12/06/2022,,,,2025-02-02
-64,5,Hit it Big!,115,50000,4.42,2,1,,,2nd Chance,12/06/2022,,,,2025-02-02
-65,20,"$400,000 Multiplier Mania",108,400000,3.96,2,0,Top Prize Claimed,,,10/04/2022,,,,2025-02-02
-66,2,Fast Money,109,15000,4.75,2,2,,,2nd Chance,10/04/2022,,,,2025-02-02
-67,5,Lucky Break,104,100000,4.56,2,0,Top Prize Claimed,,,08/02/2022,,,,2025-02-02
-68,3,Crossword,86,30000,4.83,2,1,,,2nd Chance,07/01/2022,,,,2025-02-02
-69,2,Summer Lucky Times 5,97,20000,4.93,2,1,,,2nd Chance,06/07/2022,,,,2025-02-02
-70,10,Cash Winfall,99,100000,4.77,2,1,,,2nd Chance,06/07/2022,,,,2025-02-02
-71,2,"$25,000 Spectacular",92,25000,4.84,2,1,,,2nd Chance,04/05/2022,,,,2025-02-02
-72,10,Blistering Hot 7’s,91,200000,4.02,2,1,,,2nd Chance,03/01/2022,,,,2025-02-02
-73,10,Win It All!,84,200000,3.98,2,1,,,2nd Chance,01/04/2022,,,,2025-02-02
-74,10,"$200,000 Fortune",68,200000,4.64,3,1,,,2nd Chance,07/02/2021,,,,2025-02-02
-75,5,Elvis,65,100000,4.24,3,1,,,2nd Chance,05/24/2021,,,,2025-02-02
-76,20,$100 Million Extravaganza,58,500000,3.40,5,1,,,2nd Chance,03/02/2021,,,,2025-02-02
-77,5,50X Cash Blitz,164,100000,4.33,2,1,,,2nd Chance,03/05/2024,01/06/2025,04/06/2025,,2025-02-02
-78,2,20X Cash Blitz,163,20000,4.61,2,0,Top Prize Claimed,,,03/05/2024,01/06/2025,04/06/2025,,2025-02-02
-79,5,Silver 7s,142,100000,4.21,2,0,Top Prize Claimed,,,07/27/2023,01/06/2025,04/06/2025,,2025-02-02
-80,5,Blackout Bingo,140,75000,3.39,2,0,Top Prize Claimed,,,07/01/2023,01/06/2025,04/06/2025,,2025-02-02
-81,5,Double Diamond,133,100000,4.30,2,0,Top Prize Claimed,,,06/06/2023,01/06/2025,04/06/2025,,2025-02-02
-82,5,"$100,000 Jackpot",126,100000,4.64,2,0,Top Prize Claimed,,,04/04/2023,01/06/2025,04/06/2025,,2025-02-02
-83,5,Triple 777,98,100000,4.78,2,0,Top Prize Claimed,,,06/07/2022,01/06/2025,04/06/2025,,2025-02-02
-84,3,Bingo,80,30000,4.09,2,0,Top Prize Claimed,,,02/01/2022,01/06/2025,04/06/2025,,2025-02-02
-85,10,Power 10X,73,200000,4.49,2,0,Top Prize Claimed,,,09/03/2021,01/06/2025,04/06/2025,,2025-02-02
+price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,gamePhoto,dateexported
+30,Millionaire Maker,232,1000000,3.84,10,10,,,2nd Chance,01/06/2026,,,https://www.mslottery.com/wp-content/uploads/2025/12/millionairemaker-website-1024x1024.jpg?x42012,2026-01-01
+5,Classic Bingo,231,75000,3.58,2,2,,,2nd Chance,01/06/2026,,,https://www.mslottery.com/wp-content/uploads/2025/12/classicbingo-website-1024x1024.jpg?x42012,2026-01-01
+2,Emerald 8s,230,20000,4.54,2,2,,,2nd Chance,01/06/2026,,,https://www.mslottery.com/wp-content/uploads/2025/12/emerald8s-website-1024x1024.jpg?x42012,2026-01-01
+5,Double the Money,229,100000,4.92,2,2,,,2nd Chance,12/02/2025,,,https://www.mslottery.com/wp-content/uploads/2025/12/doublethemoney-thumb-1024x1024.jpg?x42012,2026-01-01
+2,WINNER$ GALORE,228,25000,4.60,2,2,,,2nd Chance,12/02/2025,,,https://www.mslottery.com/wp-content/uploads/2025/12/winnersgalorethumb-1024x1024.jpg?x42012,2026-01-01
+1,Quick 7s,227,7000,4.78,5,3,,,2nd Chance,12/02/2025,,,https://www.mslottery.com/wp-content/uploads/2025/12/quick7s-thumb-1024x1024.jpg?x42012,2026-01-01
+20,"Full of $5,000s",225,100000,4.50,3,2,,,2nd Chance,11/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/10/fullof5000s-thumb-1024x1024.jpg?x42012,2026-01-01
+5,Merry Multiplier,224,50000,4.05,2,2,,,2nd Chance,11/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/10/merrymulti-thumb-1024x1024.jpg?x42012,2026-01-01
+2,Candy Cane Cash,223,500,4.40,10,4,,,2nd Chance,11/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/10/candycanecash-thumb-1024x1024.jpg?x42012,2026-01-01
+5,Cash Money,222,100000,4.04,2,1,,,2nd Chance,10/07/2025,,,https://www.mslottery.com/wp-content/uploads/2025/09/cashmoney-thumb-1024x1024.jpg?x42012,2026-01-01
+3,Bingo Night,221,30000,4.09,2,2,,,2nd Chance,10/07/2025,,,https://www.mslottery.com/wp-content/uploads/2025/09/bingonight-thumb-1024x1024.jpg?x42012,2026-01-01
+1,Lucky Numbers,204,5000,4.82,2,1,,,2nd Chance,10/07/2025,,,https://www.mslottery.com/wp-content/uploads/2025/09/luckynumbersthumb-1024x1024.jpg?x42012,2026-01-01
+10,Wild Cherry,226,200000,3.99,4,4,,,2nd Chance,09/10/2025,,,https://www.mslottery.com/wp-content/uploads/2025/09/wildcherry-thumb-1024x1024.jpg?x42012,2026-01-01
+5,$500 Loaded,219,500,4.12,1215,186,,,2nd Chance,08/29/2025,,,https://www.mslottery.com/wp-content/uploads/2025/08/500load-thumb.jpg?x42012,2026-01-01
+2,$100 Loaded,218,100,4.70,3046,525,,,2nd Chance,08/29/2025,,,https://www.mslottery.com/wp-content/uploads/2025/08/100loadedthumb.jpg?x42012,2026-01-01
+5,Break the Bank,217,100000,4.01,2,1,,,2nd Chance,08/05/2025,,,https://www.mslottery.com/wp-content/uploads/2025/07/breakthebank-thumb.jpg?x42012,2026-01-01
+2,Cruisin’ the Coast 2025,215,25000,4.66,2,1,,,2nd Chance,08/05/2025,,,https://www.mslottery.com/wp-content/uploads/2025/07/cruisin-thumb.jpg?x42012,2026-01-01
+1,Cash on the Spot,214,5000,4.84,2,1,,,2nd Chance,08/05/2025,,,https://www.mslottery.com/wp-content/uploads/2025/07/cashonthespot-thumb.jpg?x42012,2026-01-01
+10,Triple Red 7s,212,200000,3.83,4,2,,,2nd Chance,07/01/2025,,,https://www.mslottery.com/wp-content/uploads/2025/06/triplered7s.jpg?x42012,2026-01-01
+5,5X the Cash / 5 Times the Joy,188,100000,3.94,2,0,Top Prize Claimed,,,07/01/2025,,,https://www.mslottery.com/wp-content/uploads/2025/06/5timesthejoythumb-1024x1024.jpg?x42012,2026-01-01
+2,"$25,000 Mad Money",211,25000,4.69,2,0,Top Prize Claimed,,,07/01/2025,,,https://www.mslottery.com/wp-content/uploads/2025/06/25madmoneythumb.jpg?x42012,2026-01-01
+20,"$500,000 Extreme Cash",210,500000,3.45,2,1,,,2nd Chance,06/03/2025,,,https://www.mslottery.com/wp-content/uploads/2025/05/500k-thumb.jpg?x42012,2026-01-01
+5,Gold Rush,209,100000,3.91,2,1,,,2nd Chance,06/03/2025,,,https://www.mslottery.com/wp-content/uploads/2025/05/goldrush-thumb.jpg?x42012,2026-01-01
+1,Double Doubler,208,5000,4.90,2,1,,,2nd Chance,06/03/2025,,,https://www.mslottery.com/wp-content/uploads/2025/05/doubledoubler-thumb.jpg?x42012,2026-01-01
+10,Red Hot Cash,207,200000,4.07,2,0,Top Prize Claimed,,,05/06/2025,,,https://www.mslottery.com/wp-content/uploads/2025/04/redhotcash-thumb.jpg?x42012,2026-01-01
+5,Blazing Hot Bucks,206,100000,3.95,2,1,,,2nd Chance,05/06/2025,,,https://www.mslottery.com/wp-content/uploads/2025/04/blazinghot-thumb.jpg?x42012,2026-01-01
+2,Heat Stroke,205,20000,4.65,2,0,Top Prize Claimed,,,05/06/2025,,,https://www.mslottery.com/wp-content/uploads/2025/04/heatstroke-thumb.jpg?x42012,2026-01-01
+10,Spectacular Riches,203,200000,4.59,2,0,Top Prize Claimed,,,04/01/2025,,,https://www.mslottery.com/wp-content/uploads/2025/03/riches-thumb.jpg?x42012,2026-01-01
+5,Gold Bar Bingo,202,75000,3.57,2,1,,,2nd Chance,04/01/2025,,,https://www.mslottery.com/wp-content/uploads/2025/03/goldbarbing-thumb.jpg?x42012,2026-01-01
+1,Piggy Bank Bucks,201,500,4.87,15,2,,,2nd Chance,04/01/2025,,,https://www.mslottery.com/wp-content/uploads/2025/03/piggy-thumb.jpg?x42012,2026-01-01
+10,50X The Money,200,200000,3.59,2,0,Top Prize Claimed,,,03/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/02/50xthemoney-thumb.jpg?x42012,2026-01-01
+5,20X The Money,199,100000,4.03,2,0,Top Prize Claimed,,,03/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/02/20xthemoney-thumb.jpg?x42012,2026-01-01
+3,15X Crossword,198,40000,4.15,2,1,,,2nd Chance,03/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/02/15xthecrossword-thumb.jpg?x42012,2026-01-01
+2,10X The Money,197,25000,4.59,2,0,Top Prize Claimed,,,03/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/02/10xthemoney-thumb.jpg?x42012,2026-01-01
+20,Colossal Cash,196,500000,3.50,2,1,,,2nd Chance,02/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/01/colossalcash-thumb.jpg?x42012,2026-01-01
+2,Lucky Doubler,194,20000,4.47,2,1,,,2nd Chance,02/04/2025,,,https://www.mslottery.com/wp-content/uploads/2025/01/luckydoubler-thumb.jpg?x42012,2026-01-01
+5,Stacks of Cash,158,100000,3.82,2,1,,,2nd Chance,01/07/2025,,,https://www.mslottery.com/wp-content/uploads/2024/12/stacksofcash-thumb.jpg?x42012,2026-01-01
+2,Wonder Bucks,157,20000,4.91,2,1,,,2nd Chance,01/07/2025,,,https://www.mslottery.com/wp-content/uploads/2024/12/wonderbucks-thumb.jpg?x42012,2026-01-01
+1,Moola,193,5000, 4.88,4,1,,,2nd Chance,01/07/2025,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2024/12/moola-thumb.jpg?x42012,2026-01-01
+10,Jumbo Bucks Limited,192,200000,3.81,2,1,,,2nd Chance,12/03/2024,,,https://www.mslottery.com/wp-content/uploads/2024/11/jumbobucks-thumb.jpg?x42012,2026-01-01
+5,Super Cashword,191,75000,4.07,2,1,,,2nd Chance,12/03/2024,,,https://www.mslottery.com/wp-content/uploads/2024/11/supercashword-thumb.jpg?x42012,2026-01-01
+2,Cash Grab,190,20000,4.51,2,1,,,2nd Chance,12/03/2024,,,https://www.mslottery.com/wp-content/uploads/2024/11/cashgrab-thumb.jpg?x42012,2026-01-01
+20,My Lottery Dream Home,189,500000,3.46,2,0,Top Prize Claimed,,,11/05/2024,,,https://www.mslottery.com/wp-content/uploads/2024/10/mldh-thumb.jpg?x42012,2026-01-01
+2,High Roller,187,20000,4.53,2,1,,,2nd Chance,11/05/2024,,,https://www.mslottery.com/wp-content/uploads/2024/10/highroller-thumb.jpg?x42012,2026-01-01
+5,Wild Money,186,100000,4.02,2,0,Top Prize Claimed,,,10/01/2024,,,https://www.mslottery.com/wp-content/uploads/2024/09/wildmoney-thumb-1024x1024.jpg?x42012,2026-01-01
+2,Mystery Multiplier,185,20000,4.58,2,1,,,2nd Chance,10/01/2024,,,https://www.mslottery.com/wp-content/uploads/2024/09/mystery-thumb-1024x1024.jpg?x42012,2026-01-01
+10,Diamond White,183,200000,3.85,2,0,Top Prize Claimed,,,08/30/2024,,,https://www.mslottery.com/wp-content/uploads/2024/08/diamond-thumb.jpg?x42012,2026-01-01
+5,Sapphire Blue,182,100000,4.31,2,0,Top Prize Claimed,,,08/30/2024,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2024/08/sapphire-thumb.jpg?x42012,2026-01-01
+2,Emerald Green,181,20000,4.54,2,0,Top Prize Claimed,,,08/30/2024,,,https://www.mslottery.com/wp-content/uploads/2024/08/emerarldgreen-thumb.jpg?x42012,2026-01-01
+5,Cruisin’ the Coast,180,100000,3.67,2,2,,,2nd Chance,08/06/2024,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2024/07/cruisinthumb.jpg?x42012,2026-01-01
+2,"$20,000 Power Shot",179,20000,4.55,2,0,Top Prize Claimed,,,08/06/2024,,,https://www.mslottery.com/wp-content/uploads/2024/07/20kpowershot-thumb.jpg?x42012,2026-01-01
+5,Big Money Bingo,177,75000,3.79,2,1,,,2nd Chance,07/02/2024,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2024/06/bigmoneybingo-thumb.jpg?x42012,2026-01-01
+2,It Takes 2,175,20000,4.65,3,0,Top Prize Claimed,,,07/02/2024,,,https://www.mslottery.com/wp-content/uploads/2024/06/ittakes2-thumb.jpg?x42012,2026-01-01
+10,Extreme Payday,174,200000,4.18,2,0,Top Prize Claimed,,,06/04/2024,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2024/05/extremepayday-thumb.jpg?x42012,2026-01-01
+5,Lucky Dog,173,100000,4.03,2,0,Top Prize Claimed,,,06/04/2024,,,https://www.mslottery.com/wp-content/uploads/2024/05/luckydog-thumb.jpg?x42012,2026-01-01
+2,Bring the Heat,172,20000,4.73,2,1,,,2nd Chance,06/04/2024,,,https://www.mslottery.com/wp-content/uploads/2024/05/MS-0172-Bring-the-Heat-FRONT-C-V7-1024x1024.jpg?x42012,2026-01-01
+2,Double Match,171,20000,4.23,2,1,,,2nd Chance,04/29/2024,,,https://www.mslottery.com/wp-content/uploads/2024/04/doublematch-thumb.jpg?x42012,2026-01-01
+2,Jumbo Bucks Classic,169,25000,4.49,3,0,Top Prize Claimed,,,05/07/2024,,,https://www.mslottery.com/wp-content/uploads/2024/04/jumbobucks-thumb24.jpg?x42012,2026-01-01
+5,Fun 5s,168,100000, 4.31,2,1,,,2nd Chance,04/02/2024,,,https://www.mslottery.com/wp-content/uploads/2024/03/fun5s-thumb.jpg?x42012,2026-01-01
+3,Bingo Mania,167,30000,4.03,2,0,Top Prize Claimed,,,04/02/2024,,,https://www.mslottery.com/wp-content/uploads/2024/03/bingo-thumb.jpg?x42012,2026-01-01
+2,Home Run Riches,166,20000, 4.94,2,1,,,2nd Chance,04/02/2024,,,https://www.mslottery.com/wp-content/uploads/2024/03/homerun-thumb.jpg?x42012,2026-01-01
+20,200X Cash Blitz,161,500000,4.66,4,0,Top Prize Claimed,,,02/06/2024,,,https://www.mslottery.com/wp-content/uploads/2024/01/200xcashblitz-thumb.jpg?x42012,2026-01-01
+5,CA$HTASTIC,160,100000,4.05,2,0,Top Prize Claimed,,,02/06/2024,,,https://www.mslottery.com/wp-content/uploads/2024/01/cashtastic-thumb.jpg?x42012,2026-01-01
+2,Triple Play,159,20000,4.69,2,1,,,2nd Chance,02/06/2024,,,https://www.mslottery.com/wp-content/uploads/2024/01/tripleplay-thumb.jpg?x42012,2026-01-01
+1,3 Times Lucky,162,3000,4.75,24,12,,,2nd Chance,01/23/2024,,,https://www.mslottery.com/wp-content/uploads/2024/01/3timeslucky-thumb.jpg?x42012,2026-01-01
+2,Bankroll Doubler,136,20000,4.32,2,1,,,2nd Chance,12/29/2023,,,https://www.mslottery.com/wp-content/uploads/2023/12/MS-0136-16508-Bankroll-Doubler-FRONT-C-V1-1-1024x1024.jpg?x42012,2026-01-01
+2,"$25,000 Bonus",149,25000,4.66,2,1,,,2nd Chance,11/07/2023,,,https://www.mslottery.com/wp-content/uploads/2023/10/25kbonus-thumb.jpg?x42012,2026-01-01
+2,Easy as 1 2 3,147,20000,4.90,2,1,,,2nd Chance,,,,https://www.mslottery.com/wp-content/uploads/2023/09/Thumbnail-Easyas123.jpg?x42012,2026-01-01
+5,Cruisin’ the Coast II,146,50000,4.79,3,2,,,2nd Chance,09/01/2023,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2023/08/cruisin-thumb.jpg?x42012,2026-01-01
+10,Gold 7s,143,200000,3.94,2,1,,,2nd Chance,07/27/2023,,,https://www.mslottery.com/wp-content/uploads/2023/07/gold7s-thumb.jpg?x42012,2026-01-01
+2,Bronze 7s,141,20000,4.88,3,0,Top Prize Claimed,,,07/27/2023,,,https://www.mslottery.com/wp-content/uploads/2023/07/bronze7s-thumb.jpg?x42012,2026-01-01
+2,CA$H CRAZE,132,20000,4.77,3,1,,,2nd Chance,06/06/2023,,,https://www.mslottery.com/wp-content/uploads/2023/05/cashcraze.jpg?x42012,2026-01-01
+5,Cash in a Flash,131,100000,4.97,2,1,,,2nd Chance,05/02/2023,,,https://www.mslottery.com/wp-content/uploads/2023/04/cashinaflash-thumb.jpg?x42012,2026-01-01
+2,Aces High,130,20000,4.35,2,1,,,2nd Chance,05/02/2023,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2023/04/aceshigh-thumb.jpg?x42012,2026-01-01
+2,"$20,000 Jackpot",125,20000,4.73,2,1,,,2nd Chance,04/04/2023,,,https://www.mslottery.com/wp-content/uploads/2023/03/jackpotfamily-20k.jpg?x42012,2026-01-01
+5,Ruby 7,124,77000,3.86,2,0,Top Prize Claimed,,,02/28/2023,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2023/02/ruby7-website.jpg?x42012,2026-01-01
+10,"$10,000 Payout",116,10000,3.83,50,3,,,2nd Chance,12/06/2022,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2022/11/10kpayout-cover.jpg?x42012,2026-01-01
+5,Hit it Big!,115,50000,4.42,2,1,,,2nd Chance,12/06/2022,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2022/11/hititbig-cover.jpg?x42012,2026-01-01
+2,Fast Money,109,15000,4.75,2,2,,,2nd Chance,10/04/2022,01/06/2026,04/06/2026,https://www.mslottery.com/wp-content/uploads/2022/09/fastmoney-front-display.jpg?x42012,2026-01-01
+5,Elvis,65,100000,4.24,3,0,Top Prize Claimed,,,05/24/2021,,,https://www.mslottery.com/wp-content/uploads/2021/05/elvis.jpg?x42012,2026-01-01
+20,$100 Million Extravaganza,58,500000,3.40,5,1,,,2nd Chance,03/02/2021,,,https://www.mslottery.com/wp-content/uploads/2021/02/TwentyDollarTicket.jpg?x42012,2026-01-01
+5,Pink Panther Diamond Tripler,195,100000,4.26,2,0,Top Prize Claimed,,,02/04/2025,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2025/01/pinkpanther-thumb.jpg?x42012,2026-01-01
+1,Triple Tripler,184,5000,4.99,2,1,,,2nd Chance,10/01/2024,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2024/09/tripletripler-thumb-1024x1024.jpg?x42012,2026-01-01
+1,$1 Lottery Ticket,176,5000,4.67,4,0,Top Prize Claimed,,,07/02/2024,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2024/06/dollarticket-thumb.jpg?x42012,2026-01-01
+5,Diamond$ and Dollar$,145,100000,4.92,2,0,Top Prize Claimed,,,09/01/2023,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2023/08/marilyn-thumb.jpg?x42012,2026-01-01
+2,Win Win Win,139,20000,4.20,4,1,,,2nd Chance,07/01/2023,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2023/05/MS-0139-Win-Win-Win-FRONT-C-V4-1024x1024.jpg?x42012,2026-01-01
+10,"$200,000 Jackpot",128,200000,4.22,2,0,Top Prize Claimed,,,04/04/2023,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2023/03/jackpotfamily-200k.jpg?x42012,2026-01-01
+3,Skee-Ball,127,40000,4.21,2,1,,,2nd Chance,02/28/2023,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2023/02/skeeball-homepage.jpg?x42012,2026-01-01
+3,Crossword,86,30000,4.83,2,0,Top Prize Claimed,,,07/01/2022,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2022/06/crossword-gallery.jpg?x42012,2026-01-01
+2,Summer Lucky Times 5,97,20000,4.93,2,1,,,2nd Chance,06/07/2022,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2022/05/summerluckytimes5-01-1024x1024.png?x42012,2026-01-01
+2,"$25,000 Spectacular",92,25000,4.84,2,1,,,2nd Chance,04/05/2022,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2022/03/twentyfive-spect-thumb.jpg?x42012,2026-01-01
+10,Blistering Hot 7’s,91,200000,4.02,2,1,,,2nd Chance,03/01/2022,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2022/02/Blisthot7s-face.jpg?x42012,2026-01-01
+10,"$200,000 Fortune",68,200000,4.64,3,1,,,2nd Chance,07/02/2021,10/10/2025,01/08/2026,https://www.mslottery.com/wp-content/uploads/2021/06/200000-Fortune-1024x1024.jpg?x42012,2026-01-01

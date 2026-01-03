@@ -8,22 +8,19 @@ Created on Mon Jun 19 23:15:15 2023
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
 import json
 import requests
-from apscheduler.schedulers.blocking import BlockingScheduler
-from bs4 import BeautifulSoup, re
+from bs4 import BeautifulSoup
+import re
 import logging
 from datetime import datetime
 from dateutil.tz import tzlocal
-from sqlalchemy import create_engine
 import lxml
 from datetime import date
 import numpy as np
-import html5lib
 import random
 from itertools import repeat
 from scipy import stats
@@ -70,7 +67,7 @@ def exportPAScratcherRecs():
             print(tixdata)
             print(overallodds)
             print(tixdata)
-        '''
+        
         #get link from the main page, looping through each page for scratchers in price group
         gameName = t.find('div', class_='panel-heading klc-clickable-item').text.strip().split('-')[0].strip()
         print(gameName)
@@ -115,7 +112,7 @@ def exportPAScratcherRecs():
             
             tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported']] = [
                 gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
-            '''
+            
     tixlist.to_csv("./PAtixlist.csv", encoding='utf-8')
     print(tixlist.columns)
     scratchersall = tixlist.loc[:,['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]

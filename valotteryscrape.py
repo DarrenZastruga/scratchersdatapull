@@ -1,6 +1,5 @@
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -40,14 +39,75 @@ powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
 # add some more to powers as necessary
 
 def formatstr(s):
+    """Original basic formatter for suffixes B, K, M, T"""
     try:
+        s = str(s).strip().upper()
+        if not s: return 0
         power = s[-1]
-        if (power.isdigit()):
-            return s
-        else:
+        if power.isdigit():
+            return float(s)
+        elif power in powers:
             return float(s[:-1]) * powers[power]
-    except TypeError:
-        return s
+        return float(s) # Fallback
+    except (TypeError, ValueError):
+        return 0
+    
+def parse_complex_prize(prize_str):
+    """
+    Parses complex prize strings into numeric values.
+    Handles:
+    - "Live Spin" -> 500,000
+    - "50000 + Taxes" -> Amount * 1.04
+    - Annuities: "2K/Wk for 10 Yrs", "10K Month for 10 Yrs"
+    - Suffixes: K, M (via formatstr logic inside)
+    """
+    s = str(prize_str).strip().upper().replace(',', '').replace('$', '')
+    
+    # 1. Special Case: Live Spin
+    if 'LIVE SPIN' in s:
+        return 500000
+    
+    # 2. Tax Case: "50000 + TAXES"
+    if 'TAXES' in s:
+        # Extract the first number found
+        match = re.search(r'(\d+)', s)
+        if match:
+            return float(match.group(1)) * 1.04
+        return 0
+
+    # 3. Annuity Case: "2K/WK FOR 10 YRS", "200K/YR FOR 30 YR"
+    if 'FOR' in s and ('YR' in s or 'YEAR' in s):
+        try:
+            # Extract Amount part (before the frequency/slash)
+            # regex looks for number potentially followed by K/M/B
+            # Examples: "2K", "2000", "1.5M"
+            amt_match = re.search(r'^([\d\.]+)([KMBT])?', s.split('/')[0].split(' ')[0])
+            
+            val = 0
+            if amt_match:
+                number = float(amt_match.group(1))
+                suffix = amt_match.group(2)
+                if suffix and suffix in powers:
+                    val = number * powers[suffix]
+                else:
+                    val = number
+            
+            # Extract Frequency
+            freq_mult = 1
+            if '/WK' in s or 'WEEK' in s: freq_mult = 52
+            elif 'MONTH' in s: freq_mult = 12
+            elif '/YR' in s or 'YEAR' in s: freq_mult = 1
+            
+            # Extract Duration (Years)
+            dur_match = re.search(r'FOR\s+(\d+)', s)
+            years = float(dur_match.group(1)) if dur_match else 0
+            
+            return val * freq_mult * years
+        except:
+            pass # Fall through to standard parser if regex fails
+
+    # 4. Standard Number (with potential K/M suffix handled by formatstr)
+    return formatstr(s)
 
         
 def exportScratcherRecs():
@@ -75,7 +135,7 @@ def exportScratcherRecs():
         print(ticID)
 
         ticketurl = 'https://www.valottery.com/scratchers/'+str(ticID)
-        #ticketurl = 'https://www.valottery.com/scratchers/2057'
+
         
         r = requests.get(ticketurl)
         gameNum = r.text
@@ -127,31 +187,25 @@ def exportScratcherRecs():
         else:
             tixtables = pd.concat([tixtables, tableData], axis=0)
     
-    #remove characters from numeric values
-    tixtables['gameNumber'] = tixtables['gameNumber'].replace('#','', regex = True)
-    tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(r'\*','', regex = True)
-    tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(',','', regex = True)
-    tixtables['prizeamount'] = tixtables['prizeamount'].str.replace(r'\$','', regex = True)
-    tixtables['price'] = tixtables['price'].str.replace(r'\$','', regex = True)
-    tixtables['topprize'] = tixtables['topprize'].str.replace(r'\*','', regex = True)
-    tixtables['topprize'] = tixtables['topprize'].str.replace(',','', regex = True)
-    tixtables['topprize'] = tixtables['topprize'].str.replace(r'\$','', regex = True)
-    
-    #convert text top prizes by calculating the ammounts
-    #converts the tax prizes to the $50k + 4% tax rate, $2k/week*52 weeks/yr*10yrs, and Live Spin to the max prize $500,000 
-    tixtables['topprize'] = tixtables['topprize'].replace({'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
-    tixtables['prizeamount'] = tixtables['prizeamount'].replace({'50000 + Taxes': 50000*1.04, '2K/Wk for 10 Yrs': 2000*52*10, 'Live Spin': 500000, '10K Month for 10 Yrs': 10000*12*10})
-    tixtables['topprize'] = tixtables['topprize'].apply(
-        formatstr).astype('int64')
-    
+    # --- CLEANING ---
+    # Remove characters
+    for col in ['gameNumber', 'prizeamount', 'price', 'topprize']:
+        if col in tixtables.columns:
+            tixtables[col] = tixtables[col].astype(str).str.replace(r'[#\*$,]', '', regex=True)
+
+    # --- NEW PRIZE PARSING LOGIC ---
+    # Apply the new function instead of hardcoded replacements
+    tixtables['topprize'] = tixtables['topprize'].apply(parse_complex_prize).astype('int64')
+    tixtables['prizeamount'] = tixtables['prizeamount'].apply(parse_complex_prize).astype('int64')
+
+    print("Columns:", tixtables.columns)
     print(tixtables.columns)
-    scratchersall = tixtables[['price','gameName','gameNumber','topprize','topprizeodds','overallodds','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL']]
+    scratchersall = tixtables[['price','gameName','gameNumber','topprize','topprizeodds','overallodds','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','dateexported', 'gameURL', 'gamePhoto']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
     
     #save scratchers list
-    #scratchersall.to_sql('scratcherlist', engine, if_exists='replace')
-    scratchersall.to_csv("./scratcherslist.csv", encoding='utf-8')
+    scratchersall.to_csv("./VAscratcherslist.csv", encoding='utf-8')
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
@@ -304,7 +358,7 @@ def exportScratcherRecs():
     
     #save scratchers tables
     #scratchertables.to_sql('scratcherstables', engine, if_exists='replace')
-    scratchertables.to_csv("./scratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./VAscratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
     print(currentodds.dtypes)
@@ -362,8 +416,7 @@ def exportScratcherRecs():
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
     print(ratingstable)
-    #ratingstable.to_sql('ratingstable', engine, if_exists='replace')
-    ratingstable.to_csv("./ratingstable.csv", encoding='utf-8')
+    ratingstable.to_csv("./VAratingstable.csv", encoding='utf-8')
     return ratingstable, scratchertables
 
 #function to create an array of prizes by their probability for all scratchers still unclaimed
