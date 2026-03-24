@@ -469,3 +469,14 @@ Traceback (most recent call last):
 TypeError: cannot unpack non-iterable NoneType object
 2026-03-23 06:59:48,804 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2026-03-23 06:59:48 UTC
 2026-03-23 06:59:48,804 - __main__ - INFO - Total execution time: 0:00:00.213323
+2026-03-24 06:54:29,912 - __main__ - INFO - Starting lotteryscrape_optimized.py run at: 2026-03-24 06:54:29 UTC
+2026-03-24 06:54:29,955 - __main__ - INFO - --- Processing State: AZ ---
+2026-03-24 06:54:30,109 - __main__ - WARNING - Attempted to save an empty or None DataFrame to AZRatingsTable. Skipping.
+2026-03-24 06:54:30,110 - __main__ - WARNING - No scratchertables data returned from AZ scrape.
+2026-03-24 06:54:30,110 - __main__ - ERROR - A critical error occurred in the main execution block: cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "/home/runner/work/scratchersdatapull/scratchersdatapull/lotteryscraped_optimized.py", line 912, in main
+    ratingstable, scratchertables = scrape_func(gspread_client)
+TypeError: cannot unpack non-iterable NoneType object
+2026-03-24 06:54:30,111 - __main__ - INFO - Finishing lotteryscrape_optimized.py run at: 2026-03-24 06:54:30 UTC
+2026-03-24 06:54:30,111 - __main__ - INFO - Total execution time: 0:00:00.199069
