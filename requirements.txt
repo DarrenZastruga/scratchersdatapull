@@ -21,3 +21,4 @@ beautifulsoup4
 python-dateutil
 selenium
 webdriver-manager
+curl_cffi
