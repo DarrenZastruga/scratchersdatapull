@@ -322,8 +322,7 @@ def exportScratcherRecs():
             print(type(startingtotal))
             print(type(tixtotal))
             print(type(price))
-            testdf = totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']]
-            print(testdf[~testdf.applymap(np.isreal).all(1)])
+  
             totalremain.loc[:,'Starting Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
             print(totalremain.loc[:,'Starting Expected Value'])
             totalremain.loc[:,'Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)

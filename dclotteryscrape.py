@@ -8,10 +8,6 @@ Created on Sat Apr 19 23:24:22 2025
 
 import pandas as pd
 import os
-import psycopg2
-import urllib.parse
-from urllib.parse import urlparse
-import urllib.request
 import json
 import requests
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -28,6 +24,7 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+import io
 
 
 '''
@@ -185,7 +182,7 @@ def exportScratcherRecs():
 
                 # --- Proceed with processing table_html ---
                 try:
-                    tixdata_list = pd.read_html(str(table_html))
+                    tixdata_list = pd.read_html(io.StringIO(str(table_html)))
                     if not tixdata_list:
                          print(f"  WARNING: pd.read_html found no tables in the found HTML for {gameName} ({gameNumber}). Skipping prize details.")
                          # Log to tixlist...

@@ -202,7 +202,13 @@ def save_ratings_to_supabase(combined_ratingstable):
         if not records:
             logger.warning("No valid records to save to Supabase.")
             return
-
+        
+        # Before upsert, convert date objects to strings
+        for record in records:
+            for key, value in record.items():
+                if isinstance(value, (datetime.date, datetime.datetime)):
+                    record[key] = value.isoformat()
+                    
         # Upsert in batches of 100
         batch_size = 100
         total_saved = 0
