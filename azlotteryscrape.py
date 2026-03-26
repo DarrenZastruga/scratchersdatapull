@@ -6,35 +6,48 @@ Updated for robust Hybrid Scraping: API for Data + HTML for Images
 """
 
 import pandas as pd
-import requests
 from datetime import date, datetime
 from dateutil.tz import tzlocal
 import numpy as np
 from bs4 import BeautifulSoup
 import re
+import time
+import random
+from curl_cffi import requests
 
 # Constants
 MAIN_URL = "https://www.arizonalottery.com/scratchers/"
 API_BASE_URL = "https://api.arizonalottery.com/v2/Scratchers"
+
+# Browser-like headers
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.google.com/"
 }
 
 def exportScratcherRecs():
-    """
-    Scrapes Arizona Lottery data.
-    1. Gets Game IDs from the main website HTML.
-    2. Fetches details for each ID from the official API.
-    3. Scrapes the individual game page to find the ticket image.
-    """
-    print(f"Fetching game IDs from: {MAIN_URL}")
+    # Create a session to persist cookies
+    s = requests.Session()
     
+    # Define a more complete header set
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,current/apng,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+    }
+
+    print(f"Fetching game IDs from: {MAIN_URL}")
+        
     game_ids = set()
     
     try:
-        # 1. Get HTML to find Game IDs
-        r = requests.get(MAIN_URL, headers=HEADERS)
+        # Use the session 's' instead of 'requests'
+        r = s.get(MAIN_URL, headers=headers, impersonate="safari15_5")
         r.raise_for_status()
+        # ... rest of your parsing logic
         soup = BeautifulSoup(r.text, 'html.parser')
         
         # Strategy A: Find links containing /scratchers/####-
@@ -49,7 +62,7 @@ def exportScratcherRecs():
         text_matches = re.findall(r'#(\d{4})\b', r.text)
         game_ids.update(text_matches)
         
-        print(f"Found {len(game_ids)} unique game IDs: {sorted(list(game_ids))}")
+        print(f"Found {len(game_ids)} unique game IDs.")
         
     except Exception as e:
         print(f"Error scraping HTML list: {e}")
@@ -227,6 +240,9 @@ def exportScratcherRecs():
                 'gameURL': gameURL,
                 'gamePhoto': gamePhoto
             })
+            
+            #Add a small delay between requests to avoid detection
+            time.sleep(random.uniform(1.0, 3.0))
 
         except Exception as e:
             print(f"    - Error processing Game #{game_id}: {e}")
@@ -567,4 +583,4 @@ def exportScratcherRecs():
                              
     return ratingstable, scratchertables
 
-#exportScratcherRecs()
+#exportScratcherRecs()    

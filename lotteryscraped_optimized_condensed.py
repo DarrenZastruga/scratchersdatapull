@@ -51,9 +51,9 @@ IMAGE_PATH = './gameimages/'
 # Configuration: List of states to process
 # To disable a state, comment it out. To add one, ensure the filename matches {state}lotteryscrape.py
 STATES_TO_PROCESS = [
-    'AR', 'AZ', 'CA', 'CO', 'DC', 'IL', 'KS', 'KY', 'MA', 'MD', 'MO', 'MN', 'MS',
-    'NC', 'NM', 'NY', 'OH', 'OK', 'OR', 'SC', 'TX', 'VA', 'WA', 'WV'
-]
+    'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'IL', 'KS', 'KY', 'LA', 'MA', 'MD', 'MI', 'MO', 'MN', 'MS',
+    'NC', 'NH', 'NM', 'NY', 'OH', 'OK', 'OR', 'RI', 'SC', 'TX', 'VA', 'WA', 'WV'
+]   
 
 # Logger setup
 logger = logging.getLogger(__name__)
