@@ -36,7 +36,9 @@ jobs:
       - name: execute py script # run lotteryscrape.py
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
-        run: python lotteryscraped_optimized_condensed.py
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python lotteryscraped_optimized_condensed_dual.py
           
       - name: commit files
         run: |
