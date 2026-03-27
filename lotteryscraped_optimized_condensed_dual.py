@@ -268,7 +268,7 @@ def save_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
             worksheet = gsheet.add_worksheet(title=worksheet_name, rows=1, cols=1)
         df_to_save = dataframe.copy()
         df_to_save.replace([np.inf, -np.inf], None, inplace=True)
-        df_to_save.fillna('', inplace=True)
+        df_to_save = df_to_save.astype(object).fillna('')
         logger.info(f"Saving DataFrame to worksheet '{worksheet_name}'...")
         set_with_dataframe(worksheet=worksheet, dataframe=df_to_save,
                            include_index=False, include_column_header=True, resize=True)
@@ -401,25 +401,43 @@ def main():
     all_scratchertables_list = []
     all_ratingstables_list = []
 
-    # --- Main Loop: Process each state ---
+    # --- Main Loop: Process each state with per-state error recovery ---
+    succeeded_states = []
+    failed_states = []
+
     for state in STATES_TO_PROCESS:
-        ratingstable, scratchertables = process_state_module(state, gspread_client)
+        try:
+            ratingstable, scratchertables = process_state_module(state, gspread_client)
 
-        if scratchertables is not None and not scratchertables.empty:
-            if 'State' not in scratchertables.columns:
-                scratchertables['State'] = state
-            all_scratchertables_list.append(scratchertables)
+            if scratchertables is not None and not scratchertables.empty:
+                if 'State' not in scratchertables.columns:
+                    scratchertables['State'] = state
+                all_scratchertables_list.append(scratchertables)
 
-        if ratingstable is not None and not ratingstable.empty:
-            ratingstable_processed = ratingstable.copy()
-            ratingstable_processed['State'] = state
-            ratingstable_processed = ratingstable_processed.loc[:, ~ratingstable_processed.columns.duplicated(keep='first')]
-            for col in target_columns:
-                if col not in ratingstable_processed.columns:
-                    ratingstable_processed[col] = None
-            final_cols = [col for col in target_columns if col in ratingstable_processed.columns]
-            ratingstable_processed = ratingstable_processed[final_cols]
-            all_ratingstables_list.append(ratingstable_processed)
+            if ratingstable is not None and not ratingstable.empty:
+                ratingstable_processed = ratingstable.copy()
+                ratingstable_processed['State'] = state
+                ratingstable_processed = ratingstable_processed.loc[:, ~ratingstable_processed.columns.duplicated(keep='first')]
+                for col in target_columns:
+                    if col not in ratingstable_processed.columns:
+                        ratingstable_processed[col] = None
+                final_cols = [col for col in target_columns if col in ratingstable_processed.columns]
+                ratingstable_processed = ratingstable_processed[final_cols]
+                all_ratingstables_list.append(ratingstable_processed)
+
+            succeeded_states.append(state)
+            logger.info(f"✅ {state} completed successfully.")
+
+        except Exception as e:
+            failed_states.append(state)
+            logger.error(f"❌ {state} failed — skipping and continuing. Error: {e}", exc_info=True)
+            continue
+
+    # --- Summary ---
+    logger.info(f"States succeeded ({len(succeeded_states)}/{len(STATES_TO_PROCESS)}): {succeeded_states}")
+    if failed_states:
+        logger.warning(f"States FAILED ({len(failed_states)}/{len(STATES_TO_PROCESS)}): {failed_states}")
+        print(f"⚠️  {len(failed_states)} state(s) failed: {failed_states}")
 
     # --- Combine and Upload ScratcherTables ---
     if all_scratchertables_list:
@@ -475,6 +493,12 @@ def main():
     duration = end_time - start_time
     logger.info(f'Total execution time: {duration}')
     print(f'Total execution time: {duration}')
+
+    if failed_states:
+        print(f"⚠️  Completed with errors. {len(succeeded_states)} succeeded, {len(failed_states)} failed: {failed_states}")
+        sys.exit(1)  # Signal partial failure to CI
+    else:
+        print(f"✅ All {len(succeeded_states)} states completed successfully.")
 
 
 if __name__ == '__main__':
