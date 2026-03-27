@@ -44,37 +44,37 @@ def exportScratcherRecs():
     r = requests.get(url)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    print(soup)
+
     tixdata = soup.find_all('div', class_='panel panel-info')
-    print(tixdata)
+
 
     for t in tixdata: 
-        print(t.find('h4', class_='panel-title').text.strip().split('-')[1])
+
         #get link from the main page, looping through each page for scratchers in price group
         gameName = t.find('h4', class_='panel-title').text.strip().split('-')[0].strip()
-        print(gameName)
+
         #gameNumber = t.find('div', class_='panel-heading klc-clickable-item').text.strip().split('-')[1].strip()
         gameNumber = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[6].text
-        print(gameNumber)
+
         gameURL = 'https://www.kylottery.com/apps/scratch_offs/prizes_remaining.html'+t.find('div', class_='il24-ac-heading il24-custom-accordion-item').get('href')
-        print(gameURL)
+
         startDate = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[0].text
-        print(startDate)
+
         endDate = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[1].text
         lastdatetoclaim = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[2].text
         gamePrice = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[3].text.replace('$','')
         topprize = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[4].text.replace('$','').replace('*','').replace(',','')
         overallodds = t.find_all('div', class_='klc-grid-col-md-6')[1].find('div').find_all('b')[5].text.replace('1:','')
         gamePhoto = 'https://www.kylottery.com'+t.find_all('div',class_='klc-grid-col-md-6')[0].find('img').get('src')
-        print(gamePhoto)
+
         dateexported = date.today() if t.find_all('div', class_='klc-grid-col-md-6')[1].find_all('div')[1].find('b').text ==None else t.find_all('div', class_='klc-grid-col-md-6')[1].find_all('div')[1].find('b').text
-        print(dateexported)
+
         
         table = pd.read_html(str(t.find_all('div', class_='klc-grid-col-md-6')[1].find('table')))[0]
         if len(table)==0:
             continue
         else:
-            print(table)
+
             table.rename(columns={'Prize Amount':'prizeamount','Prizes Remaining':'Winning Tickets Unclaimed'}, inplace=True)
             table['gameName'] = gameName
             table['gameNumber'] = gameNumber
@@ -90,15 +90,14 @@ def exportScratcherRecs():
             extrachances = None
             secondChance = None
             table['dateexported'] = dateexported
-            print(topprizeremain)
-            print(table)
+
             tixtables = pd.concat([tixtables, table], axis=0)
             
             tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported']] = [
                 gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
 
     tixlist.to_csv("./KYtixlist.csv", encoding='utf-8')
-    print(tixlist)
+
     scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported','gameURL']]
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
     scratchersall = scratchersall.drop_duplicates()
@@ -118,16 +117,14 @@ def exportScratcherRecs():
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
-    print(gamesgrouped.columns)
-    print(gamesgrouped[['gameNumber','overallodds','Winning Tickets At Start','Winning Tickets Unclaimed']])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
-    print(gamesgrouped.loc[:,'Non-prize at start'])
+
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total at start']/gamesgrouped['topprizestarting']
-    print(gamesgrouped.loc[:,'topprizeodds'])
+
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
@@ -135,11 +132,11 @@ def exportScratcherRecs():
     nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']].copy()
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:,'prizeamount'] = 0
-    print(nonprizetix.columns)
+
     totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']].copy()
     totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     totals.loc[:,'prizeamount'] = "Total"
-    print(totals.columns)
+
       
     #loop through each scratcher game id number and add columns for each statistical calculation
     alltables = pd.DataFrame() 
@@ -151,11 +148,9 @@ def exportScratcherRecs():
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
         totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
         price = int(gamerow['price'].values[0])
-        print(gameid)
-        print(tixtotal)
-        print(totalremain)
+
         prizes =totalremain.loc[:,'prizeamount']
-        print(gamerow.columns)
+
 
         #add various columns for the scratcher stats that go into the ratings table
         gamerow.loc[:,'Current Odds of Top Prize'] = gamerow.loc[:,'topprizeodds']
@@ -228,26 +223,25 @@ def exportScratcherRecs():
         totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
         totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
         totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber']==gameid,['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]], axis=0, ignore_index=True)
-        print(totalremain.columns)
+
         
         #add expected values for final totals row
         allexcepttotal = totalremain.loc[totalremain['prizeamount']!='Total',:]
         
         totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
         totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
-        print(totalremain)
+
         alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-    print(scratchertables.columns)   
+
     
     #save scratchers tables
     #scratchertables.to_sql('KYscratcherstables', engine, if_exists='replace')
     scratchertables.to_csv("./KYscratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
-    print(currentodds.dtypes)
-    print(scratchersall.dtypes)
+
     scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
     ratingstable.drop(labels=['gamePhoto', 'gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x'], axis=1, inplace=True)
@@ -273,16 +267,10 @@ def exportScratcherRecs():
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
     
     #save ratingstable
-    print(ratingstable)
-    print(ratingstable.columns)
+
     ratingstable['Stats Page'] = "/kentucky-statistics-for-each-scratcher-game"
-    #ratingstable.to_sql('KYratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./KYratingstable.csv", encoding='utf-8')
-    # write to Google Sheets
-    # select a work sheet from its name
-    #KYratingssheet = gs.worksheet('KYRatingsTable')
-    #KYratingssheet.clear()
-    
+
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
@@ -305,9 +293,7 @@ def exportScratcherRecs():
        'Data Date','Stats Page', 'gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
-    print(ratingstable)
-    #set_with_dataframe(worksheet=KYratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
+
     return ratingstable, scratchertables
 
 #exportScratcherRecs()

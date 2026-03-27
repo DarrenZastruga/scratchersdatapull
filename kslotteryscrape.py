@@ -402,8 +402,7 @@ def exportScratcherRecs():
     ratingstable.fillna(0, inplace=True)
     
     #create rankings table by merging the list with the tables
-    print(currentodds.dtypes)
-    print(scratchersall.dtypes)
+
     scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
     ratingstable.drop(labels=['gamePhoto', 'gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x'], axis=1, inplace=True)
@@ -429,15 +428,11 @@ def exportScratcherRecs():
     ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
     
     #save ratingstable
-    print(ratingstable)
-    print(ratingstable.columns)
+
     ratingstable['Stats Page'] = "/kansas-statistics-for-each-scratcher-game"
-    #ratingstable.to_sql('KSratingstable', engine, if_exists='replace')
+
     ratingstable.to_csv("./KSratingstable.csv", encoding='utf-8')
-    # write to Google Sheets
-    # select a work sheet from its name
-    #KSratingssheet = gs.worksheet('KSRatingsTable')
-    #KSratingssheet.clear()
+
     
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
@@ -461,9 +456,7 @@ def exportScratcherRecs():
        'Data Date','Stats Page', 'gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
     ratingstable.fillna('',inplace=True)
-    print(ratingstable)
-    #set_with_dataframe(worksheet=KSratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
+
     return ratingstable, scratchertables
 
 #exportScratcherRecs()

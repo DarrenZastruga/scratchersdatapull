@@ -393,8 +393,6 @@ def exportScratcherRecs():
         ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
         ratingstable.fillna(0, inplace=True)
         
-        print(ratingstable.head())
-        
         return ratingstable, scratchertables
     else:
         print("No data collected.")

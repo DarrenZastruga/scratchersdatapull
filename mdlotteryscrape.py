@@ -81,7 +81,7 @@ def exportScratcherRecs():
         gameName = s.find(class_='name').string
 
         gameNumber = s.find(class_='gamenumber').string.replace('Game #','')
-        print(gameNumber)
+
         gamePhoto = s.find(class_='magnific-img').get('href')
         gameURL = 'https://www.mdlottery.com/games/scratch-offs/#prize_details_'+str(gameNumber)
         gamePrice = s.find(class_='price').string.replace('$','')
@@ -93,30 +93,17 @@ def exportScratcherRecs():
         dateexported = s.find('div', id = 'prize_details_'+gameNumber).find('p').text.replace('Records Last Updated:','')
         
         tixdata = pd.read_html(io.StringIO(str(s.find('table'))))[0]
-        
-
-        
-        print(gameName)
-        print(gameNumber)
-        print(gamePrice)
-        print(gameURL)
-        print(gamePhoto)
-        print(topprize)
-        print(topprizeremain)
-        print(startDate)
-        print(overallodds)
-        print(dateexported)
             
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','topprizeremain', 'startDate','overallodds','gameURL','gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, topprizeremain, startDate, overallodds, gameURL, gamePhoto]
 
-        print(tixdata)
+
         if len(tixdata) == 0:
             tixtables = tixtables.append([])
         else:
-            print(tixdata.columns)
+
             tixdata.rename(columns={'Prize Amount':'prizeamount','Start': 'Winning Tickets At Start', 'Remaining*': 'Winning Tickets Unclaimed'}, inplace=True)
-            print(tixdata.columns)
+
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','').str.replace("\(Digital Spin\)",'').str.replace('Big Spin','50000')
             tixdata['gameNumber'] = gameNumber
             tixdata['gameName'] = gameName
@@ -135,8 +122,7 @@ def exportScratcherRecs():
             tixdata['extrachances'] = "Digital Spin" if "(Digital Spin)" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else "Big Spin" if "Big Spin" in tixdata['prizeamount'].str.replace('$','').str.replace(',','') else None 
             tixdata['secondChance'] = None
             tixdata['dateexported'] = dateexported
-            print(tixdata)
-            print(tixdata.columns)
+
             tixtables = pd.concat([tixtables, tixdata], axis=0)
 
     tixtables = tixtables.astype(
@@ -333,7 +319,7 @@ def exportScratcherRecs():
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal), axis=1)
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
-        print(totalremain)
+
         alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables.loc[:, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',

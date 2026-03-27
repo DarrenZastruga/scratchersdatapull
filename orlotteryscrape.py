@@ -89,9 +89,9 @@ def exportScratcherRecs():
             gamePrice, gameName, gameNumber, topprize, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, overallodds, extrachances, secondChance, dateexported]
         
     #merge gameURLs with tix list to start looping through each game page, to get remaining tickets data
-    print(linkslist.columns)
+
     tixlist = pd.merge(tixlist, linkslist, how='left', on=['gameNumber'])
-    print(tixlist.columns)
+
     tixlist['lastdatetoclaim'] = pd.to_datetime(tixlist['lastdatetoclaim'])
     tixlist['startDate'] = pd.to_datetime(tixlist['startDate'])
     tixlist['dateexported'] = pd.to_datetime(tixlist['dateexported'])
@@ -99,10 +99,9 @@ def exportScratcherRecs():
     
     tixlist.to_csv("./ORtixlist.csv", encoding='utf-8')
     tixlist = tixlist.loc[(tixlist['startDate'] <= datetime.today()) & (tixlist['lastdatetoclaim'] >= datetime.today())]    
- 
-    print(range(len(tixlist)))
+
     for game in tixlist.loc[:,'gameNumber']:
-        print(game)
+
         url = 'https://api2.oregonlottery.org/instant/GetGame?includePrizeTiers=true&gameNumber='+str(game)
 
         headers = {

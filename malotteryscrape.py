@@ -176,9 +176,7 @@ def exportMAScratcherRecs():
         totalremain[['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
             'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
         price = int(gamerow['price'].values[0])
-        print(gameid)
-        print(gamerow)
-        print(gamerow.columns)
+
 
         prizes = totalremain.loc[:, 'prizeamount']
         
@@ -285,7 +283,7 @@ def exportMAScratcherRecs():
                                          'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
                                          'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
-        print(totalremain.columns)
+
 
         # add expected values for final totals row
         allexcepttotal = totalremain.loc[totalremain['prizeamount'] != 'Total', :]
@@ -294,7 +292,7 @@ def exportMAScratcherRecs():
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal), axis=1)
         totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = allexcepttotal.apply(
             lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
-        print(totalremain)
+
         alltables = pd.concat([alltables, totalremain], axis=0)
 
     scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
@@ -415,14 +413,7 @@ def exportMAScratcherRecs():
     for col in numeric_cols_ratings:
         if col in ratingstable.columns:
              ratingstable[col] = ratingstable[col].astype(object) # Convert to object/python types
-             
-    print(scratchertables.columns)
-    print(scratchertables)
-    print(scratchertables.dtypes)
-    # save ratingstable
-    print(ratingstable)
-    print(ratingstable.columns)
-    #ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
+
 
     ratingstable['Stats Page'] = "/arizona-statistics-for-each-scratcher-game"
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
@@ -458,6 +449,3 @@ def exportMAScratcherRecs():
     
     # The function would return the fully processed dataframes after running the statistical analysis
     return scratchersall, scratchertables_output
-
-if __name__ == '__main__':
-    ratingstable, scratchertables = exportMAScratcherRecs()

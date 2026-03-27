@@ -66,7 +66,7 @@ SUPABASE_SERVICE_ROLE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY', '')
 # Configuration: List of states to process
 STATES_TO_PROCESS = [
     'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'IL', 'KS', 'KY', 'MA', 'MD',
-    'MI', 'MN', 'MO', 'MS', 'NC', 'NH', 'NM', 'NY', 'OH', 'OK', 'OR',
+    'MN', 'MO', 'MS', 'NC', 'NH', 'NM', 'NY', 'OH', 'OK', 'OR',
     'RI', 'SC', 'TX', 'VA', 'WA', 'WV'
 ]
 
@@ -354,6 +354,25 @@ def log_memory_usage():
         pass
 
 
+# --- STDOUT SUPPRESSION ---
+
+class SuppressStdout:
+    """Context manager to suppress stdout from state scraper modules.
+    
+    State modules often print() entire DataFrames, which can generate
+    100K+ lines of output and cause GitHub Actions runners to be killed
+    when the stdout buffer overflows (~64 MB).
+    """
+    def __enter__(self):
+        self._original_stdout = sys.stdout
+        sys.stdout = open(os.devnull, 'w')
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        sys.stdout.close()
+        sys.stdout = self._original_stdout
+
+
 # --- DYNAMIC PROCESSOR ---
 
 def process_state_module(state_code, gspread_client):
@@ -375,7 +394,9 @@ def process_state_module(state_code, gspread_client):
             logger.error(f"No valid export function found in {module_name}.")
             return None, None
 
-        ratingstable, scratchertables = scrape_func()
+        # Suppress stdout during scrape to prevent massive DataFrame prints
+        with SuppressStdout():
+            ratingstable, scratchertables = scrape_func()
 
         if ratingstable is not None:
             save_dataframe_to_gsheet(ratingstable, f'{state_code}RatingsTable', gspread_client)
