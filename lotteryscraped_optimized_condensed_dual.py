@@ -4,6 +4,10 @@
 Dual-write version: saves scratcher data to BOTH Google Sheets AND Supabase.
 Drop-in replacement for lotteryscraped_optimized_condensed.py
 
+Memory-hardened: forces gc.collect() after each state, ensures driver.quit()
+in finally blocks, and saves ScratcherTables/AllStatesRatings incrementally
+so data is preserved even if the runner is OOM-killed.
+
 New environment variables required:
   - SUPABASE_URL: Your Supabase project URL
   - SUPABASE_SERVICE_ROLE_KEY: Service role key for database writes
@@ -37,6 +41,7 @@ import logging.handlers
 import os
 import sys
 import importlib
+import gc
 
 # Ensure the script's directory is in the Python path for module imports
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -60,8 +65,9 @@ SUPABASE_SERVICE_ROLE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY', '')
 
 # Configuration: List of states to process
 STATES_TO_PROCESS = [
-    'AR', 'AZ', 'CA', 'CO', 'DC', 'IL', 'KS', 'KY', 'MA', 'MD', 'MO', 'MN', 'MS',
-    'NC', 'NM', 'NY', 'OH', 'OK', 'OR', 'SC', 'TX', 'VA', 'WA', 'WV'
+    'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'IL', 'KS', 'KY', 'MA', 'MD',
+    'MI', 'MN', 'MO', 'MS', 'NC', 'NH', 'NM', 'NY', 'OH', 'OK', 'OR',
+    'RI', 'SC', 'TX', 'VA', 'WA', 'WV'
 ]
 
 # Logger setup
@@ -206,8 +212,13 @@ def save_ratings_to_supabase(combined_ratingstable):
         # Before upsert, convert date objects to strings
         for record in records:
             for key, value in record.items():
-                if isinstance(value, (datetime.date, datetime.datetime)):
+                if isinstance(value, (date, datetime)):
                     record[key] = value.isoformat()
+                # Convert numpy types to native Python types
+                elif isinstance(value, np.integer):
+                    record[key] = int(value)
+                elif isinstance(value, np.floating):
+                    record[key] = float(value) if not np.isnan(value) else None
                     
         # Upsert in batches of 100
         batch_size = 100
@@ -312,6 +323,37 @@ def save_dataframe_starting_at_row(dataframe, worksheet_name, start_row, gspread
         logger.error(f"Failed to save DataFrame to '{worksheet_name}': {e}", exc_info=True)
 
 
+def sanitize_dataframe_types(df):
+    """Convert numpy types to native Python types for serialization safety."""
+    for col in df.columns:
+        is_potentially_numeric = (
+            pd.api.types.is_numeric_dtype(df[col]) or df[col].dtype == 'object'
+        )
+        if is_potentially_numeric:
+            try:
+                col_copy = df[col].copy()
+                df[col] = col_copy.apply(
+                    lambda x: int(x) if isinstance(x, np.integer)
+                    else float(x) if isinstance(x, np.floating)
+                    else (None if pd.isna(x) else x)
+                )
+            except Exception:
+                if df[col].dtype != 'object':
+                    df[col] = df[col].astype(object)
+    return df
+
+
+def log_memory_usage():
+    """Log current process memory usage (Linux only)."""
+    try:
+        import resource
+        mem_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # KB → MB on Linux
+        logger.info(f"📊 Peak memory usage: {mem_mb:.0f} MB")
+        print(f"📊 Peak memory usage: {mem_mb:.0f} MB")
+    except Exception:
+        pass
+
+
 # --- DYNAMIC PROCESSOR ---
 
 def process_state_module(state_code, gspread_client):
@@ -405,7 +447,11 @@ def main():
     succeeded_states = []
     failed_states = []
 
-    for state in STATES_TO_PROCESS:
+    for idx, state in enumerate(STATES_TO_PROCESS):
+        state_start = datetime.now(tzlocal())
+        logger.info(f"[{idx+1}/{len(STATES_TO_PROCESS)}] Starting {state}...")
+        print(f"[{idx+1}/{len(STATES_TO_PROCESS)}] Processing {state}...")
+
         try:
             ratingstable, scratchertables = process_state_module(state, gspread_client)
 
@@ -426,73 +472,54 @@ def main():
                 all_ratingstables_list.append(ratingstable_processed)
 
             succeeded_states.append(state)
-            logger.info(f"✅ {state} completed successfully.")
+            state_duration = datetime.now(tzlocal()) - state_start
+            logger.info(f"✅ {state} completed successfully in {state_duration}.")
+
+            # ─── INCREMENTAL SAVE after each state ───
+            # This ensures data is preserved even if the runner is killed mid-run.
+            try:
+                if all_scratchertables_list:
+                    combined_st = pd.concat(all_scratchertables_list, ignore_index=True, join='outer')
+                    combined_st = sanitize_dataframe_types(combined_st)
+                    save_dataframe_to_gsheet(combined_st, 'ScratcherTables', gspread_client)
+                    logger.info(f"📝 Incrementally saved ScratcherTables ({len(combined_st)} rows, {len(succeeded_states)} states so far).")
+
+                if all_ratingstables_list:
+                    combined_rt = pd.concat(all_ratingstables_list, ignore_index=True, join='outer', sort=False)
+                    for col in target_columns:
+                        if col not in combined_rt.columns:
+                            combined_rt[col] = None
+                    combined_rt = combined_rt.reindex(columns=target_columns)
+                    combined_rt = sanitize_dataframe_types(combined_rt)
+                    save_dataframe_starting_at_row(combined_rt, 'AllStatesRatings', 3, gspread_client)
+                    save_ratings_to_supabase(combined_rt)
+                    logger.info(f"📝 Incrementally saved AllStatesRatings + Supabase ({len(combined_rt)} rows).")
+            except Exception as e:
+                logger.error(f"⚠️  Incremental save after {state} failed (non-fatal): {e}", exc_info=True)
 
         except Exception as e:
             failed_states.append(state)
             logger.error(f"❌ {state} failed — skipping and continuing. Error: {e}", exc_info=True)
-            continue
 
-    # --- Summary ---
+        finally:
+            # ─── MEMORY CLEANUP after every state (success or failure) ───
+            # Force garbage collection to free Selenium/Chrome memory
+            collected = gc.collect()
+            logger.info(f"🧹 gc.collect() freed {collected} objects after {state}.")
+            log_memory_usage()
+
+    # --- Final Summary ---
     logger.info(f"States succeeded ({len(succeeded_states)}/{len(STATES_TO_PROCESS)}): {succeeded_states}")
     if failed_states:
         logger.warning(f"States FAILED ({len(failed_states)}/{len(STATES_TO_PROCESS)}): {failed_states}")
         print(f"⚠️  {len(failed_states)} state(s) failed: {failed_states}")
-
-    # --- Combine and Upload ScratcherTables ---
-    if all_scratchertables_list:
-        logger.info(f"Combining scratchertables data from {len(all_scratchertables_list)} states.")
-        combined_scratchertables = pd.concat(all_scratchertables_list, ignore_index=True, join='outer')
-        for col in combined_scratchertables.columns:
-            is_potentially_numeric = pd.api.types.is_numeric_dtype(combined_scratchertables[col]) or combined_scratchertables[col].dtype == 'object'
-            if is_potentially_numeric:
-                try:
-                    col_copy = combined_scratchertables[col].copy()
-                    combined_scratchertables[col] = col_copy.apply(
-                        lambda x: int(x) if isinstance(x, np.integer) else float(x) if isinstance(x, np.floating) else (None if pd.isna(x) else x)
-                    )
-                except Exception:
-                    if combined_scratchertables[col].dtype != 'object':
-                        combined_scratchertables[col] = combined_scratchertables[col].astype(object)
-        logger.info("Saving combined 'ScratcherTables'.")
-        save_dataframe_to_gsheet(combined_scratchertables, 'ScratcherTables', gspread_client)
-    else:
-        logger.warning("No scratchertables data collected.")
-
-    # --- Combine and Upload RatingsTables ---
-    if all_ratingstables_list:
-        logger.info(f"Combining ratingstable data from {len(all_ratingstables_list)} states.")
-        combined_ratingstable = pd.concat(all_ratingstables_list, ignore_index=True, join='outer', sort=False)
-        for col in target_columns:
-            if col not in combined_ratingstable.columns:
-                combined_ratingstable[col] = None
-        combined_ratingstable = combined_ratingstable.reindex(columns=target_columns)
-        for col in combined_ratingstable.columns:
-            is_potentially_numeric = pd.api.types.is_numeric_dtype(combined_ratingstable[col]) or combined_ratingstable[col].dtype == 'object'
-            if is_potentially_numeric:
-                try:
-                    col_copy = combined_ratingstable[col].copy()
-                    combined_ratingstable[col] = col_copy.apply(
-                        lambda x: int(x) if isinstance(x, np.integer) else float(x) if isinstance(x, np.floating) else (None if pd.isna(x) else x)
-                    )
-                except Exception:
-                    if combined_ratingstable[col].dtype != 'object':
-                        combined_ratingstable[col] = combined_ratingstable[col].astype(object)
-
-        # DUAL WRITE: Save to Google Sheets
-        logger.info("Saving combined 'AllStatesRatings' to Google Sheets.")
-        save_dataframe_starting_at_row(combined_ratingstable, 'AllStatesRatings', 3, gspread_client)
-
-        # DUAL WRITE: Save to Supabase
-        save_ratings_to_supabase(combined_ratingstable)
-    else:
-        logger.warning("No ratingstable data collected.")
 
     # Finish
     end_time = datetime.now(tzlocal())
     duration = end_time - start_time
     logger.info(f'Total execution time: {duration}')
     print(f'Total execution time: {duration}')
+    log_memory_usage()
 
     if failed_states:
         print(f"⚠️  Completed with errors. {len(succeeded_states)} succeeded, {len(failed_states)} failed: {failed_states}")
