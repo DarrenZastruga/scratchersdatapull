@@ -43,17 +43,23 @@ import sys
 import importlib
 import gc
 
-# Force unbuffered stdout so GitHub Actions shows output in real-time
-if hasattr(sys.stdout, 'reconfigure'):
-    sys.stdout.reconfigure(line_buffering=True)
-else:
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, line_buffering=True)
+import signal
+
+class StateTimeoutError(Exception):
+    """Raised when a state scrape exceeds the allowed time."""
+    pass
+
+def _timeout_handler(signum, frame):
+    raise StateTimeoutError("State processing exceeded time limit")
+
+# Per-state timeout in seconds (5 minutes max per state)
+STATE_TIMEOUT_SECONDS = 300
 
 # Ensure the script's directory is in the Python path for module imports
 script_dir = os.path.dirname(os.path.abspath(__file__))
 if script_dir not in sys.path:
     sys.path.insert(0, script_dir)
-    print(f"Added '{script_dir}' to sys.path", flush=True)
+    print(f"Added '{script_dir}' to sys.path")
 
 psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
 
@@ -355,7 +361,7 @@ def log_memory_usage():
         import resource
         mem_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # KB → MB on Linux
         logger.info(f"📊 Peak memory usage: {mem_mb:.0f} MB")
-        print(f"📊 Peak memory usage: {mem_mb:.0f} MB", flush=True)
+        print(f"📊 Peak memory usage: {mem_mb:.0f} MB")
     except Exception:
         pass
 
@@ -368,15 +374,18 @@ class SuppressStdout:
     State modules often print() entire DataFrames, which can generate
     100K+ lines of output and cause GitHub Actions runners to be killed
     when the stdout buffer overflows (~64 MB).
+    
+    stderr is NOT suppressed so errors/warnings remain visible in logs.
     """
     def __enter__(self):
         self._original_stdout = sys.stdout
-        sys.stdout = open(os.devnull, 'w')
+        self._devnull = open(os.devnull, 'w')
+        sys.stdout = self._devnull
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        sys.stdout.close()
         sys.stdout = self._original_stdout
+        self._devnull.close()
 
 
 # --- DYNAMIC PROCESSOR ---
@@ -401,22 +410,68 @@ def process_state_module(state_code, gspread_client):
             return None, None
 
         # Suppress stdout during scrape to prevent massive DataFrame prints
-        with SuppressStdout():
-            ratingstable, scratchertables = scrape_func()
+        # Set per-state timeout to prevent hangs (e.g. Selenium stuck on a page)
+        old_handler = signal.signal(signal.SIGALRM, _timeout_handler)
+        signal.alarm(STATE_TIMEOUT_SECONDS)
+        try:
+            with SuppressStdout():
+                result = scrape_func()
+        finally:
+            signal.alarm(0)  # Cancel the alarm
+            signal.signal(signal.SIGALRM, old_handler)  # Restore handler
 
-        if ratingstable is not None:
-            save_dataframe_to_gsheet(ratingstable, f'{state_code}RatingsTable', gspread_client)
-
-        if scratchertables is not None and not scratchertables.empty:
-            scratchertables['State'] = state_code
-            logger.info(f"Successfully processed {state_code}.")
-            return ratingstable, scratchertables
-        else:
-            logger.warning(f"No scratchertables data returned from {state_code} scrape.")
+        # --- Detailed diagnostics on scrape result ---
+        if result is None:
+            logger.error(f"⚠️  {state_code}: scrape_func() returned None (not a tuple).")
             return None, None
+
+        if not isinstance(result, (tuple, list)):
+            logger.error(f"⚠️  {state_code}: scrape_func() returned unexpected type: {type(result).__name__}.")
+            return None, None
+
+        if len(result) < 2:
+            logger.error(f"⚠️  {state_code}: scrape_func() returned tuple with {len(result)} element(s), expected 2.")
+            return None, None
+
+        ratingstable, scratchertables = result[0], result[1]
+
+        # Log ratingstable status
+        if ratingstable is None:
+            logger.warning(f"📋 {state_code}: ratingstable is None.")
+        elif isinstance(ratingstable, pd.DataFrame):
+            if ratingstable.empty:
+                logger.warning(f"📋 {state_code}: ratingstable is empty DataFrame (0 rows).")
+            else:
+                logger.info(f"📋 {state_code}: ratingstable has {len(ratingstable)} rows, {len(ratingstable.columns)} cols.")
+        else:
+            logger.warning(f"📋 {state_code}: ratingstable is unexpected type: {type(ratingstable).__name__}.")
+
+        # Log scratchertables status
+        if scratchertables is None:
+            logger.warning(f"🎰 {state_code}: scratchertables is None.")
+        elif isinstance(scratchertables, pd.DataFrame):
+            if scratchertables.empty:
+                logger.warning(f"🎰 {state_code}: scratchertables is empty DataFrame (0 rows, cols={list(scratchertables.columns)[:5]}).")
+            else:
+                logger.info(f"🎰 {state_code}: scratchertables has {len(scratchertables)} rows, {len(scratchertables.columns)} cols.")
+                scratchertables['State'] = state_code
+        else:
+            logger.warning(f"🎰 {state_code}: scratchertables is unexpected type: {type(scratchertables).__name__}.")
+            scratchertables = None
+
+        # Normalize empty DataFrames to None for consistent downstream handling
+        if isinstance(ratingstable, pd.DataFrame) and ratingstable.empty:
+            ratingstable = None
+        if isinstance(scratchertables, pd.DataFrame) and scratchertables.empty:
+            scratchertables = None
+
+        return ratingstable, scratchertables
 
     except ImportError:
         logger.error(f"Could not import module {module_name}. Check if file exists.", exc_info=True)
+        return None, None
+    except StateTimeoutError:
+        logger.error(f"⏰ {state_code} timed out after {STATE_TIMEOUT_SECONDS}s — skipping.")
         return None, None
     except Exception as e:
         logger.exception(f"Critical error processing {state_code}: {e}")
@@ -430,16 +485,16 @@ def main():
 
     gspread_client = authorize_gspread()
     if not gspread_client:
-        print("Authorization failed. Exiting.", flush=True)
+        print("Authorization failed. Exiting.")
         return
 
-    print("Authorization successful!", flush=True)
+    print("Authorization successful!")
 
     # Check Supabase configuration
     if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
-        print("Supabase configured - will dual-write to Google Sheets AND Supabase.", flush=True)
+        print("Supabase configured - will dual-write to Google Sheets AND Supabase.")
     else:
-        print("Supabase not configured - writing to Google Sheets only.", flush=True)
+        print("Supabase not configured - writing to Google Sheets only.")
 
     # Target Columns for Combined Rating Table
     target_columns = [
@@ -486,6 +541,9 @@ def main():
                 if 'State' not in scratchertables.columns:
                     scratchertables['State'] = state
                 all_scratchertables_list.append(scratchertables)
+                logger.info(f"🎰 Added {state} scratchertables ({len(scratchertables)} rows) to combined list. Total states with scratchers: {len(all_scratchertables_list)}.")
+            else:
+                logger.warning(f"🎰 {state}: NO scratchertables added to combined list.")
 
             if ratingstable is not None and not ratingstable.empty:
                 ratingstable_processed = ratingstable.copy()
@@ -545,7 +603,7 @@ def main():
     end_time = datetime.now(tzlocal())
     duration = end_time - start_time
     logger.info(f'Total execution time: {duration}')
-    print(f'Total execution time: {duration}', flush=True)
+    print(f'Total execution time: {duration}')
     log_memory_usage()
 
     if failed_states:
@@ -556,5 +614,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(f"=== Script starting (Python {sys.version}) ===", flush=True)
     main()
