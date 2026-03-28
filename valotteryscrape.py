@@ -159,22 +159,43 @@ def exportScratcherRecs():
                 continue
             
         tableData['prizeamount'] = tableData['Prize Amount'].replace('*','')
-        tableData['gameNumber'] = soup.find('h2', class_='title-display').find('small').get_text()
-        tableData['gameName'] = soup.find('h2', class_='title-display').find(string=True, recursive=False).strip()
+
+        # --- Safe extraction of fields from soup (guard against missing nodes) ---
+        title_el = soup.find('h2', class_='title-display')
+        title_small = title_el.find('small') if title_el else None
+        tableData['gameNumber'] = title_small.get_text() if title_small else str(ticID)
+        tableData['gameName'] = title_el.find(string=True, recursive=False).strip() if title_el else ''
         tableData['gameURL'] = ticketurl
         tableData['gamePhoto'] = t['RolloverImageUrl']
 
-        tableData['price'] = soup.find('h2', class_='ticket-price-display').get_text()
-        tableData['overallodds'] = soup.find('p', class_='odds-display').find('span').get_text()
-        tableData['topprize'] = soup.find('h2', class_='top-prize-display').get_text().replace('*','')
-        tableData['topprizeodds'] = soup.find('p', class_='odds-display').find('br').find('span').get_text()
+        price_el = soup.find('h2', class_='ticket-price-display')
+        tableData['price'] = price_el.get_text() if price_el else '0'
+
+        odds_el = soup.find('p', class_='odds-display')
+        odds_span = odds_el.find('span') if odds_el else None
+        tableData['overallodds'] = odds_span.get_text() if odds_span else np.nan
+
+        top_prize_el = soup.find('h2', class_='top-prize-display')
+        tableData['topprize'] = top_prize_el.get_text().replace('*','') if top_prize_el else np.nan
+
+        # Top prize odds: nested under odds-display > br > span
+        odds_br = odds_el.find('br') if odds_el else None
+        top_odds_span = odds_br.find_next_sibling('span') if odds_br else None
+        if top_odds_span is None and odds_el is not None:
+            # Fallback: try all spans under odds-display (second one is top prize odds)
+            all_spans = odds_el.find_all('span')
+            top_odds_span = all_spans[1] if len(all_spans) > 1 else None
+        tableData['topprizeodds'] = top_odds_span.get_text() if top_odds_span else np.nan
+
         tableData['topprizeremain'] = tableData.iloc[0,2]
         tableData['extrachances'] = 'eXTRA Chances' if soup.find('p', string=re.compile('eXTRA Chances')) else np.nan
         tableData['secondChance'] = '2nd Chance' if soup.find('p', string=re.compile('2nd Chance')) else np.nan
-        tableData['startDate'] = soup.find_all('h2', class_='start-date-display')[0].get_text()
-        if len(soup.find_all('h2', class_='start-date-display')) > 1 & closing == True:
-            tableData['endDate'] = soup.find_all('h2', class_='start-date-display')[1].get_text()
-            tableData['lastdatetoclaim'] = soup.find_all('h2', class_='start-date-display')[2].get_text()
+
+        start_date_els = soup.find_all('h2', class_='start-date-display')
+        tableData['startDate'] = start_date_els[0].get_text() if len(start_date_els) > 0 else np.nan
+        if len(start_date_els) > 1 and closing == True:
+            tableData['endDate'] = start_date_els[1].get_text() if len(start_date_els) > 1 else np.nan
+            tableData['lastdatetoclaim'] = start_date_els[2].get_text() if len(start_date_els) > 2 else np.nan
         else: 
             tableData['endDate'] = np.nan
             tableData['lastdatetoclaim'] = np.nan

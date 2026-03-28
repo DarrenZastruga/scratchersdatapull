@@ -50,7 +50,10 @@ def exportScratcherRecs():
     for url in urls:
         
         tixtables = pd.DataFrame()
-        tixlist = pd.DataFrame()
+        # NEW:
+        tixlist = pd.DataFrame(columns=['price', 'gameName', 'gameNumber', 'gameURL', 'gamePhoto', 
+                                        'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 
+                                        'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported'])
         
         #go to game page for tix data
         r = requests.get(url)

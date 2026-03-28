@@ -300,6 +300,51 @@ def save_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
         logger.error(f"Failed to save DataFrame to Google Sheet worksheet {worksheet_name}: {e}", exc_info=True)
 
 
+def initialize_gsheet_worksheet(worksheet_name, gspread_client, header_columns=None):
+    """Clear a worksheet once at the start of a run. Optionally write header row."""
+    try:
+        gsheet = gspread_client.open_by_key(GSHEET_KEY)
+        try:
+            worksheet = gsheet.worksheet(worksheet_name)
+            worksheet.clear()
+        except gspread.WorksheetNotFound:
+            logger.info(f"Worksheet '{worksheet_name}' not found. Creating it.")
+            worksheet = gsheet.add_worksheet(title=worksheet_name, rows=1, cols=1)
+        if header_columns:
+            worksheet.update('A1', [header_columns])
+        logger.info(f"Initialized worksheet '{worksheet_name}' (cleared + header written).")
+        return worksheet
+    except Exception as e:
+        logger.error(f"Failed to initialize worksheet '{worksheet_name}': {e}", exc_info=True)
+        return None
+
+
+def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
+    """Appends a DataFrame to an existing Google Sheet worksheet without clearing it."""
+    try:
+        if dataframe is None or dataframe.empty:
+            logger.warning(f"Attempted to append an empty or None DataFrame to {worksheet_name}. Skipping.")
+            return
+        gsheet = gspread_client.open_by_key(GSHEET_KEY)
+        try:
+            worksheet = gsheet.worksheet(worksheet_name)
+        except gspread.WorksheetNotFound:
+            logger.info(f"Worksheet '{worksheet_name}' not found. Creating it.")
+            worksheet = gsheet.add_worksheet(title=worksheet_name, rows=1, cols=1)
+
+        df_to_save = dataframe.copy()
+        df_to_save.replace([np.inf, -np.inf], None, inplace=True)
+        df_to_save = df_to_save.astype(object).fillna('')
+
+        # Convert to list of lists (values only, no header)
+        rows = df_to_save.values.tolist()
+        if rows:
+            worksheet.append_rows(rows, value_input_option='RAW')
+            logger.info(f"Appended {len(rows)} rows to worksheet '{worksheet_name}'.")
+    except Exception as e:
+        logger.error(f"Failed to append DataFrame to Google Sheet worksheet {worksheet_name}: {e}", exc_info=True)
+
+
 def save_dataframe_starting_at_row(dataframe, worksheet_name, start_row, gspread_client):
     """Clears content from a specified row downwards and saves a DataFrame starting at that row."""
     try:
@@ -478,6 +523,34 @@ def process_state_module(state_code, gspread_client):
         return None, None
 
 
+def cast_rank_columns_to_int(df):
+    """Cast rank columns to nullable integers for Supabase compatibility.
+    
+    Supabase integer columns reject float values like '55.0'.
+    This converts rank columns from float to Int64 (nullable integer),
+    and ensures NaN becomes None (JSON null).
+    """
+    int_columns = [
+        'Rank by Best Probability of Winning Any Prize',
+        'Rank by Best Probability of Winning Profit Prize',
+        'Rank by Least Expected Losses',
+        'Rank by Most Available Prizes',
+        'Rank by Best Change in Probabilities',
+        'Overall Rank',
+        'Rank by Cost',
+    ]
+    for col in int_columns:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+            # Convert to nullable Int64 so NaN stays as <NA> not float NaN
+            try:
+                df[col] = df[col].round(0).astype('Int64')
+            except (ValueError, TypeError):
+                # If conversion fails, leave as-is (will be handled by sanitize)
+                pass
+    return df
+
+
 def main():
     """Main function to orchestrate the scratcher scraping process."""
     start_time = datetime.now(tzlocal())
@@ -522,7 +595,14 @@ def main():
         'Stats Page', 'gameURL', 'State'
     ]
 
-    all_scratchertables_list = []
+    # ─── INITIALIZE GOOGLE SHEETS ONCE ───
+    # Clear worksheets at the start so incremental appends don't mix with stale data.
+    # If the runner crashes mid-run, all states appended so far are preserved.
+    logger.info("Initializing Google Sheets worksheets (clearing old data)...")
+    initialize_gsheet_worksheet('ScratcherTables', gspread_client)
+    initialize_gsheet_worksheet('AllStatesRatings', gspread_client, header_columns=target_columns)
+    logger.info("Worksheets initialized.")
+
     all_ratingstables_list = []
 
     # --- Main Loop: Process each state with per-state error recovery ---
@@ -537,14 +617,20 @@ def main():
         try:
             ratingstable, scratchertables = process_state_module(state, gspread_client)
 
+            # ─── INCREMENTAL APPEND: ScratcherTables ───
             if scratchertables is not None and not scratchertables.empty:
                 if 'State' not in scratchertables.columns:
                     scratchertables['State'] = state
-                all_scratchertables_list.append(scratchertables)
-                logger.info(f"🎰 Added {state} scratchertables ({len(scratchertables)} rows) to combined list. Total states with scratchers: {len(all_scratchertables_list)}.")
+                scratchertables_sanitized = sanitize_dataframe_types(scratchertables.copy())
+                try:
+                    append_dataframe_to_gsheet(scratchertables_sanitized, 'ScratcherTables', gspread_client)
+                    logger.info(f"🎰 Appended {state} scratchertables ({len(scratchertables)} rows).")
+                except Exception as e:
+                    logger.error(f"⚠️  Failed to append {state} ScratcherTables: {e}", exc_info=True)
             else:
-                logger.warning(f"🎰 {state}: NO scratchertables added to combined list.")
+                logger.warning(f"🎰 {state}: NO scratchertables to append.")
 
+            # ─── ACCUMULATE ratings for combined Supabase upsert ───
             if ratingstable is not None and not ratingstable.empty:
                 ratingstable_processed = ratingstable.copy()
                 ratingstable_processed['State'] = state
@@ -556,31 +642,35 @@ def main():
                 ratingstable_processed = ratingstable_processed[final_cols]
                 all_ratingstables_list.append(ratingstable_processed)
 
+                # Append this state's ratings to Google Sheets immediately
+                try:
+                    rt_sanitized = sanitize_dataframe_types(ratingstable_processed.copy())
+                    append_dataframe_to_gsheet(rt_sanitized, 'AllStatesRatings', gspread_client)
+                    logger.info(f"📋 Appended {state} ratings ({len(ratingstable_processed)} rows) to AllStatesRatings.")
+                except Exception as e:
+                    logger.error(f"⚠️  Failed to append {state} ratings to GSheets: {e}", exc_info=True)
+
             succeeded_states.append(state)
             state_duration = datetime.now(tzlocal()) - state_start
             logger.info(f"✅ {state} completed successfully in {state_duration}.")
 
-            # ─── INCREMENTAL SAVE after each state ───
-            # This ensures data is preserved even if the runner is killed mid-run.
+            # ─── INCREMENTAL SUPABASE SAVE ───
+            # Upsert ALL accumulated ratings to Supabase after each state.
+            # This is idempotent (upsert), so re-sending previous states is safe.
             try:
-                if all_scratchertables_list:
-                    combined_st = pd.concat(all_scratchertables_list, ignore_index=True, join='outer')
-                    combined_st = sanitize_dataframe_types(combined_st)
-                    save_dataframe_to_gsheet(combined_st, 'ScratcherTables', gspread_client)
-                    logger.info(f"📝 Incrementally saved ScratcherTables ({len(combined_st)} rows, {len(succeeded_states)} states so far).")
-
                 if all_ratingstables_list:
                     combined_rt = pd.concat(all_ratingstables_list, ignore_index=True, join='outer', sort=False)
                     for col in target_columns:
                         if col not in combined_rt.columns:
                             combined_rt[col] = None
                     combined_rt = combined_rt.reindex(columns=target_columns)
+                    # Cast rank columns to integers BEFORE sanitization/Supabase save
+                    combined_rt = cast_rank_columns_to_int(combined_rt)
                     combined_rt = sanitize_dataframe_types(combined_rt)
-                    save_dataframe_starting_at_row(combined_rt, 'AllStatesRatings', 3, gspread_client)
                     save_ratings_to_supabase(combined_rt)
-                    logger.info(f"📝 Incrementally saved AllStatesRatings + Supabase ({len(combined_rt)} rows).")
+                    logger.info(f"📝 Incrementally saved to Supabase ({len(combined_rt)} rows, {len(succeeded_states)} states so far).")
             except Exception as e:
-                logger.error(f"⚠️  Incremental save after {state} failed (non-fatal): {e}", exc_info=True)
+                logger.error(f"⚠️  Incremental Supabase save after {state} failed (non-fatal): {e}", exc_info=True)
 
         except Exception as e:
             failed_states.append(state)
@@ -588,7 +678,6 @@ def main():
 
         finally:
             # ─── MEMORY CLEANUP after every state (success or failure) ───
-            # Force garbage collection to free Selenium/Chrome memory
             collected = gc.collect()
             logger.info(f"🧹 gc.collect() freed {collected} objects after {state}.")
             log_memory_usage()
@@ -608,7 +697,7 @@ def main():
 
     if failed_states:
         print(f"⚠️  Completed with errors. {len(succeeded_states)} succeeded, {len(failed_states)} failed: {failed_states}")
-        sys.exit(1)  # Signal partial failure to CI
+        sys.exit(1)
     else:
         print(f"✅ All {len(succeeded_states)} states completed successfully.")
 

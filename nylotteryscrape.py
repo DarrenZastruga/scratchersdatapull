@@ -121,7 +121,7 @@ def exportScratcherRecs():
                 tixdata.at[0, 'prizeamount'] = str(
                     int(tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '').replace('/week/life', ''))*52*50)
             else:
-                tixdata['prizeamount'].iloc[0] = tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '')
+                tixdata.at[0, 'prizeamount'] = tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '')
             print(tixdata['prizeamount'])
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('free take 5 fp',gamePrice, regex=True).astype('str')
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('free c4l qp',gamePrice, regex=True).astype('str')

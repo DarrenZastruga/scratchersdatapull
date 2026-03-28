@@ -231,14 +231,16 @@ def exportScratcherRecs():
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
     scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-    scratchertables.to_csv("./COscratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./WVscratchertables.csv", encoding='utf-8')
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
     scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
     #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
     gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds','gamePhoto']], how='left', on=['gameNumber'])
-    gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
-    gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
+    # Line 240-241: Replace .astype(float) with safe conversion
+    odds_numeric = pd.to_numeric(gamesgrouped['overallodds'], errors='coerce')
+    gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'] * odds_numeric
+    gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed'] * odds_numeric
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total at start']/gamesgrouped['topprizestarting']
