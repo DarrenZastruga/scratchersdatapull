@@ -43,11 +43,17 @@ import sys
 import importlib
 import gc
 
+# Force unbuffered stdout so GitHub Actions shows output in real-time
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(line_buffering=True)
+else:
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, line_buffering=True)
+
 # Ensure the script's directory is in the Python path for module imports
 script_dir = os.path.dirname(os.path.abspath(__file__))
 if script_dir not in sys.path:
     sys.path.insert(0, script_dir)
-    print(f"Added '{script_dir}' to sys.path")
+    print(f"Added '{script_dir}' to sys.path", flush=True)
 
 psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
 
@@ -349,7 +355,7 @@ def log_memory_usage():
         import resource
         mem_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # KB → MB on Linux
         logger.info(f"📊 Peak memory usage: {mem_mb:.0f} MB")
-        print(f"📊 Peak memory usage: {mem_mb:.0f} MB")
+        print(f"📊 Peak memory usage: {mem_mb:.0f} MB", flush=True)
     except Exception:
         pass
 
@@ -424,16 +430,16 @@ def main():
 
     gspread_client = authorize_gspread()
     if not gspread_client:
-        print("Authorization failed. Exiting.")
+        print("Authorization failed. Exiting.", flush=True)
         return
 
-    print("Authorization successful!")
+    print("Authorization successful!", flush=True)
 
     # Check Supabase configuration
     if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
-        print("Supabase configured - will dual-write to Google Sheets AND Supabase.")
+        print("Supabase configured - will dual-write to Google Sheets AND Supabase.", flush=True)
     else:
-        print("Supabase not configured - writing to Google Sheets only.")
+        print("Supabase not configured - writing to Google Sheets only.", flush=True)
 
     # Target Columns for Combined Rating Table
     target_columns = [
@@ -539,7 +545,7 @@ def main():
     end_time = datetime.now(tzlocal())
     duration = end_time - start_time
     logger.info(f'Total execution time: {duration}')
-    print(f'Total execution time: {duration}')
+    print(f'Total execution time: {duration}', flush=True)
     log_memory_usage()
 
     if failed_states:
@@ -550,4 +556,5 @@ def main():
 
 
 if __name__ == '__main__':
+    print(f"=== Script starting (Python {sys.version}) ===", flush=True)
     main()
