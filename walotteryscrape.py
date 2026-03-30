@@ -47,13 +47,10 @@ def exportScratcherRecs():
             'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$20',
             'https://walottery.com/Scratch/TopPrizesRemaining.aspx?price=$30']
     
+    tixtables = pd.DataFrame()
+    tixlist_rows = []
+
     for url in urls:
-        
-        tixtables = pd.DataFrame()
-        # NEW:
-        tixlist = pd.DataFrame(columns=['price', 'gameName', 'gameNumber', 'gameURL', 'gamePhoto', 
-                                        'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 
-                                        'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported'])
         
         #go to game page for tix data
         r = requests.get(url)
@@ -122,9 +119,16 @@ def exportScratcherRecs():
             extrachances = None
             secondChance = None
       
-            tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported']] = [
-                gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
+            tixlist_rows.append({
+                'price': gamePrice, 'gameName': gameName, 'gameNumber': gameNumber,
+                'gameURL': gameURL, 'gamePhoto': gamePhoto, 'topprize': topprize,
+                'overallodds': overallodds, 'topprizestarting': topprizestarting,
+                'topprizeremain': topprizeremain, 'topprizeavail': topprizeavail,
+                'startDate': startDate, 'endDate': endDate, 'lastdatetoclaim': lastdatetoclaim,
+                'extrachances': extrachances, 'secondChance': secondChance, 'dateexported': dateexported
+            })
 
+    tixlist = pd.DataFrame(tixlist_rows)
     tixlist.to_csv("./WAtixlist.csv", encoding='utf-8')
     scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported', 'gameURL']].copy()
     scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!",:]
