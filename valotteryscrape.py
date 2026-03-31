@@ -241,6 +241,7 @@ def exportScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizeodds','overallodds']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped.loc[:,'topprizeodds'].str.replace(',','', regex = True)
+    # FIX: per-column pd.to_numeric instead of multi-column .loc assignment
     for col in ['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']:
         gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
@@ -264,7 +265,8 @@ def exportScratcherRecs():
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-        totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
+        for col in ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']:
+            totalremain[col] = pd.to_numeric(totalremain[col], errors='coerce')
         price = int(gamerow['price'].values[0])
 
         prizes =totalremain.loc[:,'prizeamount']
@@ -296,7 +298,8 @@ def exportScratcherRecs():
         
         #calculate expected value
 
-        totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
+        for col in ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']:
+            totalremain[col] = pd.to_numeric(totalremain[col], errors='coerce')
         #totalremain.loc[:,'Starting Expected Value'] = ''
         #totalremain.loc[:,'Expected Value'] = ''
 
@@ -379,7 +382,7 @@ def exportScratcherRecs():
     
     #create rankings table by merging the list with the tables
 
-    scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
+    scratchersall['price'] = pd.to_numeric(scratchersall['price'], errors='coerce')
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
 
     ratingstable.drop(labels=['gameName_y','dateexported_y','topprizeodds_y','overallodds_y'], axis=1, inplace=True)

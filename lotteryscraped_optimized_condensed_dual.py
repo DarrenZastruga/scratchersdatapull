@@ -685,9 +685,15 @@ def main():
                 except Exception as e:
                     logger.error(f"⚠️  Failed to append {state} ratings to GSheets: {e}", exc_info=True)
 
-            succeeded_states.append(state)
-            state_duration = datetime.now(tzlocal()) - state_start
-            logger.info(f"✅ {state} completed successfully in {state_duration}.")
+            # Only count as succeeded if at least one dataframe has data
+            if ratingstable is not None or (scratchertables is not None and not scratchertables.empty):
+                succeeded_states.append(state)
+                state_duration = datetime.now(tzlocal()) - state_start
+                logger.info(f"✅ {state} completed successfully in {state_duration}.")
+            else:
+                failed_states.append(state)
+                state_duration = datetime.now(tzlocal()) - state_start
+                logger.warning(f"⚠️ {state} returned no data in {state_duration}.")
 
             # ─── INCREMENTAL SUPABASE SAVE ───
             # Upsert ALL accumulated ratings to Supabase after each state.

@@ -264,7 +264,8 @@ def exportScratcherRecs():
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
-        totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
+        for col in ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']:
+            totalremain[col] = pd.to_numeric(totalremain[col], errors='coerce')
         price = int(gamerow['price'].values[0])
 
         prizes =totalremain.loc[:,'prizeamount']
@@ -296,7 +297,8 @@ def exportScratcherRecs():
         
         #calculate expected value
 
-        totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
+        for col in ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']:
+            totalremain[col] = pd.to_numeric(totalremain[col], errors='coerce')
 
 
         totalremain.loc[:,'Starting Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
@@ -356,12 +358,12 @@ def exportScratcherRecs():
     
     #create rankings table by merging the list with the tables
 
-    scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
+    scratchersall['price'] = pd.to_numeric(scratchersall['price'], errors='coerce')
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
     ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
     ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
     #add number of days since the game start date as of date exported
-    ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'], errors = 'coerce')).dt.days
+    ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported'], utc=True) - pd.to_datetime(ratingstable['startDate'], errors='coerce', utc=True)).dt.days
     
     #add rankings columns of all scratchers to ratings table
     ratingstable['Rank by Best Probability of Winning Any Prize'] = (ratingstable['Current Odds of Any Prize'].rank()+ratingstable['Probability of Winning Any Prize'].rank()+ratingstable['Odds of Any Prize + 3 StdDevs'].rank())/3
