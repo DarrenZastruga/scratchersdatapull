@@ -189,6 +189,36 @@ def supabase_request(endpoint, method='GET', data=None, params=None):
         return None
 
 
+# Supabase columns that are text type and should NOT have non-numeric strings stripped
+SUPABASE_TEXT_COLUMNS = {
+    'game_name', 'game_number', 'state', 'extra_chances', 'second_chance',
+    'start_date', 'last_date_to_claim', 'about_url', 'directory_url',
+    'data_date', 'stats_page_url', 'game_url', 'photo_url', 'faq_url',
+    'top_prize_avail',  # Keeps "Top Prize Claimed" etc.
+}
+
+
+def _safe_numeric(value):
+    """Try to convert a value to a number. Return None if it's a non-numeric string."""
+    if value is None or value == '':
+        return None
+    if isinstance(value, (int, float)):
+        if isinstance(value, float) and (np.isnan(value) or np.isinf(value)):
+            return None
+        return value
+    if isinstance(value, np.integer):
+        return int(value)
+    if isinstance(value, np.floating):
+        return None if np.isnan(value) or np.isinf(value) else float(value)
+    # It's a string — try to parse as number
+    if isinstance(value, str):
+        try:
+            return float(value) if '.' in value else int(value)
+        except (ValueError, TypeError):
+            return None  # Non-numeric string like "Available", "TBD", "N/A"
+    return None
+
+
 def save_ratings_to_supabase(combined_ratingstable):
     """Save the combined ratings table to Supabase scratcher_ratings table."""
     if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
@@ -212,7 +242,12 @@ def save_ratings_to_supabase(combined_ratingstable):
                         record[sb_col] = val
                 else:
                     record[sb_col] = None
-            
+
+            # Sanitize numeric columns: convert non-numeric strings to None
+            for sb_col, val in record.items():
+                if sb_col not in SUPABASE_TEXT_COLUMNS and val is not None:
+                    record[sb_col] = _safe_numeric(val)
+
             # Only include records with required fields
             if record.get('game_number') and record.get('state') and record.get('game_name'):
                 records.append(record)
