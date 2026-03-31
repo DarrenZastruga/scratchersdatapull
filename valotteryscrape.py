@@ -432,6 +432,7 @@ def exportScratcherRecs():
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
+    ratingstable = ratingstable.astype(object)
     ratingstable.fillna('',inplace=True)
 
     ratingstable.to_csv("./VAratingstable.csv", encoding='utf-8')

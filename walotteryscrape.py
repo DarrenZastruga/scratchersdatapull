@@ -331,6 +331,7 @@ def exportScratcherRecs():
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
+    ratingstable = ratingstable.astype(object)
     ratingstable.fillna('',inplace=True)
 
     #set_with_dataframe(worksheet=WAratingssheet, dataframe=ratingstable, include_index=False,

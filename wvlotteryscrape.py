@@ -206,7 +206,9 @@ def exportScratcherRecs():
                         'topprizeavail': topprizeavail,
                         'dateexported': date.today(),
                         'gameURL': detail_url,
-                        'gamePhoto': game_photo
+                        'gamePhoto': game_photo,
+                        'extrachances': None,
+                        'secondChance': None
                     })
 
                 except Exception as e:
@@ -407,6 +409,7 @@ def exportScratcherRecs():
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page', 'gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
+    ratingstable = ratingstable.astype(object)
     ratingstable.fillna('',inplace=True)
 
 
