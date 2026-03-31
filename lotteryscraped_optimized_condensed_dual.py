@@ -272,7 +272,7 @@ def save_ratings_to_supabase(combined_ratingstable):
         total_saved = 0
         for i in range(0, len(records), batch_size):
             batch = records[i:i + batch_size]
-            result = supabase_request('scratcher_ratings', method='POST', data=batch)
+            result = supabase_request('scratcher_ratings?on_conflict=state,game_number', method='POST', data=batch)
             if result is not None:
                 total_saved += len(batch)
                 logger.info(f"Supabase: upserted batch {i}-{i + len(batch)}")
