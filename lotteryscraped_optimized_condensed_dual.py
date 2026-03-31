@@ -43,7 +43,7 @@ import sys
 import importlib
 import gc
 
-import signal
+import signal   
 
 class StateTimeoutError(Exception):
     """Raised when a state scrape exceeds the allowed time."""
