@@ -42,8 +42,8 @@ import os
 import sys
 import importlib
 import gc
-
 import signal   
+import traceback
 
 class StateTimeoutError(Exception):
     """Raised when a state scrape exceeds the allowed time."""
@@ -378,6 +378,8 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
         df_to_save = dataframe.copy()
         df_to_save.replace([np.inf, -np.inf], None, inplace=True)
         df_to_save = df_to_save.astype(object).fillna('')
+        # Before append, remove duplicate (state, game_number) rows
+        df_to_save.drop_duplicates(subset=['state', 'game_number'], keep='last', inplace=True)
         
         # Convert date/datetime objects to ISO format strings
         for col in df_to_save.columns:
@@ -481,6 +483,31 @@ class SuppressStdout:
         self._devnull.close()
 
 
+
+
+def validate_state_modules():
+    """Validate that all required state module files exist before processing."""
+    logger.info("🔍 Validating state module files...")
+    missing_modules = []
+    found_modules = []
+    
+    for state in STATES_TO_PROCESS:
+        module_name = f"{state.lower()}lotteryscrape"
+        module_path = os.path.join(script_dir, f"{module_name}.py")
+        
+        if os.path.exists(module_path):
+            found_modules.append(state)
+            logger.debug(f"   ✅ {state}: {module_path}")
+        else:
+            missing_modules.append(state)
+            logger.error(f"   ❌ {state}: {module_path} NOT FOUND")
+    
+    logger.info(f"📊 Module validation: {len(found_modules)}/{len(STATES_TO_PROCESS)} found")
+    if missing_modules:
+        logger.warning(f"⚠️  Missing modules for states: {missing_modules}")
+    
+    return len(missing_modules) == 0
+
 # --- DYNAMIC PROCESSOR ---
 
 def process_state_module(state_code, gspread_client):
@@ -492,14 +519,38 @@ def process_state_module(state_code, gspread_client):
     logger.info(f"--- Processing State: {state_code} (Module: {module_name}) ---")
 
     try:
-        module = importlib.import_module(module_name)
+        # **NEW: Log the import attempt**
+        logger.info(f"📦 Attempting to import module: {module_name}")
+        logger.debug(f"   Python path includes: {sys.path[:3]}")  # Show first 3 paths
+        
+        try:
+            module = importlib.import_module(module_name)
+            logger.info(f"✅ Successfully imported {module_name}")
+        except ModuleNotFoundError as mnf:
+            logger.error(f"❌ ModuleNotFoundError: {module_name} not found in Python path")
+            logger.error(f"   Available files in current directory: {os.listdir('.')[:20]}")  # Show available files
+            raise
+        except ImportError as ie:
+            logger.error(f"❌ ImportError while importing {module_name}: {ie}", exc_info=True)
+            raise
+        except Exception as e:
+            logger.error(f"❌ Unexpected error importing {module_name}: {type(e).__name__}: {e}", exc_info=True)
+            raise
 
+        # **NEW: Check function existence with detailed logging**
         if hasattr(module, 'exportScratcherRecs'):
             scrape_func = module.exportScratcherRecs
+            logger.info(f"✅ Found exportScratcherRecs() in {module_name}")
         elif hasattr(module, f'export{state_code}ScratcherRecs'):
             scrape_func = getattr(module, f'export{state_code}ScratcherRecs')
+            logger.info(f"✅ Found export{state_code}ScratcherRecs() in {module_name}")
         else:
-            logger.error(f"No valid export function found in {module_name}.")
+            # **NEW: Enhanced error with available functions**
+            available_funcs = [name for name in dir(module) if name.startswith('export')]
+            logger.error(f"❌ No valid export function found in {module_name}")
+            logger.error(f"   Expected: exportScratcherRecs or export{state_code}ScratcherRecs")
+            logger.error(f"   Available export* functions: {available_funcs if available_funcs else 'NONE'}")
+            logger.error(f"   All public functions: {[name for name in dir(module) if not name.startswith('_')][:10]}")
             return None, None
 
         # Suppress stdout during scrape to prevent massive DataFrame prints
@@ -560,14 +611,16 @@ def process_state_module(state_code, gspread_client):
 
         return ratingstable, scratchertables
 
-    except ImportError:
-        logger.error(f"Could not import module {module_name}. Check if file exists.", exc_info=True)
+    except ImportError as ie:
+        logger.error(f"❌ Could not import module {module_name}: {ie}", exc_info=True)
+        logger.error(f"   File path checked: {os.path.join(script_dir, f'{module_name}.py')}")
+        logger.error(f"   File exists: {os.path.exists(os.path.join(script_dir, f'{module_name}.py'))}")
         return None, None
     except StateTimeoutError:
         logger.error(f"⏰ {state_code} timed out after {STATE_TIMEOUT_SECONDS}s — skipping.")
         return None, None
     except Exception as e:
-        logger.exception(f"Critical error processing {state_code}: {e}")
+        logger.exception(f"❌ Critical error processing {state_code}: {type(e).__name__}: {e}")
         return None, None
 
 
@@ -617,6 +670,10 @@ def main():
     else:
         print("Supabase not configured - writing to Google Sheets only.")
 
+    # **NEW: Add module validation**
+    if not validate_state_modules():
+        logger.warning("⚠️  Some state modules are missing. Proceeding anyway but some states will fail.")
+        
     # Target Columns for Combined Rating Table
     target_columns = [
         'price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain',
@@ -656,6 +713,7 @@ def main():
     # --- Main Loop: Process each state with per-state error recovery ---
     succeeded_states = []
     failed_states = []
+    failed_states_detail = {}  # **NEW: Track failure reasons**
 
     for idx, state in enumerate(STATES_TO_PROCESS):
         state_start = datetime.now(tzlocal())
@@ -727,19 +785,39 @@ def main():
                 logger.error(f"⚠️  Incremental Supabase save after {state} failed (non-fatal): {e}", exc_info=True)
 
         except Exception as e:
+            # **NEW: Capture detailed failure info**
+            error_type = type(e).__name__
+            error_msg = str(e)
             failed_states.append(state)
-            logger.error(f"❌ {state} failed — skipping and continuing. Error: {e}", exc_info=True)
-
+            failed_states_detail[state] = {
+                'error_type': error_type,
+                'error_msg': error_msg,
+                'traceback': traceback.format_exc()
+            }
+            logger.error(f"❌ {state} failed with {error_type}: {error_msg}", exc_info=True)
+            
         finally:
             # ─── MEMORY CLEANUP after every state (success or failure) ───
             collected = gc.collect()
             logger.info(f"🧹 gc.collect() freed {collected} objects after {state}.")
             log_memory_usage()
 
-    # --- Final Summary ---
+       # --- Final Summary ---
     logger.info(f"States succeeded ({len(succeeded_states)}/{len(STATES_TO_PROCESS)}): {succeeded_states}")
+    
     if failed_states:
         logger.warning(f"States FAILED ({len(failed_states)}/{len(STATES_TO_PROCESS)}): {failed_states}")
+        
+        # **NEW: Detailed failure analysis**
+        logger.warning("=" * 60)
+        logger.warning("FAILURE ANALYSIS:")
+        logger.warning("=" * 60)
+        for state, details in failed_states_detail.items():
+            logger.warning(f"\n{state}:")
+            logger.warning(f"  Error Type: {details['error_type']}")
+            logger.warning(f"  Error Msg: {details['error_msg']}")
+        logger.warning("=" * 60)
+        
         print(f"⚠️  {len(failed_states)} state(s) failed: {failed_states}")
 
     # Finish
