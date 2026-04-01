@@ -42,8 +42,17 @@ import os
 import sys
 import importlib
 import gc
+
 import signal   
-import traceback
+
+# ─── FIX #5: Ensure logger output is visible in GitHub Actions (stderr) ───
+# Without this, logger messages only go to the file handler and are invisible
+# in GA logs until a state module happens to call logging.basicConfig().
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    stream=sys.stderr
+)
 
 class StateTimeoutError(Exception):
     """Raised when a state scrape exceeds the allowed time."""
@@ -151,6 +160,17 @@ COLUMN_MAPPING = {
     'State': 'state',
 }
 
+# ─── ScratcherTables column mapping for Supabase ───
+SCRATCHERTABLES_COLUMN_MAPPING = {
+    'gameNumber': 'game_number',
+    'gameName': 'game_name',
+    'prizeamount': 'prize_amount',
+    'Winning Tickets At Start': 'tickets_at_start',
+    'Winning Tickets Unclaimed': 'tickets_remaining',
+    'Prize Probability': 'probability',
+    'State': 'state',
+}
+
 
 def supabase_request(endpoint, method='GET', data=None, params=None):
     """Make an authenticated request to the Supabase REST API."""
@@ -217,7 +237,7 @@ def _safe_numeric(value):
         except (ValueError, TypeError):
             return None  # Non-numeric string like "Available", "TBD", "N/A"
     return None
-   
+
 
 def save_ratings_to_supabase(combined_ratingstable):
     """Save the combined ratings table to Supabase scratcher_ratings table."""
@@ -293,6 +313,70 @@ def save_ratings_to_supabase(combined_ratingstable):
         logger.error(f"Failed to save to Supabase: {e}", exc_info=True)
 
 
+def save_scratchertables_to_supabase(scratchertables_df, state_code):
+    """Save scratchertables prize tier data to Supabase scratcher_prize_tiers table."""
+    if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+        return
+
+    try:
+        records = []
+        for _, row in scratchertables_df.iterrows():
+            record = {}
+            for df_col, sb_col in SCRATCHERTABLES_COLUMN_MAPPING.items():
+                if df_col in row.index:
+                    val = row[df_col]
+                    if pd.isna(val) or val == '' or (isinstance(val, float) and np.isinf(val)):
+                        record[sb_col] = None
+                    elif isinstance(val, np.integer):
+                        record[sb_col] = int(val)
+                    elif isinstance(val, np.floating):
+                        record[sb_col] = float(val) if not np.isnan(val) else None
+                    elif isinstance(val, (date, datetime)):
+                        record[sb_col] = val.isoformat()
+                    else:
+                        record[sb_col] = val
+                else:
+                    record[sb_col] = None
+
+            # Ensure state is set
+            if not record.get('state'):
+                record['state'] = state_code
+
+            # Only include records with required fields
+            if record.get('game_number') and record.get('state') and record.get('game_name'):
+                records.append(record)
+
+        if not records:
+            logger.warning(f"No valid scratchertables records for {state_code}.")
+            return
+
+        # Deduplicate by (state, game_number, prize_amount) before upsert
+        dedup_dict = {}
+        for record in records:
+            key = (record.get('state'), record.get('game_number'), record.get('prize_amount'))
+            dedup_dict[key] = record
+        records = list(dedup_dict.values())
+
+        # Upsert in batches of 500
+        batch_size = 500
+        total_saved = 0
+        for i in range(0, len(records), batch_size):
+            batch = records[i:i + batch_size]
+            result = supabase_request(
+                'scratcher_prize_tiers?on_conflict=state,game_number,prize_amount',
+                method='POST', data=batch
+            )
+            if result is not None:
+                total_saved += len(batch)
+            else:
+                logger.error(f"Supabase prize tiers: failed batch {i}-{i + len(batch)} for {state_code}")
+
+        logger.info(f"Supabase prize tiers: saved {total_saved}/{len(records)} rows for {state_code}.")
+
+    except Exception as e:
+        logger.error(f"Failed to save scratchertables to Supabase for {state_code}: {e}", exc_info=True)
+
+
 # ============================================================
 # Original Google Sheets functions (unchanged)
 # ============================================================
@@ -354,7 +438,8 @@ def initialize_gsheet_worksheet(worksheet_name, gspread_client, header_columns=N
             logger.info(f"Worksheet '{worksheet_name}' not found. Creating it.")
             worksheet = gsheet.add_worksheet(title=worksheet_name, rows=1, cols=1)
         if header_columns:
-            worksheet.update('A1', [header_columns])
+            # FIX #3: Use named arguments to avoid gspread deprecation warning
+            worksheet.update(values=[header_columns], range_name='A1')
         logger.info(f"Initialized worksheet '{worksheet_name}' (cleared + header written).")
         return worksheet
     except Exception as e:
@@ -376,26 +461,8 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
             worksheet = gsheet.add_worksheet(title=worksheet_name, rows=1, cols=1)
 
         df_to_save = dataframe.copy()
-        
-        # Log column details for debugging
-        logger.debug(f"📊 DataFrame columns for {worksheet_name}: {list(df_to_save.columns)}")
-        logger.debug(f"   Total columns: {len(df_to_save.columns)}")
-        
-        # Check for required deduplication columns
-        required_dedup_cols = ['State', 'gameNumber']  # Changed from lowercase
-        missing_cols = [col for col in required_dedup_cols if col not in df_to_save.columns]
-        
-        if missing_cols:
-            logger.error(f"❌ {worksheet_name}: Missing required columns for deduplication: {missing_cols}")
-            logger.error(f"   Expected: {required_dedup_cols}")
-            logger.error(f"   Actual: {list(df_to_save.columns)}")
-            raise KeyError(f"Missing columns {missing_cols} in {worksheet_name} DataFrame. Expected columns: {required_dedup_cols}")
-        
         df_to_save.replace([np.inf, -np.inf], None, inplace=True)
         df_to_save = df_to_save.astype(object).fillna('')
-        
-        # Before append, remove duplicate (State, gameNumber) rows
-        df_to_save.drop_duplicates(subset=['State', 'gameNumber'], keep='last', inplace=True)  # Changed from lowercase
         
         # Convert date/datetime objects to ISO format strings
         for col in df_to_save.columns:
@@ -408,13 +475,9 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
         if rows:
             worksheet.append_rows(rows, value_input_option='RAW')
             logger.info(f"Appended {len(rows)} rows to worksheet '{worksheet_name}'.")
-    except KeyError as ke:
-        logger.error(f"KeyError in append_dataframe_to_gsheet for {worksheet_name}: {ke}", exc_info=True)
-        raise
     except Exception as e:
         logger.error(f"Failed to append DataFrame to Google Sheet worksheet {worksheet_name}: {e}", exc_info=True)
-        raise
-        
+
 def save_dataframe_starting_at_row(dataframe, worksheet_name, start_row, gspread_client):
     """Clears content from a specified row downwards and saves a DataFrame starting at that row."""
     try:
@@ -476,7 +539,7 @@ def log_memory_usage():
         import resource
         mem_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # KB → MB on Linux
         logger.info(f"📊 Peak memory usage: {mem_mb:.0f} MB")
-        print(f"📊 Peak memory usage: {mem_mb:.0f} MB")
+        print(f"📊 Peak memory usage: {mem_mb:.0f} MB", flush=True)
     except Exception:
         pass
 
@@ -503,31 +566,6 @@ class SuppressStdout:
         self._devnull.close()
 
 
-
-
-def validate_state_modules():
-    """Validate that all required state module files exist before processing."""
-    logger.info("🔍 Validating state module files...")
-    missing_modules = []
-    found_modules = []
-    
-    for state in STATES_TO_PROCESS:
-        module_name = f"{state.lower()}lotteryscrape"
-        module_path = os.path.join(script_dir, f"{module_name}.py")
-        
-        if os.path.exists(module_path):
-            found_modules.append(state)
-            logger.debug(f"   ✅ {state}: {module_path}")
-        else:
-            missing_modules.append(state)
-            logger.error(f"   ❌ {state}: {module_path} NOT FOUND")
-    
-    logger.info(f"📊 Module validation: {len(found_modules)}/{len(STATES_TO_PROCESS)} found")
-    if missing_modules:
-        logger.warning(f"⚠️  Missing modules for states: {missing_modules}")
-    
-    return len(missing_modules) == 0
-
 # --- DYNAMIC PROCESSOR ---
 
 def process_state_module(state_code, gspread_client):
@@ -539,25 +577,9 @@ def process_state_module(state_code, gspread_client):
     logger.info(f"--- Processing State: {state_code} (Module: {module_name}) ---")
 
     try:
-        # **NEW: Log the import attempt**
         logger.info(f"📦 Attempting to import module: {module_name}")
-        logger.debug(f"   Python path includes: {sys.path[:3]}")  # Show first 3 paths
-        
-        try:
-            module = importlib.import_module(module_name)
-            logger.info(f"✅ Successfully imported {module_name}")
-        except ModuleNotFoundError as mnf:
-            logger.error(f"❌ ModuleNotFoundError: {module_name} not found in Python path")
-            logger.error(f"   Available files in current directory: {os.listdir('.')[:20]}")  # Show available files
-            raise
-        except ImportError as ie:
-            logger.error(f"❌ ImportError while importing {module_name}: {ie}", exc_info=True)
-            raise
-        except Exception as e:
-            logger.error(f"❌ Unexpected error importing {module_name}: {type(e).__name__}: {e}", exc_info=True)
-            raise
+        module = importlib.import_module(module_name)
 
-        # **NEW: Check function existence with detailed logging**
         if hasattr(module, 'exportScratcherRecs'):
             scrape_func = module.exportScratcherRecs
             logger.info(f"✅ Found exportScratcherRecs() in {module_name}")
@@ -565,12 +587,7 @@ def process_state_module(state_code, gspread_client):
             scrape_func = getattr(module, f'export{state_code}ScratcherRecs')
             logger.info(f"✅ Found export{state_code}ScratcherRecs() in {module_name}")
         else:
-            # **NEW: Enhanced error with available functions**
-            available_funcs = [name for name in dir(module) if name.startswith('export')]
-            logger.error(f"❌ No valid export function found in {module_name}")
-            logger.error(f"   Expected: exportScratcherRecs or export{state_code}ScratcherRecs")
-            logger.error(f"   Available export* functions: {available_funcs if available_funcs else 'NONE'}")
-            logger.error(f"   All public functions: {[name for name in dir(module) if not name.startswith('_')][:10]}")
+            logger.error(f"No valid export function found in {module_name}.")
             return None, None
 
         # Suppress stdout during scrape to prevent massive DataFrame prints
@@ -580,17 +597,6 @@ def process_state_module(state_code, gspread_client):
         try:
             with SuppressStdout():
                 result = scrape_func()
-            # **CRITICAL: Log the raw result IMMEDIATELY after the function returns**
-            logger.info(f"🔍 {state_code}: scrape_func() returned raw result:")
-            logger.info(f"   Type: {type(result).__name__}")
-            logger.info(f"   Is None: {result is None}")
-            if result is not None:
-                if isinstance(result, (tuple, list)):
-                    logger.info(f"   Length: {len(result)}")
-                    for i, item in enumerate(result):
-                        logger.info(f"   [{i}]: {type(item).__name__} (empty: {(isinstance(item, pd.DataFrame) and item.empty) if isinstance(item, pd.DataFrame) else 'N/A'})")
-                else:
-                    logger.info(f"   Unexpected type (not tuple/list): {result}")
         finally:
             signal.alarm(0)  # Cancel the alarm
             signal.signal(signal.SIGALRM, old_handler)  # Restore handler
@@ -642,16 +648,14 @@ def process_state_module(state_code, gspread_client):
 
         return ratingstable, scratchertables
 
-    except ImportError as ie:
-        logger.error(f"❌ Could not import module {module_name}: {ie}", exc_info=True)
-        logger.error(f"   File path checked: {os.path.join(script_dir, f'{module_name}.py')}")
-        logger.error(f"   File exists: {os.path.exists(os.path.join(script_dir, f'{module_name}.py'))}")
+    except ImportError:
+        logger.error(f"Could not import module {module_name}. Check if file exists.", exc_info=True)
         return None, None
     except StateTimeoutError:
         logger.error(f"⏰ {state_code} timed out after {STATE_TIMEOUT_SECONDS}s — skipping.")
         return None, None
     except Exception as e:
-        logger.exception(f"❌ Critical error processing {state_code}: {type(e).__name__}: {e}")
+        logger.exception(f"Critical error processing {state_code}: {e}")
         return None, None
 
 
@@ -685,6 +689,12 @@ def cast_rank_columns_to_int(df):
 
 def main():
     """Main function to orchestrate the scratcher scraping process."""
+    # Force line-buffered stdout for real-time output in GitHub Actions
+    try:
+        sys.stdout.reconfigure(line_buffering=True)
+    except Exception:
+        pass
+
     start_time = datetime.now(tzlocal())
     logger.info(f'Starting run at: {start_time.strftime("%Y-%m-%d %H:%M:%S %Z")}')
 
@@ -693,18 +703,14 @@ def main():
         print("Authorization failed. Exiting.")
         return
 
-    print("Authorization successful!")
+    print("Authorization successful!", flush=True)
 
     # Check Supabase configuration
     if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
-        print("Supabase configured - will dual-write to Google Sheets AND Supabase.")
+        print("Supabase configured - will dual-write to Google Sheets AND Supabase.", flush=True)
     else:
-        print("Supabase not configured - writing to Google Sheets only.")
+        print("Supabase not configured - writing to Google Sheets only.", flush=True)
 
-    # **NEW: Add module validation**
-    if not validate_state_modules():
-        logger.warning("⚠️  Some state modules are missing. Proceeding anyway but some states will fail.")
-        
     # Target Columns for Combined Rating Table
     target_columns = [
         'price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain',
@@ -731,11 +737,21 @@ def main():
         'Stats Page', 'gameURL', 'State'
     ]
 
+    # ─── FIX #2 & #3: Define ScratcherTables columns and write them as headers ───
+    scratchertables_columns = [
+        'gameNumber', 'gameName', 'prizeamount',
+        'Winning Tickets At Start', 'Winning Tickets Unclaimed',
+        'Prize Probability', 'Percent Tix Remaining',
+        'Starting Expected Value', 'Expected Value',
+        'dateexported', 'State'
+    ]
+
     # ─── INITIALIZE GOOGLE SHEETS ONCE ───
     # Clear worksheets at the start so incremental appends don't mix with stale data.
     # If the runner crashes mid-run, all states appended so far are preserved.
     logger.info("Initializing Google Sheets worksheets (clearing old data)...")
-    initialize_gsheet_worksheet('ScratcherTables', gspread_client)
+    # FIX #2 & #3: Pass header_columns so ScratcherTables gets proper headers in row 1
+    initialize_gsheet_worksheet('ScratcherTables', gspread_client, header_columns=scratchertables_columns)
     initialize_gsheet_worksheet('AllStatesRatings', gspread_client, header_columns=target_columns)
     logger.info("Worksheets initialized.")
 
@@ -744,31 +760,40 @@ def main():
     # --- Main Loop: Process each state with per-state error recovery ---
     succeeded_states = []
     failed_states = []
-    failed_states_detail = {}  # **NEW: Track failure reasons**
 
     for idx, state in enumerate(STATES_TO_PROCESS):
         state_start = datetime.now(tzlocal())
         logger.info(f"[{idx+1}/{len(STATES_TO_PROCESS)}] Starting {state}...")
-        print(f"[{idx+1}/{len(STATES_TO_PROCESS)}] Processing {state}...")
+        print(f"[{idx+1}/{len(STATES_TO_PROCESS)}] Processing {state}...", flush=True)
 
         try:
             ratingstable, scratchertables = process_state_module(state, gspread_client)
 
-            # ─── INCREMENTAL APPEND: ScratcherTables ───
-            if scratchertables is not None and not scratchertables.empty:
+            # ─── FIX #1: INCREMENTAL APPEND: ScratcherTables ───
+            # IMPORTANT: Use the scratchertables variable directly, NOT ratingstable
+            if scratchertables is not None and isinstance(scratchertables, pd.DataFrame) and not scratchertables.empty:
                 if 'State' not in scratchertables.columns:
                     scratchertables['State'] = state
-                scratchertables_sanitized = sanitize_dataframe_types(scratchertables.copy())
+                # Make a SEPARATE copy for GSheets to avoid any cross-contamination
+                st_copy = scratchertables.copy()
+                st_copy = sanitize_dataframe_types(st_copy)
+                logger.info(f"🎰 About to append {state} scratchertables: {len(st_copy)} rows, cols={list(st_copy.columns)}")
                 try:
-                    append_dataframe_to_gsheet(scratchertables_sanitized, 'ScratcherTables', gspread_client)
-                    logger.info(f"🎰 Appended {state} scratchertables ({len(scratchertables)} rows).")
+                    append_dataframe_to_gsheet(st_copy, 'ScratcherTables', gspread_client)
+                    logger.info(f"🎰 Appended {state} scratchertables ({len(st_copy)} rows).")
                 except Exception as e:
                     logger.error(f"⚠️  Failed to append {state} ScratcherTables: {e}", exc_info=True)
+
+                # ─── SUPABASE: Save scratchertables prize tiers ───
+                try:
+                    save_scratchertables_to_supabase(scratchertables, state)
+                except Exception as e:
+                    logger.error(f"⚠️  Failed Supabase scratchertables save for {state}: {e}", exc_info=True)
             else:
                 logger.warning(f"🎰 {state}: NO scratchertables to append.")
 
             # ─── ACCUMULATE ratings for combined Supabase upsert ───
-            if ratingstable is not None and not ratingstable.empty:
+            if ratingstable is not None and isinstance(ratingstable, pd.DataFrame) and not ratingstable.empty:
                 ratingstable_processed = ratingstable.copy()
                 ratingstable_processed['State'] = state
                 ratingstable_processed = ratingstable_processed.loc[:, ~ratingstable_processed.columns.duplicated(keep='first')]
@@ -788,7 +813,8 @@ def main():
                     logger.error(f"⚠️  Failed to append {state} ratings to GSheets: {e}", exc_info=True)
 
             # Only count as succeeded if at least one dataframe has data
-            if ratingstable is not None or (scratchertables is not None and not scratchertables.empty):
+            if (ratingstable is not None and isinstance(ratingstable, pd.DataFrame) and not ratingstable.empty) or \
+               (scratchertables is not None and isinstance(scratchertables, pd.DataFrame) and not scratchertables.empty):
                 succeeded_states.append(state)
                 state_duration = datetime.now(tzlocal()) - state_start
                 logger.info(f"✅ {state} completed successfully in {state_duration}.")
@@ -816,53 +842,33 @@ def main():
                 logger.error(f"⚠️  Incremental Supabase save after {state} failed (non-fatal): {e}", exc_info=True)
 
         except Exception as e:
-            # **NEW: Capture detailed failure info**
-            error_type = type(e).__name__
-            error_msg = str(e)
             failed_states.append(state)
-            failed_states_detail[state] = {
-                'error_type': error_type,
-                'error_msg': error_msg,
-                'traceback': traceback.format_exc()
-            }
-            logger.error(f"❌ {state} failed with {error_type}: {error_msg}", exc_info=True)
-            
+            logger.error(f"❌ {state} failed — skipping and continuing. Error: {e}", exc_info=True)
+
         finally:
             # ─── MEMORY CLEANUP after every state (success or failure) ───
             collected = gc.collect()
             logger.info(f"🧹 gc.collect() freed {collected} objects after {state}.")
             log_memory_usage()
 
-       # --- Final Summary ---
+    # --- Final Summary ---
     logger.info(f"States succeeded ({len(succeeded_states)}/{len(STATES_TO_PROCESS)}): {succeeded_states}")
-    
     if failed_states:
         logger.warning(f"States FAILED ({len(failed_states)}/{len(STATES_TO_PROCESS)}): {failed_states}")
-        
-        # **NEW: Detailed failure analysis**
-        logger.warning("=" * 60)
-        logger.warning("FAILURE ANALYSIS:")
-        logger.warning("=" * 60)
-        for state, details in failed_states_detail.items():
-            logger.warning(f"\n{state}:")
-            logger.warning(f"  Error Type: {details['error_type']}")
-            logger.warning(f"  Error Msg: {details['error_msg']}")
-        logger.warning("=" * 60)
-        
-        print(f"⚠️  {len(failed_states)} state(s) failed: {failed_states}")
+        print(f"⚠️  {len(failed_states)} state(s) failed: {failed_states}", flush=True)
 
     # Finish
     end_time = datetime.now(tzlocal())
     duration = end_time - start_time
     logger.info(f'Total execution time: {duration}')
-    print(f'Total execution time: {duration}')
+    print(f'Total execution time: {duration}', flush=True)
     log_memory_usage()
 
     if failed_states:
-        print(f"⚠️  Completed with errors. {len(succeeded_states)} succeeded, {len(failed_states)} failed: {failed_states}")
+        print(f"⚠️  Completed with errors. {len(succeeded_states)} succeeded, {len(failed_states)} failed: {failed_states}", flush=True)
         sys.exit(1)
     else:
-        print(f"✅ All {len(succeeded_states)} states completed successfully.")
+        print(f"✅ All {len(succeeded_states)} states completed successfully.", flush=True)
 
 
 if __name__ == '__main__':
