@@ -376,8 +376,24 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
             worksheet = gsheet.add_worksheet(title=worksheet_name, rows=1, cols=1)
 
         df_to_save = dataframe.copy()
+        
+        # Log column details for debugging
+        logger.debug(f"📊 DataFrame columns for {worksheet_name}: {list(df_to_save.columns)}")
+        logger.debug(f"   Total columns: {len(df_to_save.columns)}")
+        
+        # Check for required deduplication columns
+        required_dedup_cols = ['state', 'game_number']
+        missing_cols = [col for col in required_dedup_cols if col not in df_to_save.columns]
+        
+        if missing_cols:
+            logger.error(f"❌ {worksheet_name}: Missing required columns for deduplication: {missing_cols}")
+            logger.error(f"   Expected: {required_dedup_cols}")
+            logger.error(f"   Actual: {list(df_to_save.columns)}")
+            raise KeyError(f"Missing columns {missing_cols} in {worksheet_name} DataFrame. Expected columns: {required_dedup_cols}")
+        
         df_to_save.replace([np.inf, -np.inf], None, inplace=True)
         df_to_save = df_to_save.astype(object).fillna('')
+        
         # Before append, remove duplicate (state, game_number) rows
         df_to_save.drop_duplicates(subset=['state', 'game_number'], keep='last', inplace=True)
         
@@ -392,9 +408,13 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
         if rows:
             worksheet.append_rows(rows, value_input_option='RAW')
             logger.info(f"Appended {len(rows)} rows to worksheet '{worksheet_name}'.")
+    except KeyError as ke:
+        logger.error(f"KeyError in append_dataframe_to_gsheet for {worksheet_name}: {ke}", exc_info=True)
+        raise
     except Exception as e:
         logger.error(f"Failed to append DataFrame to Google Sheet worksheet {worksheet_name}: {e}", exc_info=True)
-
+        raise
+        
 def save_dataframe_starting_at_row(dataframe, worksheet_name, start_row, gspread_client):
     """Clears content from a specified row downwards and saves a DataFrame starting at that row."""
     try:
