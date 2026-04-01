@@ -382,7 +382,7 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
         logger.debug(f"   Total columns: {len(df_to_save.columns)}")
         
         # Check for required deduplication columns
-        required_dedup_cols = ['state', 'game_number']
+        required_dedup_cols = ['State', 'gameNumber']  # Changed from lowercase
         missing_cols = [col for col in required_dedup_cols if col not in df_to_save.columns]
         
         if missing_cols:
@@ -394,8 +394,8 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
         df_to_save.replace([np.inf, -np.inf], None, inplace=True)
         df_to_save = df_to_save.astype(object).fillna('')
         
-        # Before append, remove duplicate (state, game_number) rows
-        df_to_save.drop_duplicates(subset=['state', 'game_number'], keep='last', inplace=True)
+        # Before append, remove duplicate (State, gameNumber) rows
+        df_to_save.drop_duplicates(subset=['State', 'gameNumber'], keep='last', inplace=True)  # Changed from lowercase
         
         # Convert date/datetime objects to ISO format strings
         for col in df_to_save.columns:
