@@ -217,7 +217,7 @@ def _safe_numeric(value):
         except (ValueError, TypeError):
             return None  # Non-numeric string like "Available", "TBD", "N/A"
     return None
-
+   
 
 def save_ratings_to_supabase(combined_ratingstable):
     """Save the combined ratings table to Supabase scratcher_ratings table."""
@@ -256,7 +256,8 @@ def save_ratings_to_supabase(combined_ratingstable):
             logger.warning("No valid records to save to Supabase.")
             return
         
-        # Before upsert, convert date objects to strings
+        # Before upsert, convert date objects to strings and deduplicate
+        records_dict = {}
         for record in records:
             for key, value in record.items():
                 if isinstance(value, (date, datetime)):
@@ -266,7 +267,14 @@ def save_ratings_to_supabase(combined_ratingstable):
                     record[key] = int(value)
                 elif isinstance(value, np.floating):
                     record[key] = float(value) if not np.isnan(value) else None
-                    
+            
+            # Use (state, game_number) as deduplication key, keeping last occurrence
+            composite_key = (record.get('state'), record.get('game_number'))
+            records_dict[composite_key] = record
+        
+        # Convert back to list
+        records = list(records_dict.values())
+        
         # Upsert in batches of 100
         batch_size = 100
         total_saved = 0
@@ -279,7 +287,7 @@ def save_ratings_to_supabase(combined_ratingstable):
             else:
                 logger.error(f"Supabase: failed to upsert batch {i}-{i + len(batch)}")
 
-        logger.info(f"Supabase: successfully saved {total_saved}/{len(records)} records.")
+        logger.info(f"Supabase: successfully saved {total_saved}/{len(records)} records (after deduplication).")
 
     except Exception as e:
         logger.error(f"Failed to save to Supabase: {e}", exc_info=True)
@@ -370,6 +378,12 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
         df_to_save = dataframe.copy()
         df_to_save.replace([np.inf, -np.inf], None, inplace=True)
         df_to_save = df_to_save.astype(object).fillna('')
+        
+        # Convert date/datetime objects to ISO format strings
+        for col in df_to_save.columns:
+            df_to_save[col] = df_to_save[col].apply(
+                lambda x: x.isoformat() if isinstance(x, (date, datetime)) else x
+            )
 
         # Convert to list of lists (values only, no header)
         rows = df_to_save.values.tolist()
@@ -378,7 +392,6 @@ def append_dataframe_to_gsheet(dataframe, worksheet_name, gspread_client):
             logger.info(f"Appended {len(rows)} rows to worksheet '{worksheet_name}'.")
     except Exception as e:
         logger.error(f"Failed to append DataFrame to Google Sheet worksheet {worksheet_name}: {e}", exc_info=True)
-
 
 def save_dataframe_starting_at_row(dataframe, worksheet_name, start_row, gspread_client):
     """Clears content from a specified row downwards and saves a DataFrame starting at that row."""
