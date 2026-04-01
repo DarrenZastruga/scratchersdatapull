@@ -580,6 +580,17 @@ def process_state_module(state_code, gspread_client):
         try:
             with SuppressStdout():
                 result = scrape_func()
+            # **CRITICAL: Log the raw result IMMEDIATELY after the function returns**
+            logger.info(f"🔍 {state_code}: scrape_func() returned raw result:")
+            logger.info(f"   Type: {type(result).__name__}")
+            logger.info(f"   Is None: {result is None}")
+            if result is not None:
+                if isinstance(result, (tuple, list)):
+                    logger.info(f"   Length: {len(result)}")
+                    for i, item in enumerate(result):
+                        logger.info(f"   [{i}]: {type(item).__name__} (empty: {(isinstance(item, pd.DataFrame) and item.empty) if isinstance(item, pd.DataFrame) else 'N/A'})")
+                else:
+                    logger.info(f"   Unexpected type (not tuple/list): {result}")
         finally:
             signal.alarm(0)  # Cancel the alarm
             signal.signal(signal.SIGALRM, old_handler)  # Restore handler
