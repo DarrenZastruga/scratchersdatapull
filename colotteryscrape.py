@@ -219,6 +219,12 @@ def exportScratcherRecs():
 
         prizes =totalremain.loc[:,'prizeamount']
 
+        #convert 'Winning Tickets Unclaimed' as numberic to avoid divide by zero warnings
+        den = pd.to_numeric(totalremain.loc[0, 'Winning Tickets Unclaimed'], errors='coerce')
+        if pd.notna(den) and den > 0:
+            gamerow.loc[:, 'Current Odds of Top Prize'] = tixtotal / den
+        else:
+            gamerow.loc[:, 'Current Odds of Top Prize'] = np.nan
 
         #add various columns for the scratcher stats that go into the ratings table
         gamerow.loc[:,'Current Odds of Top Prize'] = gamerow.loc[:,'topprizeodds']
@@ -359,8 +365,8 @@ def exportScratcherRecs():
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page']]
-    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('',inplace=True)
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
     return ratingstable, scratchertables
 

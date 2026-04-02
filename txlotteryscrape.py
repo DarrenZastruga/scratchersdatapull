@@ -7,7 +7,6 @@ Created on Mon May 29 17:59:23 2023
 """
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -19,7 +18,6 @@ import re
 import logging
 from datetime import datetime
 from dateutil.tz import tzlocal
-from sqlalchemy import create_engine
 import lxml
 from datetime import date
 import numpy as np
@@ -27,6 +25,7 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+import io
 
 
 '''
@@ -59,15 +58,23 @@ def formatstr(s):
 
 def exportScratcherRecs():
 
+    # Retry adapter for transient DNS/network failures
+    session = requests.Session()
+    adapter = requests.adapters.HTTPAdapter(max_retries=3)
+    session.mount('https://', adapter)
+    session.mount('http://', adapter)
+
     url = "https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/all.html"
-    r = requests.get(url)
+    r = session.get(url)
+    
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
-    tixlist = pd.read_html(str(soup.find('table')))[0]
+    tixlist = pd.read_html(io.StringIO(str(soup.find('table'))))[0]
     tixlist = tixlist.loc[~tixlist['Game Number'].isna()]
     tixlist.rename(columns={'Game Number':'gameNumber', 'Start Date':'startDate', 'Ticket Price':'price', 'Game Name':'gameName', 
                             'Prize Amount':'topprize', 'Prizes Printed':'topprizestarting', 'Prizes Claimed':'topprizeremaining'}, inplace=True)
-    tixlist.loc[:, 'gameNumber'] =  tixlist.loc[:,'gameNumber'].astype('int').astype('str')
+    tixlist['gameNumber'] = tixlist['gameNumber'].astype(object)
+    tixlist.loc[:, 'gameNumber'] = tixlist.loc[:, 'gameNumber'].astype('int').astype('str')
     tixlist.loc[:, 'price'] = tixlist.loc[:,'price'].str.replace('$','', regex=False).astype('int')
     
     
@@ -81,13 +88,13 @@ def exportScratcherRecs():
     
     #get the tables that have end dates and last dates to claim, and combine them, the merge with tixlist
     gameendtbls = "https://www.texaslottery.com/export/sites/lottery/Games/Scratch_Offs/closing.html"
-    r = requests.get(gameendtbls)
+    r = session.get(gameendtbls)
     response = r.text
     soup = BeautifulSoup(response, 'html.parser')
     tables = soup.find_all('table')
     closingtable = pd.DataFrame()
     for tbl in tables: 
-        tbl = pd.read_html(str(tbl))[0]
+        tbl = pd.read_html(io.StringIO(str(tbl)))[0]
 
         closingtable = pd.concat([closingtable ,tbl], axis=0, ignore_index=True)    
     closingtable.rename(columns={'Game Name':'gameName', 'Game Number':'gameNumber', 'End of Game Date':'endDate', 'Last Day to Redeem Prizes':'lastdatetoclaim'}, inplace=True)
@@ -98,6 +105,7 @@ def exportScratcherRecs():
 
     tixlist['extrachances'] = None
     tixlist['secondChance'] = None
+    tixlist['topprizeavail'] = pd.Series(dtype='object')
     
     tixlist.to_csv("./TXtixlist.csv", encoding='utf-8')
 
@@ -108,7 +116,7 @@ def exportScratcherRecs():
 
         gameURL = 'https://www.texaslottery.com'+str(tixlist.loc[t,'gameURL'])
 
-        r = requests.get(gameURL)
+        r = session.get(gameURL)
         response = r.text
         soup = BeautifulSoup(response, 'html.parser')
         details = soup.find_all('div', class_='large-4 cell')[1].find_all('p')
@@ -117,7 +125,7 @@ def exportScratcherRecs():
                 continue
             elif 'Overall odds of winning any prize' in x.string: 
                 overallodds  = x.string.split('1 in ')[1][0:4] 
-                print(overallodds )
+
             elif 'Claimed as of ' in x.string:
                 dateexported = x.string.split('as of ')[1].split('.')[0]
             else: 
@@ -131,7 +139,7 @@ def exportScratcherRecs():
         gameName = soup.find('div', class_='large-12 cell').find_all('div', class_='text-center')[0].text.split(' - ')[1]
 
         
-        table = pd.read_html(str(soup.find_all('div', class_='large-4 cell')[2].find('table', class_='large-only')))[0]
+        table = pd.read_html(io.StringIO(str(soup.find_all('div', class_='large-4 cell')[2].find('table', class_='large-only'))))[0]
         table.rename(columns={'Amount':'prizeamount', 'No. in Game*': 'Winning Tickets At Start'}, inplace=True)
         table['No. Prizes Claimed'] = table['No. Prizes Claimed'].replace('---',0)
         table['Winning Tickets At Start'] = table['Winning Tickets At Start'].replace('---',0)
@@ -210,8 +218,7 @@ def exportScratcherRecs():
         if gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),'gameName'].iloc[0]==None:
             continue
         else:
-            gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:]
-            print(gamerow)
+            gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
             startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
             tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
             totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
@@ -266,7 +273,7 @@ def exportScratcherRecs():
                 gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
             except ZeroDivisionError:
                 gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0        
-            print(tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto'])
+
             gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto'].values[0]
             gamerow.loc[:,'FAQ'] = None
             gamerow.loc[:,'About'] = None
@@ -316,7 +323,9 @@ def exportScratcherRecs():
     ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x'], axis=1, inplace=True)
     ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
     #add number of days since the game start date as of date exported
-    ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'], errors = 'coerce')).dt.days
+    ratingstable.loc[:,'Days Since Start'] = (
+    pd.to_datetime(ratingstable['dateexported'], format='mixed', errors='coerce') 
+    - pd.to_datetime(ratingstable['startDate'], format='mixed', errors='coerce')).dt.days
     
     #add rankings columns of all scratchers to ratings table
     ratingstable['Rank by Best Probability of Winning Any Prize'] = (ratingstable['Current Odds of Any Prize'].rank()+ratingstable['Probability of Winning Any Prize'].rank()+ratingstable['Odds of Any Prize + 3 StdDevs'].rank())/3
@@ -338,12 +347,9 @@ def exportScratcherRecs():
     #save ratingstable
 
     ratingstable['Stats Page'] = "/texas-statistics-for-each-scratcher-game"
-    #ratingstable.to_sql('TXratingstable', engine, if_exists='replace')
+
     ratingstable.to_csv("./TXratingstable.csv", encoding='utf-8')
-    # write to Google Sheets
-    # select a work sheet from its name
-    #TXratingssheet = gs.worksheet('TXRatingsTable')
-    #TXratingssheet.clear()
+
     
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
@@ -365,11 +371,9 @@ def exportScratcherRecs():
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page','gameURL']]
-    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('',inplace=True)
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
-    #set_with_dataframe(worksheet=TXratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-#exportScratcherRecs()
+exportScratcherRecs()

@@ -8,7 +8,6 @@ Created on Tue Sep 13 23:34:32 2022
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -72,7 +71,6 @@ def exportScratcherRecs():
     tixlist = pd.DataFrame()
     
     for s in rows:
-        print(s)
         gameName = s['title']
         gameNumber = s['game_number']
         gamePhoto = s['art'][0]['uri']
@@ -108,21 +106,17 @@ def exportScratcherRecs():
             tixdata['Winning Tickets At Start'] = tixdata['prizes_paid_out'].astype('int')+tixdata['Winning Tickets Unclaimed'].astype('int')
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','', regex = True).str.replace(',','', regex = True).str.lower()
             if tixdata['prizeamount'].iloc[0].find(' a week for life')>0:
-                print(tixdata['prizeamount'][0])
                 tixdata.at[0,'prizeamount'] = str(int(tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '').replace(' a week for life',''))*52*50)
-                print(tixdata['prizeamount'].iloc[0])
             elif tixdata['prizeamount'][0].find('k/wk/life')>0:
                 tixdata.at[0,'prizeamount'] = str(int(tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '').replace('k/wk/life', '000'))*52*50)
-                print(tixdata['prizeamount'].iloc[0])
             elif tixdata['prizeamount'].iloc[0].find('k annual installments')>0:
                 tixdata.at[0,'prizeamount'] = str(int(tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '').replace('k annual installments', '000'))*60) # Ensure $ and , are removed
-                print(tixdata['prizeamount'].iloc[0])
             elif tixdata['prizeamount'].iloc[0].find('/week/life') > 0:
                 tixdata.at[0, 'prizeamount'] = str(
                     int(tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '').replace('/week/life', ''))*52*50)
             else:
                 tixdata.at[0, 'prizeamount'] = tixdata['prizeamount'].iloc[0].replace('$', '').replace(',', '')
-            print(tixdata['prizeamount'])
+
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('free take 5 fp',gamePrice, regex=True).astype('str')
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('free c4l qp',gamePrice, regex=True).astype('str')
             tixdata['prizeamount'] = tixdata['prizeamount'].replace('.00','')
@@ -193,7 +187,7 @@ def exportScratcherRecs():
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining']/gamesgrouped['topprizeremain'].astype('float')
-    #print(gamesgrouped.loc[:,'topprizeodds'])
+    gamesgrouped['topprizeodds'] = gamesgrouped['topprizeodds'].replace([np.inf, -np.inf], np.nan)
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
@@ -209,7 +203,7 @@ def exportScratcherRecs():
     alltables = pd.DataFrame() 
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
-        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:]
+        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
 
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
@@ -217,7 +211,7 @@ def exportScratcherRecs():
         totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
         price = int(gamerow['price'].values[0])
 
-        prizes =totalremain.loc[:,'prizeamount']
+        prizes = totalremain.loc[:,'prizeamount']
 
 
         #add various columns for the scratcher stats that go into the ratings table
@@ -225,20 +219,22 @@ def exportScratcherRecs():
         gamerow.loc[:,'Change in Current Odds of Top Prize'] =  (gamerow.loc[:,'Current Odds of Top Prize'] - float(gamerow['topprizeodds'].values[0]))/ float(gamerow['topprizeodds'].values[0])      
         gamerow.loc[:,'Current Odds of Any Prize'] = tixtotal/sum(totalremain.loc[:,'Winning Tickets Unclaimed'])
         gamerow.loc[:,'Change in Current Odds of Any Prize'] =  (gamerow.loc[:,'Current Odds of Any Prize'] - float(gamerow['overallodds'].values[0]))/ float(gamerow['overallodds'].values[0])
-        gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])
-        startingprofitodds = startingtotal/sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])
+        denomUnclaimed = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])
+        gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/denomUnclaimed if denomUnclaimed > 0 else np.nan
+        denomStart = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])
+        startingprofitodds = startingtotal/denomStart if denomStart > 0 else np.nan
         gamerow.loc[:,'Starting Odds of Profit Prize'] = startingprofitodds
-        gamerow.loc[:,'Change in Odds of Profit Prize'] =  (gamerow.loc[:,'Odds of Profit Prize'] - startingprofitodds)/ startingprofitodds
-        gamerow.loc[:,'Probability of Winning Any Prize'] = sum(totalremain.loc[:,'Winning Tickets Unclaimed'])/tixtotal
-        startprobanyprize = sum(totalremain.loc[:,'Winning Tickets At Start'])/startingtotal
+        gamerow.loc[:,'Change in Odds of Profit Prize'] =  (gamerow.loc[:,'Odds of Profit Prize'] - startingprofitodds)/ startingprofitodds if startingprofitodds > 0 else np.nan
+        gamerow.loc[:,'Probability of Winning Any Prize'] = sum(totalremain.loc[:,'Winning Tickets Unclaimed'])/tixtotal if tixtotal > 0 else np.nan
+        startprobanyprize = sum(totalremain.loc[:,'Winning Tickets At Start'])/startingtotal if startingtotal > 0 else np.nan
         gamerow.loc[:,'Starting Probability of Winning Any Prize'] = startprobanyprize
         gamerow.loc[:,'Change in Probability of Any Prize'] =  startprobanyprize - gamerow.loc[:,'Probability of Winning Any Prize']  
-        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])/tixtotal
-        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])/startingtotal
+        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])/tixtotal if tixtotal > 0 else np.nan
+        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])/startingtotal if startingtotal > 0 else np.nan
         gamerow.loc[:,'Starting Probability of Winning Profit Prize'] = startprobprofitprize
         gamerow.loc[:,'Change in Probability of Profit Prize'] =  startprobprofitprize - gamerow.loc[:,'Probability of Winning Profit Prize']
-        gamerow.loc[:,'StdDev of All Prizes'] = totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()/tixtotal
-        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()/tixtotal
+        gamerow.loc[:,'StdDev of All Prizes'] = totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()/tixtotal if tixtotal > 0 else np.nan
+        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()/tixtotal if tixtotal > 0 else np.nan
         gamerow.loc[:,'Odds of Any Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Current Odds of Any Prize']+(totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()*3))
         gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()*3))
         gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean())
@@ -271,7 +267,6 @@ def exportScratcherRecs():
         gamerow.loc[:,'Data Date'] = gamerow.loc[:,'dateexported']
 
         currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
-        print(currentodds)
 
         #add non-prize and totals rows with matching columns
         totalremain.loc[:,'Total remaining'] = tixtotal
@@ -336,10 +331,6 @@ def exportScratcherRecs():
     ratingstable['Stats Page'] = "/new-york-statistics-for-each-scratcher-game"
     #ratingstable.to_sql('NYratingstable', engine, if_exists='replace')
     ratingstable.to_csv("./NYratingstable.csv", encoding='utf-8')
-    # write to Google Sheets
-    # select a work sheet from its name
-    #NYratingssheet = gs.worksheet('NYRatingsTable')
-    #NYratingssheet.clear()
     
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
@@ -361,11 +352,9 @@ def exportScratcherRecs():
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page', 'gameURL']]
-    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('',inplace=True)
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
-    #set_with_dataframe(worksheet=MDratingssheet, dataframe=ratingstable, include_index=False,
-    #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-#exportScratcherRecs()
+exportScratcherRecs()

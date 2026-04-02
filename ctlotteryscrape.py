@@ -26,7 +26,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.firefox import GeckoDriverManager
 from bs4 import BeautifulSoup
 
-def exportCTScratcherRecs():
+def exportScratcherRecs():
     # --- SELENIUM SETUP ---
     print("Initializing Firefox...")
     firefox_options = Options()
@@ -258,7 +258,7 @@ def exportCTScratcherRecs():
     
     # 1. Type Conversion
     scratchertables = tixtables.copy()
-    for col in ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+    for col in ['Winning Tickets At Start', 'Winning Tickets Unclaimed']:
         scratchertables[col] = pd.to_numeric(scratchertables[col], errors='coerce').fillna(0)
     
     scratchersall['price'] = pd.to_numeric(scratchersall['price'], errors='coerce')
@@ -347,5 +347,4 @@ def exportCTScratcherRecs():
     
     return ratingstable, scratchertables
 
-if __name__ == "__main__":
-    exportCTScratcherRecs()
+exportScratcherRecs()

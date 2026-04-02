@@ -180,6 +180,13 @@ def exportMAScratcherRecs():
 
         prizes = totalremain.loc[:, 'prizeamount']
         
+        #convert 'Winning Tickets Unclaimed' as numberic to avoid divide by zero warnings
+        den = pd.to_numeric(totalremain.loc[0, 'Winning Tickets Unclaimed'], errors='coerce')
+        if pd.notna(den) and den > 0:
+            gamerow.loc[:, 'Current Odds of Top Prize'] = tixtotal / den
+        else:
+            gamerow.loc[:, 'Current Odds of Top Prize'] = np.nan
+        
         startoddstopprize = tixtotal / totalremain.loc[totalremain['prizeamount']==totalremain['prizeamount'].max(), 'Winning Tickets At Start'].values[0]
 
         # add various columns for the scratcher stats that go into the ratings table

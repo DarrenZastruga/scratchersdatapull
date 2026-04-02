@@ -198,7 +198,7 @@ def exportScratcherRecs():
         print("No data collected.")
         return None, None
     
-    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']]
+    scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto', 'gameURL', 'dateexported']]
     scratchersall = scratchersall.drop_duplicates()
     
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
@@ -232,7 +232,7 @@ def exportScratcherRecs():
     alltables = pd.DataFrame() 
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
-        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:]
+        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
@@ -377,9 +377,9 @@ def exportScratcherRecs():
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page','gameURL']]
-    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('',inplace=True)
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
     return ratingstable, scratchertables
 
-#exportScratcherRecs()
+exportScratcherRecs()

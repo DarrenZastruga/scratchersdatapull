@@ -36,6 +36,7 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+import io
 
 
 '''
@@ -83,7 +84,7 @@ def exportScratcherRecs():
     r = requests.get(url)
     response = r.text
     dateslist = BeautifulSoup(response, 'html.parser')
-    endDateslist = pd.read_html(str(dateslist.find('table')))[0]
+    endDateslist = pd.read_html(io.StringIO(str(dateslist.find('table'))))[0]
 
     
     tixtables = pd.DataFrame()
@@ -111,7 +112,7 @@ def exportScratcherRecs():
             gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
 
         
-        tixdata = pd.read_html(str(s.find(class_='data')))[0]
+        tixdata = pd.read_html(io.StringIO(str(s.find(class_='data'))))[0]
 
         if tixdata.empty:
             pass # Do nothing, tixtables remains as is

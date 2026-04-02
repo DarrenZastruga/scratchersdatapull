@@ -251,147 +251,187 @@ def exportScratcherRecs():
     
         scratchersall = scratchersall.drop_duplicates()
         
-        # --- STATISTICAL ANALYSIS (With ZeroDiv Fixes) ---
-        scratchertables = tixtables.loc[:, ['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+        #Create scratcherstables df, with calculations of total tix and total tix without prizes
+        scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+        scratchertables.to_csv("./NYscratchertables.csv", encoding='utf-8')
+        
         scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
-        scratchertables = scratchertables.astype({'prizeamount': 'float', 'Winning Tickets At Start': 'float', 'Winning Tickets Unclaimed': 'float'})
-        
-        gamesgrouped = scratchertables.groupby(['gameNumber','gameName','dateexported'], observed=True).sum().reset_index(level=['gameNumber','gameName','dateexported'])
-        gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, ['gameNumber','gamePhoto','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
-        
-        gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
-        gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'] * gamesgrouped['overallodds'].astype(float)
-        gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed'] * gamesgrouped['overallodds'].astype(float)
-        
-        # Avoid division by zero in topprizeodds
-        gamesgrouped['topprizeodds'] = gamesgrouped.apply(
-            lambda row: row['Total at start'] / row['topprizestarting'] if row['topprizestarting'] > 0 else 0, axis=1
-        )
-        
+        scratchertables = scratchertables.astype({'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+        #Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
+        # Select columns first, then groupby and aggregate
+        cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']
+        gamesgrouped = scratchertables.groupby(
+            by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
+        gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds', 'topprizeodds']], how='left', on=['gameNumber'])
+        gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
+        gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
+        gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
+        gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
+        gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining']/gamesgrouped['topprizeremain'].astype('float')
+        gamesgrouped['topprizeodds'] = gamesgrouped['topprizeodds'].replace([np.inf, -np.inf], np.nan)
         gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
         
-        currentodds = pd.DataFrame()
         
+        #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
+        nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']].copy()
+        nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start', 'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
+        nonprizetix.loc[:,'prizeamount'] = 0
+        totals = gamesgrouped[['gameNumber','gameName','Total at start','Total remaining','dateexported']].copy()
+        totals.rename(columns={'Total at start': 'Winning Tickets At Start', 'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
+        totals.loc[:,'prizeamount'] = "Total"
+      
+        #loop through each scratcher game id number and add columns for each statistical calculation
+        alltables = pd.DataFrame() 
+        currentodds = pd.DataFrame()
         for gameid in gamesgrouped['gameNumber']:
             gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
-            
-            start_val = gamerow.loc[:, 'Total at start'].values[0]
-            remain_val = gamerow.loc[:, 'Total remaining'].values[0]
-            
-            startingtotal = int(start_val) if not np.isnan(start_val) else 0
-            tixtotal = int(remain_val) if not np.isnan(remain_val) else 0
-            
-            totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']].copy()
-            totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
-            
-            price = float(gamerow['price'].values[0])
-            
-            # --- SAFE CALCULATIONS (Checked for 0 denominators) ---
-            
-            # Top Prize
-            tpo = float(gamerow['topprizeodds'].values[0])
-            gamerow.loc[:,'Current Odds of Top Prize'] = tpo
-            gamerow.loc[:,'Change in Current Odds of Top Prize'] = 0 # Cannot calc change effectively without history/start
-            
-            # Any Prize
-            unclaimed_sum = totalremain['Winning Tickets Unclaimed'].sum()
-            if unclaimed_sum > 0:
-                gamerow.loc[:,'Current Odds of Any Prize'] = tixtotal / unclaimed_sum
-            else:
-                gamerow.loc[:,'Current Odds of Any Prize'] = 0
-            
-            overall_odds_val = float(gamerow['overallodds'].values[0])
-            if overall_odds_val > 0:
-                curr_any = gamerow.loc[:,'Current Odds of Any Prize'].values[0]
-                gamerow.loc[:,'Change in Current Odds of Any Prize'] = (curr_any - overall_odds_val) / overall_odds_val
-            else:
-                gamerow.loc[:,'Change in Current Odds of Any Prize'] = 0
 
-            # Profit Prize
-            profit_unclaimed = totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed'].sum()
-            profit_start = totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets At Start'].sum()
+            startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
+            tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
+            totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+            totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
+            price = int(gamerow['price'].values[0])
+
+            prizes = totalremain.loc[:,'prizeamount']
+
+
+            #add various columns for the scratcher stats that go into the ratings table
+            gamerow.loc[:,'Current Odds of Top Prize'] = gamerow.loc[:,'topprizeodds']
+            gamerow.loc[:,'Change in Current Odds of Top Prize'] =  (gamerow.loc[:,'Current Odds of Top Prize'] - float(gamerow['topprizeodds'].values[0]))/ float(gamerow['topprizeodds'].values[0])      
+            gamerow.loc[:,'Current Odds of Any Prize'] = tixtotal/sum(totalremain.loc[:,'Winning Tickets Unclaimed'])
+            gamerow.loc[:,'Change in Current Odds of Any Prize'] =  (gamerow.loc[:,'Current Odds of Any Prize'] - float(gamerow['overallodds'].values[0]))/ float(gamerow['overallodds'].values[0])
+            denomUnclaimed = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])
+            gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/denomUnclaimed if denomUnclaimed > 0 else np.nan
+            denomStart = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])
+            startingprofitodds = startingtotal/denomStart if denomStart > 0 else np.nan
+            gamerow.loc[:,'Starting Odds of Profit Prize'] = startingprofitodds
+            gamerow.loc[:,'Change in Odds of Profit Prize'] =  (gamerow.loc[:,'Odds of Profit Prize'] - startingprofitodds)/startingprofitodds if startingprofitodds > 0 else np.nan
+            gamerow.loc[:,'Probability of Winning Any Prize'] = sum(totalremain.loc[:,'Winning Tickets Unclaimed'])/tixtotal if tixtotal > 0 else np.nan
+            startprobanyprize = sum(totalremain.loc[:,'Winning Tickets At Start'])/startingtotal if startingtotal > 0 else np.nan
+            gamerow.loc[:,'Starting Probability of Winning Any Prize'] = startprobanyprize
+            gamerow.loc[:,'Change in Probability of Any Prize'] =  startprobanyprize - gamerow.loc[:,'Probability of Winning Any Prize']  
+            gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])/tixtotal if tixtotal > 0 else np.nan
+            startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])/startingtotal if startingtotal > 0 else np.nan
+            gamerow.loc[:,'Starting Probability of Winning Profit Prize'] = startprobprofitprize
+            gamerow.loc[:,'Change in Probability of Profit Prize'] =  startprobprofitprize - gamerow.loc[:,'Probability of Winning Profit Prize']
+            gamerow.loc[:,'StdDev of All Prizes'] = totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()/tixtotal if tixtotal > 0 else np.nan
+            gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()/tixtotal if tixtotal > 0 else np.nan
+            gamerow.loc[:,'Odds of Any Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Current Odds of Any Prize']+(totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()*3))
+            gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()*3))
+            gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean())
             
-            if profit_unclaimed > 0:
-                gamerow.loc[:,'Odds of Profit Prize'] = tixtotal / profit_unclaimed
-            else:
-                gamerow.loc[:,'Odds of Profit Prize'] = 0
-                
-            if profit_start > 0 and startingtotal > 0:
-                start_profit_odds = startingtotal / profit_start
-                curr_profit_odds = gamerow.loc[:,'Odds of Profit Prize'].values[0]
-                if start_profit_odds > 0:
-                    gamerow.loc[:,'Change in Odds of Profit Prize'] = (curr_profit_odds - start_profit_odds) / start_profit_odds
-                else:
-                    gamerow.loc[:,'Change in Odds of Profit Prize'] = 0
-            else:
-                gamerow.loc[:,'Change in Odds of Profit Prize'] = 0
+            
+            #calculate expected value
 
-            # Probabilities
-            if tixtotal > 0:
-                gamerow.loc[:,'Probability of Winning Any Prize'] = unclaimed_sum / tixtotal
-                gamerow.loc[:,'Probability of Winning Profit Prize'] = profit_unclaimed / tixtotal
-                
-                # EV (Safe)
-                totalremain['Expected Value'] = totalremain.apply(lambda row: (row['prizeamount'] - price) * (row['Winning Tickets Unclaimed'] / tixtotal), axis=1)
-                ev_sum = totalremain['Expected Value'].sum()
-                gamerow.loc[:,'Expected Value of Any Prize (as % of cost)'] = ev_sum / price if price > 0 else ev_sum
-            else:
-                gamerow.loc[:,'Probability of Winning Any Prize'] = 0
-                gamerow.loc[:,'Probability of Winning Profit Prize'] = 0
-                gamerow.loc[:,'Expected Value of Any Prize (as % of cost)'] = 0
+            totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-            # Std Devs
-            if tixtotal > 0:
-                std_all = totalremain['Winning Tickets Unclaimed'].std()
-                if np.isnan(std_all): std_all = 0
-                gamerow.loc[:,'StdDev of All Prizes'] = std_all / tixtotal
-                
-                std_prof = totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed'].std()
-                if np.isnan(std_prof): std_prof = 0
-                gamerow.loc[:,'StdDev of Profit Prizes'] = std_prof / tixtotal
-            else:
-                gamerow.loc[:,'StdDev of All Prizes'] = 0
-                gamerow.loc[:,'StdDev of Profit Prizes'] = 0
 
-            # Metadata
+            totalremain.loc[:,'Starting Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
+
+            totalremain.loc[:,'Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
+            totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Starting Expected Value','Expected Value','dateexported']]
+            
+            gamerow.loc[:,'Expected Value of Any Prize (as % of cost)'] = sum(totalremain['Expected Value'])/price if price > 0 else sum(totalremain['Expected Value'])
+            gamerow.loc[:,'Change in Expected Value of Any Prize'] = ((sum(totalremain['Expected Value'])-sum(totalremain['Starting Expected Value']))/sum(totalremain['Starting Expected Value']))/price if price > 0 else ((sum(totalremain['Expected Value'])-sum(totalremain['Starting Expected Value']))/sum(totalremain['Starting Expected Value']))
+            gamerow.loc[:,'Expected Value of Profit Prize (as % of cost)'] = sum(totalremain.loc[totalremain['prizeamount']>price,'Expected Value'])/price if price > 0 else sum(totalremain.loc[totalremain['prizeamount']>price,'Expected Value'])
+            gamerow.loc[:,'Change in Expected Value of Profit Prize'] = ((sum(totalremain.loc[totalremain['prizeamount']>price,'Expected Value'])-sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value']))/sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value']))/price if price > 0 else (sum(totalremain.loc[totalremain['prizeamount']>price,'Expected Value'])-sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value']))/sum(totalremain.loc[totalremain['prizeamount']>price,'Starting Expected Value'])
+            gamerow.loc[:,'Percent of Prizes Remaining'] = (totalremain.loc[:,'Winning Tickets Unclaimed']/totalremain.loc[:,'Winning Tickets At Start']).mean()
+            gamerow.loc[:,'Percent of Profit Prizes Remaining'] = (totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed']/totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start']).mean()
+            chngLosingTix = (gamerow.loc[:,'Non-prize remaining']-gamerow.loc[:,'Non-prize at start'])/gamerow.loc[:,'Non-prize at start']
+            chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
+                    
+            gamerow.loc[:,'Photo'] = scratchersall_list.loc[scratchersall_list['gameNumber']==gameid,'gamePhoto'].values[0]
             gamerow.loc[:,'FAQ'] = None
             gamerow.loc[:,'About'] = None
             gamerow.loc[:,'Directory'] = None
             gamerow.loc[:,'Data Date'] = gamerow.loc[:,'dateexported']
-            
-            # Add safe defaults for other columns if needed
-            cols_needed = ['Odds of Any Prize + 3 StdDevs', 'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy']
-            for c in cols_needed:
-                if c not in gamerow.columns: gamerow[c] = 0
 
             currentodds = pd.concat([currentodds, gamerow], axis=0, ignore_index=True)
 
+            #add non-prize and totals rows with matching columns
+            totalremain.loc[:,'Total remaining'] = tixtotal
+            totalremain.loc[:,'Prize Probability'] = totalremain.loc[:,'Winning Tickets Unclaimed']/totalremain.loc[:,'Total remaining']
+            totalremain.loc[:,'Percent Tix Remaining'] = totalremain.loc[:,'Winning Tickets Unclaimed']/totalremain.loc[:,'Winning Tickets At Start']
+            nonprizetix.loc[:,'Prize Probability'] = nonprizetix.apply(lambda row: (row['Winning Tickets Unclaimed']/tixtotal) if (row['gameNumber']==gameid) & (row['Winning Tickets Unclaimed']>0) else 0,axis=1)
+            nonprizetix.loc[:,'Percent Tix Remaining'] =  nonprizetix.loc[nonprizetix['gameNumber']==gameid,'Winning Tickets Unclaimed']/nonprizetix.loc[nonprizetix['gameNumber']==gameid,'Winning Tickets At Start']
+            nonprizetix.loc[:,'Starting Expected Value'] = (nonprizetix['prizeamount']-price)*(nonprizetix['Winning Tickets At Start']/startingtotal)
+            nonprizetix.loc[:,'Expected Value'] =  (nonprizetix['prizeamount']-price)*(nonprizetix['Winning Tickets Unclaimed']/tixtotal)
+            totals.loc[:,'Prize Probability'] = totals.loc[totals['gameNumber']==gameid,'Winning Tickets Unclaimed']/tixtotal
+            totals.loc[:,'Percent Tix Remaining'] =  totals.loc[totals['gameNumber']==gameid,'Winning Tickets Unclaimed']/totals.loc[totals['gameNumber']==gameid,'Winning Tickets At Start']
+            totals.loc[:,'Starting Expected Value'] = ''
+            totals.loc[:,'Expected Value'] = ''
+            totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
+            totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                             'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+            totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                             'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+
+            #add expected values for final totals row
+            allexcepttotal = totalremain.loc[totalremain['prizeamount']!='Total',:]
+            
+            totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
+            totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
+
+            alltables = pd.concat([alltables, totalremain], axis=0)
+
+        scratchertables = alltables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
+
+        #save scratchers tables
+        scratchertables.to_csv("./OHscratchertables.csv", encoding='utf-8')
         
-        # Merge & Format
+        #create rankings table by merging the list with the tables
+
         scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
         ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
+        ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x'], axis=1, inplace=True)
+        ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
+        #add number of days since the game start date as of date exported
+        ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'], errors = 'coerce')).dt.days
         
-        if 'gameName_y' in ratingstable.columns:
-            ratingstable.rename(columns={'gameName_y':'gameName'}, inplace=True)
-        elif 'gameName_x' in ratingstable.columns:
-            ratingstable.rename(columns={'gameName_x':'gameName'}, inplace=True)
-            
+        #add rankings columns of all scratchers to ratings table
+        ratingstable['Rank by Best Probability of Winning Any Prize'] = (ratingstable['Current Odds of Any Prize'].rank()+ratingstable['Probability of Winning Any Prize'].rank()+ratingstable['Odds of Any Prize + 3 StdDevs'].rank())/3
+        ratingstable['Rank by Best Probability of Winning Profit Prize'] = (ratingstable['Odds of Profit Prize'].rank()+ratingstable['Probability of Winning Profit Prize'].rank()+ratingstable['Odds of Profit Prize + 3 StdDevs'].rank())/3
+        ratingstable['Rank by Least Expected Losses'] = (ratingstable['Expected Value of Any Prize (as % of cost)'].rank()+ratingstable['Expected Value of Profit Prize (as % of cost)'].rank())/2
+        ratingstable['Rank by Most Available Prizes'] = (ratingstable['Percent of Prizes Remaining'].rank()+ratingstable['Percent of Profit Prizes Remaining'].rank()+ratingstable['Ratio of Decline in Prizes to Decline in Losing Ticket'].rank())/3
+        ratingstable['Rank by Best Change in Probabilities'] = (ratingstable['Change in Current Odds of Any Prize'].rank()+ratingstable['Change in Current Odds of Top Prize'].rank()
+                                                                 +ratingstable['Change in Probability of Any Prize'].rank()+ratingstable['Change in Probability of Profit Prize'].rank()
+                                                                 +ratingstable['Expected Value of Any Prize (as % of cost)'].rank()+ratingstable['Expected Value of Profit Prize (as % of cost)'].rank())/6
+        ratingstable.loc[:,'Rank Average'] = ratingstable.loc[:, 'Rank by Best Probability of Winning Any Prize':'Rank by Best Change in Probabilities'].mean(axis=1)
+        ratingstable.loc[:,'Overall Rank'] = ratingstable.loc[:, 'Rank Average'].rank()
+        ratingstable.loc[:,'Rank by Cost'] = ratingstable.groupby('price')['Overall Rank'].rank('dense', ascending=True)
+        
+        #columns in ratingstable to round to only two decimals
+        twodecimalcols = ['Current Odds of Any Prize', 'Odds of Profit Prize', 'Percent of Prizes Remaining', 'Expected Value of Any Prize (as % of cost)']
+        ratingstable[twodecimalcols] = ratingstable[twodecimalcols].round(2)
+        ratingstable['Max Tickets to Buy'] = ratingstable['Max Tickets to Buy'].round(0)
+        
+        #save ratingstable
         ratingstable['Stats Page'] = "/ohio-statistics-for-each-scratcher-game"
+        ratingstable.to_csv("./OHratingstable.csv", encoding='utf-8')
         
-        ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail',
-           'overallodds','Current Odds of Top Prize',
+        ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
+           'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
            'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
            'Change in Current Odds of Any Prize', 'Odds of Profit Prize','Change in Odds of Profit Prize',
-           'Probability of Winning Any Prize',
-           'Probability of Winning Profit Prize',
+           'Probability of Winning Any Prize','Change in Probability of Any Prize',
+           'Probability of Winning Profit Prize','Change in Probability of Profit Prize',
            'StdDev of All Prizes','StdDev of Profit Prizes', 'Odds of Any Prize + 3 StdDevs',
            'Odds of Profit Prize + 3 StdDevs', 'Max Tickets to Buy',
            'Expected Value of Any Prize (as % of cost)',
+           'Change in Expected Value of Any Prize',
+           'Expected Value of Profit Prize (as % of cost)',
+           'Change in Expected Value of Profit Prize',
+           'Percent of Prizes Remaining', 'Percent of Profit Prizes Remaining',
+           'Ratio of Decline in Prizes to Decline in Losing Ticket',
+           'Rank by Best Probability of Winning Any Prize',
+           'Rank by Best Probability of Winning Profit Prize',
+           'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
+           'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
            'Photo','FAQ', 'About', 'Directory', 
            'Data Date','Stats Page', 'gameURL']]
-           
-        ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-        ratingstable.fillna(0, inplace=True)
+        ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+        ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
         
         return ratingstable, scratchertables
     else:
@@ -399,4 +439,4 @@ def exportScratcherRecs():
         return None, None
 
 
-#exportScratcherRecs()
+exportScratcherRecs()

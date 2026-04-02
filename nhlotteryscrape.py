@@ -1,206 +1,319 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Aug  4 23:24:20 2023
-
-@author: michaeljames
+Fixed NH Lottery Scraper
+1. FIX: Uses BeautifulSoup to manually parse the 'Odds Breakdown' table, handling the mixed desktop/mobile HTML structure.
+2. FIX: Correctly maps 'WIN' (col 1) to Prize and 'PRIZES IN GAME' (col 2) to Unclaimed Count.
+3. OUTPUT: Generates populated 'NHscratchertables.csv' and correct 'topprize' data.
 """
 
 import pandas as pd
-import os
-import urllib.parse
-from urllib.parse import urlparse
-import urllib.request
-import json
-import requests
-from apscheduler.schedulers.blocking import BlockingScheduler
-from bs4 import BeautifulSoup
+import time
+from datetime import date, datetime
 import re
-import logging
-from datetime import datetime
-from dateutil.tz import tzlocal
-import lxml
-from datetime import date
+import io
 import numpy as np
-import html5lib
-import random
-from itertools import repeat
-from scipy import stats
-from lxml import etree
-from pandas import json_normalize
+import gc
+import warnings
 
-now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
+# Selenium Imports
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.firefox import GeckoDriverManager
+from bs4 import BeautifulSoup
 
-powers = {'B': 10 ** 9, 'K': 10 ** 3, 'M': 10 ** 6, 'T': 10 ** 12}
-# add some more to powers as necessary
+# Suppress warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.simplefilter(action='ignore', category=UserWarning)
+
+def parse_complex_prize(prize_str):
+    """Parses prize strings like '$10,000', '2000/Week', etc."""
+    s = str(prize_str).upper().replace(',', '').replace('$', '').strip()
+    try:
+        if 'WK' in s or 'WEEK' in s:
+            amt = float(re.search(r'[\d\.]+', s).group())
+            return amt * 52 * 20 
+        if 'YR' in s or 'YEAR' in s:
+            amt = float(re.search(r'[\d\.]+', s).group())
+            return amt * 20
+        if 'FREE' in s or 'TICKET' in s: return 0
+        if 'ANNUITY' in s: return 0
+        clean = re.sub(r'[^\d\.]', '', s)
+        return float(clean) if clean else 0
+    except:
+        return 0
 
 def exportScratcherRecs():
-    url = "https://api2.oregonlottery.org/instant/GetAll"
-
-    payload = {}
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Mobile Safari/537.36',
-        'Ocp-Apim-Subscription-Key': '683ab88d339c4b22b2b276e3c2713809'
-    }
+    print("Initializing Firefox...")
+    firefox_options = Options()
+    firefox_options.add_argument("--headless")
+    firefox_options.set_preference("permissions.default.image", 2)
+    firefox_options.set_preference("plugin.state.flash", 0)
     
-    #wrapping the requests attempt with try/except in case of error. 
-    max_retries = 3
-    responsejson = None
-    for attempt in range(max_retries):
-        r = requests.request("GET", url, headers=headers, data=payload)
-        try:
-            responsejson = r.json()
-            break
-        except json.JSONDecodeError as e:
-            logging.warning(f"OR API JSON parse attempt {attempt+1} failed: {e}")
-            # Clean control characters and retry parse
-            cleaned = re.sub(r'[\x00-\x1f\x7f]', '', r.text)
-            cleaned = cleaned.replace(',}', '}').replace(',]', ']')
-            try:
-                responsejson = json.loads(cleaned)
-                logging.info("OR API JSON parsed after cleaning control characters")
-                break
-            except json.JSONDecodeError:
-                if attempt < max_retries - 1:
-                    logging.warning("Retrying OR API request...")
-                    import time
-                    time.sleep(2)
-                else:
-                    logging.error("OR API returned malformed JSON after all retries")
-                    raise
-    
-    if responsejson is None:
-        raise ValueError("Failed to get valid JSON from OR API")
-
-    
-    tixlist = pd.DataFrame()
-    linkslist = pd.DataFrame()
-    tixtables = pd.DataFrame()
-
-    
-    #get the game URLs from script tag on the main page and add them to a dataframe to be merged with the data from JSON
-    url = "https://www.oregonlottery.org/scratch-its/grid/"
-    r = requests.get(url)
-    responsehtml = r.text
-    soup = BeautifulSoup(responsehtml, 'html.parser')
-    scripttag = soup.find('body').find('main', class_='ol-content').find('script')
-    json_string_raw = scripttag.string.split('scratchIts = ')[1].split(';')[0]
-    
-    # Clean and parse the embedded JSON
+    driver = None
     try:
-        links = json.loads(json_string_raw)
-    except json.JSONDecodeError as e:
-        logging.warning(f"OR script tag JSON parse failed: {e}. Attempting to clean.")
-        cleaned = re.sub(r'[\x00-\x1f\x7f]', '', json_string_raw)
-        cleaned = cleaned.replace(',}', '}').replace(',]', ']')
-        # If truncated, try to find the last complete object and close the array
-        if cleaned.rstrip()[-1] != ']':
-            last_brace = cleaned.rfind('}')
-            if last_brace > 0:
-                cleaned = cleaned[:last_brace + 1] + ']'
-        links = json.loads(cleaned)
-        logging.info(f"OR script tag JSON parsed after cleaning ({len(links)} games)")
-    for tic in links:
-        gameURL = tic['link'].replace('//','/')
-        gameID = str(tic['number'])
-        gamePhoto = tic['image_preview'][0]
-        linkslist.loc[len(linkslist.index), ['gameNumber', 'gameURL', 'gamePhoto']] = [gameID, gameURL, gamePhoto]
+        service = Service(GeckoDriverManager().install())
+        driver = webdriver.Firefox(service=service, options=firefox_options)
+    except Exception as e:
+        print(f"Error launching Firefox: {e}")
+        return None, None
 
-    
-    # loop through each game in the JSON data and add to the Tixlist dataframe
-    for game in responsejson:
-
-        gameName = game['GameNameTitle']
-        gameNumber = str(game['GameNumber'])
-        gamePrice = game['TicketPrice']
-        topprize = game['TopPrize']
-        topprizeremain = game['TopPrizesRemaining']
-        topprizeavail = 'Top Prize Claimed' if topprizeremain == 0 else np.nan
-        startDate = game['DateAvailable']
-        endDate = game['GameEndDate']
-        lastdatetoclaim = game['ValidationEndDate']
-        overallodds = game['OverallOdds']
-        extrachances = None
-        secondChance = '2nd Chance' if game['SecondChanceDrawDate'] else None
-        dateexported = date.today()
-
-        tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'overallodds', 'extrachances', 'secondChance', 'dateexported']] = [
-            gamePrice, gameName, gameNumber, topprize, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, overallodds, extrachances, secondChance, dateexported]
+    try:
+        url_list = "https://www.nhlottery.com/game-collection/in-store?filters=scratchGame"
+        print(f"Fetching game list from {url_list}...")
+        driver.get(url_list)
         
-    #merge gameURLs with tix list to start looping through each game page, to get remaining tickets data
+        # --- HANDLE "LOAD MORE" ---
+        print("  > Checking for 'Load More' buttons...")
+        while True:
+            try:
+                load_btn = WebDriverWait(driver, 3).until(
+                    EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Load More')]"))
+                )
+                driver.execute_script("arguments[0].click();", load_btn)
+                time.sleep(1.5)
+            except:
+                break
 
-    tixlist = pd.merge(tixlist, linkslist, how='left', on=['gameNumber'])
-
-    tixlist['lastdatetoclaim'] = pd.to_datetime(tixlist['lastdatetoclaim'])
-    tixlist['startDate'] = pd.to_datetime(tixlist['startDate'])
-    tixlist['dateexported'] = pd.to_datetime(tixlist['dateexported'])
-    tixlist = tixlist.loc[(tixlist['startDate'] <= datetime.today()) & (tixlist['lastdatetoclaim'] >= datetime.today())]    
-    
-    tixlist.to_csv("./ORtixlist.csv", encoding='utf-8')
-    tixlist = tixlist.loc[(tixlist['startDate'] <= datetime.today()) & (tixlist['lastdatetoclaim'] >= datetime.today())]    
-
-    for game in tixlist.loc[:,'gameNumber']:
-
-        url = 'https://api2.oregonlottery.org/instant/GetGame?includePrizeTiers=true&gameNumber='+str(game)
-
-        headers = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Mobile Safari/537.36',
-        'Ocp-Apim-Subscription-Key': '683ab88d339c4b22b2b276e3c2713809'
-        }
-        r = requests.request("GET", url, headers=headers, data=payload)
-        responsejson = r.json()
-
-        # go down to next level of json response for numbers of prizes
-        tixdata = pd.json_normalize(responsejson[0]['PrizeTiers'])
+        # Parse List
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        unique_links = {}
         
-        if tixdata.empty!=True:  
-            tixdata.rename(columns={'PrizeAmount': 'prizeamount','PrizesTotal': 'Winning Tickets At Start', 'PrizesRemaining': 'Winning Tickets Unclaimed'}, inplace=True)
-            tixdata['gameNumber'] = game
-            tixdata['gameName'] = tixlist.loc[tixlist['gameNumber']==game, 'gameName'].iloc[0]
-            tixdata['Winning Tickets At Start'] = tixdata['Winning Tickets At Start'].astype(int)
-            tixdata['Winning Tickets Unclaimed'] = tixdata['Winning Tickets Unclaimed'].astype(int)
-            tixdata['topprizestarting'] = tixdata.loc[0, 'Winning Tickets At Start']
-            tixdata['dateexported'] = date.today()
+        links = soup.find_all('a', href=re.compile(r'/(?:scratch|game).*/', re.IGNORECASE))
+        for link in links:
+            href = link.get('href')
+            if href and 'game-collection' not in href and 'filters=' not in href:
+                full_url = href if href.startswith('http') else f"https://www.nhlottery.com{href}"
+                if full_url not in unique_links:
+                    unique_links[full_url] = link.get_text(" ", strip=True)
 
-            tixtables = pd.concat([tixtables, tixdata], axis=0).dropna(how='all', axis=1)
+        print(f"Found {len(unique_links)} potential games. Processing details...")
 
-        else:
-            continue
+        all_game_rows = []
+        all_prize_tables = []
 
+        for full_url, link_text in unique_links.items():
+            try:
+                if 'where-to-buy' in full_url or 'about-us' in full_url: continue
 
-    tixtables['Winning Tickets At Start'] = tixtables['Winning Tickets At Start'].astype(int)
-    tixtables['Winning Tickets Unclaimed'] = tixtables['Winning Tickets Unclaimed'].astype(int)
+                driver.get(full_url)
                 
-    tixlist = tixlist.loc[(tixlist['startDate'] <= datetime.today()) & (tixlist['lastdatetoclaim'] >= datetime.today())]    
-    tixlist.to_csv("./ORtixlist.csv", encoding='utf-8')
+                try:
+                    WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.TAG_NAME, "table")))
+                except: pass
+
+                page_src = driver.page_source
+                soup = BeautifulSoup(page_src, 'html.parser')
+                full_text = soup.get_text(" ", strip=True)
+
+                # --- 1. GAME NAME ---
+                gameName = link_text
+                h1 = soup.find('h1')
+                if h1: gameName = h1.get_text(strip=True)
+                
+                # --- 2. GAME NUMBER ---
+                gameNumber = "0"
+                label_span = soup.find('span', class_='scratch-game-details-page__label', string=re.compile(r'Game Number', re.IGNORECASE))
+                if label_span:
+                    value_span = label_span.find_next_sibling('span', class_='scratch-game-details-page__value')
+                    if value_span: gameNumber = value_span.get_text(strip=True)
+                
+                if gameNumber == "0":
+                    num_match = re.search(r'Game\s*(?:#|No\.?)\s*(\d+)', full_text, re.IGNORECASE)
+                    if num_match: gameNumber = num_match.group(1)
+
+                print(f"Processing #{gameNumber}: {gameName}...")
+
+                # --- 3. DATES ---
+                startDate = None
+                endDate = None
+                lastDate = None
+                
+                # Start Date ("On Sale")
+                sale_label = soup.find('span', class_='scratch-game-details-page__label', string=re.compile(r'On Sale', re.IGNORECASE))
+                if sale_label:
+                    val_span = sale_label.find_next_sibling('span', class_='scratch-game-details-page__value')
+                    if val_span:
+                        try: startDate = datetime.strptime(val_span.get_text(strip=True), "%m/%d/%Y").strftime("%Y-%m-%d")
+                        except: pass
+                
+                # End Dates
+                date_labels = {'Game End': 'endDate', 'Expire': 'lastDate', 'Claim By': 'lastDate'}
+                for label, key in date_labels.items():
+                    d_match = re.search(rf'{label}:?\s*(\d{{1,2}}/\d{{1,2}}/\d{{4}})', full_text, re.IGNORECASE)
+                    if d_match:
+                        try:
+                            d_str = datetime.strptime(d_match.group(1), "%m/%d/%Y").strftime("%Y-%m-%d")
+                            if key == 'endDate': endDate = d_str
+                            elif key == 'lastDate': lastDate = d_str
+                        except: pass
+
+                # --- 4. PHOTO ---
+                gamePhoto = None
+                img_div = soup.find('div', class_='scratch-game-details-page__image')
+                if img_div:
+                    img = img_div.find('img', class_='async-image__img')
+                    if img and img.get('src'): gamePhoto = img.get('src')
+                
+                if not gamePhoto:
+                    img = soup.find('img', class_='async-image__img')
+                    if img: gamePhoto = img.get('src')
+
+                if gamePhoto:
+                    if gamePhoto.startswith('//'): gamePhoto = f"https:{gamePhoto}"
+                    elif gamePhoto.startswith('/'): gamePhoto = f"https://www.nhlottery.com{gamePhoto}"
+
+                # --- 5. PRICE ---
+                price = 0
+                price_tag = soup.find('span', class_=re.compile(r'game-price|scratch-game-details-page__price'))
+                if price_tag:
+                    price = float(re.sub(r'[^\d\.]', '', price_tag.get_text(strip=True)))
+                else:
+                    price_match = re.search(r'\$(\d+)\s*Ticket', full_text, re.IGNORECASE)
+                    if price_match: price = float(price_match.group(1))
+
+                # --- 6. ODDS ---
+                overall_odds = 0
+                odds_match = re.search(r'Overall Odds:?\s*1\s*(?:in|[:])\s*([\d\.]+)', full_text, re.IGNORECASE)
+                if odds_match: overall_odds = float(odds_match.group(1))
+
+                # --- 7. TABLE PARSING (BS4 Manual) ---
+                # We do this manually because NH tables contain desktop AND mobile rows in the same table tag
+                topprize = 0
+                topprizeremain = 0
+                topprizestarting = 0
+                
+                best_table = pd.DataFrame()
+                
+                # Find the main table container
+                table_container = soup.find('div', class_='table__container')
+                if table_container:
+                    table = table_container.find('table')
+                    if table:
+                        # Extract Rows
+                        rows = table.find_all('tr')
+                        data = []
+                        
+                        for row in rows:
+                            cols = row.find_all('td')
+                            # Desktop rows have 4 columns: GET | WIN | PRIZES IN GAME | ODDS
+                            if len(cols) == 4:
+                                win_col = cols[1].get_text(strip=True)   # WIN (Price)
+                                count_col = cols[2].get_text(strip=True) # PRIZES IN GAME
+                                
+                                # Skip header repetition or Total row if handled elsewhere
+                                if "WIN" in win_col or "Total" in win_col:
+                                    continue
+                                
+                                data.append({
+                                    'prizeamount': win_col,
+                                    'Winning Tickets Unclaimed': count_col
+                                })
+                        
+                        if data:
+                            best_table = pd.DataFrame(data)
+
+                if not best_table.empty:
+                    # Clean Prize
+                    best_table['prizeamount'] = best_table['prizeamount'].apply(parse_complex_prize)
+                    
+                    # Clean Count
+                    best_table['Winning Tickets Unclaimed'] = pd.to_numeric(
+                        best_table['Winning Tickets Unclaimed'].astype(str).str.replace(r'[^\d]', '', regex=True),
+                        errors='coerce'
+                    ).fillna(0)
+                    
+                    # Logic: Start = Unclaimed (Missing start info)
+                    best_table['Winning Tickets At Start'] = best_table['Winning Tickets Unclaimed']
+
+                    best_table['gameNumber'] = gameNumber
+                    best_table['gameName'] = gameName
+                    best_table['price'] = price
+                    best_table['dateexported'] = date.today()
+                    
+                    # Filter valid rows
+                    best_table = best_table[best_table['prizeamount'] > 0]
+                    
+                    # Add to master list
+                    all_prize_tables.append(best_table)
+                    
+                    # --- TOP PRIZE CALC ---
+                    if not best_table.empty:
+                        # Sort by prize amount desc to find top prize
+                        best_table = best_table.sort_values(by='prizeamount', ascending=False)
+                        top_row = best_table.iloc[0]
+                        
+                        topprize = top_row['prizeamount']
+                        topprizeremain = top_row['Winning Tickets Unclaimed']
+                        topprizestarting = topprizeremain
+
+                all_game_rows.append({
+                    'price': price, 'gameName': gameName, 'gameNumber': gameNumber,
+                    'gameURL': full_url, 'gamePhoto': gamePhoto,
+                    'topprize': topprize, 'overallodds': overall_odds,
+                    'topprizestarting': topprizestarting, 'topprizeremain': topprizeremain,
+                    'topprizeavail': "Available" if topprizeremain > 0 else "Claimed",
+                    'startDate': startDate, 'endDate': endDate, 'lastdatetoclaim': lastDate,
+                    'extrachances': None, 'secondChance': None, 'dateexported': date.today()
+                })
+                
+                gc.collect()
+
+            except Exception as e:
+                print(f"  > Error processing {link_text}: {e}")
+                continue
+
+    finally:
+        driver.quit()
+
+    if not all_game_rows:
+        print("No data collected.")
+        return None, None
+
+    print("Compiling DataFrames...")
+    tixlist = pd.DataFrame(all_game_rows)
+    tixlist.to_csv("./NHtixlist.csv", index=False)
     
-    scratchersall = tixlist[['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizeremain',
-                               'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL']]
-    scratchersall = scratchersall.loc[scratchersall['gameNumber']
-                                      != "Coming Soon!", :]
+    if all_prize_tables:
+        tixtables = pd.concat(all_prize_tables, ignore_index=True)
+        tixtables.to_csv("./NHscratchertables.csv", index=False)
+    else:
+        tixtables = pd.DataFrame(columns=['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported'])
+
+    scratchersall = tixlist.copy().drop_duplicates()
+    scratchersall.to_csv("./NHscratcherslist.csv", index=False)
+
+
+
+    # 3. FILTER COLUMNS (Safe)
+    cols_to_keep = ['price', 'gameName', 'gameNumber', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain',
+                    'topprizeavail', 'extrachances', 'secondChance', 'startDate', 'endDate', 'lastdatetoclaim', 'dateexported','gameURL', 'gamePhoto']
+    
+    for col in cols_to_keep:
+        if col not in scratchersall.columns: scratchersall[col] = None
+            
+    scratchersall = scratchersall[cols_to_keep]
+    scratchersall = scratchersall.loc[scratchersall['gameNumber'] != "Coming Soon!"]
     scratchersall = scratchersall.drop_duplicates()
 
-    # save scratchers list
-    #scratchersall.to_sql('OKscratcherlist', engine, if_exists='replace')
-    scratchersall.to_csv("./ORscratcherslist.csv", encoding='utf-8')
-
-    # Create scratcherstables df, with calculations of total tix and total tix without prizes
-
+    # 4. PREPARE TABLES FOR STATS
     scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
-                                 'Winning Tickets At Start', 'Winning Tickets Unclaimed','topprizestarting', 'dateexported']]
-
-    scratchertables.to_csv("./ORscratchertables.csv", encoding='utf-8')
-    scratchertables = scratchertables.loc[scratchertables['gameNumber']
-                                          != "Coming Soon!", :]
+                                 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']].copy()
+    scratchertables.to_csv("./LAscratchertables.csv", encoding='utf-8', index=False)
+    scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!"]
 
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
-
-     # Select columns first, then groupby and aggregate
+    # Select columns first, then groupby and aggregate
     cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
-    gamesgrouped = gamesgrouped.merge(scratchersall[[
-                                      'gameNumber', 'price', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
+    
+    gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
+                                      'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds', 'gamePhoto']], how='left', on=['gameNumber'])
 
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
         gamesgrouped['overallodds'].astype(float)
@@ -217,14 +330,14 @@ def exportScratcherRecs():
     gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
         'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
-    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
-    nonprizetix = gamesgrouped[['gameNumber', 'gameName',
+    # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
+    nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']].copy()
     nonprizetix.rename(columns={'Non-prize at start': 'Winning Tickets At Start',
                        'Non-prize remaining': 'Winning Tickets Unclaimed'}, inplace=True)
     nonprizetix.loc[:, 'prizeamount'] = 0
 
-    totals = gamesgrouped[['gameNumber', 'gameName',
+    totals = gamesgrouped.loc[:,['gameNumber', 'gameName',
                            'Total at start', 'Total remaining', 'dateexported']].copy()
     totals.rename(columns={'Total at start': 'Winning Tickets At Start',
                   'Total remaining': 'Winning Tickets Unclaimed'}, inplace=True)
@@ -235,16 +348,17 @@ def exportScratcherRecs():
     alltables = pd.DataFrame()
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
-        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid), :].copy()
+        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid), :]
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid), [
-            'gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']].copy()
-        totalremain[['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
+            'gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
+        totalremain.loc[:, ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
             'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
         price = int(gamerow['price'].values[0])
 
         prizes = totalremain.loc[:, 'prizeamount']
+
 
         # add various columns for the scratcher stats that go into the ratings table
         gamerow.loc[:, 'Current Odds of Top Prize'] = gamerow.loc[:,
@@ -290,7 +404,8 @@ def exportScratcherRecs():
         )-totalremain.loc[totalremain['prizeamount'] != price, 'Winning Tickets Unclaimed'].std().mean())
 
         # calculate expected value
-        totalremain[['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
+
+        totalremain.loc[:, ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
             'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
 
         totalremain.loc[:, 'Starting Expected Value'] = totalremain.apply(lambda row: (
@@ -298,7 +413,7 @@ def exportScratcherRecs():
 
         totalremain.loc[:, 'Expected Value'] = totalremain.apply(lambda row: (
             row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
-        totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+        totalremain = totalremain.loc[:, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
                                    'Winning Tickets Unclaimed', 'Starting Expected Value', 'Expected Value', 'dateexported']]
 
         gamerow.loc[:, 'Expected Value of Any Prize (as % of cost)'] = sum(
@@ -316,13 +431,11 @@ def exportScratcherRecs():
         chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
                          'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-
         try:
             gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
         except ZeroDivisionError:
             gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
-        gamerow.loc[:, 'Photo'] = tixlist.loc[tixlist['gameNumber']
-                                              == gameid, 'gamePhoto'].values[0]
+        gamerow.loc[:, 'Photo'] = gamerow.loc[:, 'gamePhoto']
         gamerow.loc[:, 'FAQ'] = None
         gamerow.loc[:, 'About'] = None
         gamerow.loc[:, 'Directory'] = None
@@ -351,12 +464,13 @@ def exportScratcherRecs():
                                                             'Winning Tickets Unclaimed']/totals.loc[totals['gameNumber'] == gameid, 'Winning Tickets At Start']
         totals.loc[:, 'Starting Expected Value'] = ''
         totals.loc[:, 'Expected Value'] = ''
-        totalremain = totalremain[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
+        totalremain = totalremain.loc[:, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                    'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
         totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
                                          'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
         totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
                                          'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+
 
         # add expected values for final totals row
         allexcepttotal = totalremain.loc[totalremain['prizeamount'] != 'Total', :]
@@ -368,13 +482,12 @@ def exportScratcherRecs():
 
         alltables = pd.concat([alltables, totalremain], axis=0)
 
-    scratchertables = alltables[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
+    scratchertables = alltables.loc[:, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed',
                                  'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]
 
 
     # save scratchers tables
-    #scratchertables.to_sql('OKscratcherstables', engine, if_exists='replace')
-    scratchertables.to_csv("./ORscratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./NHscratchertables.csv", encoding='utf-8')
 
     # create rankings table by merging the list with the tables
 
@@ -386,10 +499,15 @@ def exportScratcherRecs():
                       'topprizeremain_x'], axis=1, inplace=True)
     ratingstable.rename(columns={'gameName_y': 'gameName', 'dateexported_x': 'dateexported', 'topprizeodds_x': 'topprizeodds',
                         'overallodds_x': 'overallodds', 'topprizeremain_y': 'topprizeremain'}, inplace=True)
-    # add number of days since the game start date as of date exported
-    ratingstable.loc[:, 'Days Since Start'] = (pd.to_datetime(
-        ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'])).dt.days
+    
 
+    # --- ADD DAYS SINCE START ---
+    if 'startDate' in ratingstable.columns and 'dateexported' in ratingstable.columns:
+        ratingstable['startDate'] = pd.to_datetime(ratingstable['startDate'], errors='coerce')
+        ratingstable['dateexported'] = pd.to_datetime(ratingstable['dateexported'], errors='coerce')
+        ratingstable['Days Since Start'] = (ratingstable['dateexported'] - ratingstable['startDate']).dt.days
+    # --- End of FIX for date parsing ---
+    
     # add rankings columns of all scratchers to ratings table
     ratingstable['Rank by Best Probability of Winning Any Prize'] = (ratingstable['Current Odds of Any Prize'].rank(
     )+ratingstable['Probability of Winning Any Prize'].rank()+ratingstable['Odds of Any Prize + 3 StdDevs'].rank())/3
@@ -418,10 +536,12 @@ def exportScratcherRecs():
         0)
 
     # save ratingstable
-    ratingstable['Stats Page'] = "/oregon-statistics-for-each-scratcher-game"
-    ratingstable.to_csv("./ORratingstable.csv", encoding='utf-8')
 
-    ratingstable = ratingstable[['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
+    ratingstable['Stats Page'] = "/new-hampshire-statistics-for-each-scratcher-game"
+    #ratingstable.to_sql('MOratingstable', engine, if_exists='replace')
+    ratingstable.to_csv("./NHratingstable.csv", encoding='utf-8')
+
+    ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
                                  'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
                                  'Change in Current Odds of Any Prize', 'Odds of Profit Prize', 'Change in Odds of Profit Prize',
@@ -441,10 +561,10 @@ def exportScratcherRecs():
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
                                  'Data Date', 'Stats Page','gameURL']]
-    ratingstable = ratingstable.replace([np.inf, -np.inf], 0)
-    ratingstable = ratingstable.infer_objects(copy=False)
-    ratingstable = ratingstable.astype(object).fillna('')
+    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
+    ratingstable.fillna('', inplace=True)
 
     return ratingstable, scratchertables
+
 
 exportScratcherRecs()

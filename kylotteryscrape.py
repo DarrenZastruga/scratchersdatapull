@@ -28,6 +28,7 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
+import io
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
@@ -70,7 +71,8 @@ def exportScratcherRecs():
         dateexported = date.today() if t.find_all('div', class_='klc-grid-col-md-6')[1].find_all('div')[1].find('b').text ==None else t.find_all('div', class_='klc-grid-col-md-6')[1].find_all('div')[1].find('b').text
 
         
-        table = pd.read_html(str(t.find_all('div', class_='klc-grid-col-md-6')[1].find('table')))[0]
+        table = pd.read_html(io.StringIO(str(t.find_all('div', class_='klc-grid-col-md-6')[1].find('table'))))[0]
+        
         if len(table)==0:
             continue
         else:
