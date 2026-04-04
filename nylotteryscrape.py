@@ -208,7 +208,9 @@ def exportScratcherRecs():
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
         gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
-
+        #cast all columns to Object to start to avoid dtype errors when converting to numeric later
+        for col in gamerow.columns:
+            gamerow[col] = gamerow[col].astype(object)
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
@@ -216,7 +218,7 @@ def exportScratcherRecs():
         price = int(gamerow['price'].values[0])
 
         prizes = totalremain.loc[:,'prizeamount']
-
+        gamerow.replace([np.inf, -np.inf], np.nan, inplace=True)
 
         #add various columns for the scratcher stats that go into the ratings table
         gamerow.loc[:,'Current Odds of Top Prize'] = gamerow.loc[:,'topprizeodds']
@@ -242,7 +244,7 @@ def exportScratcherRecs():
         gamerow.loc[:,'Odds of Any Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Current Odds of Any Prize']+(totalremain.loc[:,'Winning Tickets Unclaimed'].std()*3))
         gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std()*3))
         gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std())
-        
+        gamerow.replace([np.inf, -np.inf], np.nan, inplace=True)
         
         #calculate expected value
 

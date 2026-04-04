@@ -199,6 +199,11 @@ def exportARScratcherRecs():
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
     
     gamesgrouped[['price','overallodds']] = gamesgrouped[['price','overallodds']].apply(pd.to_numeric, errors='coerce')
+    
+    #convert columns to numeric
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+    
 
     gamesgrouped['Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds']
     gamesgrouped['Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds']
@@ -206,6 +211,7 @@ def exportARScratcherRecs():
     gamesgrouped['Non-prize remaining'] = gamesgrouped['Total remaining'] - gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped['topprizeodds'] = gamesgrouped['Total at start'] / gamesgrouped['topprizestarting']
     gamesgrouped[['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped[['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
+    
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
     nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']].copy()
@@ -223,6 +229,9 @@ def exportARScratcherRecs():
     print(gamesgrouped)
     for gameid in gamesgrouped['gameNumber']:
         gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
+        #cast all columns to Object to start to avoid dtype errors when converting to numeric later
+        for col in gamerow.columns:
+            gamerow[col] = gamerow[col].astype(object)
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]

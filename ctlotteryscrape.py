@@ -257,7 +257,7 @@ def exportScratcherRecs():
     print("Calculating Statistics...")
     
     # 1. Type Conversion
-    scratchertables = tixtables.copy()
+    scratchertables = tixdata.copy()
     for col in ['Winning Tickets At Start', 'Winning Tickets Unclaimed']:
         scratchertables[col] = pd.to_numeric(scratchertables[col], errors='coerce').fillna(0)
     

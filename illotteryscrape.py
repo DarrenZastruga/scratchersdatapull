@@ -239,7 +239,9 @@ def exportScratcherRecs():
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
         gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
-
+        #cast all columns to Object to start to avoid dtype errors when converting to numeric later
+        for col in gamerow.columns:
+            gamerow[col] = gamerow[col].astype(object)
         startingtotal_val = gamerow.loc[:, 'Total at start'].values[0]
         if pd.isna(startingtotal_val):
             continue  # skip games with no odds data
