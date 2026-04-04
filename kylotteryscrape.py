@@ -98,6 +98,7 @@ def exportScratcherRecs():
             tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','gameURL','gamePhoto', 'topprize', 'overallodds', 'topprizestarting', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'extrachances', 'secondChance', 'dateexported']] = [
                 gamePrice, gameName, gameNumber, gameURL, gamePhoto, topprize, overallodds, topprizestarting, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, extrachances, secondChance, dateexported]
 
+    tixlist['topprizeavail'] = tixlist['topprizeavail'].astype(str).replace({'nan': '', 'None': ''})
     tixlist.to_csv("./KYtixlist.csv", encoding='utf-8')
 
     scratchersall = tixlist[['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported','gameURL']]

@@ -170,8 +170,10 @@ def exportScratcherRecs():
     except ZeroDivisionError:
         gamesgrouped['topprizeodds'] = 0
 
-    gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
-        'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
+    #convert columns to numeric
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+    
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
@@ -190,7 +192,7 @@ def exportScratcherRecs():
     alltables = pd.DataFrame()
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
-        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid), :]
+        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid), :].copy()
         startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
         tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid), [

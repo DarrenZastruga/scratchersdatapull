@@ -131,6 +131,7 @@ def exportScratcherRecs():
 
     tixlist = pd.merge(tixlist, linkslist, how='left', on=['gameNumber'])
 
+    tixlist['topprizeavail'] = tixlist['topprizeavail'].astype(str).replace({'nan': '', 'None': ''})
     tixlist['lastdatetoclaim'] = pd.to_datetime(tixlist['lastdatetoclaim'])
     tixlist['startDate'] = pd.to_datetime(tixlist['startDate'])
     tixlist['dateexported'] = pd.to_datetime(tixlist['dateexported'])

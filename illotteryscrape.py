@@ -165,10 +165,10 @@ def exportScratcherRecs():
                             'Winning Tickets At Start': clean_start[i], 
                             'Winning Tickets Unclaimed': clean_remain[i]
                         }])
+                        tixdata['dateexported'] = date.today()
                         tixdata = pd.concat([tixdata, t_row], ignore_index=True)
                 except: continue
                 
-            tixdata['dateexported'] = date.today()
             
         except Exception as e:
             print(f"Error getting prize table: {e}")
@@ -196,6 +196,7 @@ def exportScratcherRecs():
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeremain'] = top_row['Winning Tickets Unclaimed']
         
         rem = int(top_row['Winning Tickets Unclaimed'])
+        if 'topprizeavail' not in tixlist.columns: tixlist['topprizeavail'] = ''
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'] = tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'].astype(str)
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'] = 'Top Prize Claimed' if rem == 0 else np.nan
 
@@ -206,7 +207,7 @@ def exportScratcherRecs():
     scratchersall.to_csv("./ILscratcherslist.csv", index=False)
 
     #Create scratcherstables df, with calculations of total tix and total tix without prizes
-    scratchertables = tixtables[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
+    scratchertables = tixdata[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
     scratchertables.to_csv("./ILscratchertables.csv", encoding='utf-8')
     
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!",:]
@@ -216,12 +217,12 @@ def exportScratcherRecs():
     cols_to_sum = ['Winning Tickets At Start', 'Winning Tickets Unclaimed']
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
-    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds', 'topprizeodds']], how='left', on=['gameNumber'])
+    gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
-    gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining']/gamesgrouped['topprizeremain'].astype('float')
+    gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain'].astype(float).replace(0, np.nan)
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
     
     
@@ -237,10 +238,16 @@ def exportScratcherRecs():
     alltables = pd.DataFrame() 
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
-        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:]
+        gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid),:].copy()
 
-        startingtotal = int(gamerow.loc[:, 'Total at start'].values[0])
-        tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
+        startingtotal_val = gamerow.loc[:, 'Total at start'].values[0]
+        if pd.isna(startingtotal_val):
+            continue  # skip games with no odds data
+        startingtotal = int(startingtotal_val)
+        tixtotal_val = gamerow.loc[:, 'Total remaining'].values[0]
+        if pd.isna(tixtotal_val) or tixtotal_val == 0:
+            continue
+        tixtotal = int(tixtotal_val)
         totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid),['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported']]
         totalremain[['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']] = totalremain.loc[:, ['prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed']].apply(pd.to_numeric)
         price = int(gamerow['price'].values[0])

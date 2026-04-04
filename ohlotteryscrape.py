@@ -226,7 +226,7 @@ def exportScratcherRecs():
                     'overallodds': overall_odds,
                     'topprizestarting': 0,
                     'topprizeremain': remain_tp,
-                    'topprizeavail': "Available" if remain_tp > 0 else "Claimed",
+                    'topprizeavail': np.nan if remain_tp > 0 else "Top Prize Claimed",
                     'startDate': None,
                     'gameURL': detail_url,
                     'gamePhoto': gamePhoto,
@@ -269,7 +269,11 @@ def exportScratcherRecs():
         gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
         gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining']/gamesgrouped['topprizeremain'].astype('float')
         gamesgrouped['topprizeodds'] = gamesgrouped['topprizeodds'].replace([np.inf, -np.inf], np.nan)
-        gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
+        
+        #convert columns to numeric
+        for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+            gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+        
         
         
         #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
