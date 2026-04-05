@@ -123,14 +123,13 @@ def exportScratcherRecs():
         extrachances = None
         secondChance = '2nd Chance' if game['SecondChanceDrawDate'] else None
         dateexported = date.today()
-
+        for col in tixlist.columns: tixlist[col] = tixlist[col].astype(object)
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'startDate', 'endDate', 'lastdatetoclaim', 'overallodds', 'extrachances', 'secondChance', 'dateexported']] = [
             gamePrice, gameName, gameNumber, topprize, topprizeremain, topprizeavail, startDate, endDate, lastdatetoclaim, overallodds, extrachances, secondChance, dateexported]
         
     #merge gameURLs with tix list to start looping through each game page, to get remaining tickets data
 
     tixlist = pd.merge(tixlist, linkslist, how='left', on=['gameNumber'])
-
     tixlist['topprizeavail'] = tixlist['topprizeavail'].astype(str).replace({'nan': '', 'None': ''})
     tixlist['lastdatetoclaim'] = pd.to_datetime(tixlist['lastdatetoclaim'])
     tixlist['startDate'] = pd.to_datetime(tixlist['startDate'])
@@ -203,6 +202,10 @@ def exportScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall[[
                                       'gameNumber', 'price', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
+    #convert columns to numeric
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = gamesgrouped[col].astype(object)
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
         gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:, 'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed'] * \
@@ -215,9 +218,7 @@ def exportScratcherRecs():
         gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain']
     except ZeroDivisionError:
         gamesgrouped['topprizeodds'] = 0
-    gamesgrouped.loc[:, ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = gamesgrouped.loc[:, [
-        'price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
-
+    gamesgrouped.replace([np.inf, -np.inf], np.nan, inplace=True)
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
     nonprizetix = gamesgrouped[['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']].copy()
@@ -442,9 +443,8 @@ def exportScratcherRecs():
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
                                  'Data Date', 'Stats Page','gameURL']]
-    ratingstable = ratingstable.replace([np.inf, -np.inf], 0)
-    ratingstable = ratingstable.infer_objects(copy=False)
-    ratingstable = ratingstable.astype(object).fillna('')
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
     return ratingstable, scratchertables
 

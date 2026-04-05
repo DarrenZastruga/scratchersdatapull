@@ -169,17 +169,19 @@ def exportScratcherRecs():
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    #convert columns to numeric
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = gamesgrouped[col].astype(object)
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+    
+    
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total at start']/gamesgrouped['topprizestarting']
+    gamesgrouped.replace([np.inf, -np.inf], np.nan, inplace=True)
    
-    #convert columns to numeric
-    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
-    
-    
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
     nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']].copy()
@@ -351,8 +353,8 @@ def exportScratcherRecs():
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page', 'gameURL']]
-    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('',inplace=True)
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
     #set_with_dataframe(worksheet=NCratingssheet, dataframe=ratingstable, include_index=False,
     #include_column_header=True, resize=True)

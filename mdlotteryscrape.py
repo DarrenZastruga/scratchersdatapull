@@ -8,7 +8,6 @@ Created on Tue Sep 13 23:34:32 2022
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -157,6 +156,11 @@ def exportScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall.loc[:, [
                                       'gameNumber', 'price', 'topprizestarting', 'topprizeremain', 'overallodds']], how='left', on=['gameNumber'])
 
+    #convert columns to numeric
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = gamesgrouped[col].astype(object)
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+    
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
         gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:, 'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed'] * \
@@ -169,11 +173,8 @@ def exportScratcherRecs():
         gamesgrouped['topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain'].astype('float')
     except ZeroDivisionError:
         gamesgrouped['topprizeodds'] = 0
+    gamesgrouped.replace([np.inf, -np.inf], np.nan, inplace=True)
 
-    #convert columns to numeric
-    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
-    
 
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then concat to scratcherstables
     nonprizetix = gamesgrouped.loc[:,['gameNumber', 'gameName',
@@ -409,12 +410,11 @@ def exportScratcherRecs():
                                  'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank', 'Rank by Cost',
                                  'Photo', 'FAQ', 'About', 'Directory',
                                  'Data Date', 'Stats Page','gameURL']]
-    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('', inplace=True)
-
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
     #set_with_dataframe(worksheet=MDratingssheet, dataframe=ratingstable, include_index=False,
       #                 include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
 
-#exportMDScratcherRecs()
+exportScratcherRecs()

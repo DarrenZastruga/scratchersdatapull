@@ -140,6 +140,7 @@ def exportMAScratcherRecs():
 
     #convert columns to numeric
     for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = gamesgrouped[col].astype(object)
         gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
@@ -150,7 +151,8 @@ def exportMAScratcherRecs():
         gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:, 'Non-prize remaining'] = gamesgrouped['Total remaining'] - \
         gamesgrouped['Winning Tickets Unclaimed']
-
+    gamesgrouped.replace([np.inf, -np.inf], np.nan, inplace=True)
+    
     # create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
     nonprizetix = gamesgrouped[['gameNumber', 'gameName',
                                 'Non-prize at start', 'Non-prize remaining', 'dateexported']].copy()
@@ -447,9 +449,8 @@ def exportMAScratcherRecs():
        'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
        'Photo','FAQ', 'About', 'Directory', 
        'Data Date','Stats Page','gameURL']]
-    ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('',inplace=True)
-    ratingstable.to_csv("./MAratingstable.csv", encoding='utf-8')
+    ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+    ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
     
     # Placeholder for the detailed table output
     scratchertables_output = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',

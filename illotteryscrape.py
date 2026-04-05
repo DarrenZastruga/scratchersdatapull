@@ -196,7 +196,9 @@ def exportScratcherRecs():
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeremain'] = top_row['Winning Tickets Unclaimed']
         
         rem = int(top_row['Winning Tickets Unclaimed'])
-        if 'topprizeavail' not in tixlist.columns: tixlist['topprizeavail'] = ''
+        if 'topprizeavail' not in tixlist.columns: 
+            tixlist['topprizeavail'] = np.nan
+
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'] = tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'].astype(str)
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'] = 'Top Prize Claimed' if rem == 0 else np.nan
 
@@ -218,13 +220,18 @@ def exportScratcherRecs():
     gamesgrouped = scratchertables.groupby(
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index() # reset_index() without levels works here
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
+    #convert columns to numeric
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = gamesgrouped[col].astype(object)
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+    
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain'].astype(float).replace(0, np.nan)
     gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
-    
+    gamesgrouped.replace([np.inf, -np.inf], np.nan, inplace=True)
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
     nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']].copy()

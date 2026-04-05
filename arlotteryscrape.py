@@ -197,21 +197,21 @@ def exportARScratcherRecs():
         by=['gameNumber', 'gameName', 'dateexported'], group_keys=False)[cols_to_sum].sum().reset_index()
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto', 'price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
+
+    #convert columns to numeric
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = gamesgrouped[col].astype(object)
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     
     gamesgrouped[['price','overallodds']] = gamesgrouped[['price','overallodds']].apply(pd.to_numeric, errors='coerce')
     
-    #convert columns to numeric
-    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
-    
-
     gamesgrouped['Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds']
     gamesgrouped['Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds']
     gamesgrouped['Non-prize at start'] = gamesgrouped['Total at start'] - gamesgrouped['Winning Tickets At Start']
     gamesgrouped['Non-prize remaining'] = gamesgrouped['Total remaining'] - gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped['topprizeodds'] = gamesgrouped['Total at start'] / gamesgrouped['topprizestarting']
     gamesgrouped[['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped[['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
-    
+    gamesgrouped.replace([np.inf, -np.inf], np.nan, inplace=True)
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
     nonprizetix = gamesgrouped[['gameNumber','gameName','Non-prize at start','Non-prize remaining','dateexported']].copy()
