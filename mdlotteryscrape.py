@@ -216,8 +216,9 @@ def exportScratcherRecs():
             gamerow.loc[:, 'Current Odds of Top Prize'] = np.nan
             
         # add various columns for the scratcher stats that go into the ratings table
-        gamerow.loc[:, 'Current Odds of Top Prize'] = gamerow.loc[:,
-                                                                  'topprizeodds']
+        odds = gamerow.loc[:, 'total_remaining'] / gamerow.loc[:, 'top_prize_remaining']
+        odds = odds.replace([np.inf, -np.inf], np.nan)
+        gamerow.loc[:, 'Current Odds of Top Prize'] = odds
         gamerow.loc[:, 'Change in Current Odds of Top Prize'] = (gamerow.loc[:, 'Current Odds of Top Prize'] - float(
             gamerow['topprizeodds'].values[0])) / float(gamerow['topprizeodds'].values[0])
         gamerow.loc[:, 'Current Odds of Any Prize'] = tixtotal / \

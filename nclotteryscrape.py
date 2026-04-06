@@ -300,7 +300,8 @@ def exportScratcherRecs():
     
     #create rankings table by merging the list with the tables
 
-    scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
+    scratchersall['price'] = scratchersall['price'].astype(object)
+    scratchersall['price'] = pd.to_numeric(scratchersall['price'], errors='coerce')
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
     ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x'], axis=1, inplace=True)
     ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
