@@ -171,8 +171,9 @@ def exportScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     #convert columns to numeric
     for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = gamesgrouped[col].astype(object)
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+        if col in gamesgrouped.columns:
+            gamesgrouped[col] = gamesgrouped[col].astype(object)
+            gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     
     
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start']*gamesgrouped['overallodds'].astype(float)

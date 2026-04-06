@@ -140,8 +140,9 @@ def exportMAScratcherRecs():
 
     #convert columns to numeric
     for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = gamesgrouped[col].astype(object)
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+        if col in gamesgrouped.columns:
+            gamesgrouped[col] = gamesgrouped[col].astype(object)
+            gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     
     gamesgrouped.loc[:, 'Total at start'] = gamesgrouped['Winning Tickets At Start'] * \
         gamesgrouped['overallodds'].astype(float)
@@ -452,12 +453,7 @@ def exportMAScratcherRecs():
     ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
     ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
     
-    # Placeholder for the detailed table output
-    scratchertables_output = tixtables.loc[:,['gameNumber', 'gameName', 'prizeamount',
-                                 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
-    scratchertables_output.to_csv("./MAscratchertables.csv", encoding='utf-8', index=False)
-
     print("Output files generated: MAscratcherslist.csv, MAscratchertables.csv, MAratingstable.csv")
     
     # The function would return the fully processed dataframes after running the statistical analysis
-    return scratchersall, scratchertables_output
+    return ratingstable, scratchertables

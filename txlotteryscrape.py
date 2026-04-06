@@ -75,6 +75,7 @@ def exportScratcherRecs():
                             'Prize Amount':'topprize', 'Prizes Printed':'topprizestarting', 'Prizes Claimed':'topprizeremaining'}, inplace=True)
     tixlist['gameNumber'] = tixlist['gameNumber'].astype(object)
     tixlist.loc[:, 'gameNumber'] = tixlist.loc[:, 'gameNumber'].astype('int').astype('str')
+    tixlist['price'] = tixlist['price'].astype(object)
     tixlist.loc[:, 'price'] = tixlist.loc[:,'price'].str.replace('$','').astype('int')
     
     
@@ -189,8 +190,9 @@ def exportScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     #convert columns to numeric
     for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = gamesgrouped[col].astype(object)
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+        if col in gamesgrouped.columns:
+            gamesgrouped[col] = gamesgrouped[col].astype(object)
+            gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     #drop rows missing a game name, because those don't have a game page with overall odds to use for calculations
     gamesgrouped = gamesgrouped.loc[pd.isnull(gamesgrouped['overallodds'])==False,:]
     

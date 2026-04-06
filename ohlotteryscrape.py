@@ -265,15 +265,17 @@ def exportScratcherRecs():
         gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds', 'topprizeodds']], how='left', on=['gameNumber'])
         #convert columns to numeric
         for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-            gamesgrouped[col] = gamesgrouped[col].astype(object)
-            gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+            if col in gamesgrouped.columns:
+                gamesgrouped[col] = gamesgrouped[col].astype(object)
+                gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
         
         gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
         gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
         gamesgrouped.loc[:,'Non-prize at start'] = gamesgrouped['Total at start']-gamesgrouped['Winning Tickets At Start']
         gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
-        gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining']/gamesgrouped['topprizeremain'].astype('float')
-        gamesgrouped['topprizeodds'] = gamesgrouped['topprizeodds'].replace([np.inf, -np.inf], np.nan)
+        odds = gamesgrouped['Total remaining'] / gamesgrouped['topprizeremain'].astype('float')
+        odds = odds.replace([np.inf, -np.inf], np.nan)
+        gamesgrouped['topprizeodds'] = odds
         gamesgrouped.replace([np.inf, -np.inf], np.nan, inplace=True)
         
         

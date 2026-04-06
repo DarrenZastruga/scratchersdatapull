@@ -198,7 +198,8 @@ def exportScratcherRecs():
         rem = int(top_row['Winning Tickets Unclaimed'])
         if 'topprizeavail' not in tixlist.columns: 
             tixlist['topprizeavail'] = np.nan
-
+        
+        tixlist['topprizeavail'] = tixlist['topprizeavail'].astype(object)
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'] = tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'].astype(str)
         tixlist.loc[tixlist['gameNumber']==t, 'topprizeavail'] = 'Top Prize Claimed' if rem == 0 else np.nan
 

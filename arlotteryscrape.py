@@ -198,10 +198,10 @@ def exportARScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','gamePhoto', 'price','topprizestarting','topprizeremain','overallodds']], how='left', on=['gameNumber'])
     gamesgrouped.rename(columns={'gamePhoto':'Photo'}, inplace=True)
 
-    #convert columns to numeric
     for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = gamesgrouped[col].astype(object)
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+        if col in gamesgrouped.columns:
+            gamesgrouped[col] = gamesgrouped[col].astype(object)
+            gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     
     gamesgrouped[['price','overallodds']] = gamesgrouped[['price','overallodds']].apply(pd.to_numeric, errors='coerce')
     

@@ -184,8 +184,9 @@ def exportScratcherRecs():
     gamesgrouped = gamesgrouped.merge(scratchersall[['gameNumber','price','topprizestarting','topprizeremain','overallodds', 'topprizeodds']], how='left', on=['gameNumber'])
     #convert columns to numeric
     for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        gamesgrouped[col] = gamesgrouped[col].astype(object)
-        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
+        if col in gamesgrouped.columns:
+            gamesgrouped[col] = gamesgrouped[col].astype(object)
+            gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     
     gamesgrouped.loc[:,'Total at start'] = gamesgrouped['Winning Tickets At Start'].astype(float)*gamesgrouped['overallodds'].astype(float)
     gamesgrouped.loc[:,'Total remaining'] = gamesgrouped['Winning Tickets Unclaimed']*gamesgrouped['overallodds'].astype(float)
@@ -307,7 +308,7 @@ def exportScratcherRecs():
     scratchertables.to_csv("./NYscratchertables.csv", encoding='utf-8')
     
     #create rankings table by merging the list with the tables
-
+    scratchersall['price'] = scratchersall['price'].astype(object)
     scratchersall.loc[:,'price'] = scratchersall.loc[:,'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(currentodds, how='left', on=['gameNumber','price'])
     ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x'], axis=1, inplace=True)

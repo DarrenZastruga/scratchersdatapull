@@ -259,8 +259,11 @@ def exportScratcherRecs():
     # 1. Type Conversion
     scratchertables = tixdata.copy()
     scratchertables['Winning Tickets At Start'] = np.nan
+    print(scratchertables.columns.tolist())
     for col in ['Winning Tickets At Start', 'Winning Tickets Unclaimed']:
-        scratchertables[col] = pd.to_numeric(scratchertables[col], errors='coerce').fillna(0)
+        if col in scratchertables.columns:
+            scratchertables[col] = pd.to_numeric(scratchertables[col], errors='coerce').fillna(0)
+
     
     scratchersall['price'] = pd.to_numeric(scratchersall['price'], errors='coerce')
     scratchersall['overallodds'] = pd.to_numeric(scratchersall['overallodds'], errors='coerce')
