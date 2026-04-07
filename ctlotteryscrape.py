@@ -127,7 +127,7 @@ def exportScratcherRecs():
 
         scratchertables = scratchertables.loc[:,['gameNumber', 'gameName', 'prizeamount',
                                      'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
-        scratchertables.to_csv("./MDscratchertables.csv", encoding='utf-8')
+        scratchertables.to_csv("./COscratchertables.csv", encoding='utf-8')
         scratchertables = scratchertables.loc[scratchertables['gameNumber']
                                               != "Coming Soon!", :]
         scratchertables = scratchertables.astype(
@@ -323,7 +323,7 @@ def exportScratcherRecs():
         
         # save scratchers tables
         #scratchertables.to_sql('MDscratcherstables', engine, if_exists='replace')
-        scratchertables.to_csv("./MDscratchertables.csv", encoding='utf-8')
+        scratchertables.to_csv("./CTscratchertables.csv", encoding='utf-8')
         
         # create rankings table by merging the list with the tables
         scratchersall.loc[:, 'price'] = scratchersall.loc[:,
@@ -366,13 +366,9 @@ def exportScratcherRecs():
             0)
         
         # save ratingstable
-        ratingstable['Stats Page'] = "/maryland-statistics-for-each-scratcher-game"
-        #ratingstable.to_sql('MDratingstable', engine, if_exists='replace')
-        ratingstable.to_csv("./MDratingstable.csv", encoding='utf-8')
-        # write to Google Sheets
-        # select a work sheet from its name
-        #MDratingssheet = gs.worksheet('MDRatingsTable')
-        #MDratingssheet.clear()
+        ratingstable['Stats Page'] = "/connecticut-statistics-for-each-scratcher-game"
+        ratingstable.to_csv("./CTratingstable.csv", encoding='utf-8')
+
         
         ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                      'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',
@@ -396,8 +392,7 @@ def exportScratcherRecs():
                                      'Data Date', 'Stats Page','gameURL']]
         ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
         ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
-        #set_with_dataframe(worksheet=MDratingssheet, dataframe=ratingstable, include_index=False,
-          #                 include_column_header=True, resize=True)
+
         return ratingstable, scratchertables
 
     finally:

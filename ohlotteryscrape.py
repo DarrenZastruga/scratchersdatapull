@@ -337,7 +337,11 @@ def exportScratcherRecs():
                 lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal) if startingtotal != 0 else 0,
                 axis=1)
 
-            totalremain.loc[:,'Expected Value'] = totalremain.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
+            if tixtotal > 0:
+                totalremain.loc[:,'Expected Value'] = totalremain.apply(
+                    lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
+            else:
+                totalremain.loc[:,'Expected Value'] = np.nan
             totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Starting Expected Value','Expected Value','dateexported']]
             
             gamerow.loc[:,'Expected Value of Any Prize (as % of cost)'] = sum(totalremain['Expected Value'])/price if price > 0 else sum(totalremain['Expected Value'])
