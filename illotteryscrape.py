@@ -181,6 +181,7 @@ def exportScratcherRecs():
     print("\nMerging Data...")
     
     # Update tixlist based on prize data
+    tixlist = tixlist.astype(object)
     for t in tixlist['gameNumber']:
         game_prizes = tixdata[tixdata['gameNumber'] == t]
         if game_prizes.empty: continue

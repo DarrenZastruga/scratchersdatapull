@@ -83,11 +83,11 @@ def exportScratcherRecs():
 
         gamePhoto = s.find(class_='magnific-img').get('href')
         gameURL = 'https://www.mdlottery.com/games/scratch-offs/#prize_details_'+str(gameNumber)
-        gamePrice = s.find(class_='price').string.replace('$','')
-        topprize = s.find(class_='topprize').string.replace('$','').replace(',','')
-        topprizeremain = s.find(class_='topremaining').string
-        startDate = s.find(class_='launchdate').text
-        overallodds = s.find(class_='probability').text
+        gamePrice = str(s.find(class_='price').string).replace('$','')
+        topprize = str(s.find(class_='topprize').string).replace('$','').replace(',','')
+        topprizeremain = str(s.find(class_='topremaining').string)
+        startDate = str(s.find(class_='launchdate').text)
+        overallodds = str(s.find(class_='probability').text)
         
         dateexported = s.find('div', id = 'prize_details_'+gameNumber).find('p').text.replace('Records Last Updated:','')
         
@@ -421,4 +421,4 @@ def exportScratcherRecs():
     return ratingstable, scratchertables
 
 
-exportScratcherRecs()
+#exportScratcherRecs()

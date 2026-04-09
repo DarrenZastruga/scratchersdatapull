@@ -8,7 +8,6 @@ Created on Tue Sep 13 23:34:32 2022
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request

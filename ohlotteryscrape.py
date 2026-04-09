@@ -452,4 +452,4 @@ def exportScratcherRecs():
         return None, None
 
 
-exportScratcherRecs()
+#exportScratcherRecs()
