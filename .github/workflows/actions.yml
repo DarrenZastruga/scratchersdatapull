@@ -33,11 +33,19 @@ jobs:
       - name: Show Python Path
         run: python -c "import sys; print('\n'.join(sys.path))"
 
+      - name: Install geckodriver
+        run: |
+          GECKO_VER=$(curl -sS "https://api.github.com/repos/mozilla/geckodriver/releases/latest" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" | python3 -c "import sys,json; print(json.load(sys.stdin)['tag_name'])")
+          curl -sL "https://github.com/mozilla/geckodriver/releases/download/${GECKO_VER}/geckodriver-${GECKO_VER}-linux64.tar.gz" | tar xz -C /usr/local/bin
+      
       - name: execute py script # run lotteryscrape.py
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          WDM_LOCAL: "1"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Fallback: raises limit from 60→5000/hr
         run: python lotteryscraped_optimized_condensed_dual.py
           
       - name: commit files
