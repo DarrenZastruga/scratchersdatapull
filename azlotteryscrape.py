@@ -493,7 +493,7 @@ def exportScratcherRecs():
 
     # save scratchers tables
     #scratchertables.to_sql('AZscratcherstables', engine, if_exists='replace')
-    scratchertables.to_csv("./azscratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./AZscratchertables.csv", encoding='utf-8')
 
     # create rankings table by merging the list with the tables
     scratchersall.loc[:, 'price'] = scratchersall.loc[:,
@@ -549,8 +549,9 @@ def exportScratcherRecs():
              
 
     #ratingstable.to_sql('AZratingstable', engine, if_exists='replace')
-    ratingstable.to_csv("./azratingstable.csv", encoding='utf-8')
+    ratingstable.to_csv("./AZratingstable.csv", encoding='utf-8')
     ratingstable['Stats Page'] = "/arizona-statistics-for-each-scratcher-game"
+    
     ratingstable = ratingstable[['price', 'gameName','gameNumber', 'topprize', 'topprizeremain','topprizeavail','extrachances', 'secondChance',
        'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds','Current Odds of Top Prize',
        'Change in Current Odds of Top Prize', 'Current Odds of Any Prize',
@@ -577,4 +578,4 @@ def exportScratcherRecs():
                              
     return ratingstable, scratchertables
 
-#exportScratcherRecs()    
+exportScratcherRecs()    

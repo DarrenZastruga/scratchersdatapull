@@ -286,7 +286,8 @@ def exportScratcherRecs():
         ratingstable.drop(labels=['gameName_x','dateexported_y','overallodds_y','topprizestarting_x','topprizeremain_x', 'prizeamount'], axis=1, inplace=True)
         ratingstable.rename(columns={'gameName_y':'gameName','dateexported_x':'dateexported','topprizeodds_x':'topprizeodds','overallodds_x':'overallodds','topprizestarting_y':'topprizestarting', 'topprizeremain_y':'topprizeremain'}, inplace=True)
         #add number of days since the game start date as of date exported
-        ratingstable.loc[:,'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported']) - pd.to_datetime(ratingstable['startDate'], errors = 'coerce')).dt.days
+        ratingstable.loc[:, 'Days Since Start'] = (pd.to_datetime(ratingstable['dateexported'])- pd.to_datetime(ratingstable['startDate'], format='mixed', errors='coerce')).dt.days
+
         
         #add rankings columns of all scratchers to ratings table
         ratingstable['Rank by Best Probability of Winning Any Prize'] = (ratingstable['Current Odds of Any Prize'].rank()+ratingstable['Probability of Winning Any Prize'].rank()+ratingstable['Odds of Any Prize + 3 StdDevs'].rank())/3
