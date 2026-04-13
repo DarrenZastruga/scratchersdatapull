@@ -195,6 +195,7 @@ def exportScratcherRecs():
     currentodds = pd.DataFrame()
     for gameid in gamesgrouped['gameNumber']:
         gamerow = gamesgrouped.loc[(gamesgrouped['gameNumber'] == gameid), :].copy()
+
         #cast all columns to Object to start to avoid dtype errors when converting to numeric later
         for col in gamerow.columns:
             gamerow[col] = gamerow[col].astype(object)
@@ -217,9 +218,9 @@ def exportScratcherRecs():
             
         # add various columns for the scratcher stats that go into the ratings table
         gamerow['topprizeremain'] = pd.to_numeric(gamerow['topprizeremain'], errors='coerce')
-        odds = gamerow.loc[:, 'Total remaining'] / gamerow.loc[:, 'topprizeremain']
-        odds = odds.replace([np.inf, -np.inf], np.nan)
 
+        odds = pd.to_numeric(gamerow.loc[:, 'Total remaining'], errors='coerce') / gamerow.loc[:, 'topprizeremain']
+        odds = odds.replace([np.inf, -np.inf], np.nan)
         gamerow.loc[:, 'Current Odds of Top Prize'] = odds
         gamerow.loc[:, 'Change in Current Odds of Top Prize'] = (gamerow.loc[:, 'Current Odds of Top Prize'] - float(
             gamerow['topprizeodds'].values[0])) / float(gamerow['topprizeodds'].values[0])

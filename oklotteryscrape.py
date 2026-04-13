@@ -16,7 +16,6 @@ Created on Fri Oct 28 23:20:03 2022
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -37,8 +36,6 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
-from psycopg2.extensions import register_adapter, AsIs
-psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
 import gspread
 from gspread_dataframe import set_with_dataframe
 from google.oauth2.service_account import Credentials
@@ -275,8 +272,11 @@ def exportScratcherRecs():
         gamerow.loc[:,'Percent of Profit Prizes Remaining'] = (totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed']/totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start']).mean()
         chngLosingTix = (gamerow.loc[:,'Non-prize remaining']-gamerow.loc[:,'Non-prize at start'])/gamerow.loc[:,'Non-prize at start']
         chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
+        if chngAvailPrizes == 0 or pd.isnull(chngAvailPrizes).item():
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
+        else:
+            gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix / chngAvailPrizes
 
-        gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if pd.isnull(chngLosingTix/chngAvailPrizes).item() == True else chngLosingTix/chngAvailPrizes
         gamerow.loc[:,'Photo'] = tixlist.loc[tixlist['gameNumber']==gameid,'gamePhoto'].values[0]
         gamerow.loc[:,'FAQ'] = None
         gamerow.loc[:,'About'] = None
