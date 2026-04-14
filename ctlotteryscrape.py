@@ -430,7 +430,7 @@ def exportScratcherRecs():
         ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
         print("✅ Success! Files saved for CT.")
-        return scratchersall, scratchertables
+        return ratingstable, scratchertables
 
     finally:
         driver.quit()
