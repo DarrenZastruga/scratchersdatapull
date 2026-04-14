@@ -89,9 +89,23 @@ def exportFLScratcherRecs():
                 detail_soup = BeautifulSoup(driver.page_source, 'html.parser')
                 page_text = detail_soup.get_text(" ", strip=True)
 
-                # --- PHOTO ---
-                img_tag = detail_soup.find('img', class_=re.compile(r'scratch', re.I))
-                game_photo = urljoin(base_url, img_tag['src']) if img_tag else ""
+                # --- FIXED PHOTO EXTRACTION ---
+                # 1. Target the specific image container or class for the ticket art
+                # Florida uses classes like 'scratch-off-ticket' or 'game-detail-img'
+                img_tag = detail_soup.find('img', class_=re.compile(r'scratch|ticket|game-img', re.I))
+                
+                game_photo = ""
+                if img_tag:
+                    # Check 'data-src' first (for lazy-loaded images) then fall back to 'src'
+                    raw_photo_url = img_tag.get('data-src') or img_tag.get('src')
+                    if raw_photo_url:
+                        game_photo = urljoin(base_url, raw_photo_url)
+                
+                # 2. Fallback: If no specific class is found, look for any image with 'game' in the filename
+                if not game_photo:
+                    fallback_img = detail_soup.find('img', src=re.compile(r'game|ticket', re.I))
+                    if fallback_img:
+                        game_photo = urljoin(base_url, fallback_img.get('src'))
 
                 # --- PRICE & ODDS ---
                 overall_odds = 0
@@ -212,10 +226,12 @@ def exportFLScratcherRecs():
                 tixtotal = int(gamerow.loc[:, 'Total remaining'].values[0])
                 totalremain = scratchertables.loc[(scratchertables['gameNumber'] == gameid), [
                     'gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']]
+                totalremain = totalremain.astype(object)
                 totalremain.loc[:, ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
                     'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
                 price = int(gamerow['price'].values[0])
-        
+                print(price)
+                print(startingtotal)
                 prizes = totalremain.loc[:, 'prizeamount']
         
                 #convert 'Winning Tickets Unclaimed' as numberic to avoid divide by zero warnings
@@ -405,7 +421,7 @@ def exportFLScratcherRecs():
             ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
             print("✅ Success! Files saved for FL.")
-            return scratchersall, scratchertables
+            return ratingstable, scratchertables
 
     finally:
         driver.quit()

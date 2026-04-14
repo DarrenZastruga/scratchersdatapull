@@ -335,9 +335,9 @@ def exportScratcherRecs():
            'Data Date','Stats Page']]
         ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
         ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
-
+   
         print("✅ Success! Files saved for CO.")
-        return scratchersall, scratchertables
+        return ratingstable, scratchertables
 
 if __name__ == "__main__":
     exportScratcherRecs()

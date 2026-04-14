@@ -347,6 +347,7 @@ def exportScratcherRecs():
     scratchertables.to_csv("./MDscratchertables.csv", encoding='utf-8')
 
     # create rankings table by merging the list with the tables
+    scratchersall = scratchersall.astype(object)
     scratchersall.loc[:, 'price'] = scratchersall.loc[:,
                                                       'price'].apply(pd.to_numeric)
     ratingstable = scratchersall.merge(
