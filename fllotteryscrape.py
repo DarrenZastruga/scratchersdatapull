@@ -289,6 +289,7 @@ def exportFLScratcherRecs():
         
                 # calculate expected value
                 # Clean prizeamount before numeric conversion
+                totalremain = totalremain.astype(object) 
                 totalremain['prizeamount'] = totalremain['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True)
                 totalremain.loc[:, ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
                     'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric, errors='coerce')

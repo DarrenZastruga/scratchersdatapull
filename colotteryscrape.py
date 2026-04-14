@@ -51,8 +51,8 @@ def exportScratcherRecs():
             detail_url = urljoin(base_url, link_tag['href'])
             
             # --- SCRAPE MISSING COLUMNS FROM MASTER LIST ---
-            price = float(cells[1].get_text(strip=True).replace('$', ''))
-            game_num = cells[2].get_text(strip=True)
+            game_num = cells[1].get_text(strip=True)
+            price = float(cells[2].get_text(strip=True).replace('$', ''))
             start_date = cells[3].get_text(strip=True)
             last_date = cells[4].get_text(strip=True)
             odds_str = cells[8].get_text(strip=True).split(' in ')[-1]
@@ -249,19 +249,21 @@ def exportScratcherRecs():
             totalremain.loc[:,'Total remaining'] = tixtotal
             totalremain.loc[:,'Prize Probability'] = totalremain.loc[:,'Winning Tickets Unclaimed']/totalremain.loc[:,'Total remaining']
             totalremain.loc[:,'Percent Tix Remaining'] = totalremain.loc[:,'Winning Tickets Unclaimed']/totalremain.loc[:,'Winning Tickets At Start']
-            nonprizetix.loc[:,'Prize Probability'] = nonprizetix.apply(lambda row: (row['Winning Tickets Unclaimed']/tixtotal) if (row['gameNumber']==gameid) & (row['Winning Tickets Unclaimed']>0) else 0,axis=1)
-            nonprizetix.loc[:,'Percent Tix Remaining'] =  nonprizetix.loc[nonprizetix['gameNumber']==gameid,'Winning Tickets Unclaimed']/nonprizetix.loc[nonprizetix['gameNumber']==gameid,'Winning Tickets At Start']
-            nonprizetix.loc[:,'Starting Expected Value'] = (nonprizetix['prizeamount']-price)*(nonprizetix['Winning Tickets At Start']/startingtotal)
-            nonprizetix.loc[:,'Expected Value'] =  (nonprizetix['prizeamount']-price)*(nonprizetix['Winning Tickets Unclaimed']/tixtotal)
-            totals.loc[:,'Prize Probability'] = totals.loc[totals['gameNumber']==gameid,'Winning Tickets Unclaimed']/tixtotal
-            totals.loc[:,'Percent Tix Remaining'] =  totals.loc[totals['gameNumber']==gameid,'Winning Tickets Unclaimed']/totals.loc[totals['gameNumber']==gameid,'Winning Tickets At Start']
-            totals.loc[:,'Starting Expected Value'] = ''
-            totals.loc[:,'Expected Value'] = ''
-            totalremain = totalremain[['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','Prize Probability','Percent Tix Remaining','Starting Expected Value','Expected Value','dateexported']]
-            totalremain = pd.concat([totalremain, nonprizetix.loc[nonprizetix['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                             'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
-            totalremain = pd.concat([totalremain, totals.loc[totals['gameNumber'] == gameid, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
-                                             'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+            game_nonprize = nonprizetix.loc[nonprizetix['gameNumber']==gameid].copy()
+            game_nonprize.loc[:,'Prize Probability'] = game_nonprize['Winning Tickets Unclaimed']/tixtotal if tixtotal > 0 else 0
+            game_nonprize.loc[:,'Percent Tix Remaining'] = game_nonprize['Winning Tickets Unclaimed']/game_nonprize['Winning Tickets At Start']
+            game_nonprize.loc[:,'Starting Expected Value'] = (game_nonprize['prizeamount']-price)*(game_nonprize['Winning Tickets At Start']/startingtotal)
+            game_nonprize.loc[:,'Expected Value'] = (game_nonprize['prizeamount']-price)*(game_nonprize['Winning Tickets Unclaimed']/tixtotal)
+            
+            game_totals = totals.loc[totals['gameNumber']==gameid].copy()
+            game_totals.loc[:,'Prize Probability'] = game_totals['Winning Tickets Unclaimed']/tixtotal if tixtotal > 0 else 0
+            game_totals.loc[:,'Percent Tix Remaining'] = game_totals['Winning Tickets Unclaimed']/game_totals['Winning Tickets At Start']
+            game_totals.loc[:,'Starting Expected Value'] = ''
+            game_totals.loc[:,'Expected Value'] = ''
+            totalremain = pd.concat([totalremain, game_nonprize[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                     'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
+            totalremain = pd.concat([totalremain, game_totals[['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
+                                     'Winning Tickets Unclaimed', 'Prize Probability', 'Percent Tix Remaining', 'Starting Expected Value', 'Expected Value', 'dateexported']]], axis=0, ignore_index=True)
 
             
             #add expected values for final totals row

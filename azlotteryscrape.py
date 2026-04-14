@@ -14,6 +14,7 @@ import re
 import time
 import random
 from curl_cffi import requests
+from urllib.parse import urljoin, urlparse, parse_qs
 
 # Constants
 MAIN_URL = "https://www.arizonalottery.com/scratchers/"
@@ -75,6 +76,9 @@ def exportScratcherRecs():
     for game_id in game_ids:
         api_url = f"{API_BASE_URL}/{game_id}"
         
+        # We use the name to build the URL slug
+        
+        
         try:
             api_r = requests.get(api_url, headers=HEADERS)
             
@@ -94,6 +98,9 @@ def exportScratcherRecs():
             # --- Extract Header Info ---
             gameNumber = str(game_data.get('gameNum', game_id))
             gameName = game_data.get('gameName', 'Unknown')
+            
+
+            
             try:
                 gamePrice = float(game_data.get('ticketValue', 0))
             except:
@@ -117,48 +124,43 @@ def exportScratcherRecs():
 
             print(f"  > Processing: {gameName} (#{gameNumber})")
 
-            # --- 3. FETCH GAME PHOTO ---
+            # --- 3. FIXED: FETCH GAME PHOTO ---
             gamePhoto = None
             
-            # Try API first
-            if 'image' in game_data and game_data['image']:
-                gamePhoto = f"https://www.arizonalottery.com/media/{game_data['image']}"
-            elif 'ticketImage' in game_data and game_data['ticketImage']:
+            # Try API first with corrected paths
+            if game_data.get('image'):
+                # API usually provides a relative path like "scratchers/1234.png"
+                img_path = game_data['image'].lstrip('/')
+                gamePhoto = f"https://www.arizonalottery.com/media/{img_path}"
+            elif game_data.get('ticketImage'):
                 gamePhoto = game_data['ticketImage']
 
-            # HTML Scraping Fallback (Only if API failed)
+            # HTML Scraping Fallback (Enhanced for Lazy-Loading)
             if not gamePhoto:
                 try:
                     page_r = requests.get(gameURL, headers=HEADERS, timeout=10)
                     if page_r.status_code == 200:
                         page_soup = BeautifulSoup(page_r.text, 'html.parser')
                         
-                        # Strategy A: Open Graph Image (Most reliable)
+                        # Strategy A: Open Graph (Meta tags are static and reliable)
                         og_img = page_soup.find('meta', property='og:image')
                         if og_img and og_img.get('content'):
                             gamePhoto = og_img['content']
                         
-                        # Strategy B: Image with Game Number in src
+                        # Strategy B: Support for Lazy-Loading (data-src)
                         if not gamePhoto:
-                            img_tag = page_soup.select_one(f"img[src*='{gameNumber}']")
-                            if img_tag and img_tag.has_attr('src'):
-                                src = img_tag['src'].split('?')[0]
-                                if src.startswith('http'):
-                                    gamePhoto = src
-                                else:
-                                    gamePhoto = f"https://www.arizonalottery.com{src}"
-                        
-                        # Strategy C: Specific Class
-                        if not gamePhoto:
-                            img_tag = page_soup.select_one(".scratchers-detail-image img")
-                            if img_tag and img_tag.has_attr('src'):
-                                src = img_tag['src'].split('?')[0]
-                                if src.startswith('http'):
-                                    gamePhoto = src
-                                else:
-                                    gamePhoto = f"https://www.arizonalottery.com{src}"
+                            # Look for common AZ ticket image classes or IDs
+                            img_tag = page_soup.select_one(".scratchers-detail-image img, img[src*='ticket'], img[data-src*='scratchers']")
+                            if img_tag:
+                                # CHECK data-src FIRST (Lazy Load), then src
+                                src = img_tag.get('data-src') or img_tag.get('src')
+                                if src:
+                                    src = src.split('?')[0]
+                                    gamePhoto = urljoin("https://www.arizonalottery.com", src)
+                
                 except Exception as e:
-                    pass # Ignore photo errors
+                    print(f"      ! Photo Fallback Failed: {e}")
+            print(gamePhoto)
             # --- Extract Prize Tiers ---
             prize_tiers = game_data.get('prizeTiers', [])
             
