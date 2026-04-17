@@ -364,7 +364,7 @@ def exportScratcherRecs():
             chngAvailPrizes = (tixtotal-startingtotal)/startingtotal if startingtotal != 0 else 0
             gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0 if chngAvailPrizes == 0 else chngLosingTix/chngAvailPrizes
                     
-            gamerow.loc[:,'Photo'] = scratchersall_list.loc[scratchersall_list['gameNumber']==gameid,'gamePhoto'].values[0]
+            gamerow.loc[:,'Photo'] = scratchersall.loc[scratchersall['gameNumber']==gameid,'gamePhoto'].values[0]
             gamerow.loc[:,'FAQ'] = None
             gamerow.loc[:,'About'] = None
             gamerow.loc[:,'Directory'] = None

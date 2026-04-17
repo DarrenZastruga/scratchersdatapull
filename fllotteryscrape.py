@@ -171,6 +171,8 @@ def exportFLScratcherRecs():
             scratchertables.to_csv("./FLscratchertables.csv", encoding='utf-8')
             scratchertables = scratchertables.loc[scratchertables['gameNumber']
                                                   != "Coming Soon!", :]
+            scratchertables['gameNumber'] = scratchertables['gameNumber'].astype(str)
+            scratchersall['gameNumber'] = scratchersall['gameNumber'].astype(str)
             scratchertables = scratchertables.astype(
                 {'prizeamount': 'int32', 'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
             # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
