@@ -293,9 +293,25 @@ def exportFLScratcherRecs():
                 # Clean prizeamount before numeric conversion
                 totalremain = totalremain.astype(object) 
                 totalremain['prizeamount'] = totalremain['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True)
-                totalremain.loc[:, ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
-                    'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric, errors='coerce')
-        
+                #totalremain.loc[:, ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
+                   # 'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric, errors='coerce')
+                # --- FIX: pandas 2.1+ refuses to coerce int64 values into a StringDtype column.
+                # Cast source values to string and assign by position (.values) so it works
+                # regardless of the destination column dtype.
+                _dst_cols = ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']
+                _src_cols = ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']
+                
+                # Ensure destination columns are string-typed (avoids future dtype drift)
+                for _c in _dst_cols:
+                    if _c in totalremain.columns:
+                        totalremain[_c] = totalremain[_c].astype('string')
+                
+                # Cast source values to string and assign positionally
+                totalremain.loc[:, _dst_cols] = (
+                    totalremain.loc[:, _src_cols]
+                      .astype('string')
+                      .to_numpy()
+                )
                 totalremain.loc[:, 'Starting Expected Value'] = totalremain.apply(lambda row: (
                     row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal), axis=1)
         

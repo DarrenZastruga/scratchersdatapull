@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Sat Apr 18 15:57:30 2026
+
+@author: michaeljames
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Mon Apr  6 15:15:48 2026
 
 @author: michaeljames
@@ -21,6 +29,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.firefox import GeckoDriverManager
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse, parse_qs
 
 def exportScratcherRecs():
     print("Initializing CT Scraper...")
@@ -109,36 +118,29 @@ def exportScratcherRecs():
             second_chance_text = "Download the official CT Lottery 2nd Chance App"
             is_second_chance = "Yes" if second_chance_text in page_text else "No"
             
-           # --- ROBUST PHOTO EXTRACTION ---
+           # --- FIXED CT PHOTO EXTRACTION ---
             game_photo = ""
             
-            # Method 1: Search for the specific 'game-detail' image container
-            photo_container = detail_soup.find('div', class_='game-details-image')
-            if photo_container and photo_container.find('img'):
-                game_photo = photo_container.find('img').get('src', '')
+            # 1. Target the specific ID selector you identified
+            img_tag = detail_soup.find('img', id='rollover_image')
             
-            # Method 2: Fallback to searching for any image with the game number in the filename
+            if img_tag:
+                # Get the relative path from the 'src' attribute
+                raw_url = img_tag.get('src')
+                if raw_url:
+                    # Clean any trailing spaces or query strings
+                    raw_url = raw_url.strip().split('?')[0]
+                    # Convert to an absolute URL
+                    game_photo = urljoin("https://www.ctlottery.org", raw_url)
+            
+            # 2. Fallback: Search by Game Number if ID is missing or empty
             if not game_photo:
-                # Scans all images for a filename that matches the current game number
-                img_pattern = re.compile(rf".*{gameNumber}.*", re.IGNORECASE)
-                pattern_match = detail_soup.find('img', src=img_pattern)
+                pattern_match = detail_soup.find('img', src=re.compile(rf'{gameNumber}', re.I))
                 if pattern_match:
-                    game_photo = pattern_match.get('src', '')
+                    game_photo = urljoin("https://www.ctlottery.org", pattern_match.get('src'))
 
-            # Method 3: Final fallback to 'img-responsive'
-            if not game_photo:
-                img_tag = detail_soup.find('img', class_='img-responsive')
-                if img_tag:
-                    game_photo = img_tag.get('src', '')
-
-            # --- CONVERT TO ABSOLUTE URL ---
-            if game_photo:
-                # Ensure the URL is absolute by prepending the base domain
-                if game_photo.startswith('/'):
-                    game_photo = f"https://ctlottery.org{game_photo}"
-                elif not game_photo.startswith('http'):
-                    game_photo = f"https://ctlottery.org/{game_photo}"
-                
+            print(f"  > Final Photo URL for #{gameNumber}: {game_photo}")
+            
             overall_odds = 0
             odds_match = re.search(r'Overall Odds\s*:?\s*(?:1\s*[:in]\s*)?([\d\.]+)', page_text, re.IGNORECASE)
             if odds_match: overall_odds = float(odds_match.group(1))
@@ -425,7 +427,7 @@ def exportScratcherRecs():
            'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
            'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
            'Photo','FAQ', 'About', 'Directory', 
-           'Data Date','Stats Page']]
+           'Data Date','Stats Page','gameURL']]
         ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
         ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 

@@ -71,6 +71,28 @@ def exportScratcherRecs():
             # Colorado usually identifies the primary ticket with 'img-responsive'
             img_tag = dsoup.find('img', class_='img-responsive')
             game_photo = urljoin(base_url, img_tag['src']) if img_tag else ""
+            # --- FIXED CO PHOTO EXTRACTION ---
+            # 1. Target the specific selector path you identified
+            img_tag = dsoup.select_one('#uncovered > img')
+            
+            game_photo = ""
+            if img_tag:
+                raw_url = img_tag.get('src')
+                if raw_url:
+                    game_photo = urljoin(base_url, raw_url)
+            
+            # 2. Fallback: If #uncovered is missing, look for alt text "Front - Uncovered"
+            if not game_photo:
+                fallback_img = dsoup.find('img', alt=re.compile(r'Front\s*-\s*Uncovered', re.I))
+                if fallback_img:
+                    game_photo = urljoin(base_url, fallback_img.get('src'))
+            
+            # 3. Last Resort: Use the old .img-responsive logic
+            if not game_photo:
+                old_tag = dsoup.find('img', class_='img-responsive')
+                if old_tag:
+                    game_photo = urljoin(base_url, old_tag.get('src'))
+            
             
             prize_tag = dsoup.find('table', class_='respond')
             if prize_tag:
@@ -115,6 +137,7 @@ def exportScratcherRecs():
                     'gameURL': detail_url,
                     'gamePhoto': game_photo
                 })
+                
 
             del dsoup
             gc.collect()
@@ -334,7 +357,7 @@ def exportScratcherRecs():
            'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
            'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
            'Photo','FAQ', 'About', 'Directory', 
-           'Data Date','Stats Page']]
+           'Data Date','Stats Page','gameURL']]
         ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
         ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
    

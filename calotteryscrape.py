@@ -8,7 +8,6 @@ Created on Fri Oct 28 23:20:03 2022
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -29,14 +28,6 @@ import html5lib
 import random
 from itertools import repeat
 from scipy import stats
-from psycopg2.extensions import register_adapter, AsIs
-psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs)
-import gspread
-from gspread_dataframe import set_with_dataframe
-from google.oauth2.service_account import Credentials
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-import df2gspread as d2g
 import http.client
 
 #logging.basicConfig()
@@ -53,40 +44,6 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
-'''
-scopes = ['https://www.googleapis.com/auth/spreadsheets',
-          'https://www.googleapis.com/auth/drive']
-try:
-    service_account_info = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
-except KeyError:
-    service_account_info = "Google application service account info not available"
-    #logger.info("Google application service account info not available!")
-    #raise
-
-#service_account_info = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
-credentials = Credentials.from_service_account_info(
-    service_account_info, scopes=scopes)
-
-#credentials = Credentials.from_service_account_file('./scratcherstats_googleacct_credentials.json', scopes=scopes)
- 
-gc = gspread.authorize(credentials)
-
-gauth = GoogleAuth()
-drive = GoogleDrive(gauth)
-
-# open a google sheet
-gs = gc.open_by_key('1vAgFDVBit4C6H2HUnOd90imbtkCjOl1ekKychN2uc4o')
-'''
-
-'''    
-DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
-print(DATABASE_URL)
-
-#replace 'postgres' with 'postgresql' in the database URL since SQLAlchemy stopped supporting 'postgres' 
-SQLALCHEMY_DATABASE_URI = DATABASE_URL.replace('postgres://', 'postgresql://')
-conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
-engine = create_engine(SQLALCHEMY_DATABASE_URI)
-'''
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 logger.info(f'Running lotteryscrape.py at: {now}')
 print(now)
@@ -126,7 +83,7 @@ def exportScratcherRecs():
     for game in response['games']:
         gameName = game['name']
         gameNumber = game['gameNumber']
-        gameURL = game['productPage']
+        gameURL = "https://www.calottery.com/en"+game['productPage']
         gamePrice = game['price']
         topprize = game['topPrizeTier']['value']
         topprizeremain = game['topPrizeTier']['numberOfPrizesPending']
@@ -363,4 +320,4 @@ def exportScratcherRecs():
 
     return ratingstable, scratchertables
 
-#exportScratcherRecs()
+exportScratcherRecs()

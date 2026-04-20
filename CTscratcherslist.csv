@@ -1,69 +1,70 @@
 ,price,gameName,gameNumber,topprize,overallodds,topprizestarting,topprizeremain,topprizeavail,extrachances,secondChance,startDate,endDate,lastdatetoclaim,dateexported,gameURL,gamePhoto
-0,3.0,Twisted Treasure,1881,30000.0,1.0,4.0,3.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1881/,https://ctlottery.org/Content/images/Scratch/1881.jpg
-1,10.0,$500 Loaded!,1873,500.0,1.0,11326.0,11064.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1873/,https://ctlottery.org/Content/images/Scratch/1873.jpg
-2,5.0,$250 Loaded!,1872,250.0,1.0,14381.0,14097.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1872/,https://ctlottery.org/Content/images/Scratch/1872.jpg
-3,2.0,$100 Loaded!,1871,100.0,1.0,9621.0,9466.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1871/,https://ctlottery.org/Content/images/Scratch/1871.jpg
-4,1.0,$50 Loaded!,1870,50.0,1.0,12732.0,12499.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1870/,https://ctlottery.org/Content/images/Scratch/1870.jpg
-5,5.0,Lady Luck,1869,50000.0,1.0,4.0,4.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1869/,https://ctlottery.org/Content/images/Scratch/1869.jpg
-6,2.0,Green & Gold,1867,10000.0,1.0,6.0,5.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1867/,https://ctlottery.org/Content/images/Scratch/1867.jpg
-7,10.0,100X the cash,1866,200000.0,1.0,4.0,3.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1866/,https://ctlottery.org/Content/images/Scratch/1866.jpg
-8,5.0,50X the cash,1865,100000.0,1.0,4.0,3.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1865/,https://ctlottery.org/Content/images/Scratch/1865.jpg
-9,2.0,20X the cash,1864,25000.0,1.0,4.0,3.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1864/,https://ctlottery.org/Content/images/Scratch/1864.jpg
-10,1.0,10X the cash,1863,2000.0,1.0,10.0,4.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1863/,https://ctlottery.org/Content/images/Scratch/1863.jpg
-11,5.0,UCONN®,1862,50000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1862/,https://ctlottery.org/Content/images/Scratch/1862.jpg
-12,3.0,LOTERIA™,1861,30000.0,1.0,3.0,2.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1861/,https://ctlottery.org/Content/images/Scratch/1861.jpg
-13,2.0,777,1859,17777.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1859/,https://ctlottery.org/Content/images/Scratch/1859.jpg
-14,20.0,"$100, $200 or $500",1858,500.0,1.0,7505.0,4552.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1858/,https://ctlottery.org/Content/images/Scratch/1858.jpg
-15,10.0,Pinball Wizard 2nd Edition,1857,100000.0,1.0,4.0,3.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1857/,https://ctlottery.org/Content/images/Scratch/1857.jpg
-16,20.0,200X 4th Edition,1856,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1856/,https://ctlottery.org/Content/images/Scratch/1856.jpg
-17,5.0,Full of $250s,1854,250.0,1.0,10197.0,1722.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1854/,https://ctlottery.org/Content/images/Scratch/1854.jpg
-18,10.0,Triple Red 777s,1852,100000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1852/,https://ctlottery.org/Content/images/Scratch/1852.jpg
-19,10.0,100X 2nd Edition,1851,200000.0,1.0,4.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1851/,https://ctlottery.org/Content/images/Scratch/1851.jpg
-20,50.0,Best Chance To Be A Millionaire,1850,1000000.0,1.0,5.0,4.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1850/,https://ctlottery.org/Content/images/Scratch/1850.jpg
-21,5.0,Emerald 8s Extra Play,1849,50000.0,1.0,4.0,2.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1849/,https://ctlottery.org/Content/images/Scratch/1849.jpg
-22,10.0,Holiday Cash 100X,1848,100000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1848/,https://ctlottery.org/Content/images/Scratch/1848.jpg
-23,5.0,Holiday Cash 50X,1847,50000.0,1.0,4.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1847/,https://ctlottery.org/Content/images/Scratch/1847.jpg
-24,2.0,Holiday Cash 20X,1846,10000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1846/,https://ctlottery.org/Content/images/Scratch/1846.jpg
-25,1.0,Holiday Cash 10X,1845,5000.0,1.0,4.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1845/,https://ctlottery.org/Content/images/Scratch/1845.jpg
-26,10.0,$10 Million Cash Blowout,1844,500.0,1.0,1922.0,36.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1844/,https://ctlottery.org/Content/images/Scratch/1844.jpg
-27,10.0,Jumbo Bucks,1843,100000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1843/,https://ctlottery.org/Content/images/Scratch/1843.jpg
-28,1.0,7-11-21 Tripler,1842,2100.0,1.0,4.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1842/,https://ctlottery.org/Content/images/Scratch/1842.jpg
-29,3.0,Money Box Bingo,1841,30000.0,1.0,3.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1841/,https://ctlottery.org/Content/images/Scratch/1841.jpg
-30,5.0,Mega Bucks,1840,50000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1840/,https://ctlottery.org/Content/images/Scratch/1840.jpg
-31,2.0,Big Bucks,1838,20000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1838/,https://ctlottery.org/Content/images/Scratch/1838.jpg
-32,10.0,Hit $500,1834,500.0,1.0,6140.0,67.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1834/,https://ctlottery.org/Content/images/Scratch/1834.jpg
-33,5.0,Hit $250,1833,250.0,1.0,7466.0,121.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1833/,https://ctlottery.org/Content/images/Scratch/1833.jpg
-34,2.0,Hit $100,1832,100.0,1.0,5487.0,164.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1832/,https://ctlottery.org/Content/images/Scratch/1832.jpg
-35,1.0,Hit $50,1831,50.0,1.0,8282.0,305.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1831/,https://ctlottery.org/Content/images/Scratch/1831.jpg
-36,5.0,"$50,000 Cashword 2nd Edition",1830,50000.0,1.0,20.0,15.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1830/,https://ctlottery.org/Content/images/Scratch/1830.jpg
-37,1.0,2026,1826,2026.0,1.0,4.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1826/,https://ctlottery.org/Content/images/Scratch/1826.jpg
-38,30.0,WIN BIG,1816,3000000.0,1.0,3.0,2.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1816/,https://ctlottery.org/Content/images/Scratch/1816.jpg
-39,5.0,5X The Money 19th Edition,1812,50000.0,1.0,7.0,4.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1812/,https://ctlottery.org/Content/images/Scratch/1812.jpg
-40,10.0,10X CASH 18TH EDITION,1805,10000.0,1.0,225.0,160.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1805/,https://ctlottery.org/Content/images/Scratch/1805.jpg
-41,20.0,"$1,000,000 Gold",1804,1000000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1804/,https://ctlottery.org/Content/images/Scratch/1804.jpg
-42,30.0,"$500,000 CASHWORD 2nd EDITION",1800,500000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1800/,https://ctlottery.org/Content/images/Scratch/1800.jpg
-43,10.0,"$100,000 CA$HWORD",1797,100000.0,1.0,21.0,3.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1797/,https://ctlottery.org/Content/images/Scratch/1797.jpg
-44,20.0,"$2,000,000 Jackpot",1796,2000000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1796/,https://ctlottery.org/Content/images/Scratch/1796.jpg
-45,2.0,Pharaoh's Gold,1794,10000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1794/,https://ctlottery.org/Content/images/Scratch/1794.jpg
-46,50.0,"$4,000,000 Fortune",1790,4000000.0,1.0,3.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1790/,https://ctlottery.org/Content/images/Scratch/1790.jpg
-47,5.0,Money Bags,1788,50000.0,1.0,4.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1788/,https://ctlottery.org/Content/images/Scratch/1788.jpg
-48,3.0,"$30,000 Cashword",1787,30000.0,1.0,21.0,4.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1787/,https://ctlottery.org/Content/images/Scratch/1787.jpg
-49,20.0,"$250,000 CA$HWORD",1780,250000.0,1.0,4.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1780/,https://ctlottery.org/Content/images/Scratch/1780.jpg
-50,20.0,Cash Royale,1779,200000.0,1.0,4.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1779/,https://ctlottery.org/Content/images/Scratch/1779.jpg
-51,30.0,Millionaire Maker,1774,1000000.0,1.0,3.0,2.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1774/,https://ctlottery.org/Content/images/Scratch/1774.jpg
-52,3.0,Pay Raise,1770,25000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1770/,https://ctlottery.org/Content/images/Scratch/1770.jpg
-53,3.0,3X The Cash 12th Edition,1768,30000.0,1.0,10.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1768/,https://ctlottery.org/Content/images/Scratch/1768.jpg
-54,5.0,5X The Money 18th Edition,1767,50000.0,1.0,8.0,2.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1767/,https://ctlottery.org/Content/images/Scratch/1767.jpg
-55,5.0,"$50,000 Cashword",1765,50000.0,1.0,20.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1765/,https://ctlottery.org/Content/images/Scratch/1765.jpg
-56,5.0,Blackjack Tripler,1763,50000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1763/,https://ctlottery.org/Content/images/Scratch/1763.jpg
-57,20.0,"$2,000,000 MEGA MULTIPLIER",1739,2000000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1739/,https://ctlottery.org/Content/images/Scratch/1739.jpg
-58,10.0,10X™ Cash 17th Edition,1738,10000.0,1.0,225.0,3.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1738/,https://ctlottery.org/Content/images/Scratch/1738.jpg
-59,2.0,Bonus Bingo Multiplier,1734,10000.0,1.0,6.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1734/,https://ctlottery.org/Content/images/Scratch/1734.jpg
-60,2.0,Cash Doubler,1730,10000.0,1.0,4.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1730/,https://ctlottery.org/Content/images/Scratch/1730.jpg
-61,2.0,"$20,000 A YEAR FOR LIFE 2ND ED.",1725,20000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1725/,https://ctlottery.org/Content/images/Scratch/1725.jpg
-62,20.0,20X Cash 9th Edition,1718,20000.0,1.0,147.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1718/,https://ctlottery.org/Content/images/Scratch/1718.jpg
-63,2.0,Mega Money 28th Edition,1717,20000.0,1.0,4.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1717/,https://ctlottery.org/Content/images/Scratch/1717.jpg
-64,1.0,Aces High,1715,1000.0,1.0,20.0,0.0,Top Prize Claimed,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1715/,https://ctlottery.org/Content/images/Scratch/1715.jpg
-65,30.0,"$1,000,000 Titanium",1711,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1711/,https://ctlottery.org/Content/images/Scratch/1711.jpg
-66,30.0,"$1,000,000 Extreme Cash",1699,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1699/,https://ctlottery.org/Content/images/Scratch/1699.jpg
-67,30.0,DIAMONDS & GOLD,1677,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-09,https://www.ctlottery.org/ScratchGames/1677/,https://ctlottery.org/Content/images/Scratch/1677.jpg
+0,3.0,Twisted Treasure,1881,30000.0,1.0,4.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1881/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1881.jpg
+1,10.0,$500 Loaded!,1873,500.0,1.0,11326.0,10315.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1873/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1873.jpg
+2,5.0,$250 Loaded!,1872,250.0,1.0,14381.0,13375.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1872/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1872.jpg
+3,2.0,$100 Loaded!,1871,100.0,1.0,9621.0,8974.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1871/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1871.jpg
+4,1.0,$50 Loaded!,1870,50.0,1.0,12732.0,11770.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1870/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1870.jpg
+5,5.0,Lady Luck,1869,50000.0,1.0,4.0,4.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1869/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1869.jpg
+6,2.0,Green & Gold,1867,10000.0,1.0,6.0,4.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1867/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1867.jpg
+7,10.0,100X the cash,1866,200000.0,1.0,4.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1866/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1866.jpg
+8,5.0,50X the cash,1865,100000.0,1.0,4.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1865/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1865.jpg
+9,2.0,20X the cash,1864,25000.0,1.0,4.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1864/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1864.jpg
+10,1.0,10X the cash,1863,2000.0,1.0,10.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1863/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1863.jpg
+11,5.0,UCONN®,1862,50000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1862/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1862.jpg
+12,3.0,LOTERIA™,1861,30000.0,1.0,3.0,2.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1861/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1861.jpg
+13,30.0,Fabulous Fortune,1860,2000000.0,1.0,3.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1860/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1860.jpg
+14,2.0,777,1859,17777.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1859/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1859.jpg
+15,20.0,"$100, $200 or $500",1858,500.0,1.0,7505.0,4241.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1858/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1858.jpg
+16,10.0,Pinball Wizard 2nd Edition,1857,100000.0,1.0,4.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1857/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1857.jpg
+17,20.0,200X 4th Edition,1856,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1856/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1856.jpg
+18,5.0,Full of $250s,1854,250.0,1.0,10197.0,1423.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1854/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1854.jpg
+19,10.0,Triple Red 777s,1852,100000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1852/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1852.jpg
+20,10.0,100X 2nd Edition,1851,200000.0,1.0,4.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1851/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1851.jpg
+21,50.0,Best Chance To Be A Millionaire,1850,1000000.0,1.0,5.0,4.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1850/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1850.jpg
+22,5.0,Emerald 8s Extra Play,1849,50000.0,1.0,4.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1849/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1849.jpg
+23,10.0,Holiday Cash 100X,1848,100000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1848/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1848.jpg
+24,5.0,Holiday Cash 50X,1847,50000.0,1.0,4.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1847/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1847.jpg
+25,2.0,Holiday Cash 20X,1846,10000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1846/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1846.jpg
+26,1.0,Holiday Cash 10X,1845,5000.0,1.0,4.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1845/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1845.jpg
+27,10.0,$10 Million Cash Blowout,1844,500.0,1.0,1922.0,26.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1844/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1844.jpg
+28,10.0,Jumbo Bucks,1843,100000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1843/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1843.jpg
+29,1.0,7-11-21 Tripler,1842,2100.0,1.0,4.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1842/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1842.jpg
+30,3.0,Money Box Bingo,1841,30000.0,1.0,3.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1841/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1841.jpg
+31,5.0,Mega Bucks,1840,50000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1840/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1840.jpg
+32,2.0,Big Bucks,1838,20000.0,1.0,3.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1838/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1838.jpg
+33,10.0,Hit $500,1834,500.0,1.0,6140.0,67.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1834/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1834.jpg
+34,5.0,Hit $250,1833,250.0,1.0,7466.0,120.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1833/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1833.jpg
+35,2.0,Hit $100,1832,100.0,1.0,5487.0,160.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1832/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1832.jpg
+36,1.0,Hit $50,1831,50.0,1.0,8282.0,302.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1831/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1831.jpg
+37,5.0,"$50,000 Cashword 2nd Edition",1830,50000.0,1.0,20.0,15.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1830/,https://www.ctlottery.org/Content/images/Scratch/1830.jpg
+38,1.0,2026,1826,2026.0,1.0,4.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1826/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1826.jpg
+39,30.0,WIN BIG,1816,3000000.0,1.0,3.0,2.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1816/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1816.jpg
+40,5.0,5X The Money 19th Edition,1812,50000.0,1.0,7.0,4.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1812/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1812.jpg
+41,10.0,10X CASH 18TH EDITION,1805,10000.0,1.0,225.0,157.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1805/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1805.jpg
+42,20.0,"$1,000,000 Gold",1804,1000000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1804/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1804.jpg
+43,30.0,"$500,000 CASHWORD 2nd EDITION",1800,500000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1800/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1800.jpg
+44,10.0,"$100,000 CA$HWORD",1797,100000.0,1.0,21.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1797/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1797.jpg
+45,20.0,"$2,000,000 Jackpot",1796,2000000.0,1.0,3.0,1.0,,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1796/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1796.jpg
+46,2.0,Pharaoh's Gold,1794,10000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1794/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1794.jpg
+47,50.0,"$4,000,000 Fortune",1790,4000000.0,1.0,3.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1790/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1790.jpg
+48,5.0,Money Bags,1788,50000.0,1.0,4.0,0.0,Top Prize Claimed,,Yes,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1788/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1788.jpg
+49,3.0,"$30,000 Cashword",1787,30000.0,1.0,21.0,2.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1787/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1787.jpg
+50,20.0,"$250,000 CA$HWORD",1780,250000.0,1.0,4.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1780/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1780.jpg
+51,20.0,Cash Royale,1779,200000.0,1.0,4.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1779/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1779.jpg
+52,30.0,Millionaire Maker,1774,1000000.0,1.0,3.0,2.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1774/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1774.jpg
+53,3.0,Pay Raise,1770,25000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1770/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1770.jpg
+54,3.0,3X The Cash 12th Edition,1768,30000.0,1.0,10.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1768/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1768.jpg
+55,5.0,5X The Money 18th Edition,1767,50000.0,1.0,8.0,2.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1767/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1767.jpg
+56,5.0,"$50,000 Cashword",1765,50000.0,1.0,20.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1765/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1765.jpg
+57,5.0,Blackjack Tripler,1763,50000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1763/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1763.jpg
+58,20.0,"$2,000,000 MEGA MULTIPLIER",1739,2000000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1739/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1739.jpg
+59,10.0,10X™ Cash 17th Edition,1738,10000.0,1.0,225.0,3.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1738/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1738.jpg
+60,2.0,Bonus Bingo Multiplier,1734,10000.0,1.0,6.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1734/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1734.jpg
+61,2.0,Cash Doubler,1730,10000.0,1.0,4.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1730/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1730.jpg
+62,2.0,"$20,000 A YEAR FOR LIFE 2ND ED.",1725,20000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1725/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1725.jpg
+63,20.0,20X Cash 9th Edition,1718,20000.0,1.0,147.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1718/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1718.jpg
+64,2.0,Mega Money 28th Edition,1717,20000.0,1.0,4.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1717/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1717.jpg
+65,1.0,Aces High,1715,1000.0,1.0,20.0,0.0,Top Prize Claimed,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1715/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1715.jpg
+66,30.0,"$1,000,000 Titanium",1711,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1711/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1711.jpg
+67,30.0,"$1,000,000 Extreme Cash",1699,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1699/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1699.jpg
+68,30.0,DIAMONDS & GOLD,1677,1000000.0,1.0,3.0,1.0,,,No,,,,2026-04-18,https://www.ctlottery.org/ScratchGames/1677/,https://www.ctlottery.org/Content/images/Scratch/rollovers/1677.jpg
