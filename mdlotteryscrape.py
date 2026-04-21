@@ -124,8 +124,17 @@ def exportScratcherRecs():
 
             tixtables = pd.concat([tixtables, tixdata], axis=0)
 
-    tixtables = tixtables.astype(
-        {'Winning Tickets At Start': 'int32', 'Winning Tickets Unclaimed': 'int32'})
+    _expected_dtypes = {
+    'Winning Tickets At Start': 'int64',
+    'Winning Tickets Unclaimed': 'int64',
+    # keep any other keys you already had here
+    }
+    _present = {k: v for k, v in _expected_dtypes.items() if k in tixtables.columns}
+    _missing = set(_expected_dtypes) - set(_present)
+    if _missing:
+        print(f"⚠️ MD: missing expected columns {_missing}. Got: {list(tixtables.columns)}")
+        return None  # bail cleanly — main runner will log and skip
+    tixtables = tixtables.astype(_present)
 
     tixtables['prizeamount'] = pd.to_numeric(tixtables['prizeamount'], errors='coerce')  # Replace invalid values with NaN
     

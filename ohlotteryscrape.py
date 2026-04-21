@@ -397,7 +397,23 @@ def exportScratcherRecs():
             #add expected values for final totals row
             allexcepttotal = totalremain.loc[totalremain['prizeamount']!='Total',:]
             
-            totalremain.loc[totalremain['prizeamount']!='Total','Starting Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal),axis=1)
+            # Guard against zero-division (happens when scrape returns no starting tickets)
+            if not startingtotal or startingtotal == 0:
+                print(f"⚠️ OH: startingtotal is 0; skipping Starting Expected Value calc.")
+                totalremain.loc[totalremain['prizeamount'] != 'Total', 'Starting Expected Value'] = 0
+            else:
+                # Also coerce prizeamount in case any value is still a string
+                allexcepttotal = allexcepttotal.copy()
+                allexcepttotal['prizeamount'] = pd.to_numeric(
+                    allexcepttotal['prizeamount'].astype(str).str.replace(r'[\$,]', '', regex=True),
+                    errors='coerce'
+                )
+                totalremain.loc[totalremain['prizeamount'] != 'Total', 'Starting Expected Value'] = (
+                    allexcepttotal.apply(
+                        lambda row: (row['prizeamount'] - price) * (row['Winning Tickets At Start'] / startingtotal),
+                        axis=1,
+                    )
+                )
             totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
 
             alltables = pd.concat([alltables, totalremain], axis=0)

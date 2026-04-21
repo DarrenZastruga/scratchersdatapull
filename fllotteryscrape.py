@@ -312,9 +312,16 @@ def exportFLScratcherRecs():
                       .astype('string')
                       .to_numpy()
                 )
-                totalremain.loc[:, 'Starting Expected Value'] = totalremain.apply(lambda row: (
-                    row['prizeamount']-price)*(row['Winning Tickets At Start']/startingtotal), axis=1)
-        
+                # Coerce prizeamount to numeric (strip $ and commas, drop non-numeric rows like 'Total')
+                totalremain['prizeamount'] = pd.to_numeric(
+                    totalremain['prizeamount'].astype(str).str.replace(r'[\$,]', '', regex=True),
+                    errors='coerce'
+                )
+                _ev_mask = totalremain['prizeamount'].notna() & (startingtotal not in (0, None))
+                totalremain.loc[_ev_mask, 'Starting Expected Value'] = totalremain[_ev_mask].apply(
+                    lambda row: (row['prizeamount'] - price) * (row['Winning Tickets At Start'] / startingtotal),
+                    axis=1,
+                )
                 totalremain.loc[:, 'Expected Value'] = totalremain.apply(lambda row: (
                     row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
                 totalremain = totalremain.loc[:, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
