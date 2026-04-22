@@ -16,7 +16,6 @@ Created on Tue Sep 13 23:34:32 2022
 
 import pandas as pd
 import os
-import psycopg2
 import urllib.parse
 from urllib.parse import urlparse
 import urllib.request
@@ -90,7 +89,6 @@ def exportScratcherRecs():
     tixtables = pd.DataFrame()
     
     for s in table:
-        print(s)
         gameName = s.find('h3').string
         gameNumber = s.find(class_='game-number').text.replace('Game Number: ','')
         gamePhoto = soup.select_one("img[src*='"+gameNumber+"']")["src"]
@@ -110,13 +108,23 @@ def exportScratcherRecs():
             
         tixlist.loc[len(tixlist.index), ['price', 'gameName', 'gameNumber','topprize','startDate','overallodds','gameURL','gamePhoto']] = [
             gamePrice, gameName, gameNumber, topprize, startDate, overallodds, gameURL, gamePhoto]
-
         
-        tixdata = pd.read_html(io.StringIO(str(s.find(class_='data'))))[0]
+        # Check if the statistics section contains a table
+        stats_section = s.find(class_='data')
+        
+        if stats_section is None:
+            print(f"  > No table found for game {gameNumber}. Skipping table processing.")
+            tixdata = pd.DataFrame() # Create an empty DF to avoid 'defined' errors later
+        else:
+            try:
+                tixdata = pd.read_html(io.StringIO(str(stats_section)))[0]
+            except ValueError:
+                tixdata = pd.DataFrame()
 
         if tixdata.empty:
             pass # Do nothing, tixtables remains as is
         else:
+            # ... (rest of your existing processing logic for tixdata)
             tixdata.rename(columns={'Prize:':'prizeamount','Approx. # of Prizes:': 'Winning Tickets At Start', 'Approx. Prizes Remaining:': 'Winning Tickets Unclaimed'}, inplace=True)
             tixdata['prizeamount'] = tixdata['prizeamount'].str.replace('$','').str.replace(',','')
             tixdata['gameNumber'] = gameNumber
@@ -372,4 +380,4 @@ def exportScratcherRecs():
     #include_column_header=True, resize=True)
     return ratingstable, scratchertables
 
-#exportScratcherRecs()
+exportScratcherRecs()

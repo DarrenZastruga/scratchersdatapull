@@ -312,16 +312,28 @@ def exportFLScratcherRecs():
                       .astype('string')
                       .to_numpy()
                 )
-                # Coerce prizeamount to numeric (strip $ and commas, drop non-numeric rows like 'Total')
-                totalremain['prizeamount'] = pd.to_numeric(
-                    totalremain['prizeamount'].astype(str).str.replace(r'[\$,]', '', regex=True),
-                    errors='coerce'
-                )
-                _ev_mask = totalremain['prizeamount'].notna() & (startingtotal not in (0, None))
-                totalremain.loc[_ev_mask, 'Starting Expected Value'] = totalremain[_ev_mask].apply(
-                    lambda row: (row['prizeamount'] - price) * (row['Winning Tickets At Start'] / startingtotal),
-                    axis=1,
-                )
+                # --- Coerce ALL numeric columns before any math ---
+                for _col in ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+                    if _col in totalremain.columns:
+                        totalremain[_col] = pd.to_numeric(
+                            totalremain[_col].astype(str).str.replace(r'[\$,]', '', regex=True),
+                            errors='coerce'
+                        )
+                
+                # Recompute startingtotal from the cleaned numeric column
+                startingtotal = totalremain.loc[
+                    totalremain['prizeamount'].notna(), 'Winning Tickets At Start'
+                ].sum()
+                
+                if not startingtotal or startingtotal == 0:
+                    print(f"⚠️ FL: startingtotal is 0 for game; skipping EV calc.")
+                    totalremain['Starting Expected Value'] = 0
+                else:
+                    _ev_mask = totalremain['prizeamount'].notna() & totalremain['Winning Tickets At Start'].notna()
+                    totalremain.loc[_ev_mask, 'Starting Expected Value'] = totalremain[_ev_mask].apply(
+                        lambda row: (row['prizeamount'] - price) * (row['Winning Tickets At Start'] / startingtotal),
+                        axis=1,
+                    )
                 totalremain.loc[:, 'Expected Value'] = totalremain.apply(lambda row: (
                     row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
                 totalremain = totalremain.loc[:, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',

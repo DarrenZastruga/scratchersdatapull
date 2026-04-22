@@ -414,7 +414,28 @@ def exportScratcherRecs():
                         axis=1,
                     )
                 )
-            totalremain.loc[totalremain['prizeamount']!='Total','Expected Value'] = allexcepttotal.apply(lambda row: (row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal),axis=1)
+            # Coerce numeric columns first
+            allexcepttotal = allexcepttotal.copy()
+            for _col in ['prizeamount', 'Winning Tickets Unclaimed']:
+                if _col in allexcepttotal.columns:
+                    allexcepttotal[_col] = pd.to_numeric(
+                        allexcepttotal[_col].astype(str).str.replace(r'[\$,]', '', regex=True),
+                        errors='coerce'
+                    )
+            
+            # Recompute tixtotal from cleaned column
+            tixtotal = allexcepttotal['Winning Tickets Unclaimed'].sum()
+            
+            if not tixtotal or tixtotal == 0:
+                print(f"⚠️ OH: tixtotal is 0; skipping Expected Value calc.")
+                totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = 0
+            else:
+                totalremain.loc[totalremain['prizeamount'] != 'Total', 'Expected Value'] = (
+                    allexcepttotal.apply(
+                        lambda row: (row['prizeamount'] - price) * (row['Winning Tickets Unclaimed'] / tixtotal),
+                        axis=1,
+                    )
+                )
 
             alltables = pd.concat([alltables, totalremain], axis=0)
 
