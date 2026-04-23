@@ -232,8 +232,6 @@ def exportFLScratcherRecs():
                 totalremain.loc[:, ['prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']] = totalremain.loc[:, [
                     'prizeamount', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
                 price = int(gamerow['price'].values[0])
-                print(price)
-                print(startingtotal)
                 prizes = totalremain.loc[:, 'prizeamount']
         
                 #convert 'Winning Tickets Unclaimed' as numberic to avoid divide by zero warnings
@@ -338,27 +336,49 @@ def exportFLScratcherRecs():
                     row['prizeamount']-price)*(row['Winning Tickets Unclaimed']/tixtotal), axis=1)
                 totalremain = totalremain.loc[:, ['gameNumber', 'gameName', 'prizeamount', 'Winning Tickets At Start',
                                            'Winning Tickets Unclaimed', 'Starting Expected Value', 'Expected Value', 'dateexported']]
-        
-                gamerow.loc[:, 'Expected Value of Any Prize (as % of cost)'] = sum(
-                    totalremain['Expected Value'])/price if price > 0 else sum(totalremain['Expected Value'])
-                gamerow.loc[:, 'Change in Expected Value of Any Prize'] = ((sum(totalremain['Expected Value'])-sum(totalremain['Starting Expected Value']))/sum(
-                    totalremain['Starting Expected Value']))/price if price > 0 else ((sum(totalremain['Expected Value'])-sum(totalremain['Starting Expected Value']))/sum(totalremain['Starting Expected Value']))
-                gamerow.loc[:, 'Expected Value of Profit Prize (as % of cost)'] = sum(
-                    totalremain.loc[totalremain['prizeamount'] > price, 'Expected Value'])/price if price > 0 else sum(totalremain.loc[totalremain['prizeamount'] > price, 'Expected Value'])
-                gamerow.loc[:, 'Change in Expected Value of Profit Prize'] = ((sum(totalremain.loc[totalremain['prizeamount'] > price, 'Expected Value'])-sum(totalremain.loc[totalremain['prizeamount'] > price, 'Starting Expected Value']))/sum(totalremain.loc[totalremain['prizeamount'] > price, 'Starting Expected Value']))/price if price > 0 else (
-                    sum(totalremain.loc[totalremain['prizeamount'] > price, 'Expected Value'])-sum(totalremain.loc[totalremain['prizeamount'] > price, 'Starting Expected Value']))/sum(totalremain.loc[totalremain['prizeamount'] > price, 'Starting Expected Value'])
-                gamerow.loc[:, 'Percent of Prizes Remaining'] = (
-                    totalremain.loc[:, 'Winning Tickets Unclaimed']/totalremain.loc[:, 'Winning Tickets At Start']).mean()
-                gamerow.loc[:, 'Percent of Profit Prizes Remaining'] = (
-                    totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed']/totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets At Start']).mean()
-                chngLosingTix = (gamerow.loc[:, 'Non-prize remaining']-gamerow.loc[:,
-                                 'Non-prize at start'])/gamerow.loc[:, 'Non-prize at start']
-                chngAvailPrizes = (tixtotal-startingtotal)/startingtotal
-                try:
-                    gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix/chngAvailPrizes
-                except ZeroDivisionError:
-                    gamerow.loc[:,'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
-                                
+                # --- UPDATED STATISTICAL CALCULATIONS ---
+                # Define common sums to use for guards
+                total_ev_any = sum(totalremain['Expected Value'])
+                starting_ev_any = sum(totalremain['Starting Expected Value'])
+                
+                # Expected Value Any Prize
+                gamerow.loc[:, 'Expected Value of Any Prize (as % of cost)'] = total_ev_any / price if price > 0 else total_ev_any
+                
+                # GUARD: Prevent ZeroDivisionError for Any Prize Change
+                if starting_ev_any != 0:
+                    gamerow.loc[:, 'Change in Expected Value of Any Prize'] = ((total_ev_any - starting_ev_any) / starting_ev_any) / price if price > 0 else (total_ev_any - starting_ev_any) / starting_ev_any
+                else:
+                    gamerow.loc[:, 'Change in Expected Value of Any Prize'] = 0
+    
+                # Profit Prize Calculations
+                profit_mask = totalremain['prizeamount'] > price
+                total_ev_profit = sum(totalremain.loc[profit_mask, 'Expected Value'])
+                starting_ev_profit = sum(totalremain.loc[profit_mask, 'Starting Expected Value'])
+                
+                gamerow.loc[:, 'Expected Value of Profit Prize (as % of cost)'] = total_ev_profit / price if price > 0 else total_ev_profit
+                
+                # GUARD: Prevent ZeroDivisionError for Profit Prize Change (The fix for your crash)
+                if starting_ev_profit != 0:
+                    gamerow.loc[:, 'Change in Expected Value of Profit Prize'] = ((total_ev_profit - starting_ev_profit) / starting_ev_profit) / price if price > 0 else (total_ev_profit - starting_ev_profit) / starting_ev_profit
+                else:
+                    gamerow.loc[:, 'Change in Expected Value of Profit Prize'] = 0
+    
+                # Remaining Stats with Guards
+                gamerow.loc[:, 'Percent of Prizes Remaining'] = (totalremain.loc[:, 'Winning Tickets Unclaimed'] / totalremain.loc[:, 'Winning Tickets At Start']).mean()
+                
+                if not totalremain.loc[profit_mask].empty:
+                    gamerow.loc[:, 'Percent of Profit Prizes Remaining'] = (totalremain.loc[profit_mask, 'Winning Tickets Unclaimed'] / totalremain.loc[profit_mask, 'Winning Tickets At Start']).mean()
+                else:
+                    gamerow.loc[:, 'Percent of Profit Prizes Remaining'] = 0
+                
+                chngLosingTix = (gamerow.loc[:, 'Non-prize remaining'] - gamerow.loc[:, 'Non-prize at start']) / gamerow.loc[:, 'Non-prize at start']
+                chngAvailPrizes = (tixtotal - startingtotal) / startingtotal if startingtotal != 0 else 0
+                
+                # GUARD: Prevent ZeroDivisionError for Ratio calculation
+                if chngAvailPrizes != 0:
+                    gamerow.loc[:, 'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix / chngAvailPrizes
+                else:
+                    gamerow.loc[:, 'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
                 gamerow.loc[:,'Photo'] = scratchersall.loc[scratchersall['gameNumber'] == gameid,'gamePhoto']
                 gamerow.loc[:,'FAQ'] = None
                 gamerow.loc[:,'About'] = None

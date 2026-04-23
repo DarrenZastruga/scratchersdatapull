@@ -51,6 +51,7 @@ def exportScratcherRecs():
             # Use .get() to avoid KeyErrors and handle potential nulls
             start_dt = pd.to_datetime(game.get('DateAvailable'), errors='coerce')
             claim_dt = pd.to_datetime(game.get('ValidationEndDate'), errors='coerce')
+            print(game)
             
             # --- THE "VISIBLE" FILTER ---
             # 1. We must have at least a start date to compare.
@@ -69,6 +70,7 @@ def exportScratcherRecs():
                         'endDate': pd.to_datetime(game.get('GameEndDate'), errors='coerce'),
                         'lastdatetoclaim': claim_dt,
                         'overallodds': float(game.get('OverallOdds', 0)),
+                        'extrachances': None,
                         'secondChance': '2nd Chance' if game.get('SecondChanceDrawDate') else None,
                         'dateexported': date.today(),
                         'gameURL': '', 
@@ -166,6 +168,7 @@ def exportScratcherRecs():
                 # D. Process Prize Tiers (FIXED: Accessing dict directly)
                 # We use game_detail_json directly because it was defined as data_list[0]
                 tixdata = pd.json_normalize(game_detail_json['PrizeTiers'])
+                print(tixdata.columns)
                 if not tixdata.empty:
                     tixdata.rename(columns={
                         'PrizeAmount': 'prizeamount',
@@ -176,8 +179,13 @@ def exportScratcherRecs():
                     tixdata['gameName'] = row['gameName']
                     tixdata['dateexported'] = date.today()
                     tixtables = pd.concat([tixtables, tixdata], axis=0, ignore_index=True)
+                    
+                    # Extract the starting count for the top prize
+                    # This takes the 'Winning Tickets At Start' from the first row
+                    topprizestarting = tixdata.iloc[0]['Winning Tickets At Start']
+                    # Update the master list row with the extracted top prize starting count
+                    tixlist.at[index, 'topprizestarting'] = topprizestarting
 
-                print(f"  > Done: {row['gameName']} (#{game_id})")
 
             except Exception as e:
                 print(f"  ! Error on game {game_id}: {e}")

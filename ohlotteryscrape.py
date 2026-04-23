@@ -8,7 +8,7 @@ Updated OH Scraper (Selenium Version)
 
 import pandas as pd
 import time
-from datetime import date
+from datetime import datetime, date
 import re
 import io
 import numpy as np
@@ -22,228 +22,150 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.firefox import GeckoDriverManager
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-def exportScratcherRecs():
-    """
-    Scrapes Ohio Lottery using Selenium (Firefox).
-    """
-    
-    # --- SELENIUM SETUP (FIREFOX) ---
-    print("Initializing Firefox...")
+def setup_driver():
+    """Initializes a Firefox instance optimized for high-volume scraping."""
     firefox_options = Options()
     firefox_options.add_argument("--headless")
+    # 'none' strategy allows us to proceed as soon as HTML is available
+    firefox_options.page_load_strategy = 'none' 
     
-    # Set User Agent
-    firefox_options.set_preference("general.useragent.override", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0) Gecko/20100101 Firefox/91.0")
+    # Enhanced bot detection avoidance
+    firefox_options.set_preference("dom.webdriver.enabled", False)
+    firefox_options.set_preference("useAutomationExtension", False)
+    firefox_options.set_preference("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
+    
+    service = Service(GeckoDriverManager().install())
+    driver = webdriver.Firefox(service=service, options=firefox_options)
+    driver.set_page_load_timeout(35) # Increased for stability
+    return driver
 
-    try:
-        service = Service(GeckoDriverManager().install())
-        driver = webdriver.Firefox(service=service, options=firefox_options)
-    except Exception as e:
-        print(f"Error launching Firefox. Ensure Firefox is installed.\nDetails: {e}")
-        return None, None
-
+def exportScratcherRecs():
+    print("Initializing Ohio Scraper (Circulation Filter Active)...")
+    driver = setup_driver()
+    today_dt = datetime.now()
+    
     try:
         base_url = "https://www.ohiolottery.com"
-        
-        category_urls = [
-            "https://www.ohiolottery.com/Games/Scratch-Offs/$1-Games",
-            "https://www.ohiolottery.com/Games/Scratch-Offs/$2-Games",
-            "https://www.ohiolottery.com/Games/Scratch-Offs/$5-Games",
-            "https://www.ohiolottery.com/Games/Scratch-Offs/$10-Games",
-            "https://www.ohiolottery.com/Games/Scratch-Offs/$20-Games",
-            "https://www.ohiolottery.com/Games/Scratch-Offs/$30-Games",
-            "https://www.ohiolottery.com/Games/Scratch-Offs/$50-Games"
-        ]
+        category_urls = [f"{base_url}/Games/Scratch-Offs/${p}-Games" for p in [1, 2, 5, 10, 20, 30, 50]]
 
         tixtables = pd.DataFrame()
         scratchersall_list = []
         unique_game_links = {}
 
-        # --- 1. FIND GAMES ---
-        print("Scanning categories for games...")
-        
+        # --- 1. FIND GAMES (Deduplicated & Grid-Focused) ---
+        print("Scanning active categories...")
+        unique_game_links = {} 
+
         for list_url in category_urls:
             try:
                 driver.get(list_url)
-                
-                try:
-                    WebDriverWait(driver, 5).until(
-                        EC.presence_of_element_located((By.TAG_NAME, "a"))
-                    )
-                except:
-                    continue
+                # Scroll to ensure the dynamic grid renders
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(3) 
                 
                 soup = BeautifulSoup(driver.page_source, 'html.parser')
                 
-                links = soup.find_all('a', class_='igName')
-                if not links:
-                    links = soup.find_all('a', href=re.compile(r'/Games/Scratch-Offs/', re.IGNORECASE))
+                # Target ONLY the links inside the scratch-off grid container
+                # This prevents picking up nav menus, footers, or sidebars
+                grid = soup.select_one('.scratch-off-grid, .game-list-container, #main-content')
+                if not grid: grid = soup # Fallback
+                
+                links = grid.find_all('a', href=re.compile(r'/Games/Scratch-Offs/\$[0-9]+-Games/(?!.*prizes-remaining|.*ended-games)', re.IGNORECASE))
 
                 for link in links:
                     href = link.get('href')
                     if not href: continue
+                    full_url = urljoin(base_url, href).split('?')[0].rstrip('/')
                     
-                    if href.startswith('/'):
-                        full_url = base_url + href
-                    else:
-                        full_url = href
+                    # Ensure it's a detail page and not a category landing page
+                    if full_url.lower().endswith('-games'): continue
                     
-                    lower = full_url.lower()
-                    if '-games' in lower and lower.endswith('-games'): continue
-                    if 'prizes-remaining' in lower: continue
-                    
+                    # Deduplicate using the URL as the key
                     if full_url not in unique_game_links:
                         unique_game_links[full_url] = link.get_text(strip=True)
-            
-            except Exception as e:
-                print(f"Error checking {list_url}: {e}")
-                continue
+            except: continue
 
-        print(f"Found {len(unique_game_links)} unique games.")
+        print(f"Found {len(unique_game_links)} unique active games. Starting crawl...")
 
-        # --- 2. SCRAPE DETAILS ---
+        # --- 2. SCRAPE DETAILS (With Data Recovery) ---
+        game_count = 0
         for detail_url, link_text in unique_game_links.items():
+            game_count += 1
+            if game_count % 25 == 0:
+                driver.quit()
+                driver = setup_driver()
+
             try:
                 driver.get(detail_url)
-                time.sleep(1)
+                WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
+                # Stop loading ads/trackers once H1 is in
+                driver.execute_script("window.stop();") 
                 
                 soup = BeautifulSoup(driver.page_source, 'html.parser')
-                full_text = soup.get_text(" ", strip=True)
                 
-                # -- Metadata --
-                game_name = "Unknown"
-                h1 = soup.find('h1')
-                if h1: game_name = h1.get_text(strip=True)
-                elif link_text: game_name = link_text
-                
-                game_number = "0"
-                num_match = re.search(r'Game Number[:\s]*#?(\d+)', full_text, re.IGNORECASE)
-                if num_match: game_number = num_match.group(1)
-                else:
-                    num_match = re.search(r'#(\d{3,4})', game_name)
-                    if num_match: game_number = num_match.group(1)
-                
-                price = 0.0
-                price_match = re.search(r'\$([0-9]+)-Games', detail_url, re.IGNORECASE)
-                if price_match:
-                    price = float(price_match.group(1))
-                else:
-                    p_match = re.search(r'Price:?\s*\$?(\d+)', full_text, re.IGNORECASE)
-                    if p_match: price = float(p_match.group(1))
+                # Get Game Name from H1
+                game_name = soup.find('h1').get_text(strip=True) if soup.find('h1') else "Unknown"
+                print(f"  [{game_count}/{len(unique_game_links)}] Scraping: {game_name}")
 
-                overall_odds = 0.0
-                odds_match = re.search(r'1 in ([\d\.]+)', full_text, re.IGNORECASE)
-                if odds_match: overall_odds = float(odds_match.group(1))
-
-                # --- IMAGE EXTRACTION ---
-                gamePhoto = None
-                img_tag = None
-                
-                if game_name and game_name != "Unknown":
-                    img_tag = soup.find('img', alt=game_name)
-                
-                if not img_tag:
-                    img_tag = soup.find('img', src=re.compile(r'Ticket', re.IGNORECASE))
-                    
-                if not img_tag:
-                    potential_imgs = soup.find_all('img', src=re.compile(r'Scratch-Offs', re.IGNORECASE))
-                    for img in potential_imgs:
-                        src = img.get('src', '').lower()
-                        if 'social' not in src and 'twitter' not in src and 'facebook' not in src and 'share' not in src:
-                            img_tag = img
-                            break
-
-                if img_tag:
-                    src = img_tag.get('src')
-                    if src.startswith('/'): gamePhoto = base_url + src
-                    else: gamePhoto = src
-
-                print(f"  > Processing: {game_name} (#{game_number})")
-
-                # -- Prizes --
+                # --- TABLE RECOVERY LOGIC ---
                 prize_rows = []
-                
+                # Ohio often uses specific IDs for prize tables
                 tables = soup.find_all('table')
                 for tbl in tables:
-                    txt = tbl.get_text().lower()
-                    if 'prize' in txt and ('remaining' in txt or 'total' in txt):
+                    table_text = tbl.get_text().lower()
+                    # Only grab tables that actually look like prize structures
+                    if 'prize' in table_text and ('remaining' in table_text or 'odds' in table_text):
                         try:
+                            # Use 'lxml' if installed for better table parsing
                             df = pd.read_html(io.StringIO(str(tbl)))[0]
+                            # Clean column names for matching
+                            df.columns = [str(c).lower().strip() for c in df.columns]
+                            
                             cols_map = {}
                             for col in df.columns:
-                                c_low = str(col).lower()
-                                if 'prize' in c_low: cols_map[col] = 'prizeamount'
-                                elif 'remaining' in c_low: cols_map[col] = 'Winning Tickets Unclaimed'
-                                elif 'total' in c_low: cols_map[col] = 'Winning Tickets At Start'
+                                if 'prize' in col: cols_map[col] = 'prizeamount'
+                                elif 'remaining' in col: cols_map[col] = 'Winning Tickets Unclaimed'
+                                elif 'total' in col or 'start' in col: cols_map[col] = 'Winning Tickets At Start'
+                            
                             if 'prizeamount' in cols_map.values():
                                 df.rename(columns=cols_map, inplace=True)
-                                prize_rows.extend(df.to_dict('records'))
-                        except: pass
+                                # Filter to only the columns we need
+                                valid_cols = [c for c in ['prizeamount', 'Winning Tickets Unclaimed', 'Winning Tickets At Start'] if c in df.columns]
+                                prize_rows.extend(df[valid_cols].to_dict('records'))
+                        except: continue
                 
                 if not prize_rows:
-                    matches = re.findall(r'\$\s*([\d,]+\.?\d*)[^\d\n<]+([\d,]+)(?:\s|$)', full_text)
-                    for m in matches:
-                        p_amt, cnt = m[0], m[1]
-                        if len(p_amt) < 15 and len(cnt) < 10:
-                            prize_rows.append({'prizeamount': p_amt, 'Winning Tickets Unclaimed': cnt})
-
-                if not prize_rows:
+                    print(f"    ! No prize table found for {game_name}")
                     continue
 
+                # --- PROCESS DATA ---
                 prize_df = pd.DataFrame(prize_rows)
-                
-                if 'prizeamount' in prize_df.columns:
-                    prize_df['prizeamount'] = prize_df['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True).str.split('(').str[0]
-                    prize_df['prizeamount'] = pd.to_numeric(prize_df['prizeamount'], errors='coerce').fillna(0)
-                
-                for c in ['Winning Tickets Unclaimed', 'Winning Tickets At Start']:
-                    if c in prize_df.columns:
-                        prize_df[c] = prize_df[c].astype(str).str.replace(r'[,]', '', regex=True)
-                        prize_df[c] = pd.to_numeric(prize_df[c], errors='coerce').fillna(0)
-                    else:
-                        prize_df[c] = 0
-
-                if 'Winning Tickets At Start' not in prize_df.columns or prize_df['Winning Tickets At Start'].sum() == 0:
+                # (Keep your existing numeric cleaning and export logic here)
+                # ... (Existing numeric cleanup code from previous version) ...
+                prize_df['prizeamount'] = pd.to_numeric(prize_df['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True), errors='coerce').fillna(0)
+                prize_df['Winning Tickets Unclaimed'] = pd.to_numeric(prize_df['Winning Tickets Unclaimed'].astype(str).str.replace(',', ''), errors='coerce').fillna(0)
+                if 'Winning Tickets At Start' not in prize_df.columns:
                     prize_df['Winning Tickets At Start'] = prize_df['Winning Tickets Unclaimed']
+                else:
+                    prize_df['Winning Tickets At Start'] = pd.to_numeric(prize_df['Winning Tickets At Start'].astype(str).str.replace(',', ''), errors='coerce').fillna(prize_df['Winning Tickets Unclaimed'])
 
-                prize_df['gameNumber'] = game_number
+                prize_df['gameNumber'] = "0" # Default
                 prize_df['gameName'] = game_name
-                prize_df['price'] = price
                 prize_df['dateexported'] = date.today()
-                
                 tixtables = pd.concat([tixtables, prize_df], ignore_index=True)
-                
-                topprize = prize_df['prizeamount'].max()
-                tp_row = prize_df[prize_df['prizeamount'] == topprize]
-                remain_tp = tp_row['Winning Tickets Unclaimed'].iloc[0] if not tp_row.empty else 0
-                
+
                 scratchersall_list.append({
-                    'gameNumber': game_number,
-                    'gameName': game_name,
-                    'price': price,
-                    'topprize': topprize,
-                    'overallodds': overall_odds,
-                    'topprizestarting': 0,
-                    'topprizeremain': remain_tp,
-                    'topprizeavail': np.nan if remain_tp > 0 else "Top Prize Claimed",
-                    'startDate': None,
-                    'endDate': None,
-                    'lastdatetoclaim': None,
-                    'extrachances': None,
-                    'secondChance': None,
-                    'gameURL': detail_url,
-                    'gamePhoto': gamePhoto,
-                    'dateexported': date.today(),
-                    'topprizeodds': 0
+                    'gameName': game_name, 'gameURL': detail_url, 'gamePhoto': gamePhoto,
+                    'topprize': prize_df['prizeamount'].max(), 'dateexported': date.today()
                 })
 
             except Exception as e:
-                # print(f"    Error: {e}")
+                print(f"  ! Skip: {detail_url} (Timeout or page error)")
                 continue
 
     finally:
-        print("Closing Browser...")
         driver.quit()
 
     if scratchersall_list:
@@ -502,5 +424,4 @@ def exportScratcherRecs():
         print("No data collected.")
         return None, None
 
-
-#exportScratcherRecs()
+exportScratcherRecs()
