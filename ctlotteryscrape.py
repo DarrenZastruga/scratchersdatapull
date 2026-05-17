@@ -142,7 +142,7 @@ def exportScratcherRecs():
             print(f"  > Final Photo URL for #{gameNumber}: {game_photo}")
             
             overall_odds = 0
-            odds_match = re.search(r'Overall Odds\s*:?\s*(?:1\s*[:in]\s*)?([\d\.]+)', page_text, re.IGNORECASE)
+            odds_match = re.search(r'Overall Odds\s*:?\s*(?:1\s*(?::|in)\s*)?([\d\.]+)', page_text, re.IGNORECASE)
             if odds_match: overall_odds = float(odds_match.group(1))
 
             # Table Parsing
