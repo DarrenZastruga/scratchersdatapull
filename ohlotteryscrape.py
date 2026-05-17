@@ -12,6 +12,8 @@ from datetime import datetime, date
 import re
 import io
 import numpy as np
+import os
+import random
 
 # Selenium Imports
 from selenium import webdriver
@@ -25,26 +27,32 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 def setup_driver():
-    """Initializes a Firefox instance optimized for high-volume scraping."""
     firefox_options = Options()
-    firefox_options.add_argument("--headless")
-    # 'none' strategy allows us to proceed as soon as HTML is available
-    firefox_options.page_load_strategy = 'none' 
+    # 'eager' means: Stop waiting for images/trackers once DOM is interactive
+    firefox_options.page_load_strategy = 'eager' 
+    firefox_options.add_argument("--window-size=1920,1080")
     
-    # Enhanced bot detection avoidance
+    # Standard Stealth Settings
     firefox_options.set_preference("dom.webdriver.enabled", False)
     firefox_options.set_preference("useAutomationExtension", False)
-    firefox_options.set_preference("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
+    firefox_options.set_preference("general.useragent.override", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
     
-    service = Service(GeckoDriverManager().install())
-    driver = webdriver.Firefox(service=service, options=firefox_options)
-    driver.set_page_load_timeout(35) # Increased for stability
-    return driver
+    try:
+        service = Service(GeckoDriverManager().install())
+        driver = webdriver.Firefox(service=service, options=firefox_options)
+        driver.set_page_load_timeout(30) # Lower this; we don't want to wait 60s anymore
+        return driver
+    except Exception as e:
+        print(f"⚠️ Driver Startup Error: {e}")
+        return None
 
 def exportScratcherRecs():
     print("Initializing Ohio Scraper (Circulation Filter Active)...")
     driver = setup_driver()
+    if not driver: driver = setup_driver()
+    
     today_dt = datetime.now()
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     
     try:
         base_url = "https://www.ohiolottery.com"
@@ -54,119 +62,146 @@ def exportScratcherRecs():
         scratchersall_list = []
         unique_game_links = {}
 
-        # --- 1. FIND GAMES (Deduplicated & Grid-Focused) ---
+        # --- 1. FIND GAMES ---
         print("Scanning active categories...")
-        unique_game_links = {} 
-
         for list_url in category_urls:
             try:
                 driver.get(list_url)
-                # Scroll to ensure the dynamic grid renders
+                WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='/Games/Scratch-Offs/']")))
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(3) 
+                time.sleep(random.uniform(3, 5))
                 
                 soup = BeautifulSoup(driver.page_source, 'html.parser')
-                
-                # Target ONLY the links inside the scratch-off grid container
-                # This prevents picking up nav menus, footers, or sidebars
-                grid = soup.select_one('.scratch-off-grid, .game-list-container, #main-content')
-                if not grid: grid = soup # Fallback
-                
-                links = grid.find_all('a', href=re.compile(r'/Games/Scratch-Offs/\$[0-9]+-Games/(?!.*prizes-remaining|.*ended-games)', re.IGNORECASE))
+                links = soup.find_all('a', href=re.compile(r'/Games/Scratch-Offs/\$[0-9]+-Games/', re.IGNORECASE))
 
                 for link in links:
-                    href = link.get('href')
-                    if not href: continue
-                    full_url = urljoin(base_url, href).split('?')[0].rstrip('/')
-                    
-                    # Ensure it's a detail page and not a category landing page
-                    if full_url.lower().endswith('-games'): continue
-                    
-                    # Deduplicate using the URL as the key
+                    href = link.get('href', '').split('?')[0].rstrip('/')
+                    if not href or href.lower().endswith('-games') or 'prizes-remaining' in href.lower(): continue
+                    full_url = urljoin(base_url, href)
                     if full_url not in unique_game_links:
                         unique_game_links[full_url] = link.get_text(strip=True)
             except: continue
 
-        print(f"Found {len(unique_game_links)} unique active games. Starting crawl...")
+        print(f"Found {len(unique_game_links)} potential games. Checking details...")
 
-        # --- 2. SCRAPE DETAILS (With Data Recovery) ---
+        # --- 2. SCRAPE DETAILS ---
         game_count = 0
         for detail_url, link_text in unique_game_links.items():
             game_count += 1
+            
             if game_count % 25 == 0:
-                driver.quit()
+                print("Refreshing session to clear memory...")
+                if driver: driver.quit()
                 driver = setup_driver()
 
             try:
-                driver.get(detail_url)
-                WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
-                # Stop loading ads/trackers once H1 is in
-                driver.execute_script("window.stop();") 
+                # Set a local timeout for this specific page load
+                driver.set_page_load_timeout(25)
                 
-                soup = BeautifulSoup(driver.page_source, 'html.parser')
-                
-                # Get Game Name from H1
-                game_name = soup.find('h1').get_text(strip=True) if soup.find('h1') else "Unknown"
-                print(f"  [{game_count}/{len(unique_game_links)}] Scraping: {game_name}")
+                try:
+                    driver.get(detail_url)
+                except Exception:
+                    # If it times out, force a stop and continue anyway
+                    driver.execute_script("window.stop();")
+                    print(f"    [Diagnostic] Page load timed out, but forcing stop to try and scrape.")
 
-                # --- TABLE RECOVERY LOGIC ---
-                prize_rows = []
-                # Ohio often uses specific IDs for prize tables
-                tables = soup.find_all('table')
-                for tbl in tables:
-                    table_text = tbl.get_text().lower()
-                    # Only grab tables that actually look like prize structures
-                    if 'prize' in table_text and ('remaining' in table_text or 'odds' in table_text):
-                        try:
-                            # Use 'lxml' if installed for better table parsing
-                            df = pd.read_html(io.StringIO(str(tbl)))[0]
-                            # Clean column names for matching
-                            df.columns = [str(c).lower().strip() for c in df.columns]
-                            
-                            cols_map = {}
-                            for col in df.columns:
-                                if 'prize' in col: cols_map[col] = 'prizeamount'
-                                elif 'remaining' in col: cols_map[col] = 'Winning Tickets Unclaimed'
-                                elif 'total' in col or 'start' in col: cols_map[col] = 'Winning Tickets At Start'
-                            
-                            if 'prizeamount' in cols_map.values():
-                                df.rename(columns=cols_map, inplace=True)
-                                # Filter to only the columns we need
-                                valid_cols = [c for c in ['prizeamount', 'Winning Tickets Unclaimed', 'Winning Tickets At Start'] if c in df.columns]
-                                prize_rows.extend(df[valid_cols].to_dict('records'))
-                        except: continue
+                # --- Continue with Diagnostics and Shadow Piercing ---
+                time.sleep(3) 
+                print(f"\n--- Diagnostic: {detail_url} ---")
                 
-                if not prize_rows:
-                    print(f"    ! No prize table found for {game_name}")
+                # Check for ANY shadow hosts
+                shadow_hosts = driver.execute_script("""
+                    return Array.from(document.querySelectorAll('*'))
+                                .filter(el => el.shadowRoot)
+                                .map(el => ({ tag: el.tagName, class: el.className }));
+                """)
+                
+                # --- B. TRIGGER RENDERING ---
+                driver.execute_script("window.scrollTo(0, 500);")
+                time.sleep(1)
+                driver.execute_script("window.scrollTo(0, 0);")
+                driver.execute_script("document.body.click();")
+                
+                # --- HIGH-PRECISION SHADOW PIERCER ---
+                print(f"    [Scraper] Piercing Shadow DOM ...")
+                
+                # We use a JavaScript 'Promise' to poll the internal Shadow Root
+                # This stays active until the table is actually filled with data
+                table_html = driver.execute_script("""
+                    return new Promise((resolve) => {
+                        let attempts = 0;
+                        const interval = setInterval(() => {
+                            // Target the specific Vue component identified in your debug files
+                            const host = document.querySelector('ol-game-detail-scratch-off');
+                            const table = host?.shadowRoot?.querySelector('table');
+                            
+                            // Only resolve once the table has actual prize rows
+                            if (table && table.querySelectorAll('tr').length > 2) {
+                                clearInterval(interval);
+                                resolve(table.outerHTML);
+                            }
+                            
+                            if (attempts > 40) { // Timeout after 20 seconds
+                                clearInterval(interval);
+                                resolve(null);
+                            }
+                            attempts++;
+                        }, 500);
+                    });
+                """)
+
+                if not table_html:
+                    # Capture what the Shadow Host actually contains
+                    shadow_content = driver.execute_script("return document.querySelector('ol-game-detail-scratch-off')?.shadowRoot?.innerHTML;")
+                    
+                    debug_path = os.path.join(script_dir, f"shadow_debug_{game_count}.html")
+                    with open(debug_path, "w", encoding="utf-8") as f:
+                        f.write(shadow_content if shadow_content else "Shadow Root was empty or missing.")
+                    
+                    print(f"    ! Shadow Snapshot saved to: {debug_path}")
                     continue
 
-                # --- PROCESS DATA ---
-                prize_df = pd.DataFrame(prize_rows)
-                # (Keep your existing numeric cleaning and export logic here)
-                # ... (Existing numeric cleanup code from previous version) ...
-                prize_df['prizeamount'] = pd.to_numeric(prize_df['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True), errors='coerce').fillna(0)
-                prize_df['Winning Tickets Unclaimed'] = pd.to_numeric(prize_df['Winning Tickets Unclaimed'].astype(str).str.replace(',', ''), errors='coerce').fillna(0)
-                if 'Winning Tickets At Start' not in prize_df.columns:
-                    prize_df['Winning Tickets At Start'] = prize_df['Winning Tickets Unclaimed']
-                else:
-                    prize_df['Winning Tickets At Start'] = pd.to_numeric(prize_df['Winning Tickets At Start'].astype(str).str.replace(',', ''), errors='coerce').fillna(prize_df['Winning Tickets Unclaimed'])
+                print(f"    [Diagnostic] SUCCESS: Captured table data.")
 
-                prize_df['gameNumber'] = "0" # Default
-                prize_df['gameName'] = game_name
-                prize_df['dateexported'] = date.today()
-                tixtables = pd.concat([tixtables, prize_df], ignore_index=True)
+                # --- E. DATA PROCESSING ---
+                soup = BeautifulSoup(driver.page_source, 'html.parser')
+                game_name = soup.find('h1').get_text(strip=True) if soup.find('h1') else link_text
+                og_tag = soup.find('meta', property='og:image')
+                gamePhoto = og_tag.get('content') if og_tag else None
 
-                scratchersall_list.append({
-                    'gameName': game_name, 'gameURL': detail_url, 'gamePhoto': gamePhoto,
-                    'topprize': prize_df['prizeamount'].max(), 'dateexported': date.today()
-                })
+                print(f"  [{game_count}] Scraped: {game_name}")
+
+                df = pd.read_html(io.StringIO(table_html))[0]
+                df.columns = [str(c).lower().strip() for c in df.columns]
+                
+                rename_map = {c: 'prizeamount' for c in df.columns if 'prize' in c}
+                rename_map.update({c: 'Winning Tickets Unclaimed' for c in df.columns if 'remaining' in c})
+                rename_map.update({c: 'Winning Tickets At Start' for c in df.columns if 'total' in c or 'start' in c})
+                
+                if 'prizeamount' in rename_map.values():
+                    df.rename(columns=rename_map, inplace=True)
+                    df['prizeamount'] = pd.to_numeric(df['prizeamount'].astype(str).str.replace(r'[$,]', '', regex=True), errors='coerce').fillna(0)
+                    df['Winning Tickets Unclaimed'] = pd.to_numeric(df['Winning Tickets Unclaimed'].astype(str).str.replace(',', ''), errors='coerce').fillna(0)
+                    
+                    # Extract Game ID from URL
+                    game_id_match = re.search(r'-(\d+)$', detail_url)
+                    df['gameNumber'] = game_id_match.group(1) if game_id_match else str(hash(detail_url))[-5:]
+                    df['gameName'] = game_name
+                    df['dateexported'] = date.today()
+                    tixtables = pd.concat([tixtables, df], ignore_index=True)
+
+                    scratchersall_list.append({
+                        'gameName': game_name, 'gameURL': detail_url, 'gamePhoto': gamePhoto,
+                        'topprize': df['prizeamount'].max(), 'dateexported': date.today(),
+                        'gameNumber': df['gameNumber'].iloc[0]
+                    })
 
             except Exception as e:
-                print(f"  ! Skip: {detail_url} (Timeout or page error)")
+                print(f"  ! Error: {detail_url} - {e}")
                 continue
 
     finally:
-        driver.quit()
+        if driver: driver.quit()
 
     if scratchersall_list:
         print(f"Collected data for {len(scratchersall_list)} games.")

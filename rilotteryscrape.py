@@ -186,10 +186,13 @@ def scrape_single_game(driver, btn_index, all_rows, all_tables):
             headers = [th.get_text(strip=True).upper() for th in tbl.find_all('th')]
             idx_prize = -1; idx_total = -1; idx_remain = -1
             for i, h in enumerate(headers):
-                if 'AMOUNT' in h or 'PRIZE' in h: idx_prize = i
-                if 'TOTAL' in h: idx_total = i
-                if 'REMAIN' in h: idx_remain = i
-            
+                if 'REMAIN' in h:
+                    idx_remain = i
+                elif 'START' in h or 'PRINTED' in h or 'TOTAL' in h:
+                    idx_total = i
+                elif 'AMOUNT' in h or h.strip() == 'PRIZE':
+                    idx_prize = i
+                    
             if idx_prize != -1:
                 data = []
                 rows = tbl.find_all('tr')
@@ -670,7 +673,11 @@ def exportRIScratcherRecs():
                                  'Photo', 'FAQ', 'About', 'Directory',
                                  'Data Date', 'Stats Page','gameURL']]
     ratingstable.replace([np.inf, -np.inf], 0, inplace=True)
-    ratingstable.fillna('', inplace=True)
+    # keep numerics numeric, only blank out object/string columns:
+    obj_cols = ratingstable.select_dtypes(include='object').columns
+    ratingstable[obj_cols] = ratingstable[obj_cols].fillna('')
+    num_cols = ratingstable.select_dtypes(include='number').columns
+    ratingstable[num_cols] = ratingstable[num_cols].fillna(0)
     
     return ratingstable, scratchertables
 
