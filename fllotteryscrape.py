@@ -114,9 +114,23 @@ def exportFLScratcherRecs():
                     overall_odds = float(odds_match.group(1).replace(',', ''))
 
                 price = 0
-                price_match = re.search(r'(?:\$|price\s*of\s*)(\d+)', page_text, re.IGNORECASE)
+                # Try the explicit "Ticket Price" / "Price" label first (FL detail page format)
+                price_match = re.search(
+                    r'(?:Ticket\s*Price|Price)\s*[:\-]?\s*\$\s*(\d+(?:\.\d+)?)',
+                    page_text,
+                    re.IGNORECASE,
+                )
                 if price_match:
                     price = float(price_match.group(1))
+                else:
+                    # Fallback: many FL games encode price in the name, e.g. "$20 MONOPOLY ..."
+                    name_match = re.match(r'\s*\$(\d+)\b', game_name)
+                    if name_match:
+                        price = float(name_match.group(1))
+                
+                if price == 0:
+                    print(f"    ⚠️ Could not parse price for {game_name} ({current_id}) — skipping price-dependent stats")
+                    continue  # or: don't append to summary_data, to avoid poisoning the DB
 
                 # --- TABLE PARSING ---
                 tables = pd.read_html(io.StringIO(str(detail_soup)))
