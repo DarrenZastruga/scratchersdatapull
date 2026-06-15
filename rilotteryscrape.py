@@ -15,6 +15,7 @@ import gc
 import uuid
 import os
 import numpy as np
+from io import StringIO
 
 # Selenium Imports
 from selenium import webdriver
@@ -183,32 +184,36 @@ def scrape_single_game(driver, btn_index, all_rows, all_tables):
         best_table = pd.DataFrame()
         tbl = soup.find('table')
         if tbl:
-            headers = [th.get_text(strip=True).upper() for th in tbl.find_all('th')]
-            idx_prize = -1; idx_total = -1; idx_remain = -1
-            for i, h in enumerate(headers):
-                if 'REMAIN' in h:
-                    idx_remain = i
-                elif 'START' in h or 'PRINTED' in h or 'TOTAL' in h:
-                    idx_total = i
-                elif 'AMOUNT' in h or h.strip() == 'PRIZE':
-                    idx_prize = i
-                    
-            if idx_prize != -1:
-                data = []
-                rows = tbl.find_all('tr')
-                for row in rows:
-                    cols = row.find_all('td')
-                    if not cols: continue
-                    max_idx = max(idx_prize, idx_total, idx_remain)
-                    if len(cols) <= max_idx: continue
-                    
-                    p_val = cols[idx_prize].get_text(strip=True)
-                    t_val = cols[idx_total].get_text(strip=True) if idx_total != -1 else "0"
-                    r_val = cols[idx_remain].get_text(strip=True) if idx_remain != -1 else "0"
-                    
-                    if '$' in p_val or any(c.isdigit() for c in p_val):
-                        data.append({'prizeamount': p_val, 'Winning Tickets At Start': t_val, 'Winning Tickets Unclaimed': r_val})
-                if data: best_table = pd.DataFrame(data)
+            try:
+                df = pd.read_html(StringIO(str(tbl)))[0]
+            except ValueError:
+                df = pd.DataFrame()
+
+            if not df.empty:
+                # Flatten any MultiIndex headers and normalize
+                if isinstance(df.columns, pd.MultiIndex):
+                    df.columns = [' '.join(str(c) for c in col).strip() for col in df.columns]
+                df.columns = [str(c).strip().upper() for c in df.columns]
+
+                # Locate columns
+                prize_col = next((c for c in df.columns if 'AMOUNT' in c or c == 'PRIZE'), None)
+                start_col = next((c for c in df.columns if 'START' in c or 'PRINTED' in c or 'TOTAL' in c), None)
+                remain_col = next((c for c in df.columns if 'REMAIN' in c), None)
+
+                if prize_col:
+                    # Drop any Total / Subtotal / Grand Total footer rows across all cells
+                    total_re = re.compile(r'\b(total|totals|subtotal|sum|grand\s*total)\b', re.IGNORECASE)
+                    mask_total = df.apply(lambda r: r.astype(str).str.contains(total_re).any(), axis=1)
+                    df = df[~mask_total]
+
+                    # Keep only rows whose prize cell looks like a real prize ($ or digit)
+                    df = df[df[prize_col].astype(str).str.match(r'^\s*\$?[\d,]')]
+
+                    best_table = pd.DataFrame({
+                        'prizeamount': df[prize_col],
+                        'Winning Tickets At Start': df[start_col] if start_col else 0,
+                        'Winning Tickets Unclaimed': df[remain_col] if remain_col else 0,
+                    })
 
         topprizeremain = 0; topprizestarting = 0
         if not best_table.empty:
@@ -387,16 +392,16 @@ def exportRIScratcherRecs():
    
     print("Compiling DataFrames...")
     tixlist = pd.DataFrame(all_game_rows)
-    tixlist.to_csv("./NHtixlist.csv", index=False)
+    tixlist.to_csv("./RItixlist.csv", index=False)
    
     if all_prize_tables:
         tixtables = pd.concat(all_prize_tables, ignore_index=True)
-        tixtables.to_csv("./NHscratchertables.csv", index=False)
+        tixtables.to_csv("./RIscratchertables.csv", index=False)
     else:
         tixtables = pd.DataFrame(columns=['gameNumber','gameName','prizeamount','Winning Tickets At Start','Winning Tickets Unclaimed','dateexported'])
  
     scratchersall = tixlist.copy().drop_duplicates()
-    scratchersall.to_csv("./NHscratcherslist.csv", index=False)
+    scratchersall.to_csv("./RIscratcherslist.csv", index=False)
  
  
  
@@ -414,7 +419,7 @@ def exportRIScratcherRecs():
     # 4. PREPARE TABLES FOR STATS
     scratchertables = tixtables[['gameNumber', 'gameName', 'prizeamount',
                                  'Winning Tickets At Start', 'Winning Tickets Unclaimed', 'dateexported']].copy()
-    scratchertables.to_csv("./LAscratchertables.csv", encoding='utf-8', index=False)
+    scratchertables.to_csv("./RIscratchertables.csv", encoding='utf-8', index=False)
     scratchertables = scratchertables.loc[scratchertables['gameNumber'] != "Coming Soon!"]
  
     # Get sum of tickets for all prizes by grouping by game number and then calculating with overall odds from scratchersall
