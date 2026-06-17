@@ -603,7 +603,7 @@ def exportRIScratcherRecs():
  
  
     # save scratchers tables
-    scratchertables.to_csv("./NHscratchertables.csv", encoding='utf-8')
+    scratchertables.to_csv("./RIscratchertables.csv", encoding='utf-8')
  
     # create rankings table by merging the list with the tables
  
@@ -654,8 +654,7 @@ def exportRIScratcherRecs():
     # save ratingstable
  
     ratingstable['Stats Page'] = "/new-hampshire-statistics-for-each-scratcher-game"
-    #ratingstable.to_sql('MOratingstable', engine, if_exists='replace')
-    ratingstable.to_csv("./NHratingstable.csv", encoding='utf-8')
+    ratingstable.to_csv("./RIratingstable.csv", encoding='utf-8')
  
     ratingstable = ratingstable.loc[:, ['price', 'gameName', 'gameNumber', 'topprize', 'topprizeremain', 'topprizeavail', 'extrachances', 'secondChance',
                                  'startDate', 'Days Since Start', 'lastdatetoclaim', 'topprizeodds', 'overallodds', 'Current Odds of Top Prize',

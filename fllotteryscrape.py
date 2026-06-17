@@ -40,32 +40,53 @@ def exportFLScratcherRecs():
         
         # Wait for any catalog link to render
         WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='/scratch-offs/view']")))
-        
+
+        # --- 1. HARVEST MASTER LIST: name_map AND price_map ---
         soup = BeautifulSoup(driver.page_source, 'html.parser')
-        
-        # Build the name map { 'ID': 'NAME' }
+
+        CANONICAL_PRICES = {1, 2, 3, 5, 10, 20, 30, 50}
+        PRICE_LABEL_RE = re.compile(r'\$\s*(\d+)\b(?!\d)')
+
+        def _nearest_price(anchor):
+            """Walk up from a game link to find the nearest ancestor whose text contains
+            a canonical FL ticket-price label (e.g., '$50 GAMES'). Returns float or 0."""
+            node = anchor
+            for _ in range(10):
+                node = node.parent
+                if node is None:
+                    return 0.0
+                for tag in node.find_all(
+                        ['h1', 'h2', 'h3', 'h4', 'h5', 'span', 'div'],
+                        string=PRICE_LABEL_RE, limit=8
+                ):
+                    for m in PRICE_LABEL_RE.finditer(tag.get_text(" ", strip=True)):
+                        v = int(m.group(1))
+                        if v in CANONICAL_PRICES:
+                            return float(v)
+            return 0.0
+
         name_map = {}
+        price_map = {}
         game_links = []
 
         for a in soup.find_all('a', href=True):
-            if "/games/scratch-offs/view" in a['href']:
-                full_url = urljoin(base_url, a['href'])
-                
-                # Extract ID for the map key
-                parsed = urlparse(full_url)
-                gid = parse_qs(parsed.query).get('id', [''])[0]
-                
-                if gid:
-                    # Capture the clean name from the teaser link text
-                    clean_name = a.get_text(strip=True)
-                    # Strip ID fragments like "#7028" AND any parentheses wrapping it
-                    clean_name = re.sub(r'\s*\(\s*(?:GAME\s*ID|#)\s*:?\s*\d+\s*\)', '', clean_name, flags=re.IGNORECASE).strip()
-                    
-                    if gid not in name_map:
-                        name_map[gid] = clean_name
-                        game_links.append(full_url)
+            if "/games/scratch-offs/view" not in a['href']:
+                continue
+            full_url = urljoin(base_url, a['href'])
+            gid = parse_qs(urlparse(full_url).query).get('id', [''])[0]
+            if not gid or gid in name_map:
+                continue
 
-        print(f"✅ Successfully mapped {len(name_map)} games. Starting crawl...")
+            clean_name = re.sub(
+                r'\s*\(\s*(?:GAME\s*ID|#)\s*:?\s*\d+\s*\)', '',
+                a.get_text(strip=True), flags=re.IGNORECASE
+            ).strip()
+            name_map[gid] = clean_name
+            price_map[gid] = _nearest_price(a)
+            game_links.append(full_url)
+
+        print(f"✅ Mapped {len(name_map)} games "
+              f"({sum(1 for p in price_map.values() if p > 0)} with price). Starting crawl...")
 
         all_prize_tables = []
         summary_data = []
@@ -109,28 +130,18 @@ def exportFLScratcherRecs():
 
                 # --- PRICE & ODDS ---
                 overall_odds = 0
-                odds_match = re.search(r'Overall Odds\s*[:in]*\s*1[:\-in]*([\d\.,]+)', page_text, re.IGNORECASE)
+                odds_match = re.search(
+                    r'Overall Odds\s*[:in]*\s*1[:\-in]*([\d\.,]+)',
+                    page_text, re.IGNORECASE
+                )
                 if odds_match:
                     overall_odds = float(odds_match.group(1).replace(',', ''))
 
-                price = 0
-                # Try the explicit "Ticket Price" / "Price" label first (FL detail page format)
-                price_match = re.search(
-                    r'(?:Ticket\s*Price|Price)\s*[:\-]?\s*\$\s*(\d+(?:\.\d+)?)',
-                    page_text,
-                    re.IGNORECASE,
-                )
-                if price_match:
-                    price = float(price_match.group(1))
-                else:
-                    # Fallback: many FL games encode price in the name, e.g. "$20 MONOPOLY ..."
-                    name_match = re.match(r'\s*\$(\d+)\b', game_name)
-                    if name_match:
-                        price = float(name_match.group(1))
-                
-                if price == 0:
-                    print(f"    ⚠️ Could not parse price for {game_name} ({current_id}) — skipping price-dependent stats")
-                    continue  # or: don't append to summary_data, to avoid poisoning the DB
+                price = price_map.get(current_id, 0.0)
+                if price == 0.0:
+                    print(f"    ⚠ No price found for game {current_id} ({game_name}); "
+                          f"skipping to avoid bad simulation data.")
+                    continue  # never write price=0 — it poisons every EV/payout metric
 
                 # --- TABLE PARSING ---
                 tables = pd.read_html(io.StringIO(str(detail_soup)))
