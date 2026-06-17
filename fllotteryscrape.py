@@ -14,6 +14,43 @@ from webdriver_manager.firefox import GeckoDriverManager
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse, parse_qs
 import numpy as np
+import requests
+
+PRICES_JSON_URL = (
+    "https://floridalottery.com/content/flalottery-web/us/en/"
+    "games/scratch-offs/view.scratch-offs.json"
+)
+
+def fetch_fl_catalog() -> list:
+    """Fetch FL's authoritative scratch-off catalog JSON.
+    Returns a list of dicts: [{id, name, price, url}, ...]"""
+    try:
+        resp = requests.get(PRICES_JSON_URL, timeout=30,
+                            headers={"User-Agent": "Mozilla/5.0"})
+        resp.raise_for_status()
+        payload = resp.json()
+    except Exception as e:
+        print(f"⚠ Failed to fetch FL catalog JSON: {e}")
+        return []
+
+    rows = payload.get("data", payload) if isinstance(payload, dict) else payload
+    catalog = []
+    for row in rows or []:
+        gid = str(row.get("id") or row.get("gameNumber") or "").strip()
+        if not gid:
+            continue
+        price = row.get("price") or row.get("ticketPrice") or 0
+        name = (row.get("name") or row.get("gameName")
+                or row.get("title") or "").strip()
+        # FL detail page URL is deterministic from the game id
+        url = f"https://floridalottery.com/games/scratch-offs/view?id={gid}"
+        catalog.append({
+            "id": gid,
+            "name": name,
+            "price": float(price) if isinstance(price, (int, float)) else 0.0,
+            "url": url,
+        })
+    return catalog
 
 # Cache driver path
 GECKO_PATH = GeckoDriverManager().install()
@@ -32,61 +69,33 @@ def exportFLScratcherRecs():
     print("Initializing Florida Scraper (Master List Name Mapping)...")
     driver = get_driver()
     base_url = "https://floridalottery.com"
-    
-    try:
-        # 1. HARVEST MASTER LIST AND NAMES
-        print("Fetching Florida catalog and mapping names...")
-        driver.get(f"{base_url}/games/scratch-offs/top-remaining-prizes")
-        
-        # Wait for any catalog link to render
-        WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='/scratch-offs/view']")))
 
-        # --- 1. HARVEST MASTER LIST: name_map AND price_map ---
+    try:
+        driver.get(f"{base_url}/games/scratch-offs")
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='/games/scratch-offs/view']"))
+        )
+        # Scroll to bottom repeatedly to trigger lazy-load of all game tiles
+        last_count = 0
+        for _ in range(20):
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(1.5)
+            count = len(driver.find_elements(By.CSS_SELECTOR, "a[href*='/games/scratch-offs/view']"))
+            if count == last_count:
+                break
+            last_count = count
         soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-        CANONICAL_PRICES = {1, 2, 3, 5, 10, 20, 30, 50}
-        PRICE_LABEL_RE = re.compile(r'\$\s*(\d+)\b(?!\d)')
+        # --- 1. HARVEST MASTER LIST FROM FL'S OFFICIAL JSON FEED ---
+        # (Catalog DOM only renders ~12 featured tiles; JSON has all ~157.)
+        catalog = fetch_fl_catalog()
+        price_map = {row["id"]: row["price"] for row in catalog if row["price"] > 0}
+        name_map = {row["id"]: row["name"] for row in catalog if row["name"]}
+        game_links = [row["url"] for row in catalog]
 
-        def _nearest_price(anchor):
-            """Walk up from a game link to find the nearest ancestor whose text contains
-            a canonical FL ticket-price label (e.g., '$50 GAMES'). Returns float or 0."""
-            node = anchor
-            for _ in range(10):
-                node = node.parent
-                if node is None:
-                    return 0.0
-                for tag in node.find_all(
-                        ['h1', 'h2', 'h3', 'h4', 'h5', 'span', 'div'],
-                        string=PRICE_LABEL_RE, limit=8
-                ):
-                    for m in PRICE_LABEL_RE.finditer(tag.get_text(" ", strip=True)):
-                        v = int(m.group(1))
-                        if v in CANONICAL_PRICES:
-                            return float(v)
-            return 0.0
-
-        name_map = {}
-        price_map = {}
-        game_links = []
-
-        for a in soup.find_all('a', href=True):
-            if "/games/scratch-offs/view" not in a['href']:
-                continue
-            full_url = urljoin(base_url, a['href'])
-            gid = parse_qs(urlparse(full_url).query).get('id', [''])[0]
-            if not gid or gid in name_map:
-                continue
-
-            clean_name = re.sub(
-                r'\s*\(\s*(?:GAME\s*ID|#)\s*:?\s*\d+\s*\)', '',
-                a.get_text(strip=True), flags=re.IGNORECASE
-            ).strip()
-            name_map[gid] = clean_name
-            price_map[gid] = _nearest_price(a)
-            game_links.append(full_url)
-
-        print(f"✅ Mapped {len(name_map)} games "
-              f"({sum(1 for p in price_map.values() if p > 0)} with price). Starting crawl...")
+        print(f"✅ Loaded {len(catalog)} games from FL JSON feed "
+              f"({len(price_map)} with price, {len(name_map)} with name).")
+        print("Starting detail crawl...")
 
         all_prize_tables = []
         summary_data = []
@@ -500,8 +509,8 @@ def exportFLScratcherRecs():
                'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
                'Photo','FAQ', 'About', 'Directory', 
                'Data Date','Stats Page']]
-            ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
-            ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
+            ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects()
+            ratingstable = ratingstable.astype(object).fillna('').infer_objects()
 
             print("✅ Success! Files saved for FL.")
             return ratingstable, scratchertables
