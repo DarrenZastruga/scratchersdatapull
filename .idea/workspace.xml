@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c847f9f-ad0d-4b53-8eec-4a49ef4d85e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FLratingstable.csv" beforeDir="false" afterPath="$PROJECT_DIR$/FLratingstable.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FLscratcherslist.csv" beforeDir="false" afterPath="$PROJECT_DIR$/FLscratcherslist.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FLscratchertables.csv" beforeDir="false" afterPath="$PROJECT_DIR$/FLscratchertables.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fllotteryscrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/fllotteryscrape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslotteryscrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/mslotteryscrape.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +64,7 @@
       <workItem from="1781453589491" duration="911000" />
       <workItem from="1781454664680" duration="216000" />
       <workItem from="1781454935633" duration="4242000" />
-      <workItem from="1781535656301" duration="5871000" />
+      <workItem from="1781535656301" duration="6560000" />
     </task>
     <servers />
   </component>
