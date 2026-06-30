@@ -12,7 +12,6 @@ from urllib.parse import urlparse
 import urllib.request
 import json
 import requests
-from apscheduler.schedulers.blocking import BlockingScheduler
 from bs4 import BeautifulSoup
 import re
 import logging
@@ -24,7 +23,7 @@ import numpy as np
 import html5lib
 import random
 from itertools import repeat
-from scipy import stats
+#from scipy import stats
 import io
 
 
@@ -77,7 +76,13 @@ def exportScratcherRecs():
     tixlist.loc[:, 'gameNumber'] = tixlist.loc[:, 'gameNumber'].astype('int').astype('str')
     tixlist['price'] = tixlist['price'].astype(object)
     tixlist.loc[:, 'price'] = tixlist.loc[:,'price'].str.replace('$','').astype('int')
-    
+    # Clean money/integer columns coming from the Texas listing table
+    tixlist['topprize'] = (
+        tixlist['topprize'].astype(str)
+        .str.replace(r'[\$,]', '', regex=True).str.strip()
+    )
+    tixlist['topprize'] = pd.to_numeric(tixlist['topprize'], errors='coerce')
+    print(tixlist['topprize'])
     
     #get all the game hyperlinks by looping through the table
     links = pd.DataFrame()
