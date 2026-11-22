@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c847f9f-ad0d-4b53-8eec-4a49ef4d85e9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/txlotteryscrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/txlotteryscrape.py" afterDir="false" />
-    </list>
+    <list default="true" id="7c847f9f-ad0d-4b53-8eec-4a49ef4d85e9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +64,7 @@
       <workItem from="1781454935633" duration="4242000" />
       <workItem from="1781535656301" duration="6560000" />
       <workItem from="1782328601434" duration="3000" />
-      <workItem from="1782819398710" duration="933000" />
+      <workItem from="1782819398710" duration="1543000" />
     </task>
     <servers />
   </component>
