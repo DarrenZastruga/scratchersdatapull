@@ -21,36 +21,27 @@ PRICES_JSON_URL = (
     "games/scratch-offs/view.scratch-offs.json"
 )
 
-def fetch_fl_catalog() -> list:
-    """Fetch FL's authoritative scratch-off catalog JSON.
-    Returns a list of dicts: [{id, name, price, url}, ...]"""
+def fetch_fl_price_map() -> dict:
+    """Fetch authoritative ticket prices from FL's official JSON feed.
+    Returns {game_id: float_price}. Never confuses prize amounts with prices."""
     try:
         resp = requests.get(PRICES_JSON_URL, timeout=30,
                             headers={"User-Agent": "Mozilla/5.0"})
         resp.raise_for_status()
         payload = resp.json()
     except Exception as e:
-        print(f"⚠ Failed to fetch FL catalog JSON: {e}")
-        return []
+        print(f"⚠ Failed to fetch FL price JSON: {e}")
+        return {}
 
+    price_map = {}
+    # Handle either {"data":[...]} or a bare list
     rows = payload.get("data", payload) if isinstance(payload, dict) else payload
-    catalog = []
     for row in rows or []:
         gid = str(row.get("id") or row.get("gameNumber") or "").strip()
-        if not gid:
-            continue
-        price = row.get("price") or row.get("ticketPrice") or 0
-        name = (row.get("name") or row.get("gameName")
-                or row.get("title") or "").strip()
-        # FL detail page URL is deterministic from the game id
-        url = f"https://floridalottery.com/games/scratch-offs/view?id={gid}"
-        catalog.append({
-            "id": gid,
-            "name": name,
-            "price": float(price) if isinstance(price, (int, float)) else 0.0,
-            "url": url,
-        })
-    return catalog
+        price = row.get("price") or row.get("ticketPrice")
+        if gid and isinstance(price, (int, float)) and price > 0:
+            price_map[gid] = float(price)
+    return price_map
 
 # Cache driver path
 GECKO_PATH = GeckoDriverManager().install()
@@ -86,16 +77,32 @@ def exportFLScratcherRecs():
             last_count = count
         soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-        # --- 1. HARVEST MASTER LIST FROM FL'S OFFICIAL JSON FEED ---
-        # (Catalog DOM only renders ~12 featured tiles; JSON has all ~157.)
-        catalog = fetch_fl_catalog()
-        price_map = {row["id"]: row["price"] for row in catalog if row["price"] > 0}
-        name_map = {row["id"]: row["name"] for row in catalog if row["name"]}
-        game_links = [row["url"] for row in catalog]
+        # --- 1. HARVEST MASTER LIST: name_map AND price_map ---
+        # Authoritative price source — FL's own JSON feed (no DOM guessing)
+        price_map = fetch_fl_price_map()
+        print(f"✅ Loaded {len(price_map)} ticket prices from FL JSON feed")
 
-        print(f"✅ Loaded {len(catalog)} games from FL JSON feed "
-              f"({len(price_map)} with price, {len(name_map)} with name).")
-        print("Starting detail crawl...")
+        name_map = {}
+        # NOTE: do NOT reset price_map here — it was just loaded from the JSON feed
+        game_links = []
+
+        for a in soup.find_all('a', href=True):
+            if "/games/scratch-offs/view" not in a['href']:
+                continue
+            full_url = urljoin(base_url, a['href'])
+            gid = parse_qs(urlparse(full_url).query).get('id', [''])[0]
+            if not gid or gid in name_map:
+                continue
+
+            clean_name = re.sub(
+                r'\s*\(\s*(?:GAME\s*ID|#)\s*:?\s*\d+\s*\)', '',
+                a.get_text(strip=True), flags=re.IGNORECASE
+            ).strip()
+            name_map[gid] = clean_name
+            game_links.append(full_url)
+
+        print(f"✅ Mapped {len(name_map)} games "
+              f"({sum(1 for p in price_map.values() if p > 0)} with price). Starting crawl...")
 
         all_prize_tables = []
         summary_data = []
@@ -119,23 +126,29 @@ def exportFLScratcherRecs():
                 detail_soup = BeautifulSoup(driver.page_source, 'html.parser')
                 page_text = detail_soup.get_text(" ", strip=True)
 
-                # --- FIXED PHOTO EXTRACTION ---
-                # 1. Target the specific image container or class for the ticket art
-                # Florida uses classes like 'scratch-off-ticket' or 'game-detail-img'
-                img_tag = detail_soup.find('img', class_=re.compile(r'scratch|ticket|game-img', re.I))
-                
+                # --- PHOTO EXTRACTION (matched by this game's number) ---
+                # FL image URLs look like .../fl-1518-the-price-is-right-ticket.png/...
+                # Only accept images containing "fl-<this id>-" so we never grab
+                # a related game's teaser. Prefer the ticket art, then the teaser.
                 game_photo = ""
-                if img_tag:
-                    # Check 'data-src' first (for lazy-loaded images) then fall back to 'src'
-                    raw_photo_url = img_tag.get('data-src') or img_tag.get('src')
-                    if raw_photo_url:
-                        game_photo = urljoin(base_url, raw_photo_url)
-                
-                # 2. Fallback: If no specific class is found, look for any image with 'game' in the filename
+                id_pat = re.compile(rf'fl-0*{re.escape(current_id)}-', re.I)
+                candidates = []
+                for img in detail_soup.find_all('img'):
+                    for attr in ('src', 'data-src', 'data-lazy-src', 'srcset'):
+                        val = img.get(attr) or ''
+                        val = val.split(',')[0].split(' ')[0].strip()
+                        if val and id_pat.search(val):
+                            candidates.append(urljoin(base_url, val))
+                if not candidates:
+                    for m in re.finditer(r'["\'(]([^"\'()\s]*fl-0*' + re.escape(current_id) + r'-[^"\'()\s]*\.(?:png|jpe?g)[^"\'()\s]*)', driver.page_source, re.I):
+                        candidates.append(urljoin(base_url, m.group(1)))
+                for kw in ('-ticket', '-teaser', ''):
+                    hit = next((c for c in candidates if kw in c.lower()), None)
+                    if hit:
+                        game_photo = hit
+                        break
                 if not game_photo:
-                    fallback_img = detail_soup.find('img', src=re.compile(r'game|ticket', re.I))
-                    if fallback_img:
-                        game_photo = urljoin(base_url, fallback_img.get('src'))
+                    print(f"⚠️ No image found for FL game {current_id}")
 
                 # --- PRICE & ODDS ---
                 overall_odds = 0
@@ -509,8 +522,8 @@ def exportFLScratcherRecs():
                'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
                'Photo','FAQ', 'About', 'Directory', 
                'Data Date','Stats Page']]
-            ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects()
-            ratingstable = ratingstable.astype(object).fillna('').infer_objects()
+            ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
+            ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
             print("✅ Success! Files saved for FL.")
             return ratingstable, scratchertables
