@@ -88,7 +88,7 @@ SUPABASE_SERVICE_ROLE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY', '')
 #removed KS and MN since those scripts don't work
 STATES_TO_PROCESS = [
     'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'FL', 'IL', 'KY', 'MA', 'MD',
-    'MO', 'MS', 'NC', 'NH', 'NM', 'NY', 'OH', 'OK', 'OR',
+    'MO', 'MN', 'MS', 'NC', 'NH', 'NM', 'NJ', 'NY', 'OH', 'OK', 'OR',
     'RI', 'SC', 'TX', 'VA', 'WA', 'WV'
 ]
 
