@@ -26,17 +26,6 @@ from itertools import repeat
 from scipy import stats
 
 
-'''
-logging.basicConfig()
- 
-DATABASE_URL = 'postgres://wgmfozowgyxule:8c7255974c879789e50b5c05f07bf00947050fbfbfc785bd970a8bc37561a3fb@ec2-44-195-16-34.compute-1.amazonaws.com:5432/d5o6bqguvvlm63'
-print(DATABASE_URL)
-
-#replace 'postgres' with 'postgresql' in the database URL since SQLAlchemy stopped supporting 'postgres' 
-SQLALCHEMY_DATABASE_URI = DATABASE_URL.replace('postgres://', 'postgresql://')
-conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI, sslmode='require')
-engine = create_engine(SQLALCHEMY_DATABASE_URI)
-'''
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
@@ -66,7 +55,7 @@ NJ_HEADERS = {
 def _nj_date(ms):
     """NJ API dates are epoch milliseconds."""
     try:
-        return datetime.fromtimestamp(int(ms) / 1000).strftime('%m/%d/%Y')
+        return datetime.fromtimestamp(int(ms) / 1000).strftime('%Y-%m-%d')
     except (TypeError, ValueError):
         return None
 
@@ -85,10 +74,21 @@ def _nj_fetch_games():
     return games
 
 
+def _nj_photo(game):
+    """NJ API usually omits images; use the official per-game ticket asset."""
+    raw = game.get('ticketImageUrl') or game.get('imageUrl')
+    if raw:
+        return urllib.parse.urljoin('https://www.njlottery.com', str(raw))
+    gid = str(game.get('gameId') or '').strip()
+    if not gid.isdigit():
+        return None
+    return f"https://www.njlottery.com/content/dam/portal/images/instant-games/{gid.zfill(5)}/ticket.png"
+
+
 def exportScratcherRecs():
     tixtables = pd.DataFrame()
     tixlist = pd.DataFrame()
-    dateexported = date.today().strftime('%m/%d/%Y')
+    dateexported = date.today().strftime('%Y-%m-%d')
 
     for s in _nj_fetch_games():
         # Only games still on sale / still claimable
@@ -104,7 +104,7 @@ def exportScratcherRecs():
         gameName = str(s.get('gameName', '')).strip()
         gamePrice = str(int(price_cents) // 100) if int(price_cents) % 100 == 0 else str(int(price_cents) / 100)
         gameURL = 'https://www.njlottery.com/en-us/scratch-offs/0' + gameNumber + '.html'
-        gamePhoto = s.get('ticketImageUrl') or s.get('imageUrl')
+        gamePhoto = _nj_photo(s)
         startDate = _nj_date(s.get('launchDate') or s.get('startDistributionDate'))
         lastdatetoclaim = _nj_date(s.get('disableDate'))
         endDate = _nj_date(s.get('endDistributionDate'))
@@ -198,7 +198,8 @@ def exportScratcherRecs():
     gamesgrouped.loc[:,'Non-prize remaining'] = gamesgrouped['Total remaining']-gamesgrouped['Winning Tickets Unclaimed']
     gamesgrouped.loc[:,'topprizeodds'] = gamesgrouped['Total remaining']/gamesgrouped['topprizeremain'].astype('float')
     #print(gamesgrouped.loc[:,'topprizeodds'])
-    gamesgrouped.loc[:,['price','topprizeodds','overallodds', 'Winning Tickets At Start','Winning Tickets Unclaimed']] = gamesgrouped.loc[:, ['price','topprizeodds','overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']].apply(pd.to_numeric)
+    for col in ['price', 'topprizeodds', 'overallodds', 'Winning Tickets At Start', 'Winning Tickets Unclaimed']:
+        gamesgrouped[col] = pd.to_numeric(gamesgrouped[col], errors='coerce')
     
     
     #create new 'prize amounts' of "$0" for non-prize tickets and "Total" for the sum of all tickets, then append to scratcherstables
@@ -229,23 +230,23 @@ def exportScratcherRecs():
         gamerow.loc[:,'Change in Current Odds of Top Prize'] =  (gamerow.loc[:,'Current Odds of Top Prize'] - float(gamerow['topprizeodds'].values[0]))/ float(gamerow['topprizeodds'].values[0])      
         gamerow.loc[:,'Current Odds of Any Prize'] = tixtotal/sum(totalremain.loc[:,'Winning Tickets Unclaimed'])
         gamerow.loc[:,'Change in Current Odds of Any Prize'] =  (gamerow.loc[:,'Current Odds of Any Prize'] - float(gamerow['overallodds'].values[0]))/ float(gamerow['overallodds'].values[0])
-        gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])
-        startingprofitodds = startingtotal/sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])
+        gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'])
+        startingprofitodds = startingtotal/sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start'])
         gamerow.loc[:,'Starting Odds of Profit Prize'] = startingprofitodds
         gamerow.loc[:,'Change in Odds of Profit Prize'] =  (gamerow.loc[:,'Odds of Profit Prize'] - startingprofitodds)/ startingprofitodds
         gamerow.loc[:,'Probability of Winning Any Prize'] = sum(totalremain.loc[:,'Winning Tickets Unclaimed'])/tixtotal
         startprobanyprize = sum(totalremain.loc[:,'Winning Tickets At Start'])/startingtotal
         gamerow.loc[:,'Starting Probability of Winning Any Prize'] = startprobanyprize
         gamerow.loc[:,'Change in Probability of Any Prize'] =  startprobanyprize - gamerow.loc[:,'Probability of Winning Any Prize']  
-        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])/tixtotal
-        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])/startingtotal
+        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'])/tixtotal
+        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start'])/startingtotal
         gamerow.loc[:,'Starting Probability of Winning Profit Prize'] = startprobprofitprize
         gamerow.loc[:,'Change in Probability of Profit Prize'] =  startprobprofitprize - gamerow.loc[:,'Probability of Winning Profit Prize']
         gamerow.loc[:,'StdDev of All Prizes'] = totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()/tixtotal
-        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()/tixtotal
+        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std().mean()/tixtotal
         gamerow.loc[:,'Odds of Any Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Current Odds of Any Prize']+(totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()*3))
-        gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()*3))
-        gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean())
+        gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std().mean()*3))
+        gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std().mean())
         
         
         #calculate expected value
@@ -369,4 +370,9 @@ def exportScratcherRecs():
 
     #set_with_dataframe(worksheet=MDratingssheet, dataframe=ratingstable, include_index=False,
     #include_column_header=True, resize=True)
+    print(f"NJ exported {len(ratingstable)} games; {ratingstable['Photo'].astype(bool).sum()} image URLs.")
     return ratingstable, scratchertables
+
+
+if __name__ == "__main__":
+    exportScratcherRecs()

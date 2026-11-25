@@ -21,7 +21,6 @@ from dateutil.tz import tzlocal
 import lxml
 from datetime import date
 import numpy as np
-import html5lib
 import random
 from itertools import repeat
 from scipy import stats
@@ -44,42 +43,51 @@ def exportARScratcherRecs():
     tixtables = pd.DataFrame()
     scratchersall_list = []
 
-    page = 1
+    page = 0
+    seen_games = set()
     # Loop through the pages until there are no more games
-    while True:
+    while page < 100:
         list_page_url = f"https://www.myarkansaslottery.com/games/instant?amount=All&page={page}"
         print(f"Fetching game list from: {list_page_url}")
 
         try:
-            r = requests.get(list_page_url, headers=headers)
+            r = requests.get(list_page_url, headers=headers, timeout=30)
+            r.raise_for_status()
             soup = BeautifulSoup(r.content, 'html.parser')
             
             # First, find the main container that holds all the game cards
-            main_content = soup.find('div', class_='view-content')
+            main_content = soup.select_one('.view-content')
 
             # If the main container doesn't exist, we've reached the end of the pages.
             if not main_content:
+                if not scratchersall_list:
+                    raise RuntimeError(f"AR: no game container ({r.status_code}, {r.url}, title={soup.title.get_text() if soup.title else None}); possible blocked response or changed markup")
                 print("No game container found. Ending scraping process.")
                 break
             
             # Find all game containers on the main page
-            game_cards = main_content.find_all('div', class_='field field-name-field-ticket-front field-type-image field-label-hidden')
+            game_cards = main_content.select('.field-name-field-ticket-front')
             
             if not game_cards:
                 print(f"No games found on page {page}. Done fetching game list.")
                 break
             
+            before_count = len(seen_games)
             # Loop through each game card to get its details
             for card in game_cards:
                 try:
         
                     detail_path = card.find('a')['href']
-                    detail_url = f"{base_url}{detail_path}"
+                    detail_url = urllib.parse.urljoin(base_url, detail_path)
+                    if detail_url in seen_games:
+                        continue
+                    seen_games.add(detail_url)
                     
                     print(f"  > Processing game: {detail_path}")
                 
                     # Now, visit the detail page to get the prize table and other info
-                    detail_r = requests.get(detail_url, headers=headers)
+                    detail_r = requests.get(detail_url, headers=headers, timeout=30)
+                    detail_r.raise_for_status()
                     detail_soup = BeautifulSoup(detail_r.content, 'html.parser')
                     
                     #Extract game name
@@ -98,11 +106,14 @@ def exportARScratcherRecs():
 
                     
                     #Extract game dates
-                    endDate = detail_soup.find('p', class_='layout-3col__col-1').get_text(strip=True).replace('Last Sell Date:','').replace('*','')
+                    date_tag = detail_soup.find('p', class_='layout-3col__col-1')
+                    endDate = date_tag.get_text(strip=True).replace('Last Sell Date:', '').replace('*', '') if date_tag else None
 
-                    lastdatetoclaim = detail_soup.find('p', class_='layout-3col__col-2').get_text(strip=True).replace('Last Redeem Date:','').replace('*','')
+                    date_tag = detail_soup.find('p', class_='layout-3col__col-2')
+                    lastdatetoclaim = date_tag.get_text(strip=True).replace('Last Redeem Date:', '').replace('*', '') if date_tag else None
 
-                    startDate = detail_soup.find('p', class_='layout-3col__col-3').get_text(strip=True).replace('Launch Date:','').replace('*','')
+                    date_tag = detail_soup.find('p', class_='layout-3col__col-3')
+                    startDate = date_tag.get_text(strip=True).replace('Launch Date:', '').replace('*', '') if date_tag else None
 
                     
                     # Extract ticket cost
@@ -130,7 +141,7 @@ def exportARScratcherRecs():
                         'Total Prizes in Game per Tier': 'Winning Tickets At Start',
                         'Estimated Prizes Remaining per Tier': 'Winning Tickets Unclaimed'
                     }, inplace=True)
-                    prize_table_df.drop(columns=['Total Prize Amount in Game per Tier','Estimated Prize Amount Remaining per Tier'], inplace=True)
+                    prize_table_df.drop(columns=['Total Prize Amount in Game per Tier','Estimated Prize Amount Remaining per Tier'], inplace=True, errors='ignore')
                 
                 
                     # Data Cleaning
@@ -142,7 +153,7 @@ def exportARScratcherRecs():
                     prize_table_df['gameNumber'] = game_number
                     prize_table_df['gameName'] = game_name
                     prize_table_df['price'] = price
-                    prize_table_df['dateexported'] = date.today()
+                    prize_table_df['dateexported'] = date.today().isoformat()
                 
                     # Get top prize info from the table
                     topprize = prize_table_df['prizeamount'].max()
@@ -161,7 +172,7 @@ def exportARScratcherRecs():
                         'topprizestarting': topprizestarting, 'topprizeremain': topprizeremain,
                         'topprizeavail': topprizeavail, 'extrachances': None, 'secondChance': None,
                         'startDate': startDate, 'endDate': endDate, 'lastdatetoclaim': lastdatetoclaim,
-                        'gamePhoto': game_photo, 'dateexported': date.today(), 'gameURL': detail_url
+                        'gamePhoto': game_photo, 'dateexported': date.today().isoformat(), 'gameURL': detail_url
                     })
                     
                     
@@ -170,6 +181,8 @@ def exportARScratcherRecs():
                     continue
                 
     
+            if len(seen_games) == before_count:
+                break
             # Increment the page counter to move to the next page in the next loop iteration
             page += 1
             time.sleep(1) # Add a small delay to be respectful to the server
@@ -185,6 +198,8 @@ def exportARScratcherRecs():
     # --- This is the statistical analysis section from your original script ---
     # It will now run on the data scraped from the Arkansas Lottery.
 
+    if not scratchersall_list or tixtables.empty:
+        raise RuntimeError("AR: no valid games collected; refusing empty output. Save the listing HTML from the runner to diagnose blocked/changed pages.")
     scratchersall = pd.DataFrame(scratchersall_list)
     scratchersall.to_csv("./ARscratcherslist.csv", encoding='utf-8', index=False)
     
@@ -245,9 +260,9 @@ def exportARScratcherRecs():
         gamerow.loc[:,'Change in Current Odds of Top Prize'] =  (gamerow.loc[:,'Current Odds of Top Prize'] - float(gamerow['topprizeodds'].values[0]))/ float(gamerow['topprizeodds'].values[0])      
         gamerow.loc[:,'Current Odds of Any Prize'] = tixtotal/sum(totalremain.loc[:,'Winning Tickets Unclaimed'])
         gamerow.loc[:,'Change in Current Odds of Any Prize'] =  (gamerow.loc[:,'Current Odds of Any Prize'] - float(gamerow['overallodds'].values[0]))/ float(gamerow['overallodds'].values[0])
-        denomUnclaimed = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])
+        denomUnclaimed = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'])
         gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/denomUnclaimed if denomUnclaimed > 0 else np.nan
-        denomStart = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])
+        denomStart = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start'])
         startingprofitodds = startingtotal/denomStart if denomStart > 0 else np.nan
         gamerow.loc[:,'Starting Odds of Profit Prize'] = startingprofitodds
         gamerow.loc[:,'Change in Odds of Profit Prize'] =  (gamerow.loc[:,'Odds of Profit Prize'] - startingprofitodds)/ startingprofitodds if startingprofitodds > 0 else np.nan
@@ -255,15 +270,15 @@ def exportARScratcherRecs():
         startprobanyprize = sum(totalremain.loc[:,'Winning Tickets At Start'])/startingtotal if startingtotal > 0 else np.nan
         gamerow.loc[:,'Starting Probability of Winning Any Prize'] = startprobanyprize
         gamerow.loc[:,'Change in Probability of Any Prize'] =  startprobanyprize - gamerow.loc[:,'Probability of Winning Any Prize']  
-        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])/tixtotal if tixtotal > 0 else np.nan
-        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])/startingtotal if startingtotal > 0 else np.nan
+        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'])/tixtotal if tixtotal > 0 else np.nan
+        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start'])/startingtotal if startingtotal > 0 else np.nan
         gamerow.loc[:,'Starting Probability of Winning Profit Prize'] = startprobprofitprize
         gamerow.loc[:,'Change in Probability of Profit Prize'] =  startprobprofitprize - gamerow.loc[:,'Probability of Winning Profit Prize']
         gamerow.loc[:,'StdDev of All Prizes'] = totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()/tixtotal if tixtotal > 0 else np.nan
-        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()/tixtotal if tixtotal > 0 else np.nan
+        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std().mean()/tixtotal if tixtotal > 0 else np.nan
         gamerow.loc[:,'Odds of Any Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Current Odds of Any Prize']+(totalremain.loc[:,'Winning Tickets Unclaimed'].std()*3))
-        gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std()*3))
-        gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std())
+        gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std()*3))
+        gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std())
         
         
         #calculate expected value
@@ -389,4 +404,6 @@ def exportARScratcherRecs():
 
     return ratingstable, scratchertables
 
-exportARScratcherRecs()
+
+if __name__ == "__main__":
+    exportARScratcherRecs()

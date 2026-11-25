@@ -21,27 +21,22 @@ PRICES_JSON_URL = (
     "games/scratch-offs/view.scratch-offs.json"
 )
 
-def fetch_fl_price_map() -> dict:
-    """Fetch authoritative ticket prices from FL's official JSON feed.
-    Returns {game_id: float_price}. Never confuses prize amounts with prices."""
-    try:
-        resp = requests.get(PRICES_JSON_URL, timeout=30,
-                            headers={"User-Agent": "Mozilla/5.0"})
-        resp.raise_for_status()
-        payload = resp.json()
-    except Exception as e:
-        print(f"⚠ Failed to fetch FL price JSON: {e}")
-        return {}
-
-    price_map = {}
-    # Handle either {"data":[...]} or a bare list
-    rows = payload.get("data", payload) if isinstance(payload, dict) else payload
-    for row in rows or []:
-        gid = str(row.get("id") or row.get("gameNumber") or "").strip()
-        price = row.get("price") or row.get("ticketPrice")
-        if gid and isinstance(price, (int, float)) and price > 0:
-            price_map[gid] = float(price)
-    return price_map
+def fetch_fl_catalog():
+    """Full official catalog, not the first page of visible game tiles."""
+    resp = requests.get(PRICES_JSON_URL, timeout=30, headers={"User-Agent": "Mozilla/5.0"})
+    resp.raise_for_status()
+    payload = resp.json()
+    rows = payload.get("data", []) if isinstance(payload, dict) else payload
+    games = {}
+    for row in rows:
+        gid = str(row.get("id") or "").strip()
+        name = str(row.get("name") or "").strip()
+        price = pd.to_numeric(row.get("price"), errors="coerce")
+        if gid and name and pd.notna(price) and price > 0:
+            games[gid] = {"name": name, "price": float(price), "photo": row.get("teaserImage") or ""}
+    if not games:
+        raise RuntimeError("FL official catalog returned no valid games; no data will be overwritten.")
+    return games
 
 # Cache driver path
 GECKO_PATH = GeckoDriverManager().install()
@@ -62,47 +57,11 @@ def exportFLScratcherRecs():
     base_url = "https://floridalottery.com"
 
     try:
-        driver.get(f"{base_url}/games/scratch-offs")
-        WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='/games/scratch-offs/view']"))
-        )
-        # Scroll to bottom repeatedly to trigger lazy-load of all game tiles
-        last_count = 0
-        for _ in range(20):
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(1.5)
-            count = len(driver.find_elements(By.CSS_SELECTOR, "a[href*='/games/scratch-offs/view']"))
-            if count == last_count:
-                break
-            last_count = count
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
-
-        # --- 1. HARVEST MASTER LIST: name_map AND price_map ---
-        # Authoritative price source — FL's own JSON feed (no DOM guessing)
-        price_map = fetch_fl_price_map()
-        print(f"✅ Loaded {len(price_map)} ticket prices from FL JSON feed")
-
-        name_map = {}
-        # NOTE: do NOT reset price_map here — it was just loaded from the JSON feed
-        game_links = []
-
-        for a in soup.find_all('a', href=True):
-            if "/games/scratch-offs/view" not in a['href']:
-                continue
-            full_url = urljoin(base_url, a['href'])
-            gid = parse_qs(urlparse(full_url).query).get('id', [''])[0]
-            if not gid or gid in name_map:
-                continue
-
-            clean_name = re.sub(
-                r'\s*\(\s*(?:GAME\s*ID|#)\s*:?\s*\d+\s*\)', '',
-                a.get_text(strip=True), flags=re.IGNORECASE
-            ).strip()
-            name_map[gid] = clean_name
-            game_links.append(full_url)
-
-        print(f"✅ Mapped {len(name_map)} games "
-              f"({sum(1 for p in price_map.values() if p > 0)} with price). Starting crawl...")
+        catalog = fetch_fl_catalog()
+        price_map = {gid: row['price'] for gid, row in catalog.items()}
+        name_map = {gid: row['name'] for gid, row in catalog.items()}
+        game_links = [f"{base_url}/games/scratch-offs/view?id={gid}" for gid in catalog]
+        print(f"FL official catalog: {len(catalog)} named games across {sorted(set(price_map.values()))} prices.")
 
         all_prize_tables = []
         summary_data = []
@@ -130,11 +89,11 @@ def exportFLScratcherRecs():
                 # FL image URLs look like .../fl-1518-the-price-is-right-ticket.png/...
                 # Only accept images containing "fl-<this id>-" so we never grab
                 # a related game's teaser. Prefer the ticket art, then the teaser.
-                game_photo = ""
+                game_photo = urljoin(base_url, catalog[current_id]["photo"]) if catalog[current_id]["photo"] else ""
                 id_pat = re.compile(rf'fl-0*{re.escape(current_id)}-', re.I)
                 candidates = []
                 for img in detail_soup.find_all('img'):
-                    for attr in ('src', 'data-src', 'data-lazy-src', 'srcset'):
+                    for attr in ('src', 'data-src', 'data-lazy-src', 'data-bg', 'srcset'):
                         val = img.get(attr) or ''
                         val = val.split(',')[0].split(' ')[0].strip()
                         if val and id_pat.search(val):
@@ -153,7 +112,7 @@ def exportFLScratcherRecs():
                 # --- PRICE & ODDS ---
                 overall_odds = 0
                 odds_match = re.search(
-                    r'Overall Odds\s*[:in]*\s*1[:\-in]*([\d\.,]+)',
+                    r'Overall Odds\s*:?\s*1\s*(?:in|:|to)\s*([\d\.,]+)',
                     page_text, re.IGNORECASE
                 )
                 if odds_match:
@@ -164,6 +123,9 @@ def exportFLScratcherRecs():
                     print(f"    ⚠ No price found for game {current_id} ({game_name}); "
                           f"skipping to avoid bad simulation data.")
                     continue  # never write price=0 — it poisons every EV/payout metric
+
+                if not overall_odds or overall_odds <= 1:
+                    raise ValueError(f'FL {current_id}: missing or invalid overall odds')
 
                 # --- TABLE PARSING ---
                 tables = pd.read_html(io.StringIO(str(detail_soup)))
@@ -179,13 +141,17 @@ def exportFLScratcherRecs():
 
                         def split_qty(val, part):
                             match = re.search(r'(\d[\d,]*)\s+of\s+(\d[\d,]*)', str(val))
-                            return float(match.group(part).replace(',', '')) if match else 0
+                            return float(match.group(part).replace(',', '')) if match else float('nan')
 
                         df['Winning Tickets Unclaimed'] = df[rem_col].apply(lambda x: split_qty(x, 1))
                         df['Winning Tickets At Start'] = df[rem_col].apply(lambda x: split_qty(x, 2))
                         df['prizeamount'] = pd.to_numeric(df['prizeamount'].astype(str).str.replace(r'[^\d\.]', '', regex=True), errors='coerce').fillna(0)
+                        if df[['Winning Tickets At Start', 'Winning Tickets Unclaimed']].isna().any().any():
+                            raise ValueError(f'FL {current_id}: remaining counts are not in X of Y format')
+                        if df['Winning Tickets At Start'].sum() <= 0 or df['Winning Tickets Unclaimed'].sum() <= 0:
+                            raise ValueError(f'FL {current_id}: no usable prize counts')
 
-                        df['gameNumber'], df['gameName'], df['dateexported'] = current_id, game_name, date.today()
+                        df['gameNumber'], df['gameName'], df['dateexported'] = current_id, game_name, date.today().isoformat()
                         all_prize_tables.append(df)
                         
                         top_row = df.sort_values('prizeamount', ascending=False).iloc[0]
@@ -195,7 +161,7 @@ def exportFLScratcherRecs():
                             'topprizestarting': top_row['Winning Tickets At Start'],
                             'topprizeremain': top_row['Winning Tickets Unclaimed'],
                             'topprizeavail': "Yes" if top_row['Winning Tickets Unclaimed'] > 0 else "No",
-                            'gameURL': link, 'gamePhoto': game_photo, 'dateexported': date.today(),
+                            'gameURL': link, 'gamePhoto': game_photo, 'dateexported': date.today().isoformat(),
                             'startDate': "", 'extrachances': "No", 'secondChance': "No", 'lastdatetoclaim': ""
                         })
                         print(f"  > Scraped: {game_name}")
@@ -301,10 +267,10 @@ def exportFLScratcherRecs():
                 gamerow.loc[:, 'Change in Current Odds of Any Prize'] = (gamerow.loc[:, 'Current Odds of Any Prize'] - float(
                     gamerow['overallodds'].values[0])) / float(gamerow['overallodds'].values[0])
                 gamerow.loc[:, 'Odds of Profit Prize'] = tixtotal/sum(
-                    totalremain.loc[totalremain['prizeamount'] != price, 'Winning Tickets Unclaimed'])
+                    totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed'])
                 startingprofitodds = startingtotal / \
                     sum(totalremain.loc[totalremain['prizeamount']
-                        != price, 'Winning Tickets At Start'])
+                        > price, 'Winning Tickets At Start'])
                 gamerow.loc[:, 'Starting Odds of Profit Prize'] = startingprofitodds
                 gamerow.loc[:, 'Change in Odds of Profit Prize'] = (
                     gamerow.loc[:, 'Odds of Profit Prize'] - startingprofitodds) / startingprofitodds
@@ -316,23 +282,23 @@ def exportFLScratcherRecs():
                 gamerow.loc[:, 'Change in Probability of Any Prize'] = startprobanyprize - \
                     gamerow.loc[:, 'Probability of Winning Any Prize']
                 gamerow.loc[:, 'Probability of Winning Profit Prize'] = sum(
-                    totalremain.loc[totalremain['prizeamount'] != price, 'Winning Tickets Unclaimed'])/tixtotal
+                    totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed'])/tixtotal
                 startprobprofitprize = sum(
-                    totalremain.loc[totalremain['prizeamount'] != price, 'Winning Tickets At Start'])/startingtotal
+                    totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets At Start'])/startingtotal
                 gamerow.loc[:, 'Starting Probability of Winning Profit Prize'] = startprobprofitprize
                 gamerow.loc[:, 'Change in Probability of Profit Prize'] = startprobprofitprize - \
                     gamerow.loc[:, 'Probability of Winning Profit Prize']
                 gamerow.loc[:, 'StdDev of All Prizes'] = totalremain.loc[:,
                                                                          'Winning Tickets Unclaimed'].std().mean()/tixtotal
                 gamerow.loc[:, 'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']
-                                                                            != price, 'Winning Tickets Unclaimed'].std().mean()/tixtotal
+                                                                            > price, 'Winning Tickets Unclaimed'].std().mean()/tixtotal
                 gamerow.loc[:, 'Odds of Any Prize + 3 StdDevs'] = tixtotal / \
                     (gamerow.loc[:, 'Current Odds of Any Prize'] +
                      (totalremain.loc[:, 'Winning Tickets Unclaimed'].std().mean()*3))
                 gamerow.loc[:, 'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:, 'Odds of Profit Prize']+(
-                    totalremain.loc[totalremain['prizeamount'] != price, 'Winning Tickets Unclaimed'].std().mean()*3))
-                gamerow.loc[:, 'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount'] != price, 'Winning Tickets Unclaimed'].sum(
-                )-totalremain.loc[totalremain['prizeamount'] != price, 'Winning Tickets Unclaimed'].std().mean())
+                    totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed'].std().mean()*3))
+                gamerow.loc[:, 'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed'].sum(
+                )-totalremain.loc[totalremain['prizeamount'] > price, 'Winning Tickets Unclaimed'].std().mean())
         
                 # calculate expected value
                 # Clean prizeamount before numeric conversion
@@ -426,7 +392,7 @@ def exportFLScratcherRecs():
                     gamerow.loc[:, 'Ratio of Decline in Prizes to Decline in Losing Ticket'] = chngLosingTix / chngAvailPrizes
                 else:
                     gamerow.loc[:, 'Ratio of Decline in Prizes to Decline in Losing Ticket'] = 0
-                gamerow.loc[:,'Photo'] = scratchersall.loc[scratchersall['gameNumber'] == gameid,'gamePhoto']
+                gamerow.loc[:,'Photo'] = scratchersall.loc[scratchersall['gameNumber'] == gameid,'gamePhoto'].iloc[0]
                 gamerow.loc[:,'FAQ'] = None
                 gamerow.loc[:,'About'] = None
                 gamerow.loc[:,'Directory'] = None
@@ -521,12 +487,14 @@ def exportFLScratcherRecs():
                'Rank by Least Expected Losses', 'Rank by Most Available Prizes',
                'Rank by Best Change in Probabilities', 'Rank Average', 'Overall Rank','Rank by Cost',
                'Photo','FAQ', 'About', 'Directory', 
-               'Data Date','Stats Page']]
+               'Data Date','Stats Page', 'gameURL']]
             ratingstable = ratingstable.replace([np.inf, -np.inf], 0).infer_objects(copy=False)
             ratingstable = ratingstable.astype(object).fillna('').infer_objects(copy=False)
 
             print("✅ Success! Files saved for FL.")
+            print(f"FL exported {len(ratingstable)}/{len(catalog)} catalog games; {ratingstable['Photo'].astype(bool).sum()} photos; {len(scratchertables)} prize rows.")
             return ratingstable, scratchertables
+        raise RuntimeError("FL: no usable detail tables; no empty export.")
 
     finally:
         driver.quit()

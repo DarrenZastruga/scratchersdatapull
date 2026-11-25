@@ -62,15 +62,16 @@ def exportScratcherRecs():
                 
                 gameURL = link_tag.get('href')
                 img_tag = t.find('img')
-                gamePhoto = img_tag.get('data-src') if img_tag else None
+                gamePhoto = (img_tag.get('data-src') or img_tag.get('src')) if img_tag else None
                 
                 print(f"    Scraping game: {gameURL}")
                 
                 r_game = requests.get(gameURL, headers=headers, timeout=10)
+                r_game.raise_for_status()
                 game_soup = BeautifulSoup(r_game.text, 'html.parser')
                 
                 title_tag = game_soup.find('h1', class_='entry-title')
-                gameName = title_tag.string.strip() if title_tag else "Unknown"
+                gameName = title_tag.get_text(strip=True) if title_tag else "Unknown"
 
                 juxtable = game_soup.find('table', class_='juxtable')
                 if not juxtable:
@@ -91,7 +92,7 @@ def exportScratcherRecs():
                 endDate = get_val('End Date')
                 lastdatetoclaim = get_val('Claim Deadline')
                 extrachances = None
-                dateexported = date.today()
+                dateexported = date.today().isoformat()
                 
                 tables = game_soup.find_all('table')
                 if len(tables) < 2:
@@ -156,7 +157,7 @@ def exportScratcherRecs():
 
     tixlist.to_csv("./MStixlist.csv", encoding='utf-8', index=False)
     
-    cols_to_keep = ['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported']
+    cols_to_keep = ['price','gameName','gameNumber','topprize','overallodds','topprizestarting','topprizeremain','topprizeavail','extrachances','secondChance','startDate','endDate','lastdatetoclaim','gamePhoto','dateexported','gameURL']
     for col in cols_to_keep:
         if col not in tixlist.columns: tixlist[col] = None
             
@@ -226,23 +227,23 @@ def exportScratcherRecs():
         gamerow.loc[:,'Change in Current Odds of Top Prize'] =  (gamerow.loc[:,'Current Odds of Top Prize'] - float(gamerow['topprizeodds'].values[0]))/ float(gamerow['topprizeodds'].values[0])      
         gamerow.loc[:,'Current Odds of Any Prize'] = tixtotal/sum(totalremain.loc[:,'Winning Tickets Unclaimed'])
         gamerow.loc[:,'Change in Current Odds of Any Prize'] =  (gamerow.loc[:,'Current Odds of Any Prize'] - float(gamerow['overallodds'].values[0]))/ float(gamerow['overallodds'].values[0])
-        gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])
-        startingprofitodds = startingtotal/sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])
+        gamerow.loc[:,'Odds of Profit Prize'] = tixtotal/sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'])
+        startingprofitodds = startingtotal/sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start'])
         gamerow.loc[:,'Starting Odds of Profit Prize'] = startingprofitodds
         gamerow.loc[:,'Change in Odds of Profit Prize'] =  (gamerow.loc[:,'Odds of Profit Prize'] - startingprofitodds)/ startingprofitodds
         gamerow.loc[:,'Probability of Winning Any Prize'] = sum(totalremain.loc[:,'Winning Tickets Unclaimed'])/tixtotal
         startprobanyprize = sum(totalremain.loc[:,'Winning Tickets At Start'])/startingtotal
         gamerow.loc[:,'Starting Probability of Winning Any Prize'] = startprobanyprize
         gamerow.loc[:,'Change in Probability of Any Prize'] =  startprobanyprize - gamerow.loc[:,'Probability of Winning Any Prize']  
-        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'])/tixtotal
-        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets At Start'])/startingtotal
+        gamerow.loc[:,'Probability of Winning Profit Prize'] = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'])/tixtotal
+        startprobprofitprize = sum(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets At Start'])/startingtotal
         gamerow.loc[:,'Starting Probability of Winning Profit Prize'] = startprobprofitprize
         gamerow.loc[:,'Change in Probability of Profit Prize'] =  startprobprofitprize - gamerow.loc[:,'Probability of Winning Profit Prize']
         gamerow.loc[:,'StdDev of All Prizes'] = totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()/tixtotal
-        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()/tixtotal
+        gamerow.loc[:,'StdDev of Profit Prizes'] = totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std().mean()/tixtotal
         gamerow.loc[:,'Odds of Any Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Current Odds of Any Prize']+(totalremain.loc[:,'Winning Tickets Unclaimed'].std().mean()*3))
-        gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean()*3))
-        gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']!=price,'Winning Tickets Unclaimed'].std().mean())
+        gamerow.loc[:,'Odds of Profit Prize + 3 StdDevs'] = tixtotal/(gamerow.loc[:,'Odds of Profit Prize']+(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std().mean()*3))
+        gamerow.loc[:,'Max Tickets to Buy'] = tixtotal/(totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].sum()-totalremain.loc[totalremain['prizeamount']>price,'Winning Tickets Unclaimed'].std().mean())
         
         
         #calculate expected value
@@ -365,4 +366,6 @@ def exportScratcherRecs():
 
     return ratingstable, scratchertables
 
-exportScratcherRecs()
+
+if __name__ == "__main__":
+    exportScratcherRecs()
