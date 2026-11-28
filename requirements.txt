@@ -1,5 +1,6 @@
 pandas<3.0
 requests
+curl_cffi
 apscheduler
 bs4
 datetime
