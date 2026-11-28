@@ -30,6 +30,72 @@ import time
 
 now = datetime.now(tzlocal()).strftime('%Y-%m-%d %H:%M:%S %Z')
 
+
+# ---------------------------------------------------------------------------
+# Fetching: the AR site sits behind Cloudflare, which answers plain requests
+# (and headless browsers on datacenter IPs) with a 403 "Just a moment..." page.
+# fetch_html tries, in order: requests -> curl_cffi (Chrome TLS impersonation)
+# -> Firecrawl (if FIRECRAWL_API_KEY is set). It raises a clear error on a
+# Cloudflare challenge instead of silently parsing an empty page, and saves
+# the blocked HTML to AR_DEBUG_DIR for diagnosis.
+# ---------------------------------------------------------------------------
+AR_DEBUG_DIR = os.environ.get("AR_DEBUG_DIR", "ar_debug")
+
+def _is_challenge(status, text):
+    t = (text or "")[:20000].lower()
+    return status in (403, 429, 503) or "just a moment" in t or "cf-chl" in t
+
+def _save_debug(url, text, label):
+    try:
+        os.makedirs(AR_DEBUG_DIR, exist_ok=True)
+        name = re.sub(r"[^A-Za-z0-9]+", "_", url)[-80:]
+        with open(os.path.join(AR_DEBUG_DIR, f"{label}_{name}.html"), "w", encoding="utf-8") as fh:
+            fh.write(text or "")
+    except Exception:
+        pass
+
+def fetch_html(url, headers, timeout=30):
+    attempts = []
+    try:
+        r = requests.get(url, headers=headers, timeout=timeout)
+        if not _is_challenge(r.status_code, r.text):
+            r.raise_for_status()
+            return r.text
+        attempts.append(f"requests={r.status_code}")
+        _save_debug(url, r.text, "requests")
+    except requests.RequestException as e:
+        attempts.append(f"requests error: {e}")
+    try:
+        from curl_cffi import requests as cffi_requests
+        r = cffi_requests.get(url, impersonate="chrome", timeout=timeout)
+        if not _is_challenge(r.status_code, r.text):
+            return r.text
+        attempts.append(f"curl_cffi={r.status_code}")
+    except ImportError:
+        attempts.append("curl_cffi not installed")
+    except Exception as e:
+        attempts.append(f"curl_cffi error: {e}")
+    key = os.environ.get("FIRECRAWL_API_KEY")
+    if key:
+        try:
+            r = requests.post("https://api.firecrawl.dev/v1/scrape",
+                              headers={"Authorization": f"Bearer {key}"},
+                              json={"url": url, "formats": ["rawHtml"]}, timeout=120)
+            data = r.json().get("data") or {}
+            html = data.get("rawHtml") or ""
+            if html and not _is_challenge(200, html):
+                return html
+            attempts.append(f"firecrawl={r.status_code}")
+        except Exception as e:
+            attempts.append(f"firecrawl error: {e}")
+    else:
+        attempts.append("FIRECRAWL_API_KEY not set")
+    raise RuntimeError(f"AR: blocked by Cloudflare for {url} ({'; '.join(attempts)})")
+
+def _date_or_none(text):
+    text = (text or "").strip()
+    return None if not text or "determined" in text.lower() else text
+
 def exportARScratcherRecs():
     """
     Scrapes the Arkansas Scholarship Lottery website for scratch-off data.
@@ -51,9 +117,8 @@ def exportARScratcherRecs():
         print(f"Fetching game list from: {list_page_url}")
 
         try:
-            r = requests.get(list_page_url, headers=headers, timeout=30)
-            r.raise_for_status()
-            soup = BeautifulSoup(r.content, 'html.parser')
+            list_html = fetch_html(list_page_url, headers)
+            soup = BeautifulSoup(list_html, 'html.parser')
             
             # First, find the main container that holds all the game cards
             main_content = soup.select_one('.view-content')
@@ -61,7 +126,8 @@ def exportARScratcherRecs():
             # If the main container doesn't exist, we've reached the end of the pages.
             if not main_content:
                 if not scratchersall_list:
-                    raise RuntimeError(f"AR: no game container ({r.status_code}, {r.url}, title={soup.title.get_text() if soup.title else None}); possible blocked response or changed markup")
+                    _save_debug(list_page_url, list_html, "nocontainer")
+                    raise RuntimeError(f"AR: no game container ({list_page_url}, title={soup.title.get_text() if soup.title else None}); possible blocked response or changed markup")
                 print("No game container found. Ending scraping process.")
                 break
             
@@ -86,9 +152,7 @@ def exportARScratcherRecs():
                     print(f"  > Processing game: {detail_path}")
                 
                     # Now, visit the detail page to get the prize table and other info
-                    detail_r = requests.get(detail_url, headers=headers, timeout=30)
-                    detail_r.raise_for_status()
-                    detail_soup = BeautifulSoup(detail_r.content, 'html.parser')
+                    detail_soup = BeautifulSoup(fetch_html(detail_url, headers), 'html.parser')
                     
                     #Extract game name
                     game_name_tag = detail_soup.find('h1', class_='layout-center')
@@ -107,13 +171,13 @@ def exportARScratcherRecs():
                     
                     #Extract game dates
                     date_tag = detail_soup.find('p', class_='layout-3col__col-1')
-                    endDate = date_tag.get_text(strip=True).replace('Last Sell Date:', '').replace('*', '') if date_tag else None
+                    endDate = _date_or_none(date_tag.get_text(strip=True).replace('Last Sell Date:', '').replace('*', '')) if date_tag else None
 
                     date_tag = detail_soup.find('p', class_='layout-3col__col-2')
-                    lastdatetoclaim = date_tag.get_text(strip=True).replace('Last Redeem Date:', '').replace('*', '') if date_tag else None
+                    lastdatetoclaim = _date_or_none(date_tag.get_text(strip=True).replace('Last Redeem Date:', '').replace('*', '')) if date_tag else None
 
                     date_tag = detail_soup.find('p', class_='layout-3col__col-3')
-                    startDate = date_tag.get_text(strip=True).replace('Launch Date:', '').replace('*', '') if date_tag else None
+                    startDate = _date_or_none(date_tag.get_text(strip=True).replace('Launch Date:', '').replace('*', '')) if date_tag else None
 
                     
                     # Extract ticket cost
@@ -188,8 +252,10 @@ def exportARScratcherRecs():
             time.sleep(1) # Add a small delay to be respectful to the server
 
     
-        except requests.RequestException as e:
+        except (requests.RequestException, RuntimeError) as e:
             print(f"ERROR: Could not fetch page {page}. Halting process. Error: {e}")
+            if not scratchersall_list:
+                raise
             break
 
 
